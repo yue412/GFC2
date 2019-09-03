@@ -17,7 +17,7 @@
 // #include <tchar.h>
 
 #include <google/protobuf/wire_format_lite.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+//#include <google/protobuf/wire_format_lite_inl.h>
 #include <google/protobuf/stubs/common.h>
 
 // TODO: 在此处引用程序需要的其他头文件

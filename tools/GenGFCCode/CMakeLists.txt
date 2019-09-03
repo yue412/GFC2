@@ -25,5 +25,7 @@ add_compile_definitions("UNICODE")
 #创建工程文件
 add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEAD_FILES})
 
+set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
+
 #添加Qt5依赖项
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Core)

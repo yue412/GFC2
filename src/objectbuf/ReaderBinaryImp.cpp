@@ -4,7 +4,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/io/zero_copy_stream_impl.h>
 #include <google/protobuf/wire_format_lite.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+//#include <google/protobuf/wire_format_lite_inl.h>
 #include "glodon/objectbuf/EntitySchema.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/FieldCacheInitializer.h"

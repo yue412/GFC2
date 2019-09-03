@@ -1,0 +1,71 @@
+#include "StdAfx.h"
+#include "Gfc2DoublePropertyBinarySerializer.h"
+#include "FieldCache.h"
+#include "Gfc2DoubleProperty.h"
+
+OBJECTBUF_IMP_OBJECT(Gfc2DoublePropertyBinarySerializer,"Gfc2DoublePropertyB",0)
+
+int Gfc2DoublePropertyBinarySerializer::byteSize(glodon::objectbuf::Entity* pEntity) const
+{
+    Gfc2DoubleProperty* pEnt = (Gfc2DoubleProperty*)pEntity;
+    int total_size = Gfc2PropertyBinarySerializer::byteSize(pEnt);
+
+    if (pEnt->hasValue())
+    {
+        total_size += 1 + 8;
+    }
+
+    return total_size;
+}
+
+void Gfc2DoublePropertyBinarySerializer::serializeWithCachedSizes(google::protobuf::io::CodedOutputStream* output, glodon::objectbuf::Entity* pEntity) const
+{
+    Gfc2DoubleProperty* pEnt = (Gfc2DoubleProperty*)pEntity;
+    Gfc2PropertyBinarySerializer::serializeWithCachedSizes(output, pEnt);
+
+    if (pEnt->hasValue())
+    {
+        ::google::protobuf::internal::WireFormatLite::WriteDouble(2, pEnt->getValue(), output);
+    }
+
+}
+
+google::protobuf::uint8* Gfc2DoublePropertyBinarySerializer::serializeWithCachedSizesToArray(google::protobuf::uint8* target, glodon::objectbuf::Entity* pEntity) const
+{
+    Gfc2DoubleProperty* pEnt = (Gfc2DoubleProperty*)pEntity;
+    target = Gfc2PropertyBinarySerializer::serializeWithCachedSizesToArray(target, pEnt);
+
+    if (pEnt->hasValue())
+    {
+        target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, pEnt->getValue(), target);
+    }
+
+    return target;
+}
+
+glodon::objectbuf::EnParseFieldState Gfc2DoublePropertyBinarySerializer::parseField(google::protobuf::io::CodedInputStream* input, int nFieldNum, glodon::objectbuf::Entity* pEntity)
+{
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+    Gfc2DoubleProperty* pEnt = (Gfc2DoubleProperty*)pEntity;
+    glodon::objectbuf::EnParseFieldState nState = Gfc2PropertyBinarySerializer::parseField(input, nFieldNum, pEnt);
+    if (nState != glodon::objectbuf::PFS_IGNORE)
+    {
+        return nState;
+    }
+
+    if (nFieldNum == _FieldCache->_Gfc2DoubleProperty_Value)
+    {
+        Gfc2Double value;
+        DO_((google::protobuf::internal::WireFormatLite::ReadPrimitive<double, google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(input, &value)));
+        pEnt->setValue(value);
+        goto success;
+    }
+
+    return glodon::objectbuf::PFS_IGNORE;
+success:
+    return glodon::objectbuf::PFS_SUCCESS;
+failure:
+    return glodon::objectbuf::PFS_FAIL;
+#undef DO_
+}
+
