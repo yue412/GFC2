@@ -1,5 +1,3 @@
-#include <QFile>
-#include <QTextStream>
 #include <iostream>
 #include "common.h"
 #include <algorithm>
@@ -43,7 +41,6 @@ void CExpressWriter::write(const std::wstring &sFileName, const std::wstring &sS
         return;
     }
 
-    //QTextStream out(&oFile);
     oFile << L"SCHEMA " << sSchemaName << L";\n\n";
 
     int nCount = m_pModel->getTypeObjectCount();

@@ -1,6 +1,8 @@
 #include "common.h"
 #include <stdarg.h>
 #include <algorithm>
+#include <clocale>
+#include <vector>
 
 std::wstring _FormatWstring(const wchar_t * lpcwszFormat, va_list _list)
 {
@@ -47,4 +49,35 @@ std::wstring LowerString(const std::wstring & sStr)
     std::wstring sTmp = sStr;
     transform(sTmp.begin(), sTmp.end(), sTmp.begin(), towlower);
     return sTmp;
+}
+
+// 把一个wstring转化为string
+std::string toString(const std::wstring & src)
+{
+    std::setlocale(LC_CTYPE, "");
+
+    size_t const mbs_len = wcstombs(NULL, src.c_str(), 0);
+    std::vector<char> tmp(mbs_len + 1);
+    wcstombs(&tmp[0], src.c_str(), tmp.size());
+    std::string dest;
+    dest.assign(tmp.begin(), tmp.end() - 1);
+
+    return dest;
+}
+
+
+// 把一个string转化为wstring
+std::wstring toWstring(const std::string& src)
+{
+    //   std::setlocale(LC_CTYPE, "");
+    std::setlocale(LC_CTYPE, "zh_CN");
+
+    size_t const wcs_len = mbstowcs(NULL, src.c_str(), 0);
+    std::vector<wchar_t> tmp(wcs_len + 1);
+    mbstowcs(&tmp[0], src.c_str(), src.size());
+
+    std::wstring dest;
+    dest.assign(tmp.begin(), tmp.end() - 1);
+
+    return dest;
 }

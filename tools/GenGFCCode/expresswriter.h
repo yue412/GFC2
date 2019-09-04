@@ -8,7 +8,6 @@ class CModel;
 class CTypeDef;
 class CClass;
 class CEnumType;
-class QTextStream;
 class CBuildinType;
 
 class CExpressWriter

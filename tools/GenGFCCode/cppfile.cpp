@@ -53,7 +53,6 @@ void CppBaseFile::saveTo(const std::wstring &sPath)
         oFile.open(sPath + L"\\" + fileName(), std::ios::out);
         if (oFile.good())
         {
-            //QTextStream oStream(&oFile);
             oFile << sNew;
             oFile.close();
         }

@@ -7,6 +7,8 @@ std::wstring FormatWstring(const wchar_t *lpcwszFormat, ...);
 std::wstring FormatWstring(const std::wstring sFormat, ...);
 std::wstring UpperString(const std::wstring& sStr);
 std::wstring LowerString(const std::wstring& sStr);
+std::string toString(const std::wstring & src);
+std::wstring toWstring(const std::string& src);
 
 #endif // !COMMON_H
 

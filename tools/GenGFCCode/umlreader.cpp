@@ -1,5 +1,3 @@
-#include <QXmlStreamReader>
-#include <QFile>
 #include <iostream>
 #include "umlreader.h"
 #include "class.h"
@@ -7,6 +5,8 @@
 #include "enumtype.h"
 #include "model.h"
 #include "attribute.h"
+#include "tinyxml.h"
+#include "common.h"
 
 CUMLReader::CUMLReader(CModel *pModel): m_pModel(pModel)
 {
@@ -21,34 +21,28 @@ void CUMLReader::load(const std::wstring &sFileName)
         return;
     }
 
-    QFile oFile(QString::fromStdWString(sFileName));
-    if (!oFile.open(QFile::ReadOnly | QFile::Text))
-    {
-        std::wcout << L"文件打开失败!" << std::endl;
-        return;
-    }
+    //QFile oFile(QString::fromStdWString(sFileName));
+    //if (!oFile.open(QFile::ReadOnly | QFile::Text))
+    //{
+    //    std::wcout << L"文件打开失败!" << std::endl;
+    //    return;
+    //}
     // 预处理
     initial();
-    QXmlStreamReader reader(&oFile);
-    while (!reader.atEnd() && !reader.hasError())
+    TiXmlDocument oDoc;
+    if (oDoc.LoadFile(toString(sFileName)))
     {
-        QXmlStreamReader::TokenType nTokenType = reader.readNext();
-        //QStringRef sTemp = reader.name();
-        if (nTokenType == QXmlStreamReader::StartElement && reader.name().compare("BODY", Qt::CaseInsensitive) == 0)
+        TiXmlElement* pElement = oDoc.RootElement()->FirstChildElement();
+        while (pElement)
         {
-            //nTokenType = reader.readNextStartElement();
-            if (reader.readNextStartElement() && reader.name() == "OBJ")
+            if (pElement->ValueStr().compare("XPD:BODY") == 0)
             {
-                loadBody(reader);
+                loadBody(pElement->FirstChildElement()); //obj
             }
-            else
-            {
-                _ASSERT(false);
-            }
+            pElement = pElement->NextSiblingElement();
         }
+        // 后处理
     }
-    oFile.close();
-    // 后处理
     finalize();
 }
 
@@ -134,120 +128,134 @@ void CUMLReader::finalize()
     }
 }
 
-void CUMLReader::loadBody(QXmlStreamReader &reader)
+void CUMLReader::loadBody(TiXmlElement * pBody)
 {
-    while(!reader.atEnd() && !reader.hasError())
+    TiXmlElement* pChild = pBody->FirstChildElement();
+    while (pChild)
     {
-        QXmlStreamReader::TokenType nTokenType = reader.readNext();
-
-        if (nTokenType == QXmlStreamReader::EndElement && reader.name() == "OBJ")
+        if (pChild->ValueStr() == "XPD:OBJ")
         {
-            return;
-        }
-
-        if (nTokenType == QXmlStreamReader::StartElement && reader.name() == "OBJ")
-        {
-            QStringRef oAttributeValue = reader.attributes().value("type");
-            if (!oAttributeValue.isNull() && oAttributeValue == "UMLModel")
+            std::string sTypeValue;
+            if (pChild->QueryStringAttribute("type", &sTypeValue) == TIXML_SUCCESS && sTypeValue == "UMLModel")
             {
-                loadModel(reader);
-            }
-            else
-            {
-                _ASSERT(false);
+                loadModel(pChild);
             }
         }
+        pChild = pChild->NextSiblingElement();
     }
 }
 
-void CUMLReader::loadModel(QXmlStreamReader &reader)
+void CUMLReader::loadModel(TiXmlElement * pModel)
 {
-    while(!reader.atEnd() && !reader.hasError())
+    TiXmlElement* pChild = pModel->FirstChildElement();
+    while (pChild)
     {
-        QXmlStreamReader::TokenType nTokenType = reader.readNext();
-
-        // 匹配外面的XPD:OBJ
-        if (nTokenType == QXmlStreamReader::EndElement && reader.name() == "OBJ")
+        if (pChild->ValueStr() == "XPD:OBJ")
         {
-            return;
-        }
-
-        if (nTokenType == QXmlStreamReader::StartElement && reader.name() == "OBJ")
-        {
-            QStringRef oAttributeValue = reader.attributes().value("type");
-            if (!oAttributeValue.isNull())
+            std::string sTypeValue;
+            if (pChild->QueryStringAttribute("type", &sTypeValue) == TIXML_SUCCESS)
             {
-                if (oAttributeValue == "UMLClass")
+                if (sTypeValue == "UMLClass")
                 {
-                    loadClass(reader);
+                    loadClass(pChild);
                 }
-                else if (oAttributeValue == "UMLGeneralization")
+                else if (sTypeValue == "UMLGeneralization")
                 {
-                    doneGeneralization(reader);
+                    doneGeneralization(pChild);
                 }
-                else if (oAttributeValue == "UMLAssociation")
+                else if (sTypeValue == "UMLAssociation")
                 {
-                    doneAssociation(reader);
-                }
-                else
-                {
-                    reader.skipCurrentElement();
+                    doneAssociation(pChild);
                 }
             }
-            else
-            {
-                _ASSERT(false);
-            }
         }
+        pChild = pChild->NextSiblingElement();
     }
 }
 
-void CUMLReader::loadClass(QXmlStreamReader &reader)
+void CUMLReader::loadClass(TiXmlElement * pClass)
 {
-    std::wstring sClassName;
+    CTypeObject* pTypeObject = createClass(pClass);
+    std::string sGuidValue;
+    if (pClass->QueryStringAttribute("guid", &sGuidValue) != TIXML_SUCCESS)
+        return;
+    std::wstring sGuid = toWstring(sGuidValue);
+    m_pModel->addTypeObject(pTypeObject);
+    m_oTypeObjectMap.insert(std::make_pair(sGuid, pTypeObject));
+
+    TiXmlElement* pChild = pClass->FirstChildElement();
+    while (pChild)
+    {
+        if (pChild->ValueStr() == "XPD:OBJ")
+        {
+            std::string sTypeValue;
+            if (pChild->QueryStringAttribute("type", &sTypeValue) == TIXML_SUCCESS)
+            {
+                if (sTypeValue == "UMLAttribute")
+                {
+                    CClass* pClass = dynamic_cast<CClass*>(pTypeObject);
+                    if (pClass)
+                    {
+                        pClass->addAttribute(getAttribute(pChild));
+                    }
+                    else
+                    {
+                        CTypeDef* pTypeDef = dynamic_cast<CTypeDef*>(pTypeObject);
+                        if (pTypeDef)
+                        {
+                            std::wstring sTypeName = getAttributeName(pChild);
+                            CTypeObject* pTypeObject = m_pModel->findTypeObject(sTypeName);
+                            if (pTypeObject)
+                            {
+                                pTypeDef->SetRefType(pTypeObject);
+                            }
+                            else
+                            {
+                                // 延后关联
+                                m_oTypedefList.push_back(std::make_pair(pTypeDef, sTypeName));
+                            }
+                        }
+                        else
+                        {
+                            CEnumType* pEnumType = dynamic_cast<CEnumType*>(pTypeObject);
+                            if (pEnumType)
+                            {
+                                pEnumType->addEnum(getAttributeName(pChild));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        pChild = pChild->NextSiblingElement();
+    }
+}
+
+CTypeObject * CUMLReader::createClass(TiXmlElement * pClass)
+{
+    std::string sClassName;
     bool bIsAbstract = false;
-    CTypeObject* pTypeObject = NULL;
-    QStringRef sGuidValue = reader.attributes().value("guid");
-    _ASSERT(!sGuidValue.isNull());
-    std::wstring sGuid = sGuidValue.toString().toStdWString();
-    while(!reader.atEnd() && !reader.hasError())
+    CTypeObject* pTypeObject = nullptr;
+    TiXmlElement* pChild = pClass->FirstChildElement();
+    while (pChild)
     {
-        QXmlStreamReader::TokenType nTokenType = reader.readNext();
-
-        // 匹配外面的XPD:OBJ
-        if (nTokenType == QXmlStreamReader::EndElement && reader.name() == "OBJ")
+        if (pChild->ValueStr() == "XPD:ATTR")
         {
-            if (pTypeObject == NULL && !sClassName.empty())
+            std::string sNameValue;
+            if (pChild->QueryStringAttribute("name", &sNameValue) == TIXML_SUCCESS)
             {
-                pTypeObject = new CClass();
-                pTypeObject->SetName(sClassName);
-                ((CClass*)pTypeObject)->setIsAbstract(bIsAbstract);
-                m_pModel->addTypeObject(pTypeObject);
-                m_oTypeObjectMap.insert(std::make_pair(sGuid, pTypeObject));
-            }
-            return;
-        }
-
-        if (nTokenType == QXmlStreamReader::StartElement && reader.name() == "ATTR")
-        {
-            QStringRef oAttributeValue = reader.attributes().value("name");
-            if (!oAttributeValue.isNull())
-            {
-                if (oAttributeValue == "Name")
+                if (sNameValue == "Name")
                 {
-                    sClassName = reader.readElementText().toStdWString();
-					auto pTypeObject = m_pModel->findTypeObject(sClassName);
-					if (pTypeObject)
-					{
-						reader.skipCurrentElement();
-						reader.skipCurrentElement();
-						m_oTypeObjectMap.insert(std::make_pair(sGuid, pTypeObject));
-						break;//返回
-					}
+                    sClassName = pChild->GetText();
                 }
-                else if (oAttributeValue == "StereotypeName")
+                else if (sNameValue == "IsAbstract")
                 {
-                    std::wstring sText = reader.readElementText().toStdWString();
+                    std::string sTemp = pChild->GetText();
+                    bIsAbstract = sTemp == "True";
+                }
+                else if (sNameValue == "StereotypeName")
+                {
+                    std::wstring sText = toWstring(pChild->GetText());
                     if (sText == L"type")
                     {
                         pTypeObject = new CTypeDef();
@@ -265,244 +273,96 @@ void CUMLReader::loadClass(QXmlStreamReader &reader)
                     {
                         _ASSERT(false);
                     }
-                    pTypeObject->SetName(sClassName);
-                    m_pModel->addTypeObject(pTypeObject);
-                    m_oTypeObjectMap.insert(std::make_pair(sGuid, pTypeObject));
-                }
-                else if (oAttributeValue == "IsAbstract")
-                {
-                    std::wstring sTemp = reader.readElementText().toStdWString();
-                    bIsAbstract = sTemp == L"True";
-                }
-                else
-                {
-                    reader.skipCurrentElement();
                 }
             }
-            else
-            {
-                _ASSERT(false);
-            }
+
         }
-        else if (nTokenType == QXmlStreamReader::StartElement && reader.name() == "OBJ")
-        {
-            QStringRef oAttributeValue = reader.attributes().value("type");
-            if (!oAttributeValue.isNull())
-            {
-                if (oAttributeValue == "UMLAttribute")
-                {
-                    if (pTypeObject == NULL)
-                    {
-                        _ASSERT(!sClassName.empty());
-                        pTypeObject = new CClass();
-                        pTypeObject->SetName(sClassName);
-                        ((CClass*)pTypeObject)->setIsAbstract(bIsAbstract);
-                        m_pModel->addTypeObject(pTypeObject);
-                        m_oTypeObjectMap.insert(std::make_pair(sGuid, pTypeObject));
-                    }
-                    CClass* pClass = dynamic_cast<CClass*>(pTypeObject);
-                    if (pClass)
-                    {
-                        pClass->addAttribute(getAttribute(reader));
-                    }
-                    else
-                    {
-                        CTypeDef* pTypeDef = dynamic_cast<CTypeDef*>(pTypeObject);
-                        if (pTypeDef)
-                        {
-                            std::wstring sTypeName = getAttributeName(reader);
-                            CTypeObject* pTypeObject = m_pModel->findTypeObject(sTypeName);
-                            if (pTypeObject)
-                            {
-                                pTypeDef->SetRefType(pTypeObject);
-                            }
-                            else
-                            {
-                                // 延后关联
-                                m_oTypedefList.push_back(std::make_pair(pTypeDef, sTypeName));
-                            }
-                        }
-                        else
-                        {
-                            CEnumType* pEnumType = dynamic_cast<CEnumType*>(pTypeObject);
-                            if (pEnumType)
-                            {
-                                pEnumType->addEnum(getAttributeName(reader));
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    reader.skipCurrentElement();
-                }
-            }
-            else
-            {
-                _ASSERT(false);
-            }
-        }
+        pChild = pChild->NextSiblingElement();
     }
+    if (pTypeObject == nullptr)
+    {
+        pTypeObject = new CClass();
+        ((CClass*)pTypeObject)->setIsAbstract(bIsAbstract);
+    }
+    pTypeObject->SetName(toWstring(sClassName));
+    return  pTypeObject;
 }
 
-void CUMLReader::doneGeneralization(QXmlStreamReader &reader)
+void CUMLReader::doneGeneralization(TiXmlElement * pGeneralization)
 {
     std::wstring sChildGUID;
     std::wstring sParentGUID;
-    while(!reader.atEnd() && !reader.hasError())
+    TiXmlElement* pChild = pGeneralization->FirstChildElement();
+    while (pChild)
     {
-        QXmlStreamReader::TokenType nTokenType = reader.readNext();
-
-        // 匹配外面的XPD:OBJ
-        if (nTokenType == QXmlStreamReader::EndElement && reader.name() == "OBJ")
+        if (pChild->ValueStr() == "XPD:REF")
         {
-            if (!sChildGUID.empty() && !sParentGUID.empty())
+            //
+            std::string sNameValue;
+            if (pChild->QueryStringAttribute("name", &sNameValue) == TIXML_SUCCESS)
             {
-                m_oGeneralizationList.push_back(std::make_pair(sChildGUID, sParentGUID));
-                /*
-                // 添加父子关系
-                CTypeObject* pChild = findTypeObjectByGUID(sChildGUID);
-                CTypeObject* pParent = findTypeObjectByGUID(sChildGUID);
-                if (pChild && pParent && pChild->getType() == TOE_CLASS && pParent->getType() == TOE_CLASS)
+                if (sNameValue == "Child")
                 {
-                    CClass* pChildClass = dynamic_cast<CClass*>(pChild);
-                    CClass* pParentClass = dynamic_cast<CClass*>(pParent);
-                    if (!pChildClass->getParent())
-                    {
-                        pChildClass->setParent(pParentClass);
-                        pParentClass->addChild(pChildClass);
-                    }
-                    else
-                    {
-                        _ASSERT(false);
-                    }
+                    sChildGUID = toWstring(pChild->GetText());
                 }
-                else
+                else if (sNameValue == "Parent")
                 {
-                    _ASSERT(false);
+                    sParentGUID = toWstring(pChild->GetText());
                 }
-                */
-            }
-            else
-            {
-                _ASSERT(false);
-            }
-            return;
-        }
-
-        if (nTokenType == QXmlStreamReader::StartElement)
-        {
-            if (reader.name() == "REF")
-            {
-                //
-                QStringRef oAttributeValue = reader.attributes().value("name");
-                if (!oAttributeValue.isNull())
-                {
-                    if (oAttributeValue == "Child")
-                    {
-                        sChildGUID = reader.readElementText().toStdWString();
-                    }
-                    else if (oAttributeValue == "Parent")
-                    {
-                        sParentGUID = reader.readElementText().toStdWString();
-                    }
-                    else
-                    {
-                        reader.skipCurrentElement();
-                    }
-                }
-                else
-                {
-                    _ASSERT(false);
-                }
-            }
-            else
-            {
-                reader.skipCurrentElement();
             }
         }
+        pChild = pChild->NextSiblingElement();
     }
-    _ASSERT(false);
+    if (!sChildGUID.empty() && !sParentGUID.empty())
+    {
+        m_oGeneralizationList.push_back(std::make_pair(sChildGUID, sParentGUID));
+    }
 }
 
-void CUMLReader::doneAssociation(QXmlStreamReader &reader)
+void CUMLReader::doneAssociation(TiXmlElement * pAssociation)
 {
     CAssociationEnd oAssociationEndArray[2];
     int nIndex = 0;
-    while(!reader.atEnd() && !reader.hasError())
+    TiXmlElement* pChild = pAssociation->FirstChildElement();
+    while (pChild)
     {
-        QXmlStreamReader::TokenType nTokenType = reader.readNext();
-		std::wstring sName = reader.name().toString().toStdWString();
-
-        // 匹配外面的XPD:OBJ
-        if (nTokenType == QXmlStreamReader::EndElement && sName == L"OBJ")
+        if (pChild->ValueStr() == "XPD:OBJ")
         {
-            /*
-            if (!sChildGUID.isEmpty() && !sParentGUID.isEmpty())
+            std::string sTypeValue;
+            if (pChild->QueryStringAttribute("type", &sTypeValue) == TIXML_SUCCESS)
             {
-                m_oGeneralizationList.push_back(std::make_pair(sChildGUID, sParentGUID));
-            }
-            else
-            {
-                _ASSERT(false);
-            }
-            */
-            CAssociation oAssociation;
-            if (initAssociation(oAssociationEndArray[0], oAssociationEndArray[1], oAssociation))
-            {
-                m_oAssociationList.push_back(oAssociation);
-            }
-            if (initAssociation(oAssociationEndArray[1], oAssociationEndArray[0], oAssociation))
-            {
-                m_oAssociationList.push_back(oAssociation);
-            }
-            return;
-        }
-
-        if (nTokenType == QXmlStreamReader::StartElement)
-        {
-            if (sName == L"OBJ")
-            {
-                //
-                QStringRef oAttributeValue = reader.attributes().value("type");
-                if (!oAttributeValue.isNull())
+                if (sTypeValue == "UMLAssociationEnd" && nIndex < 2)
                 {
-                    if (oAttributeValue == "UMLAssociationEnd" && nIndex < 2)
-                    {
-                        oAssociationEndArray[nIndex] = getAssociationEnd(reader);
-						//if (oAssociationEndArray[nIndex].TypeName == L"")
-						//{
-						//	qDebug() << "UMLAssociationEnd" << endl;
-						//	qDebug() << "Name: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].Name) << endl;
-						//	qDebug() << "TypeName: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].TypeName) << endl;
-						//	qDebug() << "Multiplicity: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].Multiplicity) << endl;
-						//}
-						//if (oAssociationEndArray[nIndex].Name == L"Plane")
-						//{
-						//	qDebug() << "UMLAssociationEnd" << endl;
-						//	qDebug() << "Name: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].Name) << endl;
-						//	qDebug() << "TypeName: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].TypeName) << endl;
-						//	qDebug() << "Multiplicity: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].Multiplicity) << endl;
-						//}
-                        ++nIndex;
-                    }
-                    else
-                    {
-                        reader.skipCurrentElement();
-                    }
-                }
-                else
-                {
-                    _ASSERT(false);
+                    oAssociationEndArray[nIndex] = getAssociationEnd(pChild);
+                    //if (oAssociationEndArray[nIndex].TypeName == L"")
+                    //{
+                    //	qDebug() << "UMLAssociationEnd" << endl;
+                    //	qDebug() << "Name: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].Name) << endl;
+                    //	qDebug() << "TypeName: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].TypeName) << endl;
+                    //	qDebug() << "Multiplicity: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].Multiplicity) << endl;
+                    //}
+                    //if (oAssociationEndArray[nIndex].Name == L"Plane")
+                    //{
+                    //	qDebug() << "UMLAssociationEnd" << endl;
+                    //	qDebug() << "Name: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].Name) << endl;
+                    //	qDebug() << "TypeName: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].TypeName) << endl;
+                    //	qDebug() << "Multiplicity: " << std::wstring::fromStdWString(oAssociationEndArray[nIndex].Multiplicity) << endl;
+                    //}
+                    ++nIndex;
                 }
             }
-            else
-            {
-                reader.skipCurrentElement();
-            }
         }
+        pChild = pChild->NextSiblingElement();
     }
-    _ASSERT(false);
+    CAssociation oAssociation;
+    if (initAssociation(oAssociationEndArray[0], oAssociationEndArray[1], oAssociation))
+    {
+        m_oAssociationList.push_back(oAssociation);
+    }
+    if (initAssociation(oAssociationEndArray[1], oAssociationEndArray[0], oAssociation))
+    {
+        m_oAssociationList.push_back(oAssociation);
+    }
 }
 
 bool CUMLReader::initAssociation(CAssociationEnd &oEnd1, CAssociationEnd &oEnd2, CAssociation &oAssociation)
@@ -525,71 +385,41 @@ bool CUMLReader::initAssociation(CAssociationEnd &oEnd1, CAssociationEnd &oEnd2,
     return true;
 }
 
-CAssociationEnd CUMLReader::getAssociationEnd(QXmlStreamReader &reader)
+CAssociationEnd CUMLReader::getAssociationEnd(TiXmlElement * pAssociationEnd)
 {
     CAssociationEnd oResult;
-    while(!reader.atEnd() && !reader.hasError())
+    TiXmlElement* pChild = pAssociationEnd->FirstChildElement();
+    while (pChild)
     {
-        QXmlStreamReader::TokenType nTokenType = reader.readNext();
-
-        // 匹配外面的XPD:OBJ
-        if (nTokenType == QXmlStreamReader::EndElement && reader.name() == "OBJ")
+        if (pChild->ValueStr() == "XPD:ATTR")
         {
-            return oResult;
-        }
-
-        if (nTokenType == QXmlStreamReader::StartElement)
-        {
-            if (reader.name() == "ATTR")
+            //
+            std::string sNameValue;
+            if (pChild->QueryStringAttribute("name", &sNameValue) == TIXML_SUCCESS)
             {
-                //
-                QStringRef oAttributeValue = reader.attributes().value("name");
-                if (!oAttributeValue.isNull())
+                if (sNameValue == "Name")
                 {
-                    if (oAttributeValue == "Name")
-                    {
-                        oResult.Name = reader.readElementText().toStdWString();
-                    }
-                    else if (oAttributeValue == "Multiplicity")
-                    {
-                        oResult.Multiplicity = reader.readElementText().toStdWString();
-                    }
-                    else
-                    {
-                        reader.skipCurrentElement();
-                    }
+                    oResult.Name = toWstring(pChild->GetText());
                 }
-                else
+                else if (sNameValue == "Multiplicity")
                 {
-                    _ASSERT(false);
+                    oResult.Multiplicity = toWstring(pChild->GetText());
                 }
-            }
-            else if (reader.name() == "REF")
-            {
-                QStringRef oAttributeValue = reader.attributes().value("name");
-                if (!oAttributeValue.isNull())
-                {
-                    if (oAttributeValue == "Participant")
-                    {
-                        oResult.TypeName = reader.readElementText().toStdWString();
-                    }
-                    else
-                    {
-                        reader.skipCurrentElement();
-                    }
-                }
-                else
-                {
-                    _ASSERT(false);
-                }
-            }
-            else
-            {
-                reader.skipCurrentElement();
             }
         }
+        else if (pChild->ValueStr() == "XPD:REF")
+        {
+            std::string sNameValue;
+            if (pChild->QueryStringAttribute("name", &sNameValue) == TIXML_SUCCESS)
+            {
+                if (sNameValue == "Participant")
+                {
+                    oResult.TypeName = toWstring(pChild->GetText());
+                }
+            }
+        }
+        pChild = pChild->NextSiblingElement();
     }
-    _ASSERT(false);
     return oResult;
 }
 
@@ -606,102 +436,60 @@ CTypeObject *CUMLReader::findTypeObjectByGUID(const std::wstring &sGUID)
     }
 }
 
-CAttribute *CUMLReader::getAttribute(QXmlStreamReader &reader)
+CAttribute * CUMLReader::getAttribute(TiXmlElement * pAttribute)
 {
     std::wstring sAttributeName;
     bool bOptional = false;
     bool bRepeated = false;
     std::wstring sAttributeType;
-    while(!reader.atEnd() && !reader.hasError())
+    TiXmlElement* pChild = pAttribute->FirstChildElement();
+    while (pChild)
     {
-        QXmlStreamReader::TokenType nTokenType = reader.readNext();
-
-        // 匹配外面的XPD:OBJ
-        if (nTokenType == QXmlStreamReader::EndElement && reader.name() == "OBJ")
+        if (pChild->ValueStr() == "XPD:ATTR")
         {
-            return createAttribute(sAttributeName, sAttributeType, bOptional, bRepeated);
-        }
-
-        if (nTokenType == QXmlStreamReader::StartElement)
-        {
-            if (reader.name() == "ATTR")
+            std::string sNameValue;
+            if (pChild->QueryStringAttribute("name", &sNameValue) == TIXML_SUCCESS)
             {
-                QStringRef oAttributeValue = reader.attributes().value("name");
-                if (!oAttributeValue.isNull())
+                if (sNameValue == "Name")
                 {
-                    if (oAttributeValue == "Name")
-                    {
-                        sAttributeName = reader.readElementText().toStdWString();
-                    }
-                    else if (oAttributeValue == "StereotypeName")
-                    {
-                        std::wstring sTemp = reader.readElementText().toStdWString();
-                        bOptional = sTemp.compare(L"OPTIONAL") == 0;
-                        bRepeated = sTemp.compare(L"REPEATED") == 0;
-                    }
-                    else if (oAttributeValue == "TypeExpression")
-                    {
-                        sAttributeType = reader.readElementText().toStdWString();
-                    }
-                    else
-                    {
-                        reader.skipCurrentElement(); // 其他跳过
-                    }
+                    sAttributeName = toWstring(pChild->GetText());
                 }
-                else
+                else if (sNameValue == "StereotypeName")
                 {
-                    _ASSERT(false);
+                    std::wstring sTemp = toWstring(pChild->GetText());
+                    bOptional = sTemp.compare(L"OPTIONAL") == 0;
+                    bRepeated = sTemp.compare(L"REPEATED") == 0;
+                }
+                else if (sNameValue == "TypeExpression")
+                {
+                    sAttributeType = toWstring(pChild->GetText());
                 }
             }
-            else
-            {
-                reader.skipCurrentElement(); // 其他跳过
-            }
         }
+        pChild = pChild->NextSiblingElement();
     }
     return createAttribute(sAttributeName, sAttributeType, bOptional, bRepeated);
-
 }
 
-std::wstring CUMLReader::getAttributeName(QXmlStreamReader &reader)
+std::wstring CUMLReader::getAttributeName(TiXmlElement * pAttribute)
 {
     std::wstring sAttributeName;
-    while(!reader.atEnd() && !reader.hasError())
+    TiXmlElement* pChild = pAttribute->FirstChildElement();
+    while (pChild)
     {
-        QXmlStreamReader::TokenType nTokenType = reader.readNext();
-
-        // 匹配外面的XPD:OBJ
-        if (nTokenType == QXmlStreamReader::EndElement && reader.name() == "OBJ")
+        if (pChild->ValueStr() == "XPD:ATTR")
         {
-            return sAttributeName;
-        }
-
-        if (nTokenType == QXmlStreamReader::StartElement)
-        {
-            if (reader.name() == "ATTR")
+            std::string sNameValue;
+            if (pChild->QueryStringAttribute("name", &sNameValue) == TIXML_SUCCESS)
             {
-                QStringRef oAttributeValue = reader.attributes().value("name");
-                if (!oAttributeValue.isNull())
+                if (sNameValue == "Name")
                 {
-                    if (oAttributeValue == "Name")
-                    {
-                        sAttributeName = reader.readElementText().toStdWString();
-                    }
-                    else
-                    {
-                        reader.skipCurrentElement(); // 其他跳过
-                    }
-                }
-                else
-                {
-                    _ASSERT(false);
+                    sAttributeName = toWstring(pChild->GetText());
+                    break;
                 }
             }
-            else
-            {
-                reader.skipCurrentElement(); // 其他跳过
-            }
         }
+        pChild = pChild->NextSiblingElement();
     }
     return sAttributeName;
 }

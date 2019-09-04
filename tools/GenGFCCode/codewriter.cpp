@@ -9,9 +9,10 @@
 #include <algorithm>
 #include "attribute.h"
 #include <algorithm>
+#include <iostream>
+#include <fstream>
 #include "cppfile.h"
 #include "cppclass.h"
-#include <QSettings>
 #include "common.h"
 #include <set>
 //#include <google/protobuf/wire_format_lite.h>
@@ -44,20 +45,43 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
     int nClassId = 2; // 1 for EntitySchema, 0 for stream eof
 
 	// 固定classId,如果存在Id的话,那么使用已有的，如果没有，则根据序列创建新的Id
-	std::map<std::wstring,int> oClassIdMap;
+	//std::map<std::wstring,int> oClassIdMap;
 
 	int nMaxClassId = 1;
 	// 根据ini文件来确定Class的ID
-	QSettings oClassIdSetting("classID.ini", QSettings::IniFormat);
-	QStringList strList = oClassIdSetting.allKeys();
-	for ( int m = 0;m < strList.size();m++)
-	{
-		int curId = oClassIdSetting.value(strList.at(m)).toInt();
-		if (curId > nMaxClassId)
-		{
-			nMaxClassId = curId;
-		}
-	}
+    std::vector<std::pair<std::wstring, int>> strList;
+    std::wfstream oFile;
+    oFile.open("classID.ini", std::ios::in);
+    if (oFile.good())
+    {
+        //oFile << sNew;
+        //QSettings oClassIdSetting("classID.ini", QSettings::IniFormat);
+        while (!oFile.eof())
+        {
+            wchar_t buffer[256];
+            oFile.getline(buffer, 255);
+            std::wstring sTemp = std::wstring(buffer);
+            int nPos = sTemp.find(L'=');
+            if (nPos != std::wstring::npos)
+            {
+                std::wstring sName = sTemp.substr(0, nPos);
+                std::wstring sNum = sTemp.substr(nPos + 1);
+                int nNum = std::stoi(sNum);
+                strList.push_back(std::make_pair(sName, nNum));
+            }
+        }
+        oFile.close();
+
+        for (int m = 0; m < (int)strList.size(); m++)
+        {
+            int curId = strList[m].second;
+            if (curId > nMaxClassId)
+            {
+                nMaxClassId = curId;
+            }
+        }
+    }
+
 	
 	int nCount = oObjectList.size();
     for(int i = 0; i < nCount; ++i)
@@ -66,14 +90,17 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
         if (pTypeObj)
         {
 			// 没有找到，所以这里的ID是新建的，xuxp,2017-6-28
-			if (oClassIdSetting.contains(QString::fromStdWString(L"GfcClassID/" + pTypeObj->getName())))
+            auto itr = std::find_if(strList.begin(), strList.end(), 
+                [pTypeObj](std::pair<std::wstring, int>& oItem) {return pTypeObj->getName() == oItem.first; });
+			if (itr != strList.end())
 			{
-				nClassId = oClassIdSetting.value(QString::fromStdWString(L"GfcClassID/" + pTypeObj->getName())).toInt();
+				nClassId = itr->second;
 			}
 			else
 			{
 				nClassId = ++nMaxClassId;
-				oClassIdMap.insert(std::make_pair(pTypeObj->getName(),nClassId));
+                strList.push_back(std::make_pair(pTypeObj->getName(), nClassId));
+				//oClassIdMap.insert(std::make_pair(pTypeObj->getName(),nClassId));
 			}
 
             CppClass* pClass = createCppClass(pTypeObj, nClassId);
@@ -122,24 +149,22 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
 
 	// 统一写出,xuxp,2017-7-05
 	CppHeadFile oTypeConstsFile(L"TypeConsts");
-	for ( int m = 0;m < strList.size();m++)
+	for ( int m = 0;m < (int)strList.size();m++)
 	{
-		QString sKey = strList.at(m);
-		QStringList skeyLs = sKey.split('/');
-		
-		int curId = oClassIdSetting.value(sKey).toInt();
+		std::wstring sName = strList.at(m).first;
+		int curId = strList.at(m).second;
 		oTypeConstsFile.body()->addLine(FormatWstring(L"#define %s_ID %d", 
-            skeyLs.at(1).toUpper().toStdWString().c_str(), 
+            sName.c_str(),
             curId
         ));
 	}
-	for (auto oIter = oClassIdMap.begin();oIter != oClassIdMap.end();oIter++)
-	{
-		oTypeConstsFile.body()->addLine(FormatWstring(L"#define %s_ID %d", 
-            UpperString(oIter->first), 
-            oIter->second
-        ));
-	}
+	//for (auto oIter = oClassIdMap.begin();oIter != oClassIdMap.end();oIter++)
+	//{
+	//	oTypeConstsFile.body()->addLine(FormatWstring(L"#define %s_ID %d", 
+ //           UpperString(oIter->first), 
+ //           oIter->second
+ //       ));
+	//}
 
     if(m_bOutputHead)
     {
@@ -151,12 +176,15 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
 
 	
 	// 保存ID为配置文件，xuxp,2017-6-28
-	oClassIdSetting.beginGroup("GfcClassID");
-	for (auto oIter = oClassIdMap.begin();oIter != oClassIdMap.end();oIter++)
-	{
-		oClassIdSetting.setValue(QString::fromStdWString(oIter->first),oIter->second);
-	}
-	oClassIdSetting.endGroup();
+    oFile.open("classID.ini", std::ios::out);
+    if (oFile.good())
+    {
+        for each (auto oPair in strList)
+        {
+            oFile << oPair.first << L"=" << oPair.second << std::endl;
+        }
+        oFile.close();
+    }
 }
 
 void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppClass *pFactoryClass, CppClass *pFieldCacheClass)
@@ -804,7 +832,7 @@ void CCodeWriter::addIsInitializedFunc(CClass *pTypeObject, CppClass* pClass)
     CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"bool", L"isInitialized", true);
     std::vector<int> oFlagList;
     getRequireFlag(pTypeObject, oFlagList);
-    for (int i = 0; i < oFlagList.size(); ++i)
+    for (int i = 0; i < (int)oFlagList.size(); ++i)
     {
         if (oFlagList[i] > 0)
             pFunc->body()->addLine(FormatWstring(L"if ((_has_bits_[%d] & 0x%x) != 0x%x) return false;", 

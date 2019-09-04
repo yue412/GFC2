@@ -6,7 +6,6 @@
 #include <string>
 
 class CModel;
-class QXmlStreamReader;
 class CAttribute;
 class CTypeDef;
 class CTypeObject;
@@ -28,6 +27,8 @@ struct CAssociationEnd
 	std::wstring Multiplicity;
 };
 
+class TiXmlElement;
+
 class CUMLReader
 {
 public:
@@ -36,16 +37,17 @@ public:
 private:
     void initial();
     void finalize();
-    void loadBody(QXmlStreamReader& reader);
-    void loadModel(QXmlStreamReader& reader);
-    void loadClass(QXmlStreamReader& reader);
-    void doneGeneralization(QXmlStreamReader& reader);
-    void doneAssociation(QXmlStreamReader& reader);
+    void loadBody(TiXmlElement* pBody);
+    void loadModel(TiXmlElement* pModel);
+    void loadClass(TiXmlElement* pClass);
+    void doneGeneralization(TiXmlElement* pGeneralization);
+    void doneAssociation(TiXmlElement* pAssociation);
     bool initAssociation(CAssociationEnd& oEnd1, CAssociationEnd& oEnd2, CAssociation& oAssociation);
-    CAssociationEnd getAssociationEnd(QXmlStreamReader& reader);
+    CTypeObject* createClass(TiXmlElement* pClass);
+    CAssociationEnd getAssociationEnd(TiXmlElement* pAssociationEnd);
     CTypeObject* findTypeObjectByGUID(const std::wstring& sGUID);
-    CAttribute* getAttribute(QXmlStreamReader& reader);
-    std::wstring getAttributeName(QXmlStreamReader& reader);
+    CAttribute* getAttribute(TiXmlElement* pAttribute);
+    std::wstring getAttributeName(TiXmlElement* pAttribute);
     CAttribute* createAttribute(const std::wstring& sAttributeName, const std::wstring& sAttributeType,
                                 bool bOptional, bool bRepeated);
 private:
