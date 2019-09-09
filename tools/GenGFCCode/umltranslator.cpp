@@ -5,7 +5,6 @@
 #include "codewriter.h"
 #include "expresswriter.h"
 #include <iostream>
-#include <QString>
 #include <windows.h>
 
 std::wstring getExePath()

@@ -1,5 +1,4 @@
 #include "model.h"
-#include "QSet"
 
 CModel::CModel(): m_pRefModel(nullptr)
 {
