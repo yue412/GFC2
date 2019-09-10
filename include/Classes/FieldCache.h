@@ -91,7 +91,6 @@ public:
         _Gfc2LineShape2d_Line(0),
         _Gfc2Object_ID(0),
         _Gfc2Object_Name(0),
-        _Gfc2PropertySet_Identifier(0),
         _Gfc2PropertySet_HasProperties(0),
         _Gfc2Floor_FirstFloorFlag(0),
         _Gfc2Floor_Height(0),
@@ -489,7 +488,6 @@ public:
     int _Gfc2LineShape2d_Line;
     int _Gfc2Object_ID;
     int _Gfc2Object_Name;
-    int _Gfc2PropertySet_Identifier;
     int _Gfc2PropertySet_HasProperties;
     int _Gfc2Floor_FirstFloorFlag;
     int _Gfc2Floor_Height;

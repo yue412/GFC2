@@ -12,11 +12,6 @@ std::string Gfc2PropertySetTextSerializer::serialize(glodon::objectbuf::Entity* 
 
     std::stringstream stream;
     stream.precision(numeric_limits<double>::digits10);
-    if (pEnt->hasIdentifier())
-        stream<<",#"<<pEnt->getIdentifier();
-    else
-        stream<<",$";
-
     {
         stream<<",(";
         for (int i = 0; i < pEnt->getHasPropertiesCount(); i++)
@@ -48,13 +43,6 @@ glodon::objectbuf::EnParseFieldState Gfc2PropertySetTextSerializer::parseField(c
     switch(nFieldNum)
     {
     case 0:
-        {
-            glodon::objectbuf::EntityRef value;
-            DO_((readEntityField(input, value)));
-            pEnt->setIdentifier(value);
-        }
-        break;
-    case 1:
         {
             glodon::objectbuf::EntityRef value;
             DO_((readEntityField(input, value)));

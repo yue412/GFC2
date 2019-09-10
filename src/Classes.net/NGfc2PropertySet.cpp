@@ -11,26 +11,6 @@ NGfc2PropertySet::NGfc2PropertySet(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2PropertySet::setIdentifier(glodon::objectbuf::EntityRef nValue)
-{
-    ((Gfc2PropertySet*)m_pEntity)->setIdentifier(nValue);
-}
-
-glodon::objectbuf::EntityRef NGfc2PropertySet::getIdentifier()
-{
-    return ((Gfc2PropertySet*)m_pEntity)->getIdentifier();
-}
-
-bool NGfc2PropertySet::hasIdentifier()
-{
-    return ((Gfc2PropertySet*)m_pEntity)->hasIdentifier();
-}
-
-NGfc2Label^ NGfc2PropertySet::getIdentifierPtr()
-{
-    return gcnew NGfc2Label(((Gfc2PropertySet*)m_pEntity)->getIdentifierPtr(), false);
-}
-
 int NGfc2PropertySet::getHasPropertiesCount()
 {
     return ((Gfc2PropertySet*)m_pEntity)->getHasPropertiesCount();

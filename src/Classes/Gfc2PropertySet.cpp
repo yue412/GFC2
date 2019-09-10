@@ -9,7 +9,6 @@ OBJECTBUF_IMP_OBJECT(Gfc2PropertySetFieldCacheInitializer,"Gfc2PropertySet",0)
 
 Gfc2PropertySet::Gfc2PropertySet()
 {
-    m_nIdentifier = 0;
 }
 
 bool Gfc2PropertySet::isInitialized() const
@@ -34,11 +33,8 @@ glodon::objectbuf::EntitySchema* Gfc2PropertySet::createSchema() const
     pSchema->setId(95);
     m_pDocument->addSchema(pSchema, 95);
 
-    pSchema->addAttribNames("Identifier");
-    pSchema->addAttribIds(1);
-
     pSchema->addAttribNames("HasProperties");
-    pSchema->addAttribIds(2);
+    pSchema->addAttribIds(1);
 
     return pSchema;
 }
@@ -50,7 +46,6 @@ std::string Gfc2PropertySet::entityName() const
 
 void Gfc2PropertySetFieldCacheInitializer::init(const std::map<std::string, int>& oFieldIdMap)
 {
-    _FieldCache->_Gfc2PropertySet_Identifier = getFieldId(oFieldIdMap, "Gfc2PropertySet::Identifier");
     _FieldCache->_Gfc2PropertySet_HasProperties = getFieldId(oFieldIdMap, "Gfc2PropertySet::HasProperties");
 }
 

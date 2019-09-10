@@ -10,11 +10,6 @@ int Gfc2PropertySetBinarySerializer::byteSize(glodon::objectbuf::Entity* pEntity
     Gfc2PropertySet* pEnt = (Gfc2PropertySet*)pEntity;
     int total_size = Gfc2RootBinarySerializer::byteSize(pEnt);
 
-    if (pEnt->hasIdentifier())
-    {
-        total_size += 1 + ::google::protobuf::internal::WireFormatLite::Int32Size(pEnt->getIdentifier());
-    }
-
     if (pEnt->getHasPropertiesCount() > 0)
         total_size += 1 + ::google::protobuf::internal::WireFormatLite::Int32Size(pEnt->getHasPropertiesCount());
     for (int i = 0; i < pEnt->getHasPropertiesCount(); i++)
@@ -30,14 +25,9 @@ void Gfc2PropertySetBinarySerializer::serializeWithCachedSizes(google::protobuf:
     Gfc2PropertySet* pEnt = (Gfc2PropertySet*)pEntity;
     Gfc2RootBinarySerializer::serializeWithCachedSizes(output, pEnt);
 
-    if (pEnt->hasIdentifier())
-    {
-        ::google::protobuf::internal::WireFormatLite::WriteInt32(1, pEnt->getIdentifier(), output);
-    }
-
     if (pEnt->getHasPropertiesCount() > 0)
     {
-        ::google::protobuf::internal::WireFormatLite::WriteTag(2, google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+        ::google::protobuf::internal::WireFormatLite::WriteTag(1, google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
         ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(pEnt->getHasPropertiesCount(), output);
         for (int i = 0; i < pEnt->getHasPropertiesCount(); i++)
         {
@@ -52,14 +42,9 @@ google::protobuf::uint8* Gfc2PropertySetBinarySerializer::serializeWithCachedSiz
     Gfc2PropertySet* pEnt = (Gfc2PropertySet*)pEntity;
     target = Gfc2RootBinarySerializer::serializeWithCachedSizesToArray(target, pEnt);
 
-    if (pEnt->hasIdentifier())
-    {
-        target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, pEnt->getIdentifier(), target);
-    }
-
     if (pEnt->getHasPropertiesCount() > 0)
     {
-        target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(2, google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, target);
+        target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(1, google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, target);
         target = ::google::protobuf::internal::WireFormatLite::WriteInt32NoTagToArray(pEnt->getHasPropertiesCount(), target);
         for (int i = 0; i < pEnt->getHasPropertiesCount(); i++)
         {
@@ -78,14 +63,6 @@ glodon::objectbuf::EnParseFieldState Gfc2PropertySetBinarySerializer::parseField
     if (nState != glodon::objectbuf::PFS_IGNORE)
     {
         return nState;
-    }
-
-    if (nFieldNum == _FieldCache->_Gfc2PropertySet_Identifier)
-    {
-        glodon::objectbuf::EntityRef value;
-        DO_((google::protobuf::internal::WireFormatLite::ReadPrimitive<google::protobuf::int32, google::protobuf::internal::WireFormatLite::TYPE_INT32>(input, &value)));
-        pEnt->setIdentifier(value);
-        goto success;
     }
 
     if (nFieldNum == _FieldCache->_Gfc2PropertySet_HasProperties)

@@ -5,7 +5,6 @@
 #include <vector>
 #include "Gfc2Root.h"
 #include "Gfc2Property.h"
-#include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 #include "glodon/objectbuf/FieldCacheInitializer.h"
@@ -19,14 +18,6 @@ public:
     int typeId() const;
     virtual glodon::objectbuf::EntitySchema* createSchema() const;
     virtual std::string entityName() const;
-    void setIdentifier(const glodon::objectbuf::EntityRef& nValue)
-    {
-        m_nIdentifier = nValue;
-        setHasIdentifier();
-    }
-    glodon::objectbuf::EntityRef getIdentifier() const {return m_nIdentifier;}
-    bool hasIdentifier() const {return (_has_bits_[0] & 0x1u) != 0;}
-    Gfc2Label* getIdentifierPtr() const {return (Gfc2Label*)m_pDocument->find(getIdentifier());}
     int getHasPropertiesCount() const {return (int)m_oHasProperties.size();}
     void clearHasProperties() {m_oHasProperties.clear();}
     void addHasProperties(const glodon::objectbuf::EntityRef& nValue) {m_oHasProperties.push_back(nValue);}
@@ -34,9 +25,6 @@ public:
     Gfc2Property* getHasPropertiesPtr(int nIndex) const {return (Gfc2Property*)m_pDocument->find(getHasProperties(nIndex));}
 
 private:
-    void setHasIdentifier() {_has_bits_[0] |= 0x1u;}
-
-    glodon::objectbuf::EntityRef m_nIdentifier;
     std::vector<glodon::objectbuf::EntityRef> m_oHasProperties;
 };
 
