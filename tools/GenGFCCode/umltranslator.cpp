@@ -6,17 +6,7 @@
 #include "expresswriter.h"
 #include <iostream>
 #include <windows.h>
-
-std::wstring getExePath()
-{
-    WCHAR exeFullPath[MAX_PATH]; // MAX_PATH在WINDEF.h中定义了，等于260
-    memset(exeFullPath, 0, MAX_PATH);
-
-    GetModuleFileName(NULL, exeFullPath, MAX_PATH);
-    WCHAR *p = wcsrchr(exeFullPath, L'\\');
-    *p = 0x00;
-    return  std::wstring(exeFullPath);
-}
+#include "common.h"
 
 CUMLTranslator::CUMLTranslator()
 {

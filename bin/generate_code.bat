@@ -1,2 +1,2 @@
-GenGFCCoded.exe -h D:\GFC2\include\Classes -c D:\GFC2\src\Classes -n D:\GFC2\src\Classes.net D:\GFC2\doc\GFC2Core.uml
+GenGFCCoded.exe -h ..\include\Classes -c ..\src\Classes -n ..\src\Classes.net ..\doc\GFC2Core.uml
 pause

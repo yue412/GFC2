@@ -2,6 +2,7 @@
 #include <iostream>
 #include <windows.h>
 #include "umltranslator.h"
+#include "common.h"
 
 void parseTranslateInfo(int argc, char *argv[], CTranslateInfo& oInfo);
 
@@ -37,16 +38,16 @@ void parseTranslateInfo(int argc, char *argv[], CTranslateInfo& oInfo)
         switch (opt)
         {
         case 'h':
-            oInfo.sHeadPath = charToWString(optarg);
+            oInfo.sHeadPath = getFullPath(charToWString(optarg));
             break;
         case 'c':
-            oInfo.sCPPPath = charToWString(optarg);
+            oInfo.sCPPPath = getFullPath(charToWString(optarg));
             break;
         case 'n':
-            oInfo.sNETPath = charToWString(optarg);
+            oInfo.sNETPath = getFullPath(charToWString(optarg));
             break;
         case 'e':
-            oInfo.sExpressFile = charToWString(optarg);
+            oInfo.sExpressFile = getFullPath(charToWString(optarg));
             break;
         default:
             std::wcout << L"未识别命令行选项" << std::endl;
@@ -56,6 +57,6 @@ void parseTranslateInfo(int argc, char *argv[], CTranslateInfo& oInfo)
     if (optind < argc)
     {
         // 还有参数
-        oInfo.sUMLFile = charToWString(argv[optind]);
+        oInfo.sUMLFile = getFullPath(charToWString(argv[optind]));
     }
 }

@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <clocale>
 #include <vector>
+#include <Windows.h>
 
 std::wstring _FormatWstring(const wchar_t * lpcwszFormat, va_list _list)
 {
@@ -65,7 +66,6 @@ std::string toString(const std::wstring & src)
     return dest;
 }
 
-
 // 把一个string转化为wstring
 std::wstring toWstring(const std::string& src)
 {
@@ -80,4 +80,33 @@ std::wstring toWstring(const std::string& src)
     dest.assign(tmp.begin(), tmp.end() - 1);
 
     return dest;
+}
+
+
+std::wstring getExePath()
+{
+    WCHAR exeFullPath[MAX_PATH]; // MAX_PATH在WINDEF.h中定义了，等于260
+    memset(exeFullPath, 0, MAX_PATH);
+
+    GetModuleFileName(NULL, exeFullPath, MAX_PATH);
+    WCHAR *p = wcsrchr(exeFullPath, L'\\');
+    *p = 0x00;
+    return  std::wstring(exeFullPath);
+}
+
+bool isRelativePath(const std::wstring & sPath)
+{
+    return sPath.find(L":") == -1;
+}
+
+std::wstring getFullPath(const std::wstring & sPath)
+{
+    if (isRelativePath(sPath))
+    {
+        return getExePath() + L"\\" + sPath;
+    }
+    else
+    {
+        return sPath;
+    }
 }
