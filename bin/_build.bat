@@ -16,7 +16,7 @@ cmake --build . --config %2
 cd ..\..\
 
 cd bin
-GenGFCCoded.exe -h D:\GFC2\include\Classes -c D:\GFC2\src\Classes -n D:\GFC2\src\Classes.net D:\GFC2\doc\GFC2Core.uml
+GenGFCCode.exe -h ..\include\Classes -c ..\src\Classes -n ..\src\Classes.net ..\doc\GFC2Core.uml
 cd ..\src
 cmake %1 .
 cmake --build . --config %2

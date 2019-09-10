@@ -6,7 +6,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/../../lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/../../lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/../../bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/../../bin)
-set(CMAKE_DEBUG_POSTFIX d)
+#set(CMAKE_DEBUG_POSTFIX d)
 
 project(GenGFCCode)
 
@@ -21,6 +21,6 @@ add_compile_definitions("UNICODE" "TIXML_USE_STL" "_CRT_SECURE_NO_DEPRECATE")
 #创建工程文件
 add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEAD_FILES})
 
-set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
+#set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
 
 target_link_libraries(${PROJECT_NAME} debug tinyxmld optimized tinyxml)
