@@ -48,7 +48,8 @@ private:
     CTypeObject* findTypeObjectByGUID(const std::wstring& sGUID);
     CAttribute* getAttribute(TiXmlElement* pAttribute);
     std::wstring getAttributeName(TiXmlElement* pAttribute);
-    CAttribute* createAttribute(const std::wstring& sAttributeName, const std::wstring& sAttributeType,
+    std::wstring getAttributeDocument(TiXmlElement* pAttribute);
+    CAttribute* createAttribute(const std::wstring& sAttributeName, const std::wstring& sAttributeType, const std::wstring& sAttributeDocument,
                                 bool bOptional, bool bRepeated);
 private:
     CModel* m_pModel;

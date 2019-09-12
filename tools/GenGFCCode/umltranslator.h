@@ -10,6 +10,7 @@ struct CTranslateInfo
     std::wstring sCPPPath;
     std::wstring sNETPath;
     std::wstring sExpressFile;
+    std::wstring sHtmlPath;
 };
 
 class CModel;

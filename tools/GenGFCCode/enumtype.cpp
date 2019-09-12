@@ -15,7 +15,13 @@ std::wstring &CEnumType::getEnum(int nIndex)
     return m_oEnumList[nIndex];
 }
 
-void CEnumType::addEnum(const std::wstring &sEnum)
+std::wstring & CEnumType::getEnumDocument(int nIndex)
+{
+    return m_oEnumDocumentList[nIndex];
+}
+
+void CEnumType::addEnum(const std::wstring &sEnum, const std::wstring& sDocument)
 {
     m_oEnumList.push_back(sEnum);
+    m_oEnumDocumentList.push_back(sDocument);
 }

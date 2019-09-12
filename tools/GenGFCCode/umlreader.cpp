@@ -220,7 +220,7 @@ void CUMLReader::loadClass(TiXmlElement * pClass)
                             CEnumType* pEnumType = dynamic_cast<CEnumType*>(pTypeObject);
                             if (pEnumType)
                             {
-                                pEnumType->addEnum(getAttributeName(pChild));
+                                pEnumType->addEnum(getAttributeName(pChild), getAttributeDocument(pChild));
                             }
                         }
                     }
@@ -233,7 +233,7 @@ void CUMLReader::loadClass(TiXmlElement * pClass)
 
 CTypeObject * CUMLReader::createClass(TiXmlElement * pClass)
 {
-    std::string sClassName;
+    std::string sClassName, sDocument;
     bool bIsAbstract = false;
     CTypeObject* pTypeObject = nullptr;
     TiXmlElement* pChild = pClass->FirstChildElement();
@@ -252,6 +252,10 @@ CTypeObject * CUMLReader::createClass(TiXmlElement * pClass)
                 {
                     std::string sTemp = pChild->GetText();
                     bIsAbstract = sTemp == "True";
+                }
+                else if (sNameValue == "Documentation")
+                {
+                    sDocument = pChild->GetText();
                 }
                 else if (sNameValue == "StereotypeName")
                 {
@@ -285,6 +289,7 @@ CTypeObject * CUMLReader::createClass(TiXmlElement * pClass)
         ((CClass*)pTypeObject)->setIsAbstract(bIsAbstract);
     }
     pTypeObject->SetName(toWstring(sClassName));
+    pTypeObject->setDocument(toWstring(sDocument));
     return  pTypeObject;
 }
 
@@ -442,6 +447,7 @@ CAttribute * CUMLReader::getAttribute(TiXmlElement * pAttribute)
     bool bOptional = false;
     bool bRepeated = false;
     std::wstring sAttributeType;
+    std::wstring sAttributeDocument;
     TiXmlElement* pChild = pAttribute->FirstChildElement();
     while (pChild)
     {
@@ -464,11 +470,15 @@ CAttribute * CUMLReader::getAttribute(TiXmlElement * pAttribute)
                 {
                     sAttributeType = toWstring(pChild->GetText());
                 }
+                else if (sNameValue == "Documentation")
+                {
+                    sAttributeDocument = toWstring(pChild->GetText());
+                }
             }
         }
         pChild = pChild->NextSiblingElement();
     }
-    return createAttribute(sAttributeName, sAttributeType, bOptional, bRepeated);
+    return createAttribute(sAttributeName, sAttributeType, sAttributeDocument, bOptional, bRepeated);
 }
 
 std::wstring CUMLReader::getAttributeName(TiXmlElement * pAttribute)
@@ -494,12 +504,36 @@ std::wstring CUMLReader::getAttributeName(TiXmlElement * pAttribute)
     return sAttributeName;
 }
 
-CAttribute *CUMLReader::createAttribute(const std::wstring &sAttributeName, const std::wstring &sAttributeType, bool bOptional, bool bRepeated)
+std::wstring CUMLReader::getAttributeDocument(TiXmlElement * pAttribute)
+{
+    std::wstring sAttributeDocument;
+    TiXmlElement* pChild = pAttribute->FirstChildElement();
+    while (pChild)
+    {
+        if (pChild->ValueStr() == "XPD:ATTR")
+        {
+            std::string sNameValue;
+            if (pChild->QueryStringAttribute("name", &sNameValue) == TIXML_SUCCESS)
+            {
+                if (sNameValue == "Documentation")
+                {
+                    sAttributeDocument = toWstring(pChild->GetText());
+                    break;
+                }
+            }
+        }
+        pChild = pChild->NextSiblingElement();
+    }
+    return sAttributeDocument;
+}
+
+CAttribute *CUMLReader::createAttribute(const std::wstring &sAttributeName, const std::wstring &sAttributeType, const std::wstring& sAttributeDocument, bool bOptional, bool bRepeated)
 {
     CAttribute* pAttribute = new CAttribute();
     pAttribute->SetName(sAttributeName);
     pAttribute->SetOptionalFlag(bOptional);
     pAttribute->SetRepeatFlag(bRepeated);
+    pAttribute->setDocument(sAttributeDocument);
     CTypeObject* pTypeObject = m_pModel->findTypeObject(sAttributeType);
     if (pTypeObject)
     {

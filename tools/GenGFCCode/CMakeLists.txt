@@ -16,7 +16,7 @@ link_directories(${CMAKE_BINARY_DIR}/../../lib)
 FILE(GLOB SRC_FILES "./*.c*") 
 FILE(GLOB HEAD_FILES "./*.h") 
 
-add_compile_definitions("UNICODE" "TIXML_USE_STL" "_CRT_SECURE_NO_DEPRECATE")
+add_compile_definitions("TIXML_USE_STL" "_CRT_SECURE_NO_DEPRECATE")
 
 #创建工程文件
 add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEAD_FILES})

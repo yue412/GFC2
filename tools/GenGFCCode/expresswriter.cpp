@@ -8,18 +8,6 @@
 #include "model.h"
 #include "attribute.h"
 
-bool lessTypeObject(CTypeObject* type1, CTypeObject* type2)
-{
-    if (type1->getType() == type2->getType())
-    {
-        return type1->getName() < type2->getName();
-    }
-    else
-    {
-        return type1->getType() < type2->getType();
-    }
-}
-
 CExpressWriter::CExpressWriter(CModel *pModel): m_pModel(pModel)
 {
 }
@@ -128,13 +116,14 @@ void CExpressWriter::writeClass(CClass *pClass, std::wfstream& out)
         //
         CAttribute* pAttribute = pClass->getAttribute(i);
         std::wstring sPrefix = pAttribute->getOptionalFlag() ? L" OPTIONAL ": L" ";
-        std::wstring sType = pAttribute->getRepeatFlag() ? L"LIST [0:?] OF %s": L"%s";
+        //std::wstring sType = pAttribute->getRepeatFlag() ? L"LIST [0:?] OF %s": L"%s";
         out << FormatWstring(L"\t%s :%s%s;\n",
             pAttribute->getName().c_str(),
             sPrefix.c_str(),
-            FormatWstring(sType.c_str(), 
-                pAttribute->getType()->getName().c_str()
-            )
+            pAttribute->getTypeName()
+            //FormatWstring(sType.c_str(), 
+            //    pAttribute->getType()->getName().c_str()
+            //)
         );
     }
 

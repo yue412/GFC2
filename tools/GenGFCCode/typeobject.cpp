@@ -1,5 +1,17 @@
 #include "typeobject.h"
 
+bool lessTypeObject(CTypeObject* type1, CTypeObject* type2)
+{
+    if (type1->getType() == type2->getType())
+    {
+        return type1->getName() < type2->getName();
+    }
+    else
+    {
+        return type1->getType() < type2->getType();
+    }
+}
+
 CTypeObject::CTypeObject()
 {
 }
@@ -18,3 +30,5 @@ CTypeObject *CTypeObject::getBaseType()
 {
     return this;
 }
+
+

@@ -22,8 +22,13 @@ public:
     virtual CTypeObjectEnum getType() const = 0;
     virtual bool getIsValueType();
     virtual CTypeObject* getBaseType();
+    std::wstring getDocument() { return m_sDocument; }
+    void setDocument(const std::wstring& sDocument) { m_sDocument = sDocument; }
 private:
     std::wstring m_sName;
+    std::wstring m_sDocument;
 };
+
+bool lessTypeObject(CTypeObject* type1, CTypeObject* type2);
 
 #endif // TYPEOBJECT_H

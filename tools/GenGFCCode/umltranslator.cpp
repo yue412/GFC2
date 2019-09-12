@@ -7,6 +7,7 @@
 #include <iostream>
 #include <windows.h>
 #include "common.h"
+#include "DocumentWriter.h"
 
 CUMLTranslator::CUMLTranslator()
 {
@@ -23,7 +24,7 @@ void CUMLTranslator::done(CTranslateInfo & oInfo)
     CModel oModel;
     initModel(&oModel);
     loadModelData(&oModel, oInfo.sUMLFile.empty() ? sCoreUML : oInfo.sUMLFile);
-
+    /*
     CModel* pRefModel = nullptr;
     if (!oInfo.sUMLFile.empty())
     {
@@ -32,11 +33,17 @@ void CUMLTranslator::done(CTranslateInfo & oInfo)
         initModel(pRefModel);
         loadModelData(pRefModel, sCoreUML);
     }
+    */
 
     if (!oInfo.sExpressFile.empty())
     {
         CExpressWriter oWriter(&oModel);
         oWriter.write(oInfo.sExpressFile, L"GFC2X0");
+    }
+    if (!oInfo.sHtmlPath.empty())
+    {
+        CDocumentWriter oWriter(&oModel);
+        oWriter.write(oInfo.sHtmlPath);
     }
     if (!(oInfo.sCPPPath.empty() && oInfo.sHeadPath.empty() && oInfo.sNETPath.empty()))
     {
@@ -45,7 +52,7 @@ void CUMLTranslator::done(CTranslateInfo & oInfo)
             oInfo.sCPPPath, 
             oInfo.sNETPath);
     }
-    delete pRefModel;
+//    delete pRefModel;
     std::wcout << L"生成完成！" << std::endl;
 }
 

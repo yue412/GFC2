@@ -19,8 +19,12 @@ public:
     void SetRepeatFlag(bool bRepeat) {m_bRepeat = bRepeat;}
     //bool getRefFlag();
     //void setRefFlag(bool bRefFlag);
+    std::wstring getDocument() { return m_sDocument; }
+    void setDocument(const std::wstring& sDocument) { m_sDocument = sDocument; }
+    std::wstring getTypeName();
 private:
     std::wstring m_sName;
+    std::wstring m_sDocument;
     CTypeObject* m_pTypeObject;
     bool m_bOptional;
     bool m_bRepeat;
