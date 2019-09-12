@@ -179,7 +179,7 @@ void CUMLReader::loadClass(TiXmlElement * pClass)
     std::string sGuidValue;
     if (pClass->QueryStringAttribute("guid", &sGuidValue) != TIXML_SUCCESS)
         return;
-    std::wstring sGuid = toWstring(sGuidValue);
+    std::wstring sGuid = Utf8ToUnicode(sGuidValue);
     m_pModel->addTypeObject(pTypeObject);
     m_oTypeObjectMap.insert(std::make_pair(sGuid, pTypeObject));
 
@@ -259,7 +259,7 @@ CTypeObject * CUMLReader::createClass(TiXmlElement * pClass)
                 }
                 else if (sNameValue == "StereotypeName")
                 {
-                    std::wstring sText = toWstring(pChild->GetText());
+                    std::wstring sText = Utf8ToUnicode(pChild->GetText());
                     if (sText == L"type")
                     {
                         pTypeObject = new CTypeDef();
@@ -288,8 +288,8 @@ CTypeObject * CUMLReader::createClass(TiXmlElement * pClass)
         pTypeObject = new CClass();
         ((CClass*)pTypeObject)->setIsAbstract(bIsAbstract);
     }
-    pTypeObject->SetName(toWstring(sClassName));
-    pTypeObject->setDocument(toWstring(sDocument));
+    pTypeObject->SetName(Utf8ToUnicode(sClassName));
+    pTypeObject->setDocument(Utf8ToUnicode(sDocument));
     return  pTypeObject;
 }
 
@@ -308,11 +308,11 @@ void CUMLReader::doneGeneralization(TiXmlElement * pGeneralization)
             {
                 if (sNameValue == "Child")
                 {
-                    sChildGUID = toWstring(pChild->GetText());
+                    sChildGUID = Utf8ToUnicode(pChild->GetText());
                 }
                 else if (sNameValue == "Parent")
                 {
-                    sParentGUID = toWstring(pChild->GetText());
+                    sParentGUID = Utf8ToUnicode(pChild->GetText());
                 }
             }
         }
@@ -404,11 +404,11 @@ CAssociationEnd CUMLReader::getAssociationEnd(TiXmlElement * pAssociationEnd)
             {
                 if (sNameValue == "Name")
                 {
-                    oResult.Name = toWstring(pChild->GetText());
+                    oResult.Name = Utf8ToUnicode(pChild->GetText());
                 }
                 else if (sNameValue == "Multiplicity")
                 {
-                    oResult.Multiplicity = toWstring(pChild->GetText());
+                    oResult.Multiplicity = Utf8ToUnicode(pChild->GetText());
                 }
             }
         }
@@ -419,7 +419,7 @@ CAssociationEnd CUMLReader::getAssociationEnd(TiXmlElement * pAssociationEnd)
             {
                 if (sNameValue == "Participant")
                 {
-                    oResult.TypeName = toWstring(pChild->GetText());
+                    oResult.TypeName = Utf8ToUnicode(pChild->GetText());
                 }
             }
         }
@@ -458,21 +458,21 @@ CAttribute * CUMLReader::getAttribute(TiXmlElement * pAttribute)
             {
                 if (sNameValue == "Name")
                 {
-                    sAttributeName = toWstring(pChild->GetText());
+                    sAttributeName = Utf8ToUnicode(pChild->GetText());
                 }
                 else if (sNameValue == "StereotypeName")
                 {
-                    std::wstring sTemp = toWstring(pChild->GetText());
+                    std::wstring sTemp = Utf8ToUnicode(pChild->GetText());
                     bOptional = sTemp.compare(L"OPTIONAL") == 0;
                     bRepeated = sTemp.compare(L"REPEATED") == 0;
                 }
                 else if (sNameValue == "TypeExpression")
                 {
-                    sAttributeType = toWstring(pChild->GetText());
+                    sAttributeType = Utf8ToUnicode(pChild->GetText());
                 }
                 else if (sNameValue == "Documentation")
                 {
-                    sAttributeDocument = toWstring(pChild->GetText());
+                    sAttributeDocument = Utf8ToUnicode(pChild->GetText());
                 }
             }
         }
@@ -494,7 +494,7 @@ std::wstring CUMLReader::getAttributeName(TiXmlElement * pAttribute)
             {
                 if (sNameValue == "Name")
                 {
-                    sAttributeName = toWstring(pChild->GetText());
+                    sAttributeName = Utf8ToUnicode(pChild->GetText());
                     break;
                 }
             }
@@ -517,7 +517,7 @@ std::wstring CUMLReader::getAttributeDocument(TiXmlElement * pAttribute)
             {
                 if (sNameValue == "Documentation")
                 {
-                    sAttributeDocument = toWstring(pChild->GetText());
+                    sAttributeDocument = Utf8ToUnicode(pChild->GetText());
                     break;
                 }
             }

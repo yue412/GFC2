@@ -82,7 +82,9 @@ void CDocumentWriter::writeTypedef(CTypeDef * pTypeDef, std::fstream& out)
 void CDocumentWriter::writeClass(CClass * pClass, std::fstream& out)
 {
     out << L"<div>实体定义</div>";
-    out << pClass->getDocument();
+    std::wstring s = pClass->getDocument();
+    out << s;
+    //return;
     if (pClass->getAttributeCount() > 0)
     {
         out << L"<div>属性定义</div>";

@@ -134,7 +134,25 @@ std::string UnicodeToUtf8(const std::wstring & str)
     ::WideCharToMultiByte(CP_UTF8, NULL, str.c_str(), wcslen(str.c_str()), szU8, u8Len, NULL, NULL);
     //最后加上'\0'
     szU8[u8Len] = '\0';
-    return szU8;
+    std::string sResult = szU8;
+    delete[] szU8;
+    return sResult;
+}
+
+std::wstring Utf8ToUnicode(const std::string& str)
+{
+    //UTF8 to Unicode
+    //预转换，得到所需空间的大小
+    int wcsLen = ::MultiByteToWideChar(CP_UTF8, NULL, str.c_str(), strlen(str.c_str()), NULL, 0);
+    //分配空间要给'\0'留个空间，MultiByteToWideChar不会给'\0'空间
+    wchar_t* wszString = new wchar_t[wcsLen + 1];
+    //转换
+    ::MultiByteToWideChar(CP_UTF8, NULL, str.c_str(), strlen(str.c_str()), wszString, wcsLen);
+    //最后加上'\0'
+    wszString[wcsLen] = '\0';
+    std::wstring sResult = wszString;
+    delete[] wszString;
+    return sResult;
 }
 
 std::fstream & operator<<(std::fstream & out, const std::wstring & s)
