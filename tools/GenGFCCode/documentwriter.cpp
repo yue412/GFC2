@@ -121,7 +121,7 @@ void CDocumentWriter::writeClass(CClass * pClass, std::fstream& out)
             out << L"</td>";
 
             out << L"<td>";
-            out << (pAttribute->getOptionalFlag() ? L"" : L"√");
+            out << (pAttribute->getOptionalFlag() || pAttribute->getRepeatFlag() ? L"" : L"√");
             out << L"</td>";
             out << L"</tr>";
         }

@@ -15,6 +15,7 @@ struct CAssociation
     std::wstring OwnerTypeName;
 	std::wstring FieldName;
 	std::wstring TypeName;
+    std::wstring Document;
     bool IsMultiplicity;
     bool IsOptional;
     CAssociation(): IsMultiplicity(false), IsOptional(false) {}

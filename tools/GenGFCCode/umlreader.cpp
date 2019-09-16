@@ -116,6 +116,7 @@ void CUMLReader::finalize()
             pAttribute->SetType(pType);
             pAttribute->SetRepeatFlag(itr->IsMultiplicity);
             pAttribute->SetOptionalFlag(itr->IsOptional);
+            pAttribute->setDocument(itr->Document);
             ((CClass*)pOwner)->addAttribute(pAttribute);
         }
         else
@@ -326,6 +327,7 @@ void CUMLReader::doneGeneralization(TiXmlElement * pGeneralization)
 
 void CUMLReader::doneAssociation(TiXmlElement * pAssociation)
 {
+    std::wstring sDocument;
     CAssociationEnd oAssociationEndArray[2];
     int nIndex = 0;
     TiXmlElement* pChild = pAssociation->FirstChildElement();
@@ -357,9 +359,21 @@ void CUMLReader::doneAssociation(TiXmlElement * pAssociation)
                 }
             }
         }
+        else if (pChild->ValueStr() == "XPD:ATTR")
+        {
+            std::string sNameValue;
+            if (pChild->QueryStringAttribute("name", &sNameValue) == TIXML_SUCCESS)
+            {
+                if (sNameValue == "Documentation")
+                {
+                    sDocument = Utf8ToUnicode(pChild->GetText());
+                }
+            }
+        }
         pChild = pChild->NextSiblingElement();
     }
     CAssociation oAssociation;
+    oAssociation.Document = sDocument;
     if (initAssociation(oAssociationEndArray[0], oAssociationEndArray[1], oAssociation))
     {
         m_oAssociationList.push_back(oAssociation);
