@@ -12206,7 +12206,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#OwnedElements" type="integer">290</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">289</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="F54ZNG9bok+RTZCeVguE7gAA">
 <XPD:ATTR name="Name" type="string">Gfc2Shape</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">形状（Gfc2Shape）。</XPD:ATTR>
@@ -12716,6 +12716,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[23]" type="UMLClass" guid="DJag13dsGE2bZ1wf7qX+EgAA">
 <XPD:ATTR name="Name" type="string">Gfc2FaceShape</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">三维面式形状（Gfc2FaceShape）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">l/GFTcQBCEWBfkbxkaWcOAAA</XPD:REF>
@@ -12727,16 +12728,19 @@
 <XPD:ATTR name="#Attributes" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="5oHKj3ZDuUmsQAlMQnmzEgAA">
 <XPD:ATTR name="Name" type="string">Thickness</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">厚度</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Gfc2Double</XPD:ATTR>
 <XPD:REF name="Owner">DJag13dsGE2bZ1wf7qX+EgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="dPdM0ea05EOfTIUa6bOmnAAA">
 <XPD:ATTR name="Name" type="string">Poly</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">投影多边形</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Gfc2Polygon</XPD:ATTR>
 <XPD:REF name="Owner">DJag13dsGE2bZ1wf7qX+EgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="KrgH8Ux+2UCPsnGAaeqcXwAA">
 <XPD:ATTR name="Name" type="string">MirrorFlag</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">是否镜像</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">OPTIONAL</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Gfc2Boolean</XPD:ATTR>
 <XPD:REF name="Type_">qtcr7ODKxUuCUFSox7Zi2wAA</XPD:REF>
@@ -12744,6 +12748,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="65eQJh4qFUetJfxpV7/s9wAA">
 <XPD:ATTR name="Name" type="string">FaceInfo</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">面信息</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">OPTIONAL</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Gfc2FaceInfo</XPD:ATTR>
 <XPD:REF name="Owner">DJag13dsGE2bZ1wf7qX+EgAA</XPD:REF>
@@ -13251,28 +13256,34 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[46]" type="UMLClass" guid="jdcvQQk24U2stVJoSv4uDwAA">
 <XPD:ATTR name="Name" type="string">Gfc2AxisType</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">轴线类型</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">enum</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="CuOPmBJlgUWJIDkhMB95pAAA">
 <XPD:ATTR name="Name" type="string">SKJ</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">上开间</XPD:ATTR>
 <XPD:REF name="Owner">jdcvQQk24U2stVJoSv4uDwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="fWow1BMOFU+mShs1gprXpQAA">
 <XPD:ATTR name="Name" type="string">XKJ</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">下开间</XPD:ATTR>
 <XPD:REF name="Owner">jdcvQQk24U2stVJoSv4uDwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="v2EMPA+EVEe5S5CUtpi7/AAA">
 <XPD:ATTR name="Name" type="string">ZJS</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">左进深</XPD:ATTR>
 <XPD:REF name="Owner">jdcvQQk24U2stVJoSv4uDwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="p1kwJBiWPE+rjcgDzhbYcwAA">
 <XPD:ATTR name="Name" type="string">YJS</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">右进深</XPD:ATTR>
 <XPD:REF name="Owner">jdcvQQk24U2stVJoSv4uDwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[47]" type="UMLClass" guid="DPQTowbsfkKR6V/3ZvjptgAA">
 <XPD:ATTR name="Name" type="string">Gfc2AxisNoPosEnum</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">轴号位置（Gfc2AxisNoPosEnum）。</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">enum</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#TypedFeatures" type="integer">1</XPD:ATTR>
@@ -13280,44 +13291,26 @@
 <XPD:ATTR name="#Attributes" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="7yGickZbPkilyAjYN00tDQAA">
 <XPD:ATTR name="Name" type="string">NONE_POS</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">无标注</XPD:ATTR>
 <XPD:REF name="Owner">DPQTowbsfkKR6V/3ZvjptgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="gjgwcrSbOUS6EZY53HmyDQAA">
 <XPD:ATTR name="Name" type="string">START_POS</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">起点标注</XPD:ATTR>
 <XPD:REF name="Owner">DPQTowbsfkKR6V/3ZvjptgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="zWH/68M/WkegyjJcjaSZyQAA">
 <XPD:ATTR name="Name" type="string">END_POS</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">终点标注</XPD:ATTR>
 <XPD:REF name="Owner">DPQTowbsfkKR6V/3ZvjptgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="l2j0J2i8ZUm9hMER+PGSugAA">
 <XPD:ATTR name="Name" type="string">BOTH_POS</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">两端标注</XPD:ATTR>
 <XPD:REF name="Owner">DPQTowbsfkKR6V/3ZvjptgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[48]" type="UMLClass" guid="XenNc8jMjE6sNd5awmQPmgAA">
-<XPD:ATTR name="Name" type="string">Gfc2SizeMarkType</XPD:ATTR>
-<XPD:ATTR name="StereotypeName" type="string">enum</XPD:ATTR>
-<XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
-<XPD:ATTR name="#Attributes" type="integer">4</XPD:ATTR>
-<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="agzgpkDcREqb45p3c/SA4gAA">
-<XPD:ATTR name="Name" type="string">LENGTHMARK</XPD:ATTR>
-<XPD:REF name="Owner">XenNc8jMjE6sNd5awmQPmgAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="05nFOlWq+k+O+4qut0KGwgAA">
-<XPD:ATTR name="Name" type="string">ALIGNMARK</XPD:ATTR>
-<XPD:REF name="Owner">XenNc8jMjE6sNd5awmQPmgAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="TUmEw7FR2UefbAdfvPZZTAAA">
-<XPD:ATTR name="Name" type="string">ANGLEMARK</XPD:ATTR>
-<XPD:REF name="Owner">XenNc8jMjE6sNd5awmQPmgAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="4STdA5YI10G4yKBQ5CA0EwAA">
-<XPD:ATTR name="Name" type="string">ARCMARK</XPD:ATTR>
-<XPD:REF name="Owner">XenNc8jMjE6sNd5awmQPmgAA</XPD:REF>
-</XPD:OBJ>
-</XPD:OBJ>
-<XPD:OBJ name="OwnedElements[49]" type="UMLClass" guid="HUuchWK8Z0+3rsCZe+aLRQAA">
+<XPD:OBJ name="OwnedElements[48]" type="UMLClass" guid="HUuchWK8Z0+3rsCZe+aLRQAA">
 <XPD:ATTR name="Name" type="string">Gfc2LineShape2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">线式形状（Gfc2LineShape2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13336,7 +13329,7 @@
 <XPD:REF name="Owner">HUuchWK8Z0+3rsCZe+aLRQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[50]" type="UMLGeneralization" guid="6wu68K3o2kS29fGP2dKSxwAA">
+<XPD:OBJ name="OwnedElements[49]" type="UMLGeneralization" guid="6wu68K3o2kS29fGP2dKSxwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">HUuchWK8Z0+3rsCZe+aLRQAA</XPD:REF>
 <XPD:REF name="Parent">4cL7dFOQ2EyMn/pPI7NG4AAA</XPD:REF>
@@ -13346,7 +13339,7 @@
 <XPD:REF name="Views[2]">+4xM6G63rUiYn04Kdnq+PgAA</XPD:REF>
 <XPD:REF name="Views[3]">uCBr0/k5AEydyfVieIMF6wAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[51]" type="UMLClass" guid="GbhVNw7AeUKh0em/Dxs2CQAA">
+<XPD:OBJ name="OwnedElements[50]" type="UMLClass" guid="GbhVNw7AeUKh0em/Dxs2CQAA">
 <XPD:ATTR name="Name" type="string">Gfc2Root</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">根对象（Gfc2Root），是Gfc2Object、Gfc2PropertySet和Gfc2RelationShip的抽象基类。</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
@@ -13361,7 +13354,7 @@
 <XPD:REF name="Specializations[1]">IAYfHIOxyke73JP5CVbjpwAA</XPD:REF>
 <XPD:REF name="Specializations[2]">cPs5iYpUY02TsQ9AiHndrQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[52]" type="UMLClass" guid="fkLzc3E6Pky/vAr70ITaEwAA">
+<XPD:OBJ name="OwnedElements[51]" type="UMLClass" guid="fkLzc3E6Pky/vAr70ITaEwAA">
 <XPD:ATTR name="Name" type="string">Gfc2Object</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">对象（Gfc2Object），可以表示任意对象概念。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13405,7 +13398,7 @@
 <XPD:REF name="Owner">fkLzc3E6Pky/vAr70ITaEwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[53]" type="UMLClass" guid="yLB0VkbdVEy1oF+z7myGagAA">
+<XPD:OBJ name="OwnedElements[52]" type="UMLClass" guid="yLB0VkbdVEy1oF+z7myGagAA">
 <XPD:ATTR name="Name" type="string">Gfc2PropertySet</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">属性集（Gfc2PropertySet），包含多个属性（Gfc2Property）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13423,7 +13416,7 @@
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">vFsd0TzCekCUfiToXupOiwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[54]" type="UMLGeneralization" guid="PM9rnxT6zkqSifPLkq21YwAA">
+<XPD:OBJ name="OwnedElements[53]" type="UMLGeneralization" guid="PM9rnxT6zkqSifPLkq21YwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">fkLzc3E6Pky/vAr70ITaEwAA</XPD:REF>
 <XPD:REF name="Parent">GbhVNw7AeUKh0em/Dxs2CQAA</XPD:REF>
@@ -13433,7 +13426,7 @@
 <XPD:REF name="Views[2]">TA7g0IvdW0qgELfB3mJxrQAA</XPD:REF>
 <XPD:REF name="Views[3]">9tS5M8uqjkmFYso91yd/ZQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[55]" type="UMLGeneralization" guid="cPs5iYpUY02TsQ9AiHndrQAA">
+<XPD:OBJ name="OwnedElements[54]" type="UMLGeneralization" guid="cPs5iYpUY02TsQ9AiHndrQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">yLB0VkbdVEy1oF+z7myGagAA</XPD:REF>
 <XPD:REF name="Parent">GbhVNw7AeUKh0em/Dxs2CQAA</XPD:REF>
@@ -13443,7 +13436,7 @@
 <XPD:REF name="Views[2]">78WzwlABPECnvExT5VaCsgAA</XPD:REF>
 <XPD:REF name="Views[3]">cBGZdOvndkeiXU6BF4m6iwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[56]" type="UMLClass" guid="fNaCsgKs6kiRnCsp9GptKwAA">
+<XPD:OBJ name="OwnedElements[55]" type="UMLClass" guid="fNaCsgKs6kiRnCsp9GptKwAA">
 <XPD:ATTR name="Name" type="string">Gfc2Project</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">工程项目（Gfc2Project），交换文件中有且仅有一个Gfc2Project实例。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13455,7 +13448,7 @@
 <XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">B+XuTeXrxEW07ZzvrMBegAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[57]" type="UMLClass" guid="PczJYnP/2k6IL2nznC3qCgAA">
+<XPD:OBJ name="OwnedElements[56]" type="UMLClass" guid="PczJYnP/2k6IL2nznC3qCgAA">
 <XPD:ATTR name="Name" type="string">Gfc2SpatialStructureEntity</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">空间结构实体（Gfc2SpatialStructureEntity），用于划分空间，是建筑（Gfc2Building）、楼层（Gfc2Floor）的基类。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13470,7 +13463,7 @@
 <XPD:REF name="Specializations[0]">87tK3NJ1tkiBm3PffTWm6QAA</XPD:REF>
 <XPD:REF name="Specializations[1]">YhnH7M0woEuxUSzapnjaBgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[58]" type="UMLClass" guid="oSFgfSkDmEKEdWNHWuaWqgAA">
+<XPD:OBJ name="OwnedElements[57]" type="UMLClass" guid="oSFgfSkDmEKEdWNHWuaWqgAA">
 <XPD:ATTR name="Name" type="string">Gfc2Floor</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">楼层（Gfc2Floor），表示建筑中的楼层划分。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13520,7 +13513,7 @@
 <XPD:REF name="Owner">oSFgfSkDmEKEdWNHWuaWqgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[59]" type="UMLGeneralization" guid="B+XuTeXrxEW07ZzvrMBegAAA">
+<XPD:OBJ name="OwnedElements[58]" type="UMLGeneralization" guid="B+XuTeXrxEW07ZzvrMBegAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">fNaCsgKs6kiRnCsp9GptKwAA</XPD:REF>
 <XPD:REF name="Parent">fkLzc3E6Pky/vAr70ITaEwAA</XPD:REF>
@@ -13530,7 +13523,7 @@
 <XPD:REF name="Views[2]">SHojuI2eSEGWAZS1zIhsaAAA</XPD:REF>
 <XPD:REF name="Views[3]">9D+umHC2L0+wNZLKK3cFhgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[60]" type="UMLGeneralization" guid="IAYfHIOxyke73JP5CVbjpwAA">
+<XPD:OBJ name="OwnedElements[59]" type="UMLGeneralization" guid="IAYfHIOxyke73JP5CVbjpwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">tzVPQCu3KUe6uD8T4dYxKgAA</XPD:REF>
 <XPD:REF name="Parent">GbhVNw7AeUKh0em/Dxs2CQAA</XPD:REF>
@@ -13540,7 +13533,7 @@
 <XPD:REF name="Views[2]">JbC8dMrA1kSBRPF6pey61wAA</XPD:REF>
 <XPD:REF name="Views[3]">jN6MoevHnUGeRcqRRaQAlAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[61]" type="UMLGeneralization" guid="iQVWyUfH2EqYsS1wk+WWVwAA">
+<XPD:OBJ name="OwnedElements[60]" type="UMLGeneralization" guid="iQVWyUfH2EqYsS1wk+WWVwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">TKbZpCfNXUGFSR7IDzmYkAAA</XPD:REF>
 <XPD:REF name="Parent">fkLzc3E6Pky/vAr70ITaEwAA</XPD:REF>
@@ -13550,7 +13543,7 @@
 <XPD:REF name="Views[2]">VdaGD0cBCkCksHy0K9S33AAA</XPD:REF>
 <XPD:REF name="Views[3]">dJYZ5WN1mEqGQE679FF+XQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[62]" type="UMLClass" guid="+8bOd5i3R0uygkoKW0p52wAA">
+<XPD:OBJ name="OwnedElements[61]" type="UMLClass" guid="+8bOd5i3R0uygkoKW0p52wAA">
 <XPD:ATTR name="Name" type="string">Gfc2Property</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">属性项（Gfc2Property），应包含属性名称和属性值，是所有类型属性项的基类。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13581,12 +13574,12 @@
 <XPD:REF name="Owner">+8bOd5i3R0uygkoKW0p52wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[63]" type="UMLDependency" guid="HGukUZzvJE61GtvJ12JgfgAA">
+<XPD:OBJ name="OwnedElements[62]" type="UMLDependency" guid="HGukUZzvJE61GtvJ12JgfgAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Client">yLB0VkbdVEy1oF+z7myGagAA</XPD:REF>
 <XPD:REF name="Supplier">+8bOd5i3R0uygkoKW0p52wAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[64]" type="UMLClass" guid="pcBW74Nh/Uu0uKdoPF5+MQAA">
+<XPD:OBJ name="OwnedElements[63]" type="UMLClass" guid="pcBW74Nh/Uu0uKdoPF5+MQAA">
 <XPD:ATTR name="Name" type="string">Gfc2IntegerProperty</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">整形属性（Gfc2IntegerProperty）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13605,7 +13598,7 @@
 <XPD:REF name="Owner">pcBW74Nh/Uu0uKdoPF5+MQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[65]" type="UMLGeneralization" guid="TCSvcXb6o06ryZxDOHaCGwAA">
+<XPD:OBJ name="OwnedElements[64]" type="UMLGeneralization" guid="TCSvcXb6o06ryZxDOHaCGwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">pcBW74Nh/Uu0uKdoPF5+MQAA</XPD:REF>
 <XPD:REF name="Parent">+8bOd5i3R0uygkoKW0p52wAA</XPD:REF>
@@ -13615,7 +13608,7 @@
 <XPD:REF name="Views[2]">rVl8HDsH9UWgqfe2vXqjOAAA</XPD:REF>
 <XPD:REF name="Views[3]">W2U7zBytF0WJ0hEq8L4tEAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[66]" type="UMLClass" guid="IhEm2DbIbECPXJbyR3ohBQAA">
+<XPD:OBJ name="OwnedElements[65]" type="UMLClass" guid="IhEm2DbIbECPXJbyR3ohBQAA">
 <XPD:ATTR name="Name" type="string">Gfc2DoubleProperty</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">浮点属性（Gfc2DoubleProperty）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13634,7 +13627,7 @@
 <XPD:REF name="Owner">IhEm2DbIbECPXJbyR3ohBQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[67]" type="UMLClass" guid="LkU7nIZegU+tCxVi818l1gAA">
+<XPD:OBJ name="OwnedElements[66]" type="UMLClass" guid="LkU7nIZegU+tCxVi818l1gAA">
 <XPD:ATTR name="Name" type="string">Gfc2BooleanProperty</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">布尔属性（Gfc2BooleanProperty）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13653,7 +13646,7 @@
 <XPD:REF name="Owner">LkU7nIZegU+tCxVi818l1gAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[68]" type="UMLClass" guid="uU7R1Wc1LkuKqemdoOukwAAA">
+<XPD:OBJ name="OwnedElements[67]" type="UMLClass" guid="uU7R1Wc1LkuKqemdoOukwAAA">
 <XPD:ATTR name="Name" type="string">Gfc2StringProperty</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">字符串属性（Gfc2StringProperty）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13672,7 +13665,7 @@
 <XPD:REF name="Owner">uU7R1Wc1LkuKqemdoOukwAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[69]" type="UMLClass" guid="hX4r2XyHx0eDipOo9kOHUgAA">
+<XPD:OBJ name="OwnedElements[68]" type="UMLClass" guid="hX4r2XyHx0eDipOo9kOHUgAA">
 <XPD:ATTR name="Name" type="string">Gfc2ObjectProperty</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">对象属性（Gfc2ObjectProperty）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13692,7 +13685,7 @@
 <XPD:REF name="Owner">hX4r2XyHx0eDipOo9kOHUgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[70]" type="UMLGeneralization" guid="p3PVvWY6gE6IRFOBrBKl/AAA">
+<XPD:OBJ name="OwnedElements[69]" type="UMLGeneralization" guid="p3PVvWY6gE6IRFOBrBKl/AAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">IhEm2DbIbECPXJbyR3ohBQAA</XPD:REF>
 <XPD:REF name="Parent">+8bOd5i3R0uygkoKW0p52wAA</XPD:REF>
@@ -13702,7 +13695,7 @@
 <XPD:REF name="Views[2]">5GcSUyAbKE+OQCR9UDJrbQAA</XPD:REF>
 <XPD:REF name="Views[3]">BcZL+4MMAUujguAIkwF+2QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[71]" type="UMLGeneralization" guid="oZzh+SWG1k6ABKJtqOE70QAA">
+<XPD:OBJ name="OwnedElements[70]" type="UMLGeneralization" guid="oZzh+SWG1k6ABKJtqOE70QAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">LkU7nIZegU+tCxVi818l1gAA</XPD:REF>
 <XPD:REF name="Parent">+8bOd5i3R0uygkoKW0p52wAA</XPD:REF>
@@ -13712,7 +13705,7 @@
 <XPD:REF name="Views[2]">P/qTFzak20eo5PpdVqJp0wAA</XPD:REF>
 <XPD:REF name="Views[3]">8SNMcsGtJUqaXNwI63O1DAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[72]" type="UMLGeneralization" guid="4xdwpNIxf06b0qvVfD4JgAAA">
+<XPD:OBJ name="OwnedElements[71]" type="UMLGeneralization" guid="4xdwpNIxf06b0qvVfD4JgAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">uU7R1Wc1LkuKqemdoOukwAAA</XPD:REF>
 <XPD:REF name="Parent">+8bOd5i3R0uygkoKW0p52wAA</XPD:REF>
@@ -13722,7 +13715,7 @@
 <XPD:REF name="Views[2]">eV4efGZkVUyNXeOlPumM9AAA</XPD:REF>
 <XPD:REF name="Views[3]">Aroz3dMNZ0SPvOW4S4hrTQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[73]" type="UMLGeneralization" guid="CZQiGmRpSEScTHOELcv84gAA">
+<XPD:OBJ name="OwnedElements[72]" type="UMLGeneralization" guid="CZQiGmRpSEScTHOELcv84gAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">hX4r2XyHx0eDipOo9kOHUgAA</XPD:REF>
 <XPD:REF name="Parent">+8bOd5i3R0uygkoKW0p52wAA</XPD:REF>
@@ -13732,7 +13725,7 @@
 <XPD:REF name="Views[2]">SQYpnep2vkOkE8RxK/Yg4gAA</XPD:REF>
 <XPD:REF name="Views[3]">Nh8u6crKp0Ce1tbAZTlLFwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[74]" type="UMLClass" guid="AbdL63QZqUO3qIk0YLeksgAA">
+<XPD:OBJ name="OwnedElements[73]" type="UMLClass" guid="AbdL63QZqUO3qIk0YLeksgAA">
 <XPD:ATTR name="Name" type="string">Gfc2RelDecomposes</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">组合关系（Gfc2RelDecomposes）。</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
@@ -13758,7 +13751,7 @@
 <XPD:REF name="Owner">AbdL63QZqUO3qIk0YLeksgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[75]" type="UMLGeneralization" guid="ynzKspI+VkeSlpY4/Lx5KgAA">
+<XPD:OBJ name="OwnedElements[74]" type="UMLGeneralization" guid="ynzKspI+VkeSlpY4/Lx5KgAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">AbdL63QZqUO3qIk0YLeksgAA</XPD:REF>
 <XPD:REF name="Parent">tzVPQCu3KUe6uD8T4dYxKgAA</XPD:REF>
@@ -13768,7 +13761,7 @@
 <XPD:REF name="Views[2]">xwiqgt+9Y0q+t6ddOTPt7QAA</XPD:REF>
 <XPD:REF name="Views[3]">KWf5Vpw1tk+gybewvTTjBwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[76]" type="UMLClass" guid="5phwMpfnbECeqELzboWsSgAA">
+<XPD:OBJ name="OwnedElements[75]" type="UMLClass" guid="5phwMpfnbECeqELzboWsSgAA">
 <XPD:ATTR name="Name" type="string">Gfc2RelDefines</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">定义关系（Gfc2RelDefines）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13785,7 +13778,7 @@
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">iFw0mjaSBUSzGXov7CCgIQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[77]" type="UMLGeneralization" guid="+wYboia7g0KuB4C35AV5kwAA">
+<XPD:OBJ name="OwnedElements[76]" type="UMLGeneralization" guid="+wYboia7g0KuB4C35AV5kwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">5phwMpfnbECeqELzboWsSgAA</XPD:REF>
 <XPD:REF name="Parent">tzVPQCu3KUe6uD8T4dYxKgAA</XPD:REF>
@@ -13795,7 +13788,7 @@
 <XPD:REF name="Views[2]">kNTGN65adEWbg7cH+mGQtgAA</XPD:REF>
 <XPD:REF name="Views[3]">AqAJxLeb0kqv4KAt4BBmHQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[78]" type="UMLClass" guid="MBNgUihfu0+pDfgOgdGIkQAA">
+<XPD:OBJ name="OwnedElements[77]" type="UMLClass" guid="MBNgUihfu0+pDfgOgdGIkQAA">
 <XPD:ATTR name="Name" type="string">Gfc2RelDefinesByProperties</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">属性定义关系（Gfc2RelDefinesByProperties），指定对象的属性集。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13815,7 +13808,7 @@
 <XPD:REF name="Owner">MBNgUihfu0+pDfgOgdGIkQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[79]" type="UMLGeneralization" guid="8LJz5mjmvUeahI00qL4VDAAA">
+<XPD:OBJ name="OwnedElements[78]" type="UMLGeneralization" guid="8LJz5mjmvUeahI00qL4VDAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">MBNgUihfu0+pDfgOgdGIkQAA</XPD:REF>
 <XPD:REF name="Parent">5phwMpfnbECeqELzboWsSgAA</XPD:REF>
@@ -13825,7 +13818,7 @@
 <XPD:REF name="Views[2]">ng0tBY2alEW688sMHgXoKQAA</XPD:REF>
 <XPD:REF name="Views[3]">IIqd55vKJUexpYOuGSSOqgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[80]" type="UMLClass" guid="HPiVxs5Ba0uG5llDI2GOfAAA">
+<XPD:OBJ name="OwnedElements[79]" type="UMLClass" guid="HPiVxs5Ba0uG5llDI2GOfAAA">
 <XPD:ATTR name="Name" type="string">Gfc2Vector2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">二维向量（ Gfc2Vector2d）</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">record</XPD:ATTR>
@@ -13888,7 +13881,7 @@
 <XPD:REF name="Owner">HPiVxs5Ba0uG5llDI2GOfAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[81]" type="UMLClass" guid="CZk1zZj5fkuCZUeo53/6yQAA">
+<XPD:OBJ name="OwnedElements[80]" type="UMLClass" guid="CZk1zZj5fkuCZUeo53/6yQAA">
 <XPD:ATTR name="Name" type="string">Gfc2Vector3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三维向量（ Gfc2Vector3d）</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -13960,7 +13953,7 @@
 <XPD:REF name="Owner">CZk1zZj5fkuCZUeo53/6yQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[82]" type="UMLClass" guid="bHyTe6eEt0yofLZIjpxs5gAA">
+<XPD:OBJ name="OwnedElements[81]" type="UMLClass" guid="bHyTe6eEt0yofLZIjpxs5gAA">
 <XPD:ATTR name="Name" type="string">Gfc2Intervald</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">区间（Gfc2Intervald）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14012,7 +14005,7 @@
 <XPD:REF name="Owner">bHyTe6eEt0yofLZIjpxs5gAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[83]" type="UMLClass" guid="hgJ9aVA9lkegp7C8QImQ3gAA">
+<XPD:OBJ name="OwnedElements[82]" type="UMLClass" guid="hgJ9aVA9lkegp7C8QImQ3gAA">
 <XPD:ATTR name="Name" type="string">Gfc2Coordinates3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三维坐标系（Gfc2Coordinates3d），坐标轴应满足右手定则。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14062,7 +14055,7 @@
 <XPD:REF name="Owner">hgJ9aVA9lkegp7C8QImQ3gAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[84]" type="UMLClass" guid="Gmr1E2kuG0Gc2HY1KEUP5wAA">
+<XPD:OBJ name="OwnedElements[83]" type="UMLClass" guid="Gmr1E2kuG0Gc2HY1KEUP5wAA">
 <XPD:ATTR name="Name" type="string">Gfc2Coordinates2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">二维坐标系（Gfc2Coordinates2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14098,7 +14091,7 @@
 <XPD:REF name="Owner">Gmr1E2kuG0Gc2HY1KEUP5wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[85]" type="UMLClass" guid="UOz1OsT7CE+A0zOjHLtdxgAA">
+<XPD:OBJ name="OwnedElements[84]" type="UMLClass" guid="UOz1OsT7CE+A0zOjHLtdxgAA">
 <XPD:ATTR name="Name" type="string">Gfc2Curve2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">二维曲线（Gfc2Curve2d），是各种二维线段的基类。</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
@@ -14136,7 +14129,7 @@
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">Jrzh4bXkEUinryyX1GKMLgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[86]" type="UMLClass" guid="+NX6/Sbc50+GUJzWIq0fJgAA">
+<XPD:OBJ name="OwnedElements[85]" type="UMLClass" guid="+NX6/Sbc50+GUJzWIq0fJgAA">
 <XPD:ATTR name="Name" type="string">Gfc2Line2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">二维直线段（Gfc2Line2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14165,7 +14158,7 @@
 <XPD:REF name="Owner">+NX6/Sbc50+GUJzWIq0fJgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[87]" type="UMLClass" guid="e2z3iycaiEmtsVG8IBCn0QAA">
+<XPD:OBJ name="OwnedElements[86]" type="UMLClass" guid="e2z3iycaiEmtsVG8IBCn0QAA">
 <XPD:ATTR name="Name" type="string">Gfc2Arc2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">二维圆弧（Gfc2Arc2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14204,7 +14197,7 @@
 <XPD:REF name="Owner">e2z3iycaiEmtsVG8IBCn0QAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[88]" type="UMLClass" guid="2eX433TfUUGApZ/T47GJOwAA">
+<XPD:OBJ name="OwnedElements[87]" type="UMLClass" guid="2eX433TfUUGApZ/T47GJOwAA">
 <XPD:ATTR name="Name" type="string">Gfc2Ellipse2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">二维椭圆弧（Gfc2Ellipse2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14256,7 +14249,7 @@
 <XPD:REF name="Owner">2eX433TfUUGApZ/T47GJOwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[89]" type="UMLClass" guid="YXfHxK4GaE2y8PNep2oZ8gAA">
+<XPD:OBJ name="OwnedElements[88]" type="UMLClass" guid="YXfHxK4GaE2y8PNep2oZ8gAA">
 <XPD:ATTR name="Name" type="string">Gfc2NurbsCurve2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">二维非均匀有理样条曲线（Gfc2NurbsCurve2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14278,7 +14271,7 @@
 <XPD:REF name="Owner">YXfHxK4GaE2y8PNep2oZ8gAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[90]" type="UMLClass" guid="x4cPl+7fv0mbDmltTDKlVgAA">
+<XPD:OBJ name="OwnedElements[89]" type="UMLClass" guid="x4cPl+7fv0mbDmltTDKlVgAA">
 <XPD:ATTR name="Name" type="string">Gfc2PreimageCurve2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">曲面上参数曲线（Gfc2PreimageCurve2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14325,7 +14318,7 @@
 <XPD:REF name="Owner">x4cPl+7fv0mbDmltTDKlVgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[91]" type="UMLClass" guid="pgqoolUIWU+o7wOpBIT2jgAA">
+<XPD:OBJ name="OwnedElements[90]" type="UMLClass" guid="pgqoolUIWU+o7wOpBIT2jgAA">
 <XPD:ATTR name="Name" type="string">Gfc2SinCurve2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">二维正弦曲线（Gfc2SinCurve2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14377,7 +14370,7 @@
 <XPD:REF name="Owner">pgqoolUIWU+o7wOpBIT2jgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[92]" type="UMLClass" guid="+z3PUgC/R06YBmrp68unHwAA">
+<XPD:OBJ name="OwnedElements[91]" type="UMLClass" guid="+z3PUgC/R06YBmrp68unHwAA">
 <XPD:ATTR name="Name" type="string">Gfc2SpiralLine2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">二维螺旋线（Gfc2SpiralLine2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14422,7 +14415,7 @@
 <XPD:REF name="Owner">+z3PUgC/R06YBmrp68unHwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[93]" type="UMLGeneralization" guid="lStPTy7GV0qfnP5IGoNzzgAA">
+<XPD:OBJ name="OwnedElements[92]" type="UMLGeneralization" guid="lStPTy7GV0qfnP5IGoNzzgAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">+NX6/Sbc50+GUJzWIq0fJgAA</XPD:REF>
 <XPD:REF name="Parent">UOz1OsT7CE+A0zOjHLtdxgAA</XPD:REF>
@@ -14432,7 +14425,7 @@
 <XPD:REF name="Views[2]">wD+bxOeWTUi4MlPuEX6POgAA</XPD:REF>
 <XPD:REF name="Views[3]">YaZBqsgUyECW71I4bLmP9QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[94]" type="UMLGeneralization" guid="f203BC2jZUGX8KsQ5eC8UQAA">
+<XPD:OBJ name="OwnedElements[93]" type="UMLGeneralization" guid="f203BC2jZUGX8KsQ5eC8UQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">e2z3iycaiEmtsVG8IBCn0QAA</XPD:REF>
 <XPD:REF name="Parent">UOz1OsT7CE+A0zOjHLtdxgAA</XPD:REF>
@@ -14442,7 +14435,7 @@
 <XPD:REF name="Views[2]">Pcar/OSmr02/t+6FJm7mxgAA</XPD:REF>
 <XPD:REF name="Views[3]">ORAI40++XE+eoWupkDTEnQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[95]" type="UMLGeneralization" guid="PbIuS1reikCeU1K0FrUJoAAA">
+<XPD:OBJ name="OwnedElements[94]" type="UMLGeneralization" guid="PbIuS1reikCeU1K0FrUJoAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">2eX433TfUUGApZ/T47GJOwAA</XPD:REF>
 <XPD:REF name="Parent">UOz1OsT7CE+A0zOjHLtdxgAA</XPD:REF>
@@ -14452,7 +14445,7 @@
 <XPD:REF name="Views[2]">l69pk9PU5EK2yHQEZODbQwAA</XPD:REF>
 <XPD:REF name="Views[3]">kZXn3wtNakSZpOT4Wv0NTwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[96]" type="UMLGeneralization" guid="dJV88fEgmUGYmRekmGoE8AAA">
+<XPD:OBJ name="OwnedElements[95]" type="UMLGeneralization" guid="dJV88fEgmUGYmRekmGoE8AAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">YXfHxK4GaE2y8PNep2oZ8gAA</XPD:REF>
 <XPD:REF name="Parent">UOz1OsT7CE+A0zOjHLtdxgAA</XPD:REF>
@@ -14462,7 +14455,7 @@
 <XPD:REF name="Views[2]">4mprGDWXLk2mJrTvhtDzmwAA</XPD:REF>
 <XPD:REF name="Views[3]">s/8r894y00euF/JDWVCS1wAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[97]" type="UMLGeneralization" guid="Tf/KFeZnKUeu2DRXRLDL4AAA">
+<XPD:OBJ name="OwnedElements[96]" type="UMLGeneralization" guid="Tf/KFeZnKUeu2DRXRLDL4AAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">x4cPl+7fv0mbDmltTDKlVgAA</XPD:REF>
 <XPD:REF name="Parent">UOz1OsT7CE+A0zOjHLtdxgAA</XPD:REF>
@@ -14472,7 +14465,7 @@
 <XPD:REF name="Views[2]">OwzpvD2/VEeVNTXMFuRZ1gAA</XPD:REF>
 <XPD:REF name="Views[3]">uicmmTWNy0q55cOksPNwkwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[98]" type="UMLGeneralization" guid="WqEWOpkxA0K2pE5o56vM3QAA">
+<XPD:OBJ name="OwnedElements[97]" type="UMLGeneralization" guid="WqEWOpkxA0K2pE5o56vM3QAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">pgqoolUIWU+o7wOpBIT2jgAA</XPD:REF>
 <XPD:REF name="Parent">UOz1OsT7CE+A0zOjHLtdxgAA</XPD:REF>
@@ -14482,7 +14475,7 @@
 <XPD:REF name="Views[2]">0FM4BBMDBUOHGqxdu6uvxAAA</XPD:REF>
 <XPD:REF name="Views[3]">sDsAZVc1ZUOllpX+Ai9U8wAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[99]" type="UMLGeneralization" guid="IZfsgswqH0asyWR6LLmOQwAA">
+<XPD:OBJ name="OwnedElements[98]" type="UMLGeneralization" guid="IZfsgswqH0asyWR6LLmOQwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">+z3PUgC/R06YBmrp68unHwAA</XPD:REF>
 <XPD:REF name="Parent">UOz1OsT7CE+A0zOjHLtdxgAA</XPD:REF>
@@ -14492,7 +14485,7 @@
 <XPD:REF name="Views[2]">al17tFHkbkmmeIVvxZtaMgAA</XPD:REF>
 <XPD:REF name="Views[3]">CYFG5ifOo02QWjPpUjdaTwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[100]" type="UMLClass" guid="L2XLvayH6UCHYVBuTBngMgAA">
+<XPD:OBJ name="OwnedElements[99]" type="UMLClass" guid="L2XLvayH6UCHYVBuTBngMgAA">
 <XPD:ATTR name="Name" type="string">Gfc2NurbsCtrlPt2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">二维非均匀有理样条曲线控制点（Gfc2NurbsCtrlPt2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14518,7 +14511,7 @@
 <XPD:REF name="Owner">L2XLvayH6UCHYVBuTBngMgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[101]" type="UMLAssociation" guid="lOCEiXyhbUiNVAQn0q3JCwAA">
+<XPD:OBJ name="OwnedElements[100]" type="UMLAssociation" guid="lOCEiXyhbUiNVAQn0q3JCwAA">
 <XPD:ATTR name="Documentation" type="string">控制点列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -14549,7 +14542,7 @@
 <XPD:REF name="Views[3]">HFmbtYNo9k+boTs0U99ywQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[102]" type="UMLClass" guid="x0c21Z5fCEOMX0T2odLlIgAA">
+<XPD:OBJ name="OwnedElements[101]" type="UMLClass" guid="x0c21Z5fCEOMX0T2odLlIgAA">
 <XPD:ATTR name="Name" type="string">Gfc2Surface</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">曲面（Gfc2Surface），各种曲面基类。</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
@@ -14578,7 +14571,7 @@
 <XPD:REF name="TypedFeatures[3]">q/+/gGzZ+kyXHp4TwN+1wAAA</XPD:REF>
 <XPD:REF name="TypedFeatures[4]">x2GbAJXOSESnIeR3mHvgNQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[103]" type="UMLClass" guid="mcWvv1Fy30ar+mgpew9yKAAA">
+<XPD:OBJ name="OwnedElements[102]" type="UMLClass" guid="mcWvv1Fy30ar+mgpew9yKAAA">
 <XPD:ATTR name="Name" type="string">Gfc2Curve3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三维曲线（Gfc2Curve3d），是各种三维线段的基类。</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
@@ -14606,7 +14599,7 @@
 <XPD:REF name="TypedFeatures[4]">mHqdTkL5mkuuvkasgSovRAAA</XPD:REF>
 <XPD:REF name="TypedFeatures[5]">w8YmIR2L00mMcntVoABilwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[104]" type="UMLClass" guid="ueN7WPd5DUOLqcRt16LImgAA">
+<XPD:OBJ name="OwnedElements[103]" type="UMLClass" guid="ueN7WPd5DUOLqcRt16LImgAA">
 <XPD:ATTR name="Name" type="string">Gfc2Line3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三维直线段（Gfc2Line3d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14633,7 +14626,7 @@
 <XPD:REF name="Owner">ueN7WPd5DUOLqcRt16LImgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[105]" type="UMLClass" guid="Di4gA+XdFE2+9pvLeJ4jxQAA">
+<XPD:OBJ name="OwnedElements[104]" type="UMLClass" guid="Di4gA+XdFE2+9pvLeJ4jxQAA">
 <XPD:ATTR name="Name" type="string">Gfc2Arc3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">空间圆弧（Gfc2Arc3d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14645,7 +14638,7 @@
 <XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">gRqKiLqS5EeYm+2/HK4thwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[106]" type="UMLClass" guid="wQ8vW1TA6k6BSAIWYKc5ZQAA">
+<XPD:OBJ name="OwnedElements[105]" type="UMLClass" guid="wQ8vW1TA6k6BSAIWYKc5ZQAA">
 <XPD:ATTR name="Name" type="string">Gfc2Ellipse3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">空间椭圆弧（Gfc2Ellipse3d）</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14657,7 +14650,7 @@
 <XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">UWiZ82G7NUGP8teRSW9fkgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[107]" type="UMLClass" guid="j0GdHv75O0aDBPwnCLOEKQAA">
+<XPD:OBJ name="OwnedElements[106]" type="UMLClass" guid="j0GdHv75O0aDBPwnCLOEKQAA">
 <XPD:ATTR name="Name" type="string">Gfc2NurbsCurve3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三维非均匀有理样条曲线（Gfc2NurbsCurve3d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14679,7 +14672,7 @@
 <XPD:REF name="Owner">j0GdHv75O0aDBPwnCLOEKQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[108]" type="UMLClass" guid="WaLpTzReM0CPZkX08MEPpgAA">
+<XPD:OBJ name="OwnedElements[107]" type="UMLClass" guid="WaLpTzReM0CPZkX08MEPpgAA">
 <XPD:ATTR name="Name" type="string">Gfc2IntersectionCurve3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">曲面交线（Gfc2IntersectionCurve3d），定义两个曲面的交线。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14715,7 +14708,7 @@
 <XPD:REF name="Owner">WaLpTzReM0CPZkX08MEPpgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[109]" type="UMLClass" guid="DJ00rI28NkiDJB7uvQQ4nAAA">
+<XPD:OBJ name="OwnedElements[108]" type="UMLClass" guid="DJ00rI28NkiDJB7uvQQ4nAAA">
 <XPD:ATTR name="Name" type="string">Gfc2SpiralLine3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三维螺旋线（Gfc2SpiralLine3d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14766,7 +14759,7 @@
 <XPD:REF name="Owner">DJ00rI28NkiDJB7uvQQ4nAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[110]" type="UMLClass" guid="v76xp7SkoUq1KX7LVkQb3gAA">
+<XPD:OBJ name="OwnedElements[109]" type="UMLClass" guid="v76xp7SkoUq1KX7LVkQb3gAA">
 <XPD:ATTR name="Name" type="string">Gfc2SweepCurve3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">扫描曲线（Gfc2SweepCurve3d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14806,7 +14799,7 @@
 <XPD:REF name="Owner">v76xp7SkoUq1KX7LVkQb3gAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[111]" type="UMLGeneralization" guid="g90mMyVGvk+zkKZyGCM5BwAA">
+<XPD:OBJ name="OwnedElements[110]" type="UMLGeneralization" guid="g90mMyVGvk+zkKZyGCM5BwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">ueN7WPd5DUOLqcRt16LImgAA</XPD:REF>
 <XPD:REF name="Parent">mcWvv1Fy30ar+mgpew9yKAAA</XPD:REF>
@@ -14816,7 +14809,7 @@
 <XPD:REF name="Views[2]">hgTN9Q+NmUiz45OWZVD1wQAA</XPD:REF>
 <XPD:REF name="Views[3]">vHQmqILii0SAA9r4R3e2pQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[112]" type="UMLGeneralization" guid="w6fKCEV9y0qD0oGRLQ4McQAA">
+<XPD:OBJ name="OwnedElements[111]" type="UMLGeneralization" guid="w6fKCEV9y0qD0oGRLQ4McQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">j0GdHv75O0aDBPwnCLOEKQAA</XPD:REF>
 <XPD:REF name="Parent">mcWvv1Fy30ar+mgpew9yKAAA</XPD:REF>
@@ -14826,7 +14819,7 @@
 <XPD:REF name="Views[2]">+9hYLDJdB0aNgKtDTsUibQAA</XPD:REF>
 <XPD:REF name="Views[3]">ClWyH79AnUCOL65hWCZeXgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[113]" type="UMLGeneralization" guid="Vyl5idr840SZNcR5iIF9UQAA">
+<XPD:OBJ name="OwnedElements[112]" type="UMLGeneralization" guid="Vyl5idr840SZNcR5iIF9UQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">WaLpTzReM0CPZkX08MEPpgAA</XPD:REF>
 <XPD:REF name="Parent">mcWvv1Fy30ar+mgpew9yKAAA</XPD:REF>
@@ -14836,7 +14829,7 @@
 <XPD:REF name="Views[2]">O24oqRr3KEGhIYcXPd1FGQAA</XPD:REF>
 <XPD:REF name="Views[3]">OHpZCOTpO0iYPZOVN/yWBwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[114]" type="UMLGeneralization" guid="JbQ4vTJmRkKiKpN7ZKRjYgAA">
+<XPD:OBJ name="OwnedElements[113]" type="UMLGeneralization" guid="JbQ4vTJmRkKiKpN7ZKRjYgAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">DJ00rI28NkiDJB7uvQQ4nAAA</XPD:REF>
 <XPD:REF name="Parent">mcWvv1Fy30ar+mgpew9yKAAA</XPD:REF>
@@ -14846,7 +14839,7 @@
 <XPD:REF name="Views[2]">83ieYjamjkGAOvOCwlfakQAA</XPD:REF>
 <XPD:REF name="Views[3]">/ONc+3eutki6w3NZ5adWyQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[115]" type="UMLGeneralization" guid="HXsrYtMtsU+F81e/l4AsvQAA">
+<XPD:OBJ name="OwnedElements[114]" type="UMLGeneralization" guid="HXsrYtMtsU+F81e/l4AsvQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">v76xp7SkoUq1KX7LVkQb3gAA</XPD:REF>
 <XPD:REF name="Parent">mcWvv1Fy30ar+mgpew9yKAAA</XPD:REF>
@@ -14856,7 +14849,7 @@
 <XPD:REF name="Views[2]">udyJLnlTKk27GgOiIOPj9AAA</XPD:REF>
 <XPD:REF name="Views[3]">/8GKCk8xUUC+Xy9y+7B85gAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[116]" type="UMLClass" guid="QgKMdYU9HkazcsmOJS8OdQAA">
+<XPD:OBJ name="OwnedElements[115]" type="UMLClass" guid="QgKMdYU9HkazcsmOJS8OdQAA">
 <XPD:ATTR name="Name" type="string">Gfc2PlaneInfo</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">平面信息（Gfc2PlaneInfo），定义空间中的平面。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14890,7 +14883,7 @@
 <XPD:REF name="Owner">QgKMdYU9HkazcsmOJS8OdQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[117]" type="UMLClass" guid="spk23X7OKEqJNSh5k9jdWAAA">
+<XPD:OBJ name="OwnedElements[116]" type="UMLClass" guid="spk23X7OKEqJNSh5k9jdWAAA">
 <XPD:ATTR name="Name" type="string">Gfc2NurbsCtrlPt3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三维非均匀有理样条曲线控制点（Gfc2NurbsCtrlPt3d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -14921,7 +14914,7 @@
 <XPD:REF name="Owner">spk23X7OKEqJNSh5k9jdWAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[118]" type="UMLAssociation" guid="UBgOSkX5sUaXrLBCWZZ4hAAA">
+<XPD:OBJ name="OwnedElements[117]" type="UMLAssociation" guid="UBgOSkX5sUaXrLBCWZZ4hAAA">
 <XPD:ATTR name="Documentation" type="string">控制点列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -14952,7 +14945,7 @@
 <XPD:REF name="Views[3]">9Fo1vrnE9EeLiET3BeRBRAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[119]" type="UMLClass" guid="nZGxUxBBq0qrbf3vkZuTngAA">
+<XPD:OBJ name="OwnedElements[118]" type="UMLClass" guid="nZGxUxBBq0qrbf3vkZuTngAA">
 <XPD:ATTR name="Name" type="string">Gfc2InternalPt</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">内点（Gfc2InternalPt）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15012,7 +15005,7 @@
 <XPD:REF name="Owner">nZGxUxBBq0qrbf3vkZuTngAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[120]" type="UMLClass" guid="IRcycF60BEGbMAjXli8kHQAA">
+<XPD:OBJ name="OwnedElements[119]" type="UMLClass" guid="IRcycF60BEGbMAjXli8kHQAA">
 <XPD:ATTR name="Name" type="string">Gfc2InternalChart</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">内点图（Gfc2InternalChart）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15044,7 +15037,7 @@
 <XPD:REF name="Owner">IRcycF60BEGbMAjXli8kHQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[121]" type="UMLAssociation" guid="3QTz/ts+fE2OnNdOfXlt1gAA">
+<XPD:OBJ name="OwnedElements[120]" type="UMLAssociation" guid="3QTz/ts+fE2OnNdOfXlt1gAA">
 <XPD:ATTR name="Documentation" type="string">内点列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -15075,7 +15068,7 @@
 <XPD:REF name="Views[3]">I/HdnIYcLEOSsWE+Vt/ZCAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[122]" type="UMLClass" guid="CQ61kuOwHUq1phKyKZUbzgAA">
+<XPD:OBJ name="OwnedElements[121]" type="UMLClass" guid="CQ61kuOwHUq1phKyKZUbzgAA">
 <XPD:ATTR name="Name" type="string">Gfc2Bevel</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">坡面（Gfc2Bevel）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15115,7 +15108,7 @@
 <XPD:REF name="Owner">CQ61kuOwHUq1phKyKZUbzgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[123]" type="UMLClass" guid="S7/7Ehzfb0mgw4iqC0VvRQAA">
+<XPD:OBJ name="OwnedElements[122]" type="UMLClass" guid="S7/7Ehzfb0mgw4iqC0VvRQAA">
 <XPD:ATTR name="Name" type="string">Gfc2Cylinder</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">柱面（Gfc2Cylinder）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15170,7 +15163,7 @@
 <XPD:REF name="Owner">S7/7Ehzfb0mgw4iqC0VvRQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[124]" type="UMLClass" guid="4w+tMGIkZUKp4dfC4iby+wAA">
+<XPD:OBJ name="OwnedElements[123]" type="UMLClass" guid="4w+tMGIkZUKp4dfC4iby+wAA">
 <XPD:ATTR name="Name" type="string">Gfc2Helicoid</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">螺旋面（Gfc2Helicoid）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15228,7 +15221,7 @@
 <XPD:REF name="Owner">4w+tMGIkZUKp4dfC4iby+wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[125]" type="UMLClass" guid="f6NinSRyiEa4yE7nPuXY9wAA">
+<XPD:OBJ name="OwnedElements[124]" type="UMLClass" guid="f6NinSRyiEa4yE7nPuXY9wAA">
 <XPD:ATTR name="Name" type="string">Gfc2NurbsSurface</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">Nurbs曲面（Gfc2NurbsSurface）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15271,7 +15264,7 @@
 <XPD:REF name="Owner">f6NinSRyiEa4yE7nPuXY9wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[126]" type="UMLClass" guid="1p3ThVa0FEK2WISu0Q6B9wAA">
+<XPD:OBJ name="OwnedElements[125]" type="UMLClass" guid="1p3ThVa0FEK2WISu0Q6B9wAA">
 <XPD:ATTR name="Name" type="string">Gfc2Plane</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">平面（Gfc2Plane）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15308,7 +15301,7 @@
 <XPD:REF name="Owner">1p3ThVa0FEK2WISu0Q6B9wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[127]" type="UMLClass" guid="TfknLZTVK0eilRK+KqqqYQAA">
+<XPD:OBJ name="OwnedElements[126]" type="UMLClass" guid="TfknLZTVK0eilRK+KqqqYQAA">
 <XPD:ATTR name="Name" type="string">Gfc2Sphere</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">球面（Gfc2Sphere）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15348,7 +15341,7 @@
 <XPD:REF name="Owner">TfknLZTVK0eilRK+KqqqYQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[128]" type="UMLClass" guid="uBrTqF0jN0y0nQzr0lxjAAAA">
+<XPD:OBJ name="OwnedElements[127]" type="UMLClass" guid="uBrTqF0jN0y0nQzr0lxjAAAA">
 <XPD:ATTR name="Name" type="string">Gfc2Sweep</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">扫描面（Gfc2Sweep）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15389,7 +15382,7 @@
 <XPD:REF name="Owner">uBrTqF0jN0y0nQzr0lxjAAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[129]" type="UMLClass" guid="3gfkZcsMY0Kn8abYZMJRtwAA">
+<XPD:OBJ name="OwnedElements[128]" type="UMLClass" guid="3gfkZcsMY0Kn8abYZMJRtwAA">
 <XPD:ATTR name="Name" type="string">Gfc2Torus</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">圆环面（Gfc2Torus）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15435,7 +15428,7 @@
 <XPD:REF name="Owner">3gfkZcsMY0Kn8abYZMJRtwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[130]" type="UMLGeneralization" guid="BWITknghtUS6SELdSB/bhAAA">
+<XPD:OBJ name="OwnedElements[129]" type="UMLGeneralization" guid="BWITknghtUS6SELdSB/bhAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">CQ61kuOwHUq1phKyKZUbzgAA</XPD:REF>
 <XPD:REF name="Parent">x0c21Z5fCEOMX0T2odLlIgAA</XPD:REF>
@@ -15445,7 +15438,7 @@
 <XPD:REF name="Views[2]">M1OUEbmITkGGVjZtYCC4rAAA</XPD:REF>
 <XPD:REF name="Views[3]">RJjd2RszYUCs3SraU+dP5AAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[131]" type="UMLGeneralization" guid="NzIpGpNW5kWyWQ60wCocLAAA">
+<XPD:OBJ name="OwnedElements[130]" type="UMLGeneralization" guid="NzIpGpNW5kWyWQ60wCocLAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">S7/7Ehzfb0mgw4iqC0VvRQAA</XPD:REF>
 <XPD:REF name="Parent">x0c21Z5fCEOMX0T2odLlIgAA</XPD:REF>
@@ -15455,7 +15448,7 @@
 <XPD:REF name="Views[2]">4LKW+F8VBkSNcQekgRDeCgAA</XPD:REF>
 <XPD:REF name="Views[3]">Oo/cjWYH6k+mDkMU4JN14gAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[132]" type="UMLGeneralization" guid="Lh5W0vW8SEayq/YMNoTgyAAA">
+<XPD:OBJ name="OwnedElements[131]" type="UMLGeneralization" guid="Lh5W0vW8SEayq/YMNoTgyAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">1p3ThVa0FEK2WISu0Q6B9wAA</XPD:REF>
 <XPD:REF name="Parent">x0c21Z5fCEOMX0T2odLlIgAA</XPD:REF>
@@ -15465,7 +15458,7 @@
 <XPD:REF name="Views[2]">g6LDJNQiuE2I3YDL748xFwAA</XPD:REF>
 <XPD:REF name="Views[3]">QAfcnMM0ykqCjiA8joDOfgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[133]" type="UMLGeneralization" guid="hJ96XG7jyE6uU1ZiFuOb8wAA">
+<XPD:OBJ name="OwnedElements[132]" type="UMLGeneralization" guid="hJ96XG7jyE6uU1ZiFuOb8wAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">TfknLZTVK0eilRK+KqqqYQAA</XPD:REF>
 <XPD:REF name="Parent">x0c21Z5fCEOMX0T2odLlIgAA</XPD:REF>
@@ -15475,7 +15468,7 @@
 <XPD:REF name="Views[2]">hlhY/hKUrkeelqyxfjYd8AAA</XPD:REF>
 <XPD:REF name="Views[3]">XRXXbq4s5UyoFibEaDP0BgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[134]" type="UMLGeneralization" guid="Rh0yIaOYeEqqvdHQ4KySywAA">
+<XPD:OBJ name="OwnedElements[133]" type="UMLGeneralization" guid="Rh0yIaOYeEqqvdHQ4KySywAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">f6NinSRyiEa4yE7nPuXY9wAA</XPD:REF>
 <XPD:REF name="Parent">x0c21Z5fCEOMX0T2odLlIgAA</XPD:REF>
@@ -15485,7 +15478,7 @@
 <XPD:REF name="Views[2]">gQ6ilss7/UW4DYda4+IdDwAA</XPD:REF>
 <XPD:REF name="Views[3]">IMztlXCHtkWQv4FQBiVS6gAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[135]" type="UMLGeneralization" guid="P0MqLDkJ00WMpgBSC1FjwQAA">
+<XPD:OBJ name="OwnedElements[134]" type="UMLGeneralization" guid="P0MqLDkJ00WMpgBSC1FjwQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">4w+tMGIkZUKp4dfC4iby+wAA</XPD:REF>
 <XPD:REF name="Parent">x0c21Z5fCEOMX0T2odLlIgAA</XPD:REF>
@@ -15495,7 +15488,7 @@
 <XPD:REF name="Views[2]">CQXQ1XMX8EiAW4w5GW5LtAAA</XPD:REF>
 <XPD:REF name="Views[3]">y/zQ7PjkXUCKTU5ifXynDAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[136]" type="UMLGeneralization" guid="J8T3Ospw+UqFpQEcOoBUFgAA">
+<XPD:OBJ name="OwnedElements[135]" type="UMLGeneralization" guid="J8T3Ospw+UqFpQEcOoBUFgAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">uBrTqF0jN0y0nQzr0lxjAAAA</XPD:REF>
 <XPD:REF name="Parent">x0c21Z5fCEOMX0T2odLlIgAA</XPD:REF>
@@ -15505,7 +15498,7 @@
 <XPD:REF name="Views[2]">a9eZ61jel0uBB4EVnNqH1wAA</XPD:REF>
 <XPD:REF name="Views[3]">JQGT2e4MNEWnIAspT9RaLgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[137]" type="UMLGeneralization" guid="kHgscORSP0S76WCzhzHAWwAA">
+<XPD:OBJ name="OwnedElements[136]" type="UMLGeneralization" guid="kHgscORSP0S76WCzhzHAWwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">3gfkZcsMY0Kn8abYZMJRtwAA</XPD:REF>
 <XPD:REF name="Parent">x0c21Z5fCEOMX0T2odLlIgAA</XPD:REF>
@@ -15515,7 +15508,7 @@
 <XPD:REF name="Views[2]">7L+ywA+MmEqd53jLI2SdjwAA</XPD:REF>
 <XPD:REF name="Views[3]">1K37vRHHY0e0gP46Jht4DwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[138]" type="UMLAssociation" guid="z+oKjbbcLUO2BGN/48vGHwAA">
+<XPD:OBJ name="OwnedElements[137]" type="UMLAssociation" guid="z+oKjbbcLUO2BGN/48vGHwAA">
 <XPD:ATTR name="Documentation" type="string">控制点矩阵，U行*V列，行优先</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -15546,7 +15539,7 @@
 <XPD:REF name="Views[3]">vaTAWlaQ3EKtO+O76bvglQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[139]" type="UMLClass" guid="WqPtLBZGzkuWYt65dv3fSAAA">
+<XPD:OBJ name="OwnedElements[138]" type="UMLClass" guid="WqPtLBZGzkuWYt65dv3fSAAA">
 <XPD:ATTR name="Name" type="string">Gfc2Body</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">几何 体（Gfc2Body）。</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
@@ -15563,7 +15556,7 @@
 <XPD:REF name="Specializations[1]">XJnniI5gdkKNdxf7kv2FSwAA</XPD:REF>
 <XPD:REF name="Specializations[2]">gBnR+12x6UeSd3YrZPzTpQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[140]" type="UMLClass" guid="ivmmVeU4+kCJJdS10EMUMAAA">
+<XPD:OBJ name="OwnedElements[139]" type="UMLClass" guid="ivmmVeU4+kCJJdS10EMUMAAA">
 <XPD:ATTR name="Name" type="string">Gfc2BrepBody</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">边界表示体（Gfc2BrepBody）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15578,7 +15571,7 @@
 <XPD:REF name="Associations[0]">OVxMzGKKC0GT094j4OYloAAA</XPD:REF>
 <XPD:REF name="Associations[1]">nzlfCFHIRUaRUI28SAvB3gAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[141]" type="UMLClass" guid="rfDfPNlRxkC1mVYIgXFRzAAA">
+<XPD:OBJ name="OwnedElements[140]" type="UMLClass" guid="rfDfPNlRxkC1mVYIgXFRzAAA">
 <XPD:ATTR name="Name" type="string">Gfc2CuboidBody</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">长方体（Gfc2CuboidBody）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15605,7 +15598,7 @@
 <XPD:REF name="Owner">rfDfPNlRxkC1mVYIgXFRzAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[142]" type="UMLClass" guid="jSgiBRGZEEOdEAoCn6kuOQAA">
+<XPD:OBJ name="OwnedElements[141]" type="UMLClass" guid="jSgiBRGZEEOdEAoCn6kuOQAA">
 <XPD:ATTR name="Name" type="string">Gfc2ExtrudedBody</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">拉伸体（Gfc2ExtrudedBody）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15633,7 +15626,7 @@
 <XPD:REF name="Owner">jSgiBRGZEEOdEAoCn6kuOQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[143]" type="UMLClass" guid="kyK2ploNgkyy5zSiMyvS+wAA">
+<XPD:OBJ name="OwnedElements[142]" type="UMLClass" guid="kyK2ploNgkyy5zSiMyvS+wAA">
 <XPD:ATTR name="Name" type="string">Gfc2PolyhedronBody</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">多面体（Gfc2PolyhedronBody）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15648,7 +15641,7 @@
 <XPD:REF name="Associations[0]">wcd1tlG0jECq+SmDZuenTQAA</XPD:REF>
 <XPD:REF name="Associations[1]">CsadIDjSC0avXtzGbNGiVAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[144]" type="UMLGeneralization" guid="5lOx+Aqd1kif1e1gNSfygAAA">
+<XPD:OBJ name="OwnedElements[143]" type="UMLGeneralization" guid="5lOx+Aqd1kif1e1gNSfygAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">ivmmVeU4+kCJJdS10EMUMAAA</XPD:REF>
 <XPD:REF name="Parent">WqPtLBZGzkuWYt65dv3fSAAA</XPD:REF>
@@ -15658,7 +15651,7 @@
 <XPD:REF name="Views[2]">Rb49ktsjz02JaMsbzOjJpgAA</XPD:REF>
 <XPD:REF name="Views[3]">c6yxnbERkkiLmA7seY72JAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[145]" type="UMLGeneralization" guid="waMpBa7T6Uik5N9bYW7p7AAA">
+<XPD:OBJ name="OwnedElements[144]" type="UMLGeneralization" guid="waMpBa7T6Uik5N9bYW7p7AAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">rfDfPNlRxkC1mVYIgXFRzAAA</XPD:REF>
 <XPD:REF name="Parent">HeDlSZeHy0mj48PCiHg6hAAA</XPD:REF>
@@ -15668,7 +15661,7 @@
 <XPD:REF name="Views[2]">MmGAIyk7b0m8HpagCRv9rQAA</XPD:REF>
 <XPD:REF name="Views[3]">OlkTonnv9EuK0QVXx6/KkwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[146]" type="UMLGeneralization" guid="17dzKNNLW0+i3bkxTOtr1gAA">
+<XPD:OBJ name="OwnedElements[145]" type="UMLGeneralization" guid="17dzKNNLW0+i3bkxTOtr1gAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">jSgiBRGZEEOdEAoCn6kuOQAA</XPD:REF>
 <XPD:REF name="Parent">HeDlSZeHy0mj48PCiHg6hAAA</XPD:REF>
@@ -15678,7 +15671,7 @@
 <XPD:REF name="Views[2]">GNGmy6ndzkC4fhW+OvP1GwAA</XPD:REF>
 <XPD:REF name="Views[3]">MDs1qzadsEisdGpCD8VYkQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[147]" type="UMLGeneralization" guid="XJnniI5gdkKNdxf7kv2FSwAA">
+<XPD:OBJ name="OwnedElements[146]" type="UMLGeneralization" guid="XJnniI5gdkKNdxf7kv2FSwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">kyK2ploNgkyy5zSiMyvS+wAA</XPD:REF>
 <XPD:REF name="Parent">WqPtLBZGzkuWYt65dv3fSAAA</XPD:REF>
@@ -15688,26 +15681,26 @@
 <XPD:REF name="Views[2]">ctZD4qEV70ey51cExZtWngAA</XPD:REF>
 <XPD:REF name="Views[3]">R6cwzF2NeEiLWwoPha2P2QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[148]" type="UMLClass" guid="Stu3f4newkeLzAY2QQbK2QAA">
+<XPD:OBJ name="OwnedElements[147]" type="UMLClass" guid="Stu3f4newkeLzAY2QQbK2QAA">
 <XPD:ATTR name="Name" type="string">Gfc2CoedgeList</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">共边列表（Gfc2CoedgeList）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">8</XPD:ATTR>
-<XPD:REF name="Views[0]">23Ph+CN1E06NqQTAm7D3igAA</XPD:REF>
-<XPD:REF name="Views[1]">y71W2lDeD02xDPMIuUfBeQAA</XPD:REF>
-<XPD:REF name="Views[2]">mLCcxvPuS0Gqa6B0Mm4QZQAA</XPD:REF>
-<XPD:REF name="Views[3]">1NvrKpGSoUOrCLarPuG3xwAA</XPD:REF>
-<XPD:REF name="Views[4]">fD3OEZe/NkS0nE8PpmGHeAAA</XPD:REF>
-<XPD:REF name="Views[5]">lhcPkeyyX0SA/fpWdlky+QAA</XPD:REF>
-<XPD:REF name="Views[6]">lfnt5gUBZEOngNGrSiZ8swAA</XPD:REF>
-<XPD:REF name="Views[7]">bK7uJb8X5UyEUnZ4pFWt+gAA</XPD:REF>
+<XPD:REF name="Views[0]">fD3OEZe/NkS0nE8PpmGHeAAA</XPD:REF>
+<XPD:REF name="Views[1]">lhcPkeyyX0SA/fpWdlky+QAA</XPD:REF>
+<XPD:REF name="Views[2]">lfnt5gUBZEOngNGrSiZ8swAA</XPD:REF>
+<XPD:REF name="Views[3]">bK7uJb8X5UyEUnZ4pFWt+gAA</XPD:REF>
+<XPD:REF name="Views[4]">23Ph+CN1E06NqQTAm7D3igAA</XPD:REF>
+<XPD:REF name="Views[5]">y71W2lDeD02xDPMIuUfBeQAA</XPD:REF>
+<XPD:REF name="Views[6]">mLCcxvPuS0Gqa6B0Mm4QZQAA</XPD:REF>
+<XPD:REF name="Views[7]">1NvrKpGSoUOrCLarPuG3xwAA</XPD:REF>
 <XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">2iyp17H0IkuvViU1k0QgwwAA</XPD:REF>
 <XPD:ATTR name="#Associations" type="integer">2</XPD:ATTR>
 <XPD:REF name="Associations[0]">KaBcmuyuwEqta4/U/OAnYgAA</XPD:REF>
 <XPD:REF name="Associations[1]">oygTHL3VxkaX/0+0e/6gJAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[149]" type="UMLClass" guid="pcKQFpvEjkmMgBeIgGYiLQAA">
+<XPD:OBJ name="OwnedElements[148]" type="UMLClass" guid="pcKQFpvEjkmMgBeIgGYiLQAA">
 <XPD:ATTR name="Name" type="string">Gfc2Face</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">Brep体中的面（Gfc2Face）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15750,7 +15743,7 @@
 <XPD:REF name="Owner">pcKQFpvEjkmMgBeIgGYiLQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[150]" type="UMLClass" guid="VqjfXmnV5U2nAXc6ODBArAAA">
+<XPD:OBJ name="OwnedElements[149]" type="UMLClass" guid="VqjfXmnV5U2nAXc6ODBArAAA">
 <XPD:ATTR name="Name" type="string">Gfc2Edge</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">Brep体中的边（Gfc2Edge）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15806,7 +15799,7 @@
 <XPD:REF name="Owner">VqjfXmnV5U2nAXc6ODBArAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[151]" type="UMLAssociation" guid="sqzYyy2zOUyXr23MzinoVAAA">
+<XPD:OBJ name="OwnedElements[150]" type="UMLAssociation" guid="sqzYyy2zOUyXr23MzinoVAAA">
 <XPD:ATTR name="Documentation" type="string">面列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -15837,7 +15830,7 @@
 <XPD:REF name="Views[3]">6ewODvOXcES5bvtm1USmSAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[152]" type="UMLAssociation" guid="zEnhmR/Xs0u/ictg+2hDkQAA">
+<XPD:OBJ name="OwnedElements[151]" type="UMLAssociation" guid="zEnhmR/Xs0u/ictg+2hDkQAA">
 <XPD:ATTR name="Documentation" type="string">边列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -15868,20 +15861,20 @@
 <XPD:REF name="Views[3]">U6gI30fNSUCn8CBPifaYPAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[153]" type="UMLClass" guid="SbE3Sp803kGxJolYrJhLIAAA">
+<XPD:OBJ name="OwnedElements[152]" type="UMLClass" guid="SbE3Sp803kGxJolYrJhLIAAA">
 <XPD:ATTR name="Name" type="string">Gfc2Polygon</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">多边形（Gfc2Polygon）。</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">8</XPD:ATTR>
-<XPD:REF name="Views[0]">ZNA9dr/Ty0eJMK3GmhtBHgAA</XPD:REF>
-<XPD:REF name="Views[1]">eYH/pKdRAUusyCZzZ9zNHwAA</XPD:REF>
-<XPD:REF name="Views[2]">wmVuVn5JkEm49hZcKgI7UAAA</XPD:REF>
-<XPD:REF name="Views[3]">fseoIvTU6kOT1AARNcB13AAA</XPD:REF>
-<XPD:REF name="Views[4]">s8NWAOPzpUGni1d/lD4j1gAA</XPD:REF>
-<XPD:REF name="Views[5]">8lOhHoDL/EelGALkfZvKqQAA</XPD:REF>
-<XPD:REF name="Views[6]">4WUbqqZ1ek2eUC4vRapbcAAA</XPD:REF>
-<XPD:REF name="Views[7]">2nf/vDfrI02qJO93HV8uPgAA</XPD:REF>
+<XPD:REF name="Views[0]">s8NWAOPzpUGni1d/lD4j1gAA</XPD:REF>
+<XPD:REF name="Views[1]">8lOhHoDL/EelGALkfZvKqQAA</XPD:REF>
+<XPD:REF name="Views[2]">4WUbqqZ1ek2eUC4vRapbcAAA</XPD:REF>
+<XPD:REF name="Views[3]">2nf/vDfrI02qJO93HV8uPgAA</XPD:REF>
+<XPD:REF name="Views[4]">ZNA9dr/Ty0eJMK3GmhtBHgAA</XPD:REF>
+<XPD:REF name="Views[5]">eYH/pKdRAUusyCZzZ9zNHwAA</XPD:REF>
+<XPD:REF name="Views[6]">wmVuVn5JkEm49hZcKgI7UAAA</XPD:REF>
+<XPD:REF name="Views[7]">fseoIvTU6kOT1AARNcB13AAA</XPD:REF>
 <XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">tGicXuHLF06SuWN+vHQ+twAA</XPD:REF>
 <XPD:ATTR name="#Specializations" type="integer">3</XPD:ATTR>
@@ -15894,7 +15887,7 @@
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">sud0bSzF5UyN8vosroTyMAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[154]" type="UMLAssociation" guid="wRyCM2XFCEKVgRXcUoHF6QAA">
+<XPD:OBJ name="OwnedElements[153]" type="UMLAssociation" guid="wRyCM2XFCEKVgRXcUoHF6QAA">
 <XPD:ATTR name="Documentation" type="string">环列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -15925,7 +15918,7 @@
 <XPD:REF name="Views[3]">/8ZM7x2SzUmpvS3kX1AxkgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[155]" type="UMLClass" guid="bOllU0xIvEuW5t7xsfcKNgAA">
+<XPD:OBJ name="OwnedElements[154]" type="UMLClass" guid="bOllU0xIvEuW5t7xsfcKNgAA">
 <XPD:ATTR name="Name" type="string">Gfc2PolyhedralFace</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">多面体中的面（Gfc2PolyhedralFace）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -15939,7 +15932,7 @@
 <XPD:REF name="Associations[1]">3f4rwiHcfkWfFacCr/ln2AAA</XPD:REF>
 <XPD:REF name="Associations[2]">w/2XAYtsNkmw6zUn+NhH1gAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[156]" type="UMLAssociation" guid="CbjZpW7UzkaSxvLvTBf13QAA">
+<XPD:OBJ name="OwnedElements[155]" type="UMLAssociation" guid="CbjZpW7UzkaSxvLvTBf13QAA">
 <XPD:ATTR name="Documentation" type="string">面列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -15970,7 +15963,7 @@
 <XPD:REF name="Views[3]">p7Sv4UpR4kODFISERVdRdAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[157]" type="UMLClass" guid="4GvSzLC2kUS9qV2GgVEdoAAA">
+<XPD:OBJ name="OwnedElements[156]" type="UMLClass" guid="4GvSzLC2kUS9qV2GgVEdoAAA">
 <XPD:ATTR name="Name" type="string">Gfc2PlaneCoef</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">平面系数（Gfc2PlaneCoef），通过平面方程四个系数，有方程Ax + By + Cz + D = 0，定义平面。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -16007,7 +16000,7 @@
 <XPD:REF name="Owner">4GvSzLC2kUS9qV2GgVEdoAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[158]" type="UMLClass" guid="J8s+Ig/Q6kOjHggHWdvWugAA">
+<XPD:OBJ name="OwnedElements[157]" type="UMLClass" guid="J8s+Ig/Q6kOjHggHWdvWugAA">
 <XPD:ATTR name="Name" type="string">Gfc2PolyhedralLoop</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">多面体中环（Gfc2PolyhedralLoop）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -16020,7 +16013,7 @@
 <XPD:REF name="Associations[0]">+XdKdzBQx0SrCpynxTBfwgAA</XPD:REF>
 <XPD:REF name="Associations[1]">gp0e73MEtUijkaUME0ugAQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[159]" type="UMLClass" guid="2sLvZo9pikGu67vZfPYhGwAA">
+<XPD:OBJ name="OwnedElements[158]" type="UMLClass" guid="2sLvZo9pikGu67vZfPYhGwAA">
 <XPD:ATTR name="Name" type="string">Gfc2PolyhedralEdge</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">多面体中的边（Gfc2PolyhedralEdge）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -16045,7 +16038,7 @@
 <XPD:REF name="Owner">2sLvZo9pikGu67vZfPYhGwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[160]" type="UMLAssociation" guid="Ik7jYEfAa0yjcupP42kTZAAA">
+<XPD:OBJ name="OwnedElements[159]" type="UMLAssociation" guid="Ik7jYEfAa0yjcupP42kTZAAA">
 <XPD:ATTR name="Documentation" type="string">边列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16076,7 +16069,7 @@
 <XPD:REF name="Views[3]">TJCvpkzDZku7Rer4tOs/0wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[161]" type="UMLAssociation" guid="d9GqHT7lyk+lTkONlwZbmQAA">
+<XPD:OBJ name="OwnedElements[160]" type="UMLAssociation" guid="d9GqHT7lyk+lTkONlwZbmQAA">
 <XPD:ATTR name="Documentation" type="string">跟踪交点信息</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16107,7 +16100,7 @@
 <XPD:REF name="Views[3]">r8iE2rMXkkqHwZfj6sTgXAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[162]" type="UMLAssociation" guid="y/snN8QYV0agnJz3Xp5RXgAA">
+<XPD:OBJ name="OwnedElements[161]" type="UMLAssociation" guid="y/snN8QYV0agnJz3Xp5RXgAA">
 <XPD:ATTR name="Documentation" type="string">截面</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16138,7 +16131,7 @@
 <XPD:REF name="Views[3]">WyRgu78o3E2nNYhibhOkbAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[163]" type="UMLAssociation" guid="VbuwXTgUT0OFr5CXy4nz9gAA">
+<XPD:OBJ name="OwnedElements[162]" type="UMLAssociation" guid="VbuwXTgUT0OFr5CXy4nz9gAA">
 <XPD:ATTR name="Documentation" type="string">环列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16169,7 +16162,7 @@
 <XPD:REF name="Views[3]">N/w/52FBDEmuGkXIsePSQAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[164]" type="UMLAssociation" guid="N/FljquT8E6mN8Wi43k8dAAA">
+<XPD:OBJ name="OwnedElements[163]" type="UMLAssociation" guid="N/FljquT8E6mN8Wi43k8dAAA">
 <XPD:ATTR name="Documentation" type="string">平面</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16200,7 +16193,7 @@
 <XPD:REF name="Views[3]">JEzHXsYSpk+FSKIV21tQHgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[165]" type="UMLClass" guid="jJwbytuhoU6dLPB6A5hT0wAA">
+<XPD:OBJ name="OwnedElements[164]" type="UMLClass" guid="jJwbytuhoU6dLPB6A5hT0wAA">
 <XPD:ATTR name="Name" type="string">Gfc2Double</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">type</XPD:ATTR>
@@ -16267,8 +16260,9 @@
 <XPD:REF name="Owner">jJwbytuhoU6dLPB6A5hT0wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[166]" type="UMLClass" guid="zsvDgsGbGUi4Rw8tP2/tsAAA">
+<XPD:OBJ name="OwnedElements[165]" type="UMLClass" guid="zsvDgsGbGUi4Rw8tP2/tsAAA">
 <XPD:ATTR name="Name" type="string">Gfc2String</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">字符串（Gfc2String）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">DpUc2Ez/GU6m56YcWLB4qwAA</XPD:REF>
@@ -16312,11 +16306,12 @@
 <XPD:ATTR name="#Attributes" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="LHE0MnHONEueSTL4o1xOlQAA">
 <XPD:ATTR name="Name" type="string">Value</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">字符串值</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">STRING</XPD:ATTR>
 <XPD:REF name="Owner">zsvDgsGbGUi4Rw8tP2/tsAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[167]" type="UMLClass" guid="UXHqFaTrqEK2TZzSRzT4dQAA">
+<XPD:OBJ name="OwnedElements[166]" type="UMLClass" guid="UXHqFaTrqEK2TZzSRzT4dQAA">
 <XPD:ATTR name="Name" type="string">Gfc2Integer</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">type</XPD:ATTR>
@@ -16364,7 +16359,7 @@
 <XPD:REF name="Owner">UXHqFaTrqEK2TZzSRzT4dQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[168]" type="UMLClass" guid="qtcr7ODKxUuCUFSox7Zi2wAA">
+<XPD:OBJ name="OwnedElements[167]" type="UMLClass" guid="qtcr7ODKxUuCUFSox7Zi2wAA">
 <XPD:ATTR name="Name" type="string">Gfc2Boolean</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">type</XPD:ATTR>
@@ -16399,7 +16394,7 @@
 <XPD:REF name="Owner">qtcr7ODKxUuCUFSox7Zi2wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[169]" type="UMLClass" guid="BAOFziAH4UOticYaeZGnBwAA">
+<XPD:OBJ name="OwnedElements[168]" type="UMLClass" guid="BAOFziAH4UOticYaeZGnBwAA">
 <XPD:ATTR name="Name" type="string">Gfc2Label</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">type</XPD:ATTR>
@@ -16415,7 +16410,7 @@
 <XPD:REF name="Owner">BAOFziAH4UOticYaeZGnBwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[170]" type="UMLClass" guid="m+GcC6uTuU6mkfn8zJGcCAAA">
+<XPD:OBJ name="OwnedElements[169]" type="UMLClass" guid="m+GcC6uTuU6mkfn8zJGcCAAA">
 <XPD:ATTR name="Name" type="string">Gfc2Text</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">type</XPD:ATTR>
@@ -16433,7 +16428,7 @@
 <XPD:REF name="Owner">m+GcC6uTuU6mkfn8zJGcCAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[171]" type="UMLClass" guid="vGF12cmPCk6BMpQ3XXniCgAA">
+<XPD:OBJ name="OwnedElements[170]" type="UMLClass" guid="vGF12cmPCk6BMpQ3XXniCgAA">
 <XPD:ATTR name="Name" type="string">Gfc2Elev</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">type</XPD:ATTR>
@@ -16449,7 +16444,7 @@
 <XPD:REF name="Owner">vGF12cmPCk6BMpQ3XXniCgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[172]" type="UMLClass" guid="Ohxm+h5nUUqaQ5GbjIZWbAAA">
+<XPD:OBJ name="OwnedElements[171]" type="UMLClass" guid="Ohxm+h5nUUqaQ5GbjIZWbAAA">
 <XPD:ATTR name="Name" type="string">Gfc2Identity</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">type</XPD:ATTR>
@@ -16465,7 +16460,7 @@
 <XPD:REF name="Owner">Ohxm+h5nUUqaQ5GbjIZWbAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[173]" type="UMLAssociation" guid="6gr9jv892kyVTKKyP2FsMgAA">
+<XPD:OBJ name="OwnedElements[172]" type="UMLAssociation" guid="6gr9jv892kyVTKKyP2FsMgAA">
 <XPD:ATTR name="Documentation" type="string">轴线裁剪点</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16496,7 +16491,7 @@
 <XPD:REF name="Views[3]">W2N4F+aVa0uFTPYUYUHjWwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[174]" type="UMLAssociation" guid="L5K+ZmgJ8kKslN+/R89eMwAA">
+<XPD:OBJ name="OwnedElements[173]" type="UMLAssociation" guid="L5K+ZmgJ8kKslN+/R89eMwAA">
 <XPD:ATTR name="Documentation" type="string">轴线裁剪点</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16527,7 +16522,7 @@
 <XPD:REF name="Views[3]">agivLQOu90qt+6/mrRQ2QAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[175]" type="UMLAssociation" guid="VybT/UbS2U2a7NxsdprTPAAA">
+<XPD:OBJ name="OwnedElements[174]" type="UMLAssociation" guid="VybT/UbS2U2a7NxsdprTPAAA">
 <XPD:ATTR name="Documentation" type="string">结点矢量</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16558,7 +16553,7 @@
 <XPD:REF name="Views[3]">P/pifUxBwkykwUnljjiIkwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[176]" type="UMLAssociation" guid="861eO5VVj0aDglJUEZQmjwAA">
+<XPD:OBJ name="OwnedElements[175]" type="UMLAssociation" guid="861eO5VVj0aDglJUEZQmjwAA">
 <XPD:ATTR name="Documentation" type="string">结点矢量</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16589,7 +16584,7 @@
 <XPD:REF name="Views[3]">9+3F8pD8rkO+MAJRVHA08gAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[177]" type="UMLAssociation" guid="SBLlIymyZkO0nwreELOxLQAA">
+<XPD:OBJ name="OwnedElements[176]" type="UMLAssociation" guid="SBLlIymyZkO0nwreELOxLQAA">
 <XPD:ATTR name="Documentation" type="string">U向结点矢量</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16620,7 +16615,7 @@
 <XPD:REF name="Views[3]">kzpjnAs8qU2VRI/6lqWcPwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[178]" type="UMLAssociation" guid="g0/20j2GTEWWVfWjYcWiggAA">
+<XPD:OBJ name="OwnedElements[177]" type="UMLAssociation" guid="g0/20j2GTEWWVfWjYcWiggAA">
 <XPD:ATTR name="Documentation" type="string">V向结点矢量</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16651,7 +16646,7 @@
 <XPD:REF name="Views[3]">SDBfZAqdIUGBt/6tZFiDaAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[179]" type="UMLAssociation" guid="yCCoH29M/kKofuDy2JEvFgAA">
+<XPD:OBJ name="OwnedElements[178]" type="UMLAssociation" guid="yCCoH29M/kKofuDy2JEvFgAA">
 <XPD:ATTR name="Documentation" type="string">U向参数范围</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16681,7 +16676,7 @@
 <XPD:REF name="Views[3]">LwasArKeek2GwkXqD64QzwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[180]" type="UMLAssociation" guid="3D+2ohqZD0uyq5iFo5bdEQAA">
+<XPD:OBJ name="OwnedElements[179]" type="UMLAssociation" guid="3D+2ohqZD0uyq5iFo5bdEQAA">
 <XPD:ATTR name="Documentation" type="string">V向参数范围</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16711,7 +16706,7 @@
 <XPD:REF name="Views[3]">No6I/gDlRk64UL9yJJZdAgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[181]" type="UMLAssociation" guid="fBfaj6Y510qsOmOFEG155gAA">
+<XPD:OBJ name="OwnedElements[180]" type="UMLAssociation" guid="fBfaj6Y510qsOmOFEG155gAA">
 <XPD:ATTR name="Documentation" type="string">顶点列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16742,7 +16737,7 @@
 <XPD:REF name="Views[3]">CPfIV/RnsUWRqGPdjcHaTgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[182]" type="UMLAssociation" guid="InNwpkvC3ECI1TN9ZpSjWwAA">
+<XPD:OBJ name="OwnedElements[181]" type="UMLAssociation" guid="InNwpkvC3ECI1TN9ZpSjWwAA">
 <XPD:ATTR name="Documentation" type="string">边列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16773,7 +16768,7 @@
 <XPD:REF name="Views[3]">rtGU1+ZXOU+TSWwAk7NH4gAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[183]" type="UMLAssociation" guid="dNRMLI3J7Um5BblC5Hew0gAA">
+<XPD:OBJ name="OwnedElements[182]" type="UMLAssociation" guid="dNRMLI3J7Um5BblC5Hew0gAA">
 <XPD:ATTR name="Documentation" type="string">属性项列表，包含多个属性项（Gfc2Property）</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16804,7 +16799,7 @@
 <XPD:REF name="Views[3]">gE3+wHTDGEux7eQjoQtrnwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[184]" type="UMLClass" guid="ZKbVLP15TEqKkgek1PXlfAAA">
+<XPD:OBJ name="OwnedElements[183]" type="UMLClass" guid="ZKbVLP15TEqKkgek1PXlfAAA">
 <XPD:ATTR name="Name" type="string">Gfc2Box3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">包围盒（Gfc2Box3d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -16834,7 +16829,7 @@
 <XPD:REF name="Owner">ZKbVLP15TEqKkgek1PXlfAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[185]" type="UMLClass" guid="mFgJD7eDJU22BICSXQVLiQAA">
+<XPD:OBJ name="OwnedElements[184]" type="UMLClass" guid="mFgJD7eDJU22BICSXQVLiQAA">
 <XPD:ATTR name="Name" type="string">Gfc2Date</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">type</XPD:ATTR>
@@ -16850,7 +16845,7 @@
 <XPD:REF name="Owner">mFgJD7eDJU22BICSXQVLiQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[186]" type="UMLAssociation" guid="89XiDX7j9kC00aMRg+ipNgAA">
+<XPD:OBJ name="OwnedElements[185]" type="UMLAssociation" guid="89XiDX7j9kC00aMRg+ipNgAA">
 <XPD:ATTR name="Documentation" type="string">子对象</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16881,7 +16876,7 @@
 <XPD:REF name="Views[3]">40btuQBDm0m/hM2tP41HdwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[187]" type="UMLAssociation" guid="LgWTeKpAWkmJJbjFq5dkpgAA">
+<XPD:OBJ name="OwnedElements[186]" type="UMLAssociation" guid="LgWTeKpAWkmJJbjFq5dkpgAA">
 <XPD:ATTR name="Documentation" type="string">被定义对象</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -16912,7 +16907,7 @@
 <XPD:REF name="Views[3]">qBDAgdJENEiDnyBh6GxAOwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[188]" type="UMLClass" guid="C1+Lbfuvy06c+w7UnoJ++gAA">
+<XPD:OBJ name="OwnedElements[187]" type="UMLClass" guid="C1+Lbfuvy06c+w7UnoJ++gAA">
 <XPD:ATTR name="Name" type="string">Gfc2OffsetCurve2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">二维等距线（Gfc2OffsetCurve2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -16939,7 +16934,7 @@
 <XPD:REF name="Owner">C1+Lbfuvy06c+w7UnoJ++gAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[189]" type="UMLGeneralization" guid="keIBm72n+ECOrKpMDXLgrgAA">
+<XPD:OBJ name="OwnedElements[188]" type="UMLGeneralization" guid="keIBm72n+ECOrKpMDXLgrgAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">C1+Lbfuvy06c+w7UnoJ++gAA</XPD:REF>
 <XPD:REF name="Parent">UOz1OsT7CE+A0zOjHLtdxgAA</XPD:REF>
@@ -16949,7 +16944,7 @@
 <XPD:REF name="Views[2]">Hv8CXTULOE2UGEM5G1OnGwAA</XPD:REF>
 <XPD:REF name="Views[3]">k/M7w7+1lkSPQNAKp47vWQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[190]" type="UMLClass" guid="pLWFYWjL70GG/bPfZzKgzwAA">
+<XPD:OBJ name="OwnedElements[189]" type="UMLClass" guid="pLWFYWjL70GG/bPfZzKgzwAA">
 <XPD:ATTR name="Name" type="string">Gfc2ImageCurve3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">像曲线（Gfc2ImageCurve3d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -16976,7 +16971,7 @@
 <XPD:REF name="Owner">pLWFYWjL70GG/bPfZzKgzwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[191]" type="UMLGeneralization" guid="HbDyu6BcJkG2jbuFde6x2gAA">
+<XPD:OBJ name="OwnedElements[190]" type="UMLGeneralization" guid="HbDyu6BcJkG2jbuFde6x2gAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">pLWFYWjL70GG/bPfZzKgzwAA</XPD:REF>
 <XPD:REF name="Parent">mcWvv1Fy30ar+mgpew9yKAAA</XPD:REF>
@@ -16986,7 +16981,7 @@
 <XPD:REF name="Views[2]">OQ9QKspgH0CDl8gLIXlN/QAA</XPD:REF>
 <XPD:REF name="Views[3]">DL3jUg+7uEudaIMz/zks7wAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[192]" type="UMLClass" guid="kwUJ1xl/ekGhA0PBEBilyAAA">
+<XPD:OBJ name="OwnedElements[191]" type="UMLClass" guid="kwUJ1xl/ekGhA0PBEBilyAAA">
 <XPD:ATTR name="Name" type="string">Gfc2RuledSurface</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">直纹曲面（Gfc2RuledSurface）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17037,7 +17032,7 @@
 <XPD:REF name="Owner">kwUJ1xl/ekGhA0PBEBilyAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[193]" type="UMLGeneralization" guid="9kSSI4rKnUW4R/Il/upW0QAA">
+<XPD:OBJ name="OwnedElements[192]" type="UMLGeneralization" guid="9kSSI4rKnUW4R/Il/upW0QAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">kwUJ1xl/ekGhA0PBEBilyAAA</XPD:REF>
 <XPD:REF name="Parent">x0c21Z5fCEOMX0T2odLlIgAA</XPD:REF>
@@ -17047,7 +17042,7 @@
 <XPD:REF name="Views[2]">fghM+gPlskytn597485m3AAA</XPD:REF>
 <XPD:REF name="Views[3]">9fBfZc65pki9zG+f7Q086AAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[194]" type="UMLAssociation" guid="9TmKDVQh+UuNaINbMOb72AAA">
+<XPD:OBJ name="OwnedElements[193]" type="UMLAssociation" guid="9TmKDVQh+UuNaINbMOb72AAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">Lzo9B2Lto0qPdlBWaanbvQAA</XPD:REF>
@@ -17077,8 +17072,9 @@
 <XPD:REF name="Views[3]">WX7EEeooKUKMGf0sWZlguAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[195]" type="UMLClass" guid="EZxRTMTt50GblDPCw9OI0QAA">
+<XPD:OBJ name="OwnedElements[194]" type="UMLClass" guid="EZxRTMTt50GblDPCw9OI0QAA">
 <XPD:ATTR name="Name" type="string">Gfc2EdgeData</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">边数据</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">SGSjxwipl0yc8AXjbEmIkQAA</XPD:REF>
@@ -17090,49 +17086,56 @@
 <XPD:ATTR name="#Attributes" type="integer">7</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="qfu2OKx880SisSM6BV/BOAAA">
 <XPD:ATTR name="Name" type="string">EdgeIndex</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">边索引</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Gfc2Integer</XPD:ATTR>
 <XPD:REF name="Type_">UXHqFaTrqEK2TZzSRzT4dQAA</XPD:REF>
 <XPD:REF name="Owner">EZxRTMTt50GblDPCw9OI0QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="Jmz5G2/KZE6vlF5C1LFZgwAA">
 <XPD:ATTR name="Name" type="string">LoopIndex</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">环索引</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Gfc2Integer</XPD:ATTR>
 <XPD:REF name="Type_">UXHqFaTrqEK2TZzSRzT4dQAA</XPD:REF>
 <XPD:REF name="Owner">EZxRTMTt50GblDPCw9OI0QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="pArY1wVi/0aTc/8cy/lZTQAA">
 <XPD:ATTR name="Name" type="string">Type</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">类型</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Gfc2Integer</XPD:ATTR>
 <XPD:REF name="Type_">UXHqFaTrqEK2TZzSRzT4dQAA</XPD:REF>
 <XPD:REF name="Owner">EZxRTMTt50GblDPCw9OI0QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="x1CPb/c28kaJpjWJ+Lxc8gAA">
 <XPD:ATTR name="Name" type="string">EdgeInfo</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">边信息数据</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Gfc2String</XPD:ATTR>
 <XPD:REF name="Type_">zsvDgsGbGUi4Rw8tP2/tsAAA</XPD:REF>
 <XPD:REF name="Owner">EZxRTMTt50GblDPCw9OI0QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="oMNw2GOzdk+HD1pazVs1PgAA">
 <XPD:ATTR name="Name" type="string">Param</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">参数</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Gfc2String</XPD:ATTR>
 <XPD:REF name="Type_">zsvDgsGbGUi4Rw8tP2/tsAAA</XPD:REF>
 <XPD:REF name="Owner">EZxRTMTt50GblDPCw9OI0QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="ybkgpIDeyUWbHdqYzTul9AAA">
 <XPD:ATTR name="Name" type="string">BaseType</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">基本类型</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Gfc2Integer</XPD:ATTR>
 <XPD:REF name="Type_">UXHqFaTrqEK2TZzSRzT4dQAA</XPD:REF>
 <XPD:REF name="Owner">EZxRTMTt50GblDPCw9OI0QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="KaFWUwKajEGd8sAGWcv6YAAA">
 <XPD:ATTR name="Name" type="string">SlopePoly</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">坡多边形</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">OPTIONAL</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Gfc2Polygon</XPD:ATTR>
 <XPD:REF name="Type_">SbE3Sp803kGxJolYrJhLIAAA</XPD:REF>
 <XPD:REF name="Owner">EZxRTMTt50GblDPCw9OI0QAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[196]" type="UMLClass" guid="J3yuykbqD0CAkTuejLe+SwAA">
+<XPD:OBJ name="OwnedElements[195]" type="UMLClass" guid="J3yuykbqD0CAkTuejLe+SwAA">
 <XPD:ATTR name="Name" type="string">Gfc2VariableSectionLineShape</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三维变截面线式形状（Gfc2VariableSectionLineShape）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17152,7 +17155,7 @@
 <XPD:REF name="Owner">J3yuykbqD0CAkTuejLe+SwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[197]" type="UMLGeneralization" guid="yWop25SYy0KQ6Kurj0xd6gAA">
+<XPD:OBJ name="OwnedElements[196]" type="UMLGeneralization" guid="yWop25SYy0KQ6Kurj0xd6gAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">J3yuykbqD0CAkTuejLe+SwAA</XPD:REF>
 <XPD:REF name="Parent">tIBR/UXj5UapDJTbq5FngwAA</XPD:REF>
@@ -17162,7 +17165,7 @@
 <XPD:REF name="Views[2]">gHxQByLShEWNZbl1T86V1wAA</XPD:REF>
 <XPD:REF name="Views[3]">m0XPRLk0yUWwlNezlpKzUAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[198]" type="UMLClass" guid="t9Reb4Zx1U6Kmk1bm1waIAAA">
+<XPD:OBJ name="OwnedElements[197]" type="UMLClass" guid="t9Reb4Zx1U6Kmk1bm1waIAAA">
 <XPD:ATTR name="Name" type="string">Gfc2RelNests</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">父子关系（Gfc2RelNests）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17174,7 +17177,7 @@
 <XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">7HI4NPOLAEWLtvJYOY1PVgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[199]" type="UMLGeneralization" guid="7HI4NPOLAEWLtvJYOY1PVgAA">
+<XPD:OBJ name="OwnedElements[198]" type="UMLGeneralization" guid="7HI4NPOLAEWLtvJYOY1PVgAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">t9Reb4Zx1U6Kmk1bm1waIAAA</XPD:REF>
 <XPD:REF name="Parent">AbdL63QZqUO3qIk0YLeksgAA</XPD:REF>
@@ -17184,7 +17187,7 @@
 <XPD:REF name="Views[2]">sQOmBmV0DUuy+6oNtp60+wAA</XPD:REF>
 <XPD:REF name="Views[3]">xn0ZqRF2+keq2Vmn7lasvgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[200]" type="UMLClass" guid="JTAo+tv+JESfoNymxDJmzwAA">
+<XPD:OBJ name="OwnedElements[199]" type="UMLClass" guid="JTAo+tv+JESfoNymxDJmzwAA">
 <XPD:ATTR name="Name" type="string">Gfc2RelDefinesByElement</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">构件定义关系（Gfc2RelDefinesByProperties），指定构件和图元之间的关系。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17204,7 +17207,7 @@
 <XPD:REF name="Owner">JTAo+tv+JESfoNymxDJmzwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[201]" type="UMLGeneralization" guid="kJNWefiEi0CNBcQmmvnV3QAA">
+<XPD:OBJ name="OwnedElements[200]" type="UMLGeneralization" guid="kJNWefiEi0CNBcQmmvnV3QAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">JTAo+tv+JESfoNymxDJmzwAA</XPD:REF>
 <XPD:REF name="Parent">5phwMpfnbECeqELzboWsSgAA</XPD:REF>
@@ -17214,7 +17217,7 @@
 <XPD:REF name="Views[2]">6+E/571H+Eavuju3TPjFqwAA</XPD:REF>
 <XPD:REF name="Views[3]">x2b2mF258UqyZl7fS6FnAAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[202]" type="UMLClass" guid="7QQeTsTsnEe8Hgb2scJOAAAA">
+<XPD:OBJ name="OwnedElements[201]" type="UMLClass" guid="7QQeTsTsnEe8Hgb2scJOAAAA">
 <XPD:ATTR name="Name" type="string">Gfc2SimpleLoop</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">简单多边形的环（Gfc2SimpleLoop）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17227,7 +17230,7 @@
 <XPD:REF name="Associations[0]">wYPhkm4YiUuZmW5gXThC4AAA</XPD:REF>
 <XPD:REF name="Associations[1]">kEuwTbwciUGEbYSiUSPKHgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[203]" type="UMLClass" guid="xxarKmCCZEiE6O3W/h5DkQAA">
+<XPD:OBJ name="OwnedElements[202]" type="UMLClass" guid="xxarKmCCZEiE6O3W/h5DkQAA">
 <XPD:ATTR name="Name" type="string">Gfc2SimpleVertex</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">简单多边形的顶点（Gfc2SimpleVertex）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17262,7 +17265,7 @@
 <XPD:REF name="Owner">xxarKmCCZEiE6O3W/h5DkQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[204]" type="UMLAssociation" guid="cYo0j+uot0qYq0JKFG2EyAAA">
+<XPD:OBJ name="OwnedElements[203]" type="UMLAssociation" guid="cYo0j+uot0qYq0JKFG2EyAAA">
 <XPD:ATTR name="Documentation" type="string">顶点列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -17293,7 +17296,7 @@
 <XPD:REF name="Views[3]">GKO44gEqfUyaJeFUhjdrTAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[205]" type="UMLAssociation" guid="Zjfa4XgrMEC2Pkc6huUbcgAA">
+<XPD:OBJ name="OwnedElements[204]" type="UMLAssociation" guid="Zjfa4XgrMEC2Pkc6huUbcgAA">
 <XPD:ATTR name="Documentation" type="string">环列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -17324,33 +17327,39 @@
 <XPD:REF name="Views[3]">GajLPXz0hUiUk/Lh/gmZmAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[206]" type="UMLClass" guid="1q417YPYhU2G+oJE+nx4qAAA">
+<XPD:OBJ name="OwnedElements[205]" type="UMLClass" guid="1q417YPYhU2G+oJE+nx4qAAA">
 <XPD:ATTR name="Name" type="string">Gfc2ArcType</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string"> 弧类型（Gfc2ArcType）。</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">enum</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">5</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="KY6B1ZRVgUKJnF6Brmsu5wAA">
 <XPD:ATTR name="Name" type="string">AT_LINE</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">直线</XPD:ATTR>
 <XPD:REF name="Owner">1q417YPYhU2G+oJE+nx4qAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="DHIkk71lPkO137lOQENtJAAA">
 <XPD:ATTR name="Name" type="string">AT_ACS</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">逆时针小弧</XPD:ATTR>
 <XPD:REF name="Owner">1q417YPYhU2G+oJE+nx4qAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="sVGZm58j/kWymMuQobopVAAA">
 <XPD:ATTR name="Name" type="string">AT_CS</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">顺时针小弧</XPD:ATTR>
 <XPD:REF name="Owner">1q417YPYhU2G+oJE+nx4qAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="SCfpn2hNuUigYvGpameTQQAA">
 <XPD:ATTR name="Name" type="string">AT_ACL</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">逆时针大弧</XPD:ATTR>
 <XPD:REF name="Owner">1q417YPYhU2G+oJE+nx4qAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="qKukZrwqbkek8Wszm3H4wwAA">
 <XPD:ATTR name="Name" type="string">AT_CL</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">顺时针大弧</XPD:ATTR>
 <XPD:REF name="Owner">1q417YPYhU2G+oJE+nx4qAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[207]" type="UMLClass" guid="OcCpmDnzqUOCt2PUFy/FuQAA">
+<XPD:OBJ name="OwnedElements[206]" type="UMLClass" guid="OcCpmDnzqUOCt2PUFy/FuQAA">
 <XPD:ATTR name="Name" type="string">Gfc2SimplePolygon</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">简单多边形（Gfc2SimplePolygon），只由直线边和圆弧边构成。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17364,7 +17373,7 @@
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">2Tv3PMK5z0aBN497vSPI+AAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[208]" type="UMLGeneralization" guid="TzaxgPrirU2SDg6c0o3YIQAA">
+<XPD:OBJ name="OwnedElements[207]" type="UMLGeneralization" guid="TzaxgPrirU2SDg6c0o3YIQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">OcCpmDnzqUOCt2PUFy/FuQAA</XPD:REF>
 <XPD:REF name="Parent">SbE3Sp803kGxJolYrJhLIAAA</XPD:REF>
@@ -17374,7 +17383,7 @@
 <XPD:REF name="Views[2]">Vi5pb8wXB0mTkrw4PqRKzgAA</XPD:REF>
 <XPD:REF name="Views[3]">b8YfHAt+Mk2L/1pv4uelBwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[209]" type="UMLClass" guid="70yh1iElH02Wl/gAWzDygQAA">
+<XPD:OBJ name="OwnedElements[208]" type="UMLClass" guid="70yh1iElH02Wl/gAWzDygQAA">
 <XPD:ATTR name="Name" type="string">Gfc2CommonPolygon</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">通用多边形（Gfc2CommonPolygon），由任意曲线边封闭组成，边边不能相交。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17388,7 +17397,7 @@
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">n7zzyQO+ZUmhZ5EUK0mXMQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[210]" type="UMLGeneralization" guid="Mml2gU8OHUiDFJWKaeFpSwAA">
+<XPD:OBJ name="OwnedElements[209]" type="UMLGeneralization" guid="Mml2gU8OHUiDFJWKaeFpSwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">70yh1iElH02Wl/gAWzDygQAA</XPD:REF>
 <XPD:REF name="Parent">SbE3Sp803kGxJolYrJhLIAAA</XPD:REF>
@@ -17398,7 +17407,7 @@
 <XPD:REF name="Views[2]">1DdBOktebEmHWwGshL7e1wAA</XPD:REF>
 <XPD:REF name="Views[3]">WjMAadHlCkmD+67STL2bRAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[211]" type="UMLClass" guid="GNZ1FlrmakKqoj9R3r1JmQAA">
+<XPD:OBJ name="OwnedElements[210]" type="UMLClass" guid="GNZ1FlrmakKqoj9R3r1JmQAA">
 <XPD:ATTR name="Name" type="string">Gfc2PointShape2d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">点式形状（Gfc2PointShape2d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17432,7 +17441,7 @@
 <XPD:REF name="Owner">GNZ1FlrmakKqoj9R3r1JmQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[212]" type="UMLGeneralization" guid="/sKMzw07gkixbUNV5KWCiAAA">
+<XPD:OBJ name="OwnedElements[211]" type="UMLGeneralization" guid="/sKMzw07gkixbUNV5KWCiAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">GNZ1FlrmakKqoj9R3r1JmQAA</XPD:REF>
 <XPD:REF name="Parent">4cL7dFOQ2EyMn/pPI7NG4AAA</XPD:REF>
@@ -17442,7 +17451,7 @@
 <XPD:REF name="Views[2]">q1/f1Y6SM0ai1Y2NDpFGGAAA</XPD:REF>
 <XPD:REF name="Views[3]">WxqayBcsyES2ThWOh9bTDgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[213]" type="UMLClass" guid="hpaCgTTfSE2uMnoH3BJrzgAA">
+<XPD:OBJ name="OwnedElements[212]" type="UMLClass" guid="hpaCgTTfSE2uMnoH3BJrzgAA">
 <XPD:ATTR name="Name" type="string">Gfc2QuotaTotal</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -17496,7 +17505,7 @@
 <XPD:REF name="Owner">hpaCgTTfSE2uMnoH3BJrzgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[214]" type="UMLClass" guid="kHUzxvq3yUuaFe8AyDA/9wAA">
+<XPD:OBJ name="OwnedElements[213]" type="UMLClass" guid="kHUzxvq3yUuaFe8AyDA/9wAA">
 <XPD:ATTR name="Name" type="string">Gfc2BillTotal</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -17550,7 +17559,7 @@
 <XPD:REF name="Owner">kHUzxvq3yUuaFe8AyDA/9wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[215]" type="UMLClass" guid="/HaQqVghvk23eKGIrvd7NwAA">
+<XPD:OBJ name="OwnedElements[214]" type="UMLClass" guid="/HaQqVghvk23eKGIrvd7NwAA">
 <XPD:ATTR name="Name" type="string">Gfc2SteelTotal</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -17592,7 +17601,7 @@
 <XPD:REF name="Owner">/HaQqVghvk23eKGIrvd7NwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[216]" type="UMLClass" guid="SDAWx3kW/0ybQ7MErLq9hAAA">
+<XPD:OBJ name="OwnedElements[215]" type="UMLClass" guid="SDAWx3kW/0ybQ7MErLq9hAAA">
 <XPD:ATTR name="Name" type="string">Gfc2SteelDetail</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -17670,7 +17679,7 @@
 <XPD:REF name="Owner">SDAWx3kW/0ybQ7MErLq9hAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[217]" type="UMLClass" guid="Cfqg+8CHh0C67w+pTKuz7wAA">
+<XPD:OBJ name="OwnedElements[216]" type="UMLClass" guid="Cfqg+8CHh0C67w+pTKuz7wAA">
 <XPD:ATTR name="Name" type="string">Gfc2BillDetail</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -17718,7 +17727,7 @@
 <XPD:REF name="Owner">Cfqg+8CHh0C67w+pTKuz7wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[218]" type="UMLClass" guid="97swUv9oUEGmX4sVbl3C+wAA">
+<XPD:OBJ name="OwnedElements[217]" type="UMLClass" guid="97swUv9oUEGmX4sVbl3C+wAA">
 <XPD:ATTR name="Name" type="string">Gfc2QuotaDetail</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -17766,7 +17775,7 @@
 <XPD:REF name="Owner">97swUv9oUEGmX4sVbl3C+wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[219]" type="UMLAssociation" guid="Se32560DVk6AMhQQncvv7QAA">
+<XPD:OBJ name="OwnedElements[218]" type="UMLAssociation" guid="Se32560DVk6AMhQQncvv7QAA">
 <XPD:ATTR name="Name" type="string">SteelItems</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -17796,7 +17805,7 @@
 <XPD:REF name="Views[3]">nY4RqwY430OH7tZb/nqwOAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[220]" type="UMLAssociation" guid="qYIE+MjhuUyIiIfr7L9ZzAAA">
+<XPD:OBJ name="OwnedElements[219]" type="UMLAssociation" guid="qYIE+MjhuUyIiIfr7L9ZzAAA">
 <XPD:ATTR name="Name" type="string">BillItems</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -17826,7 +17835,7 @@
 <XPD:REF name="Views[3]">pVts3Igj+USFhJ1z4GlvHQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[221]" type="UMLAssociation" guid="tbslVypMS0ymzGp79dS5zgAA">
+<XPD:OBJ name="OwnedElements[220]" type="UMLAssociation" guid="tbslVypMS0ymzGp79dS5zgAA">
 <XPD:ATTR name="Name" type="string">QuotaItems</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -17856,23 +17865,23 @@
 <XPD:REF name="Views[3]">QqUulp+0RkSYS+QYjnKPdwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[222]" type="UMLObject" guid="cRtmYr4IvkG7GspVXcNfIgAA">
+<XPD:OBJ name="OwnedElements[221]" type="UMLObject" guid="cRtmYr4IvkG7GspVXcNfIgAA">
 <XPD:ATTR name="Name" type="string">Object1</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[223]" type="UMLObject" guid="bUzY16xZHkuuMwxh5pA22wAA">
+<XPD:OBJ name="OwnedElements[222]" type="UMLObject" guid="bUzY16xZHkuuMwxh5pA22wAA">
 <XPD:ATTR name="Name" type="string">Object2</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[224]" type="UMLObject" guid="6H0G7DJghEqjZ9yo8GvHrAAA">
+<XPD:OBJ name="OwnedElements[223]" type="UMLObject" guid="6H0G7DJghEqjZ9yo8GvHrAAA">
 <XPD:ATTR name="Name" type="string">Object3</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[225]" type="UMLObject" guid="6ovS3Bnic06NT5mB02zEqwAA">
+<XPD:OBJ name="OwnedElements[224]" type="UMLObject" guid="6ovS3Bnic06NT5mB02zEqwAA">
 <XPD:ATTR name="Name" type="string">Object4</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[226]" type="UMLClass" guid="H2TocincxkWRcEem/S6y9gAA">
+<XPD:OBJ name="OwnedElements[225]" type="UMLClass" guid="H2TocincxkWRcEem/S6y9gAA">
 <XPD:ATTR name="Name" type="string">Gfc2PlaneCurve3d</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三维平面曲线（Gfc2PlaneCurve3d）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17897,7 +17906,7 @@
 <XPD:REF name="Owner">H2TocincxkWRcEem/S6y9gAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[227]" type="UMLGeneralization" guid="UWiZ82G7NUGP8teRSW9fkgAA">
+<XPD:OBJ name="OwnedElements[226]" type="UMLGeneralization" guid="UWiZ82G7NUGP8teRSW9fkgAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">wQ8vW1TA6k6BSAIWYKc5ZQAA</XPD:REF>
 <XPD:REF name="Parent">H2TocincxkWRcEem/S6y9gAA</XPD:REF>
@@ -17907,7 +17916,7 @@
 <XPD:REF name="Views[2]">moK9X5TQj0WdlDNH/SWI7gAA</XPD:REF>
 <XPD:REF name="Views[3]">yZIvnGzV7Uu2cem3i6JAoAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[228]" type="UMLGeneralization" guid="gRqKiLqS5EeYm+2/HK4thwAA">
+<XPD:OBJ name="OwnedElements[227]" type="UMLGeneralization" guid="gRqKiLqS5EeYm+2/HK4thwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">Di4gA+XdFE2+9pvLeJ4jxQAA</XPD:REF>
 <XPD:REF name="Parent">H2TocincxkWRcEem/S6y9gAA</XPD:REF>
@@ -17917,7 +17926,7 @@
 <XPD:REF name="Views[2]">0GuuYGWQj0G5PvrNvfhbrwAA</XPD:REF>
 <XPD:REF name="Views[3]">+KFVLHqsrEmjVABImz1VCwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[229]" type="UMLGeneralization" guid="uoOmIZvOVku3oq4XS08SAAAA">
+<XPD:OBJ name="OwnedElements[228]" type="UMLGeneralization" guid="uoOmIZvOVku3oq4XS08SAAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">H2TocincxkWRcEem/S6y9gAA</XPD:REF>
 <XPD:REF name="Parent">mcWvv1Fy30ar+mgpew9yKAAA</XPD:REF>
@@ -17927,7 +17936,7 @@
 <XPD:REF name="Views[2]">s+lrEgekR02fODnptC16TwAA</XPD:REF>
 <XPD:REF name="Views[3]">GB9wCWsRaEC2hGEtznttEwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[230]" type="UMLClass" guid="Vp8vlf32/E+iqieE8Sv4UgAA">
+<XPD:OBJ name="OwnedElements[229]" type="UMLClass" guid="Vp8vlf32/E+iqieE8Sv4UgAA">
 <XPD:ATTR name="Name" type="string">Gfc2CommonPolygonEx</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">扩展多边形（Gfc2CommonPolygonEx），由任意曲线边封闭组成，边边不能相交。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17947,7 +17956,7 @@
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">/uZbJ8cTREGOuqY01SuzzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[231]" type="UMLGeneralization" guid="eN/Urqapv0SIljimiMBt1AAA">
+<XPD:OBJ name="OwnedElements[230]" type="UMLGeneralization" guid="eN/Urqapv0SIljimiMBt1AAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">Vp8vlf32/E+iqieE8Sv4UgAA</XPD:REF>
 <XPD:REF name="Parent">SbE3Sp803kGxJolYrJhLIAAA</XPD:REF>
@@ -17957,7 +17966,7 @@
 <XPD:REF name="Views[2]">135mZxODu0KYH7U1wSzZSwAA</XPD:REF>
 <XPD:REF name="Views[3]">HC4a02Z44E2u25CdvLrlrQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[232]" type="UMLClass" guid="aNLXm1zT2UuIKiBwBuOtGgAA">
+<XPD:OBJ name="OwnedElements[231]" type="UMLClass" guid="aNLXm1zT2UuIKiBwBuOtGgAA">
 <XPD:ATTR name="Name" type="string">Gfc2CoedgeListEx</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">扩展共边列表（Gfc2CoedgeList）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -17970,7 +17979,7 @@
 <XPD:REF name="Associations[0]">uWY9vEVdZEC8NqG3OvIQEAAA</XPD:REF>
 <XPD:REF name="Associations[1]">1yURvBtazUuW6weJcW0c1wAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[233]" type="UMLClass" guid="3qL7IhTAjEWeWidUMemNzwAA">
+<XPD:OBJ name="OwnedElements[232]" type="UMLClass" guid="3qL7IhTAjEWeWidUMemNzwAA">
 <XPD:ATTR name="Name" type="string">Gfc2Coedge</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">共边（Gfc2Coedge）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -18004,7 +18013,7 @@
 <XPD:REF name="Owner">3qL7IhTAjEWeWidUMemNzwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[234]" type="UMLGeneralization" guid="yfmzu1G9+E+xCngxZ1b3nQAA">
+<XPD:OBJ name="OwnedElements[233]" type="UMLGeneralization" guid="yfmzu1G9+E+xCngxZ1b3nQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">pcKQFpvEjkmMgBeIgGYiLQAA</XPD:REF>
 <XPD:REF name="Parent">Vp8vlf32/E+iqieE8Sv4UgAA</XPD:REF>
@@ -18014,7 +18023,7 @@
 <XPD:REF name="Views[2]">qtBX9mTzM0KhY61QTcfLdAAA</XPD:REF>
 <XPD:REF name="Views[3]">9rSzGe7P+E2FkPHybgnO3QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[235]" type="UMLAssociation" guid="6ghyAanKYk2JcRnvteuW0gAA">
+<XPD:OBJ name="OwnedElements[234]" type="UMLAssociation" guid="6ghyAanKYk2JcRnvteuW0gAA">
 <XPD:ATTR name="Documentation" type="string">环列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -18045,7 +18054,7 @@
 <XPD:REF name="Views[3]">GxTaV4FnI0C0kzD+260RwAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[236]" type="UMLAssociation" guid="98b/yOTbyEKumwikOdVAygAA">
+<XPD:OBJ name="OwnedElements[235]" type="UMLAssociation" guid="98b/yOTbyEKumwikOdVAygAA">
 <XPD:ATTR name="Documentation" type="string">边列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -18076,7 +18085,7 @@
 <XPD:REF name="Views[3]">HWuydt7AA0GSi68+bTbufQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[237]" type="UMLClass" guid="Ec5mtd3kcU27/ZO2YNOX3QAA">
+<XPD:OBJ name="OwnedElements[236]" type="UMLClass" guid="Ec5mtd3kcU27/ZO2YNOX3QAA">
 <XPD:ATTR name="Name" type="string">Gfc2Representation</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">显示体（Gfc2Representation），包含多个显示体项（Gfc2RepresentationItem）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -18101,7 +18110,7 @@
 <XPD:REF name="Owner">Ec5mtd3kcU27/ZO2YNOX3QAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[238]" type="UMLClass" guid="At3CR5H6iUK3KrbBVxDGdAAA">
+<XPD:OBJ name="OwnedElements[237]" type="UMLClass" guid="At3CR5H6iUK3KrbBVxDGdAAA">
 <XPD:ATTR name="Name" type="string">Gfc2RepresentationItem</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">显示体项（Gfc2RepresentationItem）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -18131,7 +18140,7 @@
 <XPD:REF name="Owner">At3CR5H6iUK3KrbBVxDGdAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[239]" type="UMLAssociation" guid="YVBwg1GmiEm/yPFpBhwQmAAA">
+<XPD:OBJ name="OwnedElements[238]" type="UMLAssociation" guid="YVBwg1GmiEm/yPFpBhwQmAAA">
 <XPD:ATTR name="Documentation" type="string">顶点列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -18162,7 +18171,7 @@
 <XPD:REF name="Views[3]">BlmC4VWg2kGJDSjH+1JBqQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[240]" type="UMLAssociation" guid="9j9m+vbxt0iJ3hk/E699gAAA">
+<XPD:OBJ name="OwnedElements[239]" type="UMLAssociation" guid="9j9m+vbxt0iJ3hk/E699gAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">jEmXodk4lUSQnkFLNBKFRgAA</XPD:REF>
@@ -18192,7 +18201,7 @@
 <XPD:REF name="Views[3]">B3jHZjNKyk2qyCDfMO/asQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[241]" type="UMLAssociation" guid="K08vfdL/PE6l7qxDg0PzhwAA">
+<XPD:OBJ name="OwnedElements[240]" type="UMLAssociation" guid="K08vfdL/PE6l7qxDg0PzhwAA">
 <XPD:ATTR name="Documentation" type="string">法向列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -18223,7 +18232,7 @@
 <XPD:REF name="Views[3]">5UwD4uXLzEqS8QOKFU4RYwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[242]" type="UMLAssociation" guid="0090u0f5G0W0O9XwIvuDlwAA">
+<XPD:OBJ name="OwnedElements[241]" type="UMLAssociation" guid="0090u0f5G0W0O9XwIvuDlwAA">
 <XPD:ATTR name="Documentation" type="string">索引列表</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -18254,7 +18263,7 @@
 <XPD:REF name="Views[3]">5E+qtSYZP0OFkTE62Qg4xAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[243]" type="UMLClass" guid="ju1bBzW2CkefhaMOJ8vhzgAA">
+<XPD:OBJ name="OwnedElements[242]" type="UMLClass" guid="ju1bBzW2CkefhaMOJ8vhzgAA">
 <XPD:ATTR name="Name" type="string">Gfc2StateSet</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">显示状态集（Gfc2StateSet）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -18369,7 +18378,7 @@
 <XPD:REF name="Owner">ju1bBzW2CkefhaMOJ8vhzgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[244]" type="UMLAssociation" guid="L29j/UAvDkCdvbkbNjp8SgAA">
+<XPD:OBJ name="OwnedElements[243]" type="UMLAssociation" guid="L29j/UAvDkCdvbkbNjp8SgAA">
 <XPD:ATTR name="Documentation" type="string">状态集</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -18400,7 +18409,7 @@
 <XPD:REF name="Views[3]">3RglMOg+F0SRi6ELGTrh+QAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[245]" type="UMLClass" guid="HsX99EAj+Ue3Yld/qvRQhwAA">
+<XPD:OBJ name="OwnedElements[244]" type="UMLClass" guid="HsX99EAj+Ue3Yld/qvRQhwAA">
 <XPD:ATTR name="Name" type="string">Gfc2PrimitiveType</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">显示类型</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">enum</XPD:ATTR>
@@ -18442,8 +18451,9 @@
 <XPD:REF name="Owner">HsX99EAj+Ue3Yld/qvRQhwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[246]" type="UMLClass" guid="e+DoT3t8gUmXVOBLC7m2igAA">
+<XPD:OBJ name="OwnedElements[245]" type="UMLClass" guid="e+DoT3t8gUmXVOBLC7m2igAA">
 <XPD:ATTR name="Name" type="string">Gfc2SceneBlendFactor</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">场景混合因子（Gfc2SceneBlendFactor）。</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">enum</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#TypedFeatures" type="integer">1</XPD:ATTR>
@@ -18451,122 +18461,150 @@
 <XPD:ATTR name="#Attributes" type="integer">15</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="BZBhwPEZSEamK/n3FMQb6QAA">
 <XPD:ATTR name="Name" type="string">SBF_DST_ALPHA</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">目标颜色的Alpha值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="x3CSk2zAs0GttFnxOVscJgAA">
 <XPD:ATTR name="Name" type="string">SBF_DST_COLOR</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">目标颜色的颜色值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="94AHR4I+EEeyFUutVFtOWwAA">
 <XPD:ATTR name="Name" type="string">SBF_ONE</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">1</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="xNSvJLczjUqaiwmYICalDgAA">
 <XPD:ATTR name="Name" type="string">SBF_ONE_MINUS_DST_COLOR</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">1减去目标颜色的颜色值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="5YHNs1JBgUiiPGzPz8UyqgAA">
 <XPD:ATTR name="Name" type="string">SBF_ONE_MINUS_DST_ALPHA</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">1减去目标颜色的Alpha值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="7heYtqUt/0iYeNpnPL0e/gAA">
 <XPD:ATTR name="Name" type="string">SBF_ONE_MINUS_SRC_ALPHA</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">1减去源颜色的Alpha值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="Ep5szkr5VESmBEU8JuTqxwAA">
 <XPD:ATTR name="Name" type="string">SBF_ONE_MINUS_SRC_COLOR</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">1减去源颜色的颜色值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[7]" type="UMLAttribute" guid="yx4u2zmCaUKll6yZSi7MzAAA">
 <XPD:ATTR name="Name" type="string">SBF_SRC_ALPHA</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">源颜色的Alpha值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[8]" type="UMLAttribute" guid="Od94QA8LiEaQY6aKAhENtQAA">
 <XPD:ATTR name="Name" type="string">SBF_SRC_ALPHA_SATURATE</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">源颜色的Alpha饱和值（PBF_BYTE_RGB混合因子为min(As, 1-Ad)，Alpha混合因子为1）</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[9]" type="UMLAttribute" guid="GX0v/WWcfk2lp5hFcNdANgAA">
 <XPD:ATTR name="Name" type="string">SBF_SRC_COLOR</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">源颜色的颜色值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[10]" type="UMLAttribute" guid="0q+PvxH8AEa9wK00zDM8vAAA">
 <XPD:ATTR name="Name" type="string">SBF_ZERO</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">0</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[11]" type="UMLAttribute" guid="kGqWKz/OrUuh+H2RjaZCSAAA">
 <XPD:ATTR name="Name" type="string">SBF_CONSTANT_COLOR</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">固定的颜色值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[12]" type="UMLAttribute" guid="NlJVgsNOw0yv/w5FIFPiPAAA">
 <XPD:ATTR name="Name" type="string">SBF_ONE_MINUS_CONSTANT_COLOR</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">1减去固定的颜色值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[13]" type="UMLAttribute" guid="/zPTOMLjAEWKvOSrWre4AQAA">
 <XPD:ATTR name="Name" type="string">SBF_CONSTANT_ALPHA</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">固定的Alpha值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[14]" type="UMLAttribute" guid="QVGqQLxuvkO/42wRF+hzTQAA">
 <XPD:ATTR name="Name" type="string">SBF_ONE_MINUS_CONSTANT_ALPHA</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">1减去固定的Alpha值</XPD:ATTR>
 <XPD:REF name="Owner">e+DoT3t8gUmXVOBLC7m2igAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[247]" type="UMLClass" guid="Tb2kf0xna0yeRHOoGdnGnAAA">
+<XPD:OBJ name="OwnedElements[246]" type="UMLClass" guid="Tb2kf0xna0yeRHOoGdnGnAAA">
 <XPD:ATTR name="Name" type="string">Gfc2FragTestFunc</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">片段测试比较函数（Gfc2FragTestFunc），指定用来将每个输入的片段值与当前相应判断值进行比较时的测试规则，仅当测试通过时改片段通过，并进入下一个可能的片段测试环节。</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">enum</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">8</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="3azzG2nCh026oXcd7LXfMwAA">
 <XPD:ATTR name="Name" type="string">FTF_NEVER</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">从不通过</XPD:ATTR>
 <XPD:REF name="Owner">Tb2kf0xna0yeRHOoGdnGnAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="eUigCRpKxkuJ7o6mCPZxeQAA">
 <XPD:ATTR name="Name" type="string">FTF_LESS</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">当A小于B时通过</XPD:ATTR>
 <XPD:REF name="Owner">Tb2kf0xna0yeRHOoGdnGnAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="D5I6QV7tqkK47I2aFZlCnQAA">
 <XPD:ATTR name="Name" type="string">FTF_EQUAL</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">当A等于B时通过</XPD:ATTR>
 <XPD:REF name="Owner">Tb2kf0xna0yeRHOoGdnGnAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="HhqBvl2SWkW+3kQ21Jo3fgAA">
 <XPD:ATTR name="Name" type="string">FTF_LEQUAL</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">当A小于等于B时通过</XPD:ATTR>
 <XPD:REF name="Owner">Tb2kf0xna0yeRHOoGdnGnAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="Z210+Z0vREWIF0h9DvLwlgAA">
 <XPD:ATTR name="Name" type="string">FTF_GREATER</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">当A大于B时通过</XPD:ATTR>
 <XPD:REF name="Owner">Tb2kf0xna0yeRHOoGdnGnAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="0vbkBFGZ/kS0E7dwxXZ+AQAA">
 <XPD:ATTR name="Name" type="string">FTF_NOTEQUAL</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">当不等于B时通过</XPD:ATTR>
 <XPD:REF name="Owner">Tb2kf0xna0yeRHOoGdnGnAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="g2yHkfoRh0elVl53lnydCAAA">
 <XPD:ATTR name="Name" type="string">FTF_GEQUAL</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">当A大于等于B时通过</XPD:ATTR>
 <XPD:REF name="Owner">Tb2kf0xna0yeRHOoGdnGnAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[7]" type="UMLAttribute" guid="Jy/4+jWIDE+L/fstiPhZfgAA">
 <XPD:ATTR name="Name" type="string">FTF_ALWAYS</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">总是通过</XPD:ATTR>
 <XPD:REF name="Owner">Tb2kf0xna0yeRHOoGdnGnAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[248]" type="UMLClass" guid="B1Gt/kQQ6U2fC2eYBSth5AAA">
+<XPD:OBJ name="OwnedElements[247]" type="UMLClass" guid="B1Gt/kQQ6U2fC2eYBSth5AAA">
 <XPD:ATTR name="Name" type="string">Gfc2FaceMode</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">面模式（Gfc2FaceMode）。</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">enum</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">3</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="DS7vDUbEPU+PHNqByL0xowAA">
 <XPD:ATTR name="Name" type="string">FM_FRONT</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">正面</XPD:ATTR>
 <XPD:REF name="Owner">B1Gt/kQQ6U2fC2eYBSth5AAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="d4+EFeIWikaLzNStkwY/iAAA">
 <XPD:ATTR name="Name" type="string">FM_BACK</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">反面</XPD:ATTR>
 <XPD:REF name="Owner">B1Gt/kQQ6U2fC2eYBSth5AAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="IrDtSPfty0eTyNp84kPPrAAA">
 <XPD:ATTR name="Name" type="string">FM_FRONT_AND_BACK</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">双面</XPD:ATTR>
 <XPD:REF name="Owner">B1Gt/kQQ6U2fC2eYBSth5AAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[249]" type="UMLClass" guid="RFIFbaPP/EmJEjLNHwX9FgAA">
+<XPD:OBJ name="OwnedElements[248]" type="UMLClass" guid="RFIFbaPP/EmJEjLNHwX9FgAA">
 <XPD:ATTR name="Name" type="string">Gfc2GeometryDataType</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">几何数据类型</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">enum</XPD:ATTR>
@@ -18590,7 +18628,7 @@
 <XPD:REF name="Owner">RFIFbaPP/EmJEjLNHwX9FgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[250]" type="UMLAssociation" guid="yN2QpEtCZEmOzAm+xwa9yAAA">
+<XPD:OBJ name="OwnedElements[249]" type="UMLAssociation" guid="yN2QpEtCZEmOzAm+xwa9yAAA">
 <XPD:ATTR name="Documentation" type="string">显示体，可以包含多个显示体（Gfc2Representation）实例</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -18621,7 +18659,7 @@
 <XPD:REF name="Views[3]">2dyD9lZcSkuVYV3kasfYCAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[251]" type="UMLClass" guid="1PuVKK4fcUeLDF2fgIKSDgAA">
+<XPD:OBJ name="OwnedElements[250]" type="UMLClass" guid="1PuVKK4fcUeLDF2fgIKSDgAA">
 <XPD:ATTR name="Name" type="string">Gfc2ParametricShape</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">参数化形状（Gfc2ParametricShape）。</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
@@ -18637,7 +18675,7 @@
 <XPD:REF name="Specializations[0]">5hShIl/aekGTDNqohM/P+AAA</XPD:REF>
 <XPD:REF name="Specializations[1]">LjuT0Ds/+UCuA1eHBnmr2QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[252]" type="UMLClass" guid="+WNpV2pMSEKNhSd+jJE2uQAA">
+<XPD:OBJ name="OwnedElements[251]" type="UMLClass" guid="+WNpV2pMSEKNhSd+jJE2uQAA">
 <XPD:ATTR name="Name" type="string">Gfc2GeometryShape</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">几何形状（Gfc2GeometryShape）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -18656,7 +18694,7 @@
 <XPD:REF name="Owner">+WNpV2pMSEKNhSd+jJE2uQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[253]" type="UMLClass" guid="sAc7tSwIrUiS60u9IVvaWgAA">
+<XPD:OBJ name="OwnedElements[252]" type="UMLClass" guid="sAc7tSwIrUiS60u9IVvaWgAA">
 <XPD:ATTR name="Name" type="string">Gfc2Geometry</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">几何（Gfc2Geometry），所有几何对象的基类。</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
@@ -18696,7 +18734,7 @@
 <XPD:REF name="Specializations[10]">tGicXuHLF06SuWN+vHQ+twAA</XPD:REF>
 <XPD:REF name="Specializations[11]">2iyp17H0IkuvViU1k0QgwwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[254]" type="UMLGeneralization" guid="06FLNn+a8k6dRO3GFk2p5QAA">
+<XPD:OBJ name="OwnedElements[253]" type="UMLGeneralization" guid="06FLNn+a8k6dRO3GFk2p5QAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">HPiVxs5Ba0uG5llDI2GOfAAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
@@ -18706,7 +18744,7 @@
 <XPD:REF name="Views[2]">C4Rojhm970ypybbg10SDBQAA</XPD:REF>
 <XPD:REF name="Views[3]">vhSdUYyk3UGhqZXU8tY/9wAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[255]" type="UMLGeneralization" guid="EukEJreGQUCDciZIJnworQAA">
+<XPD:OBJ name="OwnedElements[254]" type="UMLGeneralization" guid="EukEJreGQUCDciZIJnworQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">CZk1zZj5fkuCZUeo53/6yQAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
@@ -18716,7 +18754,7 @@
 <XPD:REF name="Views[2]">IAnARhV9y0+cHMut/oNTegAA</XPD:REF>
 <XPD:REF name="Views[3]">13DmmRMKDkOCkODhyBF0MwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[256]" type="UMLGeneralization" guid="lsYdtmkQuECYOqgcxMlxGAAA">
+<XPD:OBJ name="OwnedElements[255]" type="UMLGeneralization" guid="lsYdtmkQuECYOqgcxMlxGAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">bHyTe6eEt0yofLZIjpxs5gAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
@@ -18726,7 +18764,7 @@
 <XPD:REF name="Views[2]">wzDkFm1bXEG4qMjdPMYFoAAA</XPD:REF>
 <XPD:REF name="Views[3]">OF1ysyiyr0W+wxz3zevMtwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[257]" type="UMLGeneralization" guid="1TXr4N2pZ0mwwqJWr1V5hgAA">
+<XPD:OBJ name="OwnedElements[256]" type="UMLGeneralization" guid="1TXr4N2pZ0mwwqJWr1V5hgAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">hgJ9aVA9lkegp7C8QImQ3gAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
@@ -18736,7 +18774,7 @@
 <XPD:REF name="Views[2]">U2KuKsQE+EKWzqyB+yoGqgAA</XPD:REF>
 <XPD:REF name="Views[3]">/KP4hcPrlE+ByfXNYVGTYwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[258]" type="UMLGeneralization" guid="bi4NbY5BJk+iwX+9NUlJsAAA">
+<XPD:OBJ name="OwnedElements[257]" type="UMLGeneralization" guid="bi4NbY5BJk+iwX+9NUlJsAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">Gmr1E2kuG0Gc2HY1KEUP5wAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
@@ -18746,7 +18784,7 @@
 <XPD:REF name="Views[2]">3KX9e5eK2USagEDQ/BOGEQAA</XPD:REF>
 <XPD:REF name="Views[3]">dcPPsGW+RkOQLGfLKtKgdAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[259]" type="UMLGeneralization" guid="lhFaZ5MFE0mx9Ul5JawtNQAA">
+<XPD:OBJ name="OwnedElements[258]" type="UMLGeneralization" guid="lhFaZ5MFE0mx9Ul5JawtNQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">ZKbVLP15TEqKkgek1PXlfAAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
@@ -18756,7 +18794,7 @@
 <XPD:REF name="Views[2]">pVaO1pLsgUevHBbcQ9S8gwAA</XPD:REF>
 <XPD:REF name="Views[3]">u5YGSFoEQkKkjNT9ju/bywAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[260]" type="UMLGeneralization" guid="sAeIWEtytkOR9Qri+NBv7wAA">
+<XPD:OBJ name="OwnedElements[259]" type="UMLGeneralization" guid="sAeIWEtytkOR9Qri+NBv7wAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">WqPtLBZGzkuWYt65dv3fSAAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
@@ -18766,7 +18804,7 @@
 <XPD:REF name="Views[2]">hM4Gaqi2jUmRrPjCn7I7/gAA</XPD:REF>
 <XPD:REF name="Views[3]">cl5zdDrxUE2IsE/W9GT78gAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[261]" type="UMLGeneralization" guid="01KSII8HAk+V2rU2U7CicQAA">
+<XPD:OBJ name="OwnedElements[260]" type="UMLGeneralization" guid="01KSII8HAk+V2rU2U7CicQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">UOz1OsT7CE+A0zOjHLtdxgAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
@@ -18776,7 +18814,7 @@
 <XPD:REF name="Views[2]">vn+kdo6R90m169x4Q8WOKAAA</XPD:REF>
 <XPD:REF name="Views[3]">tCv3wcIdJ0SKqqSIHjFr6QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[262]" type="UMLGeneralization" guid="jBA9gsA9DEqcyXbx4NwdhAAA">
+<XPD:OBJ name="OwnedElements[261]" type="UMLGeneralization" guid="jBA9gsA9DEqcyXbx4NwdhAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">mcWvv1Fy30ar+mgpew9yKAAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
@@ -18786,7 +18824,7 @@
 <XPD:REF name="Views[2]">h0vgkdkRn0WWHnr15F7L5QAA</XPD:REF>
 <XPD:REF name="Views[3]">H/OWm6GE3U+6DMP5LVZFoQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[263]" type="UMLGeneralization" guid="Vh2gY2etYkGkEYep5G8XXwAA">
+<XPD:OBJ name="OwnedElements[262]" type="UMLGeneralization" guid="Vh2gY2etYkGkEYep5G8XXwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">x0c21Z5fCEOMX0T2odLlIgAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
@@ -18796,7 +18834,7 @@
 <XPD:REF name="Views[2]">5Q0/7pxNYka0VHbQif4YSAAA</XPD:REF>
 <XPD:REF name="Views[3]">X2iaa5cetkiuynKfUIxnNQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[264]" type="UMLGeneralization" guid="i0nRm2t1AUiOZ5okVhHq5QAA">
+<XPD:OBJ name="OwnedElements[263]" type="UMLGeneralization" guid="i0nRm2t1AUiOZ5okVhHq5QAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">+WNpV2pMSEKNhSd+jJE2uQAA</XPD:REF>
 <XPD:REF name="Parent">F54ZNG9bok+RTZCeVguE7gAA</XPD:REF>
@@ -18806,7 +18844,7 @@
 <XPD:REF name="Views[2]">kdDE/NM4PU+4GUH53h/2fAAA</XPD:REF>
 <XPD:REF name="Views[3]">anmQxeY16EuGaZzIaR2EIAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[265]" type="UMLGeneralization" guid="cyp3MwRb0kyUF9Asl5E/PAAA">
+<XPD:OBJ name="OwnedElements[264]" type="UMLGeneralization" guid="cyp3MwRb0kyUF9Asl5E/PAAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">1PuVKK4fcUeLDF2fgIKSDgAA</XPD:REF>
 <XPD:REF name="Parent">F54ZNG9bok+RTZCeVguE7gAA</XPD:REF>
@@ -18816,7 +18854,7 @@
 <XPD:REF name="Views[2]">7jkfkMHVCkmMq/2BzEa67wAA</XPD:REF>
 <XPD:REF name="Views[3]">5Zn9HREFj0+T8NHRedCYagAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[266]" type="UMLAssociation" guid="luFX9CUZ10+ExlaZRWVoWAAA">
+<XPD:OBJ name="OwnedElements[265]" type="UMLAssociation" guid="luFX9CUZ10+ExlaZRWVoWAAA">
 <XPD:ATTR name="Documentation" type="string">几何形状，可以包含多个构件形状（Gfc2EntityShape）实例</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -18847,7 +18885,7 @@
 <XPD:REF name="Views[3]">Zzt9LjcG2EycESADwCbM4QAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[267]" type="UMLClass" guid="Ed6OQ3XYWEeJbfTXaPAGGwAA">
+<XPD:OBJ name="OwnedElements[266]" type="UMLClass" guid="Ed6OQ3XYWEeJbfTXaPAGGwAA">
 <XPD:ATTR name="Name" type="string">Gfc2FaceInfo</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">面信息（Gfc2FaceInfo），参数化面信息基类。</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
@@ -18862,7 +18900,7 @@
 <XPD:REF name="Specializations[1]">Uf/8FXgHP0WgEhBtZlFt7QAA</XPD:REF>
 <XPD:REF name="Specializations[2]">IjvAvUAAW0+Og5UW0pTIVwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[268]" type="UMLClass" guid="rkbHW0vWMkCtCHHlReTeswAA">
+<XPD:OBJ name="OwnedElements[267]" type="UMLClass" guid="rkbHW0vWMkCtCHHlReTeswAA">
 <XPD:ATTR name="Name" type="string">Gfc2FaceArchInfo</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">拱面信息（Gfc2FaceArchInfo）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -18903,7 +18941,7 @@
 <XPD:REF name="Owner">rkbHW0vWMkCtCHHlReTeswAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[269]" type="UMLClass" guid="gNTJbbZvTk2J5XRrlgbwLAAA">
+<XPD:OBJ name="OwnedElements[268]" type="UMLClass" guid="gNTJbbZvTk2J5XRrlgbwLAAA">
 <XPD:ATTR name="Name" type="string">Gfc2FaceSphereInfo</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">球面信息（Gfc2FaceSphereInfo）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -18944,7 +18982,7 @@
 <XPD:REF name="Owner">gNTJbbZvTk2J5XRrlgbwLAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[270]" type="UMLClass" guid="5rp4xIbau0y48/+UnL5xcAAA">
+<XPD:OBJ name="OwnedElements[269]" type="UMLClass" guid="5rp4xIbau0y48/+UnL5xcAAA">
 <XPD:ATTR name="Name" type="string">Gfc2FaceConeInfo</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">锥面信息（Gfc2FaceConeInfo）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -18985,7 +19023,7 @@
 <XPD:REF name="Owner">5rp4xIbau0y48/+UnL5xcAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[271]" type="UMLGeneralization" guid="OM2xqaB7QEGEjXCAGBne9gAA">
+<XPD:OBJ name="OwnedElements[270]" type="UMLGeneralization" guid="OM2xqaB7QEGEjXCAGBne9gAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">rkbHW0vWMkCtCHHlReTeswAA</XPD:REF>
 <XPD:REF name="Parent">Ed6OQ3XYWEeJbfTXaPAGGwAA</XPD:REF>
@@ -18995,7 +19033,7 @@
 <XPD:REF name="Views[2]">FpQSTbV9YkqKAVfqoIXVLwAA</XPD:REF>
 <XPD:REF name="Views[3]">Vk+KyXW/P0GETRC0byswMAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[272]" type="UMLGeneralization" guid="Uf/8FXgHP0WgEhBtZlFt7QAA">
+<XPD:OBJ name="OwnedElements[271]" type="UMLGeneralization" guid="Uf/8FXgHP0WgEhBtZlFt7QAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">gNTJbbZvTk2J5XRrlgbwLAAA</XPD:REF>
 <XPD:REF name="Parent">Ed6OQ3XYWEeJbfTXaPAGGwAA</XPD:REF>
@@ -19005,7 +19043,7 @@
 <XPD:REF name="Views[2]">PZXDOe5X1EyN3XIZQ3dggwAA</XPD:REF>
 <XPD:REF name="Views[3]">f4izyJTf3kGkeXCmouIXWQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[273]" type="UMLGeneralization" guid="IjvAvUAAW0+Og5UW0pTIVwAA">
+<XPD:OBJ name="OwnedElements[272]" type="UMLGeneralization" guid="IjvAvUAAW0+Og5UW0pTIVwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">5rp4xIbau0y48/+UnL5xcAAA</XPD:REF>
 <XPD:REF name="Parent">Ed6OQ3XYWEeJbfTXaPAGGwAA</XPD:REF>
@@ -19015,7 +19053,7 @@
 <XPD:REF name="Views[2]">yN1Ra/AiukKPrmtEVchTugAA</XPD:REF>
 <XPD:REF name="Views[3]">ynM5fwocuUGNEpORMxoKWAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[274]" type="UMLClass" guid="zGBedEGnYE2b3+A/bIthEwAA">
+<XPD:OBJ name="OwnedElements[273]" type="UMLClass" guid="zGBedEGnYE2b3+A/bIthEwAA">
 <XPD:ATTR name="Name" type="string">Gfc2BaseLineArcInfo</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">线性图元起拱基本信息（Gfc2BaseLineArcInfo）。</XPD:ATTR>
 <XPD:ATTR name="IsAbstract" type="boolean">True</XPD:ATTR>
@@ -19029,7 +19067,7 @@
 <XPD:REF name="Specializations[0]">gOyNIJ9wCE67qkpthXUDtQAA</XPD:REF>
 <XPD:REF name="Specializations[1]">XccYz/4bRk6un3KjTs9x7QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[275]" type="UMLClass" guid="r49cjMAq0kGieH2uA8T+FQAA">
+<XPD:OBJ name="OwnedElements[274]" type="UMLClass" guid="r49cjMAq0kGieH2uA8T+FQAA">
 <XPD:ATTR name="Name" type="string">Gfc2LineArcInfo</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">线性图元起拱信息（Gfc2LineArcInfo）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -19077,7 +19115,7 @@
 <XPD:REF name="Owner">r49cjMAq0kGieH2uA8T+FQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[276]" type="UMLClass" guid="cQZHpRybckKwCFCOFKC4KgAA">
+<XPD:OBJ name="OwnedElements[275]" type="UMLClass" guid="cQZHpRybckKwCFCOFKC4KgAA">
 <XPD:ATTR name="Name" type="string">Gfc2AbnormityLineArchInfo</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">线性图元不规则起拱信息（Gfc2AbnormityLineArchInfo）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -19160,7 +19198,7 @@
 <XPD:REF name="Owner">cQZHpRybckKwCFCOFKC4KgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[277]" type="UMLGeneralization" guid="gOyNIJ9wCE67qkpthXUDtQAA">
+<XPD:OBJ name="OwnedElements[276]" type="UMLGeneralization" guid="gOyNIJ9wCE67qkpthXUDtQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">r49cjMAq0kGieH2uA8T+FQAA</XPD:REF>
 <XPD:REF name="Parent">zGBedEGnYE2b3+A/bIthEwAA</XPD:REF>
@@ -19170,7 +19208,7 @@
 <XPD:REF name="Views[2]">FN4wcyUJe0+V7n888eDvQwAA</XPD:REF>
 <XPD:REF name="Views[3]">PaSnRhQsBkK1ek05QRIUMQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[278]" type="UMLGeneralization" guid="XccYz/4bRk6un3KjTs9x7QAA">
+<XPD:OBJ name="OwnedElements[277]" type="UMLGeneralization" guid="XccYz/4bRk6un3KjTs9x7QAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">cQZHpRybckKwCFCOFKC4KgAA</XPD:REF>
 <XPD:REF name="Parent">zGBedEGnYE2b3+A/bIthEwAA</XPD:REF>
@@ -19180,7 +19218,7 @@
 <XPD:REF name="Views[2]">UQt12uLTi0Kx+tXWMNtZXwAA</XPD:REF>
 <XPD:REF name="Views[3]">ldJIP97ft0qzxwgFWxNvWAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[279]" type="UMLClass" guid="0zzTOtNAv06ALk7FPD6brAAA">
+<XPD:OBJ name="OwnedElements[278]" type="UMLClass" guid="0zzTOtNAv06ALk7FPD6brAAA">
 <XPD:ATTR name="Name" type="string">Gfc2Building</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">建筑（Gfc2Building），可聚合多个楼层（Gfc2Floor）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -19192,7 +19230,7 @@
 <XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">87tK3NJ1tkiBm3PffTWm6QAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[280]" type="UMLGeneralization" guid="dkCXIpPOakCo/CoQMIELCQAA">
+<XPD:OBJ name="OwnedElements[279]" type="UMLGeneralization" guid="dkCXIpPOakCo/CoQMIELCQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">PczJYnP/2k6IL2nznC3qCgAA</XPD:REF>
 <XPD:REF name="Parent">fkLzc3E6Pky/vAr70ITaEwAA</XPD:REF>
@@ -19202,7 +19240,7 @@
 <XPD:REF name="Views[2]">ARXIvLuJ8kS1Os56Gd88hwAA</XPD:REF>
 <XPD:REF name="Views[3]">JB5p1PjWO06Zp6fjmvFj6AAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[281]" type="UMLGeneralization" guid="87tK3NJ1tkiBm3PffTWm6QAA">
+<XPD:OBJ name="OwnedElements[280]" type="UMLGeneralization" guid="87tK3NJ1tkiBm3PffTWm6QAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">0zzTOtNAv06ALk7FPD6brAAA</XPD:REF>
 <XPD:REF name="Parent">PczJYnP/2k6IL2nznC3qCgAA</XPD:REF>
@@ -19212,7 +19250,7 @@
 <XPD:REF name="Views[2]">s+UASwCTGk6+BYrGWI7WDgAA</XPD:REF>
 <XPD:REF name="Views[3]">7cOewPbevU2vGMhwuwfZmgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[282]" type="UMLGeneralization" guid="YhnH7M0woEuxUSzapnjaBgAA">
+<XPD:OBJ name="OwnedElements[281]" type="UMLGeneralization" guid="YhnH7M0woEuxUSzapnjaBgAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">oSFgfSkDmEKEdWNHWuaWqgAA</XPD:REF>
 <XPD:REF name="Parent">PczJYnP/2k6IL2nznC3qCgAA</XPD:REF>
@@ -19222,7 +19260,7 @@
 <XPD:REF name="Views[2]">/X1BosuQ1k6KOJYnEA5ISwAA</XPD:REF>
 <XPD:REF name="Views[3]">NVYZMHgOLkelt8nLhWKBLgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[283]" type="UMLAssociation" guid="/cH8/HpjmE6jlLnVxNQs7wAA">
+<XPD:OBJ name="OwnedElements[282]" type="UMLAssociation" guid="/cH8/HpjmE6jlLnVxNQs7wAA">
 <XPD:ATTR name="Documentation" type="string">平面信息</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -19252,7 +19290,7 @@
 <XPD:REF name="Views[3]">iM4ZGko+k0+nLbkKX0CtEAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[284]" type="UMLClass" guid="ftlUKPPIdkOqTVXUZaOsjAAA">
+<XPD:OBJ name="OwnedElements[283]" type="UMLClass" guid="ftlUKPPIdkOqTVXUZaOsjAAA">
 <XPD:ATTR name="Name" type="string">Gfc2EntityShape</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">构件形状（Gfc2EntityShape），通过Identifier来标识区分多个形状（Gfc2Shape）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -19279,8 +19317,9 @@
 <XPD:REF name="Owner">ftlUKPPIdkOqTVXUZaOsjAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[285]" type="UMLClass" guid="yDZd/SWfLEq1zP9dzgffvgAA">
+<XPD:OBJ name="OwnedElements[284]" type="UMLClass" guid="yDZd/SWfLEq1zP9dzgffvgAA">
 <XPD:ATTR name="Name" type="string">Gfc2SweepType</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">扫描类型（Gfc2SweepType）。</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">enum</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#TypedFeatures" type="integer">1</XPD:ATTR>
@@ -19302,7 +19341,7 @@
 <XPD:REF name="Owner">yDZd/SWfLEq1zP9dzgffvgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[286]" type="UMLClass" guid="HeDlSZeHy0mj48PCiHg6hAAA">
+<XPD:OBJ name="OwnedElements[285]" type="UMLClass" guid="HeDlSZeHy0mj48PCiHg6hAAA">
 <XPD:ATTR name="Name" type="string">Gfc2PrimitiveBody</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">基本体（Gfc2PrimitiveBody）。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
@@ -19317,7 +19356,7 @@
 <XPD:REF name="Specializations[0]">waMpBa7T6Uik5N9bYW7p7AAA</XPD:REF>
 <XPD:REF name="Specializations[1]">17dzKNNLW0+i3bkxTOtr1gAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[287]" type="UMLGeneralization" guid="gBnR+12x6UeSd3YrZPzTpQAA">
+<XPD:OBJ name="OwnedElements[286]" type="UMLGeneralization" guid="gBnR+12x6UeSd3YrZPzTpQAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">HeDlSZeHy0mj48PCiHg6hAAA</XPD:REF>
 <XPD:REF name="Parent">WqPtLBZGzkuWYt65dv3fSAAA</XPD:REF>
@@ -19327,7 +19366,7 @@
 <XPD:REF name="Views[2]">xnHc+uzmEEa2nRqUK0n/ZQAA</XPD:REF>
 <XPD:REF name="Views[3]">7itL66cP/UqEcWpwgcf+dAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[288]" type="UMLGeneralization" guid="tGicXuHLF06SuWN+vHQ+twAA">
+<XPD:OBJ name="OwnedElements[287]" type="UMLGeneralization" guid="tGicXuHLF06SuWN+vHQ+twAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">SbE3Sp803kGxJolYrJhLIAAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
@@ -19337,7 +19376,7 @@
 <XPD:REF name="Views[2]">1UfsGjNzDUW7dDOn+EqKRwAA</XPD:REF>
 <XPD:REF name="Views[3]">aY2kDKfemESQD+sgeBucQgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="OwnedElements[289]" type="UMLGeneralization" guid="2iyp17H0IkuvViU1k0QgwwAA">
+<XPD:OBJ name="OwnedElements[288]" type="UMLGeneralization" guid="2iyp17H0IkuvViU1k0QgwwAA">
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:REF name="Child">Stu3f4newkeLzAY2QQbK2QAA</XPD:REF>
 <XPD:REF name="Parent">sAc7tSwIrUiS60u9IVvaWgAA</XPD:REF>
