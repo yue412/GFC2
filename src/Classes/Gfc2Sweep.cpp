@@ -12,11 +12,12 @@ Gfc2Sweep::Gfc2Sweep()
     m_nProfile = 0;
     m_nSpine3d = 0;
     m_nReferenceVector = 0;
+    m_nSweepType = (Gfc2SweepType)0;
 }
 
 bool Gfc2Sweep::isInitialized() const
 {
-    if ((_has_bits_[0] & 0x7) != 0x7) return false;
+    if ((_has_bits_[0] & 0xf) != 0xf) return false;
 
     return true;
 }
@@ -46,6 +47,9 @@ glodon::objectbuf::EntitySchema* Gfc2Sweep::createSchema() const
     pSchema->addAttribNames("ReferenceVector");
     pSchema->addAttribIds(3);
 
+    pSchema->addAttribNames("SweepType");
+    pSchema->addAttribIds(4);
+
     return pSchema;
 }
 
@@ -59,5 +63,6 @@ void Gfc2SweepFieldCacheInitializer::init(const std::map<std::string, int>& oFie
     _FieldCache->_Gfc2Sweep_Profile = getFieldId(oFieldIdMap, "Gfc2Sweep::Profile");
     _FieldCache->_Gfc2Sweep_Spine3d = getFieldId(oFieldIdMap, "Gfc2Sweep::Spine3d");
     _FieldCache->_Gfc2Sweep_ReferenceVector = getFieldId(oFieldIdMap, "Gfc2Sweep::ReferenceVector");
+    _FieldCache->_Gfc2Sweep_SweepType = getFieldId(oFieldIdMap, "Gfc2Sweep::SweepType");
 }
 

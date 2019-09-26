@@ -9,7 +9,6 @@ OBJECTBUF_IMP_OBJECT(Gfc2CoedgeListFieldCacheInitializer,"Gfc2CoedgeList",0)
 
 Gfc2CoedgeList::Gfc2CoedgeList()
 {
-    memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 bool Gfc2CoedgeList::isInitialized() const
@@ -29,7 +28,7 @@ glodon::objectbuf::EntitySchema* Gfc2CoedgeList::createSchema() const
         return pSchema;
 
     glodon::objectbuf::EntitySchema* pSchema = new glodon::objectbuf::EntitySchema();
-    pSchema->setParent(glodon::objectbuf::Entity::createSchema());
+    pSchema->setParent(Gfc2Geometry::createSchema());
     pSchema->setName("Gfc2CoedgeList");
     pSchema->setId(22);
     m_pDocument->addSchema(pSchema, 22);

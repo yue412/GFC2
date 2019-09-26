@@ -8,7 +8,7 @@ OBJECTBUF_IMP_OBJECT(Gfc2FloorBinarySerializer,"Gfc2FloorB",0)
 int Gfc2FloorBinarySerializer::byteSize(glodon::objectbuf::Entity* pEntity) const
 {
     Gfc2Floor* pEnt = (Gfc2Floor*)pEntity;
-    int total_size = Gfc2SpatialStructureElementBinarySerializer::byteSize(pEnt);
+    int total_size = Gfc2SpatialStructureEntityBinarySerializer::byteSize(pEnt);
 
     if (pEnt->hasFirstFloorFlag())
     {
@@ -46,7 +46,7 @@ int Gfc2FloorBinarySerializer::byteSize(glodon::objectbuf::Entity* pEntity) cons
 void Gfc2FloorBinarySerializer::serializeWithCachedSizes(google::protobuf::io::CodedOutputStream* output, glodon::objectbuf::Entity* pEntity) const
 {
     Gfc2Floor* pEnt = (Gfc2Floor*)pEntity;
-    Gfc2SpatialStructureElementBinarySerializer::serializeWithCachedSizes(output, pEnt);
+    Gfc2SpatialStructureEntityBinarySerializer::serializeWithCachedSizes(output, pEnt);
 
     if (pEnt->hasFirstFloorFlag())
     {
@@ -83,7 +83,7 @@ void Gfc2FloorBinarySerializer::serializeWithCachedSizes(google::protobuf::io::C
 google::protobuf::uint8* Gfc2FloorBinarySerializer::serializeWithCachedSizesToArray(google::protobuf::uint8* target, glodon::objectbuf::Entity* pEntity) const
 {
     Gfc2Floor* pEnt = (Gfc2Floor*)pEntity;
-    target = Gfc2SpatialStructureElementBinarySerializer::serializeWithCachedSizesToArray(target, pEnt);
+    target = Gfc2SpatialStructureEntityBinarySerializer::serializeWithCachedSizesToArray(target, pEnt);
 
     if (pEnt->hasFirstFloorFlag())
     {
@@ -122,7 +122,7 @@ glodon::objectbuf::EnParseFieldState Gfc2FloorBinarySerializer::parseField(googl
 {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
     Gfc2Floor* pEnt = (Gfc2Floor*)pEntity;
-    glodon::objectbuf::EnParseFieldState nState = Gfc2SpatialStructureElementBinarySerializer::parseField(input, nFieldNum, pEnt);
+    glodon::objectbuf::EnParseFieldState nState = Gfc2SpatialStructureEntityBinarySerializer::parseField(input, nFieldNum, pEnt);
     if (nState != glodon::objectbuf::PFS_IGNORE)
     {
         return nState;

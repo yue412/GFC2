@@ -61,36 +61,6 @@ bool NGfc2FaceArchInfo::hasChord()
     return ((Gfc2FaceArchInfo*)m_pEntity)->hasChord();
 }
 
-void NGfc2FaceArchInfo::setRadius(NGfc2Double dValue)
-{
-    ((Gfc2FaceArchInfo*)m_pEntity)->setRadius(dValue);
-}
-
-NGfc2Double NGfc2FaceArchInfo::getRadius()
-{
-    return ((Gfc2FaceArchInfo*)m_pEntity)->getRadius();
-}
-
-bool NGfc2FaceArchInfo::hasRadius()
-{
-    return ((Gfc2FaceArchInfo*)m_pEntity)->hasRadius();
-}
-
-void NGfc2FaceArchInfo::setDefineByRadius(NGfc2Boolean bValue)
-{
-    ((Gfc2FaceArchInfo*)m_pEntity)->setDefineByRadius(bValue);
-}
-
-NGfc2Boolean NGfc2FaceArchInfo::getDefineByRadius()
-{
-    return ((Gfc2FaceArchInfo*)m_pEntity)->getDefineByRadius();
-}
-
-bool NGfc2FaceArchInfo::hasDefineByRadius()
-{
-    return ((Gfc2FaceArchInfo*)m_pEntity)->hasDefineByRadius();
-}
-
 void NGfc2FaceArchInfo::setCheckInnerChord(NGfc2Boolean bValue)
 {
     ((Gfc2FaceArchInfo*)m_pEntity)->setCheckInnerChord(bValue);

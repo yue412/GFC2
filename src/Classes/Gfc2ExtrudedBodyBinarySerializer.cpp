@@ -8,7 +8,7 @@ OBJECTBUF_IMP_OBJECT(Gfc2ExtrudedBodyBinarySerializer,"Gfc2ExtrudedBodyB",0)
 int Gfc2ExtrudedBodyBinarySerializer::byteSize(glodon::objectbuf::Entity* pEntity) const
 {
     Gfc2ExtrudedBody* pEnt = (Gfc2ExtrudedBody*)pEntity;
-    int total_size = Gfc2BodyBinarySerializer::byteSize(pEnt);
+    int total_size = Gfc2PrimitiveBodyBinarySerializer::byteSize(pEnt);
 
     if (pEnt->hasCoordinate())
     {
@@ -31,7 +31,7 @@ int Gfc2ExtrudedBodyBinarySerializer::byteSize(glodon::objectbuf::Entity* pEntit
 void Gfc2ExtrudedBodyBinarySerializer::serializeWithCachedSizes(google::protobuf::io::CodedOutputStream* output, glodon::objectbuf::Entity* pEntity) const
 {
     Gfc2ExtrudedBody* pEnt = (Gfc2ExtrudedBody*)pEntity;
-    Gfc2BodyBinarySerializer::serializeWithCachedSizes(output, pEnt);
+    Gfc2PrimitiveBodyBinarySerializer::serializeWithCachedSizes(output, pEnt);
 
     if (pEnt->hasCoordinate())
     {
@@ -53,7 +53,7 @@ void Gfc2ExtrudedBodyBinarySerializer::serializeWithCachedSizes(google::protobuf
 google::protobuf::uint8* Gfc2ExtrudedBodyBinarySerializer::serializeWithCachedSizesToArray(google::protobuf::uint8* target, glodon::objectbuf::Entity* pEntity) const
 {
     Gfc2ExtrudedBody* pEnt = (Gfc2ExtrudedBody*)pEntity;
-    target = Gfc2BodyBinarySerializer::serializeWithCachedSizesToArray(target, pEnt);
+    target = Gfc2PrimitiveBodyBinarySerializer::serializeWithCachedSizesToArray(target, pEnt);
 
     if (pEnt->hasCoordinate())
     {
@@ -77,7 +77,7 @@ glodon::objectbuf::EnParseFieldState Gfc2ExtrudedBodyBinarySerializer::parseFiel
 {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
     Gfc2ExtrudedBody* pEnt = (Gfc2ExtrudedBody*)pEntity;
-    glodon::objectbuf::EnParseFieldState nState = Gfc2BodyBinarySerializer::parseField(input, nFieldNum, pEnt);
+    glodon::objectbuf::EnParseFieldState nState = Gfc2PrimitiveBodyBinarySerializer::parseField(input, nFieldNum, pEnt);
     if (nState != glodon::objectbuf::PFS_IGNORE)
     {
         return nState;

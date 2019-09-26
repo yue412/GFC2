@@ -25,6 +25,11 @@ int Gfc2SweepBinarySerializer::byteSize(glodon::objectbuf::Entity* pEntity) cons
         total_size += 1 + ::google::protobuf::internal::WireFormatLite::Int32Size(pEnt->getReferenceVector());
     }
 
+    if (pEnt->hasSweepType())
+    {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::Int32Size((int)pEnt->getSweepType());
+    }
+
     return total_size;
 }
 
@@ -48,6 +53,11 @@ void Gfc2SweepBinarySerializer::serializeWithCachedSizes(google::protobuf::io::C
         ::google::protobuf::internal::WireFormatLite::WriteInt32(3, pEnt->getReferenceVector(), output);
     }
 
+    if (pEnt->hasSweepType())
+    {
+        ::google::protobuf::internal::WireFormatLite::WriteInt32(4, (int)pEnt->getSweepType(), output);
+    }
+
 }
 
 google::protobuf::uint8* Gfc2SweepBinarySerializer::serializeWithCachedSizesToArray(google::protobuf::uint8* target, glodon::objectbuf::Entity* pEntity) const
@@ -68,6 +78,11 @@ google::protobuf::uint8* Gfc2SweepBinarySerializer::serializeWithCachedSizesToAr
     if (pEnt->hasReferenceVector())
     {
         target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, pEnt->getReferenceVector(), target);
+    }
+
+    if (pEnt->hasSweepType())
+    {
+        target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, (int)pEnt->getSweepType(), target);
     }
 
     return target;
@@ -104,6 +119,14 @@ glodon::objectbuf::EnParseFieldState Gfc2SweepBinarySerializer::parseField(googl
         glodon::objectbuf::EntityRef value;
         DO_((google::protobuf::internal::WireFormatLite::ReadPrimitive<google::protobuf::int32, google::protobuf::internal::WireFormatLite::TYPE_INT32>(input, &value)));
         pEnt->setReferenceVector(value);
+        goto success;
+    }
+
+    if (nFieldNum == _FieldCache->_Gfc2Sweep_SweepType)
+    {
+        Gfc2SweepType value;
+        DO_((google::protobuf::internal::WireFormatLite::ReadPrimitive<google::protobuf::int32, google::protobuf::internal::WireFormatLite::TYPE_INT32>(input, (google::protobuf::int32*)&value)));
+        pEnt->setSweepType(value);
         goto success;
     }
 

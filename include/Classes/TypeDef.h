@@ -109,6 +109,13 @@ enum Gfc2SizeMarkType
     ARCMARK
 };
 
+enum Gfc2SweepType
+{
+    ST_Perpendicular,
+    ST_Upright,
+    ST_Facepoint
+};
+
 inline std::string Gfc2ArcTypeToString(Gfc2ArcType nValue)
 {
     switch(nValue)
@@ -663,6 +670,45 @@ inline bool StringToGfc2SizeMarkType(const std::string& sValue, Gfc2SizeMarkType
     if(sValue.compare(".ARCMARK.") == 0)
     {
         nType = ARCMARK;
+        return true;
+    }
+    return false;
+}
+
+inline std::string Gfc2SweepTypeToString(Gfc2SweepType nValue)
+{
+    switch(nValue)
+    {
+    case ST_Perpendicular:
+        return ".ST_Perpendicular.";
+        break;
+    case ST_Upright:
+        return ".ST_Upright.";
+        break;
+    case ST_Facepoint:
+        return ".ST_Facepoint.";
+        break;
+    default:
+        assert(false);
+        return "";
+    }
+}
+
+inline bool StringToGfc2SweepType(const std::string& sValue, Gfc2SweepType& nType)
+{
+    if(sValue.compare(".ST_Perpendicular.") == 0)
+    {
+        nType = ST_Perpendicular;
+        return true;
+    }
+    if(sValue.compare(".ST_Upright.") == 0)
+    {
+        nType = ST_Upright;
+        return true;
+    }
+    if(sValue.compare(".ST_Facepoint.") == 0)
+    {
+        nType = ST_Facepoint;
         return true;
     }
     return false;

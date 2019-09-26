@@ -108,4 +108,11 @@ public enum class NGfc2SizeMarkType
     ARCMARK
 };
 
+public enum class NGfc2SweepType
+{
+    ST_Perpendicular,
+    ST_Upright,
+    ST_Facepoint
+};
+
 #endif

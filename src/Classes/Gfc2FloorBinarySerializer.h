@@ -1,9 +1,9 @@
 #ifndef GFC2FLOORBINARYSERIALIZER_H
 #define GFC2FLOORBINARYSERIALIZER_H
 
-#include "Gfc2SpatialStructureElementBinarySerializer.h"
+#include "Gfc2SpatialStructureEntityBinarySerializer.h"
 
-class Gfc2FloorBinarySerializer: public Gfc2SpatialStructureElementBinarySerializer
+class Gfc2FloorBinarySerializer: public Gfc2SpatialStructureEntityBinarySerializer
 {
 OBJECTBUF_DEC_OBJECT(Gfc2FloorBinarySerializer,glodon::objectbuf::EntitySerializer)
 public:

@@ -1,9 +1,9 @@
 #ifndef GFC2CUBOIDBODYBINARYSERIALIZER_H
 #define GFC2CUBOIDBODYBINARYSERIALIZER_H
 
-#include "Gfc2BodyBinarySerializer.h"
+#include "Gfc2PrimitiveBodyBinarySerializer.h"
 
-class Gfc2CuboidBodyBinarySerializer: public Gfc2BodyBinarySerializer
+class Gfc2CuboidBodyBinarySerializer: public Gfc2PrimitiveBodyBinarySerializer
 {
 OBJECTBUF_DEC_OBJECT(Gfc2CuboidBodyBinarySerializer,glodon::objectbuf::EntitySerializer)
 public:

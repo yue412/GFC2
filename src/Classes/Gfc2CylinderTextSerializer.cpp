@@ -12,11 +12,6 @@ std::string Gfc2CylinderTextSerializer::serialize(glodon::objectbuf::Entity* pEn
 
     std::stringstream stream;
     stream.precision(numeric_limits<double>::digits10);
-    if (pEnt->hasCoord())
-        stream<<",#"<<pEnt->getCoord();
-    else
-        stream<<",$";
-
     if (pEnt->hasRangeV())
         stream<<",#"<<pEnt->getRangeV();
     else
@@ -24,6 +19,26 @@ std::string Gfc2CylinderTextSerializer::serialize(glodon::objectbuf::Entity* pEn
 
     if (pEnt->hasCurve())
         stream<<",#"<<pEnt->getCurve();
+    else
+        stream<<",$";
+
+    if (pEnt->hasDirX())
+        stream<<",#"<<pEnt->getDirX();
+    else
+        stream<<",$";
+
+    if (pEnt->hasDirY())
+        stream<<",#"<<pEnt->getDirY();
+    else
+        stream<<",$";
+
+    if (pEnt->hasDirZ())
+        stream<<",#"<<pEnt->getDirZ();
+    else
+        stream<<",$";
+
+    if (pEnt->hasPos())
+        stream<<",#"<<pEnt->getPos();
     else
         stream<<",$";
 
@@ -49,21 +64,42 @@ glodon::objectbuf::EnParseFieldState Gfc2CylinderTextSerializer::parseField(cons
         {
             glodon::objectbuf::EntityRef value;
             DO_((readEntityField(input, value)));
-            pEnt->setCoord(value);
+            pEnt->setRangeV(value);
         }
         break;
     case 1:
         {
             glodon::objectbuf::EntityRef value;
             DO_((readEntityField(input, value)));
-            pEnt->setRangeV(value);
+            pEnt->setCurve(value);
         }
         break;
     case 2:
         {
             glodon::objectbuf::EntityRef value;
             DO_((readEntityField(input, value)));
-            pEnt->setCurve(value);
+            pEnt->setDirX(value);
+        }
+        break;
+    case 3:
+        {
+            glodon::objectbuf::EntityRef value;
+            DO_((readEntityField(input, value)));
+            pEnt->setDirY(value);
+        }
+        break;
+    case 4:
+        {
+            glodon::objectbuf::EntityRef value;
+            DO_((readEntityField(input, value)));
+            pEnt->setDirZ(value);
+        }
+        break;
+    case 5:
+        {
+            glodon::objectbuf::EntityRef value;
+            DO_((readEntityField(input, value)));
+            pEnt->setPos(value);
         }
         break;
     default:

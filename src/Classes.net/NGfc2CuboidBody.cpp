@@ -7,7 +7,7 @@ NGfc2CuboidBody::NGfc2CuboidBody()
 }
 
 NGfc2CuboidBody::NGfc2CuboidBody(void* pEntity, bool bOwner):
-    NGfc2Body(pEntity, bOwner)
+    NGfc2PrimitiveBody(pEntity, bOwner)
 {
 }
 

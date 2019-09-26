@@ -12,11 +12,12 @@ Gfc2SweepCurve3d::Gfc2SweepCurve3d()
     m_nSpine3d = 0;
     m_nReferenceVector = 0;
     m_nPoint = 0;
+    m_nSweepType = (Gfc2SweepType)0;
 }
 
 bool Gfc2SweepCurve3d::isInitialized() const
 {
-    if ((_has_bits_[0] & 0x7) != 0x7) return false;
+    if ((_has_bits_[0] & 0xf) != 0xf) return false;
 
     return true;
 }
@@ -46,6 +47,9 @@ glodon::objectbuf::EntitySchema* Gfc2SweepCurve3d::createSchema() const
     pSchema->addAttribNames("Point");
     pSchema->addAttribIds(3);
 
+    pSchema->addAttribNames("SweepType");
+    pSchema->addAttribIds(4);
+
     return pSchema;
 }
 
@@ -59,5 +63,6 @@ void Gfc2SweepCurve3dFieldCacheInitializer::init(const std::map<std::string, int
     _FieldCache->_Gfc2SweepCurve3d_Spine3d = getFieldId(oFieldIdMap, "Gfc2SweepCurve3d::Spine3d");
     _FieldCache->_Gfc2SweepCurve3d_ReferenceVector = getFieldId(oFieldIdMap, "Gfc2SweepCurve3d::ReferenceVector");
     _FieldCache->_Gfc2SweepCurve3d_Point = getFieldId(oFieldIdMap, "Gfc2SweepCurve3d::Point");
+    _FieldCache->_Gfc2SweepCurve3d_SweepType = getFieldId(oFieldIdMap, "Gfc2SweepCurve3d::SweepType");
 }
 

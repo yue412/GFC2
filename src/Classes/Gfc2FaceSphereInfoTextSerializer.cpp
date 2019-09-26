@@ -27,16 +27,6 @@ std::string Gfc2FaceSphereInfoTextSerializer::serialize(glodon::objectbuf::Entit
     else
         stream<<",$";
 
-    if (pEnt->hasRadius())
-        stream<<","<<pEnt->getRadius();
-    else
-        stream<<",$";
-
-    if (pEnt->hasDefineByRadius())
-        stream<<(pEnt->getDefineByRadius() ? ",.T." : ",.F.");
-    else
-        stream<<",$";
-
     if (pEnt->hasCheckInnerChord())
         stream<<(pEnt->getCheckInnerChord() ? ",.T." : ",.F.");
     else
@@ -82,20 +72,6 @@ glodon::objectbuf::EnParseFieldState Gfc2FaceSphereInfoTextSerializer::parseFiel
         }
         break;
     case 3:
-        {
-            Gfc2Double value;
-            DO_((readFloatField(input, value)));
-            pEnt->setRadius(value);
-        }
-        break;
-    case 4:
-        {
-            Gfc2Boolean value;
-            DO_((readBooleanField(input, value)));
-            pEnt->setDefineByRadius(value);
-        }
-        break;
-    case 5:
         {
             Gfc2Boolean value;
             DO_((readBooleanField(input, value)));

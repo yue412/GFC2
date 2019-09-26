@@ -31,7 +31,7 @@ glodon::objectbuf::EntitySchema* Gfc2CuboidBody::createSchema() const
         return pSchema;
 
     glodon::objectbuf::EntitySchema* pSchema = new glodon::objectbuf::EntitySchema();
-    pSchema->setParent(Gfc2Body::createSchema());
+    pSchema->setParent(Gfc2PrimitiveBody::createSchema());
     pSchema->setName("Gfc2CuboidBody");
     pSchema->setId(28);
     m_pDocument->addSchema(pSchema, 28);

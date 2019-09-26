@@ -12,14 +12,12 @@ Gfc2FaceSphereInfo::Gfc2FaceSphereInfo()
     m_nCenterPoint = 0;
     m_dHeight = 0.0;
     m_dChord = 0.0;
-    m_dRadius = 0.0;
-    m_bDefineByRadius = false;
     m_bCheckInnerChord = false;
 }
 
 bool Gfc2FaceSphereInfo::isInitialized() const
 {
-    if ((_has_bits_[0] & 0x3f) != 0x3f) return false;
+    if ((_has_bits_[0] & 0xf) != 0xf) return false;
 
     return true;
 }
@@ -49,14 +47,8 @@ glodon::objectbuf::EntitySchema* Gfc2FaceSphereInfo::createSchema() const
     pSchema->addAttribNames("Chord");
     pSchema->addAttribIds(3);
 
-    pSchema->addAttribNames("Radius");
-    pSchema->addAttribIds(4);
-
-    pSchema->addAttribNames("DefineByRadius");
-    pSchema->addAttribIds(5);
-
     pSchema->addAttribNames("CheckInnerChord");
-    pSchema->addAttribIds(6);
+    pSchema->addAttribIds(4);
 
     return pSchema;
 }
@@ -71,8 +63,6 @@ void Gfc2FaceSphereInfoFieldCacheInitializer::init(const std::map<std::string, i
     _FieldCache->_Gfc2FaceSphereInfo_CenterPoint = getFieldId(oFieldIdMap, "Gfc2FaceSphereInfo::CenterPoint");
     _FieldCache->_Gfc2FaceSphereInfo_Height = getFieldId(oFieldIdMap, "Gfc2FaceSphereInfo::Height");
     _FieldCache->_Gfc2FaceSphereInfo_Chord = getFieldId(oFieldIdMap, "Gfc2FaceSphereInfo::Chord");
-    _FieldCache->_Gfc2FaceSphereInfo_Radius = getFieldId(oFieldIdMap, "Gfc2FaceSphereInfo::Radius");
-    _FieldCache->_Gfc2FaceSphereInfo_DefineByRadius = getFieldId(oFieldIdMap, "Gfc2FaceSphereInfo::DefineByRadius");
     _FieldCache->_Gfc2FaceSphereInfo_CheckInnerChord = getFieldId(oFieldIdMap, "Gfc2FaceSphereInfo::CheckInnerChord");
 }
 

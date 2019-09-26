@@ -1,9 +1,9 @@
 #ifndef GFC2COEDGELISTBINARYSERIALIZER_H
 #define GFC2COEDGELISTBINARYSERIALIZER_H
 
-#include "glodon/objectbuf/EntityBinarySerializer.h"
+#include "Gfc2GeometryBinarySerializer.h"
 
-class Gfc2CoedgeListBinarySerializer: public glodon::objectbuf::EntityBinarySerializer
+class Gfc2CoedgeListBinarySerializer: public Gfc2GeometryBinarySerializer
 {
 OBJECTBUF_DEC_OBJECT(Gfc2CoedgeListBinarySerializer,glodon::objectbuf::EntitySerializer)
 public:

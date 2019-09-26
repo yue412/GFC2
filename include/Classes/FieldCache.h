@@ -63,31 +63,11 @@ public:
         _Gfc2AxisDataItem_Level(0),
         _Gfc2AxisDataItem_AxisNoPos(0),
         _Gfc2AxisDataItem_TrimPoints(0),
-        _Gfc2ParallelAssitAxis_RefAxisNo(0),
-        _Gfc2ParallelAssitAxis_Offset(0),
-        _Gfc2ParallelAssitAxis_RefAxisIndex(0),
-        _Gfc2ParallelAssitAxis_RefAxisType(0),
-        _Gfc2PointAngleAssitAxis_RefPoint(0),
-        _Gfc2PointAngleAssitAxis_Angle(0),
-        _Gfc2AxisAngleAssitAxis_RefAxisNo(0),
-        _Gfc2AxisAngleAssitAxis_RefPoint(0),
-        _Gfc2AxisAngleAssitAxis_Angle(0),
-        _Gfc2AxisAngleAssitAxis_RefAxisIndex(0),
-        _Gfc2AxisAngleAssitAxis_RefAxisType(0),
-        _Gfc2PolarAngleAssitAxis_RefAxisNo(0),
-        _Gfc2PolarAngleAssitAxis_Angle(0),
-        _Gfc2PolarAngleAssitAxis_RefAxisIndex(0),
+        _Gfc2TwoPointAssitAxis_StartPt(0),
+        _Gfc2TwoPointAssitAxis_EndPt(0),
         _Gfc2ThreePointArcAssitAxis_RefPoint1(0),
         _Gfc2ThreePointArcAssitAxis_RefPoint2(0),
         _Gfc2ThreePointArcAssitAxis_RefPoint3(0),
-        _Gfc2CenterStartEndArcAssitAxis_Center(0),
-        _Gfc2CenterStartEndArcAssitAxis_StartPoint(0),
-        _Gfc2CenterStartEndArcAssitAxis_EndPoint(0),
-        _Gfc2CircleAssitAxis_Center(0),
-        _Gfc2CircleAssitAxis_Radius(0),
-        _Gfc2SizeMark_SizeMarkType(0),
-        _Gfc2SizeMark_StartLine(0),
-        _Gfc2SizeMark_EndLine(0),
         _Gfc2LineShape2d_Line(0),
         _Gfc2Object_ID(0),
         _Gfc2Object_Name(0),
@@ -173,6 +153,7 @@ public:
         _Gfc2SweepCurve3d_Spine3d(0),
         _Gfc2SweepCurve3d_ReferenceVector(0),
         _Gfc2SweepCurve3d_Point(0),
+        _Gfc2SweepCurve3d_SweepType(0),
         _Gfc2PlaneInfo_DirX(0),
         _Gfc2PlaneInfo_DirY(0),
         _Gfc2PlaneInfo_Pos(0),
@@ -193,9 +174,12 @@ public:
         _Gfc2Bevel_Height(0),
         _Gfc2Bevel_RangeV(0),
         _Gfc2Bevel_Curve(0),
-        _Gfc2Cylinder_Coord(0),
         _Gfc2Cylinder_RangeV(0),
         _Gfc2Cylinder_Curve(0),
+        _Gfc2Cylinder_DirX(0),
+        _Gfc2Cylinder_DirY(0),
+        _Gfc2Cylinder_DirZ(0),
+        _Gfc2Cylinder_Pos(0),
         _Gfc2Helicoid_Coord(0),
         _Gfc2Helicoid_Radius(0),
         _Gfc2Helicoid_RangeV(0),
@@ -222,6 +206,7 @@ public:
         _Gfc2Sweep_Profile(0),
         _Gfc2Sweep_Spine3d(0),
         _Gfc2Sweep_ReferenceVector(0),
+        _Gfc2Sweep_SweepType(0),
         _Gfc2Torus_Coord(0),
         _Gfc2Torus_Radius(0),
         _Gfc2Torus_ClockSign(0),
@@ -336,14 +321,6 @@ public:
         _Gfc2Coedge_Curve(0),
         _Gfc2Coedge_EdgeIndex(0),
         _Gfc2Coedge_EdgeSameDir(0),
-        _Gfc2HermiteCurve2d_CtrlPts(0),
-        _Gfc2HermiteCtrlPt2d_Point(0),
-        _Gfc2HermiteCtrlPt2d_Tangent(0),
-        _Gfc2HermiteCtrlPt2d_Parameter(0),
-        _Gfc2HermiteCurve3d_CtrlPts(0),
-        _Gfc2HermiteCtrlPt3d_Point(0),
-        _Gfc2HermiteCtrlPt3d_Tangent(0),
-        _Gfc2HermiteCtrlPt3d_Parameter(0),
         _Gfc2Representation_Identifier(0),
         _Gfc2Representation_items(0),
         _Gfc2RepresentationItem_PrimitiveType(0),
@@ -371,14 +348,10 @@ public:
         _Gfc2FaceArchInfo_AxialLine(0),
         _Gfc2FaceArchInfo_Height(0),
         _Gfc2FaceArchInfo_Chord(0),
-        _Gfc2FaceArchInfo_Radius(0),
-        _Gfc2FaceArchInfo_DefineByRadius(0),
         _Gfc2FaceArchInfo_CheckInnerChord(0),
         _Gfc2FaceSphereInfo_CenterPoint(0),
         _Gfc2FaceSphereInfo_Height(0),
         _Gfc2FaceSphereInfo_Chord(0),
-        _Gfc2FaceSphereInfo_Radius(0),
-        _Gfc2FaceSphereInfo_DefineByRadius(0),
         _Gfc2FaceSphereInfo_CheckInnerChord(0),
         _Gfc2FaceConeInfo_Height(0),
         _Gfc2FaceConeInfo_Chord(0),
@@ -460,31 +433,11 @@ public:
     int _Gfc2AxisDataItem_Level;
     int _Gfc2AxisDataItem_AxisNoPos;
     int _Gfc2AxisDataItem_TrimPoints;
-    int _Gfc2ParallelAssitAxis_RefAxisNo;
-    int _Gfc2ParallelAssitAxis_Offset;
-    int _Gfc2ParallelAssitAxis_RefAxisIndex;
-    int _Gfc2ParallelAssitAxis_RefAxisType;
-    int _Gfc2PointAngleAssitAxis_RefPoint;
-    int _Gfc2PointAngleAssitAxis_Angle;
-    int _Gfc2AxisAngleAssitAxis_RefAxisNo;
-    int _Gfc2AxisAngleAssitAxis_RefPoint;
-    int _Gfc2AxisAngleAssitAxis_Angle;
-    int _Gfc2AxisAngleAssitAxis_RefAxisIndex;
-    int _Gfc2AxisAngleAssitAxis_RefAxisType;
-    int _Gfc2PolarAngleAssitAxis_RefAxisNo;
-    int _Gfc2PolarAngleAssitAxis_Angle;
-    int _Gfc2PolarAngleAssitAxis_RefAxisIndex;
+    int _Gfc2TwoPointAssitAxis_StartPt;
+    int _Gfc2TwoPointAssitAxis_EndPt;
     int _Gfc2ThreePointArcAssitAxis_RefPoint1;
     int _Gfc2ThreePointArcAssitAxis_RefPoint2;
     int _Gfc2ThreePointArcAssitAxis_RefPoint3;
-    int _Gfc2CenterStartEndArcAssitAxis_Center;
-    int _Gfc2CenterStartEndArcAssitAxis_StartPoint;
-    int _Gfc2CenterStartEndArcAssitAxis_EndPoint;
-    int _Gfc2CircleAssitAxis_Center;
-    int _Gfc2CircleAssitAxis_Radius;
-    int _Gfc2SizeMark_SizeMarkType;
-    int _Gfc2SizeMark_StartLine;
-    int _Gfc2SizeMark_EndLine;
     int _Gfc2LineShape2d_Line;
     int _Gfc2Object_ID;
     int _Gfc2Object_Name;
@@ -570,6 +523,7 @@ public:
     int _Gfc2SweepCurve3d_Spine3d;
     int _Gfc2SweepCurve3d_ReferenceVector;
     int _Gfc2SweepCurve3d_Point;
+    int _Gfc2SweepCurve3d_SweepType;
     int _Gfc2PlaneInfo_DirX;
     int _Gfc2PlaneInfo_DirY;
     int _Gfc2PlaneInfo_Pos;
@@ -590,9 +544,12 @@ public:
     int _Gfc2Bevel_Height;
     int _Gfc2Bevel_RangeV;
     int _Gfc2Bevel_Curve;
-    int _Gfc2Cylinder_Coord;
     int _Gfc2Cylinder_RangeV;
     int _Gfc2Cylinder_Curve;
+    int _Gfc2Cylinder_DirX;
+    int _Gfc2Cylinder_DirY;
+    int _Gfc2Cylinder_DirZ;
+    int _Gfc2Cylinder_Pos;
     int _Gfc2Helicoid_Coord;
     int _Gfc2Helicoid_Radius;
     int _Gfc2Helicoid_RangeV;
@@ -619,6 +576,7 @@ public:
     int _Gfc2Sweep_Profile;
     int _Gfc2Sweep_Spine3d;
     int _Gfc2Sweep_ReferenceVector;
+    int _Gfc2Sweep_SweepType;
     int _Gfc2Torus_Coord;
     int _Gfc2Torus_Radius;
     int _Gfc2Torus_ClockSign;
@@ -733,14 +691,6 @@ public:
     int _Gfc2Coedge_Curve;
     int _Gfc2Coedge_EdgeIndex;
     int _Gfc2Coedge_EdgeSameDir;
-    int _Gfc2HermiteCurve2d_CtrlPts;
-    int _Gfc2HermiteCtrlPt2d_Point;
-    int _Gfc2HermiteCtrlPt2d_Tangent;
-    int _Gfc2HermiteCtrlPt2d_Parameter;
-    int _Gfc2HermiteCurve3d_CtrlPts;
-    int _Gfc2HermiteCtrlPt3d_Point;
-    int _Gfc2HermiteCtrlPt3d_Tangent;
-    int _Gfc2HermiteCtrlPt3d_Parameter;
     int _Gfc2Representation_Identifier;
     int _Gfc2Representation_items;
     int _Gfc2RepresentationItem_PrimitiveType;
@@ -768,14 +718,10 @@ public:
     int _Gfc2FaceArchInfo_AxialLine;
     int _Gfc2FaceArchInfo_Height;
     int _Gfc2FaceArchInfo_Chord;
-    int _Gfc2FaceArchInfo_Radius;
-    int _Gfc2FaceArchInfo_DefineByRadius;
     int _Gfc2FaceArchInfo_CheckInnerChord;
     int _Gfc2FaceSphereInfo_CenterPoint;
     int _Gfc2FaceSphereInfo_Height;
     int _Gfc2FaceSphereInfo_Chord;
-    int _Gfc2FaceSphereInfo_Radius;
-    int _Gfc2FaceSphereInfo_DefineByRadius;
     int _Gfc2FaceSphereInfo_CheckInnerChord;
     int _Gfc2FaceConeInfo_Height;
     int _Gfc2FaceConeInfo_Chord;

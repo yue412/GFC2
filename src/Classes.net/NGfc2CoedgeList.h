@@ -1,11 +1,12 @@
 #ifndef NGFC2COEDGELIST_H
 #define NGFC2COEDGELIST_H
 
+#include "NGfc2Geometry.h"
 #include "Gfc2CoedgeList.h"
 #include "NGfc2Curve2d.h"
 #include "glodon/objectbuf/Entity.h"
 
-public ref class NGfc2CoedgeList: public glodon::objectbufnet::Entity
+public ref class NGfc2CoedgeList: public NGfc2Geometry
 {
 public:
     NGfc2CoedgeList();

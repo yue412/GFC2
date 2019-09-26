@@ -3,12 +3,13 @@
 
 #include "GfcClasses.h"
 #include <vector>
+#include "Gfc2Geometry.h"
 #include "Gfc2Curve2d.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 #include "glodon/objectbuf/FieldCacheInitializer.h"
 
-class GFCCLASSES_API Gfc2CoedgeList: public glodon::objectbuf::Entity
+class GFCCLASSES_API Gfc2CoedgeList: public Gfc2Geometry
 {
 OBJECTBUF_DEC_OBJECT(Gfc2CoedgeList,glodon::objectbuf::Entity)
 public:
@@ -23,8 +24,6 @@ public:
     glodon::objectbuf::EntityRef getCoedges(int nIndex) const {return m_oCoedges[nIndex];}
     Gfc2Curve2d* getCoedgesPtr(int nIndex) const {return (Gfc2Curve2d*)m_pDocument->find(getCoedges(nIndex));}
 
-protected:
-    unsigned _has_bits_[1];
 private:
     std::vector<glodon::objectbuf::EntityRef> m_oCoedges;
 };

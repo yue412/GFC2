@@ -137,5 +137,7 @@
 #define Gfc2VariableSectionLineShape_ID 135
 #define Gfc2Vector2d_ID 136
 #define Gfc2Vector3d_ID 137
+#define Gfc2PrimitiveBody_ID 138
+#define Gfc2SpatialStructureEntity_ID 139
 
 #endif

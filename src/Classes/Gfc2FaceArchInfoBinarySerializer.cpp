@@ -25,16 +25,6 @@ int Gfc2FaceArchInfoBinarySerializer::byteSize(glodon::objectbuf::Entity* pEntit
         total_size += 1 + 8;
     }
 
-    if (pEnt->hasRadius())
-    {
-        total_size += 1 + 8;
-    }
-
-    if (pEnt->hasDefineByRadius())
-    {
-        total_size += 1 + 1;
-    }
-
     if (pEnt->hasCheckInnerChord())
     {
         total_size += 1 + 1;
@@ -63,19 +53,9 @@ void Gfc2FaceArchInfoBinarySerializer::serializeWithCachedSizes(google::protobuf
         ::google::protobuf::internal::WireFormatLite::WriteDouble(3, pEnt->getChord(), output);
     }
 
-    if (pEnt->hasRadius())
-    {
-        ::google::protobuf::internal::WireFormatLite::WriteDouble(4, pEnt->getRadius(), output);
-    }
-
-    if (pEnt->hasDefineByRadius())
-    {
-        ::google::protobuf::internal::WireFormatLite::WriteBool(5, pEnt->getDefineByRadius(), output);
-    }
-
     if (pEnt->hasCheckInnerChord())
     {
-        ::google::protobuf::internal::WireFormatLite::WriteBool(6, pEnt->getCheckInnerChord(), output);
+        ::google::protobuf::internal::WireFormatLite::WriteBool(4, pEnt->getCheckInnerChord(), output);
     }
 
 }
@@ -100,19 +80,9 @@ google::protobuf::uint8* Gfc2FaceArchInfoBinarySerializer::serializeWithCachedSi
         target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, pEnt->getChord(), target);
     }
 
-    if (pEnt->hasRadius())
-    {
-        target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, pEnt->getRadius(), target);
-    }
-
-    if (pEnt->hasDefineByRadius())
-    {
-        target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, pEnt->getDefineByRadius(), target);
-    }
-
     if (pEnt->hasCheckInnerChord())
     {
-        target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(6, pEnt->getCheckInnerChord(), target);
+        target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, pEnt->getCheckInnerChord(), target);
     }
 
     return target;
@@ -149,22 +119,6 @@ glodon::objectbuf::EnParseFieldState Gfc2FaceArchInfoBinarySerializer::parseFiel
         Gfc2Double value;
         DO_((google::protobuf::internal::WireFormatLite::ReadPrimitive<double, google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(input, &value)));
         pEnt->setChord(value);
-        goto success;
-    }
-
-    if (nFieldNum == _FieldCache->_Gfc2FaceArchInfo_Radius)
-    {
-        Gfc2Double value;
-        DO_((google::protobuf::internal::WireFormatLite::ReadPrimitive<double, google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(input, &value)));
-        pEnt->setRadius(value);
-        goto success;
-    }
-
-    if (nFieldNum == _FieldCache->_Gfc2FaceArchInfo_DefineByRadius)
-    {
-        Gfc2Boolean value;
-        DO_((google::protobuf::internal::WireFormatLite::ReadPrimitive<bool, google::protobuf::internal::WireFormatLite::TYPE_BOOL>(input, &value)));
-        pEnt->setDefineByRadius(value);
         goto success;
     }
 

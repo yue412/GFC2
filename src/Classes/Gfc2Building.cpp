@@ -16,7 +16,7 @@ glodon::objectbuf::EntitySchema* Gfc2Building::createSchema() const
         return pSchema;
 
     glodon::objectbuf::EntitySchema* pSchema = new glodon::objectbuf::EntitySchema();
-    pSchema->setParent(Gfc2SpatialStructureElement::createSchema());
+    pSchema->setParent(Gfc2SpatialStructureEntity::createSchema());
     pSchema->setName("Gfc2Building");
     pSchema->setId(17);
     m_pDocument->addSchema(pSchema, 17);

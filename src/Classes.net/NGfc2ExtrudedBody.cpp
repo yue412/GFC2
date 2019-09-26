@@ -7,7 +7,7 @@ NGfc2ExtrudedBody::NGfc2ExtrudedBody()
 }
 
 NGfc2ExtrudedBody::NGfc2ExtrudedBody(void* pEntity, bool bOwner):
-    NGfc2Body(pEntity, bOwner)
+    NGfc2PrimitiveBody(pEntity, bOwner)
 {
 }
 

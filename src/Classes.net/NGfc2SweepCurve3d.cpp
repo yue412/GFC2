@@ -71,3 +71,18 @@ NGfc2Vector2d^ NGfc2SweepCurve3d::getPointPtr()
     return gcnew NGfc2Vector2d(((Gfc2SweepCurve3d*)m_pEntity)->getPointPtr(), false);
 }
 
+void NGfc2SweepCurve3d::setSweepType(NGfc2SweepType nValue)
+{
+    ((Gfc2SweepCurve3d*)m_pEntity)->setSweepType((Gfc2SweepType)nValue);
+}
+
+NGfc2SweepType NGfc2SweepCurve3d::getSweepType()
+{
+    return (NGfc2SweepType)((Gfc2SweepCurve3d*)m_pEntity)->getSweepType();
+}
+
+bool NGfc2SweepCurve3d::hasSweepType()
+{
+    return ((Gfc2SweepCurve3d*)m_pEntity)->hasSweepType();
+}
+

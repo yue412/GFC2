@@ -71,3 +71,18 @@ NGfc2Vector3d^ NGfc2Sweep::getReferenceVectorPtr()
     return gcnew NGfc2Vector3d(((Gfc2Sweep*)m_pEntity)->getReferenceVectorPtr(), false);
 }
 
+void NGfc2Sweep::setSweepType(NGfc2SweepType nValue)
+{
+    ((Gfc2Sweep*)m_pEntity)->setSweepType((Gfc2SweepType)nValue);
+}
+
+NGfc2SweepType NGfc2Sweep::getSweepType()
+{
+    return (NGfc2SweepType)((Gfc2Sweep*)m_pEntity)->getSweepType();
+}
+
+bool NGfc2Sweep::hasSweepType()
+{
+    return ((Gfc2Sweep*)m_pEntity)->hasSweepType();
+}
+

@@ -3,13 +3,13 @@
 
 #include "GfcClasses.h"
 #include <vector>
-#include "Gfc2SpatialStructureElement.h"
+#include "Gfc2SpatialStructureEntity.h"
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 #include "glodon/objectbuf/FieldCacheInitializer.h"
 
-class GFCCLASSES_API Gfc2Floor: public Gfc2SpatialStructureElement
+class GFCCLASSES_API Gfc2Floor: public Gfc2SpatialStructureEntity
 {
 OBJECTBUF_DEC_OBJECT(Gfc2Floor,glodon::objectbuf::Entity)
 public:

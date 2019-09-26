@@ -8,7 +8,7 @@ OBJECTBUF_IMP_OBJECT(Gfc2CoedgeListTextSerializer,"Gfc2CoedgeListT",0)
 std::string Gfc2CoedgeListTextSerializer::serialize(glodon::objectbuf::Entity* pEntity) const
 {
     Gfc2CoedgeList* pEnt = (Gfc2CoedgeList*)pEntity;
-    std::string sResult = glodon::objectbuf::EntityTextSerializer::serialize(pEnt);
+    std::string sResult = Gfc2GeometryTextSerializer::serialize(pEnt);
 
     std::stringstream stream;
     stream.precision(numeric_limits<double>::digits10);
@@ -34,7 +34,7 @@ glodon::objectbuf::EnParseFieldState Gfc2CoedgeListTextSerializer::parseField(co
 {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
     Gfc2CoedgeList* pEnt = (Gfc2CoedgeList*)pEntity;
-    glodon::objectbuf::EnParseFieldState nState = glodon::objectbuf::EntityTextSerializer::parseField(input, nFieldNum, pEnt);
+    glodon::objectbuf::EnParseFieldState nState = Gfc2GeometryTextSerializer::parseField(input, nFieldNum, pEnt);
     if (nState != glodon::objectbuf::PFS_IGNORE)
     {
         return nState;

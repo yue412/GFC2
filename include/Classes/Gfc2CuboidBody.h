@@ -3,14 +3,14 @@
 
 #include "GfcClasses.h"
 #include <vector>
-#include "Gfc2Body.h"
+#include "Gfc2PrimitiveBody.h"
 #include "Gfc2Coordinates3d.h"
 #include "Gfc2Vector3d.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 #include "glodon/objectbuf/FieldCacheInitializer.h"
 
-class GFCCLASSES_API Gfc2CuboidBody: public Gfc2Body
+class GFCCLASSES_API Gfc2CuboidBody: public Gfc2PrimitiveBody
 {
 OBJECTBUF_DEC_OBJECT(Gfc2CuboidBody,glodon::objectbuf::Entity)
 public:

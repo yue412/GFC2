@@ -27,6 +27,11 @@ std::string Gfc2SweepCurve3dTextSerializer::serialize(glodon::objectbuf::Entity*
     else
         stream<<",$";
 
+    if (pEnt->hasSweepType())
+        stream<<","<<Gfc2SweepTypeToString(pEnt->getSweepType());
+    else
+        stream<<",$";
+
     sResult += stream.str();
     if(sResult[0] == ',')
         sResult = sResult.substr(1,sResult.length() - 1);
@@ -64,6 +69,13 @@ glodon::objectbuf::EnParseFieldState Gfc2SweepCurve3dTextSerializer::parseField(
             glodon::objectbuf::EntityRef value;
             DO_((readEntityField(input, value)));
             pEnt->setPoint(value);
+        }
+        break;
+    case 3:
+        {
+            Gfc2SweepType value;
+            DO_((StringToGfc2SweepType(input, value)));
+            pEnt->setSweepType(value);
         }
         break;
     default:

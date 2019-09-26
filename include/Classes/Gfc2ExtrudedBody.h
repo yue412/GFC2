@@ -3,7 +3,7 @@
 
 #include "GfcClasses.h"
 #include <vector>
-#include "Gfc2Body.h"
+#include "Gfc2PrimitiveBody.h"
 #include "Gfc2Coordinates3d.h"
 #include "Gfc2Polygon.h"
 #include "TypeDef.h"
@@ -11,7 +11,7 @@
 #include "glodon/objectbuf/Entity.h"
 #include "glodon/objectbuf/FieldCacheInitializer.h"
 
-class GFCCLASSES_API Gfc2ExtrudedBody: public Gfc2Body
+class GFCCLASSES_API Gfc2ExtrudedBody: public Gfc2PrimitiveBody
 {
 OBJECTBUF_DEC_OBJECT(Gfc2ExtrudedBody,glodon::objectbuf::Entity)
 public:

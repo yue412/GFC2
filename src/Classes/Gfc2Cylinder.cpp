@@ -9,14 +9,17 @@ OBJECTBUF_IMP_OBJECT(Gfc2CylinderFieldCacheInitializer,"Gfc2Cylinder",0)
 
 Gfc2Cylinder::Gfc2Cylinder()
 {
-    m_nCoord = 0;
     m_nRangeV = 0;
     m_nCurve = 0;
+    m_nDirX = 0;
+    m_nDirY = 0;
+    m_nDirZ = 0;
+    m_nPos = 0;
 }
 
 bool Gfc2Cylinder::isInitialized() const
 {
-    if ((_has_bits_[0] & 0x7) != 0x7) return false;
+    if ((_has_bits_[0] & 0x3f) != 0x3f) return false;
 
     return true;
 }
@@ -37,14 +40,23 @@ glodon::objectbuf::EntitySchema* Gfc2Cylinder::createSchema() const
     pSchema->setId(33);
     m_pDocument->addSchema(pSchema, 33);
 
-    pSchema->addAttribNames("Coord");
+    pSchema->addAttribNames("RangeV");
     pSchema->addAttribIds(1);
 
-    pSchema->addAttribNames("RangeV");
+    pSchema->addAttribNames("Curve");
     pSchema->addAttribIds(2);
 
-    pSchema->addAttribNames("Curve");
+    pSchema->addAttribNames("DirX");
     pSchema->addAttribIds(3);
+
+    pSchema->addAttribNames("DirY");
+    pSchema->addAttribIds(4);
+
+    pSchema->addAttribNames("DirZ");
+    pSchema->addAttribIds(5);
+
+    pSchema->addAttribNames("Pos");
+    pSchema->addAttribIds(6);
 
     return pSchema;
 }
@@ -56,8 +68,11 @@ std::string Gfc2Cylinder::entityName() const
 
 void Gfc2CylinderFieldCacheInitializer::init(const std::map<std::string, int>& oFieldIdMap)
 {
-    _FieldCache->_Gfc2Cylinder_Coord = getFieldId(oFieldIdMap, "Gfc2Cylinder::Coord");
     _FieldCache->_Gfc2Cylinder_RangeV = getFieldId(oFieldIdMap, "Gfc2Cylinder::RangeV");
     _FieldCache->_Gfc2Cylinder_Curve = getFieldId(oFieldIdMap, "Gfc2Cylinder::Curve");
+    _FieldCache->_Gfc2Cylinder_DirX = getFieldId(oFieldIdMap, "Gfc2Cylinder::DirX");
+    _FieldCache->_Gfc2Cylinder_DirY = getFieldId(oFieldIdMap, "Gfc2Cylinder::DirY");
+    _FieldCache->_Gfc2Cylinder_DirZ = getFieldId(oFieldIdMap, "Gfc2Cylinder::DirZ");
+    _FieldCache->_Gfc2Cylinder_Pos = getFieldId(oFieldIdMap, "Gfc2Cylinder::Pos");
 }
 

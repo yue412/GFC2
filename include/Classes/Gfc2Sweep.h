@@ -44,15 +44,24 @@ public:
     glodon::objectbuf::EntityRef getReferenceVector() const {return m_nReferenceVector;}
     bool hasReferenceVector() const {return (_has_bits_[0] & 0x4u) != 0;}
     Gfc2Vector3d* getReferenceVectorPtr() const {return (Gfc2Vector3d*)m_pDocument->find(getReferenceVector());}
+    void setSweepType(const Gfc2SweepType& nValue)
+    {
+        m_nSweepType = nValue;
+        setHasSweepType();
+    }
+    Gfc2SweepType getSweepType() const {return m_nSweepType;}
+    bool hasSweepType() const {return (_has_bits_[0] & 0x8u) != 0;}
 
 private:
     void setHasProfile() {_has_bits_[0] |= 0x1u;}
     void setHasSpine3d() {_has_bits_[0] |= 0x2u;}
     void setHasReferenceVector() {_has_bits_[0] |= 0x4u;}
+    void setHasSweepType() {_has_bits_[0] |= 0x8u;}
 
     glodon::objectbuf::EntityRef m_nProfile;
     glodon::objectbuf::EntityRef m_nSpine3d;
     glodon::objectbuf::EntityRef m_nReferenceVector;
+    Gfc2SweepType m_nSweepType;
 };
 
 class GFCCLASSES_API Gfc2SweepFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer

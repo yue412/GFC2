@@ -1,12 +1,12 @@
 #ifndef NGFC2FLOOR_H
 #define NGFC2FLOOR_H
 
-#include "NGfc2SpatialStructureElement.h"
+#include "NGfc2SpatialStructureEntity.h"
 #include "Gfc2Floor.h"
 #include "NTypeDef.h"
 #include "glodon/objectbuf/Entity.h"
 
-public ref class NGfc2Floor: public NGfc2SpatialStructureElement
+public ref class NGfc2Floor: public NGfc2SpatialStructureEntity
 {
 public:
     NGfc2Floor();

@@ -8,7 +8,7 @@ OBJECTBUF_IMP_OBJECT(Gfc2CuboidBodyTextSerializer,"Gfc2CuboidBodyT",0)
 std::string Gfc2CuboidBodyTextSerializer::serialize(glodon::objectbuf::Entity* pEntity) const
 {
     Gfc2CuboidBody* pEnt = (Gfc2CuboidBody*)pEntity;
-    std::string sResult = Gfc2BodyTextSerializer::serialize(pEnt);
+    std::string sResult = Gfc2PrimitiveBodyTextSerializer::serialize(pEnt);
 
     std::stringstream stream;
     stream.precision(numeric_limits<double>::digits10);
@@ -32,7 +32,7 @@ glodon::objectbuf::EnParseFieldState Gfc2CuboidBodyTextSerializer::parseField(co
 {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
     Gfc2CuboidBody* pEnt = (Gfc2CuboidBody*)pEntity;
-    glodon::objectbuf::EnParseFieldState nState = Gfc2BodyTextSerializer::parseField(input, nFieldNum, pEnt);
+    glodon::objectbuf::EnParseFieldState nState = Gfc2PrimitiveBodyTextSerializer::parseField(input, nFieldNum, pEnt);
     if (nState != glodon::objectbuf::PFS_IGNORE)
     {
         return nState;

@@ -7,7 +7,7 @@ NGfc2Polygon::NGfc2Polygon()
 }
 
 NGfc2Polygon::NGfc2Polygon(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Geometry(pEntity, bOwner)
 {
 }
 

@@ -1,9 +1,9 @@
 #ifndef GFC2FLOORTEXTSERIALIZER_H
 #define GFC2FLOORTEXTSERIALIZER_H
 
-#include "Gfc2SpatialStructureElementTextSerializer.h"
+#include "Gfc2SpatialStructureEntityTextSerializer.h"
 
-class Gfc2FloorTextSerializer: public Gfc2SpatialStructureElementTextSerializer
+class Gfc2FloorTextSerializer: public Gfc2SpatialStructureEntityTextSerializer
 {
 OBJECTBUF_DEC_OBJECT(Gfc2FloorTextSerializer,glodon::objectbuf::EntitySerializer)
 public:

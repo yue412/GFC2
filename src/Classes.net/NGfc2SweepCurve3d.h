@@ -5,6 +5,7 @@
 #include "Gfc2SweepCurve3d.h"
 #include "NGfc2Vector3d.h"
 #include "NGfc2Vector2d.h"
+#include "NTypeDef.h"
 #include "glodon/objectbuf/Entity.h"
 
 public ref class NGfc2SweepCurve3d: public NGfc2Curve3d
@@ -24,6 +25,9 @@ public:
     glodon::objectbuf::EntityRef getPoint();
     bool hasPoint();
     NGfc2Vector2d^ getPointPtr();
+    void setSweepType(NGfc2SweepType nValue);
+    NGfc2SweepType getSweepType();
+    bool hasSweepType();
 
 };
 #endif

@@ -22,12 +22,6 @@ public:
     void setChord(NGfc2Double dValue);
     NGfc2Double getChord();
     bool hasChord();
-    void setRadius(NGfc2Double dValue);
-    NGfc2Double getRadius();
-    bool hasRadius();
-    void setDefineByRadius(NGfc2Boolean bValue);
-    NGfc2Boolean getDefineByRadius();
-    bool hasDefineByRadius();
     void setCheckInnerChord(NGfc2Boolean bValue);
     NGfc2Boolean getCheckInnerChord();
     bool hasCheckInnerChord();

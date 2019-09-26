@@ -1,9 +1,9 @@
 #ifndef GFC2COEDGELISTTEXTSERIALIZER_H
 #define GFC2COEDGELISTTEXTSERIALIZER_H
 
-#include "glodon/objectbuf/EntityTextSerializer.h"
+#include "Gfc2GeometryTextSerializer.h"
 
-class Gfc2CoedgeListTextSerializer: public glodon::objectbuf::EntityTextSerializer
+class Gfc2CoedgeListTextSerializer: public Gfc2GeometryTextSerializer
 {
 OBJECTBUF_DEC_OBJECT(Gfc2CoedgeListTextSerializer,glodon::objectbuf::EntitySerializer)
 public:

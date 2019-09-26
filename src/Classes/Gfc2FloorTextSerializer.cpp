@@ -8,7 +8,7 @@ OBJECTBUF_IMP_OBJECT(Gfc2FloorTextSerializer,"Gfc2FloorT",0)
 std::string Gfc2FloorTextSerializer::serialize(glodon::objectbuf::Entity* pEntity) const
 {
     Gfc2Floor* pEnt = (Gfc2Floor*)pEntity;
-    std::string sResult = Gfc2SpatialStructureElementTextSerializer::serialize(pEnt);
+    std::string sResult = Gfc2SpatialStructureEntityTextSerializer::serialize(pEnt);
 
     std::stringstream stream;
     stream.precision(numeric_limits<double>::digits10);
@@ -52,7 +52,7 @@ glodon::objectbuf::EnParseFieldState Gfc2FloorTextSerializer::parseField(const s
 {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
     Gfc2Floor* pEnt = (Gfc2Floor*)pEntity;
-    glodon::objectbuf::EnParseFieldState nState = Gfc2SpatialStructureElementTextSerializer::parseField(input, nFieldNum, pEnt);
+    glodon::objectbuf::EnParseFieldState nState = Gfc2SpatialStructureEntityTextSerializer::parseField(input, nFieldNum, pEnt);
     if (nState != glodon::objectbuf::PFS_IGNORE)
     {
         return nState;
