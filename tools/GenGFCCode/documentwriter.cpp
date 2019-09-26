@@ -77,6 +77,17 @@ void CDocumentWriter::write(const std::wstring & sPath)
 
 void CDocumentWriter::writeTypedef(CTypeDef * pTypeDef, std::fstream& out)
 {
+    CTypeObject* pType = pTypeDef->getRefType();
+    if (pType->getType() == TOE_BUILDIN)
+    {
+        out << pType->getName() << L"类型";
+    }
+    else
+    {
+        std::wstring sType = pType->getName();
+        std::wstring sLinkType = L"<a href=\"" + sType + L".html\">" + sType + L"</a>";
+        out << sLinkType << L"类型";
+    }
 }
 
 void CDocumentWriter::writeClass(CClass * pClass, std::fstream& out)
@@ -158,6 +169,26 @@ void CDocumentWriter::writeClass(CClass * pClass, std::fstream& out)
 
 void CDocumentWriter::writeEnum(CEnumType * pEnumType, std::fstream& out)
 {
+    out << L"<div>枚举定义</div>";
+    std::wstring s = pEnumType->getDocument();
+    out << s;
+//    out << L"<div>属性定义</div>";
+    out << L"<table border=\"1\">";
+    out << L"<tr>";
+    out << L"<td>序号</td>";
+    out << L"<td>枚举名称</td>";
+    out << L"<td>中文解释</td>";
+    out << L"</tr>";
+    for (int i = 0; i < pEnumType->getEnumCount(); i++)
+    {
+        out << L"<tr>";
+        out << L"<td>";
+        out << (i + 1);
+        out << L"</td>";
+        out << L"<td>" << pEnumType->getEnum(i) << L"</td>";
+        out << L"<td>" << pEnumType->getEnumDocument(i) << L"</td>";
+        out << L"</tr>";
+    }
 }
 
 void CDocumentWriter::writeHead(CTypeObject * pType, std::fstream & out)
