@@ -1,0 +1,31 @@
+
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../details-shim.css">
+    <script type="text/javascript" src="../details-shim.js"></script>
+    <title>一般用法</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 -6 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+
+<h1 class="annex">一般用法</h1>
+<p>4.1 GFC文件中应有且仅有一个工程项目（<a href="schema\Gfc2Project.html">Gfc2Project</a>）实例。</p>
+<p>4.2 工程项目（<a href="schema\Gfc2Project.html">Gfc2Project</a>）实例应聚合多个空间结构实体（<a href="schema\Gfc2SpatialStructureEntity.html">Gfc2SpatialStructureEntity</a>），一般为建筑（<a href="schema\Gfc2Building.html">Gfc2Building</a>）实例。</p>
+<div align="center"><img src="img/usage_project_building.png"/></div>
+<p>4.3 建筑（<a href="schema\Gfc2Building.html">Gfc2Building</a>）实例应聚合多个楼层（<a href="schema\Gfc2Floor.html">Gfc2Floor</a>）实例。</p>
+<div align="center"><img src="img/usage_building_floor.png"/></div>
+<p>4.4 楼层（<a href="schema\Gfc2Floor.html">Gfc2Floor</a>）实例应聚合多个构件或图元（<a href="schema\Gfc2Entity.html">Gfc2Entity</a>）实例。</p>
+<div align="center"><img src="img/usage_floor_entity.png"/></div>
+ </body>
+</html>

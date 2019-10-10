@@ -3,6 +3,7 @@
 
 #include <string>
 #include <fstream>
+#include <vector>
 
 class CModel;
 class CClass;
@@ -23,6 +24,7 @@ private:
     void writeEnum(CEnumType* pEnumType, std::fstream& out);
     void writeHead(CTypeObject* pType, std::fstream& out);
     void writeTail(std::fstream& out);
+    void writeData(const std::vector<std::wstring>& oList, std::fstream& out);
 private:
     CModel* m_pModel;
 };

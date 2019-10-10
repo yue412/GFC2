@@ -28,6 +28,7 @@ void CDocumentWriter::write(const std::wstring & sPath)
     }
 
     int nCount = m_pModel->getTypeObjectCount();
+    std::vector<std::wstring> oClassList, oTypeList, oEnumList;
     // 排序
     std::vector<CTypeObject*> oTempList;
     m_pModel->getTypeObjectList(oTempList);
@@ -53,6 +54,7 @@ void CDocumentWriter::write(const std::wstring & sPath)
         if (pClass)
         {
             writeClass(pClass, oFile);
+            oClassList.push_back(pTypeObject->getName());
         }
         else
         {
@@ -60,6 +62,7 @@ void CDocumentWriter::write(const std::wstring & sPath)
             if (pTypeDef)
             {
                 writeTypedef(pTypeDef, oFile);
+                oTypeList.push_back(pTypeObject->getName());
             }
             else
             {
@@ -67,12 +70,29 @@ void CDocumentWriter::write(const std::wstring & sPath)
                 if (pEnumType)
                 {
                     writeEnum(pEnumType, oFile);
+                    oEnumList.push_back(pTypeObject->getName());
                 }
             }
         }
         writeTail(oFile);
         oFile.close();
     }
+    // write json data
+    std::fstream oFile;
+    oFile.open(sPath + L"\\class_data.js", std::ios::out);
+    if (!oFile.good())
+    {
+        std::wcout << L"文件打开失败!" << L"\n";
+        return;
+    }
+    oFile << L"var g_class_data={\"class\":[";
+    writeData(oClassList, oFile);
+    oFile << "], \"type\":[";
+    writeData(oTypeList, oFile);
+    oFile << "],\"enum\":[";
+    writeData(oEnumList, oFile);
+    oFile << "]};";
+    oFile.close();
 }
 
 void CDocumentWriter::writeTypedef(CTypeDef * pTypeDef, std::fstream& out)
@@ -205,4 +225,12 @@ void CDocumentWriter::writeTail(std::fstream & out)
 {
     out << L"\t</body>\n";
     out << L"</html>\n";
+}
+
+void CDocumentWriter::writeData(const std::vector<std::wstring>& oList, std::fstream & out)
+{
+    for each (auto s in oList)
+    {
+        out << L"\"" << s << L"\",";
+    }
 }
