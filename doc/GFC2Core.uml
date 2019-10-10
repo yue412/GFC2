@@ -13438,7 +13438,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[55]" type="UMLClass" guid="fNaCsgKs6kiRnCsp9GptKwAA">
 <XPD:ATTR name="Name" type="string">Gfc2Project</XPD:ATTR>
-<XPD:ATTR name="Documentation" type="string">工程项目（Gfc2Project），交换文件中有且仅有一个Gfc2Project实例。</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">工程项目（Gfc2Project），记录工程项目的名称等信息，交换文件中有且仅有一个Gfc2Project实例。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">DmCb80cgSku7eaicBvFWygAA</XPD:REF>
@@ -13465,7 +13465,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[57]" type="UMLClass" guid="oSFgfSkDmEKEdWNHWuaWqgAA">
 <XPD:ATTR name="Name" type="string">Gfc2Floor</XPD:ATTR>
-<XPD:ATTR name="Documentation" type="string">楼层（Gfc2Floor），表示建筑中的楼层划分。</XPD:ATTR>
+<XPD:ATTR name="Documentation" type="string">楼层（Gfc2Floor），表示建筑中的楼层划分，记录了层高、标准层数等信息。</XPD:ATTR>
 <XPD:REF name="Namespace">nWzHqOF3C0WcAZlATWEq0QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">H+BIUAjVbEC+op/IflwuiwAA</XPD:REF>
