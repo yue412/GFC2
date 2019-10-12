@@ -101,14 +101,6 @@ enum Gfc2SceneBlendFactor
     SBF_ONE_MINUS_CONSTANT_ALPHA
 };
 
-enum Gfc2SizeMarkType
-{
-    LENGTHMARK,
-    ALIGNMARK,
-    ANGLEMARK,
-    ARCMARK
-};
-
 enum Gfc2SweepType
 {
     ST_Perpendicular,
@@ -623,53 +615,6 @@ inline bool StringToGfc2SceneBlendFactor(const std::string& sValue, Gfc2SceneBle
     if(sValue.compare(".SBF_ONE_MINUS_CONSTANT_ALPHA.") == 0)
     {
         nType = SBF_ONE_MINUS_CONSTANT_ALPHA;
-        return true;
-    }
-    return false;
-}
-
-inline std::string Gfc2SizeMarkTypeToString(Gfc2SizeMarkType nValue)
-{
-    switch(nValue)
-    {
-    case LENGTHMARK:
-        return ".LENGTHMARK.";
-        break;
-    case ALIGNMARK:
-        return ".ALIGNMARK.";
-        break;
-    case ANGLEMARK:
-        return ".ANGLEMARK.";
-        break;
-    case ARCMARK:
-        return ".ARCMARK.";
-        break;
-    default:
-        assert(false);
-        return "";
-    }
-}
-
-inline bool StringToGfc2SizeMarkType(const std::string& sValue, Gfc2SizeMarkType& nType)
-{
-    if(sValue.compare(".LENGTHMARK.") == 0)
-    {
-        nType = LENGTHMARK;
-        return true;
-    }
-    if(sValue.compare(".ALIGNMARK.") == 0)
-    {
-        nType = ALIGNMARK;
-        return true;
-    }
-    if(sValue.compare(".ANGLEMARK.") == 0)
-    {
-        nType = ANGLEMARK;
-        return true;
-    }
-    if(sValue.compare(".ARCMARK.") == 0)
-    {
-        nType = ARCMARK;
         return true;
     }
     return false;

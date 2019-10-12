@@ -100,14 +100,6 @@ public enum class NGfc2SceneBlendFactor
     SBF_ONE_MINUS_CONSTANT_ALPHA
 };
 
-public enum class NGfc2SizeMarkType
-{
-    LENGTHMARK,
-    ALIGNMARK,
-    ANGLEMARK,
-    ARCMARK
-};
-
 public enum class NGfc2SweepType
 {
     ST_Perpendicular,

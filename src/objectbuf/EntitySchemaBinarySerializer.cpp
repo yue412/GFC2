@@ -1,7 +1,7 @@
 #include "EntitySchemaBinarySerializer.h"
 #include "glodon\objectbuf\EntitySchema.h"
 #include <google/protobuf/wire_format_lite.h>
-//#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/wire_format_lite_inl.h>
 #include <google/protobuf/stubs/common.h>
 
 namespace glodon {

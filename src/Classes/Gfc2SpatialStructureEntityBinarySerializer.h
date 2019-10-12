@@ -1,0 +1,10 @@
+#ifndef GFC2SPATIALSTRUCTUREENTITYBINARYSERIALIZER_H
+#define GFC2SPATIALSTRUCTUREENTITYBINARYSERIALIZER_H
+
+#include "Gfc2ObjectBinarySerializer.h"
+
+class Gfc2SpatialStructureEntityBinarySerializer: public Gfc2ObjectBinarySerializer
+{
+OBJECTBUF_DEC_OBJECT(Gfc2SpatialStructureEntityBinarySerializer,glodon::objectbuf::EntitySerializer)
+};
+#endif
