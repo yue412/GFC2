@@ -154,7 +154,7 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
 		std::wstring sName = strList.at(m).first;
 		int curId = strList.at(m).second;
 		oTypeConstsFile.body()->addLine(FormatWstring(L"#define %s_ID %d", 
-            sName.c_str(),
+            UpperString(sName).c_str(),
             curId
         ));
 	}
