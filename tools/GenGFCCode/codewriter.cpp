@@ -601,7 +601,8 @@ void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
                         ->add(pTemp);
                 for (int i = 0; i < nCount; ++i)
                 {
-                    pTemp->addLine(FormatWstring(L"case %s:", 
+                    pTemp->addLine(FormatWstring(L"case %s::%s:", 
+                        pTypeObject->getName().c_str(),
                         pTypeObject->getEnum(i).c_str()
                     ));
                     pTemp->add((new CIndent)
@@ -627,7 +628,8 @@ void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
                     ));
 					pBlock2->add((new CBlock(false))
                                  ->add((new CIndent())
-                                    ->addLine(FormatWstring(L"nType = %s;", 
+                                    ->addLine(FormatWstring(L"nType = %s::%s;", 
+                                        pTypeObject->getName().c_str(),
                                         pTypeObject->getEnum(i).c_str()
                                     ))
                                     ->addLine(L"return true;")));
