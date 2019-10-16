@@ -120,7 +120,7 @@ void CExpressWriter::writeClass(CClass *pClass, std::wfstream& out)
         out << FormatWstring(L"\t%s :%s%s;\n",
             pAttribute->getName().c_str(),
             sPrefix.c_str(),
-            pAttribute->getTypeName()
+            pAttribute->getTypeName().c_str()
             //FormatWstring(sType.c_str(), 
             //    pAttribute->getType()->getName().c_str()
             //)
