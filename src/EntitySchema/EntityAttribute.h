@@ -2,6 +2,9 @@
 #define ATTRIBUTE_H
 
 #include <string>
+#include "SchemaMacro.h"
+
+GFC_NAMESPACE_BEGIN
 
 class CTypeObject;
 
@@ -30,5 +33,7 @@ private:
     bool m_bRepeat;
     //bool m_bRefFlag;
 };
+
+GFC_NAMESPACE_END
 
 #endif // ATTRIBUTE_H

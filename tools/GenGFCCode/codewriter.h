@@ -3,7 +3,9 @@
 
 #include <string>
 #include <vector>
+#include "SchemaMacro.h"
 
+GFC_NAMESPACE_BEGIN
 class CModel;
 class CTypeObject;
 class CBuildinType;
@@ -11,6 +13,7 @@ class CTypeDef;
 class CEnumType;
 class CClass;
 class CAttribute;
+GFC_NAMESPACE_END
 
 enum EnBaseType {
     EBT_ENTITY,
@@ -24,6 +27,8 @@ enum EnBaseType {
 class CppBaseFile;
 class CppClass;
 class CppCode;
+
+using namespace gfc2::schema;
 
 class CCodeWriter
 {

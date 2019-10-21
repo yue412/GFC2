@@ -2,6 +2,7 @@
 #define CUMLTRANSLATOR_H
 
 #include <string>
+#include "SchemaMacro.h"
 
 struct CTranslateInfo
 {
@@ -13,7 +14,11 @@ struct CTranslateInfo
     std::wstring sHtmlPath;
 };
 
+GFC_NAMESPACE_BEGIN
 class CModel;
+GFC_NAMESPACE_END
+
+using namespace gfc2::schema;
 
 class CUMLTranslator
 {

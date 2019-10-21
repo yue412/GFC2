@@ -1,5 +1,7 @@
-#include "class.h"
-#include "attribute.h"
+#include "EntityClass.h"
+#include "EntityAttribute.h"
+
+GFC_NAMESPACE_BEGIN
 
 CClass::CClass(): m_pParent(NULL)/*, m_bIsValueType(false)*/, m_bIsAbstract(false)
 {
@@ -39,3 +41,5 @@ void CClass::addAttribute(CAttribute *pAttribute)
 {
     m_oAttributeList.push_back(pAttribute);
 }
+
+GFC_NAMESPACE_END

@@ -1,7 +1,9 @@
-#ifndef TYPE_H
-#define TYPE_H
+#ifndef TYPEDEF_H
+#define TYPEDEF_H
 
-#include "typeobject.h"
+#include "TypeObject.h"
+
+GFC_NAMESPACE_BEGIN
 
 class CTypeDef : public CTypeObject
 {
@@ -17,4 +19,6 @@ private:
     CTypeObject* m_pRefType;
 };
 
-#endif // TYPE_H
+GFC_NAMESPACE_END
+
+#endif // TYPEDEF_H

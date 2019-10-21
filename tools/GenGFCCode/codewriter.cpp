@@ -3,11 +3,11 @@
 #include <assert.h>
 #include "buildintype.h"
 #include "enumtype.h"
-#include "type.h"
-#include "class.h"
+#include "TypeDef.h"
+#include "EntityClass.h"
 #include <vector>
 #include <algorithm>
-#include "attribute.h"
+#include "EntityAttribute.h"
 #include <algorithm>
 #include <iostream>
 #include <fstream>
@@ -17,6 +17,8 @@
 #include <set>
 //#include <google/protobuf/wire_format_lite.h>
 //#include <google/protobuf/wire_format_lite_inl.h>
+
+using namespace gfc2::schema;
 
 bool less_TypeObject(CTypeObject* type1, CTypeObject* type2)
 {

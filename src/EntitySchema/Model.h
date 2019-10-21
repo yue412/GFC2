@@ -3,7 +3,9 @@
 
 #include <vector>
 #include <map>
-#include "typeobject.h"
+#include "TypeObject.h"
+
+GFC_NAMESPACE_BEGIN
 
 typedef std::vector<CTypeObject*> CTypeObjectList;
 
@@ -27,5 +29,7 @@ private:
     CTypeMap m_oTypeIndex;
     CModel* m_pRefModel;
 };
+
+GFC_NAMESPACE_END
 
 #endif // MODEL_H

@@ -3,12 +3,17 @@
 
 #include <string>
 #include <fstream>
+#include "SchemaMacro.h"
 
+GFC_NAMESPACE_BEGIN
 class CModel;
 class CTypeDef;
 class CClass;
 class CEnumType;
 class CBuildinType;
+GFC_NAMESPACE_END
+
+using namespace gfc2::schema;
 
 class CExpressWriter
 {

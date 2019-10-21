@@ -2,7 +2,9 @@
 #define ENUMTYPE_H
 
 #include <vector>
-#include "typeobject.h"
+#include "TypeObject.h"
+
+GFC_NAMESPACE_BEGIN
 
 class CEnumType : public CTypeObject
 {
@@ -19,5 +21,7 @@ private:
     std::vector<std::wstring> m_oEnumList;
     std::vector<std::wstring> m_oEnumDocumentList;
 };
+
+GFC_NAMESPACE_END
 
 #endif // ENUMTYPE_H

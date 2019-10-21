@@ -2,10 +2,10 @@
 #include <vector>
 #include "typeobject.h"
 #include "model.h"
-#include "class.h"
+#include "EntityClass.h"
 #include "enumtype.h"
-#include "type.h"
-#include "attribute.h"
+#include "TypeDef.h"
+#include "EntityAttribute.h"
 #include <algorithm>
 #include <iostream>
 #include "common.h"

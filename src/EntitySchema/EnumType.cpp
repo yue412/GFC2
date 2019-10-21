@@ -1,4 +1,6 @@
-#include "enumtype.h"
+#include "EnumType.h"
+
+GFC_NAMESPACE_BEGIN
 
 CEnumType::CEnumType()
 {
@@ -25,3 +27,5 @@ void CEnumType::addEnum(const std::wstring &sEnum, const std::wstring& sDocument
     m_oEnumList.push_back(sEnum);
     m_oEnumDocumentList.push_back(sDocument);
 }
+
+GFC_NAMESPACE_END

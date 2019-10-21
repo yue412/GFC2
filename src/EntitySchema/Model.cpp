@@ -1,5 +1,7 @@
 #include "model.h"
 
+GFC_NAMESPACE_BEGIN
+
 CModel::CModel(): m_pRefModel(nullptr)
 {
 }
@@ -51,3 +53,5 @@ void CModel::getTypeObjectList(CTypeObjectList &oTypeList/*,QStringList files = 
 	}
 
 }
+
+GFC_NAMESPACE_END

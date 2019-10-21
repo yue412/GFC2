@@ -2,11 +2,11 @@
 #include "common.h"
 #include <algorithm>
 #include "expresswriter.h"
-#include "class.h"
-#include "type.h"
+#include "EntityClass.h"
+#include "TypeDef.h"
 #include "enumtype.h"
 #include "model.h"
-#include "attribute.h"
+#include "EntityAttribute.h"
 
 CExpressWriter::CExpressWriter(CModel *pModel): m_pModel(pModel)
 {

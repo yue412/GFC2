@@ -4,11 +4,14 @@
 #include <list>
 #include <map>
 #include <string>
+#include "SchemaMacro.h"
 
+GFC_NAMESPACE_BEGIN
 class CModel;
 class CAttribute;
 class CTypeDef;
 class CTypeObject;
+GFC_NAMESPACE_END
 
 struct CAssociation
 {
@@ -29,6 +32,8 @@ struct CAssociationEnd
 };
 
 class TiXmlElement;
+
+using namespace gfc2::schema;
 
 class CUMLReader
 {

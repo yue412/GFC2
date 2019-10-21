@@ -2,7 +2,9 @@
 #define CLASS_H
 
 #include <vector>
-#include "typeobject.h"
+#include "TypeObject.h"
+
+GFC_NAMESPACE_BEGIN
 
 class CAttribute;
 
@@ -39,5 +41,7 @@ private:
     bool m_bIsAbstract;
     //bool m_bIsValueType;
 };
+
+GFC_NAMESPACE_END
 
 #endif // CLASS_H

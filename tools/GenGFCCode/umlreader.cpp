@@ -1,10 +1,10 @@
 #include <iostream>
 #include "umlreader.h"
-#include "class.h"
-#include "type.h"
+#include "EntityClass.h"
+#include "TypeDef.h"
 #include "enumtype.h"
 #include "model.h"
-#include "attribute.h"
+#include "EntityAttribute.h"
 #include "tinyxml.h"
 #include "common.h"
 

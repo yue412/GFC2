@@ -1,4 +1,6 @@
-#include "typeobject.h"
+#include "TypeObject.h"
+
+GFC_NAMESPACE_BEGIN
 
 bool lessTypeObject(CTypeObject* type1, CTypeObject* type2)
 {
@@ -31,4 +33,4 @@ CTypeObject *CTypeObject::getBaseType()
     return this;
 }
 
-
+GFC_NAMESPACE_END

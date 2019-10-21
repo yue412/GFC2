@@ -10,8 +10,13 @@ if "%1"=="14" (set generator=-G"Visual Studio 14 2015%platform%")
 if "%1"=="15" (set generator=-G"Visual Studio 15 2017%platform%")
 if "%1"=="16" (set generator=-G"Visual Studio 16 2019%platform%")
 echo %generator%
-set build_type=Debug
-if "%3"=="release" (set build_type=Release) 
-echo %build_type%
+rem set build_type=Debug
+rem if "%3"=="release" (set build_type=Release) 
+rem echo %build_type%
 echo on
-_build.bat %generator% %build_type%
+cd ..
+del CMakeCache.txt /S
+cd bin
+call _build.bat %generator% "Debug"
+call _build.bat %generator% "Release"
+pause

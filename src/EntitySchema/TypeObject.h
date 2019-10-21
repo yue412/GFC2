@@ -2,6 +2,9 @@
 #define TYPEOBJECT_H
 
 #include <string>
+#include "SchemaMacro.h"
+
+GFC_NAMESPACE_BEGIN
 
 enum CTypeObjectEnum
 {
@@ -30,5 +33,7 @@ private:
 };
 
 bool lessTypeObject(CTypeObject* type1, CTypeObject* type2);
+
+GFC_NAMESPACE_END
 
 #endif // TYPEOBJECT_H

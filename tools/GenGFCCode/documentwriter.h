@@ -4,12 +4,17 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include "SchemaMacro.h"
 
+GFC_NAMESPACE_BEGIN
 class CModel;
 class CClass;
 class CTypeDef;
 class CEnumType;
 class CTypeObject;
+GFC_NAMESPACE_END
+
+using namespace gfc2::schema;
 
 class CDocumentWriter
 {

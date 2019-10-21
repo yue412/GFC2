@@ -1,4 +1,6 @@
-#include "type.h"
+#include "TypeDef.h"
+
+GFC_NAMESPACE_BEGIN
 
 CTypeDef::CTypeDef(): m_pRefType(NULL)
 {
@@ -21,3 +23,5 @@ CTypeObject *CTypeDef::getBaseType()
     else
         return m_pRefType;
 }
+
+GFC_NAMESPACE_END
