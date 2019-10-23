@@ -8,6 +8,7 @@ GFC_NAMESPACE_BEGIN
 
 enum CTypeObjectEnum
 {
+    TOE_UNDEFINE,
     TOE_BUILDIN,
     TOE_TYPE,
     TOE_ENUM,

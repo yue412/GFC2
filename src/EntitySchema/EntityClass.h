@@ -34,11 +34,15 @@ public:
     CAttribute *getAttribute(int nIndex);
     int getAttributeCount(){return (int)m_oAttributeList.size();}
     void addAttribute(CAttribute* pAttribute);
+
+    bool getIsValid() { return m_bIsValid; }
+    void setIsValid(bool bIsValid) { m_bIsValid = bIsValid; }
 private:
     CClass* m_pParent;
     CClassList m_oChildList;
     CAttributeList m_oAttributeList;
     bool m_bIsAbstract;
+    bool m_bIsValid;
     //bool m_bIsValueType;
 };
 
