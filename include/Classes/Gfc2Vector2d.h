@@ -6,7 +6,6 @@
 #include "Gfc2Geometry.h"
 #include "TypeDef.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Vector2d: public Gfc2Geometry
 {
@@ -38,13 +37,5 @@ private:
 
     Gfc2Double m_dX;
     Gfc2Double m_dY;
-};
-
-class GFCCLASSES_API Gfc2Vector2dFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2Vector2dFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

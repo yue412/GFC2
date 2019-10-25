@@ -7,7 +7,6 @@
 #include "Gfc2Geometry.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2GeometryShape: public Gfc2Shape
 {
@@ -31,13 +30,5 @@ private:
     void setHasGeo() {_has_bits_[0] |= 0x4u;}
 
     glodon::objectbuf::EntityRef m_nGeo;
-};
-
-class GFCCLASSES_API Gfc2GeometryShapeFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2GeometryShapeFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

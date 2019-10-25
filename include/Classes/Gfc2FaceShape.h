@@ -9,7 +9,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2FaceShape: public Gfc2SolidShape
 {
@@ -61,13 +60,5 @@ private:
     glodon::objectbuf::EntityRef m_nPoly;
     Gfc2Boolean m_bMirrorFlag;
     glodon::objectbuf::EntityRef m_nFaceInfo;
-};
-
-class GFCCLASSES_API Gfc2FaceShapeFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2FaceShapeFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

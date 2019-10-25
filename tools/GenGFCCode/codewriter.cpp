@@ -3,7 +3,7 @@
 #include <assert.h>
 #include "buildintype.h"
 #include "enumtype.h"
-#include "TypeDef.h"
+#include "TypeDefine.h"
 #include "EntityClass.h"
 #include <vector>
 #include <algorithm>
@@ -84,8 +84,9 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
         }
     }
 
-	
-	int nCount = oObjectList.size();
+    bool bOutputText = !m_sTextPath.empty();
+    bool bOutputBin = !m_sBinPath.empty();
+    int nCount = oObjectList.size();
     for(int i = 0; i < nCount; ++i)
     {
         CClass* pTypeObj = dynamic_cast<CClass*>(oObjectList[i]);
@@ -119,19 +120,21 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
             }
 
             if(m_bOutputHead)
-                writeClassHeadFile(pTypeObj, pClass, pFactoryClass, pFieldCacheClass);
+                writeClassHeadFile(pTypeObj, pClass, pFactoryClass, nullptr);
 
             if(m_bOutputCpp)
-                writeClassImpFile(pClass, pFactoryClass, pFieldCacheClass);
+                writeClassImpFile(pClass, pFactoryClass, nullptr);
             delete pClass;
-            delete pFieldCacheClass;
 
-            if(m_bOutputCpp)
+            if (bOutputBin)
             {
                 CppClass* pBinarySerializerClass = createBinarySerializerClass(pTypeObj);
-                writeBinarySerializerClassFile(pTypeObj, pBinarySerializerClass);
+                writeBinarySerializerClassFile(pTypeObj, pBinarySerializerClass, pFieldCacheClass);
                 delete pBinarySerializerClass;
-
+            }
+            delete pFieldCacheClass;
+            if (bOutputText)
+            {
                 CppClass* pTextSerializerClass = createTextSerializerClass(pTypeObj);
                 writeTextSerializerClassFile(pTypeObj, pTextSerializerClass);
                 delete pTextSerializerClass;
@@ -230,7 +233,7 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
         oFile.addInclude(L"glodon/objectbuf/Document.h");
     oFile.addInclude(L"glodon/objectbuf/Entity.h");
     //oFile.addInclude("glodon/objectbuf/EntityFactory.h");
-    oFile.addInclude(L"glodon/objectbuf/FieldCacheInitializer.h");
+    
     oFile.body()->add(pClass->createDeclareCode());
     if (pFactoryClass)
     {
@@ -249,10 +252,10 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
 void CCodeWriter::writeClassImpFile(CppClass *pClass, CppClass *pFactoryClass, CppClass *pFieldCacheClass)
 {
     CppFile oFile(pClass->name(), true);
-
+    /*
     oFile.addInclude(pClass->name() + L"BinarySerializer.h", false);
     oFile.addInclude(pClass->name() + L"TextSerializer.h", false);
-
+    */
     oFile.body()->addLine(FormatWstring(L"OBJECTBUF_IMP_OBJECT(%s,\"%s\",0)", 
         pClass->name().c_str(),
         pClass->name().c_str()
@@ -350,7 +353,7 @@ void CCodeWriter::writeCliClassImpFile(CppClass *pClass)
     updateProgressBar();
 }
 
-void CCodeWriter::writeBinarySerializerClassFile(CClass *pTypeObject, CppClass *pClass)
+void CCodeWriter::writeBinarySerializerClassFile(CClass *pTypeObject, CppClass *pClass, CppClass* pFieldCacheClass)
 {
     {
         CppHeadFile oFile(pClass->name());
@@ -359,17 +362,24 @@ void CCodeWriter::writeBinarySerializerClassFile(CClass *pTypeObject, CppClass *
             oFile.addInclude(pTypeObject->getParent()->getName() + L"BinarySerializer.h");
         else
             oFile.addInclude(L"glodon/objectbuf/EntityBinarySerializer.h");
+        oFile.addInclude(L"FieldCacheInitializer.h");
 
         oFile.body()->add(pClass->createDeclareCode());
-        oFile.saveTo(m_sCPPPath);
+
+        if (pFieldCacheClass)
+        {
+            oFile.body()->addLine(L"");
+            oFile.body()->add(pFieldCacheClass->createDeclareCode());
+        }
+        oFile.saveTo(m_sBinPath);
         updateProgressBar();
     }
     {
-        CppFile oFile(pClass->name(), true);
+        CppFile oFile(pClass->name(), false);
         //oFile.addInclude("StdAfx.h");
-//        oFile.addInclude("google/protobuf/wire_format_lite.h", true);
-//        oFile.addInclude("google/protobuf/wire_format_lite_inl.h", true);
-//        oFile.addInclude("google/protobuf/stubs/common.h", true);
+        oFile.addInclude(L"google/protobuf/wire_format_lite.h", true);
+        oFile.addInclude(L"google/protobuf/wire_format_lite_inl.h", true);
+        oFile.addInclude(L"google/protobuf/stubs/common.h", true);
         oFile.addInclude(L"FieldCache.h", false);
         oFile.addInclude(pTypeObject->getName() + L".h", false);
 
@@ -379,7 +389,9 @@ void CCodeWriter::writeBinarySerializerClassFile(CClass *pTypeObject, CppClass *
         ));
         oFile.body()->addLine(L"");
         oFile.body()->add(pClass->createImpCode());
-        oFile.saveTo(m_sCPPPath);
+        if (pFieldCacheClass)
+            oFile.body()->add(pFieldCacheClass->createImpCode());
+        oFile.saveTo(m_sBinPath);
         updateProgressBar();
     }
 }
@@ -394,13 +406,13 @@ void CCodeWriter::writeTextSerializerClassFile(CClass *pTypeObject, CppClass *pC
         else
             oFile.addInclude(L"glodon/objectbuf/EntityTextSerializer.h");
         oFile.body()->add(pClass->createDeclareCode());
-        oFile.saveTo(m_sCPPPath);
+        oFile.saveTo(m_sTextPath);
         updateProgressBar();
     }
     {
         CppFile oFile(pClass->name(), true);
         //oFile.addInclude("StdAfx.h");
-        oFile.addInclude(L"FieldCache.h", false);
+        //oFile.addInclude(L"FieldCache.h", false);
         oFile.addInclude(pTypeObject->getName() + L".h", false);
 
         oFile.body()->addLine(FormatWstring(L"OBJECTBUF_IMP_OBJECT(%s,\"%sT\",0)", 
@@ -409,19 +421,21 @@ void CCodeWriter::writeTextSerializerClassFile(CClass *pTypeObject, CppClass *pC
         ));
         oFile.body()->addLine(L"");
         oFile.body()->add(pClass->createImpCode());
-        oFile.saveTo(m_sCPPPath);
+        oFile.saveTo(m_sTextPath);
         updateProgressBar();
     }
 }
 
-void CCodeWriter::write(const std::wstring &sPathName, const std::wstring& sCPPPath, const std::wstring &sNETPath/*,
-                        bool bOutputHead, bool bOutputCpp, bool bOutputNet,QStringList files*/)
+void CCodeWriter::write(const std::wstring& sPathName, const std::wstring &sCPPPath, const std::wstring &sTextPath, const std::wstring &sBinPath,
+    const std::wstring& sNETPath)
 {
     assert(m_pModel);
     if (!m_pModel)
         return;
     m_sPath = sPathName;
     m_sCPPPath = sCPPPath;
+    m_sTextPath = sTextPath;
+    m_sBinPath = sBinPath;
     m_sNETPath = sNETPath;
     m_bOutputCpp = !sCPPPath.empty();
     m_bOutputHead = !sPathName.empty();
@@ -501,16 +515,16 @@ void CCodeWriter::writeFieldCacheHeadFile()
         }
     }
 
-    oFile.addInclude(L"GfcClasses.h");
+   // oFile.addInclude(L"GfcClasses.h");
     oFile.body()->add(oClass.createDeclareCode());
     oFile.body()->addLine(L"");
     oFile.body()->addLine(L"extern FieldCache* _FieldCache;");
     oFile.body()->addLine(L"");
-    oFile.body()->addLine(L"void GFCCLASSES_API initFieldCache();");
-    oFile.body()->addLine(L"void GFCCLASSES_API freeFieldCache();");
+    oFile.body()->addLine(L"void initFieldCache();");
+    oFile.body()->addLine(L"void freeFieldCache();");
     oFile.body()->addLine(L"");
 
-    oFile.saveTo(m_sPath);
+    oFile.saveTo(m_sBinPath);
     updateProgressBar();
 }
 
@@ -531,7 +545,7 @@ void CCodeWriter::writeFieldCacheImpFile()
     CppCode::createBlock(oFile.body())
             ->addLine(L"delete _FieldCache;")
             ->addLine(L"_FieldCache = 0;");
-    oFile.saveTo(m_sCPPPath);
+    oFile.saveTo(m_sBinPath);
     updateProgressBar();
 }
 
@@ -1340,7 +1354,7 @@ CppClass* CCodeWriter::createFieldCacheClass(CClass* pTypeObject)
 {
     std::wstring sName = pTypeObject->getName();
     CppClass* pClass = new CppClass(sName + L"FieldCacheInitializer", AT_PUBLIC, L"glodon::objectbuf::FieldCacheInitializer");
-    pClass->setExportFlag(L"GFCCLASSES_API");
+    //pClass->setExportFlag(L"GFCCLASSES_API");
     pClass->setMarcoCode(FormatWstring(L"OBJECTBUF_DEC_OBJECT(%sFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)", 
         sName.c_str()
     ));

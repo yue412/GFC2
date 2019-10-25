@@ -8,7 +8,6 @@
 #include "Gfc2EdgeData.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2SolidShape: public Gfc2Shape3d
 {
@@ -38,13 +37,5 @@ private:
 
     glodon::objectbuf::EntityRef m_nBody;
     std::vector<glodon::objectbuf::EntityRef> m_oEdgeDatas;
-};
-
-class GFCCLASSES_API Gfc2SolidShapeFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2SolidShapeFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

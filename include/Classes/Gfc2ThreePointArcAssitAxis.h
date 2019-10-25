@@ -9,7 +9,6 @@
 #include "Gfc2Vector2d.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2ThreePointArcAssitAxis: public Gfc2AssitAxis
 {
@@ -53,13 +52,5 @@ private:
     glodon::objectbuf::EntityRef m_nRefPoint1;
     glodon::objectbuf::EntityRef m_nRefPoint2;
     glodon::objectbuf::EntityRef m_nRefPoint3;
-};
-
-class GFCCLASSES_API Gfc2ThreePointArcAssitAxisFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2ThreePointArcAssitAxisFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

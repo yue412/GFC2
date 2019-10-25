@@ -8,7 +8,6 @@
 #include "Gfc2Vector3d.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2CuboidBody: public Gfc2PrimitiveBody
 {
@@ -42,13 +41,5 @@ private:
 
     glodon::objectbuf::EntityRef m_nCoordinate;
     glodon::objectbuf::EntityRef m_nDimension;
-};
-
-class GFCCLASSES_API Gfc2CuboidBodyFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2CuboidBodyFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

@@ -9,7 +9,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Entity: public Gfc2Object
 {
@@ -44,13 +43,5 @@ private:
     Gfc2Integer m_nType;
     std::vector<glodon::objectbuf::EntityRef> m_oRepresentations;
     std::vector<glodon::objectbuf::EntityRef> m_oShapes;
-};
-
-class GFCCLASSES_API Gfc2EntityFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2EntityFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

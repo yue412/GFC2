@@ -7,7 +7,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2InternalChart: public glodon::objectbuf::Entity
 {
@@ -56,13 +55,5 @@ private:
     Gfc2Double m_dTra2;
     Gfc2Double m_dTra3;
     std::vector<glodon::objectbuf::EntityRef> m_oIPS;
-};
-
-class GFCCLASSES_API Gfc2InternalChartFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2InternalChartFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

@@ -4,7 +4,6 @@
 #include "GfcClasses.h"
 #include "Gfc2ParametricShape.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Shape3d: public Gfc2ParametricShape
 {

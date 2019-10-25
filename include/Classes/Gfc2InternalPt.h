@@ -12,7 +12,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2InternalPt: public glodon::objectbuf::Entity
 {
@@ -97,13 +96,5 @@ private:
     glodon::objectbuf::EntityRef m_nST;
     glodon::objectbuf::EntityRef m_nUVDir;
     glodon::objectbuf::EntityRef m_nSTDir;
-};
-
-class GFCCLASSES_API Gfc2InternalPtFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2InternalPtFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

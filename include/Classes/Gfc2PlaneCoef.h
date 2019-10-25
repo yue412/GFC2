@@ -5,7 +5,6 @@
 #include <vector>
 #include "TypeDef.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2PlaneCoef: public glodon::objectbuf::Entity
 {
@@ -57,13 +56,5 @@ private:
     Gfc2Double m_dB;
     Gfc2Double m_dC;
     Gfc2Double m_dD;
-};
-
-class GFCCLASSES_API Gfc2PlaneCoefFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2PlaneCoefFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

@@ -1,0 +1,184 @@
+#include <string>
+#include "Model.h"
+#include "TypeDefine.h"
+#include "EnumType.h"
+#include "EntityClass.h"
+#include "EntityAttribute.h"
+#include "UndefineType.h"
+
+COMPILER ExpFile
+
+gfc2::schema::CModel* m_pModel;
+typedef std::vector<std::wstring> CStringList;
+std::wstring m_sName;
+
+void throwException(const std::wstring& sMsg)
+{
+    errors->Error(t->line, t->col, sMsg.c_str());
+    throw std::exception(coco_string_create_char(sMsg.c_str()));
+}
+
+void canNotFindEntity(const std::wstring& sName)
+{
+    std::wstring sMsg = L"Can not find Entity: " + sName;
+    throwException(sMsg);
+}
+
+void canNotFindType(const std::wstring& sName)
+{
+    std::wstring sMsg = L"Can not find type: " + sName;
+    throwException(sMsg);
+}
+
+gfc2::schema::CTypeObject* findType(const std::wstring& sName)
+{
+    auto pType = m_pModel->findTypeObject(sName);
+    if(pType == nullptr)
+    {
+        pType = new gfc2::schema::CUndefineType(sName);
+        m_pModel->addTypeObject(pType);
+    }
+    return pType;
+}
+
+gfc2::schema::CClass* getClass(const std::wstring& sName)
+{
+    auto pType = m_pModel->findTypeObject(sName);
+    if(pType == nullptr)
+    {
+        auto pClass = new gfc2::schema::CClass(sName);
+        pClass->setIsValid(false);
+        m_pModel->addTypeObject(pClass);
+        return pClass;
+    }
+    else 
+    {
+        auto pClass = dynamic_cast<gfc2::schema::CClass*>(pType);
+        if (pClass == nullptr)
+            canNotFindEntity(sName);
+        return pClass;
+    }
+}
+
+void finalize()
+{
+    for (int i = 0; i < m_pModel->getTypeObjectCount(); i++)
+    {
+        auto pType = m_pModel->getTypeObject(i);
+        switch (pType->getType())
+        {
+        case gfc2::schema::TOE_TYPE: {
+            auto pTypeDef = dynamic_cast<gfc2::schema::CTypeDef*>(pType);
+            if (pTypeDef->getRefType()->getType() == gfc2::schema::TOE_UNDEFINE)
+            {
+                auto sName = pTypeDef->getRefType()->getName();
+                auto pRefType = m_pModel->findTypeObject(sName);
+                if (pRefType == nullptr)
+                    canNotFindType(sName);
+                else
+                    pTypeDef->SetRefType(pRefType);
+            }
+        }
+        case gfc2::schema::TOE_CLASS: {
+            auto pClass = dynamic_cast<gfc2::schema::CClass*>(pType);
+            if (!pClass->getParent()->getIsValid())
+                canNotFindEntity(pClass->getParent()->getName());
+            for (int i = 0; i < pClass->getChildCount(); i++)
+            {
+                auto pChild = pClass->getChild(i);
+                if (!pChild->getIsValid())
+                    canNotFindEntity(pChild->getName());
+            }
+            for (int i = 0; i < pClass->getAttributeCount(); i++)
+            {
+                auto pAttribute = pClass->getAttribute(i);
+                if (pAttribute->getType()->getType() == gfc2::schema::TOE_UNDEFINE)
+                {
+                    auto sName = pAttribute->getType()->getName();
+                    auto pRefType = m_pModel->findTypeObject(sName);
+                    if (pRefType == nullptr)
+                        canNotFindType(sName);
+                    else
+                        pAttribute->SetType(pRefType);
+                }
+            }
+
+        }
+        default:
+            break;
+        }
+    }
+}
+
+CHARACTERS
+digit = "0123456789".
+letter = 'a'..'z'+'A'..'Z'.
+
+TOKENS
+ident = letter{digit|letter}.
+number = digit{digit}.
+
+COMMENTS FROM "/*" TO "*/" NESTED
+COMMENTS FROM "//" TO '\r'
+
+IGNORE '\t' + '\r' + '\n'
+
+PRODUCTIONS
+ExpFile = "SCHEMA" ident (. m_sName = t->val; .)
+    ';' {(TypedefOrEnum | Entity) ';'} "END_SCHEMA" ';' (. finalize(); .).
+TypedefOrEnum = "TYPE" ident (. std::wstring sTypeName = t->val; .)
+    '=' (ident (. 
+        gfc2::schema::CTypeDef* pTypeDef = new gfc2::schema::CTypeDef(sTypeName);
+        m_pModel->addTypeObject(pTypeDef); 
+        auto pRefType = findType(t->val);
+        pTypeDef->SetRefType(pRefType);
+    .)
+    | "ENUMERATION" "OF" '(' (. CStringList oEnumList; .)
+    IdentList<oEnumList> (. 
+        gfc2::schema::CEnumType* pEnumType = new gfc2::schema::CEnumType(sTypeName);
+        m_pModel->addTypeObject(pEnumType); 
+        for each (auto sEnum in oEnumList)
+        {
+            pEnumType->addEnum(sEnum, L"");
+        }
+    .)
+    ')') ';' "END_TYPE" .
+IdentList<CStringList& oStringList> = ident (. oStringList.push_back(t->val); .)
+    {',' ident (. oStringList.push_back(t->val); .)
+    } .
+Entity = "ENTITY" ident (. 
+        auto pClass = getClass(t->val);
+        pClass->setIsValid(true);
+    .)
+    [SuperType<pClass>[SubType<pClass>] | SubType<pClass>[SuperType<pClass>]] ';' { (. gfc2::schema::CAttribute* pAttribute = new gfc2::schema::CAttribute; .)
+    Attribute<pAttribute> (. pClass->addAttribute(pAttribute); .)
+    ';'} "END_ENTITY" .
+SuperType<gfc2::schema::CClass* pClass> = ["ABSTRACT" (. pClass->setIsAbstract(true); .)
+    ] "SUPERTYPE" "OF" '(' "ONEOF" '(' (. CStringList oChildList; .)
+    IdentList<oChildList> (. 
+        for each (auto sName in oChildList)
+        {
+            auto pChild = getClass(sName);
+            pClass->addChild(pChild);
+        }
+    .)
+    ')' ')'.
+SubType<gfc2::schema::CClass* pClass> = "SUBTYPE" "OF" '(' ident (. 
+        auto pParent = getClass(t->val);
+        pClass->setParent(pParent);
+    .)
+    ')'.
+Attribute<gfc2::schema::CAttribute* pAttribute> = ident (. pAttribute->SetName(t->val); .)
+    ':' AttributeType<pAttribute>.
+AttributeType<gfc2::schema::CAttribute* pAttribute> = ["OPTIONAL" (. pAttribute->SetOptionalFlag(true); .)
+    ] ident (. 
+        auto pType = findType(t->val);
+        pAttribute->SetType(pType);
+    .)
+    | "LIST" '[' number ':' ( number | '?' ) ']' "OF" ident (.
+        auto pType = findType(t->val);
+        pAttribute->SetType(pType);
+        pAttribute->SetRepeatFlag(true);
+    .).
+
+END ExpFile.

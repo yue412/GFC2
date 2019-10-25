@@ -8,7 +8,7 @@
 namespace glodon {
 namespace objectbuf {
 
-class OBJECTBUF_API EntityTextSerializer : public EntitySerializer
+class EntityTextSerializer : public EntitySerializer
 {
 public:
     EntityTextSerializer(void);

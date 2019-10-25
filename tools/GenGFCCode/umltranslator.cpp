@@ -45,11 +45,13 @@ void CUMLTranslator::done(CTranslateInfo & oInfo)
         CDocumentWriter oWriter(&oModel);
         oWriter.write(oInfo.sHtmlPath);
     }
-    if (!(oInfo.sCPPPath.empty() && oInfo.sHeadPath.empty() && oInfo.sNETPath.empty()))
+    if (!(oInfo.sCPPPath.empty() && oInfo.sTextPath.empty() && oInfo.sBinPath.empty() && oInfo.sHeadPath.empty() && oInfo.sNETPath.empty()))
     {
         CCodeWriter oCodeWriter(&oModel);
         oCodeWriter.write(oInfo.sHeadPath, 
             oInfo.sCPPPath, 
+            oInfo.sTextPath,
+            oInfo.sBinPath,
             oInfo.sNETPath);
     }
 //    delete pRefModel;

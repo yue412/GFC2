@@ -10,7 +10,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2PolarAxisGrid: public Gfc2AxisGrid
 {
@@ -64,13 +63,5 @@ private:
     Gfc2Boolean m_bClockwise;
     std::vector<glodon::objectbuf::EntityRef> m_oXKJ;
     std::vector<glodon::objectbuf::EntityRef> m_oZJS;
-};
-
-class GFCCLASSES_API Gfc2PolarAxisGridFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2PolarAxisGridFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

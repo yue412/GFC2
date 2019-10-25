@@ -6,7 +6,6 @@
 #include "Gfc2PolyhedralEdge.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2PolyhedralLoop: public glodon::objectbuf::Entity
 {
@@ -27,13 +26,5 @@ protected:
     unsigned _has_bits_[1];
 private:
     std::vector<glodon::objectbuf::EntityRef> m_oEdges;
-};
-
-class GFCCLASSES_API Gfc2PolyhedralLoopFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2PolyhedralLoopFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

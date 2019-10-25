@@ -12,7 +12,6 @@
 #include "Gfc2Vector3d.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Cylinder: public Gfc2Surface
 {
@@ -86,13 +85,5 @@ private:
     glodon::objectbuf::EntityRef m_nDirY;
     glodon::objectbuf::EntityRef m_nDirZ;
     glodon::objectbuf::EntityRef m_nPos;
-};
-
-class GFCCLASSES_API Gfc2CylinderFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2CylinderFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

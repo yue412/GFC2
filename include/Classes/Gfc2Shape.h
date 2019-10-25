@@ -7,7 +7,6 @@
 #include "Gfc2Box3d.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Shape: public glodon::objectbuf::Entity
 {
@@ -43,13 +42,5 @@ private:
 
     glodon::objectbuf::EntityRef m_nLocalCoordinate;
     glodon::objectbuf::EntityRef m_nBoundingBox;
-};
-
-class GFCCLASSES_API Gfc2ShapeFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2ShapeFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

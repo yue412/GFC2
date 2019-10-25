@@ -8,7 +8,6 @@
 #include "Gfc2Object.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2RelDecomposes: public Gfc2RelationShip
 {
@@ -38,13 +37,5 @@ private:
 
     glodon::objectbuf::EntityRef m_nRelatingObject;
     std::vector<glodon::objectbuf::EntityRef> m_oRelatedObjects;
-};
-
-class GFCCLASSES_API Gfc2RelDecomposesFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2RelDecomposesFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

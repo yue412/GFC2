@@ -8,7 +8,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2FaceArchInfo: public Gfc2FaceInfo
 {
@@ -59,13 +58,5 @@ private:
     Gfc2Double m_dHeight;
     Gfc2Double m_dChord;
     Gfc2Boolean m_bCheckInnerChord;
-};
-
-class GFCCLASSES_API Gfc2FaceArchInfoFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2FaceArchInfoFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

@@ -12,7 +12,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2CartesianAxisGrid: public Gfc2AxisGrid
 {
@@ -69,13 +68,5 @@ private:
     std::vector<glodon::objectbuf::EntityRef> m_oZJS;
     std::vector<glodon::objectbuf::EntityRef> m_oYJS;
     std::vector<glodon::objectbuf::EntityRef> m_oXKJ;
-};
-
-class GFCCLASSES_API Gfc2CartesianAxisGridFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2CartesianAxisGridFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

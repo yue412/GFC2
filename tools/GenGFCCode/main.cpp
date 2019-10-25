@@ -33,7 +33,7 @@ std::wstring charToWString(char* str)
 void parseTranslateInfo(int argc, char *argv[], CTranslateInfo& oInfo)
 {
     char opt;
-    while ((opt = getopt(argc, argv, "h:c:n:e:d:")) != -1)
+    while ((opt = getopt(argc, argv, "h:c:t:b:n:e:d:")) != -1)
     {
         switch (opt)
         {
@@ -42,6 +42,12 @@ void parseTranslateInfo(int argc, char *argv[], CTranslateInfo& oInfo)
             break;
         case 'c':
             oInfo.sCPPPath = getFullPath(charToWString(optarg));
+            break;
+        case 't':
+            oInfo.sTextPath = getFullPath(charToWString(optarg));
+            break;
+        case 'b':
+            oInfo.sBinPath = getFullPath(charToWString(optarg));
             break;
         case 'n':
             oInfo.sNETPath = getFullPath(charToWString(optarg));

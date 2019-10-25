@@ -3,7 +3,7 @@
 #include <algorithm>
 #include "expresswriter.h"
 #include "EntityClass.h"
-#include "TypeDef.h"
+#include "TypeDefine.h"
 #include "enumtype.h"
 #include "model.h"
 #include "EntityAttribute.h"

@@ -8,7 +8,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2AssitAxis: public Gfc2Entity
 {
@@ -47,13 +46,5 @@ private:
     glodon::objectbuf::EntityRef m_nAxisNo;
     Gfc2AxisNoPosEnum m_nAxisNoPos;
     std::vector<glodon::objectbuf::EntityRef> m_oTrimPoints;
-};
-
-class GFCCLASSES_API Gfc2AssitAxisFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2AssitAxisFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

@@ -9,7 +9,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2EdgeData: public glodon::objectbuf::Entity
 {
@@ -91,13 +90,5 @@ private:
     glodon::objectbuf::EntityRef m_nParam;
     Gfc2Integer m_nBaseType;
     glodon::objectbuf::EntityRef m_nSlopePoly;
-};
-
-class GFCCLASSES_API Gfc2EdgeDataFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2EdgeDataFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

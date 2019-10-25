@@ -9,7 +9,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2ExtrudedBody: public Gfc2PrimitiveBody
 {
@@ -52,13 +51,5 @@ private:
     glodon::objectbuf::EntityRef m_nCoordinate;
     Gfc2Double m_dLength;
     glodon::objectbuf::EntityRef m_nSection;
-};
-
-class GFCCLASSES_API Gfc2ExtrudedBodyFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2ExtrudedBodyFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

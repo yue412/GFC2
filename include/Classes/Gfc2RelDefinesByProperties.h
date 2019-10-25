@@ -7,7 +7,6 @@
 #include "Gfc2PropertySet.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2RelDefinesByProperties: public Gfc2RelDefines
 {
@@ -31,13 +30,5 @@ private:
     void setHasRelatingPropertySet() {_has_bits_[0] |= 0x2u;}
 
     glodon::objectbuf::EntityRef m_nRelatingPropertySet;
-};
-
-class GFCCLASSES_API Gfc2RelDefinesByPropertiesFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2RelDefinesByPropertiesFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

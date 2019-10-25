@@ -7,7 +7,6 @@
 #include "Gfc2Polygon.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2SectionPointShape: public Gfc2CustomPointShape
 {
@@ -31,13 +30,5 @@ private:
     void setHasPoly() {_has_bits_[0] |= 0x100u;}
 
     glodon::objectbuf::EntityRef m_nPoly;
-};
-
-class GFCCLASSES_API Gfc2SectionPointShapeFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2SectionPointShapeFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

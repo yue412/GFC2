@@ -9,7 +9,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Face: public Gfc2CommonPolygonEx
 {
@@ -61,13 +60,5 @@ private:
     glodon::objectbuf::EntityRef m_nBox;
     Gfc2Boolean m_bSameDir;
     Gfc2Integer m_nIndex;
-};
-
-class GFCCLASSES_API Gfc2FaceFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2FaceFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

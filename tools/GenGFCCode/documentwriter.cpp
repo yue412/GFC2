@@ -4,7 +4,7 @@
 #include "model.h"
 #include "EntityClass.h"
 #include "enumtype.h"
-#include "TypeDef.h"
+#include "TypeDefine.h"
 #include "EntityAttribute.h"
 #include <algorithm>
 #include <iostream>

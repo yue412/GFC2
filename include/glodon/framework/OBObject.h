@@ -6,6 +6,8 @@
 #pragma warning( disable: 4251 )
 
 #include <assert.h>
+#include "glodon\objectbuf\Objectbuf.h"
+
 namespace glodon {
 	namespace objectbuf
 {

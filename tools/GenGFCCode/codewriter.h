@@ -36,8 +36,8 @@ public:
     CCodeWriter(CModel* pModel);
     ~CCodeWriter();
 	// 扩展接口，只生成指定的gfc文件,xuxp,2017-6-19
-    void write(const std::wstring& sPathName, const std::wstring &sCPPPath, const std::wstring& sNETPath
-        /*, bool bOutputHead, bool bOutputCpp, bool bOutputNet,QStringList files*/);
+    void write(const std::wstring& sPathName, const std::wstring &sCPPPath, const std::wstring &sTextPath, const std::wstring &sBinPath, 
+        const std::wstring& sNETPath);
 //signals:
 //    void reset();
 //    void setRange(int minimum, int maximum);
@@ -57,7 +57,7 @@ private:
     void writeClassImpFile(CppClass* pClass, CppClass* pFactoryClass, CppClass* pFieldCacheClass);
     void writeCliClassHeadFile(CClass* pTypeObject, CppClass* pClass);
     void writeCliClassImpFile(CppClass* pClass);
-    void writeBinarySerializerClassFile(CClass* pTypeObject, CppClass* pClass);
+    void writeBinarySerializerClassFile(CClass* pTypeObject, CppClass* pClass, CppClass* pFieldCacheClass);
     void writeTextSerializerClassFile(CClass* pTypeObject, CppClass* pClass);
 
     void addConstructor(CClass *pTypeObject, CppClass* pClass);
@@ -116,6 +116,8 @@ private:
 
     std::wstring m_sPath;
     std::wstring m_sCPPPath;
+    std::wstring m_sTextPath;
+    std::wstring m_sBinPath;
     std::wstring m_sNETPath;
     bool m_bOutputHead;
     bool m_bOutputCpp;

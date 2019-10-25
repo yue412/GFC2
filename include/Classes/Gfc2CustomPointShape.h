@@ -9,7 +9,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2CustomPointShape: public Gfc2SolidShape
 {
@@ -61,13 +60,5 @@ private:
     glodon::objectbuf::EntityRef m_nBaseInsertPt;
     Gfc2Double m_dAngle;
     Gfc2Boolean m_bMirrorFlag;
-};
-
-class GFCCLASSES_API Gfc2CustomPointShapeFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2CustomPointShapeFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

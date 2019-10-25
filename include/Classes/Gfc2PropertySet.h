@@ -7,7 +7,6 @@
 #include "Gfc2Property.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2PropertySet: public Gfc2Root
 {
@@ -26,13 +25,5 @@ public:
 
 private:
     std::vector<glodon::objectbuf::EntityRef> m_oHasProperties;
-};
-
-class GFCCLASSES_API Gfc2PropertySetFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2PropertySetFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

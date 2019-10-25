@@ -8,7 +8,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2LineArcInfo: public Gfc2BaseLineArcInfo
 {
@@ -68,13 +67,5 @@ private:
     Gfc2Double m_dHalfChordLength;
     Gfc2Double m_dRadius;
     Gfc2Boolean m_bDefineByRadius;
-};
-
-class GFCCLASSES_API Gfc2LineArcInfoFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2LineArcInfoFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

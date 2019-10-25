@@ -9,7 +9,6 @@
 #include "Gfc2Vector3d.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Sweep: public Gfc2Surface
 {
@@ -62,13 +61,5 @@ private:
     glodon::objectbuf::EntityRef m_nSpine3d;
     glodon::objectbuf::EntityRef m_nReferenceVector;
     Gfc2SweepType m_nSweepType;
-};
-
-class GFCCLASSES_API Gfc2SweepFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2SweepFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

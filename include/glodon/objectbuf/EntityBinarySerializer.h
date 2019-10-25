@@ -8,7 +8,7 @@
 namespace glodon {
 namespace objectbuf {
 
-class OBJECTBUF_API EntityBinarySerializer : public EntitySerializer
+class /*OBJECTBUF_API*/ EntityBinarySerializer : public EntitySerializer
 {
 public:
     EntityBinarySerializer(void);

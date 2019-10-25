@@ -8,7 +8,6 @@
 #include "Gfc2PlaneInfo.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2PlaneCurve3d: public Gfc2Curve3d
 {
@@ -42,13 +41,5 @@ private:
 
     glodon::objectbuf::EntityRef m_nPlaneCurve;
     glodon::objectbuf::EntityRef m_nPlane;
-};
-
-class GFCCLASSES_API Gfc2PlaneCurve3dFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2PlaneCurve3dFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

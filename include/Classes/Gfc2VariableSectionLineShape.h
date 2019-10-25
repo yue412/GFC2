@@ -7,7 +7,6 @@
 #include "Gfc2Polygon.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2VariableSectionLineShape: public Gfc2SectionLineShape
 {
@@ -31,13 +30,5 @@ private:
     void setHasEndPoly() {_has_bits_[0] |= 0x4000u;}
 
     glodon::objectbuf::EntityRef m_nEndPoly;
-};
-
-class GFCCLASSES_API Gfc2VariableSectionLineShapeFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2VariableSectionLineShapeFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

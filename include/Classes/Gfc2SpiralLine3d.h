@@ -9,7 +9,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2SpiralLine3d: public Gfc2Curve3d
 {
@@ -79,13 +78,5 @@ private:
     Gfc2Integer m_nClockSign;
     Gfc2Double m_dHeightCoef;
     Gfc2Double m_dRadiusCoef;
-};
-
-class GFCCLASSES_API Gfc2SpiralLine3dFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2SpiralLine3dFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

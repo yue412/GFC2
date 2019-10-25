@@ -7,7 +7,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Edge: public glodon::objectbuf::Entity
 {
@@ -87,13 +86,5 @@ private:
     Gfc2Integer m_nLoopIndex2;
     Gfc2Integer m_nCoedgeIndex1;
     Gfc2Integer m_nCoedgeIndex2;
-};
-
-class GFCCLASSES_API Gfc2EdgeFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2EdgeFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

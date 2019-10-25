@@ -6,7 +6,6 @@
 #include "Gfc2SimpleVertex.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2SimpleLoop: public glodon::objectbuf::Entity
 {
@@ -27,13 +26,5 @@ protected:
     unsigned _has_bits_[1];
 private:
     std::vector<glodon::objectbuf::EntityRef> m_oVertexes;
-};
-
-class GFCCLASSES_API Gfc2SimpleLoopFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2SimpleLoopFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

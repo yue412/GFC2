@@ -6,7 +6,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Property: public glodon::objectbuf::Entity
 {
@@ -32,13 +31,5 @@ private:
     void setHasName() {_has_bits_[0] |= 0x1u;}
 
     glodon::objectbuf::EntityRef m_nName;
-};
-
-class GFCCLASSES_API Gfc2PropertyFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2PropertyFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

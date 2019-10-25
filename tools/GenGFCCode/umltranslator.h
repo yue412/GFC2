@@ -8,7 +8,9 @@ struct CTranslateInfo
 {
     std::wstring sUMLFile;
     std::wstring sHeadPath;
-    std::wstring sCPPPath;
+    std::wstring sCPPPath;  // GFC类存放路径
+    std::wstring sTextPath; // 文本序列化代码存放路径
+    std::wstring sBinPath;  // 二进制序列化代码存放路径
     std::wstring sNETPath;
     std::wstring sExpressFile;
     std::wstring sHtmlPath;

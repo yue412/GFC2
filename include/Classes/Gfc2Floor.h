@@ -7,7 +7,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Floor: public Gfc2SpatialStructureEntity
 {
@@ -76,13 +75,5 @@ private:
     Gfc2Double m_dStructuralElevation;
     Gfc2Integer m_nStartFloorNo;
     glodon::objectbuf::EntityRef m_nRemark;
-};
-
-class GFCCLASSES_API Gfc2FloorFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2FloorFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

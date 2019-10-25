@@ -7,7 +7,6 @@
 #include "Gfc2PlaneCoef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2PolyhedralFace: public glodon::objectbuf::Entity
 {
@@ -39,13 +38,5 @@ private:
 
     std::vector<glodon::objectbuf::EntityRef> m_oLoops;
     glodon::objectbuf::EntityRef m_nPlane;
-};
-
-class GFCCLASSES_API Gfc2PolyhedralFaceFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2PolyhedralFaceFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

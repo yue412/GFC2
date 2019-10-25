@@ -12,7 +12,6 @@
 #include "Gfc2String.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2QuotaTotal: public glodon::objectbuf::Entity
 {
@@ -98,13 +97,5 @@ private:
     glodon::objectbuf::EntityRef m_nUnit;
     glodon::objectbuf::EntityRef m_nQuantity;
     glodon::objectbuf::EntityRef m_nMemo;
-};
-
-class GFCCLASSES_API Gfc2QuotaTotalFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2QuotaTotalFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

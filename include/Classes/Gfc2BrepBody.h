@@ -8,7 +8,6 @@
 #include "Gfc2Edge.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2BrepBody: public Gfc2Body
 {
@@ -33,13 +32,5 @@ public:
 private:
     std::vector<glodon::objectbuf::EntityRef> m_oFaces;
     std::vector<glodon::objectbuf::EntityRef> m_oEdges;
-};
-
-class GFCCLASSES_API Gfc2BrepBodyFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2BrepBodyFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

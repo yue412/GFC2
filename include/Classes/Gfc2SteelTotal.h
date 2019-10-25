@@ -9,7 +9,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2SteelTotal: public glodon::objectbuf::Entity
 {
@@ -73,13 +72,5 @@ private:
     Gfc2Integer m_nDia;
     Gfc2Double m_dWeight;
     glodon::objectbuf::EntityRef m_nUnit;
-};
-
-class GFCCLASSES_API Gfc2SteelTotalFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2SteelTotalFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

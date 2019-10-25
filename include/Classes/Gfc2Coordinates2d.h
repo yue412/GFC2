@@ -9,7 +9,6 @@
 #include "Gfc2Vector2d.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Coordinates2d: public Gfc2Geometry
 {
@@ -53,13 +52,5 @@ private:
     glodon::objectbuf::EntityRef m_nOrigin;
     glodon::objectbuf::EntityRef m_nX;
     glodon::objectbuf::EntityRef m_nY;
-};
-
-class GFCCLASSES_API Gfc2Coordinates2dFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2Coordinates2dFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

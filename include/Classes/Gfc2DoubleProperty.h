@@ -6,7 +6,6 @@
 #include "Gfc2Property.h"
 #include "TypeDef.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2DoubleProperty: public Gfc2Property
 {
@@ -29,13 +28,5 @@ private:
     void setHasValue() {_has_bits_[0] |= 0x2u;}
 
     Gfc2Double m_dValue;
-};
-
-class GFCCLASSES_API Gfc2DoublePropertyFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2DoublePropertyFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

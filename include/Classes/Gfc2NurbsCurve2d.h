@@ -8,7 +8,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2NurbsCurve2d: public Gfc2Curve2d
 {
@@ -42,13 +41,5 @@ private:
     Gfc2Integer m_nDegree;
     std::vector<glodon::objectbuf::EntityRef> m_oCtrlPts;
     std::vector<Gfc2Double> m_oKnots;
-};
-
-class GFCCLASSES_API Gfc2NurbsCurve2dFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2NurbsCurve2dFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

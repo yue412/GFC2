@@ -4,7 +4,6 @@
 #include "GfcClasses.h"
 #include "Gfc2Geometry.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Polygon: public Gfc2Geometry
 {

@@ -7,7 +7,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2AxisDataItem: public glodon::objectbuf::Entity
 {
@@ -66,13 +65,5 @@ private:
     Gfc2Integer m_nLevel;
     Gfc2AxisNoPosEnum m_nAxisNoPos;
     std::vector<glodon::objectbuf::EntityRef> m_oTrimPoints;
-};
-
-class GFCCLASSES_API Gfc2AxisDataItemFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2AxisDataItemFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

@@ -8,7 +8,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2LineShape: public Gfc2CustomLineShape
 {
@@ -77,13 +76,5 @@ private:
     glodon::objectbuf::EntityRef m_nArcInfo;
     Gfc2Boolean m_bIsSpiralTop;
     Gfc2Boolean m_bIsSpiralBtm;
-};
-
-class GFCCLASSES_API Gfc2LineShapeFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2LineShapeFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

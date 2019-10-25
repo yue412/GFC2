@@ -4,7 +4,6 @@
 #include "GfcClasses.h"
 #include "Gfc2RelDecomposes.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2RelAggregates: public Gfc2RelDecomposes
 {

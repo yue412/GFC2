@@ -10,7 +10,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2PreimageCurve2d: public Gfc2Curve2d
 {
@@ -72,13 +71,5 @@ private:
     glodon::objectbuf::EntityRef m_nBase;
     glodon::objectbuf::EntityRef m_nCurve;
     Gfc2Double m_dTolerance;
-};
-
-class GFCCLASSES_API Gfc2PreimageCurve2dFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2PreimageCurve2dFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

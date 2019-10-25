@@ -3,7 +3,6 @@
 
 #include "GfcClasses.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Geometry: public glodon::objectbuf::Entity
 {

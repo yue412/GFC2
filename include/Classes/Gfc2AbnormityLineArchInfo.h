@@ -6,7 +6,6 @@
 #include "Gfc2BaseLineArcInfo.h"
 #include "TypeDef.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2AbnormityLineArchInfo: public Gfc2BaseLineArcInfo
 {
@@ -110,13 +109,5 @@ private:
     Gfc2Boolean m_bDownDefineByRadius;
     Gfc2Double m_dDownArchHeight;
     Gfc2Double m_dDownArchRadius;
-};
-
-class GFCCLASSES_API Gfc2AbnormityLineArchInfoFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2AbnormityLineArchInfoFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

@@ -4,7 +4,6 @@
 #include "GfcClasses.h"
 #include <vector>
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2String: public glodon::objectbuf::Entity
 {
@@ -29,13 +28,5 @@ private:
     void setHasValue() {_has_bits_[0] |= 0x1u;}
 
     std::string m_sValue;
-};
-
-class GFCCLASSES_API Gfc2StringFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2StringFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

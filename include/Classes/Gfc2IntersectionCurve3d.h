@@ -10,7 +10,6 @@
 #include "Gfc2InternalChart.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2IntersectionCurve3d: public Gfc2Curve3d
 {
@@ -64,13 +63,5 @@ private:
     glodon::objectbuf::EntityRef m_nBases2;
     glodon::objectbuf::EntityRef m_nRange;
     glodon::objectbuf::EntityRef m_nChart;
-};
-
-class GFCCLASSES_API Gfc2IntersectionCurve3dFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2IntersectionCurve3dFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

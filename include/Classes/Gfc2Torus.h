@@ -10,7 +10,6 @@
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2Torus: public Gfc2Surface
 {
@@ -72,13 +71,5 @@ private:
     Gfc2Integer m_nClockSign;
     glodon::objectbuf::EntityRef m_nRangeV;
     glodon::objectbuf::EntityRef m_nCurve;
-};
-
-class GFCCLASSES_API Gfc2TorusFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2TorusFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

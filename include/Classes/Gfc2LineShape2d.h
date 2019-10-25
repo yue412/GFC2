@@ -7,7 +7,6 @@
 #include "Gfc2Curve2d.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2LineShape2d: public Gfc2Shape2d
 {
@@ -31,13 +30,5 @@ private:
     void setHasLine() {_has_bits_[0] |= 0x8u;}
 
     glodon::objectbuf::EntityRef m_nLine;
-};
-
-class GFCCLASSES_API Gfc2LineShape2dFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2LineShape2dFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif

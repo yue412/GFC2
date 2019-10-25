@@ -7,7 +7,6 @@
 #include "Gfc2CoedgeListEx.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/FieldCacheInitializer.h"
 
 class GFCCLASSES_API Gfc2CommonPolygonEx: public Gfc2Polygon
 {
@@ -26,13 +25,5 @@ public:
 
 private:
     std::vector<glodon::objectbuf::EntityRef> m_oLoopExs;
-};
-
-class GFCCLASSES_API Gfc2CommonPolygonExFieldCacheInitializer: public glodon::objectbuf::FieldCacheInitializer
-{
-OBJECTBUF_DEC_OBJECT(Gfc2CommonPolygonExFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)
-public:
-    virtual void init(const std::map<std::string, int>& oFieldIdMap);
-
 };
 #endif
