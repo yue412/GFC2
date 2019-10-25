@@ -2,6 +2,7 @@
 //#include "WriterBinaryImp.h"
 //#include "WriterTextImp.h"
 #include "WriterImp.h"
+#include "SerializerManager.h"
 
 namespace glodon {
 namespace objectbuf {
@@ -16,18 +17,11 @@ Writer::~Writer(void)
     close();
 }
 
-bool Writer::open( const string& sFileName, bool bIsBinary,const string& sProductCode )
+bool Writer::open( const string& sFileName, const std::string& sFormatType, const string& sProductCode )
 {
-    //if (bIsBinary)
-    //{
-    //    m_pImp = new WriterBinaryImp();
-    //}
-    //else
-    //{
-    //    m_pImp = new WriterTextImp();
-    //}
-    //return m_pImp->open(sFileName, sProductCode);
-    return false;
+    m_pSerializerManager = SerializerManager::getInstance();
+    auto m_pImp = m_pSerializerManager->getWriterImp(sFormatType);
+    return m_pImp ? m_pImp->open(sFileName, sProductCode) : false;
 }
 
 void Writer::close()

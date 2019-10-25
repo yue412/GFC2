@@ -5,35 +5,31 @@
 #include <vector>
 #include <map>
 #include "glodon/objectbuf/Objectbuf.h"
+#include <memory>
+
 using namespace std;
 namespace glodon {
 namespace objectbuf {
 
 class Document;
-class EntityFactory;
+//class EntityFactory;
 class Reader;
-class FieldCacheInitializer;
+class SerializerManager;
 
-typedef void (*RegSchemaInfoProc) (Reader* reader);
-typedef void (*FieldCacheProc) ();
+//typedef void (*RegSchemaInfoProc) (Reader* reader);
+//typedef void (*FieldCacheProc) ();
 //typedef std::map<string, std::pair<EntityFactory*, FieldCacheInitializer*>> SchemaInfoMap;
 
 class OBJECTBUF_API Reader
 {
 public:
-    Reader(FieldCacheProc pInitProc, FieldCacheProc pFreeProc);
+    Reader();
     virtual ~Reader(void);
     bool read(const string& sFileName, Document* pDoc);
-
-	string getProjectId(const string& sFileName);
-	std::vector<std::string> log();
-	string version();
+    std::vector<std::string> log() { return m_oErrors; }
 private:
-    void clear();
-    bool isBinaryFile( const string &sFileName);
-
-    FieldCacheProc m_pFreeProc;
-	std::vector<std::string> errors;
+	std::vector<std::string> m_oErrors;
+    std::tr1::shared_ptr<SerializerManager> m_pSerializerManager;
 };
 
 }
