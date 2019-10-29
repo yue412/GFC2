@@ -6,10 +6,10 @@
 namespace glodon {
 namespace objectbuf {
 
-typedef ReaderImp* (WINAPI *CreateReaderImpFunc)(TiXmlElement*);
-typedef WriterImp* (WINAPI *CreateWriterImpFunc)(TiXmlElement*);
-typedef void (WINAPI *FreeWriterImpFunc)(WriterImp*);
-typedef void (WINAPI *FreeReaderImpFunc)(ReaderImp*);
+typedef ReaderImp* (*CreateReaderImpFunc)(TiXmlElement*);
+typedef WriterImp* (*CreateWriterImpFunc)(TiXmlElement*);
+typedef void (*FreeWriterImpFunc)(WriterImp*);
+typedef void (*FreeReaderImpFunc)(ReaderImp*);
 
 std::weak_ptr<SerializerManager> SerializerManager::m_pSerializerManager;
 
@@ -32,7 +32,7 @@ void SerializerManager::init()
         while (pSerializerNode)
         {
             SerializerInfo oInfo;
-            auto sFileName = toWstring(pSerializerNode->Attribute("dll"));
+            auto sFileName = getFullPath(toWstring(pSerializerNode->Attribute("dll")));
             auto nHandle = LoadLibrary(sFileName.c_str());
             if (nHandle)
             {

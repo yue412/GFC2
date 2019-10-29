@@ -26,7 +26,7 @@ bool Reader::read(const string& sFileName, Document* pDoc)
     for (int i = 0; i < m_pSerializerManager->getCount(); i++)
     {
         ReaderImp* pImp = m_pSerializerManager->getReaderImp(i);
-        if (pImp->preRead())
+        if (pImp->preRead(sFileName))
         {
             bool bSucc = pImp->read(sFileName, pDoc, m_oErrors);
             pDoc->linkSchemaByParent();

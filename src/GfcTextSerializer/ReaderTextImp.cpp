@@ -4,6 +4,45 @@
 #include "glodon/objectbuf/Entity.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/EntityTextSerializer.h"
+#include "tinyxml.h"
+#include <Windows.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+__declspec(dllexport) glodon::objectbuf::ReaderImp* CreateReaderImp(TiXmlElement* pNode)
+{
+    auto pImp = new glodon::objectbuf::ReaderTextImp;
+    auto pSchemaPathNode = pNode->FirstChildElement("SchemaPath");
+    if (pSchemaPathNode)
+    {
+        const char* sPath = pSchemaPathNode->GetText();
+        if (sPath)
+        {
+            pImp->setSchemaPath(sPath);
+        }
+    }
+    auto pRemoteNode = pNode->FirstChildElement("Remote");
+    if (pRemoteNode)
+    {
+        const char* sPath = pRemoteNode->GetText();
+        if (sPath)
+        {
+            pImp->setRemote(sPath);
+        }
+    }
+    return pImp;
+}
+
+__declspec(dllexport) void FreeReaderImp(glodon::objectbuf::ReaderImp* pImp)
+{
+    delete pImp;
+}
+
+#ifdef __cplusplus
+}
+#endif
 
 namespace glodon {
 namespace objectbuf {
@@ -154,6 +193,16 @@ bool ReaderTextImp::read( const string& sFileName, Document* pDoc,std::vector<st
     in.close();
     delete[] buf;
     return true;
+}
+
+bool ReaderTextImp::preRead(const string& sFileName)
+{
+    char sHead[8];
+    std::fstream in(sFileName, std::ios::in | std::ios::binary);
+    in.get(sHead, 8);
+    sHead[7] = 0;
+    in.close();
+    return strcmp(sHead, "HEADER;") == 0;
 }
 
 string ReaderTextImp::getFileSchema( fstream& in )

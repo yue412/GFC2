@@ -5,6 +5,8 @@
 #include <time.h>
 #include "glodon/objectbuf/EntityTextSerializer.h"
 #include <io.h>
+#include "tinyxml.h"
+
 string getUserName()
 {
      DWORD size=0;
@@ -23,6 +25,25 @@ string getUserName()
     delete [] name;
     return sName;
 }
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+__declspec(dllexport) glodon::objectbuf::WriterImp* CreateWriterImp(TiXmlElement* pNode)
+{
+    return new glodon::objectbuf::WriterTextImp;
+}
+
+__declspec(dllexport) void FreeWriterImp(glodon::objectbuf::WriterImp* pImp)
+{
+    delete pImp;
+}
+
+#ifdef __cplusplus
+}
+#endif
+
 
 namespace glodon {
 namespace objectbuf {

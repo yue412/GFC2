@@ -20,7 +20,7 @@ Writer::~Writer(void)
 bool Writer::open( const string& sFileName, const std::string& sFormatType, const string& sProductCode )
 {
     m_pSerializerManager = SerializerManager::getInstance();
-    auto m_pImp = m_pSerializerManager->getWriterImp(sFormatType);
+    m_pImp = m_pSerializerManager->getWriterImp(sFormatType);
     return m_pImp ? m_pImp->open(sFileName, sProductCode) : false;
 }
 
