@@ -11,17 +11,41 @@
 #include "glodon/framework/OBObjectFactory.h"
 #include "glodon/objectbuf/EntityBinarySerializer.h"
 #include "EntitySchemaBinarySerializer.h"
+#include "tinyxml.h"
+#include "Classes\FieldCache.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+__declspec(dllexport) glodon::objectbuf::ReaderImp* CreateReaderImp(TiXmlElement* pNode)
+{
+    auto pImp = new glodon::objectbuf::ReaderBinaryImp;
+    return pImp;
+}
+
+__declspec(dllexport) void FreeReaderImp(glodon::objectbuf::ReaderImp* pImp)
+{
+    delete pImp;
+}
+
+#ifdef __cplusplus
+}
+#endif
+
 
 namespace glodon {
 namespace objectbuf {
 
 ReaderBinaryImp::ReaderBinaryImp(/*SchemaInfoMap* pSchemaInfoMap*/)/*: ReaderImp(pSchemaInfoMap)*/
 {
+    initFieldCache();
 }
 
 
 ReaderBinaryImp::~ReaderBinaryImp(void)
 {
+    freeFieldCache();
 }
 
 bool ReaderBinaryImp::read( const string& sFileName, Document* pDoc,std::vector<std::string>& errors )
@@ -139,6 +163,16 @@ bool ReaderBinaryImp::read( const string& sFileName, Document* pDoc,std::vector<
         }
     }
     return true;
+}
+
+bool ReaderBinaryImp::preRead(const string & sFileName)
+{
+    char sHead[8];
+    std::fstream in(sFileName, std::ios::in | std::ios::binary);
+    in.get(sHead, 8);
+    sHead[7] = 0;
+    in.close();
+    return strcmp(sHead, "HEADER;") != 0;
 }
 
 

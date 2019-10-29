@@ -19,6 +19,7 @@ Writer::~Writer(void)
 
 bool Writer::open( const string& sFileName, const std::string& sFormatType, const string& sProductCode )
 {
+    m_oDoc.clear();
     m_pSerializerManager = SerializerManager::getInstance();
     m_pImp = m_pSerializerManager->getWriterImp(sFormatType);
     return m_pImp ? m_pImp->open(sFileName, sProductCode) : false;
@@ -36,6 +37,7 @@ glodon::objectbuf::EntityRef Writer::writeEntity( Entity* pEntity )
 {
     if (m_pImp)
     {
+        pEntity->setDocument(&m_oDoc);
         return m_pImp->writeEntity(pEntity);
     }
     return -1;

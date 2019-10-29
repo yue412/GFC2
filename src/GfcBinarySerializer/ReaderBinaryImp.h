@@ -12,7 +12,8 @@ class ReaderBinaryImp: public ReaderImp
 public:
     ReaderBinaryImp(/*SchemaInfoMap* pSchemaInfoMap*/);
     virtual ~ReaderBinaryImp(void);
-    bool read(const string& sFileName, Document* pDoc,std::vector<std::string>& errors);
+    virtual bool read(const string& sFileName, Document* pDoc,std::vector<std::string>& errors);
+    virtual bool preRead(const string& sFileName);
 private:
     std::map<int, CREATETHIS> m_oFactoryList;
 };

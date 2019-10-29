@@ -3,7 +3,8 @@
 
 #include <string>
 #include <memory>
-#include "glodon/objectbuf/Entity.h"
+#include "glodon\objectbuf\Entity.h"
+#include "glodon\objectbuf\Document.h"
 
 using namespace std;
 namespace glodon {
@@ -23,6 +24,7 @@ public:
 private:
     std::tr1::shared_ptr<SerializerManager> m_pSerializerManager;
     WriterImp* m_pImp;
+    Document m_oDoc; // 目前仅仅是为了记录Schema，防止崩溃
 };
 
 }

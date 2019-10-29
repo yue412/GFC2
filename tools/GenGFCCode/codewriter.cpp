@@ -387,6 +387,13 @@ void CCodeWriter::writeBinarySerializerClassFile(CClass *pTypeObject, CppClass *
             pClass->name().c_str(),
             pTypeObject->getName().c_str()
         ));
+        if (pFieldCacheClass)
+        {
+            oFile.body()->addLine(FormatWstring(L"OBJECTBUF_IMP_OBJECT(%s,\"%s\",0)",
+                pFieldCacheClass->name().c_str(),
+                pTypeObject->getName().c_str()
+            ));
+        }
         oFile.body()->addLine(L"");
         oFile.body()->add(pClass->createImpCode());
         if (pFieldCacheClass)

@@ -3,6 +3,25 @@
 #include <google/protobuf/wire_format_lite.h>
 //#include <google/protobuf/wire_format_lite_inl.h>
 #include "glodon/objectbuf/EntityBinarySerializer.h"
+#include "tinyxml.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+__declspec(dllexport) glodon::objectbuf::WriterImp* CreateWriterImp(TiXmlElement* pNode)
+{
+    return new glodon::objectbuf::WriterBinaryImp;
+}
+
+__declspec(dllexport) void FreeWriterImp(glodon::objectbuf::WriterImp* pImp)
+{
+    delete pImp;
+}
+
+#ifdef __cplusplus
+}
+#endif
 
 namespace glodon {
 namespace objectbuf {
