@@ -1,7 +1,7 @@
 #ifndef ENTITYBINARYSERIALIZER_H
 #define ENTITYBINARYSERIALIZER_H
 
-#include "EntitySerializer.h"
+#include "glodon/objectbuf/EntitySerializer.h"
 #include <google/protobuf/io/coded_stream.h>
 #include "glodon/objectbuf/Objectbuf.h"
 

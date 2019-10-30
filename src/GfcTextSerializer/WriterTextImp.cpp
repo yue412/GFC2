@@ -3,7 +3,7 @@
 #include <Windows.h>
 #include <sstream>
 #include <time.h>
-#include "glodon/objectbuf/EntityTextSerializer.h"
+#include "EntityTextSerializer.h"
 #include <io.h>
 #include "tinyxml.h"
 

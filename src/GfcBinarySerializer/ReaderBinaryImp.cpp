@@ -9,7 +9,7 @@
 #include "glodon/objectbuf/Document.h"
 #include "FieldCacheInitializer.h"
 #include "glodon/framework/OBObjectFactory.h"
-#include "glodon/objectbuf/EntityBinarySerializer.h"
+#include "EntityBinarySerializer.h"
 #include "EntitySchemaBinarySerializer.h"
 #include "tinyxml.h"
 #include "Classes\FieldCache.h"

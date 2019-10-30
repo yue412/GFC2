@@ -1,4 +1,4 @@
-#include "glodon/objectbuf/EntityTextSerializer.h"
+#include "EntityTextSerializer.h"
 #include "glodon/objectbuf/Entity.h"
 #include <stack>
 #include <regex>

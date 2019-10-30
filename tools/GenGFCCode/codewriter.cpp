@@ -361,7 +361,7 @@ void CCodeWriter::writeBinarySerializerClassFile(CClass *pTypeObject, CppClass *
         if (pTypeObject->getParent())
             oFile.addInclude(pTypeObject->getParent()->getName() + L"BinarySerializer.h");
         else
-            oFile.addInclude(L"glodon/objectbuf/EntityBinarySerializer.h");
+            oFile.addInclude(L"EntityBinarySerializer.h");
         oFile.addInclude(L"FieldCacheInitializer.h");
 
         oFile.body()->add(pClass->createDeclareCode());
@@ -411,7 +411,7 @@ void CCodeWriter::writeTextSerializerClassFile(CClass *pTypeObject, CppClass *pC
         if (pTypeObject->getParent())
             oFile.addInclude(pTypeObject->getParent()->getName() + L"TextSerializer.h");
         else
-            oFile.addInclude(L"glodon/objectbuf/EntityTextSerializer.h");
+            oFile.addInclude(L"EntityTextSerializer.h");
         oFile.body()->add(pClass->createDeclareCode());
         oFile.saveTo(m_sTextPath);
         updateProgressBar();

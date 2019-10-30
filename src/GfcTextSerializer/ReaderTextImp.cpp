@@ -3,7 +3,7 @@
 #include <sstream>
 #include "glodon/objectbuf/Entity.h"
 #include "glodon/objectbuf/Document.h"
-#include "glodon/objectbuf/EntityTextSerializer.h"
+#include "EntityTextSerializer.h"
 #include "tinyxml.h"
 #include <Windows.h>
 

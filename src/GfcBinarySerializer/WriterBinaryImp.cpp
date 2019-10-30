@@ -2,7 +2,7 @@
 #include "glodon/objectbuf/EntitySchema.h"
 #include <google/protobuf/wire_format_lite.h>
 //#include <google/protobuf/wire_format_lite_inl.h>
-#include "glodon/objectbuf/EntityBinarySerializer.h"
+#include "EntityBinarySerializer.h"
 #include "tinyxml.h"
 
 #ifdef __cplusplus

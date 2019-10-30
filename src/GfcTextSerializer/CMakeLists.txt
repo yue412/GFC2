@@ -7,9 +7,9 @@ include_directories(
 	${PROJECT_SOURCE_DIR}/EntitySchema 
 	${PROJECT_SOURCE_DIR}/GfcEngine
 	${PROJECT_SOURCE_DIR}/../thirdparty/tinyxml	
+	${PROJECT_SOURCE_DIR}/${PROJECT_NAME}
 )
 
-file(GLOB HEAD_FILES "${PROJECT_SOURCE_DIR}/../include/glodon/objectbuf/*.h") 
 file(GLOB_RECURSE SRC_FILES  ${PROJECT_SOURCE_DIR}/${PROJECT_NAME} *.cpp *.h)
 source_group(TREE ${PROJECT_SOURCE_DIR}/${PROJECT_NAME} PREFIX "Source Files" FILES ${SRC_FILES})
 

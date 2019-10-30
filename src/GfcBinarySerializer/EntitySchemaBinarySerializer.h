@@ -1,7 +1,7 @@
 #ifndef ENTITYSCHEMABINARYSERIALIZER_H
 #define ENTITYSCHEMABINARYSERIALIZER_H
 
-#include "glodon/objectbuf/EntityBinarySerializer.h"
+#include "EntityBinarySerializer.h"
 #include "glodon/framework/OBSysMarco.h"
 
 
