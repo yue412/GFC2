@@ -1,4 +1,5 @@
 #include "EnumType.h"
+#include <algorithm>
 
 GFC_NAMESPACE_BEGIN
 
@@ -26,6 +27,12 @@ void CEnumType::addEnum(const std::wstring &sEnum, const std::wstring& sDocument
 {
     m_oEnumList.push_back(sEnum);
     m_oEnumDocumentList.push_back(sDocument);
+}
+
+bool CEnumType::exists(const std::wstring & sEnum)
+{
+    auto itr = std::find(m_oEnumList.begin(), m_oEnumList.end(), sEnum);
+    return itr != m_oEnumList.end();
 }
 
 GFC_NAMESPACE_END

@@ -5,7 +5,6 @@
 #include "glodon/objectbuf/Document.h"
 #include "EntityTextSerializer.h"
 #include "tinyxml.h"
-#include <Windows.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -67,7 +66,8 @@ bool ReaderTextImp::read( const string& sFileName, Document* pDoc,std::vector<st
     in.open(sFileName, ios::in);
 
 	// 版本号不一致，也需要继续读取，只读取可以读取到的信息，xuxp，2018-5-17
-//  string sSchema = getFileSchema(in);
+   string sSchema = getFileSchema(in);
+   m_oUpdater.init(sSchema);
 // 	if (!_stricmp(sSchema.c_str(),Entity::Version().c_str()))
 // 	{
 // 		return false;
@@ -83,6 +83,7 @@ bool ReaderTextImp::read( const string& sFileName, Document* pDoc,std::vector<st
     {
 		string sLine;
 		getline(in, sLine);
+        m_oUpdater.update(sLine);
         /*
         //这里不要用正则表达式，因为sLine可能非常长，而事实上这里只关心开头和结尾
         string sPattern("#(\\d+)=(\\w+)\\((.+)\\);");

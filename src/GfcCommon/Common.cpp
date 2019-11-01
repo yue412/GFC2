@@ -4,6 +4,7 @@
 #include <clocale>
 #include <vector>
 #include <Windows.h>
+#include <fstream>
 
 std::wstring _FormatWstring(const wchar_t * lpcwszFormat, va_list _list)
 {
@@ -165,4 +166,13 @@ std::fstream & operator<<(std::fstream & out, const wchar_t * s)
 {
     out << UnicodeToUtf8(s);
     return out;
+}
+
+bool fileExists(const std::wstring & sFile)
+{
+    std::wfstream _file;
+    _file.open(sFile, std::ios::in);
+    bool bResult = !_file.fail();
+    _file.close();
+    return bResult;
 }

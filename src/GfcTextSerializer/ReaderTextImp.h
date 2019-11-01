@@ -4,6 +4,8 @@
 #include "ReaderImp.h"
 #include <map>
 #include <fstream>
+#include "TextUpdater.h"
+
 using namespace std;
 namespace glodon {
 namespace objectbuf {
@@ -19,15 +21,14 @@ public:
     virtual bool read(const string& sFileName, Document* pDoc, std::vector<std::string>& errors);
     virtual bool preRead(const string& sFileName);
 	string projectId(const string& sFileName);
-    void setSchemaPath(const std::string& sSchemaPath) { m_sSchemaPath = sSchemaPath; }
-    void setRemote(const std::string& sRemote) { m_sRemote = sRemote; }
+    void setSchemaPath(const std::string& sSchemaPath) { m_oUpdater.setSchemaPath(sSchemaPath); }
+    void setRemote(const std::string& sRemote) { m_oUpdater.setRemote(sRemote); }
 private:
     string getFileSchema(fstream& in);
     bool locate(fstream& in, const string& sWord);
 
     std::map<std::string, EntityTextSerializer*> m_oSerMap;
-    std::string m_sSchemaPath;
-    std::string m_sRemote;
+    TextUpdater m_oUpdater;
 };
 
 }

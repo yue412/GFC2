@@ -1,5 +1,6 @@
 #include "EntityClass.h"
 #include "EntityAttribute.h"
+#include <algorithm>
 
 GFC_NAMESPACE_BEGIN
 
@@ -40,6 +41,13 @@ CAttribute *CClass::getAttribute(int nIndex)
 void CClass::addAttribute(CAttribute *pAttribute)
 {
     m_oAttributeList.push_back(pAttribute);
+}
+
+CAttribute * CClass::findAttribute(const std::wstring & sName)
+{
+    auto itr = std::find_if(m_oAttributeList.begin(), m_oAttributeList.end(),
+        [sName](CAttribute* pAttrib) { return pAttrib->getName() == sName; });
+    return itr == m_oAttributeList.end() ? nullptr : *itr;
 }
 
 GFC_NAMESPACE_END

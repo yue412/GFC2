@@ -34,6 +34,7 @@ public:
     CAttribute *getAttribute(int nIndex);
     int getAttributeCount(){return (int)m_oAttributeList.size();}
     void addAttribute(CAttribute* pAttribute);
+    CAttribute* findAttribute(const std::wstring& sName);
 
     bool getIsValid() { return m_bIsValid; }
     void setIsValid(bool bIsValid) { m_bIsValid = bIsValid; }
