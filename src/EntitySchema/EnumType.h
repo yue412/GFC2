@@ -18,6 +18,7 @@ public:
     int getEnumCount(){return (int)m_oEnumList.size();}
     void addEnum(const std::wstring& sEnum, const std::wstring& sDocument);
     bool exists(const std::wstring& sEnum);
+    int indexOf(const std::wstring& sEnum);
 private:
     std::vector<std::wstring> m_oEnumList;
     std::vector<std::wstring> m_oEnumDocumentList;

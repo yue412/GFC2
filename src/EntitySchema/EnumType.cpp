@@ -31,8 +31,13 @@ void CEnumType::addEnum(const std::wstring &sEnum, const std::wstring& sDocument
 
 bool CEnumType::exists(const std::wstring & sEnum)
 {
+    return indexOf(sEnum) != -1;
+}
+
+int CEnumType::indexOf(const std::wstring & sEnum)
+{
     auto itr = std::find(m_oEnumList.begin(), m_oEnumList.end(), sEnum);
-    return itr != m_oEnumList.end();
+    return itr == m_oEnumList.end() ? -1 : itr - m_oEnumList.begin();
 }
 
 GFC_NAMESPACE_END
