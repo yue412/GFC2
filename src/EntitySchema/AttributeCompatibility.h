@@ -23,13 +23,14 @@ struct TypeCompatibility
 class CAttributeCompatibility
 {
 public:
-    CAttributeCompatibility() : m_bIsCompatible(false), m_pConverter(nullptr){};
+    CAttributeCompatibility() : m_bIsCompatible(false), m_pConverter(nullptr), m_nToIndex(-1){};
     ~CAttributeCompatibility();
 public:
-    void init(CAttribute* pFrom, CAttribute* pTo);
+    void init(CAttribute* pFrom, CAttribute* pTo, int nToIndex);
     std::wstring getName() { return m_sName; }
     bool isCompatible() { return m_bIsCompatible; }
     CConverter* converter() { return m_pConverter; }
+    int toIndex() { return m_nToIndex; }
 public:
     static TypeCompatibility noCompatibility(CTypeObject* pFrom, CTypeObject* pTo);
     static TypeCompatibility buildinCompatibility(CTypeObject* pFrom, CTypeObject* pTo);
@@ -41,15 +42,16 @@ public:
     static bool isClassCompatibility(CClass* pFrom, CClass* pTo);
     static bool isEnumCompatibility(CEnumType* pFrom, CEnumType* pTo);
     static int getTypeIndex(CTypeObject* pType);
+    static TypeCompatibility getTypeCompatibility(CTypeObject* pFrom, CTypeObject* pTo);
+    static TypeCompatibility getMultiCompatibility(CAttribute* pFrom, CAttribute* pTo);
 private:
-    TypeCompatibility getTypeCompatibility(CTypeObject* pFrom, CTypeObject* pTo);
-    TypeCompatibility getMultiCompatibility(CAttribute* pFrom, CAttribute* pTo);
-    int getMultiIndex(CAttribute* pAttrib);
+    static int getMultiIndex(CAttribute* pAttrib);
 
 
     std::wstring m_sName;
     bool m_bIsCompatible;
     CConverter* m_pConverter;
+    int m_nToIndex;
 };
 
 GFC_NAMESPACE_END

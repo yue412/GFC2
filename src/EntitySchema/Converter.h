@@ -3,6 +3,7 @@
 
 #include "SchemaMacro.h"
 #include <string>
+#include "AttributeValue.h"
 
 GFC_NAMESPACE_BEGIN
 
@@ -15,8 +16,9 @@ class CConverter
 public:
     CConverter() : m_pNext(nullptr), m_pFrom(nullptr), m_pTo(nullptr) {}
     virtual ~CConverter();
-    virtual void transform(std::wstring& sValue);
-    virtual void doTransform(std::wstring& sValue) = 0;
+    virtual void transform(CAttributeValuePtr& pValue);
+    virtual void doTransform(CAttributeValuePtr& pValue) = 0;
+    virtual CConverter* clone() = 0;
     void setNext(CConverter* pNext);
     void init(CTypeObject* pFrom, CTypeObject* pTo);
 protected:
@@ -37,73 +39,85 @@ protected:
 class CCopyConverter: public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CCopyConverter(*this); }
 };
 
 class CEmptyConverter : public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CEmptyConverter(*this); }
 };
 
 class CBoolToIntConverter : public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CBoolToIntConverter(*this); }
 };
 
 class CBoolToStringConverter : public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CBoolToStringConverter(*this); }
 };
 
 class CBoolToEnumConverter : public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CBoolToEnumConverter(*this); }
 };
 
 class CIntToBoolConverter : public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CIntToBoolConverter(*this); }
 };
 
 class CStringConverter : public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CStringConverter(*this); }
 };
 
 class CIntToEnumConverter : public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CIntToEnumConverter(*this); }
 };
 
 class CEnumToBoolConverter : public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CEnumToBoolConverter(*this); }
 };
 
 class CEnumToIntConverter : public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CEnumToIntConverter(*this); }
 };
 
 class CEnumToStringConverter : public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CEnumToStringConverter(*this); }
 };
 
 class CEnumConverter : public CConverter
 {
 public:
-    virtual void doTransform(std::wstring& sValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CEnumConverter(*this); }
 };
 
 // multi
@@ -111,29 +125,33 @@ public:
 class CArrayToOneConverter : public CConverter
 {
 public:
-    virtual void transform(std::wstring& sValue);
-    virtual void doTransform(std::wstring& sValue);
+    virtual void transform(CAttributeValuePtr& pValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CArrayToOneConverter(*this); }
 };
 
 class COneToArrayConverter : public CConverter
 {
 public:
-    virtual void transform(std::wstring& sValue);
-    virtual void doTransform(std::wstring& sValue);
+    virtual void transform(CAttributeValuePtr& pValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new COneToArrayConverter(*this); }
 };
 
 class CArrayToArrayConverter: public CConverter
 {
 public:
-    virtual void transform(std::wstring& sValue);
-    virtual void doTransform(std::wstring& sValue);
+    virtual void transform(CAttributeValuePtr& pValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new CArrayToArrayConverter(*this); }
 };
 
 class COptionalConverter : public CConverter
 {
 public:
-    virtual void transform(std::wstring& sValue);
-    virtual void doTransform(std::wstring& sValue);
+    virtual void transform(CAttributeValuePtr& pValue);
+    virtual void doTransform(CAttributeValuePtr& pValue);
+    virtual CConverter* clone() { return new COptionalConverter(*this); }
 };
 
 

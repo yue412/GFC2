@@ -7,18 +7,25 @@
 #include "Parser.h"
 #include <algorithm>
 #include "Common.h"
+#include "ModelCompatibility.h"
+#include "ClassCompatibility.h"
+#include "AttributeCompatibility.h"
+#include "Converter.h"
+#include "EntityParser\Parser.h"
+#include "EntityParser\Scanner.h"
+#include "AttributeValue.h"
 
 namespace glodon {
 namespace objectbuf {
 
 TextUpdater::~TextUpdater()
 {
+    clear();
 }
 
 void TextUpdater::init(const std::string & sVersion)
 {
-    delete m_pDllModel;  m_pDllModel = nullptr;
-    delete m_pFileModel; m_pFileModel = nullptr;
+    clear();
     // 相等，不需要升级
     if (_stricmp(sVersion.c_str(), Entity::Version().c_str()) == 0)
         return;
@@ -28,11 +35,67 @@ void TextUpdater::init(const std::string & sVersion)
     loadFileModel(sSchema);
     // Load dll model
     loadDllModel();
+    if (m_pDllModel && m_pFileModel)
+    {
+        m_pModelCompatibility = new gfc2::schema::CModelCompatibility;
+        m_pModelCompatibility->init(m_pFileModel, m_pDllModel);
+    }
 }
 
 void TextUpdater::update(std::string & sLine)
 {
+    if (m_pModelCompatibility == nullptr)
+        return; // no update
+    gfc2::Scanner oScanner((unsigned char*)sLine.c_str(), sLine.length());
+    gfc2::Parser oParser(&oScanner);
+    oParser.Parse();
+    if (oParser.errors->count > 0)
+    { 
+        assert(false);
+        return;
+    }
+    auto pClassCompatibility = m_pModelCompatibility->find(oParser.m_sEntityName);
+    if (pClassCompatibility == nullptr)
+    {
+        sLine = ""; // no read
+        return;
+    }
+    std::string sParams;
+    transform(pClassCompatibility, &oParser.m_oParameterList, sParams);
+    sLine = UnicodeToUtf8(oParser.m_sInstance) + "=" + UnicodeToUtf8(oParser.m_sEntityName) + "(" + sParams + ");";
+}
 
+void TextUpdater::transform(gfc2::schema::CClassCompatibility * pClassCompatibility, gfc2::schema::CAttributeValue * pParamList, std::string& sOutput)
+{
+    std::map<int, gfc2::schema::CAttributeValuePtr> oNewMap;
+    for (int i = 0; i < pClassCompatibility->getCount(); i++)
+    {
+        auto pAttributeCompatibility = pClassCompatibility->getCompatibilityAttribute(i);
+        int  nIndex = pAttributeCompatibility->toIndex();
+        auto pConverter = pAttributeCompatibility->converter();
+        if (nIndex != -1)
+        {
+            auto pValue = i < (int)pParamList->getCount() ? pParamList->getItems(i) : gfc2::schema::CAttributeValuePtr(new gfc2::schema::CLeafAttributeValue(L"$"));
+            if (pConverter)
+                pConverter->transform(pValue);
+            else
+                pValue = gfc2::schema::CAttributeValuePtr(new gfc2::schema::CLeafAttributeValue(L"$"));
+            oNewMap[nIndex] = pValue;
+        }
+    }
+    sOutput = "";
+    for each (auto oPair in oNewMap)
+    {
+        sOutput += UnicodeToUtf8(oPair.second->asString()) + ",";
+    }
+    sOutput = sOutput.substr(0, sOutput.length() - 1);
+}
+
+void TextUpdater::clear()
+{
+    delete m_pDllModel;  m_pDllModel = nullptr;
+    delete m_pFileModel; m_pFileModel = nullptr;
+    delete m_pModelCompatibility; m_pModelCompatibility = nullptr;
 }
 
 void TextUpdater::loadDllModel()

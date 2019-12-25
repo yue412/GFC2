@@ -24,19 +24,26 @@ void CClassCompatibility::init(CClass * pFrom, CClass * pTo)
     {
         auto itr = std::find_if(oToAttributeList.begin(), oToAttributeList.end(),
             [pFromAttrib](CAttribute* pAttrib) {return pFromAttrib->getName() == pAttrib->getName(); });
-        auto pToAttrib = itr != oToAttributeList.end() ? *itr : nullptr;
+        CAttribute* pToAttrib = nullptr;
+        int nToIndex = -1; 
+        if (itr != oToAttributeList.end())
+        {
+            pToAttrib = *itr;
+            nToIndex = itr - oToAttributeList.begin();
+        }
         auto pCompatibility = new CAttributeCompatibility;
-        pCompatibility->init(pFromAttrib, pToAttrib);
+        pCompatibility->init(pFromAttrib, pToAttrib, nToIndex);
         m_oList.push_back(pCompatibility);
     }
-    for each (auto pToAttrib in oToAttributeList)
+    for (int i = 0; i < (int)oToAttributeList.size(); ++i)
     {
+        auto pToAttrib = oToAttributeList[i];
         auto itr = std::find_if(oFromAttributeList.begin(), oFromAttributeList.end(),
             [pToAttrib](CAttribute* pAttrib) {return pToAttrib->getName() == pAttrib->getName(); });
-        if (itr == oToAttributeList.end())
+        if (itr == oFromAttributeList.end())
         {
             auto pCompatibility = new CAttributeCompatibility;
-            pCompatibility->init(nullptr, pToAttrib);
+            pCompatibility->init(nullptr, pToAttrib, i);
             m_oList.push_back(pCompatibility);
         }
     }

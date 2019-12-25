@@ -10,11 +10,11 @@ CConverter::~CConverter()
     delete m_pNext;
 }
 
-void CConverter::transform(std::wstring & sValue)
+void CConverter::transform(CAttributeValuePtr& pValue)
 {
     if (m_pNext)
-        m_pNext->transform(sValue);
-    doTransform(sValue);
+        m_pNext->transform(pValue);
+    doTransform(pValue);
 }
 
 void CConverter::setNext(CConverter * pNext)
@@ -49,7 +49,7 @@ std::wstring CConverter::enclosedInBrackets(const std::wstring & sValue)
 std::wstring CConverter::intToEnum(int nIndex)
 {
     auto pEnum = dynamic_cast<CEnumType*>(m_pTo);
-    return pEnum && pEnum->getEnumCount() > nIndex && nIndex >= 0 ? enclosedInDot(pEnum->getEnum(nIndex)) : c_sEmptyFlag;
+    return pEnum && pEnum->getEnumCount() > 0 ? enclosedInDot(pEnum->getEnum(abs(nIndex) % pEnum->getEnumCount())) : c_sEmptyFlag;
 }
 
 int CConverter::enumToInt(const std::wstring & sValue)
@@ -70,144 +70,169 @@ std::wstring CConverter::dropDot(const std::wstring & sValue)
     return sValue.substr(1, sValue.length() - 2);
 }
 
-void CCopyConverter::doTransform(std::wstring & sValue)
+void CCopyConverter::doTransform(CAttributeValuePtr& pValue)
 {
     // do nothing
 }
-void CEnumConverter::doTransform(std::wstring & sValue)
+void CEnumConverter::doTransform(CAttributeValuePtr& pValue)
 {
     auto pEnum = dynamic_cast<CEnumType*>(m_pTo);
-    if (!pEnum || !pEnum->exists(dropDot(sValue)))
+    if (!pEnum || !pEnum->exists(dropDot(pValue->asString())))
     {
-        sValue = c_sEmptyFlag;
+        pValue->setAsString(c_sEmptyFlag);
     }
 }
 
-void CEmptyConverter::doTransform(std::wstring & sValue)
+void CEmptyConverter::doTransform(CAttributeValuePtr& pValue)
 {
-    sValue = c_sEmptyFlag;
+    pValue->setAsString(c_sEmptyFlag);
 }
 
-void CBoolToIntConverter::doTransform(std::wstring & sValue)
+void CBoolToIntConverter::doTransform(CAttributeValuePtr& pValue)
 {
-    sValue = std::to_wstring(boolToInt(sValue));
+    pValue->setAsString(std::to_wstring(boolToInt(pValue->asString())));
 }
 
-void CBoolToStringConverter::doTransform(std::wstring & sValue)
+void CBoolToStringConverter::doTransform(CAttributeValuePtr& pValue)
 {
+    auto sValue = pValue->asString();
     sValue = std::to_wstring(boolToInt(sValue));
     sValue = enclosedInQuotes(sValue);
+    pValue->setAsString(sValue);
 }
 
-void CBoolToEnumConverter::doTransform(std::wstring & sValue)
+void CBoolToEnumConverter::doTransform(CAttributeValuePtr& pValue)
 {
-    auto nIndex = boolToInt(sValue);
-    sValue = intToEnum(nIndex);
+    auto nIndex = boolToInt(pValue->asString());
+    pValue->setAsString(intToEnum(nIndex));
 }
 
-void CIntToBoolConverter::doTransform(std::wstring & sValue)
+void CIntToBoolConverter::doTransform(CAttributeValuePtr& pValue)
 {
-    auto nValue = std::stoi(sValue);
-    sValue = intToBool(nValue);
+    auto nValue = std::stoi(pValue->asString());
+    pValue->setAsString(intToBool(nValue));
 }
 
-void CStringConverter::doTransform(std::wstring & sValue)
+void CStringConverter::doTransform(CAttributeValuePtr& pValue)
 {
-    sValue = enclosedInQuotes(sValue);
+    pValue->setAsString(enclosedInQuotes(pValue->asString()));
 }
 
-void CIntToEnumConverter::doTransform(std::wstring & sValue)
+void CIntToEnumConverter::doTransform(CAttributeValuePtr& pValue)
 {
-    auto nIndex = std::stoi(sValue);
-    sValue = intToEnum(nIndex);
+    auto nIndex = std::stoi(pValue->asString());
+    pValue->setAsString(intToEnum(nIndex));
 }
 
-void CEnumToBoolConverter::doTransform(std::wstring & sValue)
+void CEnumToBoolConverter::doTransform(CAttributeValuePtr& pValue)
 {
-    auto nIndex = enumToInt(sValue);
-    sValue = nIndex == -1 ? c_sEmptyFlag : intToBool(nIndex);
+    auto nIndex = enumToInt(pValue->asString());
+    pValue->setAsString(nIndex == -1 ? c_sEmptyFlag : intToBool(nIndex));
 }
 
-void CEnumToIntConverter::doTransform(std::wstring & sValue)
+void CEnumToIntConverter::doTransform(CAttributeValuePtr& pValue)
 {
-    auto nIndex = enumToInt(sValue);
-    sValue = nIndex == -1 ? c_sEmptyFlag : std::to_wstring(nIndex);
+    auto nIndex = enumToInt(pValue->asString());
+    pValue->setAsString(nIndex == -1 ? c_sEmptyFlag : std::to_wstring(nIndex));
 }
 
-void CEnumToStringConverter::doTransform(std::wstring & sValue)
+void CEnumToStringConverter::doTransform(CAttributeValuePtr& pValue)
 {
-    auto nIndex = enumToInt(sValue);
-    sValue = nIndex == -1 ? c_sEmptyFlag : enclosedInQuotes(std::to_wstring(nIndex));
+    auto nIndex = enumToInt(pValue->asString());
+    pValue->setAsString(nIndex == -1 ? c_sEmptyFlag : enclosedInQuotes(std::to_wstring(nIndex)));
 }
 
-void CArrayToArrayConverter::transform(std::wstring & sValue)
+void CArrayToArrayConverter::transform(CAttributeValuePtr& pValue)
 {
-    if (sValue != c_sEmptyFlag && sValue != L"()")
+    for (int i = 0; i < pValue->getCount(); i++)
     {
-        std::wstring sResult;
-        auto str = dropDot(sValue) + L",";
-        std::size_t nStart = 0;
-        auto nPos = str.find(L',');
-        while (nPos != std::wstring::npos)
+        auto pItem = pValue->getItems(i);
+        if (pItem->asString() != c_sEmptyFlag)
         {
-            auto sVal = str.substr(0, nPos);
-            if (sVal != c_sEmptyFlag)
-                CConverter::transform(sVal);
-            sResult += sVal + L",";
-            nStart = nPos + 1;
-            nPos = str.find(L',', nStart);
+            CConverter::transform(pItem);
+            pValue->setItems(i, pItem);
         }
-        sValue = enclosedInBrackets(sResult.substr(0, sResult.length() - 1));
     }
+    //if (pValue->getCount() != 0)
+    //{
+    //    std::wstring sResult;
+    //    auto str = dropDot(sValue) + L",";
+    //    std::size_t nStart = 0;
+    //    auto nPos = str.find(L',');
+    //    while (nPos != std::wstring::npos)
+    //    {
+    //        auto sVal = str.substr(nStart, nPos - nStart);
+    //        if (sVal != c_sEmptyFlag)
+    //            CConverter::transform(sVal);
+    //        sResult += sVal + L",";
+    //        nStart = nPos + 1;
+    //        nPos = str.find(L',', nStart);
+    //    }
+    //    sValue = enclosedInBrackets(sResult.substr(0, sResult.length() - 1));
+    //}
 }
 
-void CArrayToArrayConverter::doTransform(std::wstring & sValue)
+void CArrayToArrayConverter::doTransform(CAttributeValuePtr& pValue)
 {
     //do nothing
 }
 
-void COptionalConverter::transform(std::wstring & sValue)
+void COptionalConverter::transform(CAttributeValuePtr& pValue)
 {
-    if (sValue != c_sEmptyFlag)
-        CConverter::transform(sValue);
+    if (pValue->asString() != c_sEmptyFlag)
+        CConverter::transform(pValue);
 }
 
-void COptionalConverter::doTransform(std::wstring & sValue)
+void COptionalConverter::doTransform(CAttributeValuePtr& pValue)
 {
     // do nothing
 }
 
-void CArrayToOneConverter::transform(std::wstring & sValue)
+void CArrayToOneConverter::transform(CAttributeValuePtr& pValue)
 {
-    auto str = dropDot(sValue);
-    auto nPos = str.find(L',');
-    if (nPos == std::wstring::npos)
+    if (pValue->getCount() > 0 && pValue->getItems(0)->asString() != c_sEmptyFlag)
     {
-        sValue = c_sEmptyFlag;
+        pValue = pValue->getItems(0);
+        CConverter::transform(pValue);
     }
-    else
-    {
-        sValue = str.substr(0, nPos);
-        if (sValue != c_sEmptyFlag)
-            CConverter::transform(sValue);
-    }
+    //auto str = dropDot(sValue);
+    //auto nPos = str.find(L',');
+    //if (nPos == std::wstring::npos)
+    //{
+    //    sValue = c_sEmptyFlag;
+    //}
+    //else
+    //{
+    //    sValue = str.substr(0, nPos);
+    //    if (sValue != c_sEmptyFlag)
+    //        CConverter::transform(sValue);
+    //}
 }
 
-void CArrayToOneConverter::doTransform(std::wstring & sValue)
+void CArrayToOneConverter::doTransform(CAttributeValuePtr& pValue)
 {
     // do nothing
 }
 
-void COneToArrayConverter::transform(std::wstring & sValue)
+void COneToArrayConverter::transform(CAttributeValuePtr& pValue)
 {
-    if (sValue != c_sEmptyFlag)
-        CConverter::transform(sValue);
+    CAttributeValuePtr pArrayValue(new CCompositeAttributeValue);
+    if (pValue->asString() != c_sEmptyFlag)
+    {
+        CConverter::transform(pValue);
+        pArrayValue->add(pValue);
+    }
+    pValue = pArrayValue;
 }
 
-void COneToArrayConverter::doTransform(std::wstring & sValue)
+void COneToArrayConverter::doTransform(CAttributeValuePtr& pValue)
 {
-    if (sValue != c_sEmptyFlag)
-        sValue = enclosedInBrackets(sValue);
+    //auto sValue = pValue->asString();
+    //if (sValue != c_sEmptyFlag)
+    //{
+    //    pValue = CAttributeValuePtr(new CCompositeAttributeValue);
+    //    pValue->add(new CLeafAttributeValue(sValue));
+    //}
 }
 
 int CConverter::boolToInt(const std::wstring & sValue)

@@ -66,8 +66,8 @@ bool ReaderTextImp::read( const string& sFileName, Document* pDoc,std::vector<st
     in.open(sFileName, ios::in);
 
 	// 版本号不一致，也需要继续读取，只读取可以读取到的信息，xuxp，2018-5-17
-   string sSchema = getFileSchema(in);
-   m_oUpdater.init(sSchema);
+    string sSchema = getFileSchema(in);
+    m_oUpdater.init(sSchema);
 // 	if (!_stricmp(sSchema.c_str(),Entity::Version().c_str()))
 // 	{
 // 		return false;

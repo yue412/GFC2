@@ -1,0 +1,50 @@
+#include <string>
+#include <vector>
+#include "AttributeValue.h"
+
+COMPILER GfcEntity
+
+std::wstring m_sEntityName;
+std::wstring m_sInstance;
+//typedef std::vector<std::wstring> CStringList;
+gfc2::schema::CCompositeAttributeValue m_oParameterList;
+
+CHARACTERS
+digit = "0123456789".
+letter = 'a'..'z'+'A'..'Z'.
+space = ' '.
+special = '!' + '"' + '*' + '$' + '%' + '&' + '.' + '#' + 
+    '+' + ',' + '-' + '(' + ')' + '?' + '/' + ':' + 
+    ';' + '<' + '=' + '>' + '@' + '[' + ']' + '{' + 
+    '|' + '}' + '^' + '`' + '_'.
+//non_q_char = special + digit + space + letter.
+apostrophe = "'".
+reverse_solidus = '\\'.
+non_q_char = ANY - apostrophe - reverse_solidus.
+sign = '+' + '-'.
+
+TOKENS
+ident = letter {digit | letter | '_'}.
+integer = [sign] digit {digit}.
+real = [sign] digit {digit} '.' {digit} [('e'|'E') [sign] digit {digit}].
+string = "'" {non_q_char | apostrophe apostrophe | reverse_solidus reverse_solidus } "'".
+instance_name = '#' digit {digit}.
+enumeration = '.' letter {digit | letter | '_'} '.'.
+
+IGNORE '\t' + '\r' + '\n'
+
+PRODUCTIONS
+GfcEntity = instance_name (. m_sInstance = t->val; .)
+    '=' Entity.
+Entity = ident (. m_sEntityName = t->val; .)
+    '(' [ParameterList<&m_oParameterList>] ')' ';'.
+ParameterList<gfc2::schema::CAttributeValue* pParameterList> (. gfc2::schema::CAttributeValuePtr pValue = nullptr; .) 
+    = Parameter<pValue> (. if(pParameterList) pParameterList->add(pValue); .) 
+    {',' Parameter<pValue> (. if(pParameterList) pParameterList->add(pValue); .) 
+    }.
+Parameter<gfc2::schema::CAttributeValuePtr& pValue> =  ('$' | integer | real | string | instance_name | enumeration | '*') (. pValue = gfc2::schema::CAttributeValuePtr(new gfc2::schema::CLeafAttributeValue(t->val)); .) 
+    | List<pValue>. 
+List<gfc2::schema::CAttributeValuePtr& pValue> (. pValue = gfc2::schema::CAttributeValuePtr(new gfc2::schema::CCompositeAttributeValue); .) 
+    = '(' [ParameterList<pValue.get()>] ')'.
+
+END GfcEntity.

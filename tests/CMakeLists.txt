@@ -13,14 +13,20 @@ project(UnitTest)
 include_directories(
 	${PROJECT_SOURCE_DIR}/../thirdparty/googletest/googletest/include
 	${PROJECT_SOURCE_DIR}/../include
+	${PROJECT_SOURCE_DIR}/../src/EntitySchema
+	${PROJECT_SOURCE_DIR}/../src/GfcTextSerializer/EntityParser
+	${PROJECT_SOURCE_DIR}/../src/GfcTextSerializer
+	${PROJECT_SOURCE_DIR}/../src/GfcCommon
+	${PROJECT_SOURCE_DIR}/../src/GfcEngine
+	${PROJECT_SOURCE_DIR}/../thirdparty/tinyxml
 	)
 link_directories(
 	${CMAKE_SOURCE_DIR}/../lib
 	${CMAKE_SOURCE_DIR}/../thirdparty/googletest/cmake/lib/$<CONFIG>
 	)
 
-FILE(GLOB SRC_FILES "./*.c*") 
-FILE(GLOB HEAD_FILES "./*.h") 
+FILE(GLOB SRC_FILES "./*.c*" "../src/GfcTextSerializer/EntityParser/*.cpp" "../src/GfcTextSerializer/*.cpp") 
+FILE(GLOB HEAD_FILES "./*.h" "../src/GfcTextSerializer/EntityParser/*.h" "../src/GfcTextSerializer/*.h") 
 
 add_compile_definitions(TIXML_USE_STL _CRT_SECURE_NO_DEPRECATE UNICODE)
 
@@ -31,3 +37,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
 
 target_link_libraries(${PROJECT_NAME} debug gtestd optimized gtest)
 target_link_libraries(${PROJECT_NAME} debug GfcEngined optimized GfcEngine)
+target_link_libraries(${PROJECT_NAME} debug EntitySchemad optimized EntitySchema)
+target_link_libraries(${PROJECT_NAME} debug GfcCommond optimized GfcCommon)
+target_link_libraries(${PROJECT_NAME} debug tinyxmld optimized tinyxml)

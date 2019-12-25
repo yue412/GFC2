@@ -16,7 +16,7 @@ TypeCompatibility g_BuildinCompatibilityTable[4][4] = {
 };
 
 TypeCompatibility g_EnumToBuildinTable[4] = { { true, new CEnumToBoolConverter },{ true, new CEnumToIntConverter },{ true, new CEnumToIntConverter },{ true, new CEnumToStringConverter } };
-TypeCompatibility g_BuildinToEnumTable[4] = { { false, new CBoolToEnumConverter },{ false, new CIntToEnumConverter },{ false, new CEmptyConverter },{ false, new CEmptyConverter } };
+TypeCompatibility g_BuildinToEnumTable[4] = { { true, new CBoolToEnumConverter },{ true, new CIntToEnumConverter },{ false, new CEmptyConverter },{ false, new CEmptyConverter } };
 
 std::vector<std::wstring> g_TypeNames = {L"BOOLEAN", L"INTEGER", L"REAL", L"STRING"};
 
@@ -45,15 +45,16 @@ CAttributeCompatibility::~CAttributeCompatibility()
     delete m_pConverter;
 }
 
-void CAttributeCompatibility::init(CAttribute * pFrom, CAttribute * pTo)
+void CAttributeCompatibility::init(CAttribute * pFrom, CAttribute * pTo, int nToIndex)
 {
+    m_nToIndex = nToIndex;
     delete m_pConverter;
     m_pConverter = nullptr;
     if (pFrom)
     {
+        m_sName = pFrom->getName();
         if (pTo)
         {
-            m_sName = pFrom->getName();
             // ´æÔÚ
             auto pFromBaseType = pFrom->getType()->getBaseType();
             auto pToBaseType = pTo->getType()->getBaseType();
@@ -98,24 +99,34 @@ TypeCompatibility CAttributeCompatibility::enumCompatibility(CTypeObject * pFrom
 TypeCompatibility CAttributeCompatibility::classCompatibility(CTypeObject * pFrom, CTypeObject * pTo)
 {
     TypeCompatibility oResult;
-    if (pFrom->getName() == pTo->getName() && isClassCompatibility((CClass*)pFrom, (CClass*)pTo))
+    if (isClassCompatibility((CClass*)pFrom, (CClass*)pTo))
     {
         oResult.isCompatibility = true;
         oResult.converter = new CCopyConverter;
+    }
+    else
+    {
+        oResult.isCompatibility = false;
+        oResult.converter = new CEmptyConverter;
     }
     return oResult;
 }
 
 TypeCompatibility CAttributeCompatibility::getTypeCompatibility(CTypeObject * pFrom, CTypeObject * pTo)
 {
-    return (*g_TypeCompatibilityFuncTable[pFrom->getType()][pTo->getType()])(pFrom, pTo);
+    auto oResult = (*g_TypeCompatibilityFuncTable[pFrom->getType()][pTo->getType()])(pFrom, pTo);
+    oResult.converter = oResult.converter->clone();
+    oResult.converter->init(pFrom, pTo);
+    return oResult;
 }
 
 TypeCompatibility CAttributeCompatibility::getMultiCompatibility(CAttribute * pFrom, CAttribute * pTo)
 {
     auto nFromIndex = getMultiIndex(pFrom);
     auto nToIndex = getMultiIndex(pTo);
-    return g_MultiCompatibilityTable[nFromIndex][nToIndex];
+    auto oResult = g_MultiCompatibilityTable[nFromIndex][nToIndex];
+    oResult.converter = oResult.converter->clone();
+    return oResult;
 }
 
 int CAttributeCompatibility::getMultiIndex(CAttribute * pAttrib)
@@ -148,8 +159,8 @@ bool CAttributeCompatibility::isEnumCompatibility(CEnumType * pFrom, CEnumType *
 
 bool CAttributeCompatibility::isClassCompatibility(CClass * pFrom, CClass * pTo)
 {
-    auto pParent = pFrom->getParent();
-    while (pParent)
+    auto pParent = pFrom;
+    do
     {
         if (pParent->getName() == pTo->getName())
         {
@@ -157,6 +168,8 @@ bool CAttributeCompatibility::isClassCompatibility(CClass * pFrom, CClass * pTo)
         }
         pParent = pParent->getParent();
     }
+    while (pParent);
+        
     return false;
 }
 
