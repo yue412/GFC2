@@ -2,6 +2,7 @@
 #include "Common.h"
 #include "tinyxml.h"
 #include <algorithm>
+#include <iostream>
 
 namespace glodon {
 namespace objectbuf {
@@ -45,6 +46,11 @@ void SerializerManager::init()
                 if (pCreateWriterImp)
                     oInfo.writerImp = pCreateWriterImp(pSerializerNode);
                 m_oSerializerList.push_back(oInfo);
+            }
+            else
+            {
+                auto nError = GetLastError();
+                std::cerr << "LoadLibrary Error: " << nError << std::endl;
             }
             pSerializerNode = pSerializerNode->NextSiblingElement();
         }

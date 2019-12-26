@@ -78,10 +78,11 @@ void finalize()
                 else
                     pTypeDef->SetRefType(pRefType);
             }
+            break;
         }
         case gfc2::schema::TOE_CLASS: {
             auto pClass = dynamic_cast<gfc2::schema::CClass*>(pType);
-            if (!pClass->getParent()->getIsValid())
+            if (pClass->getParent() && !pClass->getParent()->getIsValid())
                 canNotFindEntity(pClass->getParent()->getName());
             for (int i = 0; i < pClass->getChildCount(); i++)
             {
@@ -102,7 +103,7 @@ void finalize()
                         pAttribute->SetType(pRefType);
                 }
             }
-
+            break;
         }
         default:
             break;

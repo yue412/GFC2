@@ -13,8 +13,10 @@ BOOL WINAPI DllMain(
     case DLL_PROCESS_ATTACH:
     case DLL_THREAD_ATTACH:
         g_nDLLHandle = hinstDLL;
+        break;
     default:
         g_nDLLHandle = 0;
         break;
     }
+    return TRUE;
 }
