@@ -20,7 +20,7 @@ cmake --build . --config %2
 cd ..\..\..\
 
 cd bin
-GenGFCCode.exe -h ..\include\Classes -c ..\src\Classes -n ..\src\Classes.net ..\doc\GFC2Core.uml
+GenGFCCode.exe -h ..\include\Classes -c ..\src\GfcEngine\Classes -t ..\src\GfcTextSerializer\Classes -b ..\src\GfcBinarySerializer\Classes -n ..\src\Classes.net -e .\GFC2X0.exp ..\doc\GFC2Core.uml
 cd ..\build
 cmake %1 ..\src
 cmake --build . --config %2
