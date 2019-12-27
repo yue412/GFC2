@@ -9,6 +9,7 @@
 COMPILER ExpFile
 
 gfc2::schema::CModel* m_pModel;
+gfc2::schema::CModel* m_pTempModel;
 typedef std::vector<std::wstring> CStringList;
 std::wstring m_sName;
 
@@ -36,7 +37,8 @@ gfc2::schema::CTypeObject* findType(const std::wstring& sName)
     if(pType == nullptr)
     {
         pType = new gfc2::schema::CUndefineType(sName);
-        m_pModel->addTypeObject(pType);
+        //m_pModel->addTypeObject(pType);
+        m_pTempModel->addTypeObject(pType);
     }
     return pType;
 }
@@ -114,9 +116,10 @@ void finalize()
 CHARACTERS
 digit = "0123456789".
 letter = 'a'..'z'+'A'..'Z'.
+underline = '_'.
 
 TOKENS
-ident = letter{digit|letter}.
+ident = letter{digit|letter|underline}.
 number = digit{digit}.
 
 COMMENTS FROM "/*" TO "*/" NESTED

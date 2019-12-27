@@ -3,6 +3,8 @@
 #include "glodon\objectbuf\Reader.h"
 #include "glodon\objectbuf\Document.h"
 #include "Classes\Gfc2Vector3d.h"
+#include "Classes\Gfc2Vector2d.h"
+#include "Classes\Gfc2EdgeData.h"
 
 TEST(TextWriterTest, WriteEmptyFile)
 {
@@ -92,3 +94,54 @@ TEST(BinaryReaderTest, ReadEmptyFile)
     EXPECT_EQ(true, result);
     //EXPECT_EQ(0, document
 }
+
+TEST(TextReaderTest, ReadFile_update_add_attribute)
+{
+    glodon::objectbuf::Reader reader;
+    glodon::objectbuf::Document document(1);
+    auto result = reader.read("D:\\GFC2\\bin\\one1x9.gfc", &document);
+    EXPECT_EQ(true, result);
+    auto itr = document.getIterator();
+    itr.first();
+    itr.next();
+    EXPECT_EQ(false, itr.isDone());
+    Gfc2Vector3d* vec = (Gfc2Vector3d*)itr.current();
+    EXPECT_NEAR(1.0, vec->getX(), 1e-6);
+    EXPECT_NEAR(2.0, vec->getY(), 1e-6);
+    EXPECT_NEAR(3.0, vec->getZ(), 1e-6);
+}
+
+TEST(TextReaderTest, ReadFile_update_remove_attribute)
+{
+    glodon::objectbuf::Reader reader;
+    glodon::objectbuf::Document document(1);
+    auto result = reader.read("D:\\GFC2\\bin\\one1x91.gfc", &document);
+    EXPECT_EQ(true, result);
+    auto itr = document.getIterator();
+    itr.first();
+    itr.next();
+    EXPECT_EQ(false, itr.isDone());
+    Gfc2EdgeData* vec = (Gfc2EdgeData*)itr.current();
+    EXPECT_EQ(1, vec->getEdgeIndex());
+    EXPECT_EQ(2, vec->getLoopIndex());
+    EXPECT_EQ(3, vec->getType());
+    EXPECT_STREQ("abc", vec->getEdgeInfoPtr()->getValue().c_str());
+    EXPECT_STREQ("def", vec->getParamPtr()->getValue().c_str());
+    EXPECT_EQ(4, vec->getBaseType());
+}
+
+TEST(TextReaderTest, ReadFile_update_exchange_attribute)
+{
+    glodon::objectbuf::Reader reader;
+    glodon::objectbuf::Document document(1);
+    auto result = reader.read("D:\\GFC2\\bin\\one1x92.gfc", &document);
+    EXPECT_EQ(true, result);
+    auto itr = document.getIterator();
+    itr.first();
+    itr.next();
+    EXPECT_EQ(false, itr.isDone());
+    Gfc2Vector2d* vec = (Gfc2Vector2d*)itr.current();
+    EXPECT_NEAR(2.0, vec->getX(), 1e-6);
+    EXPECT_NEAR(1.0, vec->getY(), 1e-6);
+}
+

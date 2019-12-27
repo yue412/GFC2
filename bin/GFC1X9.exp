@@ -1,0 +1,1067 @@
+SCHEMA GFC1X9;
+
+TYPE Gfc2Boolean = BOOLEAN;
+END_TYPE;
+
+TYPE Gfc2Date = REAL;
+END_TYPE;
+
+TYPE Gfc2Double = REAL;
+END_TYPE;
+
+TYPE Gfc2Elev = Gfc2String;
+END_TYPE;
+
+TYPE Gfc2Identity = STRING;
+END_TYPE;
+
+TYPE Gfc2Integer = INTEGER;
+END_TYPE;
+
+TYPE Gfc2Label = Gfc2String;
+END_TYPE;
+
+TYPE Gfc2Text = Gfc2String;
+END_TYPE;
+
+TYPE Gfc2ArcType = ENUMERATION OF
+	(AT_LINE
+	,AT_ACS
+	,AT_CS
+	,AT_ACL
+	,AT_CL);
+END_TYPE;
+
+TYPE Gfc2AxisNoPosEnum = ENUMERATION OF
+	(NONE_POS
+	,START_POS
+	,END_POS
+	,BOTH_POS);
+END_TYPE;
+
+TYPE Gfc2AxisType = ENUMERATION OF
+	(SKJ
+	,XKJ
+	,ZJS
+	,YJS);
+END_TYPE;
+
+TYPE Gfc2FaceMode = ENUMERATION OF
+	(FM_FRONT
+	,FM_BACK
+	,FM_FRONT_AND_BACK);
+END_TYPE;
+
+TYPE Gfc2FragTestFunc = ENUMERATION OF
+	(FTF_NEVER
+	,FTF_LESS
+	,FTF_EQUAL
+	,FTF_LEQUAL
+	,FTF_GREATER
+	,FTF_NOTEQUAL
+	,FTF_GEQUAL
+	,FTF_ALWAYS);
+END_TYPE;
+
+TYPE Gfc2GeometryDataType = ENUMERATION OF
+	(GDT_UNCOMPRESS
+	,GDT_COMPRESS
+	,GDT_UNKNOWN);
+END_TYPE;
+
+TYPE Gfc2PrimitiveType = ENUMERATION OF
+	(PT_POINTS
+	,PT_LINES
+	,PT_LINE_STRIP
+	,PT_TRIANGLES
+	,PT_TRIANGLE_STRIP
+	,PT_TRIANGLE_FAN
+	,PT_UNKNOWN);
+END_TYPE;
+
+TYPE Gfc2SceneBlendFactor = ENUMERATION OF
+	(SBF_DST_ALPHA
+	,SBF_DST_COLOR
+	,SBF_ONE
+	,SBF_ONE_MINUS_DST_COLOR
+	,SBF_ONE_MINUS_DST_ALPHA
+	,SBF_ONE_MINUS_SRC_ALPHA
+	,SBF_ONE_MINUS_SRC_COLOR
+	,SBF_SRC_ALPHA
+	,SBF_SRC_ALPHA_SATURATE
+	,SBF_SRC_COLOR
+	,SBF_ZERO
+	,SBF_CONSTANT_COLOR
+	,SBF_ONE_MINUS_CONSTANT_COLOR
+	,SBF_CONSTANT_ALPHA
+	,SBF_ONE_MINUS_CONSTANT_ALPHA);
+END_TYPE;
+
+TYPE Gfc2SweepType = ENUMERATION OF
+	(ST_Perpendicular
+	,ST_Upright
+	,ST_Facepoint);
+END_TYPE;
+
+ENTITY Gfc2AbnormityLineArchInfo
+ SUBTYPE OF (Gfc2BaseLineArcInfo);
+	TopArchStartT : Gfc2Double;
+	TopArchEndT : Gfc2Double;
+	TopDefineByRadius : Gfc2Boolean;
+	TopArchHeight : Gfc2Double;
+	TopArchRadius : Gfc2Double;
+	DownArchStartT : Gfc2Double;
+	DownArchEndT : Gfc2Double;
+	DownDefineByRadius : Gfc2Boolean;
+	DownArchHeight : Gfc2Double;
+	DownArchRadius : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Arc2d
+ SUBTYPE OF (Gfc2Curve2d);
+	CenterPt : Gfc2Vector2d;
+	Radius : Gfc2Double;
+	Range : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2Arc3d
+ SUBTYPE OF (Gfc2PlaneCurve3d);
+END_ENTITY;
+
+ENTITY Gfc2AssitAxis
+ SUPERTYPE OF (ONEOF
+	(Gfc2TwoPointAssitAxis
+	,Gfc2ThreePointArcAssitAxis))
+ SUBTYPE OF (Gfc2Entity);
+	AxisNo : Gfc2Label;
+	AxisNoPos : Gfc2AxisNoPosEnum;
+	TrimPoints : LIST [0:?] OF Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2AxisDataItem;
+	AxisNo : Gfc2Label;
+	Distance : Gfc2Double;
+	Level : Gfc2Integer;
+	AxisNoPos : Gfc2AxisNoPosEnum;
+	TrimPoints : LIST [0:?] OF Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2AxisGrid
+ SUPERTYPE OF (ONEOF
+	(Gfc2CartesianAxisGrid
+	,Gfc2PolarAxisGrid))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2BaseLineArcInfo
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2LineArcInfo
+	,Gfc2AbnormityLineArchInfo));
+END_ENTITY;
+
+ENTITY Gfc2Bevel
+ SUBTYPE OF (Gfc2Surface);
+	Coord : Gfc2Coordinates3d;
+	Height : Gfc2Double;
+	RangeV : Gfc2Intervald;
+	Curve : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2BillDetail;
+	FloorNum : Gfc2Integer;
+	EntityID : Gfc2Integer;
+	Unit : Gfc2String;
+	Express : Gfc2String;
+	Quantity : Gfc2String;
+	Memo : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2BillTotal;
+	Code : Gfc2String;
+	Name : Gfc2String;
+	Attr : Gfc2String;
+	QuantityType : Gfc2Integer;
+	Unit : Gfc2String;
+	Quantity : Gfc2String;
+	Memo : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Body
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2BrepBody
+	,Gfc2PolyhedronBody
+	,Gfc2PrimitiveBody))
+ SUBTYPE OF (Gfc2Geometry);
+END_ENTITY;
+
+ENTITY Gfc2BooleanProperty
+ SUBTYPE OF (Gfc2Property);
+	Value : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2Box3d
+ SUBTYPE OF (Gfc2Geometry);
+	Min : Gfc2Vector3d;
+	Max : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2BrepBody
+ SUBTYPE OF (Gfc2Body);
+	Faces : LIST [0:?] OF Gfc2Face;
+	Edges : LIST [0:?] OF Gfc2Edge;
+END_ENTITY;
+
+ENTITY Gfc2Building
+ SUBTYPE OF (Gfc2SpatialStructureEntity);
+END_ENTITY;
+
+ENTITY Gfc2CartesianAxisGrid
+ SUBTYPE OF (Gfc2AxisGrid);
+	InsertPt : Gfc2Vector2d;
+	AxisAngle : Gfc2Double;
+	SKJ : LIST [0:?] OF Gfc2AxisDataItem;
+	ZJS : LIST [0:?] OF Gfc2AxisDataItem;
+	YJS : LIST [0:?] OF Gfc2AxisDataItem;
+	XKJ : LIST [0:?] OF Gfc2AxisDataItem;
+END_ENTITY;
+
+ENTITY Gfc2Coedge;
+	Curve : Gfc2Curve2d;
+	EdgeIndex : Gfc2Integer;
+	EdgeSameDir : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2CoedgeList
+ SUBTYPE OF (Gfc2Geometry);
+	Coedges : LIST [0:?] OF Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2CoedgeListEx;
+	CoedgeExs : LIST [0:?] OF Gfc2Coedge;
+END_ENTITY;
+
+ENTITY Gfc2CommonPolygon
+ SUBTYPE OF (Gfc2Polygon);
+	Loops : LIST [0:?] OF Gfc2CoedgeList;
+END_ENTITY;
+
+ENTITY Gfc2CommonPolygonEx
+ SUPERTYPE OF (ONEOF
+	(Gfc2Face))
+ SUBTYPE OF (Gfc2Polygon);
+	LoopExs : LIST [0:?] OF Gfc2CoedgeListEx;
+END_ENTITY;
+
+ENTITY Gfc2Coordinates2d
+ SUBTYPE OF (Gfc2Geometry);
+	Origin : Gfc2Vector2d;
+	X : Gfc2Vector2d;
+	Y : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2Coordinates3d
+ SUBTYPE OF (Gfc2Geometry);
+	Origin : Gfc2Vector3d;
+	X : Gfc2Vector3d;
+	Y : Gfc2Vector3d;
+	Z : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2CuboidBody
+ SUBTYPE OF (Gfc2PrimitiveBody);
+	Coordinate : Gfc2Coordinates3d;
+	Dimension : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2Curve2d
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2Line2d
+	,Gfc2Arc2d
+	,Gfc2Ellipse2d
+	,Gfc2NurbsCurve2d
+	,Gfc2PreimageCurve2d
+	,Gfc2SinCurve2d
+	,Gfc2SpiralLine2d
+	,Gfc2OffsetCurve2d))
+ SUBTYPE OF (Gfc2Geometry);
+END_ENTITY;
+
+ENTITY Gfc2Curve3d
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2Line3d
+	,Gfc2NurbsCurve3d
+	,Gfc2IntersectionCurve3d
+	,Gfc2SpiralLine3d
+	,Gfc2SweepCurve3d
+	,Gfc2ImageCurve3d
+	,Gfc2PlaneCurve3d))
+ SUBTYPE OF (Gfc2Geometry);
+END_ENTITY;
+
+ENTITY Gfc2CustomLineShape
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineShape
+	,Gfc2SectionLineShape))
+ SUBTYPE OF (Gfc2SolidShape);
+	Width : Gfc2Double;
+	LeftWidth : Gfc2Double;
+	Line : Gfc2Curve2d;
+	E_S_Elevation : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2CustomPointShape
+ SUPERTYPE OF (ONEOF
+	(Gfc2SectionPointShape))
+ SUBTYPE OF (Gfc2SolidShape);
+	InsertPt : Gfc2Vector2d;
+	BaseInsertPt : Gfc2Vector2d;
+	Angle : Gfc2Double;
+	MirrorFlag : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2Cylinder
+ SUBTYPE OF (Gfc2Surface);
+	RangeV : Gfc2Intervald;
+	Curve : Gfc2Curve2d;
+	DirX : Gfc2Vector3d;
+	DirY : Gfc2Vector3d;
+	DirZ : Gfc2Vector3d;
+	Pos : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2DoubleProperty
+ SUBTYPE OF (Gfc2Property);
+	Value : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Edge;
+	Curve : Gfc2Curve3d;
+	FaceIndex1 : Gfc2Integer;
+	FaceIndex2 : Gfc2Integer;
+	LoopIndex1 : Gfc2Integer;
+	LoopIndex2 : Gfc2Integer;
+	CoedgeIndex1 : Gfc2Integer;
+	CoedgeIndex2 : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2EdgeData;
+	EdgeIndex : Gfc2Integer;
+	LoopIndex : Gfc2Integer;
+	Type : Gfc2Integer;
+	EdgeInfo : Gfc2String;
+	Param : Gfc2String;
+	BaseType : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2Ellipse2d
+ SUBTYPE OF (Gfc2Curve2d);
+	CenterPt : Gfc2Vector2d;
+	MajorAxis : Gfc2Vector2d;
+	dMajorRad : Gfc2Double;
+	dMinorRad : Gfc2Double;
+	Range : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2Ellipse3d
+ SUBTYPE OF (Gfc2PlaneCurve3d);
+END_ENTITY;
+
+ENTITY Gfc2Entity
+ SUPERTYPE OF (ONEOF
+	(Gfc2AxisGrid
+	,Gfc2AssitAxis))
+ SUBTYPE OF (Gfc2Object);
+	Type : Gfc2Integer;
+	Representations : LIST [0:?] OF Gfc2Representation;
+	Shapes : LIST [0:?] OF Gfc2EntityShape;
+END_ENTITY;
+
+ENTITY Gfc2EntityShape;
+	Identifier : Gfc2String;
+	Shape : Gfc2Shape;
+END_ENTITY;
+
+ENTITY Gfc2ExtrudedBody
+ SUBTYPE OF (Gfc2PrimitiveBody);
+	Coordinate : Gfc2Coordinates3d;
+	Length : Gfc2Double;
+	Section : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2Face
+ SUBTYPE OF (Gfc2CommonPolygonEx);
+	Surface : Gfc2Surface;
+	Box : Gfc2Box3d;
+	SameDir : Gfc2Boolean;
+	Index : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2FaceArchInfo
+ SUBTYPE OF (Gfc2FaceInfo);
+	AxialLine : Gfc2Line2d;
+	Height : Gfc2Double;
+	Chord : Gfc2Double;
+	CheckInnerChord : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2FaceConeInfo
+ SUBTYPE OF (Gfc2FaceInfo);
+	Height : Gfc2Double;
+	Chord : Gfc2Double;
+	CenterPoint : Gfc2Vector2d;
+	CheckInnerChord : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2FaceInfo
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2FaceArchInfo
+	,Gfc2FaceSphereInfo
+	,Gfc2FaceConeInfo));
+END_ENTITY;
+
+ENTITY Gfc2FaceShape
+ SUBTYPE OF (Gfc2SolidShape);
+	Thickness : Gfc2Double;
+	Poly : Gfc2Polygon;
+	MirrorFlag : OPTIONAL Gfc2Boolean;
+	FaceInfo : OPTIONAL Gfc2FaceInfo;
+END_ENTITY;
+
+ENTITY Gfc2FaceShape2d
+ SUBTYPE OF (Gfc2Shape2d);
+	Poly : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2FaceSphereInfo
+ SUBTYPE OF (Gfc2FaceInfo);
+	CenterPoint : Gfc2Vector2d;
+	Height : Gfc2Double;
+	Chord : Gfc2Double;
+	CheckInnerChord : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2Floor
+ SUBTYPE OF (Gfc2SpatialStructureEntity);
+	FirstFloorFlag : Gfc2Boolean;
+	Height : Gfc2Double;
+	StdFloorCount : Gfc2Integer;
+	StructuralElevation : Gfc2Double;
+	StartFloorNo : Gfc2Integer;
+	Remark : Gfc2Text;
+END_ENTITY;
+
+ENTITY Gfc2Geometry
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2Vector2d
+	,Gfc2Vector3d
+	,Gfc2Intervald
+	,Gfc2Coordinates3d
+	,Gfc2Coordinates2d
+	,Gfc2Box3d
+	,Gfc2Body
+	,Gfc2Curve2d
+	,Gfc2Curve3d
+	,Gfc2Surface
+	,Gfc2Polygon
+	,Gfc2CoedgeList));
+END_ENTITY;
+
+ENTITY Gfc2GeometryShape
+ SUBTYPE OF (Gfc2Shape);
+	Geo : Gfc2Geometry;
+END_ENTITY;
+
+ENTITY Gfc2Helicoid
+ SUBTYPE OF (Gfc2Surface);
+	Coord : Gfc2Coordinates3d;
+	Radius : Gfc2Double;
+	RangeV : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+	HeightCoef : Gfc2Double;
+	RadiusCoef : Gfc2Double;
+	Curve : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2ImageCurve3d
+ SUBTYPE OF (Gfc2Curve3d);
+	Curve : Gfc2Curve2d;
+	Surface : Gfc2Surface;
+END_ENTITY;
+
+ENTITY Gfc2IntegerProperty
+ SUBTYPE OF (Gfc2Property);
+	Value : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2InternalChart;
+	Tra1 : Gfc2Double;
+	Tra2 : Gfc2Double;
+	Tra3 : Gfc2Double;
+	IPS : LIST [0:?] OF Gfc2InternalPt;
+END_ENTITY;
+
+ENTITY Gfc2InternalPt;
+	P : Gfc2Vector3d;
+	TVec : Gfc2Vector3d;
+	T : Gfc2Double;
+	UV : Gfc2Vector2d;
+	ST : Gfc2Vector2d;
+	UVDir : Gfc2Vector2d;
+	STDir : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2IntersectionCurve3d
+ SUBTYPE OF (Gfc2Curve3d);
+	Bases1 : Gfc2Surface;
+	Bases2 : Gfc2Surface;
+	Range : Gfc2Intervald;
+	Chart : Gfc2InternalChart;
+END_ENTITY;
+
+ENTITY Gfc2Intervald
+ SUBTYPE OF (Gfc2Geometry);
+	Min : Gfc2Double;
+	Max : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Line2d
+ SUBTYPE OF (Gfc2Curve2d);
+	StartPt : Gfc2Vector2d;
+	EndPt : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2Line3d
+ SUBTYPE OF (Gfc2Curve3d);
+	StartPt : Gfc2Vector3d;
+	EndPt : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2LineArcInfo
+ SUBTYPE OF (Gfc2BaseLineArcInfo);
+	BasePoint : Gfc2Vector2d;
+	ArchHeight : Gfc2Double;
+	HalfChordLength : Gfc2Double;
+	Radius : Gfc2Double;
+	DefineByRadius : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2LineShape
+ SUBTYPE OF (Gfc2CustomLineShape);
+	Tilt : OPTIONAL Gfc2Double;
+	StartPtHeight : Gfc2Double;
+	EndPtHeight : Gfc2Double;
+	ArcInfo : OPTIONAL Gfc2LineArcInfo;
+	IsSpiralTop : OPTIONAL Gfc2Boolean;
+	IsSpiralBtm : OPTIONAL Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2LineShape2d
+ SUBTYPE OF (Gfc2Shape2d);
+	Line : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2NurbsCtrlPt2d;
+	Point : Gfc2Vector2d;
+	Weight : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2NurbsCtrlPt3d;
+	Point : Gfc2Vector3d;
+	Weight : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2NurbsCurve2d
+ SUBTYPE OF (Gfc2Curve2d);
+	Degree : Gfc2Integer;
+	CtrlPts : LIST [0:?] OF Gfc2NurbsCtrlPt2d;
+	Knots : LIST [0:?] OF Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2NurbsCurve3d
+ SUBTYPE OF (Gfc2Curve3d);
+	Degree : Gfc2Integer;
+	CtrlPts : LIST [0:?] OF Gfc2NurbsCtrlPt3d;
+	Knots : LIST [0:?] OF Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2NurbsSurface
+ SUBTYPE OF (Gfc2Surface);
+	DegreeU : Gfc2Integer;
+	DegreeV : Gfc2Integer;
+	CtrlPtCountU : Gfc2Integer;
+	CtrlPtCountV : Gfc2Integer;
+	CtrlPts : LIST [0:?] OF Gfc2NurbsCtrlPt3d;
+	KnotsU : LIST [0:?] OF Gfc2Double;
+	KnotsV : LIST [0:?] OF Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Object
+ SUPERTYPE OF (ONEOF
+	(Gfc2Project
+	,Gfc2Entity
+	,Gfc2SpatialStructureEntity))
+ SUBTYPE OF (Gfc2Root);
+	ID : Gfc2Identity;
+	Name : OPTIONAL Gfc2Label;
+END_ENTITY;
+
+ENTITY Gfc2ObjectProperty
+ SUBTYPE OF (Gfc2Property);
+	Value : Gfc2Object;
+END_ENTITY;
+
+ENTITY Gfc2OffsetCurve2d
+ SUBTYPE OF (Gfc2Curve2d);
+	OffDist : Gfc2Double;
+	InitCurve : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2ParametricShape
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2Shape3d
+	,Gfc2Shape2d))
+ SUBTYPE OF (Gfc2Shape);
+END_ENTITY;
+
+ENTITY Gfc2Plane
+ SUBTYPE OF (Gfc2Surface);
+	Pos : Gfc2Vector3d;
+	DirU : Gfc2Vector3d;
+	DirV : Gfc2Vector3d;
+	RangeU : Gfc2Intervald;
+	RangeV : Gfc2Intervald;
+END_ENTITY;
+
+ENTITY Gfc2PlaneCoef;
+	A : Gfc2Double;
+	B : Gfc2Double;
+	C : Gfc2Double;
+	D : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2PlaneCurve3d
+ SUPERTYPE OF (ONEOF
+	(Gfc2Ellipse3d
+	,Gfc2Arc3d))
+ SUBTYPE OF (Gfc2Curve3d);
+	PlaneCurve : Gfc2Curve2d;
+	Plane : Gfc2PlaneInfo;
+END_ENTITY;
+
+ENTITY Gfc2PlaneInfo;
+	DirX : Gfc2Vector3d;
+	DirY : Gfc2Vector3d;
+	Pos : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2PointShape
+ SUBTYPE OF (Gfc2SectionPointShape);
+	Height : Gfc2Double;
+	ObliqueDir : Gfc2Vector3d;
+	TopPoly : OPTIONAL Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2PointShape2d
+ SUBTYPE OF (Gfc2Shape2d);
+	InsertPt : Gfc2Vector2d;
+	Angle : Gfc2Double;
+	MirrorFlag : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2PolarAxisGrid
+ SUBTYPE OF (Gfc2AxisGrid);
+	InsertPt : Gfc2Vector2d;
+	StartRadius : Gfc2Double;
+	Clockwise : Gfc2Boolean;
+	XKJ : LIST [0:?] OF Gfc2AxisDataItem;
+	ZJS : LIST [0:?] OF Gfc2AxisDataItem;
+END_ENTITY;
+
+ENTITY Gfc2Polygon
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2SimplePolygon
+	,Gfc2CommonPolygon
+	,Gfc2CommonPolygonEx))
+ SUBTYPE OF (Gfc2Geometry);
+END_ENTITY;
+
+ENTITY Gfc2PolyhedralEdge;
+	StartVertexIndex : Gfc2Integer;
+	EndVertexIndex : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2PolyhedralFace;
+	Loops : LIST [0:?] OF Gfc2PolyhedralLoop;
+	Plane : Gfc2PlaneCoef;
+END_ENTITY;
+
+ENTITY Gfc2PolyhedralLoop;
+	Edges : LIST [0:?] OF Gfc2PolyhedralEdge;
+END_ENTITY;
+
+ENTITY Gfc2PolyhedronBody
+ SUBTYPE OF (Gfc2Body);
+	Faces : LIST [0:?] OF Gfc2PolyhedralFace;
+	Vertexes : LIST [0:?] OF Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2PreimageCurve2d
+ SUBTYPE OF (Gfc2Curve2d);
+	Range : Gfc2Intervald;
+	Reversed : Gfc2Boolean;
+	Base : Gfc2Surface;
+	Curve : Gfc2Curve3d;
+	Tolerance : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2PrimitiveBody
+ SUPERTYPE OF (ONEOF
+	(Gfc2CuboidBody
+	,Gfc2ExtrudedBody))
+ SUBTYPE OF (Gfc2Body);
+END_ENTITY;
+
+ENTITY Gfc2Project
+ SUBTYPE OF (Gfc2Object);
+END_ENTITY;
+
+ENTITY Gfc2Property
+ SUPERTYPE OF (ONEOF
+	(Gfc2IntegerProperty
+	,Gfc2DoubleProperty
+	,Gfc2BooleanProperty
+	,Gfc2StringProperty
+	,Gfc2ObjectProperty));
+	Name : Gfc2Label;
+END_ENTITY;
+
+ENTITY Gfc2PropertySet
+ SUBTYPE OF (Gfc2Root);
+	HasProperties : LIST [0:?] OF Gfc2Property;
+END_ENTITY;
+
+ENTITY Gfc2QuotaDetail;
+	FloorNum : Gfc2Integer;
+	EntityID : Gfc2Integer;
+	Unit : Gfc2String;
+	Express : Gfc2String;
+	Quantity : Gfc2String;
+	Memo : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2QuotaTotal;
+	Code : Gfc2String;
+	SubCode : Gfc2String;
+	Name : Gfc2String;
+	Content : Gfc2String;
+	Unit : Gfc2String;
+	Quantity : Gfc2String;
+	Memo : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2RelAggregates
+ SUBTYPE OF (Gfc2RelDecomposes);
+END_ENTITY;
+
+ENTITY Gfc2RelDecomposes
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2RelAggregates
+	,Gfc2RelNests))
+ SUBTYPE OF (Gfc2RelationShip);
+	RelatingObject : Gfc2Object;
+	RelatedObjects : LIST [0:?] OF Gfc2Object;
+END_ENTITY;
+
+ENTITY Gfc2RelDefines
+ SUPERTYPE OF (ONEOF
+	(Gfc2RelDefinesByProperties
+	,Gfc2RelDefinesByElement))
+ SUBTYPE OF (Gfc2RelationShip);
+	RelatedObjects : LIST [0:?] OF Gfc2Object;
+END_ENTITY;
+
+ENTITY Gfc2RelDefinesByElement
+ SUBTYPE OF (Gfc2RelDefines);
+	RelatingElement : Gfc2Entity;
+END_ENTITY;
+
+ENTITY Gfc2RelDefinesByProperties
+ SUBTYPE OF (Gfc2RelDefines);
+	RelatingPropertySet : Gfc2PropertySet;
+END_ENTITY;
+
+ENTITY Gfc2RelNests
+ SUBTYPE OF (Gfc2RelDecomposes);
+END_ENTITY;
+
+ENTITY Gfc2RelationShip
+ SUPERTYPE OF (ONEOF
+	(Gfc2RelDecomposes
+	,Gfc2RelDefines))
+ SUBTYPE OF (Gfc2Root);
+END_ENTITY;
+
+ENTITY Gfc2Representation;
+	Identifier : Gfc2String;
+	items : LIST [0:?] OF Gfc2RepresentationItem;
+END_ENTITY;
+
+ENTITY Gfc2RepresentationItem;
+	PrimitiveType : Gfc2PrimitiveType;
+	GeometryDataType : Gfc2GeometryDataType;
+	Vertexes : LIST [0:?] OF Gfc2Vector3d;
+	Normals : LIST [0:?] OF Gfc2Vector3d;
+	Indexes : LIST [0:?] OF Gfc2Integer;
+	StateSet : Gfc2StateSet;
+END_ENTITY;
+
+ENTITY Gfc2Root
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2Object
+	,Gfc2PropertySet
+	,Gfc2RelationShip));
+END_ENTITY;
+
+ENTITY Gfc2RuledSurface
+ SUBTYPE OF (Gfc2Surface);
+	ApexIndex : Gfc2Integer;
+	RangeV : Gfc2Intervald;
+	RangeU : Gfc2Intervald;
+	Directrix1 : Gfc2Curve3d;
+	Directrix2 : Gfc2Curve3d;
+END_ENTITY;
+
+ENTITY Gfc2SectionLineShape
+ SUPERTYPE OF (ONEOF
+	(Gfc2VariableSectionLineShape))
+ SUBTYPE OF (Gfc2CustomLineShape);
+	Poly : Gfc2Polygon;
+	BaseInsertPt : Gfc2Vector2d;
+	Angle : Gfc2Double;
+	MirrorFlag : Gfc2Boolean;
+	ArcInfo : OPTIONAL Gfc2BaseLineArcInfo;
+	IsSpiral : OPTIONAL Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2SectionPointShape
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointShape))
+ SUBTYPE OF (Gfc2CustomPointShape);
+	Poly : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2Shape
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2GeometryShape
+	,Gfc2ParametricShape));
+	LocalCoordinate : Gfc2Coordinates3d;
+	BoundingBox : OPTIONAL Gfc2Box3d;
+END_ENTITY;
+
+ENTITY Gfc2Shape2d
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2FaceShape2d
+	,Gfc2LineShape2d
+	,Gfc2PointShape2d))
+ SUBTYPE OF (Gfc2ParametricShape);
+	Elev : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Shape3d
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2SolidShape))
+ SUBTYPE OF (Gfc2ParametricShape);
+END_ENTITY;
+
+ENTITY Gfc2SimpleLoop;
+	Vertexes : LIST [0:?] OF Gfc2SimpleVertex;
+END_ENTITY;
+
+ENTITY Gfc2SimplePolygon
+ SUBTYPE OF (Gfc2Polygon);
+	Loops : LIST [0:?] OF Gfc2SimpleLoop;
+END_ENTITY;
+
+ENTITY Gfc2SimpleVertex;
+	Point : Gfc2Vector2d;
+	Radius : OPTIONAL Gfc2Double;
+	ArcType : OPTIONAL Gfc2ArcType;
+END_ENTITY;
+
+ENTITY Gfc2SinCurve2d
+ SUBTYPE OF (Gfc2Curve2d);
+	Pos : Gfc2Vector2d;
+	DirX : Gfc2Vector2d;
+	A : Gfc2Double;
+	B : Gfc2Double;
+	Range : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2SolidShape
+ SUPERTYPE OF (ONEOF
+	(Gfc2CustomPointShape
+	,Gfc2CustomLineShape
+	,Gfc2FaceShape))
+ SUBTYPE OF (Gfc2Shape3d);
+	Body : OPTIONAL Gfc2Body;
+	EdgeDatas : LIST [0:?] OF Gfc2EdgeData;
+END_ENTITY;
+
+ENTITY Gfc2SpatialStructureEntity
+ SUPERTYPE OF (ONEOF
+	(Gfc2Building
+	,Gfc2Floor))
+ SUBTYPE OF (Gfc2Object);
+END_ENTITY;
+
+ENTITY Gfc2Sphere
+ SUBTYPE OF (Gfc2Surface);
+	Radius : Gfc2Double;
+	Coords : Gfc2Coordinates3d;
+	RangeU : Gfc2Intervald;
+	RangeV : Gfc2Intervald;
+END_ENTITY;
+
+ENTITY Gfc2SpiralLine2d
+ SUBTYPE OF (Gfc2Curve2d);
+	Coord : Gfc2Coordinates2d;
+	Radius : Gfc2Double;
+	Range : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+	RadiusCoef : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2SpiralLine3d
+ SUBTYPE OF (Gfc2Curve3d);
+	Coord : Gfc2Coordinates3d;
+	Radius : Gfc2Double;
+	Range : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+	HeightCoef : Gfc2Double;
+	RadiusCoef : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2StateSet;
+	Ambient : Gfc2Integer;
+	Diffuse : Gfc2Integer;
+	SourceBlendFactor : Gfc2SceneBlendFactor;
+	DestBlendFactor : Gfc2SceneBlendFactor;
+	DepthTestEnabled : Gfc2Boolean;
+	DepthWriteEnabled : Gfc2Boolean;
+	DepthTestFunction : Gfc2FragTestFunc;
+	PolygonOffsetFactor : Gfc2Double;
+	PolygonOffsetUnits : Gfc2Double;
+	PolygonStipple : Gfc2String;
+	LineStipplePattern : Gfc2Integer;
+	LineStippleFactor : Gfc2Integer;
+	FaceMode : Gfc2FaceMode;
+	LightingEnabled : Gfc2Boolean;
+	LightModelTwoSided : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2SteelDetail;
+	EntityID : Gfc2Integer;
+	Name : Gfc2String;
+	Desc : Gfc2String;
+	Level : Gfc2String;
+	Dia : Gfc2Integer;
+	Num : Gfc2Integer;
+	Length : Gfc2Integer;
+	SingleWeight : Gfc2Double;
+	TotalWeight : Gfc2Double;
+	TieinNum : Gfc2Integer;
+	TieinType : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2SteelTotal;
+	CompType : Gfc2String;
+	Level : Gfc2String;
+	Dia : Gfc2Integer;
+	Weight : Gfc2Double;
+	Unit : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2String;
+	Value : STRING;
+END_ENTITY;
+
+ENTITY Gfc2StringProperty
+ SUBTYPE OF (Gfc2Property);
+	Value : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Surface
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2Bevel
+	,Gfc2Cylinder
+	,Gfc2Plane
+	,Gfc2Sphere
+	,Gfc2NurbsSurface
+	,Gfc2Helicoid
+	,Gfc2Sweep
+	,Gfc2Torus
+	,Gfc2RuledSurface))
+ SUBTYPE OF (Gfc2Geometry);
+END_ENTITY;
+
+ENTITY Gfc2Sweep
+ SUBTYPE OF (Gfc2Surface);
+	Profile : Gfc2Curve2d;
+	Spine3d : Gfc2Curve3d;
+	ReferenceVector : Gfc2Vector3d;
+	SweepType : Gfc2SweepType;
+END_ENTITY;
+
+ENTITY Gfc2SweepCurve3d
+ SUBTYPE OF (Gfc2Curve3d);
+	Spine3d : Gfc2Curve3d;
+	ReferenceVector : Gfc2Vector3d;
+	Point : Gfc2Vector2d;
+	SweepType : Gfc2SweepType;
+END_ENTITY;
+
+ENTITY Gfc2ThreePointArcAssitAxis
+ SUBTYPE OF (Gfc2AssitAxis);
+	RefPoint1 : Gfc2Vector2d;
+	RefPoint2 : Gfc2Vector2d;
+	RefPoint3 : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2Torus
+ SUBTYPE OF (Gfc2Surface);
+	Coord : Gfc2Coordinates3d;
+	Radius : Gfc2Double;
+	ClockSign : Gfc2Integer;
+	RangeV : Gfc2Intervald;
+	Curve : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2TwoPointAssitAxis
+ SUBTYPE OF (Gfc2AssitAxis);
+	StartPt : Gfc2Vector2d;
+	EndPt : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2VariableSectionLineShape
+ SUBTYPE OF (Gfc2SectionLineShape);
+	EndPoly : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2Vector2d
+ SUBTYPE OF (Gfc2Geometry);
+	Y : Gfc2Double;
+	X : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Vector3d
+ SUBTYPE OF (Gfc2Geometry);
+	X : Gfc2Double;
+	Y : Gfc2Double;
+	Z : Gfc2Double;
+	R : Gfc2Double;
+END_ENTITY;
+
+END_SCHEMA;

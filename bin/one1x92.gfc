@@ -1,0 +1,8 @@
+HEADER;
+FILE_DESCRIPTION(('GFC1.9'),'');
+FILE_NAME('D:\GFC2\bin\one.gfc','2019-12-26 09:47:26',('yuel'),('Glodon'),'objectbuf','gfc2_unit_test','');
+FILE_SCHEMA(('GFC1.9'));
+ENDSEC;
+DATA;
+#1=Gfc2Vector2d(1,2);
+ENDSEC;

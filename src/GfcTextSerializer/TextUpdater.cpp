@@ -14,6 +14,7 @@
 #include "EntityParser\Parser.h"
 #include "EntityParser\Scanner.h"
 #include "AttributeValue.h"
+#include "BuildinType.h"
 
 namespace glodon {
 namespace objectbuf {
@@ -32,6 +33,7 @@ void TextUpdater::init(const std::string & sVersion)
     // Load File model
     auto sSchema = sVersion;
     std::replace(sSchema.begin(), sSchema.end(), '.', 'X');
+    m_pTempModel = new gfc2::schema::CModel;
     loadFileModel(sSchema);
     // Load dll model
     loadDllModel();
@@ -51,7 +53,8 @@ void TextUpdater::update(std::string & sLine)
     oParser.Parse();
     if (oParser.errors->count > 0)
     { 
-        assert(false);
+        // 会有 DATA;进来
+        //assert(false);
         return;
     }
     auto pClassCompatibility = m_pModelCompatibility->find(oParser.m_sEntityName);
@@ -95,6 +98,7 @@ void TextUpdater::clear()
 {
     delete m_pDllModel;  m_pDllModel = nullptr;
     delete m_pFileModel; m_pFileModel = nullptr;
+    delete m_pTempModel; m_pTempModel = nullptr;
     delete m_pModelCompatibility; m_pModelCompatibility = nullptr;
 }
 
@@ -115,7 +119,9 @@ void TextUpdater::loadDllModel()
     Scanner oScanner(pByte, dwSize);
     Parser oParser(&oScanner);
     m_pDllModel = new gfc2::schema::CModel;
+    initModel(m_pDllModel);
     oParser.m_pModel = m_pDllModel;
+    oParser.m_pTempModel = m_pTempModel;
     oParser.Parse();
 }
 
@@ -131,8 +137,22 @@ void TextUpdater::loadFileModel(const std::string& sFileSchema)
     Scanner oScanner(sFileName.c_str());
     Parser oParser(&oScanner);
     m_pFileModel = new gfc2::schema::CModel;
+    initModel(m_pFileModel);
     oParser.m_pModel = m_pFileModel;
+    oParser.m_pTempModel = m_pTempModel;
     oParser.Parse();
+    if (oParser.errors->count > 0)
+    {
+        assert(false);
+    }
+}
+
+void TextUpdater::initModel(gfc2::schema::CModel * pModel)
+{
+    pModel->addTypeObject(new gfc2::schema::CBuildinType(L"BOOLEAN"));
+    pModel->addTypeObject(new gfc2::schema::CBuildinType(L"REAL"));
+    pModel->addTypeObject(new gfc2::schema::CBuildinType(L"STRING"));
+    pModel->addTypeObject(new gfc2::schema::CBuildinType(L"INTEGER"));
 }
 
 }

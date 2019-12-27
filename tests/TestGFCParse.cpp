@@ -1,5 +1,5 @@
 #include "gtest\gtest.h"
-#include "Parser.h"
+#include "EntityParser\Parser.h"
 
 TEST(TestGFCParse, Empty)
 {

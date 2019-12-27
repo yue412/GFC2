@@ -19,7 +19,7 @@ namespace objectbuf {
 class TextUpdater
 {
 public:
-    TextUpdater() : m_pDllModel(nullptr), m_pFileModel(nullptr), m_pModelCompatibility(nullptr) {}
+    TextUpdater() : m_pDllModel(nullptr), m_pFileModel(nullptr), m_pTempModel(nullptr), m_pModelCompatibility(nullptr) {}
     ~TextUpdater();
     void init(const std::string& sVersion);
     void update(std::string& sLine);
@@ -31,8 +31,10 @@ private:
     void clear();
     void loadDllModel();
     void loadFileModel(const std::string& sFileSchema);
+    void initModel(gfc2::schema::CModel* pModel);
     gfc2::schema::CModel* m_pDllModel;
     gfc2::schema::CModel* m_pFileModel;
+    gfc2::schema::CModel* m_pTempModel; // undefine 对象放这里
     std::string m_sSchemaPath;
     std::string m_sRemote;
     gfc2::schema::CModelCompatibility* m_pModelCompatibility;

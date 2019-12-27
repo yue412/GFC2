@@ -57,6 +57,7 @@ public:
 	Token *la;			// lookahead token
 
 gfc2::schema::CModel* m_pModel;
+gfc2::schema::CModel* m_pTempModel;
 typedef std::vector<std::wstring> CStringList;
 std::wstring m_sName;
 
@@ -84,7 +85,8 @@ gfc2::schema::CTypeObject* findType(const std::wstring& sName)
     if(pType == nullptr)
     {
         pType = new gfc2::schema::CUndefineType(sName);
-        m_pModel->addTypeObject(pType);
+        //m_pModel->addTypeObject(pType);
+        m_pTempModel->addTypeObject(pType);
     }
     return pType;
 }

@@ -14,7 +14,6 @@ include_directories(
 	${PROJECT_SOURCE_DIR}/../thirdparty/googletest/googletest/include
 	${PROJECT_SOURCE_DIR}/../include
 	${PROJECT_SOURCE_DIR}/../src/EntitySchema
-	${PROJECT_SOURCE_DIR}/../src/GfcTextSerializer/EntityParser
 	${PROJECT_SOURCE_DIR}/../src/GfcTextSerializer
 	${PROJECT_SOURCE_DIR}/../src/GfcCommon
 	${PROJECT_SOURCE_DIR}/../src/GfcEngine

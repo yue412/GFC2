@@ -5,6 +5,7 @@
 #include "glodon/objectbuf/Document.h"
 #include "EntityTextSerializer.h"
 #include "tinyxml.h"
+#include "Common.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,14 +15,14 @@ __declspec(dllexport) glodon::objectbuf::ReaderImp* CreateReaderImp(TiXmlElement
 {
     auto pImp = new glodon::objectbuf::ReaderTextImp;
     auto pSchemaPathNode = pNode->FirstChildElement("SchemaPath");
+    std::string sPath;
     if (pSchemaPathNode)
     {
-        const char* sPath = pSchemaPathNode->GetText();
-        if (sPath)
-        {
-            pImp->setSchemaPath(sPath);
-        }
+        const char* str = pSchemaPathNode->GetText();
+        if (str)
+            sPath = str;
     }
+    pImp->setSchemaPath(UnicodeToUtf8(getFullPath(Utf8ToUnicode(sPath))));
     auto pRemoteNode = pNode->FirstChildElement("Remote");
     if (pRemoteNode)
     {
@@ -79,10 +80,11 @@ bool ReaderTextImp::read( const string& sFileName, Document* pDoc,std::vector<st
         delete[] buf;
         return false;
     }
+
     while (!in.eof())
     {
-		string sLine;
-		getline(in, sLine);
+        string sLine;
+        getline(in, sLine);
         m_oUpdater.update(sLine);
         /*
         //这里不要用正则表达式，因为sLine可能非常长，而事实上这里只关心开头和结尾
@@ -217,13 +219,13 @@ string ReaderTextImp::getFileSchema( fstream& in )
 			getline(in,sLine);
 
 			string schema = sLine.substr(0,11);
-			if (_stricmp(schema.c_str(),string("FILE_SCHEMA").c_str()))
+			if (_stricmp(schema.c_str(),"FILE_SCHEMA") == 0)
 			{
 				int nStartPos = sLine.find_first_of('\'');
 				int nLastPos = sLine.find_last_of('\'');
 				return sLine.substr(nStartPos + 1, nLastPos - nStartPos - 1);
 			}
-			else if (_stricmp(sLine.c_str(),string("ENDSEC;").c_str()))
+			else if (_stricmp(sLine.c_str(),"ENDSEC;") == 0)
 			{
 				break;
 			}
