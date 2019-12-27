@@ -5,18 +5,19 @@
 #include "Classes\Gfc2Vector3d.h"
 #include "Classes\Gfc2Vector2d.h"
 #include "Classes\Gfc2EdgeData.h"
+#include "Common.h"
 
 TEST(TextWriterTest, WriteEmptyFile)
 {
     glodon::objectbuf::Writer writer;
-    auto result = writer.open("D:\\GFC2\\bin\\empty.gfc", "express", "gfc2_unit_test");
+    auto result = writer.open(UnicodeToUtf8(getFullPath(L"empty.gfc")), "express", "gfc2_unit_test");
     EXPECT_EQ(true, result);
 }
 
 TEST(TextWriterTest, WriteFile)
 {
     glodon::objectbuf::Writer writer;
-    auto result = writer.open("D:\\GFC2\\bin\\one.gfc", "express", "gfc2_unit_test");
+    auto result = writer.open(UnicodeToUtf8(getFullPath(L"one.gfc")), "express", "gfc2_unit_test");
     Gfc2Vector3d oVector;
     oVector.setX(1.0);
     oVector.setY(2.0);
@@ -29,7 +30,7 @@ TEST(TextReaderTest, ReadFile)
 {
     glodon::objectbuf::Reader reader;
     glodon::objectbuf::Document document(1);
-    auto result = reader.read("D:\\GFC2\\bin\\one.gfc", &document);
+    auto result = reader.read(UnicodeToUtf8(getFullPath(L"one.gfc")), &document);
     EXPECT_EQ(true, result);
     auto itr = document.getIterator();
     itr.first();
@@ -45,7 +46,7 @@ TEST(TextReaderTest, ReadEmptyFile)
 {
     glodon::objectbuf::Reader reader;
     glodon::objectbuf::Document document;
-    auto result = reader.read("D:\\GFC2\\bin\\empty.gfc", &document);
+    auto result = reader.read(UnicodeToUtf8(getFullPath(L"empty.gfc")), &document);
     EXPECT_EQ(true, result);
     //EXPECT_EQ(0, document
 }
@@ -53,14 +54,14 @@ TEST(TextReaderTest, ReadEmptyFile)
 TEST(BinaryWriterTest, WriteEmptyFile)
 {
     glodon::objectbuf::Writer writer;
-    auto result = writer.open("D:\\GFC2\\bin\\empty_bin.gfc", "bin", "gfc2_unit_test");
+    auto result = writer.open(UnicodeToUtf8(getFullPath(L"empty_bin.gfc")), "bin", "gfc2_unit_test");
     EXPECT_EQ(true, result);
 }
 
 TEST(BinaryWriterTest, WriteFile)
 {
     glodon::objectbuf::Writer writer;
-    auto result = writer.open("D:\\GFC2\\bin\\one_bin.gfc", "bin", "gfc2_unit_test");
+    auto result = writer.open(UnicodeToUtf8(getFullPath(L"one_bin.gfc")), "bin", "gfc2_unit_test");
     Gfc2Vector3d oVector;
     oVector.setX(1.0);
     oVector.setY(2.0);
@@ -73,7 +74,7 @@ TEST(BinaryReaderTest, ReadFile)
 {
     glodon::objectbuf::Reader reader;
     glodon::objectbuf::Document document(1);
-    auto result = reader.read("D:\\GFC2\\bin\\one_bin.gfc", &document);
+    auto result = reader.read(UnicodeToUtf8(getFullPath(L"one_bin.gfc")), &document);
     EXPECT_EQ(true, result);
     auto itr = document.getIterator();
     itr.first();
@@ -90,7 +91,7 @@ TEST(BinaryReaderTest, ReadEmptyFile)
 {
     glodon::objectbuf::Reader reader;
     glodon::objectbuf::Document document;
-    auto result = reader.read("D:\\GFC2\\bin\\empty_bin.gfc", &document);
+    auto result = reader.read(UnicodeToUtf8(getFullPath(L"empty_bin.gfc")), &document);
     EXPECT_EQ(true, result);
     //EXPECT_EQ(0, document
 }
@@ -99,7 +100,7 @@ TEST(TextReaderTest, ReadFile_update_add_attribute)
 {
     glodon::objectbuf::Reader reader;
     glodon::objectbuf::Document document(1);
-    auto result = reader.read("D:\\GFC2\\bin\\one1x9.gfc", &document);
+    auto result = reader.read(UnicodeToUtf8(getFullPath(L"one1x9.gfc")), &document);
     EXPECT_EQ(true, result);
     auto itr = document.getIterator();
     itr.first();
@@ -115,7 +116,7 @@ TEST(TextReaderTest, ReadFile_update_remove_attribute)
 {
     glodon::objectbuf::Reader reader;
     glodon::objectbuf::Document document(1);
-    auto result = reader.read("D:\\GFC2\\bin\\one1x91.gfc", &document);
+    auto result = reader.read(UnicodeToUtf8(getFullPath(L"one1x91.gfc")), &document);
     EXPECT_EQ(true, result);
     auto itr = document.getIterator();
     itr.first();
@@ -134,7 +135,7 @@ TEST(TextReaderTest, ReadFile_update_exchange_attribute)
 {
     glodon::objectbuf::Reader reader;
     glodon::objectbuf::Document document(1);
-    auto result = reader.read("D:\\GFC2\\bin\\one1x92.gfc", &document);
+    auto result = reader.read(UnicodeToUtf8(getFullPath(L"one1x92.gfc")), &document);
     EXPECT_EQ(true, result);
     auto itr = document.getIterator();
     itr.first();
