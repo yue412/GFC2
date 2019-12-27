@@ -36,4 +36,4 @@ cmake %1 ..\
 cmake --build . --config %2
 cd ..\..\
 
-cd ..\bin
+cd bin
