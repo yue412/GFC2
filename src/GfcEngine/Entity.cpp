@@ -13,7 +13,7 @@ OBJECTBUF_IMP_FACTORY(Entity, 0);
 
 std::string Entity::Version()
 {
-	static std::string version = "GFC2.0";
+	static std::string version = "GFC2.1";
 	return version;
 }
 
