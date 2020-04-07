@@ -3,11 +3,12 @@
 
 #include "GfcClasses.h"
 #include <vector>
+#include "Gfc2Topology.h"
 #include "Gfc2SimpleVertex.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 
-class GFCCLASSES_API Gfc2SimpleLoop: public glodon::objectbuf::Entity
+class GFCCLASSES_API Gfc2SimpleLoop: public Gfc2Topology
 {
 OBJECTBUF_DEC_OBJECT(Gfc2SimpleLoop,glodon::objectbuf::Entity)
 public:
@@ -22,8 +23,6 @@ public:
     glodon::objectbuf::EntityRef getVertexes(int nIndex) const {return m_oVertexes[nIndex];}
     Gfc2SimpleVertex* getVertexesPtr(int nIndex) const {return (Gfc2SimpleVertex*)m_pDocument->find(getVertexes(nIndex));}
 
-protected:
-    unsigned _has_bits_[1];
 private:
     std::vector<glodon::objectbuf::EntityRef> m_oVertexes;
 };

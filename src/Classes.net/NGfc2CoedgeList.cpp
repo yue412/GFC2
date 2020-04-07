@@ -7,7 +7,7 @@ NGfc2CoedgeList::NGfc2CoedgeList()
 }
 
 NGfc2CoedgeList::NGfc2CoedgeList(void* pEntity, bool bOwner):
-    NGfc2Geometry(pEntity, bOwner)
+    NGfc2Topology(pEntity, bOwner)
 {
 }
 

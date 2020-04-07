@@ -1,12 +1,12 @@
 #ifndef NGFC2STRINGPROPERTY_H
 #define NGFC2STRINGPROPERTY_H
 
-#include "NGfc2Property.h"
+#include "NGfc2SingleProperty.h"
 #include "Gfc2StringProperty.h"
 #include "NGfc2String.h"
 #include "glodon/objectbuf/Entity.h"
 
-public ref class NGfc2StringProperty: public NGfc2Property
+public ref class NGfc2StringProperty: public NGfc2SingleProperty
 {
 public:
     NGfc2StringProperty();

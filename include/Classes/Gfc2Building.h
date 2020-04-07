@@ -2,10 +2,10 @@
 #define GFC2BUILDING_H
 
 #include "GfcClasses.h"
-#include "Gfc2SpatialStructureEntity.h"
+#include "Gfc2SpatialStructureElement.h"
 #include "glodon/objectbuf/Entity.h"
 
-class GFCCLASSES_API Gfc2Building: public Gfc2SpatialStructureEntity
+class GFCCLASSES_API Gfc2Building: public Gfc2SpatialStructureElement
 {
 OBJECTBUF_DEC_OBJECT(Gfc2Building,glodon::objectbuf::Entity)
 public:

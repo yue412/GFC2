@@ -5,6 +5,7 @@
 #include <vector>
 #include "Gfc2RelDefines.h"
 #include "Gfc2PropertySet.h"
+#include "Gfc2Object.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 
@@ -25,10 +26,16 @@ public:
     glodon::objectbuf::EntityRef getRelatingPropertySet() const {return m_nRelatingPropertySet;}
     bool hasRelatingPropertySet() const {return (_has_bits_[0] & 0x2u) != 0;}
     Gfc2PropertySet* getRelatingPropertySetPtr() const {return (Gfc2PropertySet*)m_pDocument->find(getRelatingPropertySet());}
+    int getRelatedObjectsCount() const {return (int)m_oRelatedObjects.size();}
+    void clearRelatedObjects() {m_oRelatedObjects.clear();}
+    void addRelatedObjects(const glodon::objectbuf::EntityRef& nValue) {m_oRelatedObjects.push_back(nValue);}
+    glodon::objectbuf::EntityRef getRelatedObjects(int nIndex) const {return m_oRelatedObjects[nIndex];}
+    Gfc2Object* getRelatedObjectsPtr(int nIndex) const {return (Gfc2Object*)m_pDocument->find(getRelatedObjects(nIndex));}
 
 private:
     void setHasRelatingPropertySet() {_has_bits_[0] |= 0x2u;}
 
     glodon::objectbuf::EntityRef m_nRelatingPropertySet;
+    std::vector<glodon::objectbuf::EntityRef> m_oRelatedObjects;
 };
 #endif

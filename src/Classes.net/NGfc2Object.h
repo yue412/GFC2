@@ -1,7 +1,6 @@
 #ifndef NGFC2OBJECT_H
 #define NGFC2OBJECT_H
 
-#include "NGfc2Root.h"
 #include "Gfc2Object.h"
 #include "NTypeDef.h"
 #include "glodon/objectbuf/Entity.h"
@@ -10,7 +9,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfc2Object: public NGfc2Root
+public ref class NGfc2Object: public glodon::objectbufnet::Entity
 {
 public:
     NGfc2Object();

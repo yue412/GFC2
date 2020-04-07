@@ -11,10 +11,11 @@ public ref class NGfc2GeometryShape: public NGfc2Shape
 public:
     NGfc2GeometryShape();
     NGfc2GeometryShape(void* pEntity, bool bOwner);
-    void setGeo(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getGeo();
-    bool hasGeo();
-    NGfc2Geometry^ getGeoPtr();
+    int getGeosCount();
+    void clearGeos();
+    void addGeos(glodon::objectbuf::EntityRef nValue);
+    glodon::objectbuf::EntityRef getGeos(int nIndex);
+    NGfc2Geometry^ getGeosPtr(int nIndex);
 
 };
 #endif

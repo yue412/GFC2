@@ -7,7 +7,7 @@ NGfc2Polygon::NGfc2Polygon()
 }
 
 NGfc2Polygon::NGfc2Polygon(void* pEntity, bool bOwner):
-    NGfc2Geometry(pEntity, bOwner)
+    NGfc2Topology(pEntity, bOwner)
 {
 }
 

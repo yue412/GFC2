@@ -31,3 +31,28 @@ NGfc2PropertySet^ NGfc2RelDefinesByProperties::getRelatingPropertySetPtr()
     return gcnew NGfc2PropertySet(((Gfc2RelDefinesByProperties*)m_pEntity)->getRelatingPropertySetPtr(), false);
 }
 
+int NGfc2RelDefinesByProperties::getRelatedObjectsCount()
+{
+    return ((Gfc2RelDefinesByProperties*)m_pEntity)->getRelatedObjectsCount();
+}
+
+void NGfc2RelDefinesByProperties::clearRelatedObjects()
+{
+    ((Gfc2RelDefinesByProperties*)m_pEntity)->clearRelatedObjects();
+}
+
+void NGfc2RelDefinesByProperties::addRelatedObjects(glodon::objectbuf::EntityRef nValue)
+{
+    ((Gfc2RelDefinesByProperties*)m_pEntity)->addRelatedObjects(nValue);
+}
+
+glodon::objectbuf::EntityRef NGfc2RelDefinesByProperties::getRelatedObjects(int nIndex)
+{
+    return ((Gfc2RelDefinesByProperties*)m_pEntity)->getRelatedObjects(nIndex);
+}
+
+NGfc2Object^ NGfc2RelDefinesByProperties::getRelatedObjectsPtr(int nIndex)
+{
+    return gcnew NGfc2Object(((Gfc2RelDefinesByProperties*)m_pEntity)->getRelatedObjectsPtr(nIndex), false);
+}
+

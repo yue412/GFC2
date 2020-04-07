@@ -3,10 +3,11 @@
 
 #include "GfcClasses.h"
 #include <vector>
+#include "Gfc2Topology.h"
 #include "TypeDef.h"
 #include "glodon/objectbuf/Entity.h"
 
-class GFCCLASSES_API Gfc2PolyhedralEdge: public glodon::objectbuf::Entity
+class GFCCLASSES_API Gfc2PolyhedralEdge: public Gfc2Topology
 {
 OBJECTBUF_DEC_OBJECT(Gfc2PolyhedralEdge,glodon::objectbuf::Entity)
 public:
@@ -30,8 +31,6 @@ public:
     Gfc2Integer getEndVertexIndex() const {return m_nEndVertexIndex;}
     bool hasEndVertexIndex() const {return (_has_bits_[0] & 0x2u) != 0;}
 
-protected:
-    unsigned _has_bits_[1];
 private:
     void setHasStartVertexIndex() {_has_bits_[0] |= 0x1u;}
     void setHasEndVertexIndex() {_has_bits_[0] |= 0x2u;}

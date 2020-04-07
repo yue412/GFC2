@@ -17,18 +17,13 @@ public:
     int typeId() const;
     virtual glodon::objectbuf::EntitySchema* createSchema() const;
     virtual std::string entityName() const;
-    void setGeo(const glodon::objectbuf::EntityRef& nValue)
-    {
-        m_nGeo = nValue;
-        setHasGeo();
-    }
-    glodon::objectbuf::EntityRef getGeo() const {return m_nGeo;}
-    bool hasGeo() const {return (_has_bits_[0] & 0x4u) != 0;}
-    Gfc2Geometry* getGeoPtr() const {return (Gfc2Geometry*)m_pDocument->find(getGeo());}
+    int getGeosCount() const {return (int)m_oGeos.size();}
+    void clearGeos() {m_oGeos.clear();}
+    void addGeos(const glodon::objectbuf::EntityRef& nValue) {m_oGeos.push_back(nValue);}
+    glodon::objectbuf::EntityRef getGeos(int nIndex) const {return m_oGeos[nIndex];}
+    Gfc2Geometry* getGeosPtr(int nIndex) const {return (Gfc2Geometry*)m_pDocument->find(getGeos(nIndex));}
 
 private:
-    void setHasGeo() {_has_bits_[0] |= 0x4u;}
-
-    glodon::objectbuf::EntityRef m_nGeo;
+    std::vector<glodon::objectbuf::EntityRef> m_oGeos;
 };
 #endif

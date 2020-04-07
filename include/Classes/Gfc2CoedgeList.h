@@ -3,12 +3,12 @@
 
 #include "GfcClasses.h"
 #include <vector>
-#include "Gfc2Geometry.h"
+#include "Gfc2Topology.h"
 #include "Gfc2Curve2d.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 
-class GFCCLASSES_API Gfc2CoedgeList: public Gfc2Geometry
+class GFCCLASSES_API Gfc2CoedgeList: public Gfc2Topology
 {
 OBJECTBUF_DEC_OBJECT(Gfc2CoedgeList,glodon::objectbuf::Entity)
 public:

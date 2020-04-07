@@ -1,11 +1,12 @@
 #ifndef NGFC2COEDGELISTEX_H
 #define NGFC2COEDGELISTEX_H
 
+#include "NGfc2Topology.h"
 #include "Gfc2CoedgeListEx.h"
 #include "NGfc2Coedge.h"
 #include "glodon/objectbuf/Entity.h"
 
-public ref class NGfc2CoedgeListEx: public glodon::objectbufnet::Entity
+public ref class NGfc2CoedgeListEx: public NGfc2Topology
 {
 public:
     NGfc2CoedgeListEx();

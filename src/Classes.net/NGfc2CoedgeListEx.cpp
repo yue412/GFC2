@@ -7,7 +7,7 @@ NGfc2CoedgeListEx::NGfc2CoedgeListEx()
 }
 
 NGfc2CoedgeListEx::NGfc2CoedgeListEx(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Topology(pEntity, bOwner)
 {
 }
 

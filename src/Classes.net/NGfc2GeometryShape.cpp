@@ -11,23 +11,28 @@ NGfc2GeometryShape::NGfc2GeometryShape(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2GeometryShape::setGeo(glodon::objectbuf::EntityRef nValue)
+int NGfc2GeometryShape::getGeosCount()
 {
-    ((Gfc2GeometryShape*)m_pEntity)->setGeo(nValue);
+    return ((Gfc2GeometryShape*)m_pEntity)->getGeosCount();
 }
 
-glodon::objectbuf::EntityRef NGfc2GeometryShape::getGeo()
+void NGfc2GeometryShape::clearGeos()
 {
-    return ((Gfc2GeometryShape*)m_pEntity)->getGeo();
+    ((Gfc2GeometryShape*)m_pEntity)->clearGeos();
 }
 
-bool NGfc2GeometryShape::hasGeo()
+void NGfc2GeometryShape::addGeos(glodon::objectbuf::EntityRef nValue)
 {
-    return ((Gfc2GeometryShape*)m_pEntity)->hasGeo();
+    ((Gfc2GeometryShape*)m_pEntity)->addGeos(nValue);
 }
 
-NGfc2Geometry^ NGfc2GeometryShape::getGeoPtr()
+glodon::objectbuf::EntityRef NGfc2GeometryShape::getGeos(int nIndex)
 {
-    return gcnew NGfc2Geometry(((Gfc2GeometryShape*)m_pEntity)->getGeoPtr(), false);
+    return ((Gfc2GeometryShape*)m_pEntity)->getGeos(nIndex);
+}
+
+NGfc2Geometry^ NGfc2GeometryShape::getGeosPtr(int nIndex)
+{
+    return gcnew NGfc2Geometry(((Gfc2GeometryShape*)m_pEntity)->getGeosPtr(nIndex), false);
 }
 

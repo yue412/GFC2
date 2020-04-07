@@ -3,12 +3,11 @@
 
 #include "GfcClasses.h"
 #include <vector>
-#include "Gfc2Root.h"
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 
-class GFCCLASSES_API Gfc2Object: public Gfc2Root
+class GFCCLASSES_API Gfc2Object: public glodon::objectbuf::Entity
 {
 OBJECTBUF_DEC_OBJECT(Gfc2Object,glodon::objectbuf::Entity)
 public:
@@ -33,6 +32,8 @@ public:
     bool hasName() const {return (_has_bits_[0] & 0x2u) != 0;}
     Gfc2Label* getNamePtr() const {return (Gfc2Label*)m_pDocument->find(getName());}
 
+protected:
+    unsigned _has_bits_[1];
 private:
     void setHasID() {_has_bits_[0] |= 0x1u;}
     void setHasName() {_has_bits_[0] |= 0x2u;}

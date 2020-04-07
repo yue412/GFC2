@@ -7,7 +7,7 @@ NGfc2SimpleVertex::NGfc2SimpleVertex()
 }
 
 NGfc2SimpleVertex::NGfc2SimpleVertex(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Topology(pEntity, bOwner)
 {
 }
 

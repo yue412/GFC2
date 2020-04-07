@@ -8,6 +8,8 @@ typedef bool Gfc2Boolean;
 
 typedef double Gfc2Date;
 
+typedef double Gfc2DateTime;
+
 typedef double Gfc2Double;
 
 typedef Gfc2String Gfc2Elev;
@@ -20,6 +22,8 @@ typedef Gfc2String Gfc2Label;
 
 typedef Gfc2String Gfc2Text;
 
+typedef double Gfc2Time;
+
 enum Gfc2ArcType
 {
     AT_LINE,
@@ -29,27 +33,19 @@ enum Gfc2ArcType
     AT_CL
 };
 
-enum Gfc2AxisNoPosEnum
+enum Gfc2BooleanOperator
 {
-    NONE_POS,
-    START_POS,
-    END_POS,
-    BOTH_POS
+    BO_UNION,
+    BO_INTERSECTION,
+    BO_DIFFERENCE
 };
 
-enum Gfc2AxisType
+enum Gfc2ConnectionType
 {
-    SKJ,
-    XKJ,
-    ZJS,
-    YJS
-};
-
-enum Gfc2FaceMode
-{
-    FM_FRONT,
-    FM_BACK,
-    FM_FRONT_AND_BACK
+    CT_ATPATH,
+    CT_ATSTART,
+    CT_ATEND,
+    CT_NOTDEFINED
 };
 
 enum Gfc2FragTestFunc
@@ -163,21 +159,18 @@ inline bool StringToGfc2ArcType(const std::string& sValue, Gfc2ArcType& nType)
     return false;
 }
 
-inline std::string Gfc2AxisNoPosEnumToString(Gfc2AxisNoPosEnum nValue)
+inline std::string Gfc2BooleanOperatorToString(Gfc2BooleanOperator nValue)
 {
     switch(nValue)
     {
-    case Gfc2AxisNoPosEnum::NONE_POS:
-        return ".NONE_POS.";
+    case Gfc2BooleanOperator::BO_UNION:
+        return ".BO_UNION.";
         break;
-    case Gfc2AxisNoPosEnum::START_POS:
-        return ".START_POS.";
+    case Gfc2BooleanOperator::BO_INTERSECTION:
+        return ".BO_INTERSECTION.";
         break;
-    case Gfc2AxisNoPosEnum::END_POS:
-        return ".END_POS.";
-        break;
-    case Gfc2AxisNoPosEnum::BOTH_POS:
-        return ".BOTH_POS.";
+    case Gfc2BooleanOperator::BO_DIFFERENCE:
+        return ".BO_DIFFERENCE.";
         break;
     default:
         assert(false);
@@ -185,46 +178,41 @@ inline std::string Gfc2AxisNoPosEnumToString(Gfc2AxisNoPosEnum nValue)
     }
 }
 
-inline bool StringToGfc2AxisNoPosEnum(const std::string& sValue, Gfc2AxisNoPosEnum& nType)
+inline bool StringToGfc2BooleanOperator(const std::string& sValue, Gfc2BooleanOperator& nType)
 {
-    if(sValue.compare(".NONE_POS.") == 0)
+    if(sValue.compare(".BO_UNION.") == 0)
     {
-        nType = Gfc2AxisNoPosEnum::NONE_POS;
+        nType = Gfc2BooleanOperator::BO_UNION;
         return true;
     }
-    if(sValue.compare(".START_POS.") == 0)
+    if(sValue.compare(".BO_INTERSECTION.") == 0)
     {
-        nType = Gfc2AxisNoPosEnum::START_POS;
+        nType = Gfc2BooleanOperator::BO_INTERSECTION;
         return true;
     }
-    if(sValue.compare(".END_POS.") == 0)
+    if(sValue.compare(".BO_DIFFERENCE.") == 0)
     {
-        nType = Gfc2AxisNoPosEnum::END_POS;
-        return true;
-    }
-    if(sValue.compare(".BOTH_POS.") == 0)
-    {
-        nType = Gfc2AxisNoPosEnum::BOTH_POS;
+        nType = Gfc2BooleanOperator::BO_DIFFERENCE;
         return true;
     }
     return false;
 }
 
-inline std::string Gfc2AxisTypeToString(Gfc2AxisType nValue)
+inline std::string Gfc2ConnectionTypeToString(Gfc2ConnectionType nValue)
 {
     switch(nValue)
     {
-    case Gfc2AxisType::SKJ:
-        return ".SKJ.";
+    case Gfc2ConnectionType::CT_ATPATH:
+        return ".CT_ATPATH.";
         break;
-    case Gfc2AxisType::XKJ:
-        return ".XKJ.";
+    case Gfc2ConnectionType::CT_ATSTART:
+        return ".CT_ATSTART.";
         break;
-    case Gfc2AxisType::ZJS:
-        return ".ZJS.";
+    case Gfc2ConnectionType::CT_ATEND:
+        return ".CT_ATEND.";
         break;
-    case Gfc2AxisType::YJS:
-        return ".YJS.";
+    case Gfc2ConnectionType::CT_NOTDEFINED:
+        return ".CT_NOTDEFINED.";
         break;
     default:
         assert(false);
@@ -232,65 +220,26 @@ inline std::string Gfc2AxisTypeToString(Gfc2AxisType nValue)
     }
 }
 
-inline bool StringToGfc2AxisType(const std::string& sValue, Gfc2AxisType& nType)
+inline bool StringToGfc2ConnectionType(const std::string& sValue, Gfc2ConnectionType& nType)
 {
-    if(sValue.compare(".SKJ.") == 0)
+    if(sValue.compare(".CT_ATPATH.") == 0)
     {
-        nType = Gfc2AxisType::SKJ;
+        nType = Gfc2ConnectionType::CT_ATPATH;
         return true;
     }
-    if(sValue.compare(".XKJ.") == 0)
+    if(sValue.compare(".CT_ATSTART.") == 0)
     {
-        nType = Gfc2AxisType::XKJ;
+        nType = Gfc2ConnectionType::CT_ATSTART;
         return true;
     }
-    if(sValue.compare(".ZJS.") == 0)
+    if(sValue.compare(".CT_ATEND.") == 0)
     {
-        nType = Gfc2AxisType::ZJS;
+        nType = Gfc2ConnectionType::CT_ATEND;
         return true;
     }
-    if(sValue.compare(".YJS.") == 0)
+    if(sValue.compare(".CT_NOTDEFINED.") == 0)
     {
-        nType = Gfc2AxisType::YJS;
-        return true;
-    }
-    return false;
-}
-
-inline std::string Gfc2FaceModeToString(Gfc2FaceMode nValue)
-{
-    switch(nValue)
-    {
-    case Gfc2FaceMode::FM_FRONT:
-        return ".FM_FRONT.";
-        break;
-    case Gfc2FaceMode::FM_BACK:
-        return ".FM_BACK.";
-        break;
-    case Gfc2FaceMode::FM_FRONT_AND_BACK:
-        return ".FM_FRONT_AND_BACK.";
-        break;
-    default:
-        assert(false);
-        return "";
-    }
-}
-
-inline bool StringToGfc2FaceMode(const std::string& sValue, Gfc2FaceMode& nType)
-{
-    if(sValue.compare(".FM_FRONT.") == 0)
-    {
-        nType = Gfc2FaceMode::FM_FRONT;
-        return true;
-    }
-    if(sValue.compare(".FM_BACK.") == 0)
-    {
-        nType = Gfc2FaceMode::FM_BACK;
-        return true;
-    }
-    if(sValue.compare(".FM_FRONT_AND_BACK.") == 0)
-    {
-        nType = Gfc2FaceMode::FM_FRONT_AND_BACK;
+        nType = Gfc2ConnectionType::CT_NOTDEFINED;
         return true;
     }
     return false;

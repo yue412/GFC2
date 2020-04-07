@@ -1,12 +1,13 @@
 #ifndef NGFC2POLYHEDRALFACE_H
 #define NGFC2POLYHEDRALFACE_H
 
+#include "NGfc2Topology.h"
 #include "Gfc2PolyhedralFace.h"
 #include "NGfc2PolyhedralLoop.h"
 #include "NGfc2PlaneCoef.h"
 #include "glodon/objectbuf/Entity.h"
 
-public ref class NGfc2PolyhedralFace: public glodon::objectbufnet::Entity
+public ref class NGfc2PolyhedralFace: public NGfc2Topology
 {
 public:
     NGfc2PolyhedralFace();

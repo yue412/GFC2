@@ -3,11 +3,12 @@
 
 #include "GfcClasses.h"
 #include <vector>
+#include "Gfc2Topology.h"
 #include "Gfc2PolyhedralEdge.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 
-class GFCCLASSES_API Gfc2PolyhedralLoop: public glodon::objectbuf::Entity
+class GFCCLASSES_API Gfc2PolyhedralLoop: public Gfc2Topology
 {
 OBJECTBUF_DEC_OBJECT(Gfc2PolyhedralLoop,glodon::objectbuf::Entity)
 public:
@@ -22,8 +23,6 @@ public:
     glodon::objectbuf::EntityRef getEdges(int nIndex) const {return m_oEdges[nIndex];}
     Gfc2PolyhedralEdge* getEdgesPtr(int nIndex) const {return (Gfc2PolyhedralEdge*)m_pDocument->find(getEdges(nIndex));}
 
-protected:
-    unsigned _has_bits_[1];
 private:
     std::vector<glodon::objectbuf::EntityRef> m_oEdges;
 };

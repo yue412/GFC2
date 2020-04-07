@@ -7,23 +7,8 @@ NGfc2Floor::NGfc2Floor()
 }
 
 NGfc2Floor::NGfc2Floor(void* pEntity, bool bOwner):
-    NGfc2SpatialStructureEntity(pEntity, bOwner)
+    NGfc2SpatialStructureElement(pEntity, bOwner)
 {
-}
-
-void NGfc2Floor::setFirstFloorFlag(NGfc2Boolean bValue)
-{
-    ((Gfc2Floor*)m_pEntity)->setFirstFloorFlag(bValue);
-}
-
-NGfc2Boolean NGfc2Floor::getFirstFloorFlag()
-{
-    return ((Gfc2Floor*)m_pEntity)->getFirstFloorFlag();
-}
-
-bool NGfc2Floor::hasFirstFloorFlag()
-{
-    return ((Gfc2Floor*)m_pEntity)->hasFirstFloorFlag();
 }
 
 void NGfc2Floor::setHeight(NGfc2Double dValue)

@@ -1,12 +1,12 @@
 #ifndef NGFC2INTEGERPROPERTY_H
 #define NGFC2INTEGERPROPERTY_H
 
-#include "NGfc2Property.h"
+#include "NGfc2SingleProperty.h"
 #include "Gfc2IntegerProperty.h"
 #include "NTypeDef.h"
 #include "glodon/objectbuf/Entity.h"
 
-public ref class NGfc2IntegerProperty: public NGfc2Property
+public ref class NGfc2IntegerProperty: public NGfc2SingleProperty
 {
 public:
     NGfc2IntegerProperty();

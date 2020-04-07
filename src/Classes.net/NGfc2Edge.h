@@ -1,12 +1,13 @@
 #ifndef NGFC2EDGE_H
 #define NGFC2EDGE_H
 
+#include "NGfc2Topology.h"
 #include "Gfc2Edge.h"
 #include "NGfc2Curve3d.h"
 #include "NTypeDef.h"
 #include "glodon/objectbuf/Entity.h"
 
-public ref class NGfc2Edge: public glodon::objectbufnet::Entity
+public ref class NGfc2Edge: public NGfc2Topology
 {
 public:
     NGfc2Edge();

@@ -7,7 +7,7 @@ NGfc2Building::NGfc2Building()
 }
 
 NGfc2Building::NGfc2Building(void* pEntity, bool bOwner):
-    NGfc2SpatialStructureEntity(pEntity, bOwner)
+    NGfc2SpatialStructureElement(pEntity, bOwner)
 {
 }
 

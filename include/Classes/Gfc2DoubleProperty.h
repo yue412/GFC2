@@ -3,11 +3,11 @@
 
 #include "GfcClasses.h"
 #include <vector>
-#include "Gfc2Property.h"
+#include "Gfc2SingleProperty.h"
 #include "TypeDef.h"
 #include "glodon/objectbuf/Entity.h"
 
-class GFCCLASSES_API Gfc2DoubleProperty: public Gfc2Property
+class GFCCLASSES_API Gfc2DoubleProperty: public Gfc2SingleProperty
 {
 OBJECTBUF_DEC_OBJECT(Gfc2DoubleProperty,glodon::objectbuf::Entity)
 public:

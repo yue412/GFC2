@@ -3,12 +3,11 @@
 
 #include "GfcClasses.h"
 #include <vector>
-#include "Gfc2Root.h"
 #include "Gfc2Property.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 
-class GFCCLASSES_API Gfc2PropertySet: public Gfc2Root
+class GFCCLASSES_API Gfc2PropertySet: public glodon::objectbuf::Entity
 {
 OBJECTBUF_DEC_OBJECT(Gfc2PropertySet,glodon::objectbuf::Entity)
 public:
@@ -23,6 +22,8 @@ public:
     glodon::objectbuf::EntityRef getHasProperties(int nIndex) const {return m_oHasProperties[nIndex];}
     Gfc2Property* getHasPropertiesPtr(int nIndex) const {return (Gfc2Property*)m_pDocument->find(getHasProperties(nIndex));}
 
+protected:
+    unsigned _has_bits_[1];
 private:
     std::vector<glodon::objectbuf::EntityRef> m_oHasProperties;
 };

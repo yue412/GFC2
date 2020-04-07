@@ -67,7 +67,7 @@ void CUMLReader::finalize()
         }
         else
         {
-            std::wcout << L"Attribute " << itr->first->getName() << L" miss type: " << sName;
+            std::wcout << L"Attribute: " << itr->first->getName() << L" miss type: " << sName <<std::endl;
             _ASSERT(pTypeObject);
         }
     }
@@ -167,6 +167,10 @@ void CUMLReader::loadModel(TiXmlElement * pModel)
                 else if (sTypeValue == "UMLAssociation")
                 {
                     doneAssociation(pChild);
+                }
+                else if (sTypeValue == "UMLPackage")
+                {
+                    loadModel(pChild); // recursion
                 }
             }
         }

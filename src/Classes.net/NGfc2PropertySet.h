@@ -1,12 +1,11 @@
 #ifndef NGFC2PROPERTYSET_H
 #define NGFC2PROPERTYSET_H
 
-#include "NGfc2Root.h"
 #include "Gfc2PropertySet.h"
 #include "NGfc2Property.h"
 #include "glodon/objectbuf/Entity.h"
 
-public ref class NGfc2PropertySet: public NGfc2Root
+public ref class NGfc2PropertySet: public glodon::objectbufnet::Entity
 {
 public:
     NGfc2PropertySet();

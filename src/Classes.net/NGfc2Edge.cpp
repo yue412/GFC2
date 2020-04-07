@@ -7,7 +7,7 @@ NGfc2Edge::NGfc2Edge()
 }
 
 NGfc2Edge::NGfc2Edge(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Topology(pEntity, bOwner)
 {
 }
 

@@ -5,6 +5,8 @@ typedef bool NGfc2Boolean;
 
 typedef double NGfc2Date;
 
+typedef double NGfc2DateTime;
+
 typedef double NGfc2Double;
 
 #include "NGfc2String.h"
@@ -19,6 +21,8 @@ typedef NGfc2String NGfc2Label;
 
 typedef NGfc2String NGfc2Text;
 
+typedef double NGfc2Time;
+
 public enum class NGfc2ArcType
 {
     AT_LINE,
@@ -28,27 +32,19 @@ public enum class NGfc2ArcType
     AT_CL
 };
 
-public enum class NGfc2AxisNoPosEnum
+public enum class NGfc2BooleanOperator
 {
-    NONE_POS,
-    START_POS,
-    END_POS,
-    BOTH_POS
+    BO_UNION,
+    BO_INTERSECTION,
+    BO_DIFFERENCE
 };
 
-public enum class NGfc2AxisType
+public enum class NGfc2ConnectionType
 {
-    SKJ,
-    XKJ,
-    ZJS,
-    YJS
-};
-
-public enum class NGfc2FaceMode
-{
-    FM_FRONT,
-    FM_BACK,
-    FM_FRONT_AND_BACK
+    CT_ATPATH,
+    CT_ATSTART,
+    CT_ATEND,
+    CT_NOTDEFINED
 };
 
 public enum class NGfc2FragTestFunc

@@ -1,12 +1,13 @@
 #ifndef NGFC2COEDGE_H
 #define NGFC2COEDGE_H
 
+#include "NGfc2Topology.h"
 #include "Gfc2Coedge.h"
 #include "NGfc2Curve2d.h"
 #include "NTypeDef.h"
 #include "glodon/objectbuf/Entity.h"
 
-public ref class NGfc2Coedge: public glodon::objectbufnet::Entity
+public ref class NGfc2Coedge: public NGfc2Topology
 {
 public:
     NGfc2Coedge();

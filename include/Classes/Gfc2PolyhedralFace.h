@@ -3,12 +3,13 @@
 
 #include "GfcClasses.h"
 #include <vector>
+#include "Gfc2Topology.h"
 #include "Gfc2PolyhedralLoop.h"
 #include "Gfc2PlaneCoef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 
-class GFCCLASSES_API Gfc2PolyhedralFace: public glodon::objectbuf::Entity
+class GFCCLASSES_API Gfc2PolyhedralFace: public Gfc2Topology
 {
 OBJECTBUF_DEC_OBJECT(Gfc2PolyhedralFace,glodon::objectbuf::Entity)
 public:
@@ -31,8 +32,6 @@ public:
     bool hasPlane() const {return (_has_bits_[0] & 0x2u) != 0;}
     Gfc2PlaneCoef* getPlanePtr() const {return (Gfc2PlaneCoef*)m_pDocument->find(getPlane());}
 
-protected:
-    unsigned _has_bits_[1];
 private:
     void setHasPlane() {_has_bits_[0] |= 0x2u;}
 

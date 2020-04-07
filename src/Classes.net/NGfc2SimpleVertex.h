@@ -1,12 +1,13 @@
 #ifndef NGFC2SIMPLEVERTEX_H
 #define NGFC2SIMPLEVERTEX_H
 
+#include "NGfc2Topology.h"
 #include "Gfc2SimpleVertex.h"
 #include "NGfc2Vector2d.h"
 #include "NTypeDef.h"
 #include "glodon/objectbuf/Entity.h"
 
-public ref class NGfc2SimpleVertex: public glodon::objectbufnet::Entity
+public ref class NGfc2SimpleVertex: public NGfc2Topology
 {
 public:
     NGfc2SimpleVertex();

@@ -7,7 +7,7 @@ NGfc2DoubleProperty::NGfc2DoubleProperty()
 }
 
 NGfc2DoubleProperty::NGfc2DoubleProperty(void* pEntity, bool bOwner):
-    NGfc2Property(pEntity, bOwner)
+    NGfc2SingleProperty(pEntity, bOwner)
 {
 }
 

@@ -3,12 +3,13 @@
 
 #include "GfcClasses.h"
 #include <vector>
+#include "Gfc2Topology.h"
 #include "Gfc2Curve3d.h"
 #include "TypeDef.h"
 #include "glodon/objectbuf/Document.h"
 #include "glodon/objectbuf/Entity.h"
 
-class GFCCLASSES_API Gfc2Edge: public glodon::objectbuf::Entity
+class GFCCLASSES_API Gfc2Edge: public Gfc2Topology
 {
 OBJECTBUF_DEC_OBJECT(Gfc2Edge,glodon::objectbuf::Entity)
 public:
@@ -68,8 +69,6 @@ public:
     Gfc2Integer getCoedgeIndex2() const {return m_nCoedgeIndex2;}
     bool hasCoedgeIndex2() const {return (_has_bits_[0] & 0x40u) != 0;}
 
-protected:
-    unsigned _has_bits_[1];
 private:
     void setHasCurve() {_has_bits_[0] |= 0x1u;}
     void setHasFaceIndex1() {_has_bits_[0] |= 0x2u;}

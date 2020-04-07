@@ -7,7 +7,7 @@ NGfc2PolyhedralLoop::NGfc2PolyhedralLoop()
 }
 
 NGfc2PolyhedralLoop::NGfc2PolyhedralLoop(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Topology(pEntity, bOwner)
 {
 }
 

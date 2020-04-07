@@ -1,0 +1,33 @@
+#include "StdAfx.h"
+#include "NGfc2BooleanListProperty.h"
+NGfc2BooleanListProperty::NGfc2BooleanListProperty()
+{
+    m_pEntity = new Gfc2BooleanListProperty;
+    m_bOwner = true;
+}
+
+NGfc2BooleanListProperty::NGfc2BooleanListProperty(void* pEntity, bool bOwner):
+    NGfc2ListProperty(pEntity, bOwner)
+{
+}
+
+int NGfc2BooleanListProperty::getValuesCount()
+{
+    return ((Gfc2BooleanListProperty*)m_pEntity)->getValuesCount();
+}
+
+void NGfc2BooleanListProperty::clearValues()
+{
+    ((Gfc2BooleanListProperty*)m_pEntity)->clearValues();
+}
+
+void NGfc2BooleanListProperty::addValues(NGfc2Boolean bValue)
+{
+    ((Gfc2BooleanListProperty*)m_pEntity)->addValues(bValue);
+}
+
+NGfc2Boolean NGfc2BooleanListProperty::getValues(int nIndex)
+{
+    return ((Gfc2BooleanListProperty*)m_pEntity)->getValues(nIndex);
+}
+

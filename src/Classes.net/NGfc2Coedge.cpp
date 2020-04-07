@@ -7,7 +7,7 @@ NGfc2Coedge::NGfc2Coedge()
 }
 
 NGfc2Coedge::NGfc2Coedge(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Topology(pEntity, bOwner)
 {
 }
 
