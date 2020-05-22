@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "glodon\objectbuf\Reader.h"
+#include "GfcEngine\Reader.h"
 using namespace std;
 
 namespace glodon {
@@ -11,7 +11,7 @@ namespace objectbuf {
 
 class Document;
 
-class OBJECTBUF_API ReaderImp
+class GFCENGINE_API ReaderImp
 {
 public:
     ReaderImp();

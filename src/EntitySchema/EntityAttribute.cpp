@@ -5,8 +5,13 @@
 
 GFC_NAMESPACE_BEGIN
 
-CAttribute::CAttribute(): m_pTypeObject(NULL), m_bOptional(false), m_bRepeat(false)/*, m_bRefFlag(true)*/
+CAttribute::CAttribute(): m_pTypeObject(NULL), m_bOptional(false), m_bRepeat(false), m_pHandler(nullptr)/*, m_bRefFlag(true)*/
 {
+}
+
+CAttribute::~CAttribute()
+{
+    delete m_pHandler;
 }
 
 void CAttribute::SetType(CTypeObject *pType)

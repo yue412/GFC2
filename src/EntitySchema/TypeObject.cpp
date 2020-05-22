@@ -33,4 +33,9 @@ CTypeObject *CTypeObject::getBaseType()
     return this;
 }
 
+CDataTypeEnum CTypeObject::getDataType() const 
+{
+    return EDT_UNKONWN;
+}
+
 GFC_NAMESPACE_END

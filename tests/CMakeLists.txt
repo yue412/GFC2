@@ -14,6 +14,7 @@ include_directories(
 	${PROJECT_SOURCE_DIR}/../thirdparty/googletest/googletest/include
 	${PROJECT_SOURCE_DIR}/../include
 	${PROJECT_SOURCE_DIR}/../src/EntitySchema
+	${PROJECT_SOURCE_DIR}/../src/ExpEngine
 	${PROJECT_SOURCE_DIR}/../src/GfcTextSerializer
 	${PROJECT_SOURCE_DIR}/../src/GfcCommon
 	${PROJECT_SOURCE_DIR}/../src/GfcEngine
@@ -24,8 +25,8 @@ link_directories(
 	${CMAKE_SOURCE_DIR}/../thirdparty/googletest/cmake/lib/$<CONFIG>
 	)
 
-FILE(GLOB SRC_FILES "./*.c*" "../src/GfcTextSerializer/EntityParser/*.cpp" "../src/GfcTextSerializer/*.cpp") 
-FILE(GLOB HEAD_FILES "./*.h" "../src/GfcTextSerializer/EntityParser/*.h" "../src/GfcTextSerializer/*.h") 
+FILE(GLOB SRC_FILES "./*.c*" "../src/GfcTextSerializer/EntityParser/*.cpp" "../src/GfcTextSerializer/*.cpp" "../src/ExpEngine/EntityAttributeDataHandler.cpp") 
+FILE(GLOB HEAD_FILES "./*.h" "../src/GfcTextSerializer/EntityParser/*.h" "../src/GfcTextSerializer/*.h" "../src/ExpEngine/EntityAttributeDataHandler.h") 
 
 add_compile_definitions(TIXML_USE_STL _CRT_SECURE_NO_DEPRECATE UNICODE)
 
@@ -34,6 +35,7 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEAD_FILES})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
 
+target_link_libraries(${PROJECT_NAME} debug ExpEngined optimized ExpEngine)
 target_link_libraries(${PROJECT_NAME} debug gtestd optimized gtest)
 target_link_libraries(${PROJECT_NAME} debug GfcEngined optimized GfcEngine)
 target_link_libraries(${PROJECT_NAME} debug EntitySchemad optimized EntitySchema)

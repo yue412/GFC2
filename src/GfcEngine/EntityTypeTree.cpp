@@ -1,10 +1,9 @@
-#include "glodon/objectbuf/EntityTypeTree.h"
-#include "glodon/objectbuf/EntitySchema.h"
-#include "glodon/objectbuf/Document.h"
+#include "GfcEngine/EntityTypeTree.h"
+#include "GfcEngine/EntitySchema.h"
+#include "GfcEngine/Document.h"
 #include <functional>
 
-namespace glodon {
-namespace objectbuf {
+GFCENGINE_NAMESPACE_BEGIN
 
 EntityTypeTree::EntityTypeTree(Document* pDoc): m_pDoc(pDoc)
 {
@@ -151,5 +150,4 @@ void entityListToVector( EntityTypeTree::EntityList& oSrc, std::vector<Entity*>&
     }
 }
 
-}
-}
+GFCENGINE_NAMESPACE_END

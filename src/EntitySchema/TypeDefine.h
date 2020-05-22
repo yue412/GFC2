@@ -15,6 +15,7 @@ public:
     virtual CTypeObjectEnum getType() const {return TOE_TYPE;}
     virtual bool getIsValueType();
     virtual CTypeObject* getBaseType();
+    virtual CDataTypeEnum getDataType() const;
 private:
     CTypeObject* m_pRefType;
 };

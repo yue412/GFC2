@@ -22,6 +22,7 @@ public:
     virtual CTypeObjectEnum getType() const {return TOE_CLASS;}
     bool getIsAbstract() {return m_bIsAbstract;}
     void setIsAbstract(bool bIsAbstract) {m_bIsAbstract = bIsAbstract;}
+    virtual CDataTypeEnum getDataType() const { return EDT_ENTITY; }
     //virtual bool getIsValueType() {return m_bIsValueType;}
     //void setIsValueType(bool bIsValueType) {m_bIsValueType = bIsValueType;}
     // ผฬณะ
@@ -38,7 +39,10 @@ public:
 
     bool getIsValid() { return m_bIsValid; }
     void setIsValid(bool bIsValid) { m_bIsValid = bIsValid; }
+    int getDataSize() { return m_nDataSize; }
+    void setDataSize(int nDataSize) { m_nDataSize = nDataSize; }
 private:
+    int m_nDataSize; // for entity data
     CClass* m_pParent;
     CClassList m_oChildList;
     CAttributeList m_oAttributeList;

@@ -4,12 +4,12 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "glodon/objectbuf/Objectbuf.h"
+#include "GfcEngine/GfcEngine.h"
 #include <memory>
 
 using namespace std;
-namespace glodon {
-namespace objectbuf {
+
+GFCENGINE_NAMESPACE_BEGIN
 
 class Document;
 //class EntityFactory;
@@ -20,7 +20,7 @@ class SerializerManager;
 //typedef void (*FieldCacheProc) ();
 //typedef std::map<string, std::pair<EntityFactory*, FieldCacheInitializer*>> SchemaInfoMap;
 
-class OBJECTBUF_API Reader
+class GFCENGINE_API Reader
 {
 public:
     Reader();
@@ -32,8 +32,7 @@ private:
     std::tr1::shared_ptr<SerializerManager> m_pSerializerManager;
 };
 
-}
-}
+GFCENGINE_NAMESPACE_END
 
 #endif
 

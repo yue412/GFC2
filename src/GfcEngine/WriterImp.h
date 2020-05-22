@@ -3,13 +3,18 @@
 
 #include <string>
 #include <string>
-#include "glodon/objectbuf/Entity.h"
-using namespace std;
-namespace glodon {
-namespace objectbuf {
+#include "GfcEngine\Entity.h"
+#include "GfcEngine\GfcEngine.h"
+#include "GfcEngine\Object.h"
+#include "GfcEngine\SysMarco.h"
 
-class OBJECTBUF_API WriterImp
+using namespace std;
+
+GFCENGINE_NAMESPACE_BEGIN
+
+class WriterImp: public Object
 {
+    GFCENGINE_DEC_FACTORY(WriterImp, 0, std::string)
 public:
     WriterImp(void);
     virtual ~WriterImp(void);
@@ -18,10 +23,9 @@ public:
     virtual void close() = 0;
     virtual EntityRef writeEntity(Entity* pEntity) = 0; 
 protected:
-    int m_nCount;
+    EntityRef m_nCount;
 };
 
-}
-}
+GFCENGINE_NAMESPACE_END
 
 #endif

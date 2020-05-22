@@ -15,6 +15,19 @@ enum CTypeObjectEnum
     TOE_CLASS
 };
 
+
+enum CDataTypeEnum
+{
+    EDT_UNKONWN,
+    EDT_BOOLEAN,
+    EDT_INTEGER,
+    EDT_DOUBLE,
+    EDT_STRING,
+    EDT_ENUM,
+    EDT_ENTITY
+};
+
+
 class CTypeObject
 {
 public:
@@ -26,6 +39,7 @@ public:
     virtual CTypeObjectEnum getType() const = 0;
     virtual bool getIsValueType();
     virtual CTypeObject* getBaseType();
+    virtual CDataTypeEnum getDataType() const;
     std::wstring getDocument() { return m_sDocument; }
     void setDocument(const std::wstring& sDocument) { m_sDocument = sDocument; }
 private:

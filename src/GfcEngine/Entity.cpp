@@ -1,33 +1,23 @@
-#include "glodon/objectbuf/Entity.h"
+#include <Windows.h>
 #include <string>
-#include "glodon/objectbuf/EntitySchema.h"
-#include "glodon/objectbuf/Document.h"
+#include <assert.h>
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/EngineException.h"
+#include "GfcEngine/Document.h"
+#include "EntityClass.h"
+#include "EntityAttribute.h"
+#include "EntityAttributeDataHandler.h"
+#include "Common.h"
 
-namespace glodon {
-namespace objectbuf {
+GFCENGINE_NAMESPACE_BEGIN
 
-std::map<std::string, int> g_oOBObjCount;
-std::map<std::string, std::map<int, int> > g_nOBObjSize;
-
-OBJECTBUF_IMP_FACTORY(Entity, 0);
-
-std::string Entity::Version()
-{
-	static std::string version = "GFC2.1";
-	return version;
-}
-
-Entity::Entity(void): m_pDocument(nullptr)
+Entity::Entity(void): m_pDocument(nullptr), m_pClass(nullptr), m_pData(nullptr)
 {
 }
 
 Entity::~Entity(void)
 {
-}
-
-glodon::objectbuf::EntitySchema* Entity::createSchema() const
-{
-    return NULL;
+    free();
 }
 
 void Entity::setDocument( Document* pDocument )
@@ -35,43 +25,332 @@ void Entity::setDocument( Document* pDocument )
     m_pDocument = pDocument;
 }
 
+void Entity::setSchema(gfc2::schema::CClass * pClass)
+{
+    assert(pClass);
+    if (pClass != m_pClass)
+    {
+        free();
+        m_pClass = pClass;
+        init();
+    }
+}
+
 bool Entity::isInitialized() const
 {
+    if (m_pClass)
+    {
+        for (int i = 0; i < m_pClass->getAttributeCount(); i++)
+        {
+            auto pAttr = m_pClass->getAttribute(i);
+            if (!pAttr->getOptionalFlag() && ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->isNull(m_pData))
+                return false;
+        }
+    }
     return true;
 }
 
-bool Entity::isInherited( int nTypeId )
+int Entity::getPropCount() const
 {
-    bool bResult = false;
-    EntitySchema* pSchema = createSchema();
-    EntitySchema* pTemp = pSchema;
-    while(pSchema)
+    return m_pClass ? m_pClass->getAttributeCount() : 0;
+}
+
+PropertyPtr Entity::getProps(int nIndex) const
+{
+    Property* pResult = nullptr;
+    if (m_pClass && nIndex < getPropCount())
     {
-        if (pSchema->typeId() == nTypeId)
-        {
-            bResult = true;
-            break;
-        }
-        pSchema = pSchema->getParent();
+        pResult = new Property(m_pData, m_pClass->getAttribute(nIndex));
     }
-    //delete pTemp;
-    return bResult;
+    return PropertyPtr(pResult);
 }
 
-string Entity::entityName() const
+bool Entity::isNull(const std::string& sPropName) const
 {
-    return "Entity";
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->isNull(m_pData);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return true;
 }
 
-std::map<std::string, int>* getOBObjCount()
+std::string Entity::entityName() const
 {
-    return &g_oOBObjCount;
+    assert(m_pClass);
+    return toString(m_pClass->getName());
 }
 
-std::map<std::string, std::map<int, int> >* getOBObjSize()
+void Entity::init()
 {
-    return &g_nOBObjSize;
+    if (m_pClass)
+    {
+        auto nLen = m_pClass->getDataSize();
+        m_pData = new char[nLen];
+        ZeroMemory(m_pData, nLen);
+        for (int i = 0; i < m_pClass->getAttributeCount(); i++)
+        {
+            auto pAttr = m_pClass->getAttribute(i);
+            pAttr->getDataHandler()->init(m_pData);
+        }
+    }
 }
 
+void Entity::free()
+{
+    if (m_pClass)
+    {
+        for (int i = 0; i < m_pClass->getAttributeCount(); i++)
+        {
+            auto pAttr = m_pClass->getAttribute(i);
+            pAttr->getDataHandler()->free(m_pData);
+        }
+    }
+    delete[] m_pData;
+    m_pData = nullptr;
 }
+
+std::string Entity::asString(const std::string& sPropName) const
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asString(m_pData);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return "";
 }
+
+int Entity::asInteger(const std::string& sPropName) const
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asInteger(m_pData);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return 0;
+}
+
+double Entity::asDouble(const std::string& sPropName) const
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asDouble(m_pData);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return 0.0;
+}
+
+bool Entity::asBoolean(const std::string& sPropName) const
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asBoolean(m_pData);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return false;
+}
+
+EntityRef Entity::asEntityRef(const std::string& sPropName) const
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asEntityRef(m_pData);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return -1;
+}
+
+Entity* Entity::asEntity(const std::string& sPropName) const
+{
+    //todo
+    return nullptr;
+}
+
+void Entity::setAsString(const std::string& sPropName, const std::string& sValue)
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->setAsString(m_pData, sValue);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+}
+
+void Entity::setAsInteger(const std::string& sPropName, const int& nValue)
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->setAsInteger(m_pData, nValue);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+}
+
+void Entity::setAsDouble(const std::string& sPropName, const double& dValue)
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->setAsDouble(m_pData, dValue);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+}
+
+void Entity::setAsBoolean(const std::string& sPropName, const bool& bValue)
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->setAsBoolean(m_pData, bValue);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+}
+
+void Entity::setAsEntityRef(const std::string& sPropName, const EntityRef& nValue)
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->setAsEntityRef(m_pData, nValue);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+}
+
+std::vector<std::string>& Entity::asStringList(const std::string& sPropName) const
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asStringList(m_pData);
+        }
+    }
+    throw EMissMatchProperty();
+}
+
+std::vector<int>& Entity::asIntegerList(const std::string& sPropName) const
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asIntegerList(m_pData);
+        }
+    }
+    throw EMissMatchProperty();
+}
+
+std::vector<double>& Entity::asDoubleList(const std::string& sPropName) const
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asDoubleList(m_pData);
+        }
+    }
+    throw EMissMatchProperty();
+}
+
+std::vector<bool>& Entity::asBooleanList(const std::string& sPropName) const
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asBooleanList(m_pData);
+        }
+    }
+    throw EMissMatchProperty();
+}
+
+std::vector<EntityRef>& Entity::asEntityRefList(const std::string& sPropName) const
+{
+    if (m_pClass)
+    {
+        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
+        if (pAttr)
+        {
+            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asEntityRefList(m_pData);
+        }
+    }
+    throw EMissMatchProperty();
+}
+
+GFCENGINE_NAMESPACE_END

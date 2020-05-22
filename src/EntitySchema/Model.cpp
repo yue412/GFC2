@@ -1,9 +1,14 @@
 #include "model.h"
+#include "BuildinType.h"
 
 GFC_NAMESPACE_BEGIN
 
 CModel::CModel(): m_pRefModel(nullptr)
 {
+    addTypeObject(new CBooleanType);
+    addTypeObject(new CIntegerType);
+    addTypeObject(new CRealType);
+    addTypeObject(new CStringType);
 }
 
 CModel::~CModel()

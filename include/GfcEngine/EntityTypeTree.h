@@ -4,17 +4,16 @@
 #include <vector>
 #include <map>
 #include <list>
-#include "glodon/objectbuf/Objectbuf.h"
+#include "GfcEngine/GfcEngine.h"
 
-namespace glodon {
-namespace objectbuf {
+GFCENGINE_NAMESPACE_BEGIN
 
 struct EntityTypeNode;
 class EntitySchema;
 class Entity;
 class Document;
 
-class OBJECTBUF_API EntityTypeTree
+class GFCENGINE_API EntityTypeTree
 {
 public:
     EntityTypeTree(Document* pDoc);
@@ -29,7 +28,7 @@ private:
     Document* m_pDoc;
 };
 
-struct OBJECTBUF_API EntityTypeNode 
+struct GFCENGINE_API EntityTypeNode 
 {
     //EntityTypeNode* firstChild;
     //EntityTypeNode* nextBrother;
@@ -37,7 +36,7 @@ struct OBJECTBUF_API EntityTypeNode
     EntityTypeNode()/*: firstChild(NULL), nextBrother(NULL)*/ {}
 };
 
-class OBJECTBUF_API EntityListIterator
+class GFCENGINE_API EntityListIterator
 {
 public:
     EntityListIterator(EntityTypeTree::EntityList* pList) : m_pList(pList), m_nIndex(0), m_nFilterTypeId(-1) {first();}
@@ -56,9 +55,8 @@ private:
     int m_nFilterTypeId;
 };
 
-OBJECTBUF_API void entityListToVector(EntityTypeTree::EntityList& oSrc, std::vector<Entity*>& oDest);
+GFCENGINE_API void entityListToVector(EntityTypeTree::EntityList& oSrc, std::vector<Entity*>& oDest);
 
-}
-}
+GFCENGINE_NAMESPACE_END
 
 #endif

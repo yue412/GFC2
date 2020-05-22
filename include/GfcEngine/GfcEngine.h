@@ -1,0 +1,15 @@
+#ifndef GFCENGINE_H
+#define GFCENGINE_H
+
+#ifdef GFCENGINE_EXPORTS
+#define GFCENGINE_API __declspec(dllexport)
+#else
+#define GFCENGINE_API __declspec(dllimport)
+#endif
+
+#define GFCENGINE_NAMESPACE_BEGIN namespace gfc2 { namespace engine {
+#define GFCENGINE_NAMESPACE_END } }
+
+typedef int EntityRef;
+
+#endif

@@ -54,34 +54,39 @@ std::wstring LowerString(const std::wstring & sStr)
 }
 
 // 把一个wstring转化为string
-std::string toString(const std::wstring & src)
+std::string toString(const std::wstring & str)
 {
-    char* loc = std::setlocale(LC_CTYPE, "");
-
-    size_t const mbs_len = wcstombs(NULL, src.c_str(), 0);
-    std::vector<char> tmp(mbs_len + 1);
-    wcstombs(&tmp[0], src.c_str(), tmp.size());
-    std::string dest;
-    dest.assign(tmp.begin(), tmp.end() - 1);
-    std::setlocale(LC_CTYPE, loc);
-    return dest;
+    // unicode to Ascii
+    //预转换，得到所需空间的大小，这次用的函数和上面名字相反
+    int u8Len = ::WideCharToMultiByte(CP_ACP, NULL, str.c_str(), wcslen(str.c_str()), NULL, 0, NULL, NULL);
+    //同上，分配空间要给'\0'留个空间
+    //UTF8虽然是Unicode的压缩形式，但也是多字节字符串，所以可以以char的形式保存
+    char* szU8 = new char[u8Len + 1];
+    //转换
+    //unicode版对应的strlen是wcslen
+    ::WideCharToMultiByte(CP_ACP, NULL, str.c_str(), wcslen(str.c_str()), szU8, u8Len, NULL, NULL);
+    //最后加上'\0'
+    szU8[u8Len] = '\0';
+    std::string sResult = szU8;
+    delete[] szU8;
+    return sResult;
 }
 
 // 把一个string转化为wstring
-std::wstring toWstring(const std::string& src)
+std::wstring toWstring(const std::string& str)
 {
-    //   std::setlocale(LC_CTYPE, "");
-    char* loc = std::setlocale(LC_CTYPE, "zh_CN");
-
-    size_t const wcs_len = mbstowcs(NULL, src.c_str(), 0);
-    std::vector<wchar_t> tmp(wcs_len + 1);
-    mbstowcs(&tmp[0], src.c_str(), src.size());
-
-    std::wstring dest;
-    dest.assign(tmp.begin(), tmp.end() - 1);
-    std::setlocale(LC_CTYPE, loc);
-
-    return dest;
+    //Ascii to Unicode
+    //预转换，得到所需空间的大小
+    int wcsLen = ::MultiByteToWideChar(CP_ACP, NULL, str.c_str(), strlen(str.c_str()), NULL, 0);
+    //分配空间要给'\0'留个空间，MultiByteToWideChar不会给'\0'空间
+    wchar_t* wszString = new wchar_t[wcsLen + 1];
+    //转换
+    ::MultiByteToWideChar(CP_ACP, NULL, str.c_str(), strlen(str.c_str()), wszString, wcsLen);
+    //最后加上'\0'
+    wszString[wcsLen] = '\0';
+    std::wstring sResult = wszString;
+    delete[] wszString;
+    return sResult;
 }
 
 

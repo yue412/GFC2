@@ -1,14 +1,13 @@
-#include "glodon/objectbuf/Reader.h"
+#include "GfcEngine/Reader.h"
 #include <assert.h>
 #include <fstream>
-#include "glodon/objectbuf/Document.h"
+#include "GfcEngine/Document.h"
 #include "ReaderImp.h"
 #include "SerializerManager.h"
 //#include "ReaderTextImp.h"
 //#include "ReaderBinaryImp.h"
 
-namespace glodon {
-namespace objectbuf {
+GFCENGINE_NAMESPACE_BEGIN
 
 Reader::Reader()
 {
@@ -21,7 +20,7 @@ Reader::~Reader(void)
 
 bool Reader::read(const string& sFileName, Document* pDoc)
 {
-    //glodon::objectbuf::Entity::setDocument(pDoc);
+    //gfc2::engine::Entity::setDocument(pDoc);
     m_pSerializerManager = SerializerManager::getInstance();
     for (int i = 0; i < m_pSerializerManager->getCount(); i++)
     {
@@ -46,5 +45,4 @@ bool Reader::read(const string& sFileName, Document* pDoc)
 //    return strcmp(sHead, "HEADER;") != 0;
 //}
 
-}
-}
+GFCENGINE_NAMESPACE_END

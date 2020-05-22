@@ -3,17 +3,16 @@
 
 #include <string>
 #include <memory>
-#include "glodon\objectbuf\Entity.h"
-#include "glodon\objectbuf\Document.h"
+#include "GfcEngine\Entity.h"
+#include "GfcEngine\Document.h"
 
 using namespace std;
-namespace glodon {
-namespace objectbuf {
 
-class SerializerManager;
+GFCENGINE_NAMESPACE_BEGIN
+
 class WriterImp;
 
-class OBJECTBUF_API Writer
+class GFCENGINE_API Writer
 {
 public:
     Writer(void);
@@ -22,12 +21,9 @@ public:
     void close();
     EntityRef writeEntity(Entity* pEntity); 
 private:
-    std::tr1::shared_ptr<SerializerManager> m_pSerializerManager;
     WriterImp* m_pImp;
-    Document m_oDoc; // 目前仅仅是为了记录Schema，防止崩溃
 };
 
-}
-}
+GFCENGINE_NAMESPACE_END
 
 #endif

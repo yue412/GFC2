@@ -1,9 +1,7 @@
-#include "glodon/objectbuf/Document.h"
-#include "glodon/objectbuf/EntitySchema.h"
-#include "glodon/objectbuf/EntityTypeTree.h"
+#include "GfcEngine/Document.h"
+#include "GfcEngine/EntityTypeTree.h"
 
-namespace glodon {
-namespace objectbuf {
+GFCENGINE_NAMESPACE_BEGIN
 
 Document::Document( int nEntityInitCount /*= 1000000*/ )
 {
@@ -88,7 +86,7 @@ Entity* Document::find( EntityRef nId )
     return nullptr;
 }
 
-glodon::objectbuf::DocumentIterator Document::getIterator()
+gfc2::engine::DocumentIterator Document::getIterator()
 {
     DocumentIterator oIterator(&this->m_oEntities);
     return oIterator;
@@ -104,13 +102,13 @@ EntityTypeTree::EntityList Document::getEntities( int nType, bool bIncludeSubTyp
     return m_pEntityTypeTree->getEntities(nType, bIncludeSubType);
 }
 
-glodon::objectbuf::EntitySchema* Document::findSchemaByID( const int& nId )
+gfc2::engine::EntitySchema* Document::findSchemaByID( const int& nId )
 {
     auto oItr = m_oSchemaMap.find(nId);
     return oItr == m_oSchemaMap.end() ? NULL : oItr->second;
 }
 
-void Document::addSchema( glodon::objectbuf::EntitySchema* pSchema, const int& nId )
+void Document::addSchema( gfc2::engine::EntitySchema* pSchema, const int& nId )
 {
     assert(m_oSchemaMap.find(nId) == m_oSchemaMap.end());
     m_oSchemaMap.insert(std::make_pair(nId, pSchema));
@@ -120,7 +118,7 @@ void Document::linkSchemaByParent()
 {
     for (auto pIter = m_oSchemaMap.begin(); pIter != m_oSchemaMap.end(); pIter++)
     {
-        glodon::objectbuf::EntitySchema* pSchema = pIter->second;
+        gfc2::engine::EntitySchema* pSchema = pIter->second;
         if (pSchema->getParent() != nullptr)
         {
             pSchema->getParent()->addChild(pSchema);
@@ -128,8 +126,8 @@ void Document::linkSchemaByParent()
     }
     for (auto pIter = m_oSchemaMap.begin(); pIter != m_oSchemaMap.end(); pIter++)
     {
-        glodon::objectbuf::EntitySchema* pSchema = pIter->second;
-        glodon::objectbuf::EntitySchema* pParent = pSchema->getParent();
+        gfc2::engine::EntitySchema* pSchema = pIter->second;
+        gfc2::engine::EntitySchema* pParent = pSchema->getParent();
         while (pParent != nullptr)
         {
             __int64 nTypeKey = pParent->getId();
@@ -140,7 +138,7 @@ void Document::linkSchemaByParent()
     }
 }
 
-bool Document::schemaFilter( glodon::objectbuf::EntitySchema* pSchema, int nFilterType, bool bIncludeSubType )
+bool Document::schemaFilter( gfc2::engine::EntitySchema* pSchema, int nFilterType, bool bIncludeSubType )
 {
     int nTypeID = pSchema->getId();
     if (nTypeID == nFilterType)
@@ -159,5 +157,4 @@ bool Document::schemaFilter( glodon::objectbuf::EntitySchema* pSchema, int nFilt
     return false;
 }
 
-}
-}
+GFCENGINE_NAMESPACE_END

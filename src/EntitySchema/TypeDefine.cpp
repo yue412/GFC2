@@ -24,4 +24,9 @@ CTypeObject *CTypeDef::getBaseType()
         return m_pRefType;
 }
 
+CDataTypeEnum CTypeDef::getDataType() const
+{
+    return m_pRefType->getDataType();
+}
+
 GFC_NAMESPACE_END

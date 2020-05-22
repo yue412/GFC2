@@ -12,6 +12,7 @@ public:
     CEnumType();
     CEnumType(const std::wstring& sName);
     virtual CTypeObjectEnum getType() const {return TOE_ENUM;}
+    virtual CDataTypeEnum getDataType() const { return EDT_ENUM; }
     // Ã¶¾ÙÖµ
     std::wstring& getEnum(int nIndex);
     std::wstring& getEnumDocument(int nIndex);

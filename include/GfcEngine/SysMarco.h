@@ -4,21 +4,21 @@
 #include <math.h>
 #include <map>
 #include <string>
-#include "OBRegHelper.h"
+#include "GfcEngine\RegHelper.h"
 
-namespace glodon
-{
-    namespace objectbuf
-    {
-        extern OBJECTBUF_API std::map<std::string, int> g_oOBObjCount;
-        extern OBJECTBUF_API std::map<std::string, std::map<int, int> > g_nOBObjSize;
-    }
-}
+//namespace glodon
+//{
+//    namespace objectbuf
+//    {
+//        extern GFCENGINE_API std::map<std::string, int> g_oOBObjCount;
+//        extern GFCENGINE_API std::map<std::string, std::map<int, int> > g_nOBObjSize;
+//    }
+//}
 
-#define OBJECTBUF_DEC_FACTORY(className,factoryType,classKeyType) \
+#define GFCENGINE_DEC_FACTORY(className,factoryType,classKeyType) \
 public: \
     typedef classKeyType RegKeyType;\
-	typedef glodon::objectbuf::OBObjectFactory<RegKeyType> ObjectFactory;\
+	typedef ObjectFactory<RegKeyType> ObjectFactory;\
     class RegClearHelper \
     {\
     public:\
@@ -47,20 +47,20 @@ public:\
         return s_pClassFactory;\
     }
 
-#define OBJECTBUF_IMP_FACTORY(className,factoryType) \
+#define GFCENGINE_IMP_FACTORY(className,factoryType) \
 className::ObjectFactory* className::s_pClassFactory = NULL;\
 className::RegClearHelper className::m_autoRegClear;
 
 
-#define OBJECTBUF_DEC_OBJECT(className,factoryClassName) \
+#define GFCENGINE_DEC_OBJECT(className,factoryClassName) \
 public:\
     typedef className thisClass;\
     typedef factoryClassName baseClassName;\
-    typedef glodon::objectbuf::OBRegItem<baseClassName::RegKeyType> ClassRegItem; \
-    typedef glodon::objectbuf::OBRegHelper<baseClassName::RegKeyType> ClassRegHelper; \
+    typedef glodon::objectbuf::RegItem<baseClassName::RegKeyType> ClassRegItem; \
+    typedef glodon::objectbuf::RegHelper<baseClassName::RegKeyType> ClassRegHelper; \
 public:\
     static ClassRegHelper s_##className##RegHelper; \
-    static OBObject* CreateInstance()\
+    static Object* CreateInstance()\
     { \
         return dynamic_cast<baseClassName*> (new className); \
     }\
@@ -69,7 +69,7 @@ public:\
         return baseClassName::GetFactory();\
     }
 
-#define OBJECTBUF_IMP_OBJECT(className,objType,mode)\
+#define GFCENGINE_IMP_OBJECT(className,objType,mode)\
 className::ClassRegHelper className::s_##className##RegHelper(className::ClassRegItem(objType,mode),className::CreateInstance,className::baseClassName::GetFactory());
 
     /*
