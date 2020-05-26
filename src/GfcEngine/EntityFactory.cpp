@@ -2,7 +2,6 @@
 #include <fstream>
 #include "GfcEngine\EntityFactory.h"
 #include "GfcEngine\Entity.h"
-#include "EntityAttributeDataHandler.h"
 #include "Model.h"
 #include "Common.h"
 #include "BuildinType.h"
@@ -59,7 +58,6 @@ void EntityFactory::loadSchema(const char * buf, int len)
     {
         assert(false);
     }
-    finalize(m_pModel);
 }
 
 Entity * EntityFactory::create(const std::string & sName)
@@ -78,109 +76,10 @@ Entity * EntityFactory::create(const std::string & sName)
     }
 }
 
-void EntityFactory::initClass(gfc2::schema::CClass * pClass)
-{
-    if (pClass->getDataSize() >= 0)
-    {
-        // ÒÑ³õÊ¼»¯
-        return;
-    }
-    int nDataSize = 0;
-    if (pClass->getParent()) 
-    {
-        initClass(pClass->getParent());
-        nDataSize = pClass->getParent()->getDataSize();
-    }
-    for (int j = 0; j < pClass->getAttributeCount(); j++)
-    {
-        auto pAttr = pClass->getAttribute(j);
-        initAttr(pAttr);
-        pAttr->getDataHandler()->setOffset(nDataSize);
-        nDataSize += pAttr->getDataHandler()->getDataSize();
-    }
-    pClass->setDataSize(nDataSize);
-}
-
 void EntityFactory::clear()
 {
     delete m_pModel; m_pModel = nullptr;
     delete m_pTempModel; m_pTempModel = nullptr;
-}
-
-void EntityFactory::finalize(gfc2::schema::CModel * pModel)
-{
-    for (int i = 0; i < pModel->getTypeObjectCount(); i++)
-    {
-        auto pClass = dynamic_cast<gfc2::schema::CClass*>(pModel->getTypeObject(i));
-        if (pClass)
-        {
-            initClass(pClass);
-        }
-    }
-}
-
-void EntityFactory::initAttr(gfc2::schema::CAttribute * pAttribute)
-{
-    auto nType = pAttribute->getType()->getDataType();
-    gfc2::schema::CAttributeDataHandler* pHandler = nullptr;
-    if (pAttribute->getRepeatFlag())
-    {
-        switch (nType)
-        {
-        case gfc2::schema::EDT_BOOLEAN:
-            pHandler = new BooleanListAttributeDataHandler(pAttribute);
-            break;
-        case gfc2::schema::EDT_INTEGER:
-            pHandler = new IntegerListAttributeDataHandler(pAttribute);
-            break;
-        case gfc2::schema::EDT_DOUBLE:
-            pHandler = new DoubleListAttributeDataHandler(pAttribute);
-            break;
-        case gfc2::schema::EDT_STRING:
-            pHandler = new StringListAttributeDataHandler(pAttribute);
-            break;
-        case gfc2::schema::EDT_ENUM:
-            pHandler = new IntegerListAttributeDataHandler(pAttribute);
-            break;
-        case gfc2::schema::EDT_ENTITY:
-            pHandler = new EntityRefListAttributeDataHandler(pAttribute);
-            break;
-        default:
-            break;
-        }
-    }
-    else
-    {
-        switch (nType)
-        {
-        case gfc2::schema::EDT_BOOLEAN:
-            pHandler = new BooleanAttributeDataHandler(pAttribute);
-            break;
-        case gfc2::schema::EDT_INTEGER:
-            pHandler = new IntegerAttributeDataHandler(pAttribute);
-            break;
-        case gfc2::schema::EDT_DOUBLE:
-            pHandler = new DoubleAttributeDataHandler(pAttribute);
-            break;
-        case gfc2::schema::EDT_STRING:
-            pHandler = new StringAttributeDataHandler(pAttribute);
-            break;
-        case gfc2::schema::EDT_ENUM:
-            pHandler = new IntegerAttributeDataHandler(pAttribute);
-            break;
-        case gfc2::schema::EDT_ENTITY:
-            pHandler = new EntityRefAttributeDataHandler(pAttribute);
-            break;
-        default:
-            break;
-        }
-    }
-    if (pHandler == nullptr)
-    {
-        assert(false);
-        pHandler = new EntityAttributeDataHandler(pAttribute); // mock
-    }
-    pAttribute->setDataHandler(pHandler);
 }
 
 GFCENGINE_NAMESPACE_END

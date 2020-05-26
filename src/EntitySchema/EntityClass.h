@@ -31,18 +31,17 @@ public:
     int getChildCount() {return (int)m_oChildList.size();}
     CClass* getChild(int nIndex);
     void addChild(CClass* pClass);
+    bool isInherited(const std::wstring& sName);
     //  Ù–‘
     CAttribute *getAttribute(int nIndex);
     int getAttributeCount(){return (int)m_oAttributeList.size();}
     void addAttribute(CAttribute* pAttribute);
     CAttribute* findAttribute(const std::wstring& sName);
+    int attributeIndexByName(const std::wstring& sName);
 
     bool getIsValid() { return m_bIsValid; }
     void setIsValid(bool bIsValid) { m_bIsValid = bIsValid; }
-    int getDataSize() { return m_nDataSize; }
-    void setDataSize(int nDataSize) { m_nDataSize = nDataSize; }
 private:
-    int m_nDataSize; // for entity data
     CClass* m_pParent;
     CClassList m_oChildList;
     CAttributeList m_oAttributeList;

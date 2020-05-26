@@ -15,11 +15,11 @@ Writer::~Writer(void)
     close();
 }
 
-bool Writer::open( const string& sFileName, const std::string& sFormatType, const string& sProductCode )
+bool Writer::open( const string& sFileName, const std::string& sFormatType, const string& sVersion, const string& sProductCode )
 {
     close();
     m_pImp = (WriterImp*)WriterImp::GetFactory()->Create(sFormatType);
-    return m_pImp->open(sFileName, sProductCode);
+    return m_pImp->open(sFileName, sProductCode, sVersion);
 }
 
 void Writer::close()
@@ -32,7 +32,7 @@ void Writer::close()
     }
 }
 
-gfc2::engine::EntityRef Writer::writeEntity( Entity* pEntity )
+EntityRef Writer::writeEntity( Entity* pEntity )
 {
     if (m_pImp)
     {

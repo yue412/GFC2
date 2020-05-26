@@ -1,112 +1,60 @@
 #include "GfcEngine\Property.h"
+#include "GfcEngine\PropValue.h"
 #include "EntityAttribute.h"
+#include "TypeObject.h"
 #include "Common.h"
-#include "EntityAttributeDataHandler.h"
+#include <assert.h>
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Property::Property(char* pData, gfc2::schema::CAttribute* pAttribute): m_pData(pData), m_pAttribute(pAttribute)
+Property::Property(gfc2::schema::CAttribute* pAttribute, PropValue* pValue): m_pValue(pValue), m_pAttribute(pAttribute)
 {
 }
 
 Property::~Property()
 {
+    delete m_pValue;
 }
 
-std::string Property::propName() const
+std::string Property::name() const
 {
     return toString(m_pAttribute->getName());
 }
 
-bool Property::isNull() const
+PropValue * Property::value() const
 {
-    return getDataHandler()->isNull(m_pData);
+    return m_pValue;
 }
 
-std::string Property::asString() const
+PropValue * Property::createValue(gfc2::schema::CTypeObject * pType)
 {
-    return getDataHandler()->asString(m_pData);
-}
-
-int Property::asInteger() const
-{
-    return getDataHandler()->asInteger(m_pData);
-}
-
-double Property::asDouble() const
-{
-    return getDataHandler()->asDouble(m_pData);
-}
-
-bool Property::asBoolean() const
-{
-    return getDataHandler()->asBoolean(m_pData);
-}
-
-EntityRef Property::asEntityRef() const
-{
-    return getDataHandler()->asEntityRef(m_pData);
-}
-
-Entity* Property::asEntity() const
-{
-    //todo
-    return nullptr;
-}
-
-void Property::setAsString(const std::string& sValue)
-{
-    getDataHandler()->setAsString(m_pData, sValue);
-}
-
-void Property::setAsInteger(const int& nValue)
-{
-    getDataHandler()->setAsInteger(m_pData, nValue);
-}
-
-void Property::setAsDouble(const double& dValue)
-{
-    getDataHandler()->setAsDouble(m_pData, dValue);
-}
-
-void Property::setAsBoolean(const bool& bValue)
-{
-    getDataHandler()->setAsBoolean(m_pData, bValue);
-}
-
-void Property::setAsEntityRef(const EntityRef& nValue)
-{
-    getDataHandler()->setAsEntityRef(m_pData, nValue);
-}
-
-std::vector<std::string>& Property::asStringList() const
-{
-    return getDataHandler()->asStringList(m_pData);
-}
-
-std::vector<int>& Property::asIntegerList() const
-{
-    return getDataHandler()->asIntegerList(m_pData);
-}
-
-std::vector<double>& Property::asDoubleList() const
-{
-    return getDataHandler()->asDoubleList(m_pData);
-}
-
-std::vector<bool>& Property::asBooleanList() const
-{
-    return getDataHandler()->asBooleanList(m_pData);
-}
-
-std::vector<EntityRef>& Property::asEntityRefList() const
-{
-    return getDataHandler()->asEntityRefList(m_pData);
-}
-
-EntityAttributeDataHandler * Property::getDataHandler() const
-{
-    return (EntityAttributeDataHandler*)(m_pAttribute->getDataHandler());
+    PropValue* pResult;
+    switch (pType->getDataType())
+    {
+    case gfc2::schema::EDT_BOOLEAN:
+        pResult = new BooleanValue;
+        break;
+    case gfc2::schema::EDT_INTEGER:
+        pResult = new IntegerValue;
+        break;
+    case gfc2::schema::EDT_DOUBLE:
+        pResult = new DoubleValue;
+        break;
+    case gfc2::schema::EDT_STRING:
+        pResult = new StringValue;
+        break;
+    case gfc2::schema::EDT_ENUM:
+        pResult = new IntegerValue;
+        break;
+    case gfc2::schema::EDT_ENTITY:
+        pResult = new EntityRefValue;
+        break;
+    default:
+        assert(false);
+        pResult = new LeafPropValue;
+        break;
+    }
+    return pResult;
 }
 
 GFCENGINE_NAMESPACE_END

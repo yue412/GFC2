@@ -1,9 +1,13 @@
 #include "GfcEngine/Document.h"
 #include "GfcEngine/EntityTypeTree.h"
+#include "EntityClass.h"
+#include "Model.h"
+#include "Common.h"
+#include <assert.h>
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Document::Document( int nEntityInitCount /*= 1000000*/ )
+Document::Document( gfc2::schema::CModel* pModel, int nEntityInitCount /*= 1000000*/ ): m_pModel(pModel)
 {
     m_pEntityTypeTree = new EntityTypeTree(this);
     m_oEntities.resize(nEntityInitCount, nullptr);
@@ -29,7 +33,7 @@ void Document::add( EntityRef nId, Entity* pEntity )
         m_oEntities.resize(nSize, nullptr);
     }
     m_oEntities[nId] = pEntity;
-    EntitySchema* pSchema = pEntity->createSchema();
+    gfc2::schema::CClass* pSchema = pEntity->getClass();
     EntityTypeNode* pNode = m_pEntityTypeTree->getNode(pSchema);
     pNode->entities.push_back(pEntity);
     //delete pSchema;
@@ -37,7 +41,7 @@ void Document::add( EntityRef nId, Entity* pEntity )
 
 void Document::remove( EntityRef nId )
 {
-    if (nId < 0 || nId >= m_oEntities.size())
+    if (nId < 0 || nId >= (EntityRef)m_oEntities.size())
     {
         return;
     }
@@ -47,7 +51,7 @@ void Document::remove( EntityRef nId )
         return;
     }
     m_oEntities[nId] = nullptr;
-    EntitySchema* pSchema = pEntity->createSchema();
+    gfc2::schema::CClass* pSchema = pEntity->getClass();
     EntityTypeNode* pNode = m_pEntityTypeTree->getNode(pSchema);
     for (std::vector<Entity*>::iterator oItr = pNode->entities.begin(); oItr != pNode->entities.end(); ++oItr)
     {
@@ -67,11 +71,6 @@ void Document::clear()
         delete *oItr;
     }
     m_oEntities.clear();
-    for (auto oItr = m_oSchemaMap.begin(); oItr != m_oSchemaMap.end(); ++oItr)
-    {
-        delete oItr->second;
-    }
-    m_oSchemaMap.clear();
 
     m_pEntityTypeTree->clear();
     m_oSchemaInheritSet.clear();
@@ -79,7 +78,7 @@ void Document::clear()
 
 Entity* Document::find( EntityRef nId )
 {
-    if (nId >= 0 && nId < m_oEntities.size())
+    if (nId >= 0 && nId < (EntityRef)m_oEntities.size())
     {
         return m_oEntities[nId];
     }
@@ -92,69 +91,58 @@ gfc2::engine::DocumentIterator Document::getIterator()
     return oIterator;
 }
 
-EntityTypeNode* Document::findByType( int nType )
+EntityTypeNode* Document::findByType( const std::string& sType )
 {
-    return m_pEntityTypeTree->find(nType);
+    return m_pEntityTypeTree->find(normalizeTypeName(sType));
 }
 
-EntityTypeTree::EntityList Document::getEntities( int nType, bool bIncludeSubType /*= false*/ )
+EntityTypeTree::EntityList Document::getEntities(const std::string& sType, bool bIncludeSubType /*= false*/ )
 {
-    return m_pEntityTypeTree->getEntities(nType, bIncludeSubType);
-}
-
-gfc2::engine::EntitySchema* Document::findSchemaByID( const int& nId )
-{
-    auto oItr = m_oSchemaMap.find(nId);
-    return oItr == m_oSchemaMap.end() ? NULL : oItr->second;
-}
-
-void Document::addSchema( gfc2::engine::EntitySchema* pSchema, const int& nId )
-{
-    assert(m_oSchemaMap.find(nId) == m_oSchemaMap.end());
-    m_oSchemaMap.insert(std::make_pair(nId, pSchema));
+    return m_pEntityTypeTree->getEntities(normalizeTypeName(sType), bIncludeSubType);
 }
 
 void Document::linkSchemaByParent()
 {
-    for (auto pIter = m_oSchemaMap.begin(); pIter != m_oSchemaMap.end(); pIter++)
+    for (int i = 0; i < m_pModel->getTypeObjectCount(); ++i)
     {
-        gfc2::engine::EntitySchema* pSchema = pIter->second;
-        if (pSchema->getParent() != nullptr)
-        {
-            pSchema->getParent()->addChild(pSchema);
-        }
-    }
-    for (auto pIter = m_oSchemaMap.begin(); pIter != m_oSchemaMap.end(); pIter++)
-    {
-        gfc2::engine::EntitySchema* pSchema = pIter->second;
-        gfc2::engine::EntitySchema* pParent = pSchema->getParent();
+        gfc2::schema::CClass* pSchema = dynamic_cast<gfc2::schema::CClass*>(m_pModel->getTypeObject(i));
+        if (pSchema == nullptr)
+            continue;
+        gfc2::schema::CClass* pParent = pSchema->getParent();
         while (pParent != nullptr)
         {
-            __int64 nTypeKey = pParent->getId();
-            nTypeKey = nTypeKey << 32 + pSchema->getId();
-            m_oSchemaInheritSet.insert(nTypeKey);
+            auto sTypeKey = pParent->getName();
+            sTypeKey = sTypeKey + L'|' + pSchema->getName();
+            m_oSchemaInheritSet.insert(toString(sTypeKey));
             pParent = pParent->getParent();
         }
     }
 }
 
-bool Document::schemaFilter( gfc2::engine::EntitySchema* pSchema, int nFilterType, bool bIncludeSubType )
+bool Document::schemaFilter( gfc2::schema::CClass* pSchema, const std::string& nFilterType, bool bIncludeSubType )
 {
-    int nTypeID = pSchema->getId();
-    if (nTypeID == nFilterType)
+    auto sFilterTypeName = normalizeTypeName(nFilterType); // done for typedef class
+    auto nTypeID = toString(pSchema->getName());
+    if (nTypeID == sFilterTypeName)
     {
         return true;
     }
     if (bIncludeSubType)
     {
-        __int64 nTypeKey = nFilterType;
-        nTypeKey = nTypeKey << 32 + pSchema->getId();
+        auto nTypeKey = sFilterTypeName;
+        nTypeKey = nTypeKey + "|" + toString(pSchema->getName());
         if (m_oSchemaInheritSet.find(nTypeKey) != m_oSchemaInheritSet.end())
         {
             return true;
         }
     }
     return false;
+}
+
+std::string Document::normalizeTypeName(const std::string & sTypeName)
+{
+    auto pType = m_pModel->findTypeObject(toWstring(sTypeName)); // done for typedef class
+    return pType ? toString(pType->getBaseType()->getName()) : "";
 }
 
 GFCENGINE_NAMESPACE_END

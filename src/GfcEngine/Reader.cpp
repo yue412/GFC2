@@ -1,15 +1,11 @@
-#include "GfcEngine/Reader.h"
 #include <assert.h>
-#include <fstream>
+#include "GfcEngine/Reader.h"
 #include "GfcEngine/Document.h"
 #include "ReaderImp.h"
-#include "SerializerManager.h"
-//#include "ReaderTextImp.h"
-//#include "ReaderBinaryImp.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Reader::Reader()
+Reader::Reader(EntityFactory* pFactory): m_pImp(nullptr), m_pFactory(pFactory)
 {
 }
 
@@ -18,31 +14,76 @@ Reader::~Reader(void)
 {
 }
 
-bool Reader::read(const string& sFileName, Document* pDoc)
+bool Reader::open(const string & sFileName)
 {
-    //gfc2::engine::Entity::setDocument(pDoc);
-    m_pSerializerManager = SerializerManager::getInstance();
-    for (int i = 0; i < m_pSerializerManager->getCount(); i++)
+    close();
+    for (auto itr = ReaderImp::GetFactory()->begin(); itr != ReaderImp::GetFactory()->end(); ++itr)
     {
-        ReaderImp* pImp = m_pSerializerManager->getReaderImp(i);
-        if (pImp->preRead(sFileName))
+        auto pRegObjInfo = itr->second;
+        if (pRegObjInfo->GetFunPtr() != NULL)
         {
-            bool bSucc = pImp->read(sFileName, pDoc, m_oErrors);
-            pDoc->linkSchemaByParent();
-            return bSucc;
+            auto pImp = dynamic_cast<ReaderImp*> (pRegObjInfo->GetFunPtr()());
+            if (pImp->preRead(sFileName))
+            {
+                m_pImp = pImp;
+                m_pImp->setFactory(m_pFactory);
+                return m_pImp->open(sFileName);
+            }
+            else
+            {
+                delete pImp;
+            }
         }
     }
     return false;
 }
 
-//bool Reader::isBinaryFile(const string &sFileName)
-//{
-//    char sHead[8];
-//    std::fstream in(sFileName, std::ios::in | std::ios::binary);
-//    in.get(sHead, 8);
-//    sHead[7] = 0;
-//    in.close();
-//    return strcmp(sHead, "HEADER;") != 0;
-//}
+void Reader::close()
+{
+    if (m_pImp)
+    {
+        m_pImp->close();
+        delete m_pImp;
+        m_pImp = nullptr;
+    }
+}
+
+void Reader::read(Document* pDoc)
+{
+    //gfc2::engine::Entity::setDocument(pDoc);
+    //m_pSerializerManager = SerializerManager::getInstance();
+    //for (int i = 0; i < m_pSerializerManager->getCount(); i++)
+    //{
+    //    ReaderImp* pImp = m_pSerializerManager->getReaderImp(i);
+    //    if (pImp->preRead(sFileName))
+    //    {
+    //        bool bSucc = pImp->read(sFileName, pDoc, m_oErrors);
+    //        pDoc->linkSchemaByParent();
+    //        return bSucc;
+    //    }
+    //}
+    if (m_pImp)
+    {
+        m_pImp->read(pDoc, m_oErrors);
+    }
+}
+
+EntityPtr Reader::getEntity(EntityRef nId)
+{
+    if (m_pImp)
+    {
+        return m_pImp->getEntity(nId);
+    }
+    return nullptr;
+}
+
+EntityListIterator Reader::getEntities(const std::string & sType, bool bIncludeSubType)
+{
+    if (m_pImp)
+    {
+        return m_pImp->getEntities(sType, bIncludeSubType);
+    }
+    return EntityListIterator(nullptr);
+}
 
 GFCENGINE_NAMESPACE_END

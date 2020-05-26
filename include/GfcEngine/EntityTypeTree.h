@@ -6,10 +6,15 @@
 #include <list>
 #include "GfcEngine/GfcEngine.h"
 
+namespace gfc2 {
+    namespace schema {
+        class CClass;
+    }
+}
+
 GFCENGINE_NAMESPACE_BEGIN
 
 struct EntityTypeNode;
-class EntitySchema;
 class Entity;
 class Document;
 
@@ -18,13 +23,13 @@ class GFCENGINE_API EntityTypeTree
 public:
     EntityTypeTree(Document* pDoc);
     ~EntityTypeTree(void);
-    EntityTypeNode* find(int nType);
-    EntityTypeNode* getNode(EntitySchema* pSchema);
+    EntityTypeNode* find(const std::string& sType);
+    EntityTypeNode* getNode(gfc2::schema::CClass* pSchema);
     typedef std::list<std::vector<Entity*>*> EntityList;
-    EntityList getEntities(int nType, bool bIncludeSubType);
+    EntityList getEntities(const std::string& sType, bool bIncludeSubType);
     void clear();
 private:
-    std::map<int, EntityTypeNode*> m_oEntityTypeMap;
+    std::map<std::string, EntityTypeNode*> m_oEntityTypeMap;
     Document* m_pDoc;
 };
 
@@ -39,12 +44,12 @@ struct GFCENGINE_API EntityTypeNode
 class GFCENGINE_API EntityListIterator
 {
 public:
-    EntityListIterator(EntityTypeTree::EntityList* pList) : m_pList(pList), m_nIndex(0), m_nFilterTypeId(-1) {first();}
+    EntityListIterator(EntityTypeTree::EntityList* pList) : m_pList(pList), m_nIndex(0) {first();}
     void first(); 
     void next();
     Entity* current();
     bool isDone();
-    void setFilterTypeId(int nTypeId) {m_nFilterTypeId = nTypeId;}
+    void setFilterTypeId(const std::string& sType) { m_sFilterType = sType;}
 private:
     void doNext();
     void doFilter();
@@ -52,7 +57,7 @@ private:
     EntityTypeTree::EntityList* m_pList;
     EntityTypeTree::EntityList::iterator m_oMItr;
     int m_nIndex;
-    int m_nFilterTypeId;
+    std::string m_sFilterType;
 };
 
 GFCENGINE_API void entityListToVector(EntityTypeTree::EntityList& oSrc, std::vector<Entity*>& oDest);

@@ -205,6 +205,15 @@ GFCENGINE_NAMESPACE_BEGIN
             m_regHelperMap.clear();
         }
 
+        typename std::map<Type, RegObjInfo<Type>*>::iterator begin()
+        {
+            return m_regHelperMap.begin();
+        }
+
+        typename std::map<Type, RegObjInfo<Type>*>::iterator end()
+        {
+            return m_regHelperMap.end();
+        }
 
     private:
         std::map<Type,RegObjInfo<Type>*> m_regHelperMap;  //子类注册信息表

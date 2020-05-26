@@ -17,7 +17,7 @@ class GFCENGINE_API Writer
 public:
     Writer(void);
     ~Writer(void);
-    bool open(const string& sFileName, const std::string& sFormatType, const string& sProductCode = "");
+    bool open(const string& sFileName, const std::string& sFormatType, const string& sVersion, const string& sProductCode = "");
     void close();
     EntityRef writeEntity(Entity* pEntity); 
 private:

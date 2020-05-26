@@ -56,8 +56,8 @@ className::RegClearHelper className::m_autoRegClear;
 public:\
     typedef className thisClass;\
     typedef factoryClassName baseClassName;\
-    typedef glodon::objectbuf::RegItem<baseClassName::RegKeyType> ClassRegItem; \
-    typedef glodon::objectbuf::RegHelper<baseClassName::RegKeyType> ClassRegHelper; \
+    typedef RegItem<baseClassName::RegKeyType> ClassRegItem; \
+    typedef RegHelper<baseClassName::RegKeyType> ClassRegHelper; \
 public:\
     static ClassRegHelper s_##className##RegHelper; \
     static Object* CreateInstance()\

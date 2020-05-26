@@ -4,14 +4,15 @@
 #include "GfcEngine/Entity.h"
 #include "GfcEngine/EngineException.h"
 #include "GfcEngine/Document.h"
+#include "GfcEngine/Property.h"
+#include "GfcEngine\PropValue.h"
 #include "EntityClass.h"
 #include "EntityAttribute.h"
-#include "EntityAttributeDataHandler.h"
 #include "Common.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Entity::Entity(void): m_pDocument(nullptr), m_pClass(nullptr), m_pData(nullptr)
+Entity::Entity(void): m_pDocument(nullptr), m_pSchema(nullptr)
 {
 }
 
@@ -25,25 +26,34 @@ void Entity::setDocument( Document* pDocument )
     m_pDocument = pDocument;
 }
 
-void Entity::setSchema(gfc2::schema::CClass * pClass)
+void Entity::setSchema(gfc2::schema::CTypeObject * pType)
 {
-    assert(pClass);
-    if (pClass != m_pClass)
+    assert(pType);
+    if (pType != m_pSchema && pType->getDataType() == gfc2::schema::EDT_ENTITY)
     {
         free();
-        m_pClass = pClass;
+        m_pSchema = pType;
         init();
     }
 }
 
+gfc2::schema::CClass * Entity::getClass() const
+{
+    if (m_pSchema)
+    {
+        return (gfc2::schema::CClass *)m_pSchema->getBaseType();
+    }
+    return nullptr;
+}
+
 bool Entity::isInitialized() const
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        for (int i = 0; i < m_pClass->getAttributeCount(); i++)
+        for (int i = 0; i < getClass()->getAttributeCount(); i++)
         {
-            auto pAttr = m_pClass->getAttribute(i);
-            if (!pAttr->getOptionalFlag() && ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->isNull(m_pData))
+            auto pAttr = getClass()->getAttribute(i);
+            if (!pAttr->getOptionalFlag() && getProps(i)->value()->isNull())
                 return false;
         }
     }
@@ -52,27 +62,22 @@ bool Entity::isInitialized() const
 
 int Entity::getPropCount() const
 {
-    return m_pClass ? m_pClass->getAttributeCount() : 0;
+    return m_pSchema ? getClass()->getAttributeCount() : 0;
 }
 
-PropertyPtr Entity::getProps(int nIndex) const
+Property* Entity::getProps(int nIndex) const
 {
-    Property* pResult = nullptr;
-    if (m_pClass && nIndex < getPropCount())
-    {
-        pResult = new Property(m_pData, m_pClass->getAttribute(nIndex));
-    }
-    return PropertyPtr(pResult);
+    return m_oProps[nIndex];
 }
 
 bool Entity::isNull(const std::string& sPropName) const
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
+        auto pValue = valueByName(sPropName);
+        if (pValue)
         {
-            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->isNull(m_pData);
+            return pValue->isNull();
         }
         else
         {
@@ -82,49 +87,61 @@ bool Entity::isNull(const std::string& sPropName) const
     return true;
 }
 
+PropValue * Entity::valueByName(const std::string sPropName) const
+{
+    if (m_pSchema)
+    {
+        auto nIndex = getClass()->attributeIndexByName(toWstring(sPropName));
+        if (nIndex > 0)
+        {
+            return getProps(nIndex)->value();
+        }
+    }
+    return nullptr;
+}
+
 std::string Entity::entityName() const
 {
-    assert(m_pClass);
-    return toString(m_pClass->getName());
+    assert(m_pSchema);
+    return toString(m_pSchema->getName());
 }
 
 void Entity::init()
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto nLen = m_pClass->getDataSize();
-        m_pData = new char[nLen];
-        ZeroMemory(m_pData, nLen);
-        for (int i = 0; i < m_pClass->getAttributeCount(); i++)
+        for (int i = 0; i < getClass()->getAttributeCount(); i++)
         {
-            auto pAttr = m_pClass->getAttribute(i);
-            pAttr->getDataHandler()->init(m_pData);
+            auto pAttr = getClass()->getAttribute(i);
+            if (pAttr->getRepeatFlag())
+            {
+                m_oProps.push_back(new Property(pAttr, new CompositePropValue));
+            }
+            else
+            {
+                m_oProps.push_back(new Property(pAttr, Property::createValue(pAttr->getType())));
+            }
         }
     }
 }
 
 void Entity::free()
 {
-    if (m_pClass)
+    for each (auto pProp in m_oProps)
     {
-        for (int i = 0; i < m_pClass->getAttributeCount(); i++)
-        {
-            auto pAttr = m_pClass->getAttribute(i);
-            pAttr->getDataHandler()->free(m_pData);
-        }
+        delete pProp;
     }
-    delete[] m_pData;
-    m_pData = nullptr;
+    m_oProps.clear();
 }
 
 std::string Entity::asString(const std::string& sPropName) const
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
+        auto pValue = valueByName(sPropName);
+        if (pValue)
         {
-            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asString(m_pData);
+            return pValue->asString();
         }
         else
         {
@@ -136,12 +153,12 @@ std::string Entity::asString(const std::string& sPropName) const
 
 int Entity::asInteger(const std::string& sPropName) const
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
+        auto pValue = valueByName(sPropName);
+        if (pValue)
         {
-            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asInteger(m_pData);
+            return pValue->asInteger();
         }
         else
         {
@@ -153,12 +170,12 @@ int Entity::asInteger(const std::string& sPropName) const
 
 double Entity::asDouble(const std::string& sPropName) const
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
+        auto pValue = valueByName(sPropName);
+        if (pValue)
         {
-            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asDouble(m_pData);
+            return pValue->asDouble();
         }
         else
         {
@@ -170,12 +187,12 @@ double Entity::asDouble(const std::string& sPropName) const
 
 bool Entity::asBoolean(const std::string& sPropName) const
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
+        auto pValue = valueByName(sPropName);
+        if (pValue)
         {
-            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asBoolean(m_pData);
+            return pValue->asBoolean();
         }
         else
         {
@@ -187,12 +204,12 @@ bool Entity::asBoolean(const std::string& sPropName) const
 
 EntityRef Entity::asEntityRef(const std::string& sPropName) const
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
+        auto pValue = valueByName(sPropName);
+        if (pValue)
         {
-            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asEntityRef(m_pData);
+            return pValue->asEntityRef();
         }
         else
         {
@@ -210,12 +227,12 @@ Entity* Entity::asEntity(const std::string& sPropName) const
 
 void Entity::setAsString(const std::string& sPropName, const std::string& sValue)
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
+        auto pValue = valueByName(sPropName);
+        if (pValue)
         {
-            ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->setAsString(m_pData, sValue);
+            return pValue->setAsString(sValue);
         }
         else
         {
@@ -226,12 +243,12 @@ void Entity::setAsString(const std::string& sPropName, const std::string& sValue
 
 void Entity::setAsInteger(const std::string& sPropName, const int& nValue)
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
+        auto pValue = valueByName(sPropName);
+        if (pValue)
         {
-            ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->setAsInteger(m_pData, nValue);
+            return pValue->setAsInteger(nValue);
         }
         else
         {
@@ -242,12 +259,12 @@ void Entity::setAsInteger(const std::string& sPropName, const int& nValue)
 
 void Entity::setAsDouble(const std::string& sPropName, const double& dValue)
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
+        auto pValue = valueByName(sPropName);
+        if (pValue)
         {
-            ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->setAsDouble(m_pData, dValue);
+            return pValue->setAsDouble(dValue);
         }
         else
         {
@@ -258,12 +275,12 @@ void Entity::setAsDouble(const std::string& sPropName, const double& dValue)
 
 void Entity::setAsBoolean(const std::string& sPropName, const bool& bValue)
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
+        auto pValue = valueByName(sPropName);
+        if (pValue)
         {
-            ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->setAsBoolean(m_pData, bValue);
+            return pValue->setAsBoolean(bValue);
         }
         else
         {
@@ -274,83 +291,18 @@ void Entity::setAsBoolean(const std::string& sPropName, const bool& bValue)
 
 void Entity::setAsEntityRef(const std::string& sPropName, const EntityRef& nValue)
 {
-    if (m_pClass)
+    if (m_pSchema)
     {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
+        auto pValue = valueByName(sPropName);
+        if (pValue)
         {
-            ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->setAsEntityRef(m_pData, nValue);
+            return pValue->setAsEntityRef(nValue);
         }
         else
         {
             throw EMissMatchProperty();
         }
     }
-}
-
-std::vector<std::string>& Entity::asStringList(const std::string& sPropName) const
-{
-    if (m_pClass)
-    {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
-        {
-            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asStringList(m_pData);
-        }
-    }
-    throw EMissMatchProperty();
-}
-
-std::vector<int>& Entity::asIntegerList(const std::string& sPropName) const
-{
-    if (m_pClass)
-    {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
-        {
-            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asIntegerList(m_pData);
-        }
-    }
-    throw EMissMatchProperty();
-}
-
-std::vector<double>& Entity::asDoubleList(const std::string& sPropName) const
-{
-    if (m_pClass)
-    {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
-        {
-            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asDoubleList(m_pData);
-        }
-    }
-    throw EMissMatchProperty();
-}
-
-std::vector<bool>& Entity::asBooleanList(const std::string& sPropName) const
-{
-    if (m_pClass)
-    {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
-        {
-            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asBooleanList(m_pData);
-        }
-    }
-    throw EMissMatchProperty();
-}
-
-std::vector<EntityRef>& Entity::asEntityRefList(const std::string& sPropName) const
-{
-    if (m_pClass)
-    {
-        auto pAttr = m_pClass->findAttribute(toWstring(sPropName));
-        if (pAttr)
-        {
-            return ((EntityAttributeDataHandler*)(pAttr->getDataHandler()))->asEntityRefList(m_pData);
-        }
-    }
-    throw EMissMatchProperty();
 }
 
 GFCENGINE_NAMESPACE_END

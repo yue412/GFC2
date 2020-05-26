@@ -19,7 +19,7 @@ public:
     WriterImp(void);
     virtual ~WriterImp(void);
 
-    virtual bool open(const string& sFileName,const string& sProductCode) = 0;
+    virtual bool open(const string& sFileName,const string& sProductCode, const string& sVersion) = 0;
     virtual void close() = 0;
     virtual EntityRef writeEntity(Entity* pEntity) = 0; 
 protected:

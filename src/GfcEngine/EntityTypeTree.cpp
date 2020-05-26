@@ -1,7 +1,10 @@
 #include "GfcEngine/EntityTypeTree.h"
-#include "GfcEngine/EntitySchema.h"
 #include "GfcEngine/Document.h"
+#include "EntityClass.h"
+#include "Model.h"
+#include "Common.h"
 #include <functional>
+#include <assert.h>
 
 GFCENGINE_NAMESPACE_BEGIN
 
@@ -15,9 +18,9 @@ EntityTypeTree::~EntityTypeTree(void)
     clear();
 }
 
-EntityTypeNode* EntityTypeTree::find( int nType )
+EntityTypeNode* EntityTypeTree::find(const std::string& sType)
 {
-    auto oItr = m_oEntityTypeMap.find(nType);
+    auto oItr = m_oEntityTypeMap.find(sType);
     if (oItr != m_oEntityTypeMap.end())
     {
         return oItr->second;
@@ -28,14 +31,14 @@ EntityTypeNode* EntityTypeTree::find( int nType )
     }
 }
 
-EntityTypeNode* EntityTypeTree::getNode( EntitySchema* pSchema )
+EntityTypeNode* EntityTypeTree::getNode(gfc2::schema::CClass* pSchema )
 {
-    int nType = pSchema == NULL ? -1 : pSchema->getId(); 
-    EntityTypeNode* pNode = find(nType);
+    std::string sType = pSchema == NULL ? "" : toString(pSchema->getName());
+    EntityTypeNode* pNode = find(sType);
     if (!pNode)
     {
         pNode = new EntityTypeNode;
-        m_oEntityTypeMap.insert(std::make_pair(nType, pNode));
+        m_oEntityTypeMap.insert(std::make_pair(sType, pNode));
     }
     return pNode;
 }
@@ -49,12 +52,12 @@ void EntityTypeTree::clear()
     m_oEntityTypeMap.clear();
 }
 
-EntityTypeTree::EntityList EntityTypeTree::getEntities( int nType, bool bIncludeSubType )
+EntityTypeTree::EntityList EntityTypeTree::getEntities(const std::string& sType, bool bIncludeSubType )
 {
     EntityList oList;
     if (!bIncludeSubType)
     {
-        if (EntityTypeNode* pNode = find(nType))
+        if (EntityTypeNode* pNode = find(sType))
         {
             if (!pNode->entities.empty())
                 oList.push_back(&pNode->entities);
@@ -62,24 +65,24 @@ EntityTypeTree::EntityList EntityTypeTree::getEntities( int nType, bool bInclude
     }
     else
     {
-        std::function<void (EntitySchema*, EntityList&)> pCollectEntitiesFunc;
-        pCollectEntitiesFunc = [&](EntitySchema* pSchema, EntityList& oCollector)
+        std::function<void (gfc2::schema::CClass*, EntityList&)> pCollectEntitiesFunc;
+        pCollectEntitiesFunc = [&](gfc2::schema::CClass* pSchema, EntityList& oCollector)
         {
-            int nID = pSchema->getId();
+            std::string nID = toString(pSchema->getName());
             if (EntityTypeNode* pNode = find(nID))
             {
                 if (!pNode->entities.empty())
                     oList.push_back(&pNode->entities);
             }
-            std::vector<EntitySchema*> oSubSchemas;
-            pSchema->getChildren(oSubSchemas);
-            for each (auto pSubSchema in oSubSchemas)
+            std::vector<gfc2::schema::CClass*> oSubSchemas;
+            //pSchema->getChildren(oSubSchemas);
+            for (int i = 0; i < pSchema->getChildCount(); i++)
             {
-                pCollectEntitiesFunc(pSubSchema, oCollector);
+                pCollectEntitiesFunc(pSchema->getChild(i), oCollector);
             }
         };
 
-        if (EntitySchema* pSchema = m_pDoc->findSchemaByID(nType))
+        if (gfc2::schema::CClass* pSchema = dynamic_cast<gfc2::schema::CClass*>(m_pDoc->model()->findTypeObject(toWstring(sType))))
         {
             pCollectEntitiesFunc(pSchema, oList);
         }
@@ -130,9 +133,9 @@ void EntityListIterator::doNext()
 
 void EntityListIterator::doFilter()
 {
-    if (m_nFilterTypeId != -1)
+    if (!m_sFilterType.empty())
     {
-        while (!isDone() && !current()->isInherited(m_nFilterTypeId))
+        while (!isDone() && !current()->getClass()->isInherited(toWstring(m_sFilterType)))
         {
             doNext();
         }
