@@ -25,8 +25,6 @@ public:
 
     virtual bool preRead(const string& sFileName); // 判断是否是可以读的格式
     virtual void read(Document* pDoc, std::vector<std::string>& errors);
-
-    virtual EntityListIterator getEntities(const std::string& sType, bool bIncludeSubType = false);
 protected:
     virtual bool getIndex(EntityInfo& oInfo);//顺序读取index
     virtual Entity* createEntity(EntityInfo& oInfo);

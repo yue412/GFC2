@@ -11,7 +11,7 @@ public:
     CBuildinType();
     CBuildinType(const std::wstring& sName);
     virtual CTypeObjectEnum getType() const {return TOE_BUILDIN;}
-    virtual CDataTypeEnum getDataType() const;
+    virtual CDataTypeEnum getDataType() const = 0;
 };
 
 class CBooleanType : public CBuildinType

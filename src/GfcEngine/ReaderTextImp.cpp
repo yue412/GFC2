@@ -82,7 +82,7 @@ void ReaderTextImp::read( Document* pDoc,std::vector<std::string>& errors )
 
                 if (!pDoc->getNeedAddEntityFunc() || pDoc->getNeedAddEntityFunc()(pDoc, nId, pEntity))
                 {
-                    pDoc->add(nId, pEntity);
+                    pDoc->add(nId, EntityPtr(pEntity));
                 }
                 else
                 {

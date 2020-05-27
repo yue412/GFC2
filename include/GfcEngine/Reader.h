@@ -7,7 +7,7 @@
 #include <memory>
 #include "GfcEngine\GfcEngine.h"
 #include "GfcEngine\Entity.h"
-#include "GfcEngine\EntityTypeTree.h"
+#include "GfcEngine\Container.h"
 
 using namespace std;
 
@@ -32,7 +32,7 @@ public:
     void read(Document* pDoc);
 
     EntityPtr getEntity(EntityRef nId);
-    EntityListIterator getEntities(const std::string& sType, bool bIncludeSubType = false);
+    EntityIteratorPtr getEntities(const std::string& sType, bool bIncludeSubType = false);
 
     std::vector<std::string> log() { return m_oErrors; }
 private:

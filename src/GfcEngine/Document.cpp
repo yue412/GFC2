@@ -1,104 +1,42 @@
 #include "GfcEngine/Document.h"
-#include "GfcEngine/EntityTypeTree.h"
 #include "EntityClass.h"
 #include "Model.h"
 #include "Common.h"
+#include "ContainerImp.h"
 #include <assert.h>
 
 GFCENGINE_NAMESPACE_BEGIN
 
 Document::Document( gfc2::schema::CModel* pModel, int nEntityInitCount /*= 1000000*/ ): m_pModel(pModel)
 {
-    m_pEntityTypeTree = new EntityTypeTree(this);
-    m_oEntities.resize(nEntityInitCount, nullptr);
+    m_pContainer = new ContainerImp<EntityPtr>(pModel);
+    //m_pEntityTypeTree = new EntityTypeTree(this);
+    //m_oEntities.resize(nEntityInitCount, nullptr);
 }
-
 
 Document::~Document(void)
 {
-    clear();
-    delete m_pEntityTypeTree;
+    delete m_pContainer;
 }
 
-void Document::add( EntityRef nId, Entity* pEntity )
+void Document::add( EntityRef nId, EntityPtr pEntity )
 {
-    //m_oEntityMap.insert(std::make_pair(nId, pEntity));
-    int nSize = m_oEntities.size();
-    if (nId >= nSize)
-    {
-        while (nId >= nSize)
-        {
-            nSize *= 2;
-        }
-        m_oEntities.resize(nSize, nullptr);
-    }
-    m_oEntities[nId] = pEntity;
-    gfc2::schema::CClass* pSchema = pEntity->getClass();
-    EntityTypeNode* pNode = m_pEntityTypeTree->getNode(pSchema);
-    pNode->entities.push_back(pEntity);
-    //delete pSchema;
+    m_pContainer->add(nId, pEntity);
 }
 
-void Document::remove( EntityRef nId )
+EntityPtr Document::getEntity( EntityRef nId )
 {
-    if (nId < 0 || nId >= (EntityRef)m_oEntities.size())
-    {
-        return;
-    }
-    Entity* pEntity = m_oEntities.at(nId);
-    if (pEntity == nullptr)
-    {
-        return;
-    }
-    m_oEntities[nId] = nullptr;
-    gfc2::schema::CClass* pSchema = pEntity->getClass();
-    EntityTypeNode* pNode = m_pEntityTypeTree->getNode(pSchema);
-    for (std::vector<Entity*>::iterator oItr = pNode->entities.begin(); oItr != pNode->entities.end(); ++oItr)
-    {
-        if (*oItr == pEntity)
-        {
-            pNode->entities.erase(oItr);
-            break;
-        }
-    }
-    delete pEntity;
+    return m_pContainer->getItem(nId);
 }
 
-void Document::clear()
+EntityIteratorPtr Document::getIterator()
 {
-    for (auto oItr = m_oEntities.begin(); oItr != m_oEntities.end(); ++oItr)
-    {
-        delete *oItr;
-    }
-    m_oEntities.clear();
-
-    m_pEntityTypeTree->clear();
-    m_oSchemaInheritSet.clear();
+    return m_pContainer->iterator();
 }
 
-Entity* Document::find( EntityRef nId )
+EntityIteratorPtr Document::getEntities(const std::string& sType, bool bIncludeSubType /*= false*/ )
 {
-    if (nId >= 0 && nId < (EntityRef)m_oEntities.size())
-    {
-        return m_oEntities[nId];
-    }
-    return nullptr;
-}
-
-gfc2::engine::DocumentIterator Document::getIterator()
-{
-    DocumentIterator oIterator(&this->m_oEntities);
-    return oIterator;
-}
-
-EntityTypeNode* Document::findByType( const std::string& sType )
-{
-    return m_pEntityTypeTree->find(normalizeTypeName(sType));
-}
-
-EntityTypeTree::EntityList Document::getEntities(const std::string& sType, bool bIncludeSubType /*= false*/ )
-{
-    return m_pEntityTypeTree->getEntities(normalizeTypeName(sType), bIncludeSubType);
+    return m_pContainer->getItems(sType, bIncludeSubType);
 }
 
 void Document::linkSchemaByParent()

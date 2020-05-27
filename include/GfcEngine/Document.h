@@ -7,7 +7,7 @@
 #include <set>
 #include "GfcEngine/Entity.h"
 #include "GfcEngine/GfcEngine.h"
-#include "GfcEngine/EntityTypeTree.h"
+#include "GfcEngine\Container.h"
 #include <functional>
 
 namespace gfc2 {
@@ -24,20 +24,20 @@ class DocumentIterator;
 typedef std::function<bool (Document*, EntityRef, Entity*)> needAddEntityFunc;
 typedef std::function<void (Document*)> afterReadDocFunc;
 
+template<class T> class ContainerImp;
 
-class GFCENGINE_API Document
+class GFCENGINE_API Document: public IContainer
 {
 public:
     Document(gfc2::schema::CModel* pModel, int nEntityInitCount = 1000000);
     ~Document(void);
-    void add(EntityRef nId, Entity* pEntity);
-    void remove(EntityRef nID);
-    Entity* find(EntityRef nId);
-    EntityTypeNode* findByType(const std::string& nType);
-    EntityTypeTree::EntityList getEntities(const std::string& nType, bool bIncludeSubType = false);
-    DocumentIterator getIterator();
-    void clear();
+    void add(EntityRef nId, EntityPtr pEntity);
     gfc2::schema::CModel* model() const { return m_pModel; }
+
+    virtual EntityPtr getEntity(EntityRef nId) = 0;
+    virtual EntityIteratorPtr getEntities(const std::string& nType, bool bIncludeSubType = false) = 0;
+    virtual EntityIteratorPtr getIterator() = 0;
+
 
     void linkSchemaByParent();
     bool schemaFilter(gfc2::schema::CClass* pSchema, const std::string& nFilterType, bool bIncludeSubType);
@@ -48,9 +48,10 @@ public:
 private:
     //std::tr1::unordered_map<EntityRef, Entity*> m_oEntityMap;
     std::string normalizeTypeName(const std::string& sTypeName);
-    std::vector<Entity*> m_oEntities;
     gfc2::schema::CModel* m_pModel;
-    std::map<std::string, std::vector<Entity*>> m_oEntityTypeMap;
+    //std::vector<Entity*> m_oEntities;
+    //std::map<std::string, std::vector<Entity*>> m_oEntityTypeMap;
+    ContainerImp<EntityPtr>* m_pContainer;
     std::set<std::string> m_oSchemaInheritSet; //parent, child
     needAddEntityFunc m_pNeedAddEntityFunc;
     afterReadDocFunc m_pAfterReadDocFunc;

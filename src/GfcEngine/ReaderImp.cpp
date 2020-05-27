@@ -1,16 +1,33 @@
 #include "GfcEngine\Reader.h"
 #include "GfcEngine\EntityFactory.h"
+#include "ContainerImp.h"
 #include "ReaderImp.h"
 #include "FileMap.h"
 #include "Common.h"
 #include "TypeObject.h"
+#include "EntityClass.h"
 #include <algorithm>
 
 GFCENGINE_NAMESPACE_BEGIN
 
 GFCENGINE_IMP_FACTORY(ReaderImp, 0)
 
-ReaderImp::ReaderImp() : m_pFileMap(nullptr), m_pFactory(nullptr)
+class ReaderIterator : public Iterator<EntityPtr>
+{
+public:
+    ReaderIterator(ReaderImp* pReader, std::shared_ptr<Iterator<EntityInfo>> pIterator): m_pReader(pReader), m_pIterator(pIterator) {}
+    virtual void first() { m_pIterator->first(); }
+    virtual void next() { m_pIterator->next(); }
+    virtual bool isDone() { return m_pIterator->isDone(); }
+    virtual EntityPtr current() { 
+        return m_pReader->getEntity(m_pIterator->current().id);
+    }
+private:
+    std::shared_ptr<Iterator<EntityInfo>> m_pIterator;
+    ReaderImp* m_pReader;
+};
+
+ReaderImp::ReaderImp() : m_pFileMap(nullptr), m_pFactory(nullptr), m_pContainer(nullptr)
 {
 }
 
@@ -34,32 +51,44 @@ void ReaderImp::close()
 {
     delete m_pFileMap;
     m_pFileMap = nullptr;
+    delete m_pContainer;
+    m_pContainer = nullptr;
 }
 
 EntityPtr ReaderImp::getEntity(EntityRef nId)
 {
-    EntityInfo oTempInfo;
-    oTempInfo.id = nId;
-    auto itr = std::lower_bound(m_oEntityInfos.begin(), m_oEntityInfos.end(), oTempInfo, [](const EntityInfo& oInfo1, const EntityInfo& oInfo2) {
-        return oInfo1.id < oInfo2.id;
-    });
-    return std::shared_ptr<Entity>((itr != m_oEntityInfos.end() && itr->id == nId) ? createEntity(*itr) : nullptr);
+    auto oInfo = m_pContainer->getItem(nId);
+    return EntityPtr((oInfo.type != nullptr) ? createEntity(oInfo) : nullptr);
+}
+
+EntityIteratorPtr ReaderImp::getEntities(const std::string & sType, bool bIncludeSubType)
+{
+    return EntityIteratorPtr(new ReaderIterator(this, m_pContainer->getItems(sType, bIncludeSubType)));
+}
+
+EntityIteratorPtr ReaderImp::getIterator()
+{
+    return EntityIteratorPtr(new ReaderIterator(this, m_pContainer->iterator()));
 }
 
 void ReaderImp::addInfo(const EntityInfo & oInfo)
 {
-    m_oEntityInfos.push_back(oInfo);
+    m_pContainer->add(oInfo.id, oInfo);
 }
 
 void ReaderImp::buildIndex()
 {
+    //std::map<std::string, std::vector<EntityRef>*> o;
+    //auto a = o.begin();
+    //a->second->empty()
+    m_pContainer = new ContainerImp<EntityInfo>(schema());
     EntityInfo oInfo;
     m_pFileMap->setPos(0);
     while (getIndex(oInfo))
     {
         addInfo(oInfo);
     }
-    sort();
+    //sort();
 }
 
 gfc2::schema::CModel * ReaderImp::schema()
@@ -72,24 +101,14 @@ gfc2::schema::CModel * ReaderImp::schema()
     return nullptr;
 }
 
-void ReaderImp::sort()
+gfc2::schema::CClass * EntityInfo::getClass() const
 {
-    std::sort(m_oEntityInfos.begin(), m_oEntityInfos.end(), [](EntityInfo& oInfo1, EntityInfo& oInfo2) {
-        return oInfo1.id < oInfo2.id;
-    });
-    auto nCount = m_oEntityInfos.size();
-    for (std::size_t i = 0; i < nCount; ++i)
-    {
-        EntityInfo& oInfo = m_oEntityInfos[i];
-        auto sTypeName = toString(oInfo.type->getBaseType()->getName());
-        auto itr = m_oEntityInfoMap.find(sTypeName);
-        if (itr == m_oEntityInfoMap.end())
-        {
-            m_oEntityInfoMap[sTypeName] = new std::vector<std::size_t>();
-        }
-        m_oEntityInfoMap[sTypeName]->push_back(i);
-    }
+    return dynamic_cast<gfc2::schema::CClass*>(type->getBaseType());
 }
 
+EntityInfo * EntityInfo::get() const
+{
+    return (EntityInfo *)this;
+}
 
 GFCENGINE_NAMESPACE_END

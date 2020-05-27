@@ -77,13 +77,13 @@ EntityPtr Reader::getEntity(EntityRef nId)
     return nullptr;
 }
 
-EntityListIterator Reader::getEntities(const std::string & sType, bool bIncludeSubType)
+EntityIteratorPtr Reader::getEntities(const std::string & sType, bool bIncludeSubType)
 {
     if (m_pImp)
     {
         return m_pImp->getEntities(sType, bIncludeSubType);
     }
-    return EntityListIterator(nullptr);
+    return EntityIteratorPtr(nullptr);
 }
 
 GFCENGINE_NAMESPACE_END
