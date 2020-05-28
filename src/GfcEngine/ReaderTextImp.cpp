@@ -14,6 +14,8 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
+GFCENGINE_IMP_OBJECT(ReaderTextImp, "express", 0)
+
 ReaderTextImp::ReaderTextImp(/*SchemaInfoMap* pSchemaInfoMap*/)
 {
 }
@@ -23,7 +25,7 @@ ReaderTextImp::~ReaderTextImp(void)
 {
 }
 
-bool ReaderTextImp::preRead(const string& sFileName)
+bool ReaderTextImp::preRead(const std::string& sFileName)
 {
     char sHead[8];
     std::fstream in(sFileName, std::ios::in | std::ios::binary);
@@ -123,7 +125,7 @@ void ReaderTextImp::read( Document* pDoc,std::vector<std::string>& errors )
 //    return sResult;
 //}
 //
-//string ReaderTextImp::projectId(const string& sFileName)
+//string ReaderTextImp::projectId(const std::string& sFileName)
 //{
 //	string sResult = "";
 //	fstream txtInput(sFileName,ios::in);
@@ -150,7 +152,7 @@ void ReaderTextImp::read( Document* pDoc,std::vector<std::string>& errors )
 //	return sResult;
 //}
 //
-//bool ReaderTextImp::locate( fstream& in, const string& sWord )
+//bool ReaderTextImp::locate( fstream& in, const std::string& sWord )
 //{
 //    while (!in.eof())
 //    {
@@ -214,7 +216,7 @@ bool ReaderTextImp::parse(const std::string& input, Entity* pEntity, std::string
     bool bResult = true;
     int nStartPos = 0;
     int nFieldNum = 0;
-    string sValue;
+    std::string sValue;
     while (getNextValue(input, nStartPos, sValue))
     {
         if (nFieldNum >= pEntity->getClass()->getAttributeCount())
@@ -226,9 +228,9 @@ bool ReaderTextImp::parse(const std::string& input, Entity* pEntity, std::string
         if (!sValue.empty() && sValue.front() == '(' && sValue.back() == ')')
         {
             // array
-            string sInput = sValue.substr(1, sValue.length() - 2);
+            std::string sInput = sValue.substr(1, sValue.length() - 2);
             int nStart = 0;
-            string sVal;
+            std::string sVal;
             while (getNextValue(sInput, nStart, sVal))
             {
                 if (sVal != "$")
@@ -296,7 +298,7 @@ bool ReaderTextImp::parseField(const std::string & input, gfc2::schema::CTypeObj
         assert(false);
         break;
     }
-    return false;
+    return true;
 }
 
 bool ReaderTextImp::getNextValue(const std::string& input, int nStartPos, std::string& sValue)
@@ -355,6 +357,11 @@ bool ReaderTextImp::parseLine(const std::string & sLine, EntityRef& nId, std::st
     {
         return false;
     }
+    auto k = sLine.find_last_of(")");
+    if (k == std::string::npos)
+    {
+        return false;
+    }
     auto sID = sLine.substr(1, e - 1);
     nId = -1;
     try
@@ -366,11 +373,11 @@ bool ReaderTextImp::parseLine(const std::string & sLine, EntityRef& nId, std::st
         return false;
     }
     sName = sLine.substr(e + 1, l - e - 1);
-    sContent = sLine.substr(l + 1);
+    sContent = sLine.substr(l + 1, k -l -1);
     return true;
 }
 
-bool ReaderTextImp::parseBoolean(const string& input, bool& value)
+bool ReaderTextImp::parseBoolean(const std::string& input, bool& value)
 {
     if (input == ".T.")
     {
@@ -387,7 +394,7 @@ bool ReaderTextImp::parseBoolean(const string& input, bool& value)
     return true;
 }
 
-bool ReaderTextImp::parseInt(const string& input, int& value)
+bool ReaderTextImp::parseInt(const std::string& input, int& value)
 {
 
     try
@@ -401,7 +408,7 @@ bool ReaderTextImp::parseInt(const string& input, int& value)
     return true;
 }
 
-bool ReaderTextImp::parseFloat(const string& input, double& value)
+bool ReaderTextImp::parseFloat(const std::string& input, double& value)
 {
     try
     {
@@ -414,7 +421,7 @@ bool ReaderTextImp::parseFloat(const string& input, double& value)
     return true;
 }
 
-bool ReaderTextImp::parseString(const string& input, string& value)
+bool ReaderTextImp::parseString(const std::string& input, std::string& value)
 {
     if (input.length() > 1 && input[0] == '\'' && input[input.length() - 1] == '\'')
     {
@@ -427,7 +434,7 @@ bool ReaderTextImp::parseString(const string& input, string& value)
     return true;
 }
 
-bool ReaderTextImp::parseEntity(const string& input, EntityRef& value)
+bool ReaderTextImp::parseEntity(const std::string& input, EntityRef& value)
 {
     if (!input.empty() && input[0] == '#')
     {
@@ -446,7 +453,7 @@ bool ReaderTextImp::parseEntity(const string& input, EntityRef& value)
 }
 
 
-bool ReaderTextImp::parseBooleanField(const string& input, PropValue* pValue)
+bool ReaderTextImp::parseBooleanField(const std::string& input, PropValue* pValue)
 {
     bool val;
     bool bResult = parseBoolean(input, val);
@@ -455,7 +462,7 @@ bool ReaderTextImp::parseBooleanField(const string& input, PropValue* pValue)
     return bResult;
 }
 
-bool ReaderTextImp::parseIntField(const string& input, PropValue* pValue)
+bool ReaderTextImp::parseIntField(const std::string& input, PropValue* pValue)
 {
     int val;
     bool bResult = parseInt(input, val);
@@ -464,7 +471,7 @@ bool ReaderTextImp::parseIntField(const string& input, PropValue* pValue)
     return bResult;
 }
 
-bool ReaderTextImp::parseFloatField(const string& input, PropValue* pValue)
+bool ReaderTextImp::parseFloatField(const std::string& input, PropValue* pValue)
 {
     double val;
     bool bResult = parseFloat(input, val);
@@ -473,7 +480,7 @@ bool ReaderTextImp::parseFloatField(const string& input, PropValue* pValue)
     return bResult;
 }
 
-bool ReaderTextImp::parseStringField(const string& input, PropValue* pValue)
+bool ReaderTextImp::parseStringField(const std::string& input, PropValue* pValue)
 {
     std::string val;
     bool bResult = parseString(input, val);
@@ -482,7 +489,7 @@ bool ReaderTextImp::parseStringField(const string& input, PropValue* pValue)
     return bResult;
 }
 
-bool ReaderTextImp::parseEnumField(const string & input, gfc2::schema::CEnumType * pEnumType, PropValue * pValue)
+bool ReaderTextImp::parseEnumField(const std::string & input, gfc2::schema::CEnumType * pEnumType, PropValue * pValue)
 {
     bool bResult = false;
     if (input.length() > 1 && input[0] == '.' && input[input.length() - 1] == '.' && pEnumType)
@@ -498,7 +505,7 @@ bool ReaderTextImp::parseEnumField(const string & input, gfc2::schema::CEnumType
     return bResult;
 }
 
-bool ReaderTextImp::parseEntityField(const string& input, PropValue* pValue)
+bool ReaderTextImp::parseEntityField(const std::string& input, PropValue* pValue)
 {
     EntityRef val;
     bool bResult = parseEntity(input, val);

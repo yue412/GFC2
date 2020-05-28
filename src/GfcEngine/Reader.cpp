@@ -14,7 +14,7 @@ Reader::~Reader(void)
 {
 }
 
-bool Reader::open(const string & sFileName)
+bool Reader::open(const std::string & sFileName)
 {
     close();
     for (auto itr = ReaderImp::GetFactory()->begin(); itr != ReaderImp::GetFactory()->end(); ++itr)

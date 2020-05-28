@@ -55,7 +55,7 @@ protected:
 private:
     void init();
     void free();
-    std::vector<Property*> m_oProps;
+    std::vector<Property*>* m_pProps;
 };
 
 typedef std::shared_ptr<Entity> EntityPtr;

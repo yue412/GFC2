@@ -29,11 +29,11 @@ class ReaderImp : public Object, public IContainer
 public:
     ReaderImp();
     virtual ~ReaderImp(void);
-    bool open(const string& sFileName);
+    bool open(const std::string& sFileName);
     void close();
     void setFactory(EntityFactory* pFactory) { m_pFactory = pFactory; }
 
-    virtual bool preRead(const string& sFileName) = 0; // 判断是否是可以读的格式
+    virtual bool preRead(const std::string& sFileName) = 0; // 判断是否是可以读的格式
     virtual void read(Document* pDoc,std::vector<std::string>& errors) = 0;
     // 继承 IContainer接口
     virtual EntityPtr getEntity(EntityRef nId);

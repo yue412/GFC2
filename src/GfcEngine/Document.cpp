@@ -9,7 +9,7 @@ GFCENGINE_NAMESPACE_BEGIN
 
 Document::Document( gfc2::schema::CModel* pModel, int nEntityInitCount /*= 1000000*/ ): m_pModel(pModel)
 {
-    m_pContainer = new ContainerImp<EntityPtr>(pModel);
+    m_pContainer = new ContainerImp<EntityPtr>(pModel, nEntityInitCount);
     //m_pEntityTypeTree = new EntityTypeTree(this);
     //m_oEntities.resize(nEntityInitCount, nullptr);
 }

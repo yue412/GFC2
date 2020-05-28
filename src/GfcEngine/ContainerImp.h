@@ -27,7 +27,10 @@ template<class T>
 class ContainerImp
 {
 public:
-    ContainerImp(gfc2::schema::CModel* pModel): m_pModel(pModel) {}
+    ContainerImp(gfc2::schema::CModel* pModel, int nInitSize = 10000): m_pModel(pModel) 
+    {
+        m_oEntities.resize(nInitSize);
+    }
     ~ContainerImp() {}
     void add(EntityRef nId, const T& pEntity) 
     {

@@ -22,18 +22,18 @@ public:
 public:
     virtual bool isNull() const = 0;
 
-    std::string asString() const;
-    int asInteger() const;
-    double asDouble() const;
-    bool asBoolean() const;
-    EntityRef asEntityRef() const;
-    Entity* asEntity() const;
+    virtual std::string asString() const;
+    virtual int asInteger() const;
+    virtual double asDouble() const;
+    virtual bool asBoolean() const;
+    virtual EntityRef asEntityRef() const;
+    virtual Entity* asEntity() const;
 
-    void setAsString(const std::string& sValue);
-    void setAsInteger(const int& nValue);
-    void setAsDouble(const double& dValue);
-    void setAsBoolean(const bool& bValue);
-    void setAsEntityRef(const EntityRef& nValue);
+    virtual void setAsString(const std::string& sValue);
+    virtual void setAsInteger(const int& nValue);
+    virtual void setAsDouble(const double& dValue);
+    virtual void setAsBoolean(const bool& bValue);
+    virtual void setAsEntityRef(const EntityRef& nValue);
 public:
     virtual void add(PropValue* pValue) {}
     virtual int getCount() const { return 0; }
@@ -41,9 +41,10 @@ public:
     virtual void setItems(int nIndex, PropValue* pValue) {}
 };
 
-class LeafPropValue: public PropValue
+class LeafPropValue : public PropValue
 {
 public:
+    LeafPropValue() : m_bIsNull(true) {}
     virtual bool isNull() const { return m_bIsNull; }
 protected:
     void setIsNull(bool bIsNull) { m_bIsNull = bIsNull; }

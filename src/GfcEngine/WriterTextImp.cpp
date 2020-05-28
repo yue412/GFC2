@@ -30,7 +30,7 @@ string getUserName()
 
 GFCENGINE_NAMESPACE_BEGIN
 
-GFCENGINE_IMP_OBJECT(WriterTextImp, "EXP", 0)
+GFCENGINE_IMP_OBJECT(WriterTextImp, "express", 0)
 
 WriterTextImp::WriterTextImp(void):m_pTextStream(0)
 {

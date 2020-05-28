@@ -1,8 +1,9 @@
 #include "TextUpdater.h"
 #include <Windows.h>
+#include <assert.h>
 #include "resource.h"
 #include "GfcTextSerializer.h"
-#include "glodon\objectbuf\Entity.h"
+//#include "glodon\objectbuf\Entity.h"
 #include "Scanner.h"
 #include "Parser.h"
 #include <algorithm>
@@ -28,8 +29,10 @@ void TextUpdater::init(const std::string & sVersion)
 {
     clear();
     // 相等，不需要升级
+    /* //todo
     if (_stricmp(sVersion.c_str(), Entity::Version().c_str()) == 0)
         return;
+        */
     // Load File model
     auto sSchema = sVersion;
     std::replace(sSchema.begin(), sSchema.end(), '.', 'X');
@@ -149,10 +152,10 @@ void TextUpdater::loadFileModel(const std::string& sFileSchema)
 
 void TextUpdater::initModel(gfc2::schema::CModel * pModel)
 {
-    pModel->addTypeObject(new gfc2::schema::CBuildinType(L"BOOLEAN"));
-    pModel->addTypeObject(new gfc2::schema::CBuildinType(L"REAL"));
-    pModel->addTypeObject(new gfc2::schema::CBuildinType(L"STRING"));
-    pModel->addTypeObject(new gfc2::schema::CBuildinType(L"INTEGER"));
+    //pModel->addTypeObject(new gfc2::schema::CBuildinType(L"BOOLEAN"));
+    //pModel->addTypeObject(new gfc2::schema::CBuildinType(L"REAL"));
+    //pModel->addTypeObject(new gfc2::schema::CBuildinType(L"STRING"));
+    //pModel->addTypeObject(new gfc2::schema::CBuildinType(L"INTEGER"));
 }
 
 }

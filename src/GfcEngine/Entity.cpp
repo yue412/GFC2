@@ -12,13 +12,15 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Entity::Entity(void): m_pDocument(nullptr), m_pSchema(nullptr)
+Entity::Entity(void): m_pDocument(nullptr), m_pSchema(nullptr), m_pProps(nullptr)
 {
+    m_pProps = new std::vector<Property*>();
 }
 
 Entity::~Entity(void)
 {
     free();
+    delete m_pProps;
 }
 
 void Entity::setDocument( Document* pDocument )
@@ -67,7 +69,7 @@ int Entity::getPropCount() const
 
 Property* Entity::getProps(int nIndex) const
 {
-    return m_oProps[nIndex];
+    return (*m_pProps)[nIndex];
 }
 
 bool Entity::isNull(const std::string& sPropName) const
@@ -92,7 +94,7 @@ PropValue * Entity::valueByName(const std::string sPropName) const
     if (m_pSchema)
     {
         auto nIndex = getClass()->attributeIndexByName(toWstring(sPropName));
-        if (nIndex > 0)
+        if (nIndex >= 0)
         {
             return getProps(nIndex)->value();
         }
@@ -115,11 +117,11 @@ void Entity::init()
             auto pAttr = getClass()->getAttribute(i);
             if (pAttr->getRepeatFlag())
             {
-                m_oProps.push_back(new Property(pAttr, new CompositePropValue));
+                m_pProps->push_back(new Property(pAttr, new CompositePropValue));
             }
             else
             {
-                m_oProps.push_back(new Property(pAttr, Property::createValue(pAttr->getType())));
+                m_pProps->push_back(new Property(pAttr, Property::createValue(pAttr->getType())));
             }
         }
     }
@@ -127,11 +129,11 @@ void Entity::init()
 
 void Entity::free()
 {
-    for each (auto pProp in m_oProps)
+    for each (auto pProp in *m_pProps)
     {
         delete pProp;
     }
-    m_oProps.clear();
+    m_pProps->clear();
 }
 
 std::string Entity::asString(const std::string& sPropName) const

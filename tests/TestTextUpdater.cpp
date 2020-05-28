@@ -13,13 +13,13 @@ TEST(TestTextUpdater, transform_same)
     gfc2::schema::CClass oFromClass, oToClass;
     gfc2::schema::CAttribute* pFromAttrib1 = new gfc2::schema::CAttribute();
     pFromAttrib1->SetName(L"ID");
-    gfc2::schema::CBuildinType oType(L"INTEGER");
+    gfc2::schema::CIntegerType oType;
     pFromAttrib1->SetType(&oType);
     oFromClass.addAttribute(pFromAttrib1);
 
     gfc2::schema::CAttribute* pToAttrib1 = new gfc2::schema::CAttribute();
     pToAttrib1->SetName(L"ID");
-    //gfc2::schema::CBuildinType oType(L"INTEGER");
+    //gfc2::schema::CIntegerType oType;
     pToAttrib1->SetType(&oType);
     oToClass.addAttribute(pToAttrib1);
 
@@ -41,7 +41,7 @@ TEST(TestTextUpdater, transform_delete)
     gfc2::schema::CClass oFromClass, oToClass;
     gfc2::schema::CAttribute* pFromAttrib1 = new gfc2::schema::CAttribute();
     pFromAttrib1->SetName(L"ID");
-    gfc2::schema::CBuildinType oType(L"INTEGER");
+    gfc2::schema::CIntegerType oType;
     pFromAttrib1->SetType(&oType);
     oFromClass.addAttribute(pFromAttrib1);
 
@@ -63,13 +63,13 @@ TEST(TestTextUpdater, transform_add)
     gfc2::schema::CClass oFromClass, oToClass;
     gfc2::schema::CAttribute* pFromAttrib1 = new gfc2::schema::CAttribute();
     pFromAttrib1->SetName(L"ID");
-    gfc2::schema::CBuildinType oType(L"INTEGER");
+    gfc2::schema::CIntegerType oType;
     pFromAttrib1->SetType(&oType);
     oFromClass.addAttribute(pFromAttrib1);
 
     gfc2::schema::CAttribute* pToAttrib1 = new gfc2::schema::CAttribute();
     pToAttrib1->SetName(L"Name");
-    //gfc2::schema::CBuildinType oType(L"INTEGER");
+    //gfc2::schema::CIntegerType oType;
     pToAttrib1->SetType(&oType);
     oToClass.addAttribute(pToAttrib1);
 
@@ -91,20 +91,20 @@ TEST(TestTextUpdater, transform_exchange)
     gfc2::schema::CClass oFromClass, oToClass;
     gfc2::schema::CAttribute* pFromAttrib1 = new gfc2::schema::CAttribute();
     pFromAttrib1->SetName(L"ID");
-    gfc2::schema::CBuildinType oType(L"INTEGER");
+    gfc2::schema::CIntegerType oType;
     pFromAttrib1->SetType(&oType);
     oFromClass.addAttribute(pFromAttrib1);
 
     gfc2::schema::CAttribute* pFromAttrib2 = new gfc2::schema::CAttribute();
     pFromAttrib2->SetName(L"Name");
-    gfc2::schema::CBuildinType oType2(L"STRING");
+    gfc2::schema::CStringType oType2;
     pFromAttrib2->SetType(&oType2);
     oFromClass.addAttribute(pFromAttrib2);
 
 
     gfc2::schema::CAttribute* pToAttrib1 = new gfc2::schema::CAttribute();
     pToAttrib1->SetName(L"ID");
-    //gfc2::schema::CBuildinType oType(L"INTEGER");
+    //gfc2::schema::CIntegerType oType;
     pToAttrib1->SetType(&oType);
 
     gfc2::schema::CAttribute* pToAttrib2 = new gfc2::schema::CAttribute();

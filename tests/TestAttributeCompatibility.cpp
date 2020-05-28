@@ -51,8 +51,8 @@ TEST(TestAttributeCompatibility, ToIsNil)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Int)
 {
-    gfc2::schema::CBuildinType oFrom(L"BOOLEAN");
-    gfc2::schema::CBuildinType oTo(L"INTEGER");
+    gfc2::schema::CBooleanType oFrom;
+    gfc2::schema::CIntegerType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L".T.";
@@ -63,8 +63,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Int)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Bool)
 {
-    gfc2::schema::CBuildinType oFrom(L"BOOLEAN");
-    gfc2::schema::CBuildinType oTo(L"BOOLEAN");
+    gfc2::schema::CBooleanType oFrom;
+    gfc2::schema::CBooleanType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L".T.";
@@ -75,8 +75,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Bool)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Real)
 {
-    gfc2::schema::CBuildinType oFrom(L"BOOLEAN");
-    gfc2::schema::CBuildinType oTo(L"REAL");
+    gfc2::schema::CBooleanType oFrom;
+    gfc2::schema::CRealType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L".T.";
@@ -88,8 +88,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Real)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_String)
 {
-    gfc2::schema::CBuildinType oFrom(L"BOOLEAN");
-    gfc2::schema::CBuildinType oTo(L"STRING");
+    gfc2::schema::CBooleanType oFrom;
+    gfc2::schema::CStringType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L".T.";
@@ -100,7 +100,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_String)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Enum)
 {
-    gfc2::schema::CBuildinType oFrom(L"BOOLEAN");
+    gfc2::schema::CBooleanType oFrom;
     gfc2::schema::CEnumType oTo;
     oTo.addEnum(L"abc", L"");
     oTo.addEnum(L"def", L"");
@@ -115,7 +115,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Enum)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Entity)
 {
-    gfc2::schema::CBuildinType oFrom(L"BOOLEAN");
+    gfc2::schema::CBooleanType oFrom;
     gfc2::schema::CClass oTo(L"CTest");
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
@@ -127,8 +127,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Entity)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Bool)
 {
-    gfc2::schema::CBuildinType oFrom(L"INTEGER");
-    gfc2::schema::CBuildinType oTo(L"BOOLEAN");
+    gfc2::schema::CIntegerType oFrom;
+    gfc2::schema::CBooleanType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"12";
@@ -139,8 +139,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Bool)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Int)
 {
-    gfc2::schema::CBuildinType oFrom(L"INTEGER");
-    gfc2::schema::CBuildinType oTo(L"INTEGER");
+    gfc2::schema::CIntegerType oFrom;
+    gfc2::schema::CIntegerType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"12";
@@ -151,8 +151,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Int)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Real)
 {
-    gfc2::schema::CBuildinType oFrom(L"INTEGER");
-    gfc2::schema::CBuildinType oTo(L"REAL");
+    gfc2::schema::CIntegerType oFrom;
+    gfc2::schema::CRealType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"12";
@@ -164,8 +164,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Real)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Int_String)
 {
-    gfc2::schema::CBuildinType oFrom(L"INTEGER");
-    gfc2::schema::CBuildinType oTo(L"STRING");
+    gfc2::schema::CIntegerType oFrom;
+    gfc2::schema::CStringType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"12";
@@ -176,7 +176,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_String)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Enum)
 {
-    gfc2::schema::CBuildinType oFrom(L"INTEGER");
+    gfc2::schema::CIntegerType oFrom;
     gfc2::schema::CEnumType oTo;
     oTo.addEnum(L"abc", L"");
     oTo.addEnum(L"def", L"");
@@ -191,7 +191,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Enum)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Entity)
 {
-    gfc2::schema::CBuildinType oFrom(L"INTEGER");
+    gfc2::schema::CIntegerType oFrom;
     gfc2::schema::CClass oTo(L"CTest");
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
@@ -203,8 +203,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Entity)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Bool)
 {
-    gfc2::schema::CBuildinType oFrom(L"REAL");
-    gfc2::schema::CBuildinType oTo(L"BOOLEAN");
+    gfc2::schema::CRealType oFrom;
+    gfc2::schema::CBooleanType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"12.3";
@@ -215,8 +215,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Bool)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Int)
 {
-    gfc2::schema::CBuildinType oFrom(L"REAL");
-    gfc2::schema::CBuildinType oTo(L"INTEGER");
+    gfc2::schema::CRealType oFrom;
+    gfc2::schema::CIntegerType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"12.3";
@@ -227,8 +227,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Int)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Real)
 {
-    gfc2::schema::CBuildinType oFrom(L"REAL");
-    gfc2::schema::CBuildinType oTo(L"REAL");
+    gfc2::schema::CRealType oFrom;
+    gfc2::schema::CRealType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"12.3";
@@ -240,8 +240,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Real)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Real_String)
 {
-    gfc2::schema::CBuildinType oFrom(L"REAL");
-    gfc2::schema::CBuildinType oTo(L"STRING");
+    gfc2::schema::CRealType oFrom;
+    gfc2::schema::CStringType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"12.3";
@@ -252,7 +252,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_String)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Enum)
 {
-    gfc2::schema::CBuildinType oFrom(L"REAL");
+    gfc2::schema::CRealType oFrom;
     gfc2::schema::CEnumType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
@@ -264,7 +264,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Enum)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Entity)
 {
-    gfc2::schema::CBuildinType oFrom(L"REAL");
+    gfc2::schema::CRealType oFrom;
     gfc2::schema::CClass oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
@@ -276,8 +276,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Entity)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_String_bool)
 {
-    gfc2::schema::CBuildinType oFrom(L"STRING");
-    gfc2::schema::CBuildinType oTo(L"BOOLEAN");
+    gfc2::schema::CStringType oFrom;
+    gfc2::schema::CBooleanType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"'.T.'";
@@ -288,8 +288,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_bool)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_String_Int)
 {
-    gfc2::schema::CBuildinType oFrom(L"STRING");
-    gfc2::schema::CBuildinType oTo(L"INTEGER");
+    gfc2::schema::CStringType oFrom;
+    gfc2::schema::CIntegerType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"'12'";
@@ -300,8 +300,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_Int)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_String_Real)
 {
-    gfc2::schema::CBuildinType oFrom(L"STRING");
-    gfc2::schema::CBuildinType oTo(L"REAL");
+    gfc2::schema::CStringType oFrom;
+    gfc2::schema::CRealType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"'12.3'";
@@ -312,8 +312,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_Real)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_String_String)
 {
-    gfc2::schema::CBuildinType oFrom(L"STRING");
-    gfc2::schema::CBuildinType oTo(L"STRING");
+    gfc2::schema::CStringType oFrom;
+    gfc2::schema::CStringType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"'abdasf'";
@@ -324,7 +324,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_String)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_String_Enum)
 {
-    gfc2::schema::CBuildinType oFrom(L"STRING");
+    gfc2::schema::CStringType oFrom;
     gfc2::schema::CEnumType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
@@ -336,7 +336,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_Enum)
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_String_Entity)
 {
-    gfc2::schema::CBuildinType oFrom(L"STRING");
+    gfc2::schema::CStringType oFrom;
     gfc2::schema::CClass oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
@@ -352,7 +352,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Enum_Bool)
     oFrom.addEnum(L"abc", L"");
     oFrom.addEnum(L"def", L"");
     oFrom.addEnum(L"hig", L"");
-    gfc2::schema::CBuildinType oTo(L"BOOLEAN");
+    gfc2::schema::CBooleanType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L".hig.";
@@ -367,7 +367,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Enum_Int)
     oFrom.addEnum(L"abc", L"");
     oFrom.addEnum(L"def", L"");
     oFrom.addEnum(L"hig", L"");
-    gfc2::schema::CBuildinType oTo(L"INTEGER");
+    gfc2::schema::CIntegerType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L".hig.";
@@ -382,7 +382,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Enum_Real)
     oFrom.addEnum(L"abc", L"");
     oFrom.addEnum(L"def", L"");
     oFrom.addEnum(L"hig", L"");
-    gfc2::schema::CBuildinType oTo(L"REAL");
+    gfc2::schema::CRealType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L".hig.";
@@ -450,7 +450,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Enum_Class)
 TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Bool)
 {
     gfc2::schema::CClass oFrom;
-    gfc2::schema::CBuildinType oTo(L"BOOLEAN");
+    gfc2::schema::CBooleanType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"#123";
@@ -462,7 +462,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Bool)
 TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Int)
 {
     gfc2::schema::CClass oFrom;
-    gfc2::schema::CBuildinType oTo(L"INTEGER");
+    gfc2::schema::CIntegerType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"#123";
@@ -474,7 +474,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Int)
 TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Real)
 {
     gfc2::schema::CClass oFrom;
-    gfc2::schema::CBuildinType oTo(L"REAL");
+    gfc2::schema::CRealType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"#123";
@@ -486,7 +486,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Real)
 TEST(TestAttributeCompatibility, getTypeCompatibility_Class_String)
 {
     gfc2::schema::CClass oFrom;
-    gfc2::schema::CBuildinType oTo(L"STRING");
+    gfc2::schema::CStringType oTo;
     auto oTypeCompatibility = gfc2::schema::CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     std::wstring sValue = L"#123";
@@ -716,7 +716,7 @@ TEST(TestAttributeCompatibility, Compose)
     oFromAttrib.SetType(&oFrom);
     gfc2::schema::CAttribute oToAttrib;
     oToAttrib.SetRepeatFlag(true);
-    gfc2::schema::CBuildinType oTo(L"INTEGER");
+    gfc2::schema::CIntegerType oTo;
     oToAttrib.SetType(&oTo);
     gfc2::schema::CAttributeCompatibility oCompatibility;
     oCompatibility.init(&oFromAttrib, &oToAttrib, -1);
@@ -736,11 +736,11 @@ TEST(TestAttributeCompatibility, Compose_string)
     gfc2::schema::CAttribute oFromAttrib;
     oFromAttrib.SetName(L"abc");
     oFromAttrib.SetRepeatFlag(true);
-    gfc2::schema::CBuildinType oFrom(L"STRING");
+    gfc2::schema::CStringType oFrom;
     oFromAttrib.SetType(&oFrom);
     gfc2::schema::CAttribute oToAttrib;
     oToAttrib.SetRepeatFlag(true);
-    gfc2::schema::CBuildinType oTo(L"STRING");
+    gfc2::schema::CStringType oTo;
     oToAttrib.SetType(&oTo);
     gfc2::schema::CAttributeCompatibility oCompatibility;
     oCompatibility.init(&oFromAttrib, &oToAttrib, -1);
@@ -760,11 +760,11 @@ TEST(TestAttributeCompatibility, Compose_string2)
     gfc2::schema::CAttribute oFromAttrib;
     oFromAttrib.SetName(L"abc");
     oFromAttrib.SetRepeatFlag(true);
-    gfc2::schema::CBuildinType oFrom(L"STRING");
+    gfc2::schema::CStringType oFrom;
     oFromAttrib.SetType(&oFrom);
     gfc2::schema::CAttribute oToAttrib;
     oToAttrib.SetRepeatFlag(true);
-    gfc2::schema::CBuildinType oTo(L"INTEGER");
+    gfc2::schema::CIntegerType oTo;
     oToAttrib.SetType(&oTo);
     gfc2::schema::CAttributeCompatibility oCompatibility;
     oCompatibility.init(&oFromAttrib, &oToAttrib, -1);

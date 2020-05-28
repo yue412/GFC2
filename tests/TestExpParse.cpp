@@ -16,12 +16,12 @@ TEST(TestExpParse, TypeDefine)
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
 
-    oModel.addTypeObject(new gfc2::schema::CBuildinType(L"BOOLEAN"));
+//    oModel.addTypeObject(new gfc2::schema::CBooleanType());
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
-    EXPECT_EQ(2, oParser.m_pModel->getTypeObjectCount());
-    auto pTypeObject = oParser.m_pModel->getTypeObject(1);
+    EXPECT_EQ(5, oParser.m_pModel->getTypeObjectCount());
+    auto pTypeObject = oParser.m_pModel->getTypeObject(4);
     EXPECT_NE(nullptr, dynamic_cast<gfc2::schema::CTypeDef*>(pTypeObject));
     EXPECT_EQ(true, L"Gfc2Boolean" == pTypeObject->getName());
     //EXPECT_EQ(0, oParser.m_oParameterList.getCount());
@@ -47,8 +47,8 @@ TEST(TestExpParse, Enumeration)
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
-    EXPECT_EQ(1, oParser.m_pModel->getTypeObjectCount());
-    auto pTypeObject = oParser.m_pModel->getTypeObject(0);
+    EXPECT_EQ(5, oParser.m_pModel->getTypeObjectCount());
+    auto pTypeObject = oParser.m_pModel->getTypeObject(4);
     auto pEnum = dynamic_cast<gfc2::schema::CEnumType*>(pTypeObject);
     EXPECT_NE(nullptr, pEnum);
     EXPECT_EQ(5, pEnum->getEnumCount());
@@ -71,12 +71,12 @@ TEST(TestExpParse, Entity1)
     gfc2::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
-    oModel.addTypeObject(new gfc2::schema::CBuildinType(L"INTEGER"));
+    //oModel.addTypeObject(new gfc2::schema::CIntegerType());
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
-    EXPECT_EQ(3, oParser.m_pModel->getTypeObjectCount());
-    auto pTypeObject = oParser.m_pModel->getTypeObject(2);
+    EXPECT_EQ(6, oParser.m_pModel->getTypeObjectCount());
+    auto pTypeObject = oParser.m_pModel->getTypeObject(5);
     auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(2, pClass->getAttributeCount());
@@ -99,12 +99,12 @@ TEST(TestExpParse, Entity_addType)
     gfc2::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
-    oModel.addTypeObject(new gfc2::schema::CBuildinType(L"INTEGER"));
+    //oModel.addTypeObject(new gfc2::schema::CIntegerType);
     
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
-    EXPECT_EQ(3, oParser.m_pModel->getTypeObjectCount());
-    auto pTypeObject = oParser.m_pModel->getTypeObject(1);
+    EXPECT_EQ(6, oParser.m_pModel->getTypeObjectCount());
+    auto pTypeObject = oParser.m_pModel->getTypeObject(4);
     auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(2, pClass->getAttributeCount());
@@ -134,8 +134,8 @@ TEST(TestExpParse, Entity_SUBTYPE)
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
-    EXPECT_EQ(3, oParser.m_pModel->getTypeObjectCount());
-    auto pTypeObject = oParser.m_pModel->getTypeObject(0);
+    EXPECT_EQ(7, oParser.m_pModel->getTypeObjectCount());
+    auto pTypeObject = oParser.m_pModel->getTypeObject(4);
     auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(true, pClass->getName() == L"Gfc2Bevel");
@@ -170,8 +170,8 @@ TEST(TestExpParse, Entity_SUPERTYPE)
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
-    EXPECT_EQ(4, oParser.m_pModel->getTypeObjectCount());
-    auto pTypeObject = oParser.m_pModel->getTypeObject(0);
+    EXPECT_EQ(8, oParser.m_pModel->getTypeObjectCount());
+    auto pTypeObject = oParser.m_pModel->getTypeObject(4);
     auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(true, pClass->getName() == L"Gfc2RelationShip");
@@ -204,8 +204,8 @@ TEST(TestExpParse, Entity_ABSTRACT_SUPERTYPE)
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
-    EXPECT_EQ(4, oParser.m_pModel->getTypeObjectCount());
-    auto pTypeObject = oParser.m_pModel->getTypeObject(0);
+    EXPECT_EQ(8, oParser.m_pModel->getTypeObjectCount());
+    auto pTypeObject = oParser.m_pModel->getTypeObject(4);
     auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(true, pClass->getName() == L"Gfc2RelationShip");
@@ -242,8 +242,8 @@ TEST(TestExpParse, Entity_ABSTRACT_SUPERTYPE_SUBTYPE)
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
-    EXPECT_EQ(5, oParser.m_pModel->getTypeObjectCount());
-    auto pTypeObject = oParser.m_pModel->getTypeObject(0);
+    EXPECT_EQ(9, oParser.m_pModel->getTypeObjectCount());
+    auto pTypeObject = oParser.m_pModel->getTypeObject(4);
     auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(true, pClass->getName() == L"Gfc2RelationShip");
@@ -270,12 +270,12 @@ TEST(TestExpParse, Entity_optional)
     gfc2::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
-    oModel.addTypeObject(new gfc2::schema::CBuildinType(L"INTEGER"));
+    //oModel.addTypeObject(new gfc2::schema::CIntegerType);
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
-    EXPECT_EQ(3, oParser.m_pModel->getTypeObjectCount());
-    auto pTypeObject = oParser.m_pModel->getTypeObject(1);
+    EXPECT_EQ(6, oParser.m_pModel->getTypeObjectCount());
+    auto pTypeObject = oParser.m_pModel->getTypeObject(4);
     auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(2, pClass->getAttributeCount());
@@ -300,12 +300,12 @@ TEST(TestExpParse, Entity_Array)
     gfc2::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
-    oModel.addTypeObject(new gfc2::schema::CBuildinType(L"INTEGER"));
+    //oModel.addTypeObject(new gfc2::schema::CIntegerType);
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
-    EXPECT_EQ(3, oParser.m_pModel->getTypeObjectCount());
-    auto pTypeObject = oParser.m_pModel->getTypeObject(1);
+    EXPECT_EQ(6, oParser.m_pModel->getTypeObjectCount());
+    auto pTypeObject = oParser.m_pModel->getTypeObject(4);
     auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(2, pClass->getAttributeCount());

@@ -19,11 +19,12 @@ class PropValue;
 
 class ReaderTextImp: public ReaderImp
 {
+    GFCENGINE_DEC_OBJECT(ReaderTextImp, ReaderImp)
 public:
     ReaderTextImp();
     virtual ~ReaderTextImp(void);
 
-    virtual bool preRead(const string& sFileName); // 判断是否是可以读的格式
+    virtual bool preRead(const std::string& sFileName); // 判断是否是可以读的格式
     virtual void read(Document* pDoc, std::vector<std::string>& errors);
 protected:
     virtual bool getIndex(EntityInfo& oInfo);//顺序读取index
@@ -33,18 +34,18 @@ private:
     bool getNextValue(const std::string& input, int nStartPos, std::string& sValue);
     bool parse(const std::string& input, Entity* pEntity, std::string& error);
     bool parseField(const std::string& input, gfc2::schema::CTypeObject* pType, PropValue * pValue);
-    bool parseBoolean(const string& input, bool& value);
-    bool parseInt(const string& input, int& value);
-    bool parseFloat(const string& input, double& value);
-    bool parseString(const string& input, string& value);
-    bool parseEntity(const string& input, EntityRef& value);
+    bool parseBoolean(const std::string& input, bool& value);
+    bool parseInt(const std::string& input, int& value);
+    bool parseFloat(const std::string& input, double& value);
+    bool parseString(const std::string& input, std::string& value);
+    bool parseEntity(const std::string& input, EntityRef& value);
 
-    bool parseBooleanField(const string& input, PropValue* pValue);
-    bool parseIntField(const string& input, PropValue* pValue);
-    bool parseFloatField(const string& input, PropValue* pValue);
-    bool parseStringField(const string& input, PropValue* pValue);
-    bool parseEnumField(const string& input, gfc2::schema::CEnumType* pEnumType, PropValue* pValue);
-    bool parseEntityField(const string& input, PropValue* pValue);
+    bool parseBooleanField(const std::string& input, PropValue* pValue);
+    bool parseIntField(const std::string& input, PropValue* pValue);
+    bool parseFloatField(const std::string& input, PropValue* pValue);
+    bool parseStringField(const std::string& input, PropValue* pValue);
+    bool parseEnumField(const std::string& input, gfc2::schema::CEnumType* pEnumType, PropValue* pValue);
+    bool parseEntityField(const std::string& input, PropValue* pValue);
 
 };
 

@@ -36,7 +36,7 @@ ReaderImp::~ReaderImp(void)
 {
 }
 
-bool ReaderImp::open(const string & sFileName)
+bool ReaderImp::open(const std::string & sFileName)
 {
     m_pFileMap = new FileMap(toWstring(sFileName));
     if (m_pFileMap->init())
@@ -57,23 +57,37 @@ void ReaderImp::close()
 
 EntityPtr ReaderImp::getEntity(EntityRef nId)
 {
-    auto oInfo = m_pContainer->getItem(nId);
-    return EntityPtr((oInfo.type != nullptr) ? createEntity(oInfo) : nullptr);
+    if (m_pContainer)
+    {
+        auto oInfo = m_pContainer->getItem(nId);
+        return EntityPtr((oInfo.type != nullptr) ? createEntity(oInfo) : nullptr);
+    }
+    else
+    {
+        return nullptr;
+    }
 }
 
 EntityIteratorPtr ReaderImp::getEntities(const std::string & sType, bool bIncludeSubType)
 {
-    return EntityIteratorPtr(new ReaderIterator(this, m_pContainer->getItems(sType, bIncludeSubType)));
+    if (m_pContainer)
+        return EntityIteratorPtr(new ReaderIterator(this, m_pContainer->getItems(sType, bIncludeSubType)));
+    else
+        return nullptr;
 }
 
 EntityIteratorPtr ReaderImp::getIterator()
 {
-    return EntityIteratorPtr(new ReaderIterator(this, m_pContainer->iterator()));
+    if (m_pContainer)
+        return EntityIteratorPtr(new ReaderIterator(this, m_pContainer->iterator()));
+    else
+        return nullptr;
 }
 
 void ReaderImp::addInfo(const EntityInfo & oInfo)
 {
-    m_pContainer->add(oInfo.id, oInfo);
+    if (m_pContainer)
+        m_pContainer->add(oInfo.id, oInfo);
 }
 
 void ReaderImp::buildIndex()
