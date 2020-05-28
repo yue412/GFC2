@@ -13,12 +13,7 @@ CModel::CModel(): m_pRefModel(nullptr)
 
 CModel::~CModel()
 {
-    m_oTypeIndex.clear();
-    for (CTypeObjectList::iterator itr = m_oTypeObjectList.begin(); itr != m_oTypeObjectList.end(); ++itr)
-    {
-        delete *itr;
-    }
-    m_oTypeObjectList.clear();
+    clear();
 }
 
 CTypeObject *CModel::getTypeObject(int nIndex)
@@ -45,6 +40,16 @@ CTypeObject *CModel::findTypeObject(const std::wstring &sTypeName)
     {
         return itr->second;
     }
+}
+
+void CModel::clear()
+{
+    m_oTypeIndex.clear();
+    for (CTypeObjectList::iterator itr = m_oTypeObjectList.begin(); itr != m_oTypeObjectList.end(); ++itr)
+    {
+        delete *itr;
+    }
+    m_oTypeObjectList.clear();
 }
 
 void CModel::getTypeObjectList(CTypeObjectList &oTypeList/*,QStringList files = QStringList()*/)

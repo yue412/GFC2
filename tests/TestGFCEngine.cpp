@@ -3,6 +3,7 @@
 #include "GfcEngine\Reader.h"
 #include "GfcEngine\Document.h"
 #include "GfcEngine\EntityFactory.h"
+#include "GfcEngine\GfcEngineUtils.h"
 //#include "Classes\Gfc2EdgeData.h"
 #include "Common.h"
 
@@ -17,9 +18,8 @@ TEST(TestGFCEngine, WriteFile)
 {
     gfc2::engine::Writer writer;
     auto result = writer.open(UnicodeToUtf8(getFullPath(L"one.gfc")), "express", "gfc2_unit_test");
-    gfc2::engine::EntityFactory oFactory;
-    oFactory.loadSchema(UnicodeToUtf8(getFullPath(L"GFC3X0.exp")));
-    auto pEntity = oFactory.create("Gfc2Vector3d");
+    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(toString(getFullPath(L"GFC3X0.exp")));
+    auto pEntity = pFactory->create("Gfc2Vector3d");
     //Gfc2Vector3d oVector;
     //oVector.setX(1.0);
     //oVector.setY(2.0);
@@ -29,14 +29,14 @@ TEST(TestGFCEngine, WriteFile)
     pEntity->setAsDouble("Z", 3.0);
     writer.writeEntity(pEntity);
     EXPECT_EQ(true, result);
+    delete pFactory;
 }
 
 TEST(TestGFCEngine, ReadFile)
 {
-    gfc2::engine::EntityFactory oFactory;
-    oFactory.loadSchema(UnicodeToUtf8(getFullPath(L"GFC3X0.exp")));
-    gfc2::engine::Reader reader(&oFactory);
-    gfc2::engine::Document document(oFactory.schema());
+    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(toString(getFullPath(L"GFC3X0.exp")));
+    gfc2::engine::Reader reader(pFactory);
+    gfc2::engine::Document document(pFactory->schema());
     auto result = reader.open(UnicodeToUtf8(getFullPath(L"one.gfc")));
     EXPECT_EQ(true, result);
     if (result)
@@ -53,14 +53,14 @@ TEST(TestGFCEngine, ReadFile)
         EXPECT_NEAR(2.0, pEntity->asDouble("Y"), 1e-6);
         EXPECT_NEAR(3.0, pEntity->asDouble("Z"), 1e-6);
     }
+    delete pFactory;
 }
 
 TEST(TestGFCEngine, ReadEmptyFile)
 {
-    gfc2::engine::EntityFactory oFactory;
-    oFactory.loadSchema(UnicodeToUtf8(getFullPath(L"GFC3X0.exp")));
-    gfc2::engine::Reader reader(&oFactory);
-    gfc2::engine::Document document(oFactory.schema());
+    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(toString(getFullPath(L"GFC3X0.exp")));
+    gfc2::engine::Reader reader(pFactory);
+    gfc2::engine::Document document(pFactory->schema());
     auto result = reader.open(UnicodeToUtf8(getFullPath(L"empty.gfc")));
     EXPECT_EQ(true, result);
     if (result)
@@ -70,6 +70,7 @@ TEST(TestGFCEngine, ReadEmptyFile)
         itr->first();
         EXPECT_EQ(true, itr->isDone());
     }
+    delete pFactory;
 }
 
 //TEST(BinaryWriterTest, WriteEmptyFile)

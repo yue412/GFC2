@@ -7,8 +7,6 @@
 namespace gfc2 {
     namespace schema {
         class CModel;
-        class CAttribute;
-        class CClass;
     }
 }
 
@@ -19,18 +17,15 @@ class Entity;
 class GFCENGINE_API EntityFactory
 {
 public:
-    EntityFactory();
+    EntityFactory(gfc2::schema::CModel* pModel, bool bOwnerModel = true);
     ~EntityFactory();
 public:
-    void loadSchema(const std::string& sFileName);
-    void loadSchema(const char* buf, int len);
     Entity* create(const std::string& sName);
-
     gfc2::schema::CModel* schema() { return m_pModel; }
 private:
     void clear();
     gfc2::schema::CModel* m_pModel;
-    gfc2::schema::CModel* m_pTempModel;
+    bool m_bOwnerModel;
 };
 
 GFCENGINE_NAMESPACE_END

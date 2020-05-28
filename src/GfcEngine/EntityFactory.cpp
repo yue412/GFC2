@@ -11,63 +11,23 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-EntityFactory::EntityFactory(): m_pModel(nullptr), m_pTempModel(nullptr)
+EntityFactory::EntityFactory(gfc2::schema::CModel * pModel, bool bOwnerModel) : m_pModel(pModel), m_bOwnerModel(bOwnerModel)
 {
 }
-
 
 EntityFactory::~EntityFactory()
 {
     clear();
 }
 
-void EntityFactory::loadSchema(const std::string & sFileName)
-{
-    auto sFile = toWstring(sFileName);
-    if (!fileExists(sFile))
-        return;
-    std::ifstream in(sFileName, std::ios::in);
-    if (in)
-    {
-        // get length of file:
-        in.seekg(0, in.end);
-        int length = (int)in.tellg();
-        in.seekg(0, in.beg);
-
-        char * buffer = new char[length];
-
-        // read data as a block:
-        in.read(buffer, length);
-        in.close();
-
-        loadSchema(buffer, (int)in.gcount());
-    }
-}
-
-void EntityFactory::loadSchema(const char * buf, int len)
-{
-    clear();
-    Scanner oScanner((const unsigned char *)buf, len);
-    Parser oParser(&oScanner);
-    m_pModel = new gfc2::schema::CModel;
-    m_pTempModel = new gfc2::schema::CModel;
-    oParser.m_pModel = m_pModel;
-    oParser.m_pTempModel = m_pTempModel;
-    oParser.Parse();
-    if (oParser.errors->count > 0)
-    {
-        assert(false);
-    }
-}
-
 Entity * EntityFactory::create(const std::string & sName)
 {
+    assert(m_pModel);
     auto pType = m_pModel->findTypeObject(toWstring(sName));
-    auto pClass = dynamic_cast<gfc2::schema::CClass*>(pType);
-    if (pClass)
+    if (pType && pType->getDataType() == gfc2::schema::EDT_ENTITY)
     {
         Entity* pEntity = new Entity;
-        pEntity->setSchema(pClass);
+        pEntity->setSchema(pType);
         return pEntity;
     }
     else 
@@ -78,8 +38,10 @@ Entity * EntityFactory::create(const std::string & sName)
 
 void EntityFactory::clear()
 {
-    delete m_pModel; m_pModel = nullptr;
-    delete m_pTempModel; m_pTempModel = nullptr;
+    if (m_bOwnerModel)
+    {
+        delete m_pModel; m_pModel = nullptr;
+    }
 }
 
 GFCENGINE_NAMESPACE_END

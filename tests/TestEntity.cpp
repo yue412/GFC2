@@ -8,7 +8,6 @@
 
 TEST(TestEntity, Entity_create)
 {
-    gfc2::engine::EntityFactory oFactory;
     gfc2::schema::CClass oClass;
     oClass.SetName(L"Test");
 
@@ -52,7 +51,6 @@ TEST(TestEntity, Entity_create)
 
 TEST(TestEntity, Entity_isNull)
 {
-    gfc2::engine::EntityFactory oFactory;
     gfc2::schema::CClass oClass;
     oClass.SetName(L"Test");
 

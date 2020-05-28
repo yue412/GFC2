@@ -20,6 +20,7 @@ public:
     CTypeObject *findTypeObject(const std::wstring& sTypeName);
     CModel* getRefModel() { return m_pRefModel; }
     void setRefModel(CModel* pRefModel) { m_pRefModel = pRefModel; }
+    void clear();
 
 	// 扩展接口，只生成指定的gfc文件，xuxp,2017-6-19
     void getTypeObjectList(CTypeObjectList& oTypeList/*,QStringList files = QStringList()*/);
