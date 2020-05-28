@@ -7,7 +7,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Document::Document( gfc2::schema::CModel* pModel, int nEntityInitCount /*= 1000000*/ ): m_pModel(pModel)
+Document::Document( gfc2::schema::CModel* pModel, int nEntityInitCount /*= 1000000*/ ): m_pContainer(nullptr)
 {
     m_pContainer = new ContainerImp<EntityPtr>(pModel, nEntityInitCount);
     //m_pEntityTypeTree = new EntityTypeTree(this);
@@ -19,14 +19,19 @@ Document::~Document(void)
     delete m_pContainer;
 }
 
-void Document::add( EntityRef nId, EntityPtr pEntity )
+void Document::add( EntityRef nId, Entity* pEntity )
 {
-    m_pContainer->add(nId, pEntity);
+    m_pContainer->add(nId, EntityPtr(pEntity));
 }
 
 EntityPtr Document::getEntity( EntityRef nId )
 {
     return m_pContainer->getItem(nId);
+}
+
+gfc2::schema::CModel* Document::model() const 
+{ 
+    return m_pContainer->model(); 
 }
 
 EntityIteratorPtr Document::getIterator()
@@ -39,6 +44,7 @@ EntityIteratorPtr Document::getEntities(const std::string& sType, bool bIncludeS
     return m_pContainer->getItems(sType, bIncludeSubType);
 }
 
+/*
 void Document::linkSchemaByParent()
 {
     for (int i = 0; i < m_pModel->getTypeObjectCount(); ++i)
@@ -82,5 +88,6 @@ std::string Document::normalizeTypeName(const std::string & sTypeName)
     auto pType = m_pModel->findTypeObject(toWstring(sTypeName)); // done for typedef class
     return pType ? toString(pType->getBaseType()->getName()) : "";
 }
+*/
 
 GFCENGINE_NAMESPACE_END
