@@ -37,11 +37,6 @@ EntityRef PropValue::asEntityRef() const
     throw ETypeMatchError();
 }
 
-Entity* PropValue::asEntity() const
-{
-    throw ETypeMatchError();
-}
-
 void PropValue::setAsString(const std::string& sValue)
 {
     throw ETypeMatchError();

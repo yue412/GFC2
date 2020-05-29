@@ -12,7 +12,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Entity::Entity(void): m_pDocument(nullptr), m_pSchema(nullptr), m_pProps(nullptr)
+Entity::Entity(void): m_pContainer(nullptr), m_pSchema(nullptr), m_pProps(nullptr)
 {
     m_pProps = new std::vector<Property*>();
 }
@@ -23,14 +23,15 @@ Entity::~Entity(void)
     delete m_pProps;
 }
 
-void Entity::setDocument( Document* pDocument )
+void Entity::setContainer( IContainer* pContainer )
 {
-    m_pDocument = pDocument;
+    m_pContainer = pContainer;
 }
 
 void Entity::setSchema(gfc2::schema::CTypeObject * pType)
 {
     assert(pType);
+    assert(pType->getDataType() == gfc2::schema::EDT_ENTITY);
     if (pType != m_pSchema && pType->getDataType() == gfc2::schema::EDT_ENTITY)
     {
         free();
@@ -55,7 +56,7 @@ bool Entity::isInitialized() const
         for (int i = 0; i < getClass()->getAttributeCount(); i++)
         {
             auto pAttr = getClass()->getAttribute(i);
-            if (!pAttr->getOptionalFlag() && getProps(i)->value()->isNull())
+            if (!pAttr->getOptionalFlag() && !pAttr->getRepeatFlag() && getProps(i)->value()->isNull())
                 return false;
         }
     }
@@ -64,12 +65,37 @@ bool Entity::isInitialized() const
 
 int Entity::getPropCount() const
 {
-    return m_pSchema ? getClass()->getAttributeCount() : 0;
+    return (int)m_pProps->size();
 }
 
 Property* Entity::getProps(int nIndex) const
 {
-    return (*m_pProps)[nIndex];
+    if (nIndex < (int)m_pProps->size() && nIndex >= 0)
+        return (*m_pProps)[nIndex];
+    else
+        return nullptr;
+}
+
+Property * Entity::propByName(const std::string sPropName) const
+{
+    if (m_pSchema)
+    {
+        auto pClass = getClass();
+        int nIndex = -1;
+        while (pClass)
+        {
+            auto pParent = pClass->getParent();
+            nIndex = pClass->attributeIndexByName(toWstring(sPropName));
+            if (nIndex >= 0)
+            {
+                nIndex += pParent ? pParent->getTotalAttributeCount() : 0;
+                break;
+            }
+            pClass = pParent;
+        }
+        return getProps(nIndex);
+    }
+    return nullptr;
 }
 
 bool Entity::isNull(const std::string& sPropName) const
@@ -91,15 +117,11 @@ bool Entity::isNull(const std::string& sPropName) const
 
 PropValue * Entity::valueByName(const std::string sPropName) const
 {
-    if (m_pSchema)
-    {
-        auto nIndex = getClass()->attributeIndexByName(toWstring(sPropName));
-        if (nIndex >= 0)
-        {
-            return getProps(nIndex)->value();
-        }
-    }
-    return nullptr;
+    auto pProperty = propByName(sPropName);
+    if (pProperty)
+        return pProperty->value();
+    else
+        return nullptr;
 }
 
 std::string Entity::entityName() const
@@ -110,11 +132,17 @@ std::string Entity::entityName() const
 
 void Entity::init()
 {
-    if (m_pSchema)
+    initProps(getClass());
+}
+
+void Entity::initProps(gfc2::schema::CClass* pClass)
+{
+    if (pClass)
     {
-        for (int i = 0; i < getClass()->getAttributeCount(); i++)
+        initProps(pClass->getParent());
+        for (int i = 0; i < pClass->getAttributeCount(); i++)
         {
-            auto pAttr = getClass()->getAttribute(i);
+            auto pAttr = pClass->getAttribute(i);
             if (pAttr->getRepeatFlag())
             {
                 m_pProps->push_back(new Property(pAttr, new CompositePropValue));
@@ -221,9 +249,20 @@ EntityRef Entity::asEntityRef(const std::string& sPropName) const
     return -1;
 }
 
-Entity* Entity::asEntity(const std::string& sPropName) const
+EntityPtr Entity::asEntity(const std::string& sPropName) const
 {
-    //todo
+    if (m_pSchema && m_pContainer)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            return m_pContainer->getEntity(pValue->asEntityRef());
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
     return nullptr;
 }
 
@@ -305,6 +344,211 @@ void Entity::setAsEntityRef(const std::string& sPropName, const EntityRef& nValu
             throw EMissMatchProperty();
         }
     }
+}
+
+int Entity::getArrayCount(const std::string& sPropName) const
+{
+    if (m_pSchema)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            return pValue->getCount();
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return 0;
+}
+
+void Entity::addEntityRef(const std::string& sPropName, const EntityRef& nValue)
+{
+    if (m_pSchema)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            return pValue->add(new EntityRefValue(nValue));
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+}
+
+void Entity::addString(const std::string& sPropName, const std::string& sValue)
+{
+    if (m_pSchema)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            return pValue->add(new StringValue(sValue));
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+}
+
+void Entity::addInteger(const std::string& sPropName, const int& nValue)
+{
+    if (m_pSchema)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            return pValue->add(new IntegerValue(nValue));
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+}
+
+void Entity::addDouble(const std::string& sPropName, const double& dValue)
+{
+    if (m_pSchema)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            return pValue->add(new DoubleValue(dValue));
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+}
+
+void Entity::addBoolean(const std::string& sPropName, const bool& bValue)
+{
+    if (m_pSchema)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            return pValue->add(new BooleanValue(bValue));
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+}
+
+std::string Entity::getString(const std::string& sPropName, int nIndex) const
+{
+    if (m_pSchema)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            auto pVal = pValue->getItems(nIndex);
+            return pVal ? pVal->asString() : "";
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return "";
+}
+
+int Entity::getInteger(const std::string& sPropName, int nIndex) const
+{
+    if (m_pSchema)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            auto pVal = pValue->getItems(nIndex);
+            return pVal ? pVal->asInteger() : 0;
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return 0;
+}
+
+double Entity::getDouble(const std::string& sPropName, int nIndex) const
+{
+    if (m_pSchema)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            auto pVal = pValue->getItems(nIndex);
+            return pVal ? pVal->asDouble() : 0.0;
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return 0.0;
+}
+
+bool Entity::getBoolean(const std::string& sPropName, int nIndex) const
+{
+    if (m_pSchema)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            auto pVal = pValue->getItems(nIndex);
+            return pVal ? pVal->asBoolean() : false;
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return false;
+}
+
+EntityRef Entity::getEntityRef(const std::string& sPropName, int nIndex) const
+{
+    if (m_pSchema)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            auto pVal = pValue->getItems(nIndex);
+            return pVal ? pVal->asEntityRef() : -1;
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return -1;
+}
+
+EntityPtr Entity::getEntity(const std::string& sPropName, int nIndex) const
+{
+    if (m_pSchema && m_pContainer)
+    {
+        auto pValue = valueByName(sPropName);
+        if (pValue)
+        {
+            auto pVal = pValue->getItems(nIndex);
+            return m_pContainer->getEntity(pVal ? pVal->asEntityRef() : -1);
+        }
+        else
+        {
+            throw EMissMatchProperty();
+        }
+    }
+    return nullptr;
 }
 
 GFCENGINE_NAMESPACE_END

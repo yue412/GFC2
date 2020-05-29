@@ -27,7 +27,6 @@ public:
     virtual double asDouble() const;
     virtual bool asBoolean() const;
     virtual EntityRef asEntityRef() const;
-    virtual Entity* asEntity() const;
 
     virtual void setAsString(const std::string& sValue);
     virtual void setAsInteger(const int& nValue);

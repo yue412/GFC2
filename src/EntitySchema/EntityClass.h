@@ -2,6 +2,7 @@
 #define CLASS_H
 
 #include <vector>
+#include <map>
 #include "TypeObject.h"
 
 GFC_NAMESPACE_BEGIN
@@ -35,6 +36,7 @@ public:
     // 属性
     CAttribute *getAttribute(int nIndex);
     int getAttributeCount(){return (int)m_oAttributeList.size();}
+    int getTotalAttributeCount(); // 含所有父的属性
     void addAttribute(CAttribute* pAttribute);
     CAttribute* findAttribute(const std::wstring& sName);
     int attributeIndexByName(const std::wstring& sName);
@@ -45,6 +47,7 @@ private:
     CClass* m_pParent;
     CClassList m_oChildList;
     CAttributeList m_oAttributeList;
+    std::map<std::wstring, std::size_t> m_oAttributeMap;
     bool m_bIsAbstract;
     bool m_bIsValid;
     //bool m_bIsValueType;

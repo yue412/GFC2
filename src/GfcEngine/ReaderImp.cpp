@@ -60,7 +60,10 @@ EntityPtr ReaderImp::getEntity(EntityRef nId)
     if (m_pContainer)
     {
         auto oInfo = m_pContainer->getItem(nId);
-        return EntityPtr((oInfo.type != nullptr) ? createEntity(oInfo) : nullptr);
+        auto pEntity = (oInfo.type != nullptr) ? createEntity(oInfo) : nullptr;
+        if (pEntity)
+            pEntity->setContainer(this);
+        return EntityPtr(pEntity);
     }
     else
     {

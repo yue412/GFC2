@@ -1,6 +1,7 @@
 #include "EntityClass.h"
 #include "EntityAttribute.h"
 #include <algorithm>
+#include <assert.h>
 
 GFC_NAMESPACE_BEGIN
 
@@ -47,27 +48,50 @@ bool CClass::isInherited(const std::wstring & sName)
 
 CAttribute *CClass::getAttribute(int nIndex)
 {
-    _ASSERT(nIndex >= 0 && nIndex < (int)m_oAttributeList.size());
+    assert(nIndex >= 0 && nIndex < (int)m_oAttributeList.size());
     return m_oAttributeList[nIndex];
+}
+
+int CClass::getTotalAttributeCount()
+{
+    int nTotal = 0;
+    auto pClass = this;
+    while (pClass)
+    {
+        nTotal += pClass->getAttributeCount();
+        pClass = pClass->getParent();
+    }
+    return nTotal;
 }
 
 void CClass::addAttribute(CAttribute *pAttribute)
 {
-    m_oAttributeList.push_back(pAttribute);
+    assert(pAttribute);
+    auto itr = m_oAttributeMap.find(pAttribute->getName());
+    if (itr == m_oAttributeMap.end())
+    {
+        m_oAttributeList.push_back(pAttribute);
+        m_oAttributeMap.insert(std::make_pair(pAttribute->getName(), m_oAttributeList.size() - 1));
+    }
+    else
+    {
+        assert(false);
+    }
 }
 
 CAttribute * CClass::findAttribute(const std::wstring & sName)
 {
-    auto itr = std::find_if(m_oAttributeList.begin(), m_oAttributeList.end(),
-        [sName](CAttribute* pAttrib) { return pAttrib->getName() == sName; });
-    return itr == m_oAttributeList.end() ? nullptr : *itr;
+    auto nIndex = attributeIndexByName(sName);
+    return nIndex >= 0 ? getAttribute(nIndex) : nullptr;
 }
 
 int CClass::attributeIndexByName(const std::wstring & sName)
 {
-    auto itr = std::find_if(m_oAttributeList.begin(), m_oAttributeList.end(),
-        [sName](CAttribute* pAttrib) { return pAttrib->getName() == sName; });
-    return itr == m_oAttributeList.end() ? -1 : itr-m_oAttributeList.begin();
+    auto itr = m_oAttributeMap.find(sName);
+    if (itr != m_oAttributeMap.end())
+        return itr->second;
+    else
+        return -1;
 }
 
 GFC_NAMESPACE_END

@@ -21,6 +21,8 @@ Document::~Document(void)
 
 void Document::add( EntityRef nId, Entity* pEntity )
 {
+    assert(pEntity);
+    pEntity->setContainer(this);
     m_pContainer->add(nId, EntityPtr(pEntity));
 }
 
