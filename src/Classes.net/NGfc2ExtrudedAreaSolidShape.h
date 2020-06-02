@@ -5,15 +5,15 @@
 #include "Gfc2ExtrudedAreaSolidShape.h"
 #include "NGfc2Vector3d.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2ExtrudedAreaSolidShape: public NGfc2SweptAreaSolidShape
 {
 public:
     NGfc2ExtrudedAreaSolidShape();
     NGfc2ExtrudedAreaSolidShape(void* pEntity, bool bOwner);
-    void setExtrudedDirection(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getExtrudedDirection();
+    void setExtrudedDirection(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getExtrudedDirection();
     bool hasExtrudedDirection();
     NGfc2Vector3d^ getExtrudedDirectionPtr();
     void setLength(NGfc2Double dValue);

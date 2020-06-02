@@ -6,25 +6,26 @@
 #include "NGfc2Representation.h"
 #include "NGfc2ElementShape.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Element: public NGfc2Object
 {
 public:
     NGfc2Element();
     NGfc2Element(void* pEntity, bool bOwner);
-    void setType(NGfc2Integer nValue);
-    NGfc2Integer getType();
+    void setType(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getType();
     bool hasType();
+    NGfc2Label^ getTypePtr();
     int getRepresentationsCount();
     void clearRepresentations();
-    void addRepresentations(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getRepresentations(int nIndex);
+    void addRepresentations(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getRepresentations(int nIndex);
     NGfc2Representation^ getRepresentationsPtr(int nIndex);
     int getShapesCount();
     void clearShapes();
-    void addShapes(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getShapes(int nIndex);
+    void addShapes(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getShapes(int nIndex);
     NGfc2ElementShape^ getShapesPtr(int nIndex);
 
 };

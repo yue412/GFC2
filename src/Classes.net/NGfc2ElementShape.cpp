@@ -11,12 +11,12 @@ NGfc2ElementShape::NGfc2ElementShape(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2ElementShape::setIdentifier(glodon::objectbuf::EntityRef nValue)
+void NGfc2ElementShape::setIdentifier(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ElementShape*)m_pEntity)->setIdentifier(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ElementShape::getIdentifier()
+gfc2::engine::EntityRef NGfc2ElementShape::getIdentifier()
 {
     return ((Gfc2ElementShape*)m_pEntity)->getIdentifier();
 }
@@ -31,12 +31,12 @@ NGfc2String^ NGfc2ElementShape::getIdentifierPtr()
     return gcnew NGfc2String(((Gfc2ElementShape*)m_pEntity)->getIdentifierPtr(), false);
 }
 
-void NGfc2ElementShape::setShape(glodon::objectbuf::EntityRef nValue)
+void NGfc2ElementShape::setShape(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ElementShape*)m_pEntity)->setShape(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ElementShape::getShape()
+gfc2::engine::EntityRef NGfc2ElementShape::getShape()
 {
     return ((Gfc2ElementShape*)m_pEntity)->getShape();
 }

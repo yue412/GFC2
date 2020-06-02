@@ -11,12 +11,12 @@ NGfc2Arc2d::NGfc2Arc2d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Arc2d::setCenterPt(glodon::objectbuf::EntityRef nValue)
+void NGfc2Arc2d::setCenterPt(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Arc2d*)m_pEntity)->setCenterPt(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Arc2d::getCenterPt()
+gfc2::engine::EntityRef NGfc2Arc2d::getCenterPt()
 {
     return ((Gfc2Arc2d*)m_pEntity)->getCenterPt();
 }
@@ -46,12 +46,12 @@ bool NGfc2Arc2d::hasRadius()
     return ((Gfc2Arc2d*)m_pEntity)->hasRadius();
 }
 
-void NGfc2Arc2d::setRange(glodon::objectbuf::EntityRef nValue)
+void NGfc2Arc2d::setRange(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Arc2d*)m_pEntity)->setRange(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Arc2d::getRange()
+gfc2::engine::EntityRef NGfc2Arc2d::getRange()
 {
     return ((Gfc2Arc2d*)m_pEntity)->getRange();
 }

@@ -11,12 +11,12 @@ NGfc2ManifoldSolidShape::NGfc2ManifoldSolidShape(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2ManifoldSolidShape::setBody(glodon::objectbuf::EntityRef nValue)
+void NGfc2ManifoldSolidShape::setBody(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ManifoldSolidShape*)m_pEntity)->setBody(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ManifoldSolidShape::getBody()
+gfc2::engine::EntityRef NGfc2ManifoldSolidShape::getBody()
 {
     return ((Gfc2ManifoldSolidShape*)m_pEntity)->getBody();
 }

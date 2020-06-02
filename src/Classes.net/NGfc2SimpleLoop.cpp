@@ -21,12 +21,12 @@ void NGfc2SimpleLoop::clearVertexes()
     ((Gfc2SimpleLoop*)m_pEntity)->clearVertexes();
 }
 
-void NGfc2SimpleLoop::addVertexes(glodon::objectbuf::EntityRef nValue)
+void NGfc2SimpleLoop::addVertexes(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2SimpleLoop*)m_pEntity)->addVertexes(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2SimpleLoop::getVertexes(int nIndex)
+gfc2::engine::EntityRef NGfc2SimpleLoop::getVertexes(int nIndex)
 {
     return ((Gfc2SimpleLoop*)m_pEntity)->getVertexes(nIndex);
 }

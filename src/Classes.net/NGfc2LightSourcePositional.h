@@ -5,15 +5,15 @@
 #include "Gfc2LightSourcePositional.h"
 #include "NGfc2Vector3d.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2LightSourcePositional: public NGfc2LightSource
 {
 public:
     NGfc2LightSourcePositional();
     NGfc2LightSourcePositional(void* pEntity, bool bOwner);
-    void setPosition(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getPosition();
+    void setPosition(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getPosition();
     bool hasPosition();
     NGfc2Vector3d^ getPositionPtr();
     void setRadius(NGfc2Double dValue);

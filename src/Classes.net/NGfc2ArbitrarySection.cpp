@@ -11,12 +11,12 @@ NGfc2ArbitrarySection::NGfc2ArbitrarySection(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2ArbitrarySection::setPoly(glodon::objectbuf::EntityRef nValue)
+void NGfc2ArbitrarySection::setPoly(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ArbitrarySection*)m_pEntity)->setPoly(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ArbitrarySection::getPoly()
+gfc2::engine::EntityRef NGfc2ArbitrarySection::getPoly()
 {
     return ((Gfc2ArbitrarySection*)m_pEntity)->getPoly();
 }

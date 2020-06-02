@@ -3,7 +3,7 @@
 
 #include "NGfc2SpatialStructureElement.h"
 #include "Gfc2Site.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Site: public NGfc2SpatialStructureElement
 {

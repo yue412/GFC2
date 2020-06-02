@@ -11,12 +11,12 @@ NGfc2Line2d::NGfc2Line2d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Line2d::setStartPt(glodon::objectbuf::EntityRef nValue)
+void NGfc2Line2d::setStartPt(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Line2d*)m_pEntity)->setStartPt(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Line2d::getStartPt()
+gfc2::engine::EntityRef NGfc2Line2d::getStartPt()
 {
     return ((Gfc2Line2d*)m_pEntity)->getStartPt();
 }
@@ -31,12 +31,12 @@ NGfc2Vector2d^ NGfc2Line2d::getStartPtPtr()
     return gcnew NGfc2Vector2d(((Gfc2Line2d*)m_pEntity)->getStartPtPtr(), false);
 }
 
-void NGfc2Line2d::setEndPt(glodon::objectbuf::EntityRef nValue)
+void NGfc2Line2d::setEndPt(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Line2d*)m_pEntity)->setEndPt(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Line2d::getEndPt()
+gfc2::engine::EntityRef NGfc2Line2d::getEndPt()
 {
     return ((Gfc2Line2d*)m_pEntity)->getEndPt();
 }

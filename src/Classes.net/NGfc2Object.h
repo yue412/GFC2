@@ -3,7 +3,7 @@
 
 #include "Gfc2Object.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;
@@ -17,8 +17,8 @@ public:
     void setID(NGfc2Identity sValue);
     NGfc2Identity getID();
     bool hasID();
-    void setName(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getName();
+    void setName(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getName();
     bool hasName();
     NGfc2Label^ getNamePtr();
 

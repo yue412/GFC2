@@ -11,12 +11,12 @@ NGfc2CuboidBody::NGfc2CuboidBody(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2CuboidBody::setCoordinate(glodon::objectbuf::EntityRef nValue)
+void NGfc2CuboidBody::setCoordinate(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2CuboidBody*)m_pEntity)->setCoordinate(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2CuboidBody::getCoordinate()
+gfc2::engine::EntityRef NGfc2CuboidBody::getCoordinate()
 {
     return ((Gfc2CuboidBody*)m_pEntity)->getCoordinate();
 }
@@ -31,12 +31,12 @@ NGfc2Coordinates3d^ NGfc2CuboidBody::getCoordinatePtr()
     return gcnew NGfc2Coordinates3d(((Gfc2CuboidBody*)m_pEntity)->getCoordinatePtr(), false);
 }
 
-void NGfc2CuboidBody::setDimension(glodon::objectbuf::EntityRef nValue)
+void NGfc2CuboidBody::setDimension(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2CuboidBody*)m_pEntity)->setDimension(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2CuboidBody::getDimension()
+gfc2::engine::EntityRef NGfc2CuboidBody::getDimension()
 {
     return ((Gfc2CuboidBody*)m_pEntity)->getDimension();
 }

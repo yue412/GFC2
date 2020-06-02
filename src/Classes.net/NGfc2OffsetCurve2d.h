@@ -4,7 +4,7 @@
 #include "NGfc2Curve2d.h"
 #include "Gfc2OffsetCurve2d.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2OffsetCurve2d: public NGfc2Curve2d
 {
@@ -14,8 +14,8 @@ public:
     void setOffDist(NGfc2Double dValue);
     NGfc2Double getOffDist();
     bool hasOffDist();
-    void setInitCurve(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getInitCurve();
+    void setInitCurve(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getInitCurve();
     bool hasInitCurve();
     NGfc2Curve2d^ getInitCurvePtr();
 

@@ -41,12 +41,12 @@ bool NGfc2QuotaDetail::hasEntityID()
     return ((Gfc2QuotaDetail*)m_pEntity)->hasEntityID();
 }
 
-void NGfc2QuotaDetail::setUnit(glodon::objectbuf::EntityRef nValue)
+void NGfc2QuotaDetail::setUnit(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2QuotaDetail*)m_pEntity)->setUnit(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2QuotaDetail::getUnit()
+gfc2::engine::EntityRef NGfc2QuotaDetail::getUnit()
 {
     return ((Gfc2QuotaDetail*)m_pEntity)->getUnit();
 }
@@ -61,12 +61,12 @@ NGfc2String^ NGfc2QuotaDetail::getUnitPtr()
     return gcnew NGfc2String(((Gfc2QuotaDetail*)m_pEntity)->getUnitPtr(), false);
 }
 
-void NGfc2QuotaDetail::setExpress(glodon::objectbuf::EntityRef nValue)
+void NGfc2QuotaDetail::setExpress(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2QuotaDetail*)m_pEntity)->setExpress(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2QuotaDetail::getExpress()
+gfc2::engine::EntityRef NGfc2QuotaDetail::getExpress()
 {
     return ((Gfc2QuotaDetail*)m_pEntity)->getExpress();
 }
@@ -81,12 +81,12 @@ NGfc2String^ NGfc2QuotaDetail::getExpressPtr()
     return gcnew NGfc2String(((Gfc2QuotaDetail*)m_pEntity)->getExpressPtr(), false);
 }
 
-void NGfc2QuotaDetail::setQuantity(glodon::objectbuf::EntityRef nValue)
+void NGfc2QuotaDetail::setQuantity(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2QuotaDetail*)m_pEntity)->setQuantity(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2QuotaDetail::getQuantity()
+gfc2::engine::EntityRef NGfc2QuotaDetail::getQuantity()
 {
     return ((Gfc2QuotaDetail*)m_pEntity)->getQuantity();
 }
@@ -101,12 +101,12 @@ NGfc2String^ NGfc2QuotaDetail::getQuantityPtr()
     return gcnew NGfc2String(((Gfc2QuotaDetail*)m_pEntity)->getQuantityPtr(), false);
 }
 
-void NGfc2QuotaDetail::setMemo(glodon::objectbuf::EntityRef nValue)
+void NGfc2QuotaDetail::setMemo(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2QuotaDetail*)m_pEntity)->setMemo(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2QuotaDetail::getMemo()
+gfc2::engine::EntityRef NGfc2QuotaDetail::getMemo()
 {
     return ((Gfc2QuotaDetail*)m_pEntity)->getMemo();
 }

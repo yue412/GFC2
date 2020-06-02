@@ -11,12 +11,12 @@ NGfc2PlaneInfo::NGfc2PlaneInfo(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2PlaneInfo::setDirX(glodon::objectbuf::EntityRef nValue)
+void NGfc2PlaneInfo::setDirX(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2PlaneInfo*)m_pEntity)->setDirX(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2PlaneInfo::getDirX()
+gfc2::engine::EntityRef NGfc2PlaneInfo::getDirX()
 {
     return ((Gfc2PlaneInfo*)m_pEntity)->getDirX();
 }
@@ -31,12 +31,12 @@ NGfc2Vector3d^ NGfc2PlaneInfo::getDirXPtr()
     return gcnew NGfc2Vector3d(((Gfc2PlaneInfo*)m_pEntity)->getDirXPtr(), false);
 }
 
-void NGfc2PlaneInfo::setDirY(glodon::objectbuf::EntityRef nValue)
+void NGfc2PlaneInfo::setDirY(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2PlaneInfo*)m_pEntity)->setDirY(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2PlaneInfo::getDirY()
+gfc2::engine::EntityRef NGfc2PlaneInfo::getDirY()
 {
     return ((Gfc2PlaneInfo*)m_pEntity)->getDirY();
 }
@@ -51,12 +51,12 @@ NGfc2Vector3d^ NGfc2PlaneInfo::getDirYPtr()
     return gcnew NGfc2Vector3d(((Gfc2PlaneInfo*)m_pEntity)->getDirYPtr(), false);
 }
 
-void NGfc2PlaneInfo::setPos(glodon::objectbuf::EntityRef nValue)
+void NGfc2PlaneInfo::setPos(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2PlaneInfo*)m_pEntity)->setPos(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2PlaneInfo::getPos()
+gfc2::engine::EntityRef NGfc2PlaneInfo::getPos()
 {
     return ((Gfc2PlaneInfo*)m_pEntity)->getPos();
 }

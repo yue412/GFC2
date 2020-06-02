@@ -5,15 +5,15 @@
 #include "Gfc2Edge.h"
 #include "NGfc2Curve3d.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Edge: public NGfc2Topology
 {
 public:
     NGfc2Edge();
     NGfc2Edge(void* pEntity, bool bOwner);
-    void setCurve(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getCurve();
+    void setCurve(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getCurve();
     bool hasCurve();
     NGfc2Curve3d^ getCurvePtr();
     void setFaceIndex1(NGfc2Integer nValue);

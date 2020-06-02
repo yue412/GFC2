@@ -11,12 +11,12 @@ NGfc2LightSourceDirectional::NGfc2LightSourceDirectional(void* pEntity, bool bOw
 {
 }
 
-void NGfc2LightSourceDirectional::setOrientation(glodon::objectbuf::EntityRef nValue)
+void NGfc2LightSourceDirectional::setOrientation(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2LightSourceDirectional*)m_pEntity)->setOrientation(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2LightSourceDirectional::getOrientation()
+gfc2::engine::EntityRef NGfc2LightSourceDirectional::getOrientation()
 {
     return ((Gfc2LightSourceDirectional*)m_pEntity)->getOrientation();
 }

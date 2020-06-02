@@ -11,12 +11,12 @@ NGfc2StringProperty::NGfc2StringProperty(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2StringProperty::setValue(glodon::objectbuf::EntityRef nValue)
+void NGfc2StringProperty::setValue(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2StringProperty*)m_pEntity)->setValue(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2StringProperty::getValue()
+gfc2::engine::EntityRef NGfc2StringProperty::getValue()
 {
     return ((Gfc2StringProperty*)m_pEntity)->getValue();
 }

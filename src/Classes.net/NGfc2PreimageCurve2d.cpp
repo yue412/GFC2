@@ -11,12 +11,12 @@ NGfc2PreimageCurve2d::NGfc2PreimageCurve2d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2PreimageCurve2d::setRange(glodon::objectbuf::EntityRef nValue)
+void NGfc2PreimageCurve2d::setRange(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2PreimageCurve2d*)m_pEntity)->setRange(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2PreimageCurve2d::getRange()
+gfc2::engine::EntityRef NGfc2PreimageCurve2d::getRange()
 {
     return ((Gfc2PreimageCurve2d*)m_pEntity)->getRange();
 }
@@ -46,12 +46,12 @@ bool NGfc2PreimageCurve2d::hasReversed()
     return ((Gfc2PreimageCurve2d*)m_pEntity)->hasReversed();
 }
 
-void NGfc2PreimageCurve2d::setBase(glodon::objectbuf::EntityRef nValue)
+void NGfc2PreimageCurve2d::setBase(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2PreimageCurve2d*)m_pEntity)->setBase(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2PreimageCurve2d::getBase()
+gfc2::engine::EntityRef NGfc2PreimageCurve2d::getBase()
 {
     return ((Gfc2PreimageCurve2d*)m_pEntity)->getBase();
 }
@@ -66,12 +66,12 @@ NGfc2Surface^ NGfc2PreimageCurve2d::getBasePtr()
     return gcnew NGfc2Surface(((Gfc2PreimageCurve2d*)m_pEntity)->getBasePtr(), false);
 }
 
-void NGfc2PreimageCurve2d::setCurve(glodon::objectbuf::EntityRef nValue)
+void NGfc2PreimageCurve2d::setCurve(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2PreimageCurve2d*)m_pEntity)->setCurve(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2PreimageCurve2d::getCurve()
+gfc2::engine::EntityRef NGfc2PreimageCurve2d::getCurve()
 {
     return ((Gfc2PreimageCurve2d*)m_pEntity)->getCurve();
 }

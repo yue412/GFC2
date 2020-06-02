@@ -11,12 +11,12 @@ NGfc2LightSourcePositional::NGfc2LightSourcePositional(void* pEntity, bool bOwne
 {
 }
 
-void NGfc2LightSourcePositional::setPosition(glodon::objectbuf::EntityRef nValue)
+void NGfc2LightSourcePositional::setPosition(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2LightSourcePositional*)m_pEntity)->setPosition(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2LightSourcePositional::getPosition()
+gfc2::engine::EntityRef NGfc2LightSourcePositional::getPosition()
 {
     return ((Gfc2LightSourcePositional*)m_pEntity)->getPosition();
 }

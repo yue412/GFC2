@@ -4,7 +4,7 @@
 #include "NGfc2RectangleSection.h"
 #include "Gfc2RectangleHollowSection.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2RectangleHollowSection: public NGfc2RectangleSection
 {

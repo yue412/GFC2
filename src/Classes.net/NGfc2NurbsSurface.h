@@ -5,7 +5,7 @@
 #include "Gfc2NurbsSurface.h"
 #include "NGfc2NurbsCtrlPt3d.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2NurbsSurface: public NGfc2Surface
 {
@@ -26,8 +26,8 @@ public:
     bool hasCtrlPtCountV();
     int getCtrlPtsCount();
     void clearCtrlPts();
-    void addCtrlPts(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getCtrlPts(int nIndex);
+    void addCtrlPts(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getCtrlPts(int nIndex);
     NGfc2NurbsCtrlPt3d^ getCtrlPtsPtr(int nIndex);
     int getKnotsUCount();
     void clearKnotsU();

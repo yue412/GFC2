@@ -4,7 +4,7 @@
 #include "NGfc2RelConnectsElements.h"
 #include "Gfc2RelConnectsPathElements.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2RelConnectsPathElements: public NGfc2RelConnectsElements
 {

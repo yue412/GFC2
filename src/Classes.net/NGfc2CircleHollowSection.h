@@ -4,7 +4,7 @@
 #include "NGfc2CircleSection.h"
 #include "Gfc2CircleHollowSection.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2CircleHollowSection: public NGfc2CircleSection
 {

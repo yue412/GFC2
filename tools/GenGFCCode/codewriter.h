@@ -36,7 +36,7 @@ public:
     CCodeWriter(CModel* pModel);
     ~CCodeWriter();
 	// 扩展接口，只生成指定的gfc文件,xuxp,2017-6-19
-    void write(const std::wstring& sPathName, const std::wstring &sCPPPath, const std::wstring &sTextPath, const std::wstring &sBinPath, 
+    void write(const std::wstring& sPathName, const std::wstring &sCPPPath, /*const std::wstring &sTextPath, const std::wstring &sBinPath, */
         const std::wstring& sNETPath);
 //signals:
 //    void reset();
@@ -87,6 +87,7 @@ private:
     std::wstring getTypeCode(CTypeObject* pTypeObject, bool b4cli = false);
     std::wstring getStoreTypeCode(CTypeObject* pTypeObject, bool bIsRef, bool b4cli = false);
     std::wstring getBaseTypeCode(CTypeObject* pTypeObject, bool b4cli = false);
+    std::wstring getDataTypeName(CTypeObject* pTypeObject);
     EnBaseType getBaseType(CTypeObject* pTypeObject);
     std::wstring getBaseTypePrefix(EnBaseType nType, bool bIsRefType);
     std::wstring getTypeDefaultValue(EnBaseType nType, const std::wstring& sTypeName, bool bIsRef);
@@ -95,7 +96,7 @@ private:
 //    void getRepeatAttributeCode(CAttribute* pAttribute, std::wstring& sPublic, std::wstring& sMember);
 //    void getAttributeCode(CClass* pTypeObject, int nAttributeIndex,
 //                          std::wstring& sPublic, std::wstring& sPrivate, std::wstring& sMember);
-    void initRepeatAttributeCode(CAttribute* pAttribute, CppClass* pClass);
+    void initRepeatAttributeCode(CClass* pTypeObject, int nAttributeIndex, CAttribute* pAttribute, CppClass* pClass);
     void initCliRepeatAttributeCode(CClass* pTypeObject, CAttribute* pAttribute, CppClass* pClass);
     void initAttributeCode(CClass* pTypeObject, int nAttributeIndex, CppClass* pClass);
     void initCliAttributeCode(CClass* pTypeObject, int nAttributeIndex, CppClass* pClass);
@@ -116,8 +117,8 @@ private:
 
     std::wstring m_sPath;
     std::wstring m_sCPPPath;
-    std::wstring m_sTextPath;
-    std::wstring m_sBinPath;
+    //std::wstring m_sTextPath;
+    //std::wstring m_sBinPath;
     std::wstring m_sNETPath;
     bool m_bOutputHead;
     bool m_bOutputCpp;

@@ -56,13 +56,13 @@ className::RegClearHelper className::m_autoRegClear;
 public:\
     typedef className thisClass;\
     typedef factoryClassName baseClassName;\
-    typedef RegItem<baseClassName::RegKeyType> ClassRegItem; \
-    typedef RegHelper<baseClassName::RegKeyType> ClassRegHelper; \
+    typedef gfc2::engine::RegItem<baseClassName::RegKeyType> ClassRegItem; \
+    typedef gfc2::engine::RegHelper<baseClassName::RegKeyType> ClassRegHelper; \
 public:\
     static ClassRegHelper s_##className##RegHelper; \
-    static Object* CreateInstance()\
+    static gfc2::engine::Object* CreateInstance()\
     { \
-        return dynamic_cast<baseClassName*> (new className); \
+        return dynamic_cast<gfc2::engine::Object*> (new className); \
     }\
     static baseClassName::ObjectFactory* GetFactory() \
     {\

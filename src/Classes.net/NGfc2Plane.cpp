@@ -11,12 +11,12 @@ NGfc2Plane::NGfc2Plane(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Plane::setPos(glodon::objectbuf::EntityRef nValue)
+void NGfc2Plane::setPos(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Plane*)m_pEntity)->setPos(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Plane::getPos()
+gfc2::engine::EntityRef NGfc2Plane::getPos()
 {
     return ((Gfc2Plane*)m_pEntity)->getPos();
 }
@@ -31,12 +31,12 @@ NGfc2Vector3d^ NGfc2Plane::getPosPtr()
     return gcnew NGfc2Vector3d(((Gfc2Plane*)m_pEntity)->getPosPtr(), false);
 }
 
-void NGfc2Plane::setDirU(glodon::objectbuf::EntityRef nValue)
+void NGfc2Plane::setDirU(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Plane*)m_pEntity)->setDirU(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Plane::getDirU()
+gfc2::engine::EntityRef NGfc2Plane::getDirU()
 {
     return ((Gfc2Plane*)m_pEntity)->getDirU();
 }
@@ -51,12 +51,12 @@ NGfc2Vector3d^ NGfc2Plane::getDirUPtr()
     return gcnew NGfc2Vector3d(((Gfc2Plane*)m_pEntity)->getDirUPtr(), false);
 }
 
-void NGfc2Plane::setDirV(glodon::objectbuf::EntityRef nValue)
+void NGfc2Plane::setDirV(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Plane*)m_pEntity)->setDirV(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Plane::getDirV()
+gfc2::engine::EntityRef NGfc2Plane::getDirV()
 {
     return ((Gfc2Plane*)m_pEntity)->getDirV();
 }
@@ -71,12 +71,12 @@ NGfc2Vector3d^ NGfc2Plane::getDirVPtr()
     return gcnew NGfc2Vector3d(((Gfc2Plane*)m_pEntity)->getDirVPtr(), false);
 }
 
-void NGfc2Plane::setRangeU(glodon::objectbuf::EntityRef nValue)
+void NGfc2Plane::setRangeU(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Plane*)m_pEntity)->setRangeU(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Plane::getRangeU()
+gfc2::engine::EntityRef NGfc2Plane::getRangeU()
 {
     return ((Gfc2Plane*)m_pEntity)->getRangeU();
 }
@@ -91,12 +91,12 @@ NGfc2Intervald^ NGfc2Plane::getRangeUPtr()
     return gcnew NGfc2Intervald(((Gfc2Plane*)m_pEntity)->getRangeUPtr(), false);
 }
 
-void NGfc2Plane::setRangeV(glodon::objectbuf::EntityRef nValue)
+void NGfc2Plane::setRangeV(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Plane*)m_pEntity)->setRangeV(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Plane::getRangeV()
+gfc2::engine::EntityRef NGfc2Plane::getRangeV()
 {
     return ((Gfc2Plane*)m_pEntity)->getRangeV();
 }

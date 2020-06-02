@@ -11,12 +11,12 @@ NGfc2Box3d::NGfc2Box3d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Box3d::setMin(glodon::objectbuf::EntityRef nValue)
+void NGfc2Box3d::setMin(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Box3d*)m_pEntity)->setMin(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Box3d::getMin()
+gfc2::engine::EntityRef NGfc2Box3d::getMin()
 {
     return ((Gfc2Box3d*)m_pEntity)->getMin();
 }
@@ -31,12 +31,12 @@ NGfc2Vector3d^ NGfc2Box3d::getMinPtr()
     return gcnew NGfc2Vector3d(((Gfc2Box3d*)m_pEntity)->getMinPtr(), false);
 }
 
-void NGfc2Box3d::setMax(glodon::objectbuf::EntityRef nValue)
+void NGfc2Box3d::setMax(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Box3d*)m_pEntity)->setMax(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Box3d::getMax()
+gfc2::engine::EntityRef NGfc2Box3d::getMax()
 {
     return ((Gfc2Box3d*)m_pEntity)->getMax();
 }

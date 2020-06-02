@@ -11,12 +11,12 @@ NGfc2BillTotal::NGfc2BillTotal(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2BillTotal::setCode(glodon::objectbuf::EntityRef nValue)
+void NGfc2BillTotal::setCode(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2BillTotal*)m_pEntity)->setCode(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2BillTotal::getCode()
+gfc2::engine::EntityRef NGfc2BillTotal::getCode()
 {
     return ((Gfc2BillTotal*)m_pEntity)->getCode();
 }
@@ -31,12 +31,12 @@ NGfc2String^ NGfc2BillTotal::getCodePtr()
     return gcnew NGfc2String(((Gfc2BillTotal*)m_pEntity)->getCodePtr(), false);
 }
 
-void NGfc2BillTotal::setName(glodon::objectbuf::EntityRef nValue)
+void NGfc2BillTotal::setName(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2BillTotal*)m_pEntity)->setName(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2BillTotal::getName()
+gfc2::engine::EntityRef NGfc2BillTotal::getName()
 {
     return ((Gfc2BillTotal*)m_pEntity)->getName();
 }
@@ -51,12 +51,12 @@ NGfc2String^ NGfc2BillTotal::getNamePtr()
     return gcnew NGfc2String(((Gfc2BillTotal*)m_pEntity)->getNamePtr(), false);
 }
 
-void NGfc2BillTotal::setAttr(glodon::objectbuf::EntityRef nValue)
+void NGfc2BillTotal::setAttr(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2BillTotal*)m_pEntity)->setAttr(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2BillTotal::getAttr()
+gfc2::engine::EntityRef NGfc2BillTotal::getAttr()
 {
     return ((Gfc2BillTotal*)m_pEntity)->getAttr();
 }
@@ -86,12 +86,12 @@ bool NGfc2BillTotal::hasQuantityType()
     return ((Gfc2BillTotal*)m_pEntity)->hasQuantityType();
 }
 
-void NGfc2BillTotal::setUnit(glodon::objectbuf::EntityRef nValue)
+void NGfc2BillTotal::setUnit(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2BillTotal*)m_pEntity)->setUnit(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2BillTotal::getUnit()
+gfc2::engine::EntityRef NGfc2BillTotal::getUnit()
 {
     return ((Gfc2BillTotal*)m_pEntity)->getUnit();
 }
@@ -106,12 +106,12 @@ NGfc2String^ NGfc2BillTotal::getUnitPtr()
     return gcnew NGfc2String(((Gfc2BillTotal*)m_pEntity)->getUnitPtr(), false);
 }
 
-void NGfc2BillTotal::setQuantity(glodon::objectbuf::EntityRef nValue)
+void NGfc2BillTotal::setQuantity(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2BillTotal*)m_pEntity)->setQuantity(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2BillTotal::getQuantity()
+gfc2::engine::EntityRef NGfc2BillTotal::getQuantity()
 {
     return ((Gfc2BillTotal*)m_pEntity)->getQuantity();
 }
@@ -126,12 +126,12 @@ NGfc2String^ NGfc2BillTotal::getQuantityPtr()
     return gcnew NGfc2String(((Gfc2BillTotal*)m_pEntity)->getQuantityPtr(), false);
 }
 
-void NGfc2BillTotal::setMemo(glodon::objectbuf::EntityRef nValue)
+void NGfc2BillTotal::setMemo(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2BillTotal*)m_pEntity)->setMemo(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2BillTotal::getMemo()
+gfc2::engine::EntityRef NGfc2BillTotal::getMemo()
 {
     return ((Gfc2BillTotal*)m_pEntity)->getMemo();
 }

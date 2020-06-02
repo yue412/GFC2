@@ -11,12 +11,12 @@ NGfc2Torus::NGfc2Torus(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Torus::setCoord(glodon::objectbuf::EntityRef nValue)
+void NGfc2Torus::setCoord(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Torus*)m_pEntity)->setCoord(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Torus::getCoord()
+gfc2::engine::EntityRef NGfc2Torus::getCoord()
 {
     return ((Gfc2Torus*)m_pEntity)->getCoord();
 }
@@ -61,12 +61,12 @@ bool NGfc2Torus::hasClockSign()
     return ((Gfc2Torus*)m_pEntity)->hasClockSign();
 }
 
-void NGfc2Torus::setRangeV(glodon::objectbuf::EntityRef nValue)
+void NGfc2Torus::setRangeV(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Torus*)m_pEntity)->setRangeV(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Torus::getRangeV()
+gfc2::engine::EntityRef NGfc2Torus::getRangeV()
 {
     return ((Gfc2Torus*)m_pEntity)->getRangeV();
 }
@@ -81,12 +81,12 @@ NGfc2Intervald^ NGfc2Torus::getRangeVPtr()
     return gcnew NGfc2Intervald(((Gfc2Torus*)m_pEntity)->getRangeVPtr(), false);
 }
 
-void NGfc2Torus::setCurve(glodon::objectbuf::EntityRef nValue)
+void NGfc2Torus::setCurve(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Torus*)m_pEntity)->setCurve(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Torus::getCurve()
+gfc2::engine::EntityRef NGfc2Torus::getCurve()
 {
     return ((Gfc2Torus*)m_pEntity)->getCurve();
 }

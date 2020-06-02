@@ -4,7 +4,7 @@
 #include "NGfc2ParameterizedSection.h"
 #include "Gfc2TShapeSection.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2TShapeSection: public NGfc2ParameterizedSection
 {

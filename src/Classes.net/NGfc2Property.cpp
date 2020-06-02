@@ -11,12 +11,12 @@ NGfc2Property::NGfc2Property(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Property::setName(glodon::objectbuf::EntityRef nValue)
+void NGfc2Property::setName(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Property*)m_pEntity)->setName(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Property::getName()
+gfc2::engine::EntityRef NGfc2Property::getName()
 {
     return ((Gfc2Property*)m_pEntity)->getName();
 }
@@ -29,5 +29,25 @@ bool NGfc2Property::hasName()
 NGfc2Label^ NGfc2Property::getNamePtr()
 {
     return gcnew NGfc2Label(((Gfc2Property*)m_pEntity)->getNamePtr(), false);
+}
+
+void NGfc2Property::setCode(gfc2::engine::EntityRef nValue)
+{
+    ((Gfc2Property*)m_pEntity)->setCode(nValue);
+}
+
+gfc2::engine::EntityRef NGfc2Property::getCode()
+{
+    return ((Gfc2Property*)m_pEntity)->getCode();
+}
+
+bool NGfc2Property::hasCode()
+{
+    return ((Gfc2Property*)m_pEntity)->hasCode();
+}
+
+NGfc2String^ NGfc2Property::getCodePtr()
+{
+    return gcnew NGfc2String(((Gfc2Property*)m_pEntity)->getCodePtr(), false);
 }
 

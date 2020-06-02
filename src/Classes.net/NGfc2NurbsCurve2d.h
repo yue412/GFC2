@@ -5,7 +5,7 @@
 #include "Gfc2NurbsCurve2d.h"
 #include "NGfc2NurbsCtrlPt2d.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2NurbsCurve2d: public NGfc2Curve2d
 {
@@ -17,8 +17,8 @@ public:
     bool hasDegree();
     int getCtrlPtsCount();
     void clearCtrlPts();
-    void addCtrlPts(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getCtrlPts(int nIndex);
+    void addCtrlPts(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getCtrlPts(int nIndex);
     NGfc2NurbsCtrlPt2d^ getCtrlPtsPtr(int nIndex);
     int getKnotsCount();
     void clearKnots();

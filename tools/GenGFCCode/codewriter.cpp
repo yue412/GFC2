@@ -84,8 +84,8 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
         }
     }
 
-    bool bOutputText = !m_sTextPath.empty();
-    bool bOutputBin = !m_sBinPath.empty();
+    //bool bOutputText = !m_sTextPath.empty();
+    //bool bOutputBin = !m_sBinPath.empty();
     int nCount = oObjectList.size();
     for(int i = 0; i < nCount; ++i)
     {
@@ -126,19 +126,19 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
                 writeClassImpFile(pClass, pFactoryClass, nullptr);
             delete pClass;
 
-            if (bOutputBin)
-            {
-                CppClass* pBinarySerializerClass = createBinarySerializerClass(pTypeObj);
-                writeBinarySerializerClassFile(pTypeObj, pBinarySerializerClass, pFieldCacheClass);
-                delete pBinarySerializerClass;
-            }
-            delete pFieldCacheClass;
-            if (bOutputText)
-            {
-                CppClass* pTextSerializerClass = createTextSerializerClass(pTypeObj);
-                writeTextSerializerClassFile(pTypeObj, pTextSerializerClass);
-                delete pTextSerializerClass;
-            }
+            //if (bOutputBin)
+            //{
+            //    CppClass* pBinarySerializerClass = createBinarySerializerClass(pTypeObj);
+            //    writeBinarySerializerClassFile(pTypeObj, pBinarySerializerClass, pFieldCacheClass);
+            //    delete pBinarySerializerClass;
+            //}
+            //delete pFieldCacheClass;
+            //if (bOutputText)
+            //{
+            //    CppClass* pTextSerializerClass = createTextSerializerClass(pTypeObj);
+            //    writeTextSerializerClassFile(pTypeObj, pTextSerializerClass);
+            //    delete pTextSerializerClass;
+            //}
 
             if(m_bOutputNet)
             {
@@ -198,8 +198,9 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
     std::set<std::wstring> oIncludeSet;
     int nCount = pTypeObject->getAttributeCount();
     oFile.addInclude(L"GfcClasses.h");
-    if (nCount > 0)
-        oFile.addInclude(L"vector", true);
+    oFile.addInclude(L"GfcEngine/EntityFactory.h");
+//    if (nCount > 0)
+//        oFile.addInclude(L"vector", true);
 //    oFile.addInclude("google/protobuf/io/coded_stream.h", true);
     // include parent file
     if (pTypeObject->getParent())
@@ -230,9 +231,9 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
     if (bTypeDef)
         oFile.addInclude(L"TypeDef.h");
     if (bFlag)
-        oFile.addInclude(L"glodon/objectbuf/Document.h");
-    oFile.addInclude(L"glodon/objectbuf/Entity.h");
-    //oFile.addInclude("glodon/objectbuf/EntityFactory.h");
+        oFile.addInclude(L"GfcEngine/Document.h");
+    oFile.addInclude(L"GfcEngine/Entity.h");
+    //oFile.addInclude("GfcEngine/EntityFactory.h");
     
     oFile.body()->add(pClass->createDeclareCode());
     if (pFactoryClass)
@@ -251,19 +252,21 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
 
 void CCodeWriter::writeClassImpFile(CppClass *pClass, CppClass *pFactoryClass, CppClass *pFieldCacheClass)
 {
-    CppFile oFile(pClass->name(), true);
+    CppFile oFile(pClass->name(), false);
     /*
     oFile.addInclude(pClass->name() + L"BinarySerializer.h", false);
     oFile.addInclude(pClass->name() + L"TextSerializer.h", false);
     */
-    oFile.body()->addLine(FormatWstring(L"OBJECTBUF_IMP_OBJECT(%s,\"%s\",0)", 
+    oFile.addInclude(L"GfcSchema.h");
+    oFile.addInclude(L"GfcEngine/PropValue.h");
+    oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%s,\"%s\",0)", 
         pClass->name().c_str(),
         pClass->name().c_str()
     ));
     oFile.body()->addLine(L"");
     if(pFieldCacheClass)
     {
-        oFile.body()->addLine(FormatWstring(L"OBJECTBUF_IMP_OBJECT(%sFieldCacheInitializer,\"%s\",0)", 
+        oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%sFieldCacheInitializer,\"%s\",0)", 
             pClass->name().c_str(),
             pClass->name().c_str()
         ));
@@ -325,10 +328,10 @@ void CCodeWriter::writeCliClassHeadFile(CClass *pTypeObject, CppClass *pClass)
     if (bTypeDef)
         oFile.addInclude(L"NTypeDef.h");
 //    if (bFlag)
-//        oFile.addInclude("glodon/objectbuf/Document.h");
-    oFile.addInclude(L"glodon/objectbuf/Entity.h");
-    //oFile.addInclude("glodon/objectbuf/EntityFactory.h");
-    //oFile.addInclude("glodon/objectbuf/FieldCacheInitializer.h");
+//        oFile.addInclude("GfcEngine/Document.h");
+    oFile.addInclude(L"GfcEngine/Entity.h");
+    //oFile.addInclude("GfcEngine/EntityFactory.h");
+    //oFile.addInclude("GfcEngine/FieldCacheInitializer.h");
     if(bStringFlag)
     {
         oFile.addInclude(L"msclr/marshal_cppstd.h", true);
@@ -355,85 +358,85 @@ void CCodeWriter::writeCliClassImpFile(CppClass *pClass)
 
 void CCodeWriter::writeBinarySerializerClassFile(CClass *pTypeObject, CppClass *pClass, CppClass* pFieldCacheClass)
 {
-    {
-        CppHeadFile oFile(pClass->name());
-        // include parent file
-        if (pTypeObject->getParent())
-            oFile.addInclude(pTypeObject->getParent()->getName() + L"BinarySerializer.h");
-        else
-            oFile.addInclude(L"EntityBinarySerializer.h");
-        oFile.addInclude(L"FieldCacheInitializer.h");
+    //{
+    //    CppHeadFile oFile(pClass->name());
+    //    // include parent file
+    //    if (pTypeObject->getParent())
+    //        oFile.addInclude(pTypeObject->getParent()->getName() + L"BinarySerializer.h");
+    //    else
+    //        oFile.addInclude(L"EntityBinarySerializer.h");
+    //    oFile.addInclude(L"FieldCacheInitializer.h");
 
-        oFile.body()->add(pClass->createDeclareCode());
+    //    oFile.body()->add(pClass->createDeclareCode());
 
-        if (pFieldCacheClass)
-        {
-            oFile.body()->addLine(L"");
-            oFile.body()->add(pFieldCacheClass->createDeclareCode());
-        }
-        oFile.saveTo(m_sBinPath);
-        updateProgressBar();
-    }
-    {
-        CppFile oFile(pClass->name(), false);
-        //oFile.addInclude("StdAfx.h");
-        oFile.addInclude(L"google/protobuf/wire_format_lite.h", true);
-        oFile.addInclude(L"google/protobuf/wire_format_lite_inl.h", true);
-        oFile.addInclude(L"google/protobuf/stubs/common.h", true);
-        oFile.addInclude(L"FieldCache.h", false);
-        oFile.addInclude(pTypeObject->getName() + L".h", false);
+    //    if (pFieldCacheClass)
+    //    {
+    //        oFile.body()->addLine(L"");
+    //        oFile.body()->add(pFieldCacheClass->createDeclareCode());
+    //    }
+    //    oFile.saveTo(m_sBinPath);
+    //    updateProgressBar();
+    //}
+    //{
+    //    CppFile oFile(pClass->name(), false);
+    //    //oFile.addInclude("StdAfx.h");
+    //    oFile.addInclude(L"google/protobuf/wire_format_lite.h", true);
+    //    oFile.addInclude(L"google/protobuf/wire_format_lite_inl.h", true);
+    //    oFile.addInclude(L"google/protobuf/stubs/common.h", true);
+    //    oFile.addInclude(L"FieldCache.h", false);
+    //    oFile.addInclude(pTypeObject->getName() + L".h", false);
 
-        oFile.body()->addLine(FormatWstring(L"OBJECTBUF_IMP_OBJECT(%s,\"%sB\",0)",
-            pClass->name().c_str(),
-            pTypeObject->getName().c_str()
-        ));
-        if (pFieldCacheClass)
-        {
-            oFile.body()->addLine(FormatWstring(L"OBJECTBUF_IMP_OBJECT(%s,\"%s\",0)",
-                pFieldCacheClass->name().c_str(),
-                pTypeObject->getName().c_str()
-            ));
-        }
-        oFile.body()->addLine(L"");
-        oFile.body()->add(pClass->createImpCode());
-        if (pFieldCacheClass)
-            oFile.body()->add(pFieldCacheClass->createImpCode());
-        oFile.saveTo(m_sBinPath);
-        updateProgressBar();
-    }
+    //    oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%s,\"%sB\",0)",
+    //        pClass->name().c_str(),
+    //        pTypeObject->getName().c_str()
+    //    ));
+    //    if (pFieldCacheClass)
+    //    {
+    //        oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%s,\"%s\",0)",
+    //            pFieldCacheClass->name().c_str(),
+    //            pTypeObject->getName().c_str()
+    //        ));
+    //    }
+    //    oFile.body()->addLine(L"");
+    //    oFile.body()->add(pClass->createImpCode());
+    //    if (pFieldCacheClass)
+    //        oFile.body()->add(pFieldCacheClass->createImpCode());
+    //    oFile.saveTo(m_sBinPath);
+    //    updateProgressBar();
+    //}
 }
 
 void CCodeWriter::writeTextSerializerClassFile(CClass *pTypeObject, CppClass *pClass)
 {
-    {
-        CppHeadFile oFile(pClass->name());
-        // include parent file
-        if (pTypeObject->getParent())
-            oFile.addInclude(pTypeObject->getParent()->getName() + L"TextSerializer.h");
-        else
-            oFile.addInclude(L"EntityTextSerializer.h");
-        oFile.body()->add(pClass->createDeclareCode());
-        oFile.saveTo(m_sTextPath);
-        updateProgressBar();
-    }
-    {
-        CppFile oFile(pClass->name(), true);
-        //oFile.addInclude("StdAfx.h");
-        //oFile.addInclude(L"FieldCache.h", false);
-        oFile.addInclude(pTypeObject->getName() + L".h", false);
+    //{
+    //    CppHeadFile oFile(pClass->name());
+    //    // include parent file
+    //    if (pTypeObject->getParent())
+    //        oFile.addInclude(pTypeObject->getParent()->getName() + L"TextSerializer.h");
+    //    else
+    //        oFile.addInclude(L"EntityTextSerializer.h");
+    //    oFile.body()->add(pClass->createDeclareCode());
+    //    oFile.saveTo(m_sTextPath);
+    //    updateProgressBar();
+    //}
+    //{
+    //    CppFile oFile(pClass->name(), true);
+    //    //oFile.addInclude("StdAfx.h");
+    //    //oFile.addInclude(L"FieldCache.h", false);
+    //    oFile.addInclude(pTypeObject->getName() + L".h", false);
 
-        oFile.body()->addLine(FormatWstring(L"OBJECTBUF_IMP_OBJECT(%s,\"%sT\",0)", 
-            pClass->name().c_str(),
-            pTypeObject->getName().c_str()
-        ));
-        oFile.body()->addLine(L"");
-        oFile.body()->add(pClass->createImpCode());
-        oFile.saveTo(m_sTextPath);
-        updateProgressBar();
-    }
+    //    oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%s,\"%sT\",0)", 
+    //        pClass->name().c_str(),
+    //        pTypeObject->getName().c_str()
+    //    ));
+    //    oFile.body()->addLine(L"");
+    //    oFile.body()->add(pClass->createImpCode());
+    //    oFile.saveTo(m_sTextPath);
+    //    updateProgressBar();
+    //}
 }
 
-void CCodeWriter::write(const std::wstring& sPathName, const std::wstring &sCPPPath, const std::wstring &sTextPath, const std::wstring &sBinPath,
+void CCodeWriter::write(const std::wstring& sPathName, const std::wstring &sCPPPath, /*const std::wstring &sTextPath, const std::wstring &sBinPath,*/
     const std::wstring& sNETPath)
 {
     assert(m_pModel);
@@ -441,8 +444,8 @@ void CCodeWriter::write(const std::wstring& sPathName, const std::wstring &sCPPP
         return;
     m_sPath = sPathName;
     m_sCPPPath = sCPPPath;
-    m_sTextPath = sTextPath;
-    m_sBinPath = sBinPath;
+    //m_sTextPath = sTextPath;
+    //m_sBinPath = sBinPath;
     m_sNETPath = sNETPath;
     m_bOutputCpp = !sCPPPath.empty();
     m_bOutputHead = !sPathName.empty();
@@ -495,65 +498,65 @@ int CCodeWriter::getClassCount()
 
 void CCodeWriter::writeFieldCacheHeadFile()
 {
-    CppHeadFile oFile(L"FieldCache");
+   // CppHeadFile oFile(L"FieldCache");
 
-    CppClass oClass(L"FieldCache");
+   // CppClass oClass(L"FieldCache");
 
-    CFunction* pFunc = oClass.addConstructor(AT_PUBLIC);
-    pFunc->setIsInline(true);
+   // CFunction* pFunc = oClass.addConstructor(AT_PUBLIC);
+   // pFunc->setIsInline(true);
 
-    int nCount = m_pModel->getTypeObjectCount();
-    for(int i = 0; i < nCount; ++i)
-    {
-        CTypeObject* pTypeObj = m_pModel->getTypeObject(i);
-        if (pTypeObj->getType() == TOE_CLASS)
-        {
-            CClass* pClass = dynamic_cast<CClass*>(pTypeObj);
-            int nAttribCount = pClass->getAttributeCount();
-            for (int j = 0; j < nAttribCount; ++j)
-            {
-                std::wstring sField = FormatWstring(L"_%s_%s",
-                    pClass->getName().c_str(),
-                    pClass->getAttribute(j)->getName().c_str()
-                );
-                oClass.addData(AT_PUBLIC, L"int", sField);
-                pFunc->addInitListItem(sField, L"0");
-            }
-        }
-    }
+   // int nCount = m_pModel->getTypeObjectCount();
+   // for(int i = 0; i < nCount; ++i)
+   // {
+   //     CTypeObject* pTypeObj = m_pModel->getTypeObject(i);
+   //     if (pTypeObj->getType() == TOE_CLASS)
+   //     {
+   //         CClass* pClass = dynamic_cast<CClass*>(pTypeObj);
+   //         int nAttribCount = pClass->getAttributeCount();
+   //         for (int j = 0; j < nAttribCount; ++j)
+   //         {
+   //             std::wstring sField = FormatWstring(L"_%s_%s",
+   //                 pClass->getName().c_str(),
+   //                 pClass->getAttribute(j)->getName().c_str()
+   //             );
+   //             oClass.addData(AT_PUBLIC, L"int", sField);
+   //             pFunc->addInitListItem(sField, L"0");
+   //         }
+   //     }
+   // }
 
-   // oFile.addInclude(L"GfcClasses.h");
-    oFile.body()->add(oClass.createDeclareCode());
-    oFile.body()->addLine(L"");
-    oFile.body()->addLine(L"extern FieldCache* _FieldCache;");
-    oFile.body()->addLine(L"");
-    oFile.body()->addLine(L"void initFieldCache();");
-    oFile.body()->addLine(L"void freeFieldCache();");
-    oFile.body()->addLine(L"");
+   //// oFile.addInclude(L"GfcClasses.h");
+   // oFile.body()->add(oClass.createDeclareCode());
+   // oFile.body()->addLine(L"");
+   // oFile.body()->addLine(L"extern FieldCache* _FieldCache;");
+   // oFile.body()->addLine(L"");
+   // oFile.body()->addLine(L"void initFieldCache();");
+   // oFile.body()->addLine(L"void freeFieldCache();");
+   // oFile.body()->addLine(L"");
 
-    oFile.saveTo(m_sBinPath);
-    updateProgressBar();
+   // oFile.saveTo(m_sBinPath);
+   // updateProgressBar();
 }
 
 void CCodeWriter::writeFieldCacheImpFile()
 {
-    CppFile oFile(L"FieldCache", true);
-    //oFile.addInclude("StdAfx.h");
-    oFile.body()->addLine(L"");
-    oFile.body()->addLine(L"FieldCache* _FieldCache = 0;");
-    oFile.body()->addLine(L"");
-    oFile.body()->addLine(L"void initFieldCache()");
-    CppCode::createBlock(oFile.body())
-            ->addLine(L"if (_FieldCache)")
-            ->add((new CIndent)->addLine(L"freeFieldCache();"))
-            ->addLine(L"_FieldCache = new FieldCache();");
-    oFile.body()->addLine(L"");
-    oFile.body()->addLine(L"void freeFieldCache()");
-    CppCode::createBlock(oFile.body())
-            ->addLine(L"delete _FieldCache;")
-            ->addLine(L"_FieldCache = 0;");
-    oFile.saveTo(m_sBinPath);
-    updateProgressBar();
+    //CppFile oFile(L"FieldCache", true);
+    ////oFile.addInclude("StdAfx.h");
+    //oFile.body()->addLine(L"");
+    //oFile.body()->addLine(L"FieldCache* _FieldCache = 0;");
+    //oFile.body()->addLine(L"");
+    //oFile.body()->addLine(L"void initFieldCache()");
+    //CppCode::createBlock(oFile.body())
+    //        ->addLine(L"if (_FieldCache)")
+    //        ->add((new CIndent)->addLine(L"freeFieldCache();"))
+    //        ->addLine(L"_FieldCache = new FieldCache();");
+    //oFile.body()->addLine(L"");
+    //oFile.body()->addLine(L"void freeFieldCache()");
+    //CppCode::createBlock(oFile.body())
+    //        ->addLine(L"delete _FieldCache;")
+    //        ->addLine(L"_FieldCache = 0;");
+    //oFile.saveTo(m_sBinPath);
+    //updateProgressBar();
 }
 
 void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
@@ -745,8 +748,8 @@ void CCodeWriter::writeCliTypedefFile(std::vector<CTypeObject *> &oObjectList)
 CppClass* CCodeWriter::createFactoryClass(CClass *pTypeObject)
 {
     std::wstring sName = pTypeObject->getName();
-    CppClass* pClass = new CppClass(sName + L"Factory", AT_PUBLIC, L"glodon::objectbuf::EntityFactory");
-    CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"glodon::objectbuf::Entity*", L"create", false, true);
+    CppClass* pClass = new CppClass(sName + L"Factory", AT_PUBLIC, L"gfc2::engine::EntityFactory");
+    CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"gfc2::engine::Entity*", L"create", false, true);
     pFunc->body()->addLine(FormatWstring(L"return new %s();", 
         sName.c_str()
     ));
@@ -755,27 +758,45 @@ CppClass* CCodeWriter::createFactoryClass(CClass *pTypeObject)
 
 void CCodeWriter::addConstructor(CClass *pTypeObject, CppClass* pClass)
 {
-    CFunction* pFunc = pClass->addConstructor(AT_PUBLIC);
-    int nCount = pTypeObject->getAttributeCount();
-    for (int i = 0; i < nCount; ++i)
     {
-        CAttribute* pAttribute = pTypeObject->getAttribute(i);
-        EnBaseType nType = getBaseType(pAttribute->getType());
-        std::wstring sPrefix = getBaseTypePrefix(nType, true);//pAttribute->getRefFlag());
-        std::wstring sDefault = getTypeDefaultValue(nType, pAttribute->getType()->getName(), true/*pAttribute->getRefFlag()*/);
-        if (!pAttribute->getRepeatFlag() && nType != EBT_STRING)
-        {
-            pFunc->body()->addLine(FormatWstring(L"m_%s%s = %s;",
-                sPrefix.c_str(),
-                pAttribute->getName().c_str(),
-                sDefault.c_str()
+        CFunction* pFunc = pClass->addConstructor(AT_PUBLIC);
+        pFunc->body()->addLine(L"setSchema(findSchema(L\"" + pClass->name() + L"\"));");
+        if (pTypeObject->getParent())
+            pFunc->addInitListItem(FormatWstring(L"%s(false)",
+                getParentClassCode(pTypeObject).c_str()
             ));
-        }
     }
-    if (!pTypeObject->getParent())
     {
-        pFunc->body()->addLine(L"memset(_has_bits_, 0, sizeof(_has_bits_));");
+        CFunction* pFunc = pClass->addConstructor(AT_PUBLIC);
+        pFunc->addParam(L"bool", L"bSetSchema");
+        if (pTypeObject->getParent())
+            pFunc->addInitListItem(FormatWstring(L"%s(bSetSchema)",
+                getParentClassCode(pTypeObject).c_str()
+            ));
+        pFunc->body()->addLine(L"if (bSetSchema)");
+        CppCode::createBlock(pFunc->body())
+            ->addLine(L"setSchema(findSchema(L\"" + pClass->name() + L"\"));");
     }
+    //int nCount = pTypeObject->getAttributeCount();
+    //for (int i = 0; i < nCount; ++i)
+    //{
+    //    CAttribute* pAttribute = pTypeObject->getAttribute(i);
+    //    EnBaseType nType = getBaseType(pAttribute->getType());
+    //    std::wstring sPrefix = getBaseTypePrefix(nType, true);//pAttribute->getRefFlag());
+    //    std::wstring sDefault = getTypeDefaultValue(nType, pAttribute->getType()->getName(), true/*pAttribute->getRefFlag()*/);
+    //    if (!pAttribute->getRepeatFlag() && nType != EBT_STRING)
+    //    {
+    //        pFunc->body()->addLine(FormatWstring(L"m_%s%s = %s;",
+    //            sPrefix.c_str(),
+    //            pAttribute->getName().c_str(),
+    //            sDefault.c_str()
+    //        ));
+    //    }
+    //}
+    //if (!pTypeObject->getParent())
+    //{
+    //    pFunc->body()->addLine(L"memset(_has_bits_, 0, sizeof(_has_bits_));");
+    //}
 }
 
 void CCodeWriter::addCliConstructor1(CClass *pTypeObject, CppClass *pClass)
@@ -801,7 +822,7 @@ void CCodeWriter::addByteSizeFunc(CClass *pTypeObject, CppClass* pClass)
 {
     int nCount = pTypeObject->getAttributeCount();
     CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"int", L"byteSize", true);
-    pFunc->addParam(L"glodon::objectbuf::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc2::engine::Entity*", L"pEntity");
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
         pTypeObject->getName().c_str(),
         pTypeObject->getName().c_str()
@@ -882,7 +903,7 @@ void CCodeWriter::addSerializeWithCachedSizesFunc(CClass *pTypeObject, CppClass*
 {
     CFunction* pFunc = pClass->addFunc(AT_PROTECTED, L"void", L"serializeWithCachedSizes", true, true);
     pFunc->addParam(L"google::protobuf::io::CodedOutputStream*", L"output");
-    pFunc->addParam(L"glodon::objectbuf::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc2::engine::Entity*", L"pEntity");
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
         pTypeObject->getName().c_str(),
         pTypeObject->getName().c_str()
@@ -939,7 +960,7 @@ void CCodeWriter::addSerializeWithCachedSizesToArrayFunc(CClass *pTypeObject, Cp
 {
     CFunction* pFunc = pClass->addFunc(AT_PROTECTED, L"google::protobuf::uint8*", L"serializeWithCachedSizesToArray", true, true);
     pFunc->addParam(L"google::protobuf::uint8*", L"target");
-    pFunc->addParam(L"glodon::objectbuf::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc2::engine::Entity*", L"pEntity");
 
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
         pTypeObject->getName().c_str(),
@@ -996,10 +1017,10 @@ void CCodeWriter::addSerializeWithCachedSizesToArrayFunc(CClass *pTypeObject, Cp
 
 void CCodeWriter::addParseField1(CClass *pTypeObject, CppClass* pClass)
 {
-    CFunction* pFunc = pClass->addFunc(AT_PROTECTED, L"glodon::objectbuf::EnParseFieldState", L"parseField", false, true);
+    CFunction* pFunc = pClass->addFunc(AT_PROTECTED, L"gfc2::engine::EnParseFieldState", L"parseField", false, true);
     pFunc->addParam(L"google::protobuf::io::CodedInputStream*", L"input");
     pFunc->addParam(L"int", L"nFieldNum");
-    pFunc->addParam(L"glodon::objectbuf::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc2::engine::Entity*", L"pEntity");
 
     pFunc->body()->addLine(L"#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure", true);
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
@@ -1007,10 +1028,10 @@ void CCodeWriter::addParseField1(CClass *pTypeObject, CppClass* pClass)
         pTypeObject->getName().c_str()
     ));
 
-    pFunc->body()->addLine(FormatWstring(L"glodon::objectbuf::EnParseFieldState nState = %s::parseField(input, nFieldNum, pEnt);", 
+    pFunc->body()->addLine(FormatWstring(L"gfc2::engine::EnParseFieldState nState = %s::parseField(input, nFieldNum, pEnt);", 
         (getParentClassCode(pTypeObject) + L"BinarySerializer").c_str()
     ));
-    pFunc->body()->addLine(L"if (nState != glodon::objectbuf::PFS_IGNORE)");
+    pFunc->body()->addLine(L"if (nState != gfc2::engine::PFS_IGNORE)");
     CppCode::createBlock(pFunc->body())->addLine(L"return nState;");
     pFunc->body()->addLine(L"");
 
@@ -1077,18 +1098,18 @@ void CCodeWriter::addParseField1(CClass *pTypeObject, CppClass* pClass)
         }
         pFunc->body()->addLine(L"");
     }
-    pFunc->body()->addLine(L"return glodon::objectbuf::PFS_IGNORE;");
+    pFunc->body()->addLine(L"return gfc2::engine::PFS_IGNORE;");
     pFunc->body()->addLine(L"success:", true);
-    pFunc->body()->addLine(L"return glodon::objectbuf::PFS_SUCCESS;");
+    pFunc->body()->addLine(L"return gfc2::engine::PFS_SUCCESS;");
     pFunc->body()->addLine(L"failure:", true);
-    pFunc->body()->addLine(L"return glodon::objectbuf::PFS_FAIL;");
+    pFunc->body()->addLine(L"return gfc2::engine::PFS_FAIL;");
     pFunc->body()->addLine(L"#undef DO_", true);
 }
 
 void CCodeWriter::addSerializeFunc(CClass *pTypeObject, CppClass* pClass)
 {
     CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"std::string", L"serialize", true, true);
-    pFunc->addParam(L"glodon::objectbuf::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc2::engine::Entity*", L"pEntity");
 
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
         pTypeObject->getName().c_str(),
@@ -1147,20 +1168,20 @@ void CCodeWriter::addSerializeFunc(CClass *pTypeObject, CppClass* pClass)
 
 void CCodeWriter::addParseField2(CClass *pTypeObject, CppClass* pClass)
 {
-    CFunction* pFunc = pClass->addFunc(AT_PROTECTED, L"glodon::objectbuf::EnParseFieldState", L"parseField", false, true);
+    CFunction* pFunc = pClass->addFunc(AT_PROTECTED, L"gfc2::engine::EnParseFieldState", L"parseField", false, true);
     pFunc->addParam(L"const std::string&", L"input");
     pFunc->addParam(L"int", L"nFieldNum");
-    pFunc->addParam(L"glodon::objectbuf::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc2::engine::Entity*", L"pEntity");
 
     pFunc->body()->addLine(L"#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure", true);
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;",
         pTypeObject->getName().c_str(),
         pTypeObject->getName().c_str()
     ));
-    pFunc->body()->addLine(FormatWstring(L"glodon::objectbuf::EnParseFieldState nState = %s::parseField(input, nFieldNum, pEnt);", 
+    pFunc->body()->addLine(FormatWstring(L"gfc2::engine::EnParseFieldState nState = %s::parseField(input, nFieldNum, pEnt);", 
         (getParentClassCode(pTypeObject) + L"TextSerializer").c_str()
     ));
-    pFunc->body()->addLine(L"if (nState != glodon::objectbuf::PFS_IGNORE)");
+    pFunc->body()->addLine(L"if (nState != gfc2::engine::PFS_IGNORE)");
     CppCode::createBlock(pFunc->body())->addLine(L"return nState;");
     pFunc->body()->addLine(L"");
 
@@ -1206,11 +1227,11 @@ void CCodeWriter::addParseField2(CClass *pTypeObject, CppClass* pClass)
         pIndent->addLine(L"break;");
     }
     pBlock->addLine(L"default:");
-    CppCode::createIndent(pBlock)->addLine(L"return glodon::objectbuf::PFS_IGNORE;");
+    CppCode::createIndent(pBlock)->addLine(L"return gfc2::engine::PFS_IGNORE;");
     //oStream << L"success:\n";
-    pFunc->body()->addLine(L"return glodon::objectbuf::PFS_SUCCESS;");
+    pFunc->body()->addLine(L"return gfc2::engine::PFS_SUCCESS;");
     pFunc->body()->addLine(L"failure:", true);
-    pFunc->body()->addLine(L"return glodon::objectbuf::PFS_FAIL;");
+    pFunc->body()->addLine(L"return gfc2::engine::PFS_FAIL;");
     pFunc->body()->addLine(L"#undef DO_", true);
 }
 
@@ -1226,13 +1247,13 @@ void CCodeWriter::addTypeIdFunc(CppClass* pClass, int nTypeId)
 void CCodeWriter::addCreateSchemaFunc(CClass *pTypeObject, CppClass* pClass, int nTypeId)
 {
     std::wstring sName = pTypeObject->getName();
-    CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"glodon::objectbuf::EntitySchema*", L"createSchema", true, true);
-    pFunc->body()->addLine(FormatWstring(L"if (glodon::objectbuf::EntitySchema* pSchema = m_pDocument->findSchemaByID(%d))", 
+    CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"gfc2::engine::EntitySchema*", L"createSchema", true, true);
+    pFunc->body()->addLine(FormatWstring(L"if (gfc2::engine::EntitySchema* pSchema = m_pDocument->findSchemaByID(%d))", 
         nTypeId
     ));
     pFunc->body()->addLine(L"    return pSchema;");
     pFunc->body()->addLine(L"");
-    pFunc->body()->addLine(L"glodon::objectbuf::EntitySchema* pSchema = new glodon::objectbuf::EntitySchema();");
+    pFunc->body()->addLine(L"gfc2::engine::EntitySchema* pSchema = new gfc2::engine::EntitySchema();");
     pFunc->body()->addLine(FormatWstring(L"pSchema->setParent(%s::createSchema());", 
         getParentClassCode(pTypeObject).c_str()
     ));
@@ -1268,12 +1289,12 @@ CppClass *CCodeWriter::createCppClass(CClass *pTypeObject, int nTypeId)
     std::wstring sName = pTypeObject->getName();
     CppClass* pClass = new CppClass(sName, AT_PUBLIC, getParentClassCode(pTypeObject));
     pClass->setExportFlag(L"GFCCLASSES_API");
-    pClass->setMarcoCode(FormatWstring(L"OBJECTBUF_DEC_OBJECT(%s,glodon::objectbuf::Entity)", 
+    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%s,gfc2::engine::EntityFactory)", 
         sName.c_str()
     ));
 //    CFunction* pFunc = NULL;
 
-    if (hasConstructor(pTypeObject))
+    //if (hasConstructor(pTypeObject))
     {
         addConstructor(pTypeObject, pClass);
     }
@@ -1281,7 +1302,7 @@ CppClass *CCodeWriter::createCppClass(CClass *pTypeObject, int nTypeId)
     if (nCount > 0)
     {
         //addByteSizeFunc(pTypeObject, pClass);
-        addIsInitializedFunc(pTypeObject, pClass);
+        //addIsInitializedFunc(pTypeObject, pClass);
 
         //addSerializeFunc(pTypeObject, pClass);
 
@@ -1291,28 +1312,28 @@ CppClass *CCodeWriter::createCppClass(CClass *pTypeObject, int nTypeId)
         //addParseField2(pTypeObject, pClass);
     }
 
-    addTypeIdFunc(pClass, nTypeId);
-    addCreateSchemaFunc(pTypeObject, pClass, nTypeId);
-    addEntityNameFunc(pTypeObject, pClass);
+    //addTypeIdFunc(pClass, nTypeId);
+    //addCreateSchemaFunc(pTypeObject, pClass, nTypeId);
+    //addEntityNameFunc(pTypeObject, pClass);
 
     // attribute
     for (int i = 0; i < nCount; ++i)
     {
         CAttribute* pAttribute = pTypeObject->getAttribute(i);
         if (pAttribute->getRepeatFlag())
-            initRepeatAttributeCode(pAttribute, pClass);
+            initRepeatAttributeCode(pTypeObject, i, pAttribute, pClass);
         else
             initAttributeCode(pTypeObject, i, pClass);
     }
     // bit
-    if (!pTypeObject->getParent())
-    {
-        //_has_bits put in root class
-        int nMax = getMaxAttributeCount(pTypeObject);
-        pClass->addData(AT_PROTECTED, L"unsigned", FormatWstring(L"_has_bits_[%d]", 
-            nMax / 32 + 1
-        ));
-    }
+    //if (!pTypeObject->getParent())
+    //{
+    //    //_has_bits put in root class
+    //    int nMax = getMaxAttributeCount(pTypeObject);
+    //    pClass->addData(AT_PROTECTED, L"unsigned", FormatWstring(L"_has_bits_[%d]", 
+    //        nMax / 32 + 1
+    //    ));
+    //}
 
     return pClass;
 }
@@ -1360,9 +1381,9 @@ CppClass *CCodeWriter::createCppCliClass(CClass *pTypeObject, int nTypeId)
 CppClass* CCodeWriter::createFieldCacheClass(CClass* pTypeObject)
 {
     std::wstring sName = pTypeObject->getName();
-    CppClass* pClass = new CppClass(sName + L"FieldCacheInitializer", AT_PUBLIC, L"glodon::objectbuf::FieldCacheInitializer");
+    CppClass* pClass = new CppClass(sName + L"FieldCacheInitializer", AT_PUBLIC, L"gfc2::engine::FieldCacheInitializer");
     //pClass->setExportFlag(L"GFCCLASSES_API");
-    pClass->setMarcoCode(FormatWstring(L"OBJECTBUF_DEC_OBJECT(%sFieldCacheInitializer,glodon::objectbuf::FieldCacheInitializer)", 
+    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%sFieldCacheInitializer,gfc2::engine::FieldCacheInitializer)", 
         sName.c_str()
     ));
     CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"void", L"init", false, true);
@@ -1386,7 +1407,7 @@ CppClass *CCodeWriter::createTextSerializerClass(CClass *pTypeObject)
 {
     std::wstring sName = pTypeObject->getName() + L"TextSerializer";
     CppClass* pClass = new CppClass(sName, AT_PUBLIC, getParentClassCode(pTypeObject) + L"TextSerializer");
-    pClass->setMarcoCode(FormatWstring(L"OBJECTBUF_DEC_OBJECT(%s,glodon::objectbuf::EntitySerializer)", sName.c_str()));
+    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%s,gfc2::engine::EntitySerializer)", sName.c_str()));
 
     int nCount = pTypeObject->getAttributeCount();
     if (nCount > 0)
@@ -1402,7 +1423,7 @@ CppClass *CCodeWriter::createBinarySerializerClass(CClass *pTypeObject)
 {
     std::wstring sName = pTypeObject->getName() + L"BinarySerializer";
     CppClass* pClass = new CppClass(sName, AT_PUBLIC, getParentClassCode(pTypeObject) + L"BinarySerializer");
-    pClass->setMarcoCode(FormatWstring(L"OBJECTBUF_DEC_OBJECT(%s,glodon::objectbuf::EntitySerializer)", sName.c_str()));
+    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%s,gfc2::engine::EntitySerializer)", sName.c_str()));
 
     int nCount = pTypeObject->getAttributeCount();
     if (nCount > 0)
@@ -1456,11 +1477,28 @@ std::wstring CCodeWriter::getBaseTypeCode(CTypeObject *pTypeObject, bool b4cli)
     return L"";
 }
 
+std::wstring CCodeWriter::getDataTypeName(CTypeObject * pTypeObject)
+{
+    switch (pTypeObject->getDataType())
+    {
+    case EDT_BOOLEAN: return L"Boolean";
+    case EDT_INTEGER: return L"Integer";
+    case EDT_DOUBLE: return L"Double";
+    case EDT_STRING: return L"String";
+    case EDT_ENUM: return L"Integer";
+    case EDT_ENTITY: return L"EntityRef";
+    default:
+        assert(false);
+        break;
+    }
+    return std::wstring();
+}
+
 std::wstring CCodeWriter::getStoreTypeCode(CTypeObject *pTypeObject, bool bIsRef, bool b4cli)
 {
     assert(pTypeObject);
     if (getBaseType(pTypeObject) == EBT_ENTITY && bIsRef)
-        return L"glodon::objectbuf::EntityRef";
+        return L"gfc2::engine::EntityRef";
     else
         return getTypeCode(pTypeObject, b4cli);
 }
@@ -1583,9 +1621,10 @@ int CCodeWriter::getMaxAttributeCount(CClass *pTypeObject)
     return nMax + pTypeObject->getAttributeCount();
 }
 
-void CCodeWriter::initRepeatAttributeCode(CAttribute *pAttribute, CppClass *pClass)
+void CCodeWriter::initRepeatAttributeCode(CClass* pTypeObject, int nAttributeIndex, CAttribute *pAttribute, CppClass *pClass)
 {
     EnBaseType nType = getBaseType(pAttribute->getType());
+    int nIndex = getAttributeIndex(pTypeObject, nAttributeIndex);
     std::wstring sAttributeName = pAttribute->getName();
     std::wstring sTypeName = getStoreTypeCode(pAttribute->getType(), true/*pAttribute->getRefFlag()*/);
     std::wstring sPrefix = getBaseTypePrefix(nType, true/*pAttribute->getRefFlag()*/);
@@ -1593,37 +1632,56 @@ void CCodeWriter::initRepeatAttributeCode(CAttribute *pAttribute, CppClass *pCla
     //
     pFunc = pClass->addFunc(AT_PUBLIC, L"int", FormatWstring(L"get%sCount", sAttributeName.c_str()));
     pFunc->setIsConst(true);
-    pFunc->setIsInline(true);
-    pFunc->body()->addLine(FormatWstring(L"return (int)m_o%s.size();", sAttributeName.c_str()));
+    pFunc->setIsInline(false);
+    pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
+    pFunc->body()->addLine(L"assert(pProp);");
+    pFunc->body()->addLine(L"return pProp->value()->getCount();");
 
     pFunc = pClass->addFunc(AT_PUBLIC, L"void", L"clear"+ sAttributeName);
-    pFunc->setIsInline(true);
-    pFunc->body()->addLine(FormatWstring(L"m_o%s.clear();", sAttributeName.c_str()));
+    pFunc->setIsInline(false);
+    pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
+    pFunc->body()->addLine(L"assert(pProp);");
+    pFunc->body()->addLine(L"pProp->value()->clear();");
 
     pFunc = pClass->addFunc(AT_PUBLIC, L"void", L"add" + sAttributeName);
-    pFunc->setIsInline(true);
+    pFunc->setIsInline(false);
     pFunc->addParam(FormatWstring(L"const %s&", sTypeName.c_str()), sPrefix + L"Value");
-    pFunc->body()->addLine(FormatWstring(L"m_o%s.push_back(%sValue);", sAttributeName.c_str(), sPrefix.c_str()));
+    pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
+    pFunc->body()->addLine(L"assert(pProp);");
+    pFunc->body()->addLine(FormatWstring(L"pProp->value()->add(new gfc2::engine::%sValue(%sValue));", 
+        getDataTypeName(pAttribute->getType()).c_str(),
+        sPrefix.c_str()));
 
     pFunc = pClass->addFunc(AT_PUBLIC, sTypeName, L"get" + sAttributeName);
     pFunc->setIsConst(true);
-    pFunc->setIsInline(true);
+    pFunc->setIsInline(false);
     pFunc->addParam(L"int", L"nIndex");
-    pFunc->body()->addLine(FormatWstring(L"return m_o%s[nIndex];", sAttributeName.c_str()));
+    pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
+    pFunc->body()->addLine(L"assert(pProp);");
+    pFunc->body()->addLine(L"auto pValue = pProp->value()->getItems(nIndex);");
+    pFunc->body()->addLine(L"assert(pValue);");
+    if (nType == EBT_ENUM)
+        pFunc->body()->addLine(FormatWstring(L"return (%s)pValue->as%s();",
+            sTypeName.c_str(),
+            getDataTypeName(pAttribute->getType()).c_str()));
+    else
+        pFunc->body()->addLine(FormatWstring(L"return pValue->as%s();",
+            getDataTypeName(pAttribute->getType()).c_str()));
 
     if (nType == EBT_ENTITY)
     {
         std::wstring sType = pAttribute->getType()->getName();
-        pFunc = pClass->addFunc(AT_PUBLIC, sType + L"*", FormatWstring(L"get%sPtr", sAttributeName.c_str()));
-        pFunc->setIsConst(true);
-        pFunc->setIsInline(true);
+        pFunc = pClass->addFunc(AT_PUBLIC, L"std::shared_ptr<" + sType + L">", FormatWstring(L"get%sPtr", sAttributeName.c_str()));
+        pFunc->setIsConst(false);
+        pFunc->setIsInline(false);
         pFunc->addParam(L"int", L"nIndex");
-        pFunc->body()->addLine(FormatWstring(L"return (%s*)m_pDocument->find(get%s(nIndex));", 
-            sType.c_str(),
-            sAttributeName.c_str()
-        ));
+        pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
+        pFunc->body()->addLine(L"assert(pProp);");
+        pFunc->body()->addLine(L"auto pValue = pProp->value()->getItems(nIndex);");
+        pFunc->body()->addLine(L"assert(pValue);");
+        pFunc->body()->addLine(FormatWstring(L"return std::dynamic_pointer_cast<%s>(getContainer()->getEntity(pValue->asEntityRef()));", sType.c_str()));
     }
-    pClass->addData(AT_PRIVATE, FormatWstring(L"std::vector<%s>", sTypeName.c_str()), L"m_o" + sAttributeName);
+    //pClass->addData(AT_PRIVATE, FormatWstring(L"std::vector<%s>", sTypeName.c_str()), L"m_o" + sAttributeName);
 }
 
 void CCodeWriter::initCliRepeatAttributeCode(CClass* pTypeObject, CAttribute *pAttribute, CppClass *pClass)
@@ -1726,34 +1784,43 @@ void CCodeWriter::initAttributeCode(CClass *pTypeObject, int nAttributeIndex, Cp
     CFunction* pFunc = NULL;
     //
     pFunc = pClass->addFunc(AT_PUBLIC, L"void", L"set" + sAttributeName);
-    pFunc->setIsInline(true);
+    pFunc->setIsInline(false);
     pFunc->addParam(L"const " + sTypeName + L"&", sPrefix + L"Value");
-    pFunc->body()->addLine(FormatWstring(L"m_%s%s = %sValue;", sPrefix.c_str(), sAttributeName.c_str(), sPrefix.c_str()));
-    pFunc->body()->addLine(FormatWstring(L"setHas%s();", sAttributeName.c_str()));
+    pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
+    pFunc->body()->addLine(L"assert(pProp);");
+    pFunc->body()->addLine(FormatWstring(L"pProp->value()->setAs%s(%sValue);", getDataTypeName(pAttribute->getType()).c_str(), sPrefix.c_str()));
+    //    pFunc->body()->addLine(FormatWstring(L"m_%s%s = %sValue;", sPrefix.c_str(), sAttributeName.c_str(), sPrefix.c_str()));
+//    pFunc->body()->addLine(FormatWstring(L"setHas%s();", sAttributeName.c_str()));
     //
     pFunc = pClass->addFunc(AT_PUBLIC, sTypeName, L"get" + sAttributeName);
     pFunc->setIsConst(true);
-    pFunc->setIsInline(true);
-    pFunc->body()->addLine(FormatWstring(L"return m_%s%s;", sPrefix.c_str(), sAttributeName.c_str()));
+    pFunc->setIsInline(false);
+    pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
+    pFunc->body()->addLine(L"assert(pProp);");
+    if (nType == EBT_ENUM)
+        pFunc->body()->addLine(FormatWstring(L"return (%s)pProp->value()->as%s();", sTypeName.c_str(), getDataTypeName(pAttribute->getType()).c_str()));
+    else
+        pFunc->body()->addLine(FormatWstring(L"return pProp->value()->as%s();", getDataTypeName(pAttribute->getType()).c_str()));
+
     //
     pFunc = pClass->addFunc(AT_PUBLIC, L"bool", L"has" + sAttributeName);
     pFunc->setIsConst(true);
-    pFunc->setIsInline(true);
-    pFunc->body()->addLine(FormatWstring(L"return (_has_bits_[%d] & 0x%xu) != 0;", n, m));
+    pFunc->setIsInline(false);
+    pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
+    pFunc->body()->addLine(L"assert(pProp);");
+    pFunc->body()->addLine(L"return !pProp->value()->isNull();");
 
-    pFunc = pClass->addFunc(AT_PRIVATE, L"void", L"setHas" + sAttributeName);
-    pFunc->setIsInline(true);
-    pFunc->body()->addLine(FormatWstring(L"_has_bits_[%d] |= 0x%xu;", n, m));
-
-    pClass->addData(AT_PRIVATE, sTypeName, FormatWstring(L"m_%s%s", sPrefix.c_str(), sAttributeName.c_str()));
+    //pClass->addData(AT_PRIVATE, sTypeName, FormatWstring(L"m_%s%s", sPrefix.c_str(), sAttributeName.c_str()));
 
     if (nType == EBT_ENTITY)
     {
         std::wstring sType = pAttribute->getType()->getName();
-        pFunc = pClass->addFunc(AT_PUBLIC, sType + L"*", L"get" + sAttributeName + L"Ptr");
-        pFunc->setIsConst(true);
-        pFunc->setIsInline(true);
-        pFunc->body()->addLine(FormatWstring(L"return (%s*)m_pDocument->find(get%s());", sType.c_str(), sAttributeName.c_str()));
+        pFunc = pClass->addFunc(AT_PUBLIC, L"std::shared_ptr<" + sType + L">", L"get" + sAttributeName + L"Ptr");
+        pFunc->setIsConst(false);
+        pFunc->setIsInline(false);
+        pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
+        pFunc->body()->addLine(L"assert(pProp);");
+        pFunc->body()->addLine(FormatWstring(L"return std::dynamic_pointer_cast<%s>(getContainer()->getEntity(pProp->value()->asEntityRef()));", sType.c_str()));
     }
 }
 
@@ -2170,7 +2237,7 @@ std::wstring CCodeWriter::getParentClassCode(CClass *pClass, bool b4cli)
         if (b4cli)
             return L"glodon::objectbufnet::Entity";
         else
-            return L"glodon::objectbuf::Entity";
+            return L"gfc2::engine::Entity";
 }
 
 bool CCodeWriter::hasConstructor(CClass *pTypeObject)

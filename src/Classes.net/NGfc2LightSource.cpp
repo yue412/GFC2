@@ -11,12 +11,12 @@ NGfc2LightSource::NGfc2LightSource(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2LightSource::setName(glodon::objectbuf::EntityRef nValue)
+void NGfc2LightSource::setName(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2LightSource*)m_pEntity)->setName(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2LightSource::getName()
+gfc2::engine::EntityRef NGfc2LightSource::getName()
 {
     return ((Gfc2LightSource*)m_pEntity)->getName();
 }
@@ -31,12 +31,12 @@ NGfc2Label^ NGfc2LightSource::getNamePtr()
     return gcnew NGfc2Label(((Gfc2LightSource*)m_pEntity)->getNamePtr(), false);
 }
 
-void NGfc2LightSource::setLightColour(glodon::objectbuf::EntityRef nValue)
+void NGfc2LightSource::setLightColour(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2LightSource*)m_pEntity)->setLightColour(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2LightSource::getLightColour()
+gfc2::engine::EntityRef NGfc2LightSource::getLightColour()
 {
     return ((Gfc2LightSource*)m_pEntity)->getLightColour();
 }

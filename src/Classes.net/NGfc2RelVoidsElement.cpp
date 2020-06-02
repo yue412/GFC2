@@ -11,12 +11,12 @@ NGfc2RelVoidsElement::NGfc2RelVoidsElement(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2RelVoidsElement::setRelatedOpeningElement(glodon::objectbuf::EntityRef nValue)
+void NGfc2RelVoidsElement::setRelatedOpeningElement(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RelVoidsElement*)m_pEntity)->setRelatedOpeningElement(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RelVoidsElement::getRelatedOpeningElement()
+gfc2::engine::EntityRef NGfc2RelVoidsElement::getRelatedOpeningElement()
 {
     return ((Gfc2RelVoidsElement*)m_pEntity)->getRelatedOpeningElement();
 }
@@ -41,12 +41,12 @@ void NGfc2RelVoidsElement::clearRelatingBuildingElement()
     ((Gfc2RelVoidsElement*)m_pEntity)->clearRelatingBuildingElement();
 }
 
-void NGfc2RelVoidsElement::addRelatingBuildingElement(glodon::objectbuf::EntityRef nValue)
+void NGfc2RelVoidsElement::addRelatingBuildingElement(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RelVoidsElement*)m_pEntity)->addRelatingBuildingElement(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RelVoidsElement::getRelatingBuildingElement(int nIndex)
+gfc2::engine::EntityRef NGfc2RelVoidsElement::getRelatingBuildingElement(int nIndex)
 {
     return ((Gfc2RelVoidsElement*)m_pEntity)->getRelatingBuildingElement(nIndex);
 }

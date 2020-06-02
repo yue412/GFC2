@@ -11,12 +11,12 @@ NGfc2RelConnectsWithRealizingElements::NGfc2RelConnectsWithRealizingElements(voi
 {
 }
 
-void NGfc2RelConnectsWithRealizingElements::setRealizingElements(glodon::objectbuf::EntityRef nValue)
+void NGfc2RelConnectsWithRealizingElements::setRealizingElements(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RelConnectsWithRealizingElements*)m_pEntity)->setRealizingElements(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RelConnectsWithRealizingElements::getRealizingElements()
+gfc2::engine::EntityRef NGfc2RelConnectsWithRealizingElements::getRealizingElements()
 {
     return ((Gfc2RelConnectsWithRealizingElements*)m_pEntity)->getRealizingElements();
 }

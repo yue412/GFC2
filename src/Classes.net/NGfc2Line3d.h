@@ -4,19 +4,19 @@
 #include "NGfc2Curve3d.h"
 #include "Gfc2Line3d.h"
 #include "NGfc2Vector3d.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Line3d: public NGfc2Curve3d
 {
 public:
     NGfc2Line3d();
     NGfc2Line3d(void* pEntity, bool bOwner);
-    void setStartPt(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getStartPt();
+    void setStartPt(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getStartPt();
     bool hasStartPt();
     NGfc2Vector3d^ getStartPtPtr();
-    void setEndPt(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getEndPt();
+    void setEndPt(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getEndPt();
     bool hasEndPt();
     NGfc2Vector3d^ getEndPtPtr();
 

@@ -11,12 +11,12 @@ NGfc2ConnectionVolumeGeometry::NGfc2ConnectionVolumeGeometry(void* pEntity, bool
 {
 }
 
-void NGfc2ConnectionVolumeGeometry::setVolumeOnRelatingElement(glodon::objectbuf::EntityRef nValue)
+void NGfc2ConnectionVolumeGeometry::setVolumeOnRelatingElement(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionVolumeGeometry*)m_pEntity)->setVolumeOnRelatingElement(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ConnectionVolumeGeometry::getVolumeOnRelatingElement()
+gfc2::engine::EntityRef NGfc2ConnectionVolumeGeometry::getVolumeOnRelatingElement()
 {
     return ((Gfc2ConnectionVolumeGeometry*)m_pEntity)->getVolumeOnRelatingElement();
 }
@@ -31,12 +31,12 @@ NGfc2Body^ NGfc2ConnectionVolumeGeometry::getVolumeOnRelatingElementPtr()
     return gcnew NGfc2Body(((Gfc2ConnectionVolumeGeometry*)m_pEntity)->getVolumeOnRelatingElementPtr(), false);
 }
 
-void NGfc2ConnectionVolumeGeometry::setVolumeOnRelatedElement(glodon::objectbuf::EntityRef nValue)
+void NGfc2ConnectionVolumeGeometry::setVolumeOnRelatedElement(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionVolumeGeometry*)m_pEntity)->setVolumeOnRelatedElement(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ConnectionVolumeGeometry::getVolumeOnRelatedElement()
+gfc2::engine::EntityRef NGfc2ConnectionVolumeGeometry::getVolumeOnRelatedElement()
 {
     return ((Gfc2ConnectionVolumeGeometry*)m_pEntity)->getVolumeOnRelatedElement();
 }

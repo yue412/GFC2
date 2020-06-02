@@ -2,7 +2,7 @@
 #define NGFC2REPRESENTATIONITEM_H
 
 #include "Gfc2RepresentationItem.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2RepresentationItem: public glodon::objectbufnet::Entity
 {

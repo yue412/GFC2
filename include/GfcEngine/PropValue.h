@@ -38,9 +38,10 @@ public:
     virtual int getCount() const { return 0; }
     virtual PropValue* getItems(int nIndex) { return nullptr; }
     virtual void setItems(int nIndex, PropValue* pValue) {}
+    virtual void clear() {}
 };
 
-class LeafPropValue : public PropValue
+class GFCENGINE_API LeafPropValue : public PropValue
 {
 public:
     LeafPropValue() : m_bIsNull(true) {}
@@ -51,7 +52,7 @@ private:
     bool m_bIsNull;
 };
 
-class CompositePropValue : public PropValue
+class GFCENGINE_API CompositePropValue : public PropValue
 {
 public:
     CompositePropValue();
@@ -62,12 +63,12 @@ public:
     virtual int getCount() const { return (int)m_oList.size(); }
     virtual PropValue* getItems(int nIndex) { return m_oList[nIndex]; }
     virtual void setItems(int nIndex, PropValue* pValue);
+    virtual void clear();
 private:
-    void clear();
     std::vector<PropValue*> m_oList;
 };
 
-class BooleanValue : public LeafPropValue
+class GFCENGINE_API BooleanValue : public LeafPropValue
 {
 public:
     BooleanValue() : m_bValue(false) { }
@@ -85,7 +86,7 @@ private:
     bool m_bValue;
 };
 
-class IntegerValue : public LeafPropValue
+class GFCENGINE_API IntegerValue : public LeafPropValue
 {
 public:
     IntegerValue() : m_nValue(0){ }
@@ -103,7 +104,7 @@ private:
     int m_nValue;
 };
 
-class DoubleValue : public LeafPropValue
+class GFCENGINE_API DoubleValue : public LeafPropValue
 {
 public:
     DoubleValue() : m_dValue(0.0) { }
@@ -120,7 +121,7 @@ private:
     double m_dValue;
 };
 
-class StringValue : public LeafPropValue
+class GFCENGINE_API StringValue : public LeafPropValue
 {
 public:
     StringValue() { }
@@ -136,7 +137,7 @@ private:
     std::string m_sValue;
 };
 
-class EntityRefValue : public LeafPropValue
+class GFCENGINE_API EntityRefValue : public LeafPropValue
 {
 public:
     EntityRefValue() : m_nValue(-1) { }

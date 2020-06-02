@@ -4,7 +4,7 @@
 #include "NGfc2Geometry.h"
 #include "Gfc2Intervald.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Intervald: public NGfc2Geometry
 {

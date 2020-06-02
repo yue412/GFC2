@@ -4,7 +4,7 @@
 #include "Gfc2SteelDetail.h"
 #include "NGfc2String.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2SteelDetail: public glodon::objectbufnet::Entity
 {
@@ -14,16 +14,16 @@ public:
     void setEntityID(NGfc2Integer nValue);
     NGfc2Integer getEntityID();
     bool hasEntityID();
-    void setName(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getName();
+    void setName(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getName();
     bool hasName();
     NGfc2String^ getNamePtr();
-    void setDesc(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getDesc();
+    void setDesc(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getDesc();
     bool hasDesc();
     NGfc2String^ getDescPtr();
-    void setLevel(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getLevel();
+    void setLevel(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getLevel();
     bool hasLevel();
     NGfc2String^ getLevelPtr();
     void setDia(NGfc2Integer nValue);
@@ -44,8 +44,8 @@ public:
     void setTieinNum(NGfc2Integer nValue);
     NGfc2Integer getTieinNum();
     bool hasTieinNum();
-    void setTieinType(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getTieinType();
+    void setTieinType(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getTieinType();
     bool hasTieinType();
     NGfc2String^ getTieinTypePtr();
 

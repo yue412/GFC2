@@ -21,12 +21,12 @@ void NGfc2SimplePolygon::clearLoops()
     ((Gfc2SimplePolygon*)m_pEntity)->clearLoops();
 }
 
-void NGfc2SimplePolygon::addLoops(glodon::objectbuf::EntityRef nValue)
+void NGfc2SimplePolygon::addLoops(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2SimplePolygon*)m_pEntity)->addLoops(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2SimplePolygon::getLoops(int nIndex)
+gfc2::engine::EntityRef NGfc2SimplePolygon::getLoops(int nIndex)
 {
     return ((Gfc2SimplePolygon*)m_pEntity)->getLoops(nIndex);
 }

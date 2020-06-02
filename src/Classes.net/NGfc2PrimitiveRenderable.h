@@ -5,7 +5,7 @@
 #include "Gfc2PrimitiveRenderable.h"
 #include "NGfc2Vector3d.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2PrimitiveRenderable: public NGfc2RepresentationItem
 {
@@ -20,13 +20,13 @@ public:
     bool hasGeometryDataType();
     int getVertexesCount();
     void clearVertexes();
-    void addVertexes(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getVertexes(int nIndex);
+    void addVertexes(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getVertexes(int nIndex);
     NGfc2Vector3d^ getVertexesPtr(int nIndex);
     int getNormalsCount();
     void clearNormals();
-    void addNormals(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getNormals(int nIndex);
+    void addNormals(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getNormals(int nIndex);
     NGfc2Vector3d^ getNormalsPtr(int nIndex);
     int getIndexesCount();
     void clearIndexes();

@@ -5,7 +5,7 @@
 #include "NGfc2String.h"
 #include "NGfc2Matrix.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2SurfaceTexture: public glodon::objectbufnet::Entity
 {
@@ -18,18 +18,18 @@ public:
     void setRepeatT(NGfc2Boolean bValue);
     NGfc2Boolean getRepeatT();
     bool hasRepeatT();
-    void setImageFileName(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getImageFileName();
+    void setImageFileName(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getImageFileName();
     bool hasImageFileName();
     NGfc2String^ getImageFileNamePtr();
-    void setTranfromsMatirx(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getTranfromsMatirx();
+    void setTranfromsMatirx(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getTranfromsMatirx();
     bool hasTranfromsMatirx();
     NGfc2Matrix^ getTranfromsMatirxPtr();
     int getParameterCount();
     void clearParameter();
-    void addParameter(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getParameter(int nIndex);
+    void addParameter(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getParameter(int nIndex);
     NGfc2String^ getParameterPtr(int nIndex);
 
 };

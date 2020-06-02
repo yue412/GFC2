@@ -5,7 +5,7 @@
 #include "Gfc2PolyhedronBody.h"
 #include "NGfc2PolyhedralFace.h"
 #include "NGfc2Vector3d.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2PolyhedronBody: public NGfc2Body
 {
@@ -14,13 +14,13 @@ public:
     NGfc2PolyhedronBody(void* pEntity, bool bOwner);
     int getFacesCount();
     void clearFaces();
-    void addFaces(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getFaces(int nIndex);
+    void addFaces(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getFaces(int nIndex);
     NGfc2PolyhedralFace^ getFacesPtr(int nIndex);
     int getVertexesCount();
     void clearVertexes();
-    void addVertexes(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getVertexes(int nIndex);
+    void addVertexes(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getVertexes(int nIndex);
     NGfc2Vector3d^ getVertexesPtr(int nIndex);
 
 };

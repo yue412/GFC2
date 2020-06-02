@@ -6,19 +6,19 @@
 #include "NGfc2Surface.h"
 #include "NGfc2Box3d.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Face: public NGfc2CommonPolygonEx
 {
 public:
     NGfc2Face();
     NGfc2Face(void* pEntity, bool bOwner);
-    void setSurface(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getSurface();
+    void setSurface(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getSurface();
     bool hasSurface();
     NGfc2Surface^ getSurfacePtr();
-    void setBox(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getBox();
+    void setBox(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getBox();
     bool hasBox();
     NGfc2Box3d^ getBoxPtr();
     void setSameDir(NGfc2Boolean bValue);

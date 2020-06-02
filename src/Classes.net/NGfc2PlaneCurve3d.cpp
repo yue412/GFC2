@@ -11,12 +11,12 @@ NGfc2PlaneCurve3d::NGfc2PlaneCurve3d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2PlaneCurve3d::setPlaneCurve(glodon::objectbuf::EntityRef nValue)
+void NGfc2PlaneCurve3d::setPlaneCurve(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2PlaneCurve3d*)m_pEntity)->setPlaneCurve(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2PlaneCurve3d::getPlaneCurve()
+gfc2::engine::EntityRef NGfc2PlaneCurve3d::getPlaneCurve()
 {
     return ((Gfc2PlaneCurve3d*)m_pEntity)->getPlaneCurve();
 }
@@ -31,12 +31,12 @@ NGfc2Curve2d^ NGfc2PlaneCurve3d::getPlaneCurvePtr()
     return gcnew NGfc2Curve2d(((Gfc2PlaneCurve3d*)m_pEntity)->getPlaneCurvePtr(), false);
 }
 
-void NGfc2PlaneCurve3d::setPlane(glodon::objectbuf::EntityRef nValue)
+void NGfc2PlaneCurve3d::setPlane(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2PlaneCurve3d*)m_pEntity)->setPlane(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2PlaneCurve3d::getPlane()
+gfc2::engine::EntityRef NGfc2PlaneCurve3d::getPlane()
 {
     return ((Gfc2PlaneCurve3d*)m_pEntity)->getPlane();
 }

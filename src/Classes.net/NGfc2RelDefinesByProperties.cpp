@@ -11,12 +11,12 @@ NGfc2RelDefinesByProperties::NGfc2RelDefinesByProperties(void* pEntity, bool bOw
 {
 }
 
-void NGfc2RelDefinesByProperties::setRelatingPropertySet(glodon::objectbuf::EntityRef nValue)
+void NGfc2RelDefinesByProperties::setRelatingPropertySet(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RelDefinesByProperties*)m_pEntity)->setRelatingPropertySet(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RelDefinesByProperties::getRelatingPropertySet()
+gfc2::engine::EntityRef NGfc2RelDefinesByProperties::getRelatingPropertySet()
 {
     return ((Gfc2RelDefinesByProperties*)m_pEntity)->getRelatingPropertySet();
 }
@@ -41,12 +41,12 @@ void NGfc2RelDefinesByProperties::clearRelatedObjects()
     ((Gfc2RelDefinesByProperties*)m_pEntity)->clearRelatedObjects();
 }
 
-void NGfc2RelDefinesByProperties::addRelatedObjects(glodon::objectbuf::EntityRef nValue)
+void NGfc2RelDefinesByProperties::addRelatedObjects(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RelDefinesByProperties*)m_pEntity)->addRelatedObjects(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RelDefinesByProperties::getRelatedObjects(int nIndex)
+gfc2::engine::EntityRef NGfc2RelDefinesByProperties::getRelatedObjects(int nIndex)
 {
     return ((Gfc2RelDefinesByProperties*)m_pEntity)->getRelatedObjects(nIndex);
 }

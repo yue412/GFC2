@@ -11,12 +11,12 @@ NGfc2SweepCurve3d::NGfc2SweepCurve3d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2SweepCurve3d::setSpine3d(glodon::objectbuf::EntityRef nValue)
+void NGfc2SweepCurve3d::setSpine3d(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2SweepCurve3d*)m_pEntity)->setSpine3d(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2SweepCurve3d::getSpine3d()
+gfc2::engine::EntityRef NGfc2SweepCurve3d::getSpine3d()
 {
     return ((Gfc2SweepCurve3d*)m_pEntity)->getSpine3d();
 }
@@ -31,12 +31,12 @@ NGfc2Curve3d^ NGfc2SweepCurve3d::getSpine3dPtr()
     return gcnew NGfc2Curve3d(((Gfc2SweepCurve3d*)m_pEntity)->getSpine3dPtr(), false);
 }
 
-void NGfc2SweepCurve3d::setReferenceVector(glodon::objectbuf::EntityRef nValue)
+void NGfc2SweepCurve3d::setReferenceVector(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2SweepCurve3d*)m_pEntity)->setReferenceVector(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2SweepCurve3d::getReferenceVector()
+gfc2::engine::EntityRef NGfc2SweepCurve3d::getReferenceVector()
 {
     return ((Gfc2SweepCurve3d*)m_pEntity)->getReferenceVector();
 }
@@ -51,12 +51,12 @@ NGfc2Vector3d^ NGfc2SweepCurve3d::getReferenceVectorPtr()
     return gcnew NGfc2Vector3d(((Gfc2SweepCurve3d*)m_pEntity)->getReferenceVectorPtr(), false);
 }
 
-void NGfc2SweepCurve3d::setPoint(glodon::objectbuf::EntityRef nValue)
+void NGfc2SweepCurve3d::setPoint(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2SweepCurve3d*)m_pEntity)->setPoint(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2SweepCurve3d::getPoint()
+gfc2::engine::EntityRef NGfc2SweepCurve3d::getPoint()
 {
     return ((Gfc2SweepCurve3d*)m_pEntity)->getPoint();
 }

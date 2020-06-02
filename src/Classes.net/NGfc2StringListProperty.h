@@ -4,7 +4,7 @@
 #include "NGfc2ListProperty.h"
 #include "Gfc2StringListProperty.h"
 #include "NGfc2String.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2StringListProperty: public NGfc2ListProperty
 {
@@ -13,8 +13,8 @@ public:
     NGfc2StringListProperty(void* pEntity, bool bOwner);
     int getValuesCount();
     void clearValues();
-    void addValues(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getValues(int nIndex);
+    void addValues(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getValues(int nIndex);
     NGfc2String^ getValuesPtr(int nIndex);
 
 };

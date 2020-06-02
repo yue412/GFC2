@@ -3,7 +3,7 @@
 
 #include "Gfc2Color.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Color: public glodon::objectbufnet::Entity
 {

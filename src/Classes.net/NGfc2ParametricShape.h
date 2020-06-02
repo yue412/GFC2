@@ -3,7 +3,7 @@
 
 #include "NGfc2Shape.h"
 #include "Gfc2ParametricShape.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2ParametricShape: public NGfc2Shape
 {

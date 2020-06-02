@@ -43,12 +43,12 @@ void parseTranslateInfo(int argc, char *argv[], CTranslateInfo& oInfo)
         case 'c':
             oInfo.sCPPPath = getFullPath(charToWString(optarg));
             break;
-        case 't':
-            oInfo.sTextPath = getFullPath(charToWString(optarg));
-            break;
-        case 'b':
-            oInfo.sBinPath = getFullPath(charToWString(optarg));
-            break;
+        //case 't':
+        //    oInfo.sTextPath = getFullPath(charToWString(optarg));
+        //    break;
+        //case 'b':
+        //    oInfo.sBinPath = getFullPath(charToWString(optarg));
+        //    break;
         case 'n':
             oInfo.sNETPath = getFullPath(charToWString(optarg));
             break;

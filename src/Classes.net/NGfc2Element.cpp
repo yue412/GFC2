@@ -11,12 +11,12 @@ NGfc2Element::NGfc2Element(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Element::setType(NGfc2Integer nValue)
+void NGfc2Element::setType(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Element*)m_pEntity)->setType(nValue);
 }
 
-NGfc2Integer NGfc2Element::getType()
+gfc2::engine::EntityRef NGfc2Element::getType()
 {
     return ((Gfc2Element*)m_pEntity)->getType();
 }
@@ -24,6 +24,11 @@ NGfc2Integer NGfc2Element::getType()
 bool NGfc2Element::hasType()
 {
     return ((Gfc2Element*)m_pEntity)->hasType();
+}
+
+NGfc2Label^ NGfc2Element::getTypePtr()
+{
+    return gcnew NGfc2Label(((Gfc2Element*)m_pEntity)->getTypePtr(), false);
 }
 
 int NGfc2Element::getRepresentationsCount()
@@ -36,12 +41,12 @@ void NGfc2Element::clearRepresentations()
     ((Gfc2Element*)m_pEntity)->clearRepresentations();
 }
 
-void NGfc2Element::addRepresentations(glodon::objectbuf::EntityRef nValue)
+void NGfc2Element::addRepresentations(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Element*)m_pEntity)->addRepresentations(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Element::getRepresentations(int nIndex)
+gfc2::engine::EntityRef NGfc2Element::getRepresentations(int nIndex)
 {
     return ((Gfc2Element*)m_pEntity)->getRepresentations(nIndex);
 }
@@ -61,12 +66,12 @@ void NGfc2Element::clearShapes()
     ((Gfc2Element*)m_pEntity)->clearShapes();
 }
 
-void NGfc2Element::addShapes(glodon::objectbuf::EntityRef nValue)
+void NGfc2Element::addShapes(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Element*)m_pEntity)->addShapes(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Element::getShapes(int nIndex)
+gfc2::engine::EntityRef NGfc2Element::getShapes(int nIndex)
 {
     return ((Gfc2Element*)m_pEntity)->getShapes(nIndex);
 }

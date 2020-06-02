@@ -11,12 +11,12 @@ NGfc2ConnectionCurveGeometry::NGfc2ConnectionCurveGeometry(void* pEntity, bool b
 {
 }
 
-void NGfc2ConnectionCurveGeometry::setCurveOnRelatingElement(glodon::objectbuf::EntityRef nValue)
+void NGfc2ConnectionCurveGeometry::setCurveOnRelatingElement(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionCurveGeometry*)m_pEntity)->setCurveOnRelatingElement(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ConnectionCurveGeometry::getCurveOnRelatingElement()
+gfc2::engine::EntityRef NGfc2ConnectionCurveGeometry::getCurveOnRelatingElement()
 {
     return ((Gfc2ConnectionCurveGeometry*)m_pEntity)->getCurveOnRelatingElement();
 }
@@ -31,12 +31,12 @@ NGfc2Curve3d^ NGfc2ConnectionCurveGeometry::getCurveOnRelatingElementPtr()
     return gcnew NGfc2Curve3d(((Gfc2ConnectionCurveGeometry*)m_pEntity)->getCurveOnRelatingElementPtr(), false);
 }
 
-void NGfc2ConnectionCurveGeometry::setCurveOnRelatedElement(glodon::objectbuf::EntityRef nValue)
+void NGfc2ConnectionCurveGeometry::setCurveOnRelatedElement(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionCurveGeometry*)m_pEntity)->setCurveOnRelatedElement(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ConnectionCurveGeometry::getCurveOnRelatedElement()
+gfc2::engine::EntityRef NGfc2ConnectionCurveGeometry::getCurveOnRelatedElement()
 {
     return ((Gfc2ConnectionCurveGeometry*)m_pEntity)->getCurveOnRelatedElement();
 }

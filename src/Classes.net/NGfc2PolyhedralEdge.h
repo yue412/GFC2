@@ -4,7 +4,7 @@
 #include "NGfc2Topology.h"
 #include "Gfc2PolyhedralEdge.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2PolyhedralEdge: public NGfc2Topology
 {

@@ -4,7 +4,7 @@
 #include "Gfc2QuotaDetail.h"
 #include "NGfc2String.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2QuotaDetail: public glodon::objectbufnet::Entity
 {
@@ -17,20 +17,20 @@ public:
     void setEntityID(NGfc2Integer nValue);
     NGfc2Integer getEntityID();
     bool hasEntityID();
-    void setUnit(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getUnit();
+    void setUnit(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getUnit();
     bool hasUnit();
     NGfc2String^ getUnitPtr();
-    void setExpress(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getExpress();
+    void setExpress(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getExpress();
     bool hasExpress();
     NGfc2String^ getExpressPtr();
-    void setQuantity(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getQuantity();
+    void setQuantity(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getQuantity();
     bool hasQuantity();
     NGfc2String^ getQuantityPtr();
-    void setMemo(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getMemo();
+    void setMemo(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getMemo();
     bool hasMemo();
     NGfc2String^ getMemoPtr();
 

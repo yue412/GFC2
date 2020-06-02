@@ -4,7 +4,7 @@
 #include "NGfc2SingleProperty.h"
 #include "Gfc2BooleanProperty.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2BooleanProperty: public NGfc2SingleProperty
 {

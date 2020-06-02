@@ -3,7 +3,7 @@
 
 #include "NGfc2SolidShape.h"
 #include "Gfc2PrimitiveShape.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2PrimitiveShape: public NGfc2SolidShape
 {

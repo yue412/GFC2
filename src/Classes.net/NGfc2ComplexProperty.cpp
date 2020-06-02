@@ -21,12 +21,12 @@ void NGfc2ComplexProperty::clearHasProperties()
     ((Gfc2ComplexProperty*)m_pEntity)->clearHasProperties();
 }
 
-void NGfc2ComplexProperty::addHasProperties(glodon::objectbuf::EntityRef nValue)
+void NGfc2ComplexProperty::addHasProperties(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ComplexProperty*)m_pEntity)->addHasProperties(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ComplexProperty::getHasProperties(int nIndex)
+gfc2::engine::EntityRef NGfc2ComplexProperty::getHasProperties(int nIndex)
 {
     return ((Gfc2ComplexProperty*)m_pEntity)->getHasProperties(nIndex);
 }

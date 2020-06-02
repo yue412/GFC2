@@ -21,12 +21,12 @@ void NGfc2StringListProperty::clearValues()
     ((Gfc2StringListProperty*)m_pEntity)->clearValues();
 }
 
-void NGfc2StringListProperty::addValues(glodon::objectbuf::EntityRef nValue)
+void NGfc2StringListProperty::addValues(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2StringListProperty*)m_pEntity)->addValues(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2StringListProperty::getValues(int nIndex)
+gfc2::engine::EntityRef NGfc2StringListProperty::getValues(int nIndex)
 {
     return ((Gfc2StringListProperty*)m_pEntity)->getValues(nIndex);
 }

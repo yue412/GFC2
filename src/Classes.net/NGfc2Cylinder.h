@@ -6,35 +6,35 @@
 #include "NGfc2Intervald.h"
 #include "NGfc2Curve2d.h"
 #include "NGfc2Vector3d.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Cylinder: public NGfc2Surface
 {
 public:
     NGfc2Cylinder();
     NGfc2Cylinder(void* pEntity, bool bOwner);
-    void setRangeV(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getRangeV();
+    void setRangeV(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getRangeV();
     bool hasRangeV();
     NGfc2Intervald^ getRangeVPtr();
-    void setCurve(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getCurve();
+    void setCurve(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getCurve();
     bool hasCurve();
     NGfc2Curve2d^ getCurvePtr();
-    void setDirX(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getDirX();
+    void setDirX(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getDirX();
     bool hasDirX();
     NGfc2Vector3d^ getDirXPtr();
-    void setDirY(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getDirY();
+    void setDirY(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getDirY();
     bool hasDirY();
     NGfc2Vector3d^ getDirYPtr();
-    void setDirZ(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getDirZ();
+    void setDirZ(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getDirZ();
     bool hasDirZ();
     NGfc2Vector3d^ getDirZPtr();
-    void setPos(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getPos();
+    void setPos(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getPos();
     bool hasPos();
     NGfc2Vector3d^ getPosPtr();
 

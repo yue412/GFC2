@@ -26,12 +26,12 @@ bool NGfc2SteelDetail::hasEntityID()
     return ((Gfc2SteelDetail*)m_pEntity)->hasEntityID();
 }
 
-void NGfc2SteelDetail::setName(glodon::objectbuf::EntityRef nValue)
+void NGfc2SteelDetail::setName(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2SteelDetail*)m_pEntity)->setName(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2SteelDetail::getName()
+gfc2::engine::EntityRef NGfc2SteelDetail::getName()
 {
     return ((Gfc2SteelDetail*)m_pEntity)->getName();
 }
@@ -46,12 +46,12 @@ NGfc2String^ NGfc2SteelDetail::getNamePtr()
     return gcnew NGfc2String(((Gfc2SteelDetail*)m_pEntity)->getNamePtr(), false);
 }
 
-void NGfc2SteelDetail::setDesc(glodon::objectbuf::EntityRef nValue)
+void NGfc2SteelDetail::setDesc(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2SteelDetail*)m_pEntity)->setDesc(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2SteelDetail::getDesc()
+gfc2::engine::EntityRef NGfc2SteelDetail::getDesc()
 {
     return ((Gfc2SteelDetail*)m_pEntity)->getDesc();
 }
@@ -66,12 +66,12 @@ NGfc2String^ NGfc2SteelDetail::getDescPtr()
     return gcnew NGfc2String(((Gfc2SteelDetail*)m_pEntity)->getDescPtr(), false);
 }
 
-void NGfc2SteelDetail::setLevel(glodon::objectbuf::EntityRef nValue)
+void NGfc2SteelDetail::setLevel(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2SteelDetail*)m_pEntity)->setLevel(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2SteelDetail::getLevel()
+gfc2::engine::EntityRef NGfc2SteelDetail::getLevel()
 {
     return ((Gfc2SteelDetail*)m_pEntity)->getLevel();
 }
@@ -176,12 +176,12 @@ bool NGfc2SteelDetail::hasTieinNum()
     return ((Gfc2SteelDetail*)m_pEntity)->hasTieinNum();
 }
 
-void NGfc2SteelDetail::setTieinType(glodon::objectbuf::EntityRef nValue)
+void NGfc2SteelDetail::setTieinType(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2SteelDetail*)m_pEntity)->setTieinType(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2SteelDetail::getTieinType()
+gfc2::engine::EntityRef NGfc2SteelDetail::getTieinType()
 {
     return ((Gfc2SteelDetail*)m_pEntity)->getTieinType();
 }

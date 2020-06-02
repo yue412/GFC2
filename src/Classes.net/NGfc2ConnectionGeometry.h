@@ -2,7 +2,7 @@
 #define NGFC2CONNECTIONGEOMETRY_H
 
 #include "Gfc2ConnectionGeometry.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2ConnectionGeometry: public glodon::objectbufnet::Entity
 {

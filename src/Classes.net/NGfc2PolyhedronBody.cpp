@@ -21,12 +21,12 @@ void NGfc2PolyhedronBody::clearFaces()
     ((Gfc2PolyhedronBody*)m_pEntity)->clearFaces();
 }
 
-void NGfc2PolyhedronBody::addFaces(glodon::objectbuf::EntityRef nValue)
+void NGfc2PolyhedronBody::addFaces(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2PolyhedronBody*)m_pEntity)->addFaces(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2PolyhedronBody::getFaces(int nIndex)
+gfc2::engine::EntityRef NGfc2PolyhedronBody::getFaces(int nIndex)
 {
     return ((Gfc2PolyhedronBody*)m_pEntity)->getFaces(nIndex);
 }
@@ -46,12 +46,12 @@ void NGfc2PolyhedronBody::clearVertexes()
     ((Gfc2PolyhedronBody*)m_pEntity)->clearVertexes();
 }
 
-void NGfc2PolyhedronBody::addVertexes(glodon::objectbuf::EntityRef nValue)
+void NGfc2PolyhedronBody::addVertexes(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2PolyhedronBody*)m_pEntity)->addVertexes(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2PolyhedronBody::getVertexes(int nIndex)
+gfc2::engine::EntityRef NGfc2PolyhedronBody::getVertexes(int nIndex)
 {
     return ((Gfc2PolyhedronBody*)m_pEntity)->getVertexes(nIndex);
 }

@@ -11,12 +11,12 @@ NGfc2ConnectionSurfaceGeometry::NGfc2ConnectionSurfaceGeometry(void* pEntity, bo
 {
 }
 
-void NGfc2ConnectionSurfaceGeometry::setSurfaceOnRelatingElement(glodon::objectbuf::EntityRef nValue)
+void NGfc2ConnectionSurfaceGeometry::setSurfaceOnRelatingElement(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->setSurfaceOnRelatingElement(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatingElement()
+gfc2::engine::EntityRef NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatingElement()
 {
     return ((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->getSurfaceOnRelatingElement();
 }
@@ -31,12 +31,12 @@ NGfc2Surface^ NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatingElementPtr()
     return gcnew NGfc2Surface(((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->getSurfaceOnRelatingElementPtr(), false);
 }
 
-void NGfc2ConnectionSurfaceGeometry::setSurfaceOnRelatedElement(glodon::objectbuf::EntityRef nValue)
+void NGfc2ConnectionSurfaceGeometry::setSurfaceOnRelatedElement(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->setSurfaceOnRelatedElement(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatedElement()
+gfc2::engine::EntityRef NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatedElement()
 {
     return ((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->getSurfaceOnRelatedElement();
 }

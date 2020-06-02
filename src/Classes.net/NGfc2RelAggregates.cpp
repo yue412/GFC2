@@ -11,12 +11,12 @@ NGfc2RelAggregates::NGfc2RelAggregates(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2RelAggregates::setRelatingObject(glodon::objectbuf::EntityRef nValue)
+void NGfc2RelAggregates::setRelatingObject(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RelAggregates*)m_pEntity)->setRelatingObject(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RelAggregates::getRelatingObject()
+gfc2::engine::EntityRef NGfc2RelAggregates::getRelatingObject()
 {
     return ((Gfc2RelAggregates*)m_pEntity)->getRelatingObject();
 }
@@ -41,12 +41,12 @@ void NGfc2RelAggregates::clearRelatedObjects()
     ((Gfc2RelAggregates*)m_pEntity)->clearRelatedObjects();
 }
 
-void NGfc2RelAggregates::addRelatedObjects(glodon::objectbuf::EntityRef nValue)
+void NGfc2RelAggregates::addRelatedObjects(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RelAggregates*)m_pEntity)->addRelatedObjects(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RelAggregates::getRelatedObjects(int nIndex)
+gfc2::engine::EntityRef NGfc2RelAggregates::getRelatedObjects(int nIndex)
 {
     return ((Gfc2RelAggregates*)m_pEntity)->getRelatedObjects(nIndex);
 }

@@ -11,12 +11,12 @@ NGfc2SweptAreaSolidShape::NGfc2SweptAreaSolidShape(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2SweptAreaSolidShape::setSweptArea(glodon::objectbuf::EntityRef nValue)
+void NGfc2SweptAreaSolidShape::setSweptArea(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2SweptAreaSolidShape*)m_pEntity)->setSweptArea(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2SweptAreaSolidShape::getSweptArea()
+gfc2::engine::EntityRef NGfc2SweptAreaSolidShape::getSweptArea()
 {
     return ((Gfc2SweptAreaSolidShape*)m_pEntity)->getSweptArea();
 }

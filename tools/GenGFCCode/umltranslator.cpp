@@ -22,7 +22,6 @@ void CUMLTranslator::done(CTranslateInfo & oInfo)
 {
     std::wstring sCoreUML = getExePath() + L"\\GFC2Core.uml";
     CModel oModel;
-    initModel(&oModel);
     loadModelData(&oModel, oInfo.sUMLFile.empty() ? sCoreUML : oInfo.sUMLFile);
     /*
     CModel* pRefModel = nullptr;
@@ -45,25 +44,17 @@ void CUMLTranslator::done(CTranslateInfo & oInfo)
         CDocumentWriter oWriter(&oModel);
         oWriter.write(oInfo.sHtmlPath);
     }
-    if (!(oInfo.sCPPPath.empty() && oInfo.sTextPath.empty() && oInfo.sBinPath.empty() && oInfo.sHeadPath.empty() && oInfo.sNETPath.empty()))
+    if (!(oInfo.sCPPPath.empty() && /*oInfo.sTextPath.empty() && oInfo.sBinPath.empty() &&*/ oInfo.sHeadPath.empty() && oInfo.sNETPath.empty()))
     {
         CCodeWriter oCodeWriter(&oModel);
         oCodeWriter.write(oInfo.sHeadPath, 
             oInfo.sCPPPath, 
-            oInfo.sTextPath,
-            oInfo.sBinPath,
+            //oInfo.sTextPath,
+            //oInfo.sBinPath,
             oInfo.sNETPath);
     }
 //    delete pRefModel;
     std::wcout << L"生成完成！" << std::endl;
-}
-
-void CUMLTranslator::initModel(CModel * pModel)
-{
-    pModel->addTypeObject(new CBuildinType(L"REAL"));
-    pModel->addTypeObject(new CBuildinType(L"STRING"));
-    pModel->addTypeObject(new CBuildinType(L"INTEGER"));
-    pModel->addTypeObject(new CBuildinType(L"BOOLEAN"));
 }
 
 void CUMLTranslator::loadModelData(CModel * pModel, const std::wstring & sFileName)

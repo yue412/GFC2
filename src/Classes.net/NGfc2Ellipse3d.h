@@ -3,7 +3,7 @@
 
 #include "NGfc2PlaneCurve3d.h"
 #include "Gfc2Ellipse3d.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Ellipse3d: public NGfc2PlaneCurve3d
 {

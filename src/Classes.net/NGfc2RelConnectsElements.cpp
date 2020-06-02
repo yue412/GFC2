@@ -11,12 +11,12 @@ NGfc2RelConnectsElements::NGfc2RelConnectsElements(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2RelConnectsElements::setRelatingElement(glodon::objectbuf::EntityRef nValue)
+void NGfc2RelConnectsElements::setRelatingElement(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RelConnectsElements*)m_pEntity)->setRelatingElement(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RelConnectsElements::getRelatingElement()
+gfc2::engine::EntityRef NGfc2RelConnectsElements::getRelatingElement()
 {
     return ((Gfc2RelConnectsElements*)m_pEntity)->getRelatingElement();
 }
@@ -31,12 +31,12 @@ NGfc2Element^ NGfc2RelConnectsElements::getRelatingElementPtr()
     return gcnew NGfc2Element(((Gfc2RelConnectsElements*)m_pEntity)->getRelatingElementPtr(), false);
 }
 
-void NGfc2RelConnectsElements::setRelatedElement(glodon::objectbuf::EntityRef nValue)
+void NGfc2RelConnectsElements::setRelatedElement(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RelConnectsElements*)m_pEntity)->setRelatedElement(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RelConnectsElements::getRelatedElement()
+gfc2::engine::EntityRef NGfc2RelConnectsElements::getRelatedElement()
 {
     return ((Gfc2RelConnectsElements*)m_pEntity)->getRelatedElement();
 }
@@ -51,12 +51,12 @@ NGfc2Element^ NGfc2RelConnectsElements::getRelatedElementPtr()
     return gcnew NGfc2Element(((Gfc2RelConnectsElements*)m_pEntity)->getRelatedElementPtr(), false);
 }
 
-void NGfc2RelConnectsElements::setConnectionGeometry(glodon::objectbuf::EntityRef nValue)
+void NGfc2RelConnectsElements::setConnectionGeometry(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RelConnectsElements*)m_pEntity)->setConnectionGeometry(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RelConnectsElements::getConnectionGeometry()
+gfc2::engine::EntityRef NGfc2RelConnectsElements::getConnectionGeometry()
 {
     return ((Gfc2RelConnectsElements*)m_pEntity)->getConnectionGeometry();
 }

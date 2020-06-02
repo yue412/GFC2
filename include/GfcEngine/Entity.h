@@ -5,6 +5,7 @@
 #include <string>
 #include "GfcEngine\GfcEngine.h"
 #include "GfcEngine\Property.h"
+#include "GfcEngine\Object.h"
 
 namespace gfc2 {
     namespace schema {
@@ -22,7 +23,7 @@ class IContainer;
 
 typedef std::shared_ptr<Entity> EntityPtr;
 
-class GFCENGINE_API Entity
+class GFCENGINE_API Entity: public Object
 {
 public:
     Entity(void);
@@ -69,6 +70,8 @@ public:
     bool getBoolean(const std::string& sPropName, int nIndex) const;
     EntityRef getEntityRef(const std::string& sPropName, int nIndex) const;
     EntityPtr getEntity(const std::string& sPropName, int nIndex) const;
+protected:
+    IContainer* getContainer() { return m_pContainer; }
 private:
     void init();
     void free();

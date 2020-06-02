@@ -3,7 +3,7 @@
 
 #include "Gfc2PropertySet.h"
 #include "NGfc2Property.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2PropertySet: public glodon::objectbufnet::Entity
 {
@@ -12,8 +12,8 @@ public:
     NGfc2PropertySet(void* pEntity, bool bOwner);
     int getHasPropertiesCount();
     void clearHasProperties();
-    void addHasProperties(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getHasProperties(int nIndex);
+    void addHasProperties(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getHasProperties(int nIndex);
     NGfc2Property^ getHasPropertiesPtr(int nIndex);
 
 };

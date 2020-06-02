@@ -3,7 +3,7 @@
 
 #include "NGfc2LightSource.h"
 #include "Gfc2LightSourceAmbient.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2LightSourceAmbient: public NGfc2LightSource
 {

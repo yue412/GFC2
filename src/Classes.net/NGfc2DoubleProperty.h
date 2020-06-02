@@ -4,7 +4,7 @@
 #include "NGfc2SingleProperty.h"
 #include "Gfc2DoubleProperty.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2DoubleProperty: public NGfc2SingleProperty
 {

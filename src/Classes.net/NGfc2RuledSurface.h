@@ -6,7 +6,7 @@
 #include "NGfc2Intervald.h"
 #include "NGfc2Curve3d.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2RuledSurface: public NGfc2Surface
 {
@@ -16,20 +16,20 @@ public:
     void setApexIndex(NGfc2Integer nValue);
     NGfc2Integer getApexIndex();
     bool hasApexIndex();
-    void setRangeV(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getRangeV();
+    void setRangeV(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getRangeV();
     bool hasRangeV();
     NGfc2Intervald^ getRangeVPtr();
-    void setRangeU(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getRangeU();
+    void setRangeU(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getRangeU();
     bool hasRangeU();
     NGfc2Intervald^ getRangeUPtr();
-    void setDirectrix1(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getDirectrix1();
+    void setDirectrix1(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getDirectrix1();
     bool hasDirectrix1();
     NGfc2Curve3d^ getDirectrix1Ptr();
-    void setDirectrix2(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getDirectrix2();
+    void setDirectrix2(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getDirectrix2();
     bool hasDirectrix2();
     NGfc2Curve3d^ getDirectrix2Ptr();
 

@@ -11,12 +11,12 @@ NGfc2ImageCurve3d::NGfc2ImageCurve3d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2ImageCurve3d::setCurve(glodon::objectbuf::EntityRef nValue)
+void NGfc2ImageCurve3d::setCurve(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ImageCurve3d*)m_pEntity)->setCurve(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ImageCurve3d::getCurve()
+gfc2::engine::EntityRef NGfc2ImageCurve3d::getCurve()
 {
     return ((Gfc2ImageCurve3d*)m_pEntity)->getCurve();
 }
@@ -31,12 +31,12 @@ NGfc2Curve2d^ NGfc2ImageCurve3d::getCurvePtr()
     return gcnew NGfc2Curve2d(((Gfc2ImageCurve3d*)m_pEntity)->getCurvePtr(), false);
 }
 
-void NGfc2ImageCurve3d::setSurface(glodon::objectbuf::EntityRef nValue)
+void NGfc2ImageCurve3d::setSurface(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ImageCurve3d*)m_pEntity)->setSurface(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ImageCurve3d::getSurface()
+gfc2::engine::EntityRef NGfc2ImageCurve3d::getSurface()
 {
     return ((Gfc2ImageCurve3d*)m_pEntity)->getSurface();
 }

@@ -5,7 +5,7 @@
 #include "Gfc2BrepBody.h"
 #include "NGfc2Face.h"
 #include "NGfc2Edge.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2BrepBody: public NGfc2Body
 {
@@ -14,13 +14,13 @@ public:
     NGfc2BrepBody(void* pEntity, bool bOwner);
     int getFacesCount();
     void clearFaces();
-    void addFaces(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getFaces(int nIndex);
+    void addFaces(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getFaces(int nIndex);
     NGfc2Face^ getFacesPtr(int nIndex);
     int getEdgesCount();
     void clearEdges();
-    void addEdges(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getEdges(int nIndex);
+    void addEdges(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getEdges(int nIndex);
     NGfc2Edge^ getEdgesPtr(int nIndex);
 
 };

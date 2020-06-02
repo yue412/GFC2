@@ -4,7 +4,7 @@
 #include "Gfc2InternalChart.h"
 #include "NGfc2InternalPt.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2InternalChart: public glodon::objectbufnet::Entity
 {
@@ -22,8 +22,8 @@ public:
     bool hasTra3();
     int getIPSCount();
     void clearIPS();
-    void addIPS(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getIPS(int nIndex);
+    void addIPS(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getIPS(int nIndex);
     NGfc2InternalPt^ getIPSPtr(int nIndex);
 
 };

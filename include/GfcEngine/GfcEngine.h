@@ -10,6 +10,10 @@
 #define GFCENGINE_NAMESPACE_BEGIN namespace gfc2 { namespace engine {
 #define GFCENGINE_NAMESPACE_END } }
 
+GFCENGINE_NAMESPACE_BEGIN
+
 typedef int EntityRef;
+
+GFCENGINE_NAMESPACE_END
 
 #endif

@@ -21,12 +21,12 @@ void NGfc2CoedgeList::clearCoedges()
     ((Gfc2CoedgeList*)m_pEntity)->clearCoedges();
 }
 
-void NGfc2CoedgeList::addCoedges(glodon::objectbuf::EntityRef nValue)
+void NGfc2CoedgeList::addCoedges(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2CoedgeList*)m_pEntity)->addCoedges(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2CoedgeList::getCoedges(int nIndex)
+gfc2::engine::EntityRef NGfc2CoedgeList::getCoedges(int nIndex)
 {
     return ((Gfc2CoedgeList*)m_pEntity)->getCoedges(nIndex);
 }

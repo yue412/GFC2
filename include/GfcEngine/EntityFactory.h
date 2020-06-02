@@ -3,6 +3,7 @@
 
 #include <string>
 #include "GfcEngine\GfcEngine.h"
+#include "GfcEngine\SysMarco.h"
 
 namespace gfc2 {
     namespace schema {
@@ -16,6 +17,7 @@ class Entity;
 
 class GFCENGINE_API EntityFactory
 {
+    GFCENGINE_DEC_FACTORY(EntityFactory, 0, std::string)
 public:
     EntityFactory(gfc2::schema::CModel* pModel, bool bOwnerModel = true);
     ~EntityFactory();

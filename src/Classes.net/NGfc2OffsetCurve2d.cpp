@@ -26,12 +26,12 @@ bool NGfc2OffsetCurve2d::hasOffDist()
     return ((Gfc2OffsetCurve2d*)m_pEntity)->hasOffDist();
 }
 
-void NGfc2OffsetCurve2d::setInitCurve(glodon::objectbuf::EntityRef nValue)
+void NGfc2OffsetCurve2d::setInitCurve(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2OffsetCurve2d*)m_pEntity)->setInitCurve(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2OffsetCurve2d::getInitCurve()
+gfc2::engine::EntityRef NGfc2OffsetCurve2d::getInitCurve()
 {
     return ((Gfc2OffsetCurve2d*)m_pEntity)->getInitCurve();
 }

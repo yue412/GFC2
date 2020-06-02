@@ -3,7 +3,7 @@
 
 #include "NGfc2Geometry.h"
 #include "Gfc2Surface.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Surface: public NGfc2Geometry
 {

@@ -11,12 +11,12 @@ NGfc2RelationShip::NGfc2RelationShip(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2RelationShip::setName(glodon::objectbuf::EntityRef nValue)
+void NGfc2RelationShip::setName(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RelationShip*)m_pEntity)->setName(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RelationShip::getName()
+gfc2::engine::EntityRef NGfc2RelationShip::getName()
 {
     return ((Gfc2RelationShip*)m_pEntity)->getName();
 }

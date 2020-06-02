@@ -6,22 +6,22 @@
 #include "NGfc2Coordinates2d.h"
 #include "NGfc2Intervald.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2SpiralLine2d: public NGfc2Curve2d
 {
 public:
     NGfc2SpiralLine2d();
     NGfc2SpiralLine2d(void* pEntity, bool bOwner);
-    void setCoord(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getCoord();
+    void setCoord(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getCoord();
     bool hasCoord();
     NGfc2Coordinates2d^ getCoordPtr();
     void setRadius(NGfc2Double dValue);
     NGfc2Double getRadius();
     bool hasRadius();
-    void setRange(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getRange();
+    void setRange(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getRange();
     bool hasRange();
     NGfc2Intervald^ getRangePtr();
     void setClockSign(NGfc2Integer nValue);

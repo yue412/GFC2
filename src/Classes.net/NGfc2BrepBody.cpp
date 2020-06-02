@@ -21,12 +21,12 @@ void NGfc2BrepBody::clearFaces()
     ((Gfc2BrepBody*)m_pEntity)->clearFaces();
 }
 
-void NGfc2BrepBody::addFaces(glodon::objectbuf::EntityRef nValue)
+void NGfc2BrepBody::addFaces(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2BrepBody*)m_pEntity)->addFaces(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2BrepBody::getFaces(int nIndex)
+gfc2::engine::EntityRef NGfc2BrepBody::getFaces(int nIndex)
 {
     return ((Gfc2BrepBody*)m_pEntity)->getFaces(nIndex);
 }
@@ -46,12 +46,12 @@ void NGfc2BrepBody::clearEdges()
     ((Gfc2BrepBody*)m_pEntity)->clearEdges();
 }
 
-void NGfc2BrepBody::addEdges(glodon::objectbuf::EntityRef nValue)
+void NGfc2BrepBody::addEdges(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2BrepBody*)m_pEntity)->addEdges(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2BrepBody::getEdges(int nIndex)
+gfc2::engine::EntityRef NGfc2BrepBody::getEdges(int nIndex)
 {
     return ((Gfc2BrepBody*)m_pEntity)->getEdges(nIndex);
 }

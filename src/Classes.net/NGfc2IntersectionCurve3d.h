@@ -6,27 +6,27 @@
 #include "NGfc2Surface.h"
 #include "NGfc2Intervald.h"
 #include "NGfc2InternalChart.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2IntersectionCurve3d: public NGfc2Curve3d
 {
 public:
     NGfc2IntersectionCurve3d();
     NGfc2IntersectionCurve3d(void* pEntity, bool bOwner);
-    void setBases1(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getBases1();
+    void setBases1(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getBases1();
     bool hasBases1();
     NGfc2Surface^ getBases1Ptr();
-    void setBases2(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getBases2();
+    void setBases2(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getBases2();
     bool hasBases2();
     NGfc2Surface^ getBases2Ptr();
-    void setRange(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getRange();
+    void setRange(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getRange();
     bool hasRange();
     NGfc2Intervald^ getRangePtr();
-    void setChart(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getChart();
+    void setChart(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getChart();
     bool hasChart();
     NGfc2InternalChart^ getChartPtr();
 

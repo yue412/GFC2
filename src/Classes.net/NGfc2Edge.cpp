@@ -11,12 +11,12 @@ NGfc2Edge::NGfc2Edge(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Edge::setCurve(glodon::objectbuf::EntityRef nValue)
+void NGfc2Edge::setCurve(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Edge*)m_pEntity)->setCurve(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Edge::getCurve()
+gfc2::engine::EntityRef NGfc2Edge::getCurve()
 {
     return ((Gfc2Edge*)m_pEntity)->getCurve();
 }

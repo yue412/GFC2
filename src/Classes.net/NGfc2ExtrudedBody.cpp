@@ -11,12 +11,12 @@ NGfc2ExtrudedBody::NGfc2ExtrudedBody(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2ExtrudedBody::setCoordinate(glodon::objectbuf::EntityRef nValue)
+void NGfc2ExtrudedBody::setCoordinate(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ExtrudedBody*)m_pEntity)->setCoordinate(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ExtrudedBody::getCoordinate()
+gfc2::engine::EntityRef NGfc2ExtrudedBody::getCoordinate()
 {
     return ((Gfc2ExtrudedBody*)m_pEntity)->getCoordinate();
 }
@@ -46,12 +46,12 @@ bool NGfc2ExtrudedBody::hasLength()
     return ((Gfc2ExtrudedBody*)m_pEntity)->hasLength();
 }
 
-void NGfc2ExtrudedBody::setSection(glodon::objectbuf::EntityRef nValue)
+void NGfc2ExtrudedBody::setSection(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2ExtrudedBody*)m_pEntity)->setSection(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2ExtrudedBody::getSection()
+gfc2::engine::EntityRef NGfc2ExtrudedBody::getSection()
 {
     return ((Gfc2ExtrudedBody*)m_pEntity)->getSection();
 }

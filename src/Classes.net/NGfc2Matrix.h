@@ -4,7 +4,7 @@
 #include "NGfc2Geometry.h"
 #include "Gfc2Matrix.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Matrix: public NGfc2Geometry
 {

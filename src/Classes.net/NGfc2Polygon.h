@@ -3,7 +3,7 @@
 
 #include "NGfc2Topology.h"
 #include "Gfc2Polygon.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Polygon: public NGfc2Topology
 {

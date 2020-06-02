@@ -2,7 +2,7 @@
 #define NGFC2STRING_H
 
 #include "Gfc2String.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;

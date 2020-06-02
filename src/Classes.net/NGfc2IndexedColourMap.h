@@ -5,7 +5,7 @@
 #include "NGfc2Color.h"
 #include "NGfc2PrimitiveRenderable.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2IndexedColourMap: public glodon::objectbufnet::Entity
 {
@@ -17,15 +17,15 @@ public:
     bool hasTransparency();
     int getColoursCount();
     void clearColours();
-    void addColours(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getColours(int nIndex);
+    void addColours(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getColours(int nIndex);
     NGfc2Color^ getColoursPtr(int nIndex);
     int getColourIndexCount();
     void clearColourIndex();
     void addColourIndex(NGfc2Integer nValue);
     NGfc2Integer getColourIndex(int nIndex);
-    void setMappedTo(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getMappedTo();
+    void setMappedTo(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getMappedTo();
     bool hasMappedTo();
     NGfc2PrimitiveRenderable^ getMappedToPtr();
 

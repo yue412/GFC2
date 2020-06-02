@@ -4,7 +4,7 @@
 #include "NGfc2ListProperty.h"
 #include "Gfc2IntegerListProperty.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2IntegerListProperty: public NGfc2ListProperty
 {

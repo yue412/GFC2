@@ -11,12 +11,12 @@ NGfc2Bevel::NGfc2Bevel(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Bevel::setCoord(glodon::objectbuf::EntityRef nValue)
+void NGfc2Bevel::setCoord(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Bevel*)m_pEntity)->setCoord(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Bevel::getCoord()
+gfc2::engine::EntityRef NGfc2Bevel::getCoord()
 {
     return ((Gfc2Bevel*)m_pEntity)->getCoord();
 }
@@ -46,12 +46,12 @@ bool NGfc2Bevel::hasHeight()
     return ((Gfc2Bevel*)m_pEntity)->hasHeight();
 }
 
-void NGfc2Bevel::setRangeV(glodon::objectbuf::EntityRef nValue)
+void NGfc2Bevel::setRangeV(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Bevel*)m_pEntity)->setRangeV(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Bevel::getRangeV()
+gfc2::engine::EntityRef NGfc2Bevel::getRangeV()
 {
     return ((Gfc2Bevel*)m_pEntity)->getRangeV();
 }
@@ -66,12 +66,12 @@ NGfc2Intervald^ NGfc2Bevel::getRangeVPtr()
     return gcnew NGfc2Intervald(((Gfc2Bevel*)m_pEntity)->getRangeVPtr(), false);
 }
 
-void NGfc2Bevel::setCurve(glodon::objectbuf::EntityRef nValue)
+void NGfc2Bevel::setCurve(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2Bevel*)m_pEntity)->setCurve(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2Bevel::getCurve()
+gfc2::engine::EntityRef NGfc2Bevel::getCurve()
 {
     return ((Gfc2Bevel*)m_pEntity)->getCurve();
 }

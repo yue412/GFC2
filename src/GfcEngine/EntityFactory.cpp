@@ -11,6 +11,8 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
+GFCENGINE_IMP_FACTORY(EntityFactory, 0)
+
 EntityFactory::EntityFactory(gfc2::schema::CModel * pModel, bool bOwnerModel) : m_pModel(pModel), m_bOwnerModel(bOwnerModel)
 {
 }

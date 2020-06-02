@@ -5,19 +5,19 @@
 #include "Gfc2LightSource.h"
 #include "NGfc2Color.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2LightSource: public NGfc2RepresentationItem
 {
 public:
     NGfc2LightSource();
     NGfc2LightSource(void* pEntity, bool bOwner);
-    void setName(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getName();
+    void setName(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getName();
     bool hasName();
     NGfc2Label^ getNamePtr();
-    void setLightColour(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getLightColour();
+    void setLightColour(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getLightColour();
     bool hasLightColour();
     NGfc2Color^ getLightColourPtr();
     void setAmbientIntensity(NGfc2Double dValue);

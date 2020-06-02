@@ -4,15 +4,15 @@
 #include "NGfc2SingleProperty.h"
 #include "Gfc2StringProperty.h"
 #include "NGfc2String.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2StringProperty: public NGfc2SingleProperty
 {
 public:
     NGfc2StringProperty();
     NGfc2StringProperty(void* pEntity, bool bOwner);
-    void setValue(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getValue();
+    void setValue(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getValue();
     bool hasValue();
     NGfc2String^ getValuePtr();
 

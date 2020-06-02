@@ -21,12 +21,12 @@ void NGfc2CommonPolygonEx::clearLoopExs()
     ((Gfc2CommonPolygonEx*)m_pEntity)->clearLoopExs();
 }
 
-void NGfc2CommonPolygonEx::addLoopExs(glodon::objectbuf::EntityRef nValue)
+void NGfc2CommonPolygonEx::addLoopExs(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2CommonPolygonEx*)m_pEntity)->addLoopExs(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2CommonPolygonEx::getLoopExs(int nIndex)
+gfc2::engine::EntityRef NGfc2CommonPolygonEx::getLoopExs(int nIndex)
 {
     return ((Gfc2CommonPolygonEx*)m_pEntity)->getLoopExs(nIndex);
 }

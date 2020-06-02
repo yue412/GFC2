@@ -3,7 +3,7 @@
 
 #include "NGfc2SimpleProperty.h"
 #include "Gfc2SingleProperty.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2SingleProperty: public NGfc2SimpleProperty
 {

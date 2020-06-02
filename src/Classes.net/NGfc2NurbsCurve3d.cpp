@@ -36,12 +36,12 @@ void NGfc2NurbsCurve3d::clearCtrlPts()
     ((Gfc2NurbsCurve3d*)m_pEntity)->clearCtrlPts();
 }
 
-void NGfc2NurbsCurve3d::addCtrlPts(glodon::objectbuf::EntityRef nValue)
+void NGfc2NurbsCurve3d::addCtrlPts(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2NurbsCurve3d*)m_pEntity)->addCtrlPts(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2NurbsCurve3d::getCtrlPts(int nIndex)
+gfc2::engine::EntityRef NGfc2NurbsCurve3d::getCtrlPts(int nIndex)
 {
     return ((Gfc2NurbsCurve3d*)m_pEntity)->getCtrlPts(nIndex);
 }

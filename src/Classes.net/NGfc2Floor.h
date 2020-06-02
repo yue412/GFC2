@@ -4,7 +4,7 @@
 #include "NGfc2SpatialStructureElement.h"
 #include "Gfc2Floor.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Floor: public NGfc2SpatialStructureElement
 {
@@ -23,8 +23,8 @@ public:
     void setStartFloorNo(NGfc2Integer nValue);
     NGfc2Integer getStartFloorNo();
     bool hasStartFloorNo();
-    void setRemark(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getRemark();
+    void setRemark(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getRemark();
     bool hasRemark();
     NGfc2Text^ getRemarkPtr();
 

@@ -4,15 +4,15 @@
 #include "NGfc2SingleProperty.h"
 #include "Gfc2GeoProperty.h"
 #include "NGfc2Geometry.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2GeoProperty: public NGfc2SingleProperty
 {
 public:
     NGfc2GeoProperty();
     NGfc2GeoProperty(void* pEntity, bool bOwner);
-    void setGeo(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getGeo();
+    void setGeo(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getGeo();
     bool hasGeo();
     NGfc2Geometry^ getGeoPtr();
 

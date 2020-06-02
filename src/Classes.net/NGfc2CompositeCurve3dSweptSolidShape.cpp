@@ -21,12 +21,12 @@ void NGfc2CompositeCurve3dSweptSolidShape::clearSegments()
     ((Gfc2CompositeCurve3dSweptSolidShape*)m_pEntity)->clearSegments();
 }
 
-void NGfc2CompositeCurve3dSweptSolidShape::addSegments(glodon::objectbuf::EntityRef nValue)
+void NGfc2CompositeCurve3dSweptSolidShape::addSegments(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2CompositeCurve3dSweptSolidShape*)m_pEntity)->addSegments(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2CompositeCurve3dSweptSolidShape::getSegments(int nIndex)
+gfc2::engine::EntityRef NGfc2CompositeCurve3dSweptSolidShape::getSegments(int nIndex)
 {
     return ((Gfc2CompositeCurve3dSweptSolidShape*)m_pEntity)->getSegments(nIndex);
 }
@@ -46,12 +46,12 @@ void NGfc2CompositeCurve3dSweptSolidShape::clearReferences()
     ((Gfc2CompositeCurve3dSweptSolidShape*)m_pEntity)->clearReferences();
 }
 
-void NGfc2CompositeCurve3dSweptSolidShape::addReferences(glodon::objectbuf::EntityRef nValue)
+void NGfc2CompositeCurve3dSweptSolidShape::addReferences(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2CompositeCurve3dSweptSolidShape*)m_pEntity)->addReferences(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2CompositeCurve3dSweptSolidShape::getReferences(int nIndex)
+gfc2::engine::EntityRef NGfc2CompositeCurve3dSweptSolidShape::getReferences(int nIndex)
 {
     return ((Gfc2CompositeCurve3dSweptSolidShape*)m_pEntity)->getReferences(nIndex);
 }

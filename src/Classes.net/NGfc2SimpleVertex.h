@@ -5,15 +5,15 @@
 #include "Gfc2SimpleVertex.h"
 #include "NGfc2Vector2d.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2SimpleVertex: public NGfc2Topology
 {
 public:
     NGfc2SimpleVertex();
     NGfc2SimpleVertex(void* pEntity, bool bOwner);
-    void setPoint(glodon::objectbuf::EntityRef nValue);
-    glodon::objectbuf::EntityRef getPoint();
+    void setPoint(gfc2::engine::EntityRef nValue);
+    gfc2::engine::EntityRef getPoint();
     bool hasPoint();
     NGfc2Vector2d^ getPointPtr();
     void setRadius(NGfc2Double dValue);

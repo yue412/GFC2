@@ -11,12 +11,12 @@ NGfc2RevolvedAreaSolidShape::NGfc2RevolvedAreaSolidShape(void* pEntity, bool bOw
 {
 }
 
-void NGfc2RevolvedAreaSolidShape::setAxis(glodon::objectbuf::EntityRef nValue)
+void NGfc2RevolvedAreaSolidShape::setAxis(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2RevolvedAreaSolidShape*)m_pEntity)->setAxis(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2RevolvedAreaSolidShape::getAxis()
+gfc2::engine::EntityRef NGfc2RevolvedAreaSolidShape::getAxis()
 {
     return ((Gfc2RevolvedAreaSolidShape*)m_pEntity)->getAxis();
 }

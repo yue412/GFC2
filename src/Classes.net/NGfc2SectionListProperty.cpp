@@ -21,12 +21,12 @@ void NGfc2SectionListProperty::clearValue()
     ((Gfc2SectionListProperty*)m_pEntity)->clearValue();
 }
 
-void NGfc2SectionListProperty::addValue(glodon::objectbuf::EntityRef nValue)
+void NGfc2SectionListProperty::addValue(gfc2::engine::EntityRef nValue)
 {
     ((Gfc2SectionListProperty*)m_pEntity)->addValue(nValue);
 }
 
-glodon::objectbuf::EntityRef NGfc2SectionListProperty::getValue(int nIndex)
+gfc2::engine::EntityRef NGfc2SectionListProperty::getValue(int nIndex)
 {
     return ((Gfc2SectionListProperty*)m_pEntity)->getValue(nIndex);
 }

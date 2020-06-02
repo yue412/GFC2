@@ -3,7 +3,7 @@
 
 #include "NGfc2RelationShip.h"
 #include "Gfc2RelDecomposes.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2RelDecomposes: public NGfc2RelationShip
 {

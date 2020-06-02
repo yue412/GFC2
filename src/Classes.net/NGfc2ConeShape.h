@@ -4,7 +4,7 @@
 #include "NGfc2PrimitiveShape.h"
 #include "Gfc2ConeShape.h"
 #include "NTypeDef.h"
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine/Entity.h"
 
 public ref class NGfc2ConeShape: public NGfc2PrimitiveShape
 {
