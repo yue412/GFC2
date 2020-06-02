@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2RelDecomposes.h"
 #include "Gfc2Element.h"
-#include "Gfc2Element.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RelVoidsElement: public Gfc2RelDecomposes

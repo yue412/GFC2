@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2ConnectionGeometry.h"
 #include "Gfc2Body.h"
-#include "Gfc2Body.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2ConnectionVolumeGeometry: public Gfc2ConnectionGeometry

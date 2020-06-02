@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve2d.h"
 #include "Gfc2Vector2d.h"
-#include "Gfc2Vector2d.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Line2d: public Gfc2Curve2d

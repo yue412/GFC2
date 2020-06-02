@@ -7,9 +7,6 @@
 #include "Gfc2Intervald.h"
 #include "Gfc2Curve2d.h"
 #include "Gfc2Vector3d.h"
-#include "Gfc2Vector3d.h"
-#include "Gfc2Vector3d.h"
-#include "Gfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Cylinder: public Gfc2Surface

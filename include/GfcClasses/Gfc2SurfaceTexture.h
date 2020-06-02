@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2String.h"
 #include "Gfc2Matrix.h"
-#include "Gfc2String.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 

@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2Geometry.h"
 #include "Gfc2Vector3d.h"
-#include "Gfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Box3d: public Gfc2Geometry

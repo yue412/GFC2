@@ -5,8 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2Geometry.h"
 #include "Gfc2Vector2d.h"
-#include "Gfc2Vector2d.h"
-#include "Gfc2Vector2d.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Coordinates2d: public Gfc2Geometry

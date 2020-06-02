@@ -223,7 +223,10 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
             if (pAttribute->getType()->getType() == TOE_CLASS )
             {
                 if (oIncludeSet.find(pAttribute->getType()->getName()) == oIncludeSet.end())
+                {
                     oFile.addInclude(pAttribute->getType()->getName() + L".h");
+                    oIncludeSet.insert(pAttribute->getType()->getName());
+                }
             }
             bFlag = true;
         }

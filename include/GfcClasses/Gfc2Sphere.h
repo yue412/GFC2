@@ -6,7 +6,6 @@
 #include "Gfc2Surface.h"
 #include "Gfc2Coordinates3d.h"
 #include "Gfc2Intervald.h"
-#include "Gfc2Intervald.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 

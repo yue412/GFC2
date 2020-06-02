@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2RelConnects.h"
 #include "Gfc2Element.h"
-#include "Gfc2Element.h"
 #include "Gfc2ConnectionGeometry.h"
 #include "GfcEngine/Entity.h"
 

@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2RepresentationItem.h"
 #include "Gfc2Vector3d.h"
-#include "Gfc2Vector3d.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 

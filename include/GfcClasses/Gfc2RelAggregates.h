@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2RelDecomposes.h"
 #include "Gfc2Object.h"
-#include "Gfc2Object.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RelAggregates: public Gfc2RelDecomposes

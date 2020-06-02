@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve2d.h"
 #include "Gfc2Vector2d.h"
-#include "Gfc2Vector2d.h"
 #include "Gfc2Intervald.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"

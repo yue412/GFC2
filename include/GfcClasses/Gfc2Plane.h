@@ -5,9 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2Surface.h"
 #include "Gfc2Vector3d.h"
-#include "Gfc2Vector3d.h"
-#include "Gfc2Vector3d.h"
-#include "Gfc2Intervald.h"
 #include "Gfc2Intervald.h"
 #include "GfcEngine/Entity.h"
 
