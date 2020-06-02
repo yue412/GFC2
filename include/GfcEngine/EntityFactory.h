@@ -17,12 +17,12 @@ class Entity;
 
 class GFCENGINE_API EntityFactory
 {
-    GFCENGINE_DEC_FACTORY(EntityFactory, 0, std::string)
+    GFCENGINE_DEC_FACTORY(EntityFactory, 0, std::wstring)
 public:
     EntityFactory(gfc2::schema::CModel* pModel, bool bOwnerModel = true);
     ~EntityFactory();
 public:
-    Entity* create(const std::string& sName);
+    Entity* create(const std::wstring& sName);
     gfc2::schema::CModel* schema() { return m_pModel; }
 private:
     void clear();

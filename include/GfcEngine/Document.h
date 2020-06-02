@@ -29,10 +29,10 @@ template<class T> class ContainerImp;
 struct GFCENGINE_API std::_Container_base12;
 template class GFCENGINE_API std::function<void(gfc2::engine::Document *)>;
 template class GFCENGINE_API std::function<bool(gfc2::engine::Document *, EntityRef, gfc2::engine::Entity *)>;
-template class GFCENGINE_API std::_Tree_val<std::_Tree_simple_types<std::string>>;
-template class GFCENGINE_API std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::string, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::string>>, true>;
-template class GFCENGINE_API std::_Compressed_pair<std::less<std::string>, std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::string, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::string>>, true>, true>;
-template class GFCENGINE_API std::set<std::string, std::less<std::string>, std::allocator<std::string>>;
+template class GFCENGINE_API std::_Tree_val<std::_Tree_simple_types<std::wstring>>;
+template class GFCENGINE_API std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::wstring, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::wstring>>, true>;
+template class GFCENGINE_API std::_Compressed_pair<std::less<std::wstring>, std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::wstring, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::wstring>>, true>, true>;
+template class GFCENGINE_API std::set<std::wstring, std::less<std::wstring>, std::allocator<std::wstring>>;
 
 
 class GFCENGINE_API Document: public IContainer
@@ -44,7 +44,7 @@ public:
     gfc2::schema::CModel* model() const;
 
     virtual EntityPtr getEntity(EntityRef nId);
-    virtual EntityIteratorPtr getEntities(const std::string& nType, bool bIncludeSubType = false);
+    virtual EntityIteratorPtr getEntities(const std::wstring& nType, bool bIncludeSubType = false);
     virtual EntityIteratorPtr getIterator();
 
     //void linkSchemaByParent();

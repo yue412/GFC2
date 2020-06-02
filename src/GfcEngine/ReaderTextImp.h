@@ -24,15 +24,15 @@ public:
     ReaderTextImp();
     virtual ~ReaderTextImp(void);
 
-    virtual bool preRead(const std::string& sFileName); // 判断是否是可以读的格式
-    virtual void read(Document* pDoc, std::vector<std::string>& errors);
+    virtual bool preRead(const std::wstring& sFileName); // 判断是否是可以读的格式
+    virtual void read(Document* pDoc, std::vector<std::wstring>& errors);
 protected:
     virtual bool getIndex(EntityInfo& oInfo);//顺序读取index
     virtual Entity* createEntity(EntityInfo& oInfo);
 private:
     bool parseLine(const std::string & sLine, EntityRef& nId, std::string& sName, std::string& sContent);
     bool getNextValue(const std::string& input, int nStartPos, std::string& sValue);
-    bool parse(const std::string& input, Entity* pEntity, std::string& error);
+    bool parse(const std::string& input, Entity* pEntity, std::wstring& error);
     bool parseField(const std::string& input, gfc2::schema::CTypeObject* pType, PropValue * pValue);
     bool parseBoolean(const std::string& input, bool& value);
     bool parseInt(const std::string& input, int& value);

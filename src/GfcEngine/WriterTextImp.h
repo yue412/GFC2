@@ -16,11 +16,11 @@ class WriterTextImp: public WriterImp
 public:
     WriterTextImp(void);
     virtual ~WriterTextImp(void);
-    virtual bool open(const string& sFileName, const string& sProductCode, const string& sVersion);
+    virtual bool open(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
     virtual void close();
     virtual EntityRef writeEntity(Entity* pEntity); 
 private:
-    void writeHead(const string& sFileName, const string& sProductCode, const string& sVersion);
+    void writeHead(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
     void writeValue(gfc2::schema::CAttribute* pSchema, PropValue* pValue);
     void writeProperty(Property* pProp);
     std::fstream* m_pTextStream;

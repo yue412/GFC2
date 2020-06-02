@@ -16,9 +16,9 @@ Property::~Property()
     delete m_pValue;
 }
 
-std::string Property::name() const
+std::wstring Property::name() const
 {
-    return toString(m_pAttribute->getName());
+    return m_pAttribute->getName();
 }
 
 PropValue * Property::value() const

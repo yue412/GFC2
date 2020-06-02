@@ -25,19 +25,19 @@ template<class T> class ContainerImp;
 
 class ReaderImp : public Object, public IContainer
 {
-    GFCENGINE_DEC_FACTORY(ReaderImp, 0, std::string)
+    GFCENGINE_DEC_FACTORY(ReaderImp, 0, std::wstring)
 public:
     ReaderImp();
     virtual ~ReaderImp(void);
-    bool open(const std::string& sFileName);
+    bool open(const std::wstring& sFileName);
     void close();
     void setFactory(EntityFactory* pFactory) { m_pFactory = pFactory; }
 
-    virtual bool preRead(const std::string& sFileName) = 0; // 判断是否是可以读的格式
-    virtual void read(Document* pDoc,std::vector<std::string>& errors) = 0;
+    virtual bool preRead(const std::wstring& sFileName) = 0; // 判断是否是可以读的格式
+    virtual void read(Document* pDoc,std::vector<std::wstring>& errors) = 0;
     // 继承 IContainer接口
     virtual EntityPtr getEntity(EntityRef nId);
-    virtual EntityIteratorPtr getEntities(const std::string& sType, bool bIncludeSubType = false);
+    virtual EntityIteratorPtr getEntities(const std::wstring& sType, bool bIncludeSubType = false);
     virtual EntityIteratorPtr getIterator();
 protected:
     virtual bool getIndex(EntityInfo& oInfo) = 0;//顺序读取index

@@ -17,30 +17,30 @@ class ReaderImp;
 
 //typedef void (*RegSchemaInfoProc) (Reader* reader);
 //typedef void (*FieldCacheProc) ();
-//typedef std::map<string, std::pair<EntityFactory*, FieldCacheInitializer*>> SchemaInfoMap;
+//typedef std::map<wstring, std::pair<EntityFactory*, FieldCacheInitializer*>> SchemaInfoMap;
 
 struct GFCENGINE_API std::_Container_base12;
-template class GFCENGINE_API std::_Vector_val<std::_Simple_types<std::string>>;
-template class GFCENGINE_API std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::string>>, std::_Vector_val<std::_Simple_types<std::string>>, true>;
-template class GFCENGINE_API std::vector<std::string, std::allocator<std::string>>;
+template class GFCENGINE_API std::_Vector_val<std::_Simple_types<std::wstring>>;
+template class GFCENGINE_API std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::wstring>>, std::_Vector_val<std::_Simple_types<std::wstring>>, true>;
+template class GFCENGINE_API std::vector<std::wstring, std::allocator<std::wstring>>;
 
 class GFCENGINE_API Reader
 {
 public:
     Reader(EntityFactory* pFactory);
     virtual ~Reader(void);
-    bool open(const std::string& sFileName);
+    bool open(const std::wstring& sFileName);
     void close();
 
     void read(Document* pDoc);
 
     EntityPtr getEntity(EntityRef nId);
-    EntityIteratorPtr getEntities(const std::string& sType, bool bIncludeSubType = false);
+    EntityIteratorPtr getEntities(const std::wstring& sType, bool bIncludeSubType = false);
 
-    std::vector<std::string>& log() { return m_oErrors; }
+    std::vector<std::wstring>& log() { return m_oErrors; }
 private:
     //Entity* read();
-    std::vector<std::string> m_oErrors;
+    std::vector<std::wstring> m_oErrors;
     ReaderImp* m_pImp;
     EntityFactory* m_pFactory;
 };

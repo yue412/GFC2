@@ -36,9 +36,9 @@ ReaderImp::~ReaderImp(void)
 {
 }
 
-bool ReaderImp::open(const std::string & sFileName)
+bool ReaderImp::open(const std::wstring & sFileName)
 {
-    m_pFileMap = new FileMap(toWstring(sFileName));
+    m_pFileMap = new FileMap(sFileName);
     if (m_pFileMap->init())
     {
         buildIndex();
@@ -71,7 +71,7 @@ EntityPtr ReaderImp::getEntity(EntityRef nId)
     }
 }
 
-EntityIteratorPtr ReaderImp::getEntities(const std::string & sType, bool bIncludeSubType)
+EntityIteratorPtr ReaderImp::getEntities(const std::wstring & sType, bool bIncludeSubType)
 {
     if (m_pContainer)
         return EntityIteratorPtr(new ReaderIterator(this, m_pContainer->getItems(sType, bIncludeSubType)));

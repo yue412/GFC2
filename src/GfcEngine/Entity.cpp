@@ -76,7 +76,7 @@ Property* Entity::getProps(int nIndex) const
         return nullptr;
 }
 
-Property * Entity::propByName(const std::string sPropName) const
+Property * Entity::propByName(const std::wstring sPropName) const
 {
     if (m_pSchema)
     {
@@ -85,7 +85,7 @@ Property * Entity::propByName(const std::string sPropName) const
         while (pClass)
         {
             auto pParent = pClass->getParent();
-            nIndex = pClass->attributeIndexByName(toWstring(sPropName));
+            nIndex = pClass->attributeIndexByName(sPropName);
             if (nIndex >= 0)
             {
                 nIndex += pParent ? pParent->getTotalAttributeCount() : 0;
@@ -98,7 +98,7 @@ Property * Entity::propByName(const std::string sPropName) const
     return nullptr;
 }
 
-bool Entity::isNull(const std::string& sPropName) const
+bool Entity::isNull(const std::wstring& sPropName) const
 {
     if (m_pSchema)
     {
@@ -115,7 +115,7 @@ bool Entity::isNull(const std::string& sPropName) const
     return true;
 }
 
-PropValue * Entity::valueByName(const std::string sPropName) const
+PropValue * Entity::valueByName(const std::wstring sPropName) const
 {
     auto pProperty = propByName(sPropName);
     if (pProperty)
@@ -124,10 +124,10 @@ PropValue * Entity::valueByName(const std::string sPropName) const
         return nullptr;
 }
 
-std::string Entity::entityName() const
+std::wstring Entity::entityName() const
 {
     assert(m_pSchema);
-    return toString(m_pSchema->getName());
+    return m_pSchema->getName();
 }
 
 void Entity::init()
@@ -164,7 +164,7 @@ void Entity::free()
     m_pProps->clear();
 }
 
-std::string Entity::asString(const std::string& sPropName) const
+std::string Entity::asString(const std::wstring& sPropName) const
 {
     if (m_pSchema)
     {
@@ -181,7 +181,7 @@ std::string Entity::asString(const std::string& sPropName) const
     return "";
 }
 
-int Entity::asInteger(const std::string& sPropName) const
+int Entity::asInteger(const std::wstring& sPropName) const
 {
     if (m_pSchema)
     {
@@ -198,7 +198,7 @@ int Entity::asInteger(const std::string& sPropName) const
     return 0;
 }
 
-double Entity::asDouble(const std::string& sPropName) const
+double Entity::asDouble(const std::wstring& sPropName) const
 {
     if (m_pSchema)
     {
@@ -215,7 +215,7 @@ double Entity::asDouble(const std::string& sPropName) const
     return 0.0;
 }
 
-bool Entity::asBoolean(const std::string& sPropName) const
+bool Entity::asBoolean(const std::wstring& sPropName) const
 {
     if (m_pSchema)
     {
@@ -232,7 +232,7 @@ bool Entity::asBoolean(const std::string& sPropName) const
     return false;
 }
 
-EntityRef Entity::asEntityRef(const std::string& sPropName) const
+EntityRef Entity::asEntityRef(const std::wstring& sPropName) const
 {
     if (m_pSchema)
     {
@@ -249,7 +249,7 @@ EntityRef Entity::asEntityRef(const std::string& sPropName) const
     return -1;
 }
 
-EntityPtr Entity::asEntity(const std::string& sPropName) const
+EntityPtr Entity::asEntity(const std::wstring& sPropName) const
 {
     if (m_pSchema && m_pContainer)
     {
@@ -266,7 +266,7 @@ EntityPtr Entity::asEntity(const std::string& sPropName) const
     return nullptr;
 }
 
-void Entity::setAsString(const std::string& sPropName, const std::string& sValue)
+void Entity::setAsString(const std::wstring& sPropName, const std::string& sValue)
 {
     if (m_pSchema)
     {
@@ -282,7 +282,7 @@ void Entity::setAsString(const std::string& sPropName, const std::string& sValue
     }
 }
 
-void Entity::setAsInteger(const std::string& sPropName, const int& nValue)
+void Entity::setAsInteger(const std::wstring& sPropName, const int& nValue)
 {
     if (m_pSchema)
     {
@@ -298,7 +298,7 @@ void Entity::setAsInteger(const std::string& sPropName, const int& nValue)
     }
 }
 
-void Entity::setAsDouble(const std::string& sPropName, const double& dValue)
+void Entity::setAsDouble(const std::wstring& sPropName, const double& dValue)
 {
     if (m_pSchema)
     {
@@ -314,7 +314,7 @@ void Entity::setAsDouble(const std::string& sPropName, const double& dValue)
     }
 }
 
-void Entity::setAsBoolean(const std::string& sPropName, const bool& bValue)
+void Entity::setAsBoolean(const std::wstring& sPropName, const bool& bValue)
 {
     if (m_pSchema)
     {
@@ -330,7 +330,7 @@ void Entity::setAsBoolean(const std::string& sPropName, const bool& bValue)
     }
 }
 
-void Entity::setAsEntityRef(const std::string& sPropName, const EntityRef& nValue)
+void Entity::setAsEntityRef(const std::wstring& sPropName, const EntityRef& nValue)
 {
     if (m_pSchema)
     {
@@ -346,7 +346,7 @@ void Entity::setAsEntityRef(const std::string& sPropName, const EntityRef& nValu
     }
 }
 
-int Entity::getArrayCount(const std::string& sPropName) const
+int Entity::getArrayCount(const std::wstring& sPropName) const
 {
     if (m_pSchema)
     {
@@ -363,7 +363,7 @@ int Entity::getArrayCount(const std::string& sPropName) const
     return 0;
 }
 
-void Entity::addEntityRef(const std::string& sPropName, const EntityRef& nValue)
+void Entity::addEntityRef(const std::wstring& sPropName, const EntityRef& nValue)
 {
     if (m_pSchema)
     {
@@ -379,7 +379,7 @@ void Entity::addEntityRef(const std::string& sPropName, const EntityRef& nValue)
     }
 }
 
-void Entity::addString(const std::string& sPropName, const std::string& sValue)
+void Entity::addString(const std::wstring& sPropName, const std::string& sValue)
 {
     if (m_pSchema)
     {
@@ -395,7 +395,7 @@ void Entity::addString(const std::string& sPropName, const std::string& sValue)
     }
 }
 
-void Entity::addInteger(const std::string& sPropName, const int& nValue)
+void Entity::addInteger(const std::wstring& sPropName, const int& nValue)
 {
     if (m_pSchema)
     {
@@ -411,7 +411,7 @@ void Entity::addInteger(const std::string& sPropName, const int& nValue)
     }
 }
 
-void Entity::addDouble(const std::string& sPropName, const double& dValue)
+void Entity::addDouble(const std::wstring& sPropName, const double& dValue)
 {
     if (m_pSchema)
     {
@@ -427,7 +427,7 @@ void Entity::addDouble(const std::string& sPropName, const double& dValue)
     }
 }
 
-void Entity::addBoolean(const std::string& sPropName, const bool& bValue)
+void Entity::addBoolean(const std::wstring& sPropName, const bool& bValue)
 {
     if (m_pSchema)
     {
@@ -443,7 +443,7 @@ void Entity::addBoolean(const std::string& sPropName, const bool& bValue)
     }
 }
 
-std::string Entity::getString(const std::string& sPropName, int nIndex) const
+std::string Entity::getString(const std::wstring& sPropName, int nIndex) const
 {
     if (m_pSchema)
     {
@@ -461,7 +461,7 @@ std::string Entity::getString(const std::string& sPropName, int nIndex) const
     return "";
 }
 
-int Entity::getInteger(const std::string& sPropName, int nIndex) const
+int Entity::getInteger(const std::wstring& sPropName, int nIndex) const
 {
     if (m_pSchema)
     {
@@ -479,7 +479,7 @@ int Entity::getInteger(const std::string& sPropName, int nIndex) const
     return 0;
 }
 
-double Entity::getDouble(const std::string& sPropName, int nIndex) const
+double Entity::getDouble(const std::wstring& sPropName, int nIndex) const
 {
     if (m_pSchema)
     {
@@ -497,7 +497,7 @@ double Entity::getDouble(const std::string& sPropName, int nIndex) const
     return 0.0;
 }
 
-bool Entity::getBoolean(const std::string& sPropName, int nIndex) const
+bool Entity::getBoolean(const std::wstring& sPropName, int nIndex) const
 {
     if (m_pSchema)
     {
@@ -515,7 +515,7 @@ bool Entity::getBoolean(const std::string& sPropName, int nIndex) const
     return false;
 }
 
-EntityRef Entity::getEntityRef(const std::string& sPropName, int nIndex) const
+EntityRef Entity::getEntityRef(const std::wstring& sPropName, int nIndex) const
 {
     if (m_pSchema)
     {
@@ -533,7 +533,7 @@ EntityRef Entity::getEntityRef(const std::string& sPropName, int nIndex) const
     return -1;
 }
 
-EntityPtr Entity::getEntity(const std::string& sPropName, int nIndex) const
+EntityPtr Entity::getEntity(const std::wstring& sPropName, int nIndex) const
 {
     if (m_pSchema && m_pContainer)
     {

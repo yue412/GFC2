@@ -14,7 +14,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-GFCENGINE_IMP_OBJECT(ReaderTextImp, "express", 0)
+GFCENGINE_IMP_OBJECT(ReaderTextImp, L"express", 0)
 
 ReaderTextImp::ReaderTextImp(/*SchemaInfoMap* pSchemaInfoMap*/)
 {
@@ -25,7 +25,7 @@ ReaderTextImp::~ReaderTextImp(void)
 {
 }
 
-bool ReaderTextImp::preRead(const std::string& sFileName)
+bool ReaderTextImp::preRead(const std::wstring& sFileName)
 {
     char sHead[8];
     std::fstream in(sFileName, std::ios::in | std::ios::binary);
@@ -35,7 +35,7 @@ bool ReaderTextImp::preRead(const std::string& sFileName)
     return strcmp(sHead, "HEADER;") == 0;
 }
 
-void ReaderTextImp::read( Document* pDoc,std::vector<std::string>& errors )
+void ReaderTextImp::read( Document* pDoc,std::vector<std::wstring>& errors )
 {
     //m_oSerMap.clear();
 
@@ -69,16 +69,17 @@ void ReaderTextImp::read( Document* pDoc,std::vector<std::string>& errors )
         std::string sLine = m_pFileMap->getLine();
 //        m_oUpdater.update(sLine);
         EntityRef nId;
-        std::string sName, sContent, sError;
+        std::string sName, sContent;
+        std::wstring sError;
         if (parseLine(sLine, nId, sName, sContent))
         {
-            if (Entity* pEntity = factory()->create(sName))
+            if (Entity* pEntity = factory()->create(toWstring(sName)))
             {
                 if (!parse(sContent, pEntity, sError))
                 {
                     delete pEntity;
                     // 添加log日志
-                    errors.push_back(sLine + " {" + sError + "}");
+                    errors.push_back(toWstring(sLine) + L" {" + sError + L"}");
                     continue;
                 }
 
@@ -193,10 +194,11 @@ Entity * ReaderTextImp::createEntity(EntityInfo & oInfo)
     {
         std::string sLine = m_pFileMap->getLine(oInfo.pos, nullptr);
         EntityRef nId;
-        std::string sName, sContext, sError;
+        std::string sName, sContext;
+        std::wstring sError;
         parseLine(sLine, nId, sName, sContext);
 
-        pEntity = factory()->create(sName);
+        pEntity = factory()->create(toWstring(sName));
         if (pEntity)
         {
             //pEntity->setID(oInfo.id);
@@ -211,7 +213,7 @@ Entity * ReaderTextImp::createEntity(EntityInfo & oInfo)
 
 }
 
-bool ReaderTextImp::parse(const std::string& input, Entity* pEntity, std::string& error)
+bool ReaderTextImp::parse(const std::string& input, Entity* pEntity, std::wstring& error)
 {
     bool bResult = true;
     int nStartPos = 0;
@@ -262,7 +264,7 @@ bool ReaderTextImp::parse(const std::string& input, Entity* pEntity, std::string
     if (!bResult)
     {
         const std::string descript = "字段解析失败!";
-        error = "\"" + sValue + "\"" + descript;
+        error = toWstring("\"" + sValue + "\"" + descript);
     }
     return bResult;
 }

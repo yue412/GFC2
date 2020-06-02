@@ -17,9 +17,9 @@ class EntityFactory;
 class GFCENGINE_API GfcEngineUtils
 {
 public:
-    static EntityFactory* createFactory(const std::string& sFileName);
+    static EntityFactory* createFactory(const std::wstring& sFileName);
     static EntityFactory* createFactory(const char* buf, int len);
-    static bool loadSchema(const std::string& sFileName, gfc2::schema::CModel* pModel);
+    static bool loadSchema(const std::wstring& sFileName, gfc2::schema::CModel* pModel);
     static bool loadSchema(const char* buf, int len, gfc2::schema::CModel* pModel);
 };
 

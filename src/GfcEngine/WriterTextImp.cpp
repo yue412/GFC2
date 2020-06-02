@@ -9,10 +9,10 @@
 #include "GfcEngine\PropValue.h"
 #include "Common.h"
 
-string getUserName()
+std::string getUserName()
 {
      DWORD size=0;
-     string sName;
+     std::string sName;
      GetUserName(NULL,&size);
     wchar_t *name=new wchar_t[size];
     if(GetUserName(name,&size))
@@ -30,7 +30,7 @@ string getUserName()
 
 GFCENGINE_NAMESPACE_BEGIN
 
-GFCENGINE_IMP_OBJECT(WriterTextImp, "express", 0)
+GFCENGINE_IMP_OBJECT(WriterTextImp, L"express", 0)
 
 WriterTextImp::WriterTextImp(void):m_pTextStream(0)
 {
@@ -43,17 +43,18 @@ WriterTextImp::~WriterTextImp(void)
     close();
 }
 
-bool WriterTextImp::open( const string& sFileName, const string& sProductCode, const string& sVersion)
+bool WriterTextImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion)
 {
-	if (-1 != _access(sFileName.c_str(), 0))
+    std::string sFile = toString(sFileName);
+	if (-1 != _access(sFile.c_str(), 0))
 	{
 		//É¾³ýÎÄ¼þ
-		remove(sFileName.c_str());
+		remove(sFile.c_str());
 	}
 
-    m_pTextStream = new fstream(sFileName,std::ios::out | std::ios::app);
+    m_pTextStream = new std::fstream(sFileName,std::ios::out | std::ios::app);
     writeHead(sFileName, sProductCode, sVersion);
-    *m_pTextStream << "DATA;" << endl;
+    *m_pTextStream << "DATA;" << std::endl;
     return true;
 }
 
@@ -61,7 +62,7 @@ void WriterTextImp::close()
 {
     if (m_pTextStream)
     {
-        *m_pTextStream << "ENDSEC;" << endl;
+        *m_pTextStream << "ENDSEC;" << std::endl;
 		m_pTextStream->close();
         delete m_pTextStream;
         m_pTextStream = NULL;
@@ -73,7 +74,7 @@ EntityRef WriterTextImp::writeEntity( Entity* pEntity )
 {
     if (m_pTextStream)
     {
-        string sName = pEntity->entityName();
+        std::string sName = toString(pEntity->entityName());
         *m_pTextStream << "#" << m_nCount << "=" << sName << "(";
         for (int i = 0; i < pEntity->getPropCount()-1; i++)
         {
@@ -82,26 +83,26 @@ EntityRef WriterTextImp::writeEntity( Entity* pEntity )
             *m_pTextStream << ",";
         }
         writeProperty(pEntity->getProps(pEntity->getPropCount() - 1));
-        *m_pTextStream << ");" << endl;
+        *m_pTextStream << ");" << std::endl;
         return m_nCount++;
     }
     return -1;
 }
 
-void WriterTextImp::writeHead( const string& sFileName,const string& sProductCode, const string& sVersion)
+void WriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion)
 {
 	time_t current;
 	time(&current);
 	char charTime[64];
 	strftime(charTime, sizeof(charTime), "%Y-%m-%d %H:%M:%S",localtime(&current) );
 
-	stringstream stream;
-	stream<< "HEADER;" << endl;
-	stream<<"FILE_DESCRIPTION(('"<< sVersion <<"'),'');"<<endl;
-	stream<<"FILE_NAME('"<<sFileName<<"','"<<charTime<<"',('"<<getUserName()<<"'),('Glodon'),'objectbuf','"<<sProductCode<<"','');"<<endl;
-	stream<<"FILE_SCHEMA(('"<< sVersion <<"'));"<<endl;
+    std::stringstream stream;
+	stream<< "HEADER;" << std::endl;
+	stream<<"FILE_DESCRIPTION(('"<< toString(sVersion) <<"'),'');"<< std::endl;
+	stream<<"FILE_NAME('"<< toString(sFileName)<<"','"<<charTime<<"',('"<<getUserName()<<"'),('Glodon'),'objectbuf','"<< toString(sProductCode)<<"','');"<< std::endl;
+	stream<<"FILE_SCHEMA(('"<< toString(sVersion) <<"'));"<< std::endl;
 	*m_pTextStream<<stream.str();
-    *m_pTextStream << "ENDSEC;" << endl;
+    *m_pTextStream << "ENDSEC;" << std::endl;
 }
 
 void WriterTextImp::writeValue(gfc2::schema::CAttribute* pSchema, PropValue* pValue)

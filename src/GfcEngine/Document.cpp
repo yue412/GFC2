@@ -41,7 +41,7 @@ EntityIteratorPtr Document::getIterator()
     return m_pContainer->iterator();
 }
 
-EntityIteratorPtr Document::getEntities(const std::string& sType, bool bIncludeSubType /*= false*/ )
+EntityIteratorPtr Document::getEntities(const std::wstring& sType, bool bIncludeSubType /*= false*/ )
 {
     return m_pContainer->getItems(sType, bIncludeSubType);
 }

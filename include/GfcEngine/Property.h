@@ -25,7 +25,7 @@ public:
     ~Property();
 
     gfc2::schema::CAttribute* schema() const { return m_pAttribute; }
-    std::string name() const;
+    std::wstring name() const;
     PropValue* value() const;
     static PropValue* createValue(gfc2::schema::CTypeObject* pType);
 private:

@@ -15,7 +15,7 @@ Writer::~Writer(void)
     close();
 }
 
-bool Writer::open( const string& sFileName, const std::string& sFormatType, const string& sVersion, const string& sProductCode )
+bool Writer::open( const std::wstring& sFileName, const std::wstring& sFormatType, const std::wstring& sVersion, const std::wstring& sProductCode )
 {
     close();
     m_pImp = (WriterImp*)WriterImp::GetFactory()->Create(sFormatType);

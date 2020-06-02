@@ -8,7 +8,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-EntityFactory * GfcEngineUtils::createFactory(const std::string & sFileName)
+EntityFactory * GfcEngineUtils::createFactory(const std::wstring & sFileName)
 {
     auto pModel = new gfc2::schema::CModel();
     if (loadSchema(sFileName, pModel))
@@ -30,10 +30,9 @@ EntityFactory * GfcEngineUtils::createFactory(const char * buf, int len)
     }
 }
 
-bool GfcEngineUtils::loadSchema(const std::string & sFileName, gfc2::schema::CModel * pModel)
+bool GfcEngineUtils::loadSchema(const std::wstring & sFileName, gfc2::schema::CModel * pModel)
 {
-    auto sFile = toWstring(sFileName);
-    if (!fileExists(sFile))
+    if (!fileExists(sFileName))
         return false;
     std::ifstream in(sFileName, std::ios::in);
     if (in)

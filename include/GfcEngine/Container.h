@@ -15,7 +15,7 @@ class GFCENGINE_API IContainer
 public:
     virtual ~IContainer() {}
     virtual EntityPtr getEntity(EntityRef nId) = 0;
-    virtual EntityIteratorPtr getEntities(const std::string& nType, bool bIncludeSubType = false) = 0;
+    virtual EntityIteratorPtr getEntities(const std::wstring& nType, bool bIncludeSubType = false) = 0;
     virtual EntityIteratorPtr getIterator() = 0;
 };
 

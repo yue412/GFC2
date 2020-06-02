@@ -45,7 +45,7 @@ public:
         }
         m_oEntities[nId] = pEntity;
         gfc2::schema::CClass* pSchema = pEntity.get()->getClass();
-        auto sType = toString(pSchema->getName());
+        auto sType = pSchema->getName();
         auto itr = m_oEntityTypeMap.find(sType);
         if (itr == m_oEntityTypeMap.end())
         {
@@ -63,12 +63,12 @@ public:
         return T();
     }
 
-    std::shared_ptr<Iterator<T>> getItems(const std::string& sType, bool bIncludeSubType = false)
+    std::shared_ptr<Iterator<T>> getItems(const std::wstring& sType, bool bIncludeSubType = false)
     {
         EntityRefListlist oList;
         if (!bIncludeSubType)
         {
-            std::map<std::string, std::vector<EntityRef>*>::iterator itr = m_oEntityTypeMap.find(sType);
+            std::map<std::wstring, std::vector<EntityRef>*>::iterator itr = m_oEntityTypeMap.find(sType);
             if (itr != m_oEntityTypeMap.end())
             {
                 if (!itr->second->empty())
@@ -80,8 +80,8 @@ public:
             std::function<void(gfc2::schema::CClass*, EntityRefListlist&)> pCollectEntitiesFunc;
             pCollectEntitiesFunc = [&](gfc2::schema::CClass* pSchema, EntityRefListlist& oCollector)
             {
-                std::string nID = toString(pSchema->getName());
-                std::map<std::string, std::vector<EntityRef>*>::iterator itr = m_oEntityTypeMap.find(nID);
+                std::wstring nID = pSchema->getName();
+                std::map<std::wstring, std::vector<EntityRef>*>::iterator itr = m_oEntityTypeMap.find(nID);
                 if (itr != m_oEntityTypeMap.end())
                 {
                     if (!itr->second->empty())
@@ -93,7 +93,7 @@ public:
                 }
             };
 
-            if (gfc2::schema::CClass* pSchema = dynamic_cast<gfc2::schema::CClass*>(model()->findTypeObject(toWstring(sType))))
+            if (gfc2::schema::CClass* pSchema = dynamic_cast<gfc2::schema::CClass*>(model()->findTypeObject(sType)))
             {
                 pCollectEntitiesFunc(pSchema, oList);
             }
@@ -112,7 +112,7 @@ public:
     gfc2::schema::CModel* model() const { return m_pModel; }
 private:
     std::vector<T> m_oEntities;
-    std::map<std::string, std::vector<EntityRef>*> m_oEntityTypeMap;
+    std::map<std::wstring, std::vector<EntityRef>*> m_oEntityTypeMap;
     gfc2::schema::CModel* m_pModel;
 };
 

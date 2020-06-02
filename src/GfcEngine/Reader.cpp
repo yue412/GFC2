@@ -14,7 +14,7 @@ Reader::~Reader(void)
 {
 }
 
-bool Reader::open(const std::string & sFileName)
+bool Reader::open(const std::wstring & sFileName)
 {
     close();
     for (auto itr = ReaderImp::GetFactory()->begin(); itr != ReaderImp::GetFactory()->end(); ++itr)
@@ -77,7 +77,7 @@ EntityPtr Reader::getEntity(EntityRef nId)
     return nullptr;
 }
 
-EntityIteratorPtr Reader::getEntities(const std::string & sType, bool bIncludeSubType)
+EntityIteratorPtr Reader::getEntities(const std::wstring & sType, bool bIncludeSubType)
 {
     if (m_pImp)
     {

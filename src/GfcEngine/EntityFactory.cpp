@@ -22,10 +22,10 @@ EntityFactory::~EntityFactory()
     clear();
 }
 
-Entity * EntityFactory::create(const std::string & sName)
+Entity * EntityFactory::create(const std::wstring & sName)
 {
     assert(m_pModel);
-    auto pType = m_pModel->findTypeObject(toWstring(sName));
+    auto pType = m_pModel->findTypeObject(sName);
     if (pType && pType->getDataType() == gfc2::schema::EDT_ENTITY)
     {
         Entity* pEntity = new Entity;
