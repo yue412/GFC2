@@ -7,7 +7,6 @@
 #include "Gfc2Representation.h"
 #include "Gfc2ElementShape.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Element: public Gfc2Object

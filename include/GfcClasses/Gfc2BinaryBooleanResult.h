@@ -6,7 +6,6 @@
 #include "Gfc2BooleanResult.h"
 #include "Gfc2SolidShape.h"
 #include "Gfc2SolidShape.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2BinaryBooleanResult: public Gfc2BooleanResult

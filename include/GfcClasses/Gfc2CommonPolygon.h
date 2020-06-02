@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2Polygon.h"
 #include "Gfc2CoedgeList.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2CommonPolygon: public Gfc2Polygon

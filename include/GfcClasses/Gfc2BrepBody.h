@@ -6,7 +6,6 @@
 #include "Gfc2Body.h"
 #include "Gfc2Face.h"
 #include "Gfc2Edge.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2BrepBody: public Gfc2Body

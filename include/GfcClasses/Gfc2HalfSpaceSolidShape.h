@@ -6,7 +6,6 @@
 #include "Gfc2SolidShape.h"
 #include "Gfc2Surface.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2HalfSpaceSolidShape: public Gfc2SolidShape

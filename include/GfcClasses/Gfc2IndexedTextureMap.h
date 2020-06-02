@@ -7,7 +7,6 @@
 #include "Gfc2Vector2d.h"
 #include "Gfc2SurfaceTexture.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2IndexedTextureMap: public gfc2::engine::Entity

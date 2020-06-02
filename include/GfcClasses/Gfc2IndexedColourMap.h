@@ -6,7 +6,6 @@
 #include "Gfc2Color.h"
 #include "Gfc2PrimitiveRenderable.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2IndexedColourMap: public gfc2::engine::Entity

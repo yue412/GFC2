@@ -6,7 +6,6 @@
 #include "Gfc2RelDefines.h"
 #include "Gfc2ElementType.h"
 #include "Gfc2Element.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RelDefinesByType: public Gfc2RelDefines

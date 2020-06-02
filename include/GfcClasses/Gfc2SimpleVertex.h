@@ -6,7 +6,6 @@
 #include "Gfc2Topology.h"
 #include "Gfc2Vector2d.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2SimpleVertex: public Gfc2Topology

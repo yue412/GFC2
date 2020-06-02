@@ -7,7 +7,6 @@
 #include "Gfc2Matrix.h"
 #include "Gfc2String.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2SurfaceTexture: public gfc2::engine::Entity

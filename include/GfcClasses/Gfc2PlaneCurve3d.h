@@ -6,7 +6,6 @@
 #include "Gfc2Curve3d.h"
 #include "Gfc2Curve2d.h"
 #include "Gfc2PlaneInfo.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2PlaneCurve3d: public Gfc2Curve3d

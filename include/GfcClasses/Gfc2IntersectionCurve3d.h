@@ -8,7 +8,6 @@
 #include "Gfc2Surface.h"
 #include "Gfc2Intervald.h"
 #include "Gfc2InternalChart.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2IntersectionCurve3d: public Gfc2Curve3d

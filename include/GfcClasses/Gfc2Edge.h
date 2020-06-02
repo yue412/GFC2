@@ -6,7 +6,6 @@
 #include "Gfc2Topology.h"
 #include "Gfc2Curve3d.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Edge: public Gfc2Topology

@@ -8,7 +8,6 @@
 #include "Gfc2Intervald.h"
 #include "Gfc2Curve2d.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Bevel: public Gfc2Surface

@@ -6,7 +6,6 @@
 #include "Gfc2Surface.h"
 #include "Gfc2NurbsCtrlPt3d.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2NurbsSurface: public Gfc2Surface

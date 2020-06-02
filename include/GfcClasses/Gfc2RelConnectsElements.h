@@ -7,7 +7,6 @@
 #include "Gfc2Element.h"
 #include "Gfc2Element.h"
 #include "Gfc2ConnectionGeometry.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RelConnectsElements: public Gfc2RelConnects

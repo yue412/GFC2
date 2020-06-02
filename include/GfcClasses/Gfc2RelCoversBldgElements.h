@@ -6,7 +6,6 @@
 #include "Gfc2RelConnects.h"
 #include "Gfc2Element.h"
 #include "Gfc2Element.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RelCoversBldgElements: public Gfc2RelConnects

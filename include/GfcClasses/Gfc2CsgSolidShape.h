@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2SolidShape.h"
 #include "Gfc2BooleanResult.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2CsgSolidShape: public Gfc2SolidShape

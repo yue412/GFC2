@@ -4,7 +4,6 @@
 #include "GfcClasses.h"
 #include "GfcEngine/EntityFactory.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RelationShip: public gfc2::engine::Entity

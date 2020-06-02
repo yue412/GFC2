@@ -9,7 +9,6 @@
 #include "Gfc2Vector3d.h"
 #include "Gfc2Intervald.h"
 #include "Gfc2Intervald.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Plane: public Gfc2Surface

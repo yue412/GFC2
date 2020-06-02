@@ -54,7 +54,7 @@ private:
     void writeCliTypedefFile(std::vector<CTypeObject*>& oObjectList);
     void writeClassFile(std::vector<CTypeObject*>& oObjectList);
     void writeClassHeadFile(CClass* pTypeObject, CppClass* pClass, CppClass* pFactoryClass, CppClass* pFieldCacheClass);
-    void writeClassImpFile(CppClass* pClass, CppClass* pFactoryClass, CppClass* pFieldCacheClass);
+    void writeClassImpFile(CClass* pTypeObject, CppClass* pClass, CppClass* pFactoryClass, CppClass* pFieldCacheClass);
     void writeCliClassHeadFile(CClass* pTypeObject, CppClass* pClass);
     void writeCliClassImpFile(CppClass* pClass);
     void writeBinarySerializerClassFile(CClass* pTypeObject, CppClass* pClass, CppClass* pFieldCacheClass);

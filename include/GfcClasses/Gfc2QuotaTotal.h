@@ -10,7 +10,6 @@
 #include "Gfc2String.h"
 #include "Gfc2String.h"
 #include "Gfc2String.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2QuotaTotal: public gfc2::engine::Entity

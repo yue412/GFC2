@@ -8,7 +8,6 @@
 #include "Gfc2Vector3d.h"
 #include "Gfc2Vector3d.h"
 #include "Gfc2Vector3d.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Coordinates3d: public Gfc2Geometry

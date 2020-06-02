@@ -5,7 +5,6 @@
 #include "GfcEngine/EntityFactory.h"
 #include "Gfc2SweptAreaSolidShape.h"
 #include "Gfc2Curve2d.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2CompositeCurve2dSweptSolidShape: public Gfc2SweptAreaSolidShape

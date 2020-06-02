@@ -123,7 +123,7 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
                 writeClassHeadFile(pTypeObj, pClass, pFactoryClass, nullptr);
 
             if(m_bOutputCpp)
-                writeClassImpFile(pClass, pFactoryClass, nullptr);
+                writeClassImpFile(pTypeObj, pClass, pFactoryClass, nullptr);
             delete pClass;
 
             //if (bOutputBin)
@@ -153,16 +153,16 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
     }
 
 	// 统一写出,xuxp,2017-7-05
-	CppHeadFile oTypeConstsFile(L"TypeConsts");
-	for ( int m = 0;m < (int)strList.size();m++)
-	{
-		std::wstring sName = strList.at(m).first;
-		int curId = strList.at(m).second;
-		oTypeConstsFile.body()->addLine(FormatWstring(L"#define %s_ID %d", 
-            UpperString(sName).c_str(),
-            curId
-        ));
-	}
+	//CppHeadFile oTypeConstsFile(L"TypeConsts");
+	//for ( int m = 0;m < (int)strList.size();m++)
+	//{
+	//	std::wstring sName = strList.at(m).first;
+	//	int curId = strList.at(m).second;
+	//	oTypeConstsFile.body()->addLine(FormatWstring(L"#define %s_ID %d", 
+ //           UpperString(sName).c_str(),
+ //           curId
+ //       ));
+	//}
 	//for (auto oIter = oClassIdMap.begin();oIter != oClassIdMap.end();oIter++)
 	//{
 	//	oTypeConstsFile.body()->addLine(FormatWstring(L"#define %s_ID %d", 
@@ -171,25 +171,25 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
  //       ));
 	//}
 
-    if(m_bOutputHead)
-    {
-        oTypeConstsFile.body()->addLine(L"");
-        oTypeConstsFile.saveTo(m_sPath);
-        updateProgressBar();
-    }
+    //if(m_bOutputHead)
+    //{
+    //    oTypeConstsFile.body()->addLine(L"");
+    //    oTypeConstsFile.saveTo(m_sPath);
+    //    updateProgressBar();
+    //}
     updateProgressBar();
 
 	
 	// 保存ID为配置文件，xuxp,2017-6-28
-    oFile.open("classID.ini", std::ios::out);
-    if (oFile.good())
-    {
-        for each (auto oPair in strList)
-        {
-            oFile << oPair.first << L"=" << oPair.second << std::endl;
-        }
-        oFile.close();
-    }
+    //oFile.open("classID.ini", std::ios::out);
+    //if (oFile.good())
+    //{
+    //    for each (auto oPair in strList)
+    //    {
+    //        oFile << oPair.first << L"=" << oPair.second << std::endl;
+    //    }
+    //    oFile.close();
+    //}
 }
 
 void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppClass *pFactoryClass, CppClass *pFieldCacheClass)
@@ -230,8 +230,8 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
     }
     if (bTypeDef)
         oFile.addInclude(L"TypeDef.h");
-    if (bFlag)
-        oFile.addInclude(L"GfcEngine/Document.h");
+//    if (bFlag)
+//        oFile.addInclude(L"GfcEngine/Document.h");
     oFile.addInclude(L"GfcEngine/Entity.h");
     //oFile.addInclude("GfcEngine/EntityFactory.h");
     
@@ -250,7 +250,7 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
     updateProgressBar();
 }
 
-void CCodeWriter::writeClassImpFile(CppClass *pClass, CppClass *pFactoryClass, CppClass *pFieldCacheClass)
+void CCodeWriter::writeClassImpFile(CClass* pTypeObject, CppClass *pClass, CppClass *pFactoryClass, CppClass *pFieldCacheClass)
 {
     CppFile oFile(pClass->name(), false);
     /*
@@ -259,6 +259,20 @@ void CCodeWriter::writeClassImpFile(CppClass *pClass, CppClass *pFactoryClass, C
     */
     oFile.addInclude(L"GfcSchema.h");
     oFile.addInclude(L"GfcEngine/PropValue.h");
+    bool bFlag = false;
+    bool bTypeDef = false;
+    int nCount = pTypeObject->getAttributeCount();
+    for (int i = 0; i < nCount; ++i)
+    {
+        CAttribute* pAttribute = pTypeObject->getAttribute(i);
+        if (getBaseType(pAttribute->getType()) == EBT_ENTITY)
+        {
+            bFlag = true;
+            break;
+        }
+    }
+    if (bFlag)
+        oFile.addInclude(L"GfcEngine/Container.h");
     oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%s,\"%s\",0)", 
         pClass->name().c_str(),
         pClass->name().c_str()

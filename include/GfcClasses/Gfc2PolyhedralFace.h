@@ -6,7 +6,6 @@
 #include "Gfc2Topology.h"
 #include "Gfc2PolyhedralLoop.h"
 #include "Gfc2PlaneCoef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2PolyhedralFace: public Gfc2Topology

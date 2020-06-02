@@ -8,7 +8,6 @@
 #include "Gfc2Vector2d.h"
 #include "Gfc2Intervald.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2SinCurve2d: public Gfc2Curve2d

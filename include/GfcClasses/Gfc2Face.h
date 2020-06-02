@@ -7,7 +7,6 @@
 #include "Gfc2Surface.h"
 #include "Gfc2Box3d.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Face: public Gfc2CommonPolygonEx

@@ -6,7 +6,6 @@
 #include "Gfc2ConnectionGeometry.h"
 #include "Gfc2Surface.h"
 #include "Gfc2Surface.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2ConnectionSurfaceGeometry: public Gfc2ConnectionGeometry

@@ -8,7 +8,6 @@
 #include "Gfc2Surface.h"
 #include "Gfc2Curve3d.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2PreimageCurve2d: public Gfc2Curve2d

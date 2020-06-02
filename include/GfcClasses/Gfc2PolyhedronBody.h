@@ -6,7 +6,6 @@
 #include "Gfc2Body.h"
 #include "Gfc2PolyhedralFace.h"
 #include "Gfc2Vector3d.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2PolyhedronBody: public Gfc2Body

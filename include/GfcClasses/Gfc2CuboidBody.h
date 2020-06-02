@@ -6,7 +6,6 @@
 #include "Gfc2PrimitiveBody.h"
 #include "Gfc2Coordinates3d.h"
 #include "Gfc2Vector3d.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2CuboidBody: public Gfc2PrimitiveBody

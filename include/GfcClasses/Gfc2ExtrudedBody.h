@@ -7,7 +7,6 @@
 #include "Gfc2Coordinates3d.h"
 #include "Gfc2Polygon.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2ExtrudedBody: public Gfc2PrimitiveBody

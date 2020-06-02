@@ -6,7 +6,6 @@
 #include "Gfc2SweptAreaSolidShape.h"
 #include "Gfc2Vector2d.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RevolvedAreaSolidShape: public Gfc2SweptAreaSolidShape

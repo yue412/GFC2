@@ -7,7 +7,6 @@
 #include "Gfc2Vector3d.h"
 #include "Gfc2Vector3d.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2PrimitiveRenderable: public Gfc2RepresentationItem

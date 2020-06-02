@@ -10,7 +10,6 @@
 #include "Gfc2Vector2d.h"
 #include "Gfc2Vector2d.h"
 #include "TypeDef.h"
-#include "GfcEngine/Document.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2InternalPt: public gfc2::engine::Entity
