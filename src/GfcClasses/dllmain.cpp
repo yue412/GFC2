@@ -30,6 +30,7 @@ BOOL WINAPI DllMain(
             BYTE* pByte = new BYTE[dwSize + 1];
             memcpy(pByte, pBuffer, dwSize);
             GlobalUnlock(hGlobal);
+            g_pModel = new gfc2::schema::CModel;
             // ½âÎö
             gfc2::engine::GfcEngineUtils::loadSchema((char*)pByte, dwSize, g_pModel);
         }

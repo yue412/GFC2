@@ -10,11 +10,11 @@
 
 TEST(TestDocument, Document_add)
 {
-    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(toString(getFullPath(L"GFC3X0.exp")));
+    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
     gfc2::engine::Document oDoc(pFactory->schema());
-    auto pEntity = pFactory->create("Gfc2Vector3d");
+    auto pEntity = pFactory->create(L"Gfc2Vector3d");
     oDoc.add(20, pEntity);
-    pEntity = pFactory->create("Gfc2TShapeSection");
+    pEntity = pFactory->create(L"Gfc2TShapeSection");
     oDoc.add(30, pEntity);
     auto itr = oDoc.getIterator();
     itr->first();
@@ -28,14 +28,14 @@ TEST(TestDocument, Document_add)
 
 TEST(TestDocument, Document_getEntity)
 {
-    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(toString(getFullPath(L"GFC3X0.exp")));
+    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
     gfc2::engine::Document oDoc(pFactory->schema());
-    auto pEntity = pFactory->create("Gfc2Vector3d");
+    auto pEntity = pFactory->create(L"Gfc2Vector3d");
     oDoc.add(20, pEntity);
-    pEntity = pFactory->create("Gfc2TShapeSection");
+    pEntity = pFactory->create(L"Gfc2TShapeSection");
     oDoc.add(30, pEntity);
     auto p = oDoc.getEntity(30);
-    EXPECT_EQ(true, p->entityName() == "Gfc2TShapeSection");
+    EXPECT_EQ(true, p->entityName() == L"Gfc2TShapeSection");
     p = oDoc.getEntity(1);
     EXPECT_EQ(true, p == nullptr);
     delete pFactory;
@@ -43,19 +43,19 @@ TEST(TestDocument, Document_getEntity)
 
 TEST(TestDocument, Document_getEntities_no_subtype)
 {
-    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(toString(getFullPath(L"GFC3X0.exp")));
+    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
     gfc2::engine::Document oDoc(pFactory->schema());
-    auto pEntity = pFactory->create("Gfc2Object");
+    auto pEntity = pFactory->create(L"Gfc2Object");
     oDoc.add(20, pEntity);
-    pEntity = pFactory->create("Gfc2Element");
+    pEntity = pFactory->create(L"Gfc2Element");
     oDoc.add(30, pEntity);
-    pEntity = pFactory->create("Gfc2Building");
+    pEntity = pFactory->create(L"Gfc2Building");
     oDoc.add(25, pEntity);
-    auto itr = oDoc.getEntities("Gfc2Object", false);
+    auto itr = oDoc.getEntities(L"Gfc2Object", false);
     itr->first();
     EXPECT_EQ(false, itr->isDone());
     auto p = itr->current();
-    EXPECT_EQ(true, p->entityName() == "Gfc2Object");
+    EXPECT_EQ(true, p->entityName() == L"Gfc2Object");
     itr->next();
     EXPECT_EQ(true, itr->isDone());
     delete pFactory;
@@ -63,29 +63,29 @@ TEST(TestDocument, Document_getEntities_no_subtype)
 
 TEST(TestDocument, Document_getEntities_subtype)
 {
-    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(toString(getFullPath(L"GFC3X0.exp")));
+    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
     gfc2::engine::Document oDoc(pFactory->schema());
-    auto pEntity = pFactory->create("Gfc2Object");
+    auto pEntity = pFactory->create(L"Gfc2Object");
     oDoc.add(20, pEntity);
-    pEntity = pFactory->create("Gfc2Element");
+    pEntity = pFactory->create(L"Gfc2Element");
     oDoc.add(30, pEntity);
-    pEntity = pFactory->create("Gfc2Building");
+    pEntity = pFactory->create(L"Gfc2Building");
     oDoc.add(25, pEntity);
-    auto itr = oDoc.getEntities("Gfc2Object", true);
+    auto itr = oDoc.getEntities(L"Gfc2Object", true);
     itr->first();
     EXPECT_EQ(false, itr->isDone());
     auto p = itr->current();
-    EXPECT_EQ(true, p->entityName() == "Gfc2Object");
+    EXPECT_EQ(true, p->entityName() == L"Gfc2Object");
 
     itr->next();
     EXPECT_EQ(false, itr->isDone());
     p = itr->current();
-    EXPECT_EQ(true, p->entityName() == "Gfc2Element" || p->entityName() == "Gfc2Building");
+    EXPECT_EQ(true, p->entityName() == L"Gfc2Element" || p->entityName() == L"Gfc2Building");
 
     itr->next();
     EXPECT_EQ(false, itr->isDone());
     p = itr->current();
-    EXPECT_EQ(true, p->entityName() == "Gfc2Element" || p->entityName() == "Gfc2Building");
+    EXPECT_EQ(true, p->entityName() == L"Gfc2Element" || p->entityName() == L"Gfc2Building");
 
     itr->next();
     EXPECT_EQ(true, itr->isDone());
@@ -94,29 +94,29 @@ TEST(TestDocument, Document_getEntities_subtype)
 
 TEST(TestDocument, Document_getIterator)
 {
-    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(toString(getFullPath(L"GFC3X0.exp")));
+    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
     gfc2::engine::Document oDoc(pFactory->schema());
-    auto pEntity = pFactory->create("Gfc2Object");
+    auto pEntity = pFactory->create(L"Gfc2Object");
     oDoc.add(20, pEntity);
-    pEntity = pFactory->create("Gfc2Element");
+    pEntity = pFactory->create(L"Gfc2Element");
     oDoc.add(30, pEntity);
-    pEntity = pFactory->create("Gfc2Building");
+    pEntity = pFactory->create(L"Gfc2Building");
     oDoc.add(25, pEntity);
     auto itr = oDoc.getIterator();
     itr->first();
     EXPECT_EQ(false, itr->isDone());
     auto p = itr->current();
-    EXPECT_EQ(true, p->entityName() == "Gfc2Building");
+    EXPECT_EQ(true, p->entityName() == L"Gfc2Building");
 
     itr->next();
     EXPECT_EQ(false, itr->isDone());
     p = itr->current();
-    EXPECT_EQ(true, p->entityName() == "Gfc2Element");
+    EXPECT_EQ(true, p->entityName() == L"Gfc2Element");
 
     itr->next();
     EXPECT_EQ(false, itr->isDone());
     p = itr->current();
-    EXPECT_EQ(true, p->entityName() == "Gfc2Object");
+    EXPECT_EQ(true, p->entityName() == L"Gfc2Object");
 
     itr->next();
     EXPECT_EQ(true, itr->isDone());

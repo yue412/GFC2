@@ -1,5 +1,5 @@
-#ifndef TYPEDEF_H
-#define TYPEDEF_H
+#ifndef TYPEDEFINE_H
+#define TYPEDEFINE_H
 
 #include "TypeObject.h"
 
@@ -22,4 +22,4 @@ private:
 
 GFC_NAMESPACE_END
 
-#endif // TYPEDEF_H
+#endif // TYPEDEFINE_H

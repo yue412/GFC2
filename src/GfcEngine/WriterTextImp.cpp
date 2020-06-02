@@ -63,6 +63,7 @@ void WriterTextImp::close()
     if (m_pTextStream)
     {
         *m_pTextStream << "ENDSEC;" << std::endl;
+        m_pTextStream->flush();
 		m_pTextStream->close();
         delete m_pTextStream;
         m_pTextStream = NULL;
@@ -132,7 +133,7 @@ void WriterTextImp::writeValue(gfc2::schema::CAttribute* pSchema, PropValue* pVa
         }
         break;
     case gfc2::schema::EDT_ENTITY:
-        *m_pTextStream << "#" << pValue->asInteger();
+        *m_pTextStream << "#" << pValue->asEntityRef();
         break;
     default:
         break;
@@ -164,7 +165,10 @@ void WriterTextImp::writeProperty(Property * pProp)
     }
     else
     {
-        writeValue(pSchema, pProp->value());
+        if (pProp->value()->isNull())
+            *m_pTextStream << "$";
+        else
+            writeValue(pSchema, pProp->value());
     }
 }
 

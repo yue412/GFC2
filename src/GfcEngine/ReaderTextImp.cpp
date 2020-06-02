@@ -221,7 +221,7 @@ bool ReaderTextImp::parse(const std::string& input, Entity* pEntity, std::wstrin
     std::string sValue;
     while (getNextValue(input, nStartPos, sValue))
     {
-        if (nFieldNum >= pEntity->getClass()->getAttributeCount())
+        if (nFieldNum >= pEntity->getClass()->getTotalAttributeCount())
             break;
         auto pProp = pEntity->getProps(nFieldNum);
         auto pType = pProp->schema()->getType();

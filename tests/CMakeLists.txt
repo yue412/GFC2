@@ -13,8 +13,8 @@ project(UnitTest)
 include_directories(
 	${PROJECT_SOURCE_DIR}/../thirdparty/googletest/googletest/include
 	${PROJECT_SOURCE_DIR}/../include
+	${PROJECT_SOURCE_DIR}/../include/GfcClasses
 	${PROJECT_SOURCE_DIR}/../src/EntitySchema
-	${PROJECT_SOURCE_DIR}/../src/ExpEngine
 	${PROJECT_SOURCE_DIR}/../src/GfcTextSerializer
 	${PROJECT_SOURCE_DIR}/../src/GfcCommon
 	${PROJECT_SOURCE_DIR}/../src/GfcEngine
@@ -35,9 +35,9 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEAD_FILES})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
 
-target_link_libraries(${PROJECT_NAME} debug ExpEngined optimized ExpEngine)
 target_link_libraries(${PROJECT_NAME} debug gtestd optimized gtest)
 target_link_libraries(${PROJECT_NAME} debug GfcEngined optimized GfcEngine)
+target_link_libraries(${PROJECT_NAME} debug GfcClassesd optimized GfcClasses)
 target_link_libraries(${PROJECT_NAME} debug EntitySchemad optimized EntitySchema)
 target_link_libraries(${PROJECT_NAME} debug GfcCommond optimized GfcCommon)
 target_link_libraries(${PROJECT_NAME} debug tinyxmld optimized tinyxml)

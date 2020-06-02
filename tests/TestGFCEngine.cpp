@@ -10,23 +10,23 @@
 TEST(TestGFCEngine, WriteEmptyFile)
 {
     gfc2::engine::Writer writer;
-    auto result = writer.open(UnicodeToUtf8(getFullPath(L"empty.gfc")), "express", "gfc2_unit_test");
+    auto result = writer.open(getFullPath(L"empty.gfc"), L"express", L"gfc2_unit_test");
     EXPECT_EQ(true, result);
 }
 
 TEST(TestGFCEngine, WriteFile)
 {
     gfc2::engine::Writer writer;
-    auto result = writer.open(UnicodeToUtf8(getFullPath(L"one.gfc")), "express", "gfc2_unit_test");
-    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(toString(getFullPath(L"GFC3X0.exp")));
-    auto pEntity = pFactory->create("Gfc2Vector3d");
+    auto result = writer.open(getFullPath(L"one.gfc"), L"express", L"gfc2_unit_test");
+    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
+    auto pEntity = pFactory->create(L"Gfc2Vector3d");
     //Gfc2Vector3d oVector;
     //oVector.setX(1.0);
     //oVector.setY(2.0);
     //oVector.setZ(3.0);
-    pEntity->setAsDouble("X", 1.0);
-    pEntity->setAsDouble("Y", 2.0);
-    pEntity->setAsDouble("Z", 3.0);
+    pEntity->setAsDouble(L"X", 1.0);
+    pEntity->setAsDouble(L"Y", 2.0);
+    pEntity->setAsDouble(L"Z", 3.0);
     writer.writeEntity(pEntity);
     EXPECT_EQ(true, result);
     delete pFactory;
@@ -34,10 +34,10 @@ TEST(TestGFCEngine, WriteFile)
 
 TEST(TestGFCEngine, ReadFile)
 {
-    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(toString(getFullPath(L"GFC3X0.exp")));
+    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
     gfc2::engine::Reader reader(pFactory);
     gfc2::engine::Document document(pFactory->schema());
-    auto result = reader.open(UnicodeToUtf8(getFullPath(L"one.gfc")));
+    auto result = reader.open(getFullPath(L"one.gfc"));
     EXPECT_EQ(true, result);
     if (result)
     {
@@ -49,19 +49,19 @@ TEST(TestGFCEngine, ReadFile)
         EXPECT_EQ(false, itr->isDone());
         auto pEntity = itr->current();
         EXPECT_EQ(true, pEntity != nullptr);
-        EXPECT_NEAR(1.0, pEntity->asDouble("X"), 1e-6);
-        EXPECT_NEAR(2.0, pEntity->asDouble("Y"), 1e-6);
-        EXPECT_NEAR(3.0, pEntity->asDouble("Z"), 1e-6);
+        EXPECT_NEAR(1.0, pEntity->asDouble(L"X"), 1e-6);
+        EXPECT_NEAR(2.0, pEntity->asDouble(L"Y"), 1e-6);
+        EXPECT_NEAR(3.0, pEntity->asDouble(L"Z"), 1e-6);
     }
     delete pFactory;
 }
 
 TEST(TestGFCEngine, ReadEmptyFile)
 {
-    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(toString(getFullPath(L"GFC3X0.exp")));
+    gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
     gfc2::engine::Reader reader(pFactory);
     gfc2::engine::Document document(pFactory->schema());
-    auto result = reader.open(UnicodeToUtf8(getFullPath(L"empty.gfc")));
+    auto result = reader.open(getFullPath(L"empty.gfc"));
     EXPECT_EQ(true, result);
     if (result)
     {

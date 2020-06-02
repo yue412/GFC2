@@ -24,6 +24,9 @@ EntityFactory::~EntityFactory()
 
 Entity * EntityFactory::create(const std::wstring & sName)
 {
+    auto pEntity = EntityFactory::GetFactory()->Create(sName);
+    if (pEntity)
+        return dynamic_cast<Entity*>(pEntity);
     assert(m_pModel);
     auto pType = m_pModel->findTypeObject(sName);
     if (pType && pType->getDataType() == gfc2::schema::EDT_ENTITY)
@@ -32,7 +35,7 @@ Entity * EntityFactory::create(const std::wstring & sName)
         pEntity->setSchema(pType);
         return pEntity;
     }
-    else 
+    else
     {
         return nullptr;
     }

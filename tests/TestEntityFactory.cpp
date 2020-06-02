@@ -17,9 +17,9 @@ TEST(TestEntityFactory, EntityFactory_create)
     oModel.addTypeObject(new gfc2::schema::CClass(L"Test2"));
     oModel.addTypeObject(new gfc2::schema::CClass(L"Test3"));
     gfc2::engine::EntityFactory oFactory(&oModel, false);
-    auto pEntity = oFactory.create("Test");
+    auto pEntity = oFactory.create(L"Test");
     EXPECT_EQ(true, pEntity != nullptr);
-    EXPECT_EQ(true, pEntity->entityName() == "Test");
+    EXPECT_EQ(true, pEntity->entityName() == L"Test");
     delete pEntity;
 }
 
@@ -30,7 +30,7 @@ TEST(TestEntityFactory, EntityFactory_create_null)
     oModel.addTypeObject(new gfc2::schema::CClass(L"Test2"));
     oModel.addTypeObject(new gfc2::schema::CClass(L"Test3"));
     gfc2::engine::EntityFactory oFactory(&oModel, false);
-    auto pEntity = oFactory.create("xxsdf");
+    auto pEntity = oFactory.create(L"xxsdf");
     EXPECT_EQ(true, pEntity == nullptr);
     delete pEntity;
 }
@@ -40,7 +40,7 @@ TEST(TestEntityFactory, EntityFactory_create_enum)
     gfc2::schema::CModel oModel;
     oModel.addTypeObject(new gfc2::schema::CEnumType(L"Test"));
     gfc2::engine::EntityFactory oFactory(&oModel, false);
-    auto pEntity = oFactory.create("Test");
+    auto pEntity = oFactory.create(L"Test");
     EXPECT_EQ(true, pEntity == nullptr);
     delete pEntity;
 }
@@ -52,7 +52,7 @@ TEST(TestEntityFactory, EntityFactory_create_typedef)
     pTypeDef->SetRefType(oModel.findTypeObject(L"REAL"));
     oModel.addTypeObject(pTypeDef);
     gfc2::engine::EntityFactory oFactory(&oModel, false);
-    auto pEntity = oFactory.create("Gfc2Double");
+    auto pEntity = oFactory.create(L"Gfc2Double");
     EXPECT_EQ(true, pEntity == nullptr);
     delete pEntity;
 }
@@ -61,7 +61,7 @@ TEST(TestEntityFactory, EntityFactory_create_buildin)
 {
     gfc2::schema::CModel oModel;
     gfc2::engine::EntityFactory oFactory(&oModel, false);
-    auto pEntity = oFactory.create("REAL");
+    auto pEntity = oFactory.create(L"REAL");
     EXPECT_EQ(true, pEntity == nullptr);
     delete pEntity;
 }
@@ -82,9 +82,9 @@ TEST(TestEntityFactory, EntityFactory_create_typedef_class)
         "END_SCHEMA;"
         ;
     gfc2::engine::EntityFactory* pFactory = gfc2::engine::GfcEngineUtils::createFactory(sCode.c_str(), sCode.length());
-    auto pEntity = pFactory->create("Gfc2Vector3d_Normal");
+    auto pEntity = pFactory->create(L"Gfc2Vector3d_Normal");
     EXPECT_EQ(true, pEntity != nullptr);
-    EXPECT_EQ(true, pEntity->entityName() == "Gfc2Vector3d_Normal");
+    EXPECT_EQ(true, pEntity->entityName() == L"Gfc2Vector3d_Normal");
     EXPECT_EQ(true, pEntity->getClass()->getName() == L"Gfc2Vector3d");
     delete pEntity;
     delete pFactory;

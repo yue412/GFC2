@@ -44,13 +44,13 @@ TEST(TestEntity, Entity_create)
     gfc2::engine::Entity oEntity;
     oEntity.setSchema(&oClass);
 
-    oEntity.setAsString("name", "中华人民共和国");
-    oEntity.setAsInteger("height", 235456);
-    oEntity.setAsDouble("area", 12.0);
+    oEntity.setAsString(L"name", "中华人民共和国");
+    oEntity.setAsInteger(L"height", 235456);
+    oEntity.setAsDouble(L"area", 12.0);
     //oEntity.asBooleanList("list").push_back(true);
-    EXPECT_NEAR(12.0, oEntity.asDouble("area"), 1e-7);
-    EXPECT_EQ(235456, oEntity.asInteger("height"));
-    EXPECT_STREQ("中华人民共和国", oEntity.asString("name").c_str());
+    EXPECT_NEAR(12.0, oEntity.asDouble(L"area"), 1e-7);
+    EXPECT_EQ(235456, oEntity.asInteger(L"height"));
+    EXPECT_STREQ("中华人民共和国", oEntity.asString(L"name").c_str());
     //EXPECT_EQ(true, oEntity.asBooleanList("list")[0]);
 }
 
@@ -90,13 +90,13 @@ TEST(TestEntity, Entity_create_typedef_class)
     gfc2::engine::Entity oEntity;
     oEntity.setSchema(&oTypeDef);
 
-    oEntity.setAsString("name", "中华人民共和国");
-    oEntity.setAsInteger("height", 235456);
-    oEntity.setAsDouble("area", 12.0);
+    oEntity.setAsString(L"name", "中华人民共和国");
+    oEntity.setAsInteger(L"height", 235456);
+    oEntity.setAsDouble(L"area", 12.0);
     //oEntity.asBooleanList("list").push_back(true);
-    EXPECT_NEAR(12.0, oEntity.asDouble("area"), 1e-7);
-    EXPECT_EQ(235456, oEntity.asInteger("height"));
-    EXPECT_STREQ("中华人民共和国", oEntity.asString("name").c_str());
+    EXPECT_NEAR(12.0, oEntity.asDouble(L"area"), 1e-7);
+    EXPECT_EQ(235456, oEntity.asInteger(L"height"));
+    EXPECT_STREQ("中华人民共和国", oEntity.asString(L"name").c_str());
     //EXPECT_EQ(true, oEntity.asBooleanList("list")[0]);
 }
 
@@ -107,7 +107,7 @@ TEST(TestEntity, Entity_entityName)
     gfc2::engine::Entity oEntity;
     oEntity.setSchema(&oClass);
 
-    EXPECT_STREQ("Test", oEntity.entityName().c_str());
+    EXPECT_STREQ(L"Test", oEntity.entityName().c_str());
 
     gfc2::schema::CTypeDef oTypeDef(L"hehe");
     oTypeDef.SetRefType(&oClass);
@@ -115,7 +115,7 @@ TEST(TestEntity, Entity_entityName)
     gfc2::engine::Entity oEntity2;
     oEntity2.setSchema(&oTypeDef);
 
-    EXPECT_STREQ("hehe", oEntity2.entityName().c_str());
+    EXPECT_STREQ(L"hehe", oEntity2.entityName().c_str());
 }
 
 TEST(TestEntity, Entity_isInitialized)
@@ -138,7 +138,7 @@ TEST(TestEntity, Entity_isInitialized)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.setAsDouble("area", 2.0);
+    oEntity.setAsDouble(L"area", 2.0);
 
     EXPECT_EQ(false, oEntity.isInitialized());
 }
@@ -163,8 +163,8 @@ TEST(TestEntity, Entity_isInitialized_true)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.setAsDouble("area", 2.0);
-    oEntity.setAsInteger("height", 123);
+    oEntity.setAsDouble(L"area", 2.0);
+    oEntity.setAsInteger(L"height", 123);
 
     EXPECT_EQ(true, oEntity.isInitialized());
 }
@@ -196,8 +196,8 @@ TEST(TestEntity, Entity_isInitialized_true_optional)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.setAsDouble("area", 2.0);
-    oEntity.setAsInteger("height", 123);
+    oEntity.setAsDouble(L"area", 2.0);
+    oEntity.setAsInteger(L"height", 123);
 
     EXPECT_EQ(true, oEntity.isInitialized());
 }
@@ -229,8 +229,8 @@ TEST(TestEntity, Entity_isInitialized_true_list)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.setAsDouble("area", 2.0);
-    oEntity.setAsInteger("height", 123);
+    oEntity.setAsDouble(L"area", 2.0);
+    oEntity.setAsInteger(L"height", 123);
 
     EXPECT_EQ(true, oEntity.isInitialized());
 }
@@ -292,7 +292,7 @@ TEST(TestEntity, Entity_getProps)
 
     oEntity.setSchema(&oClass);
 
-    EXPECT_STREQ("height", oEntity.getProps(1)->name().c_str());
+    EXPECT_STREQ(L"height", oEntity.getProps(1)->name().c_str());
 }
 
 TEST(TestEntity, Entity_getProps_null)
@@ -333,10 +333,10 @@ TEST(TestEntity, Entity_propByName)
 
     oEntity.setSchema(&oClass);
     
-    auto p = oEntity.propByName("name");
+    auto p = oEntity.propByName(L"name");
     EXPECT_EQ(true, p != nullptr);
 
-    p = oEntity.propByName("xxx");
+    p = oEntity.propByName(L"xxx");
     EXPECT_EQ(true, p == nullptr);
 }
 
@@ -367,10 +367,10 @@ TEST(TestEntity, Entity_valueByName)
 
     oEntity.setSchema(&oClass);
 
-    auto p = oEntity.valueByName("name");
+    auto p = oEntity.valueByName(L"name");
     EXPECT_EQ(true, p != nullptr);
 
-    p = oEntity.valueByName("xxx");
+    p = oEntity.valueByName(L"xxx");
     EXPECT_EQ(true, p == nullptr);
 }
 
@@ -388,11 +388,11 @@ TEST(TestEntity, Entity_isNull)
 
     oEntity.setSchema(&oClass);
 
-    auto b = oEntity.isNull("area");
+    auto b = oEntity.isNull(L"area");
     EXPECT_EQ(true, b);
 
-    oEntity.setAsDouble("area", 0.0);
-    b = oEntity.isNull("area");
+    oEntity.setAsDouble(L"area", 0.0);
+    b = oEntity.isNull(L"area");
     EXPECT_EQ(false, b);
 }
 
@@ -411,11 +411,11 @@ TEST(TestEntity, Entity_isNull_list)
 
     oEntity.setSchema(&oClass);
 
-    auto b = oEntity.isNull("area");
+    auto b = oEntity.isNull(L"area");
     EXPECT_EQ(true, b);
 
-    oEntity.addDouble("area", 1.0);
-    b = oEntity.isNull("area");
+    oEntity.addDouble(L"area", 1.0);
+    b = oEntity.isNull(L"area");
     EXPECT_EQ(false, b);
 }
 
@@ -433,15 +433,15 @@ TEST(TestEntity, Entity_asString)
 
     oEntity.setSchema(&oClass);
 
-    auto str = oEntity.asString("name");
+    auto str = oEntity.asString(L"name");
     EXPECT_STREQ("", str.c_str());
 
-    oEntity.setAsString("name", "xxx");
-    str = oEntity.asString("name");
+    oEntity.setAsString(L"name", "xxx");
+    str = oEntity.asString(L"name");
     EXPECT_STREQ("xxx", str.c_str());
 
-    EXPECT_THROW(oEntity.asString("t"), gfc2::engine::EMissMatchProperty);
-    EXPECT_THROW(oEntity.setAsString("t", "asdf"), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.asString(L"t"), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.setAsString(L"t", "asdf"), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_asInteger)
@@ -458,15 +458,15 @@ TEST(TestEntity, Entity_asInteger)
 
     oEntity.setSchema(&oClass);
 
-    auto n = oEntity.asInteger("height");
+    auto n = oEntity.asInteger(L"height");
     EXPECT_EQ(0, n);
 
-    oEntity.setAsInteger("height", 234);
-    n = oEntity.asInteger("height");
+    oEntity.setAsInteger(L"height", 234);
+    n = oEntity.asInteger(L"height");
     EXPECT_EQ(234, n);
 
-    EXPECT_THROW(oEntity.asInteger("t"), gfc2::engine::EMissMatchProperty);
-    EXPECT_THROW(oEntity.setAsInteger("t", -12), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.asInteger(L"t"), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.setAsInteger(L"t", -12), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_asEntityRef)
@@ -484,15 +484,15 @@ TEST(TestEntity, Entity_asEntityRef)
 
     oEntity.setSchema(&oClass);
 
-    auto n = oEntity.asEntityRef("factory");
+    auto n = oEntity.asEntityRef(L"factory");
     EXPECT_EQ(-1, n);
 
-    oEntity.setAsEntityRef("factory", 234);
-    n = oEntity.asEntityRef("factory");
+    oEntity.setAsEntityRef(L"factory", 234);
+    n = oEntity.asEntityRef(L"factory");
     EXPECT_EQ(234, n);
 
-    EXPECT_THROW(oEntity.asEntityRef("t"), gfc2::engine::EMissMatchProperty);
-    EXPECT_THROW(oEntity.setAsEntityRef("t", -12), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.asEntityRef(L"t"), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.setAsEntityRef(L"t", -12), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_asBoolean)
@@ -509,15 +509,15 @@ TEST(TestEntity, Entity_asBoolean)
 
     oEntity.setSchema(&oClass);
 
-    auto n = oEntity.asBoolean("height");
+    auto n = oEntity.asBoolean(L"height");
     EXPECT_EQ(false, n);
 
-    oEntity.setAsBoolean("height", true);
-    n = oEntity.asBoolean("height");
+    oEntity.setAsBoolean(L"height", true);
+    n = oEntity.asBoolean(L"height");
     EXPECT_EQ(true, n);
 
-    EXPECT_THROW(oEntity.asBoolean("t"), gfc2::engine::EMissMatchProperty);
-    EXPECT_THROW(oEntity.setAsBoolean("t", true), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.asBoolean(L"t"), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.setAsBoolean(L"t", true), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_asDouble)
@@ -534,15 +534,15 @@ TEST(TestEntity, Entity_asDouble)
 
     oEntity.setSchema(&oClass);
 
-    auto n = oEntity.asDouble("height");
+    auto n = oEntity.asDouble(L"height");
     EXPECT_NEAR(0.0, n, 1e-7);
 
-    oEntity.setAsDouble("height", -345.778);
-    n = oEntity.asDouble("height");
+    oEntity.setAsDouble(L"height", -345.778);
+    n = oEntity.asDouble(L"height");
     EXPECT_NEAR(-345.778, n, 1e-7);
 
-    EXPECT_THROW(oEntity.asDouble("t"), gfc2::engine::EMissMatchProperty);
-    EXPECT_THROW(oEntity.setAsDouble("t", true), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.asDouble(L"t"), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.setAsDouble(L"t", true), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_getArrayCount)
@@ -560,16 +560,16 @@ TEST(TestEntity, Entity_getArrayCount)
 
     oEntity.setSchema(&oClass);
 
-    auto n = oEntity.getArrayCount("height");
+    auto n = oEntity.getArrayCount(L"height");
     EXPECT_EQ(0, n);
 
-    oEntity.addInteger("height", 25);
-    oEntity.addInteger("height", 26);
-    oEntity.addInteger("height", 27);
-    n = oEntity.getArrayCount("height");
+    oEntity.addInteger(L"height", 25);
+    oEntity.addInteger(L"height", 26);
+    oEntity.addInteger(L"height", 27);
+    n = oEntity.getArrayCount(L"height");
     EXPECT_EQ(3, n);
 
-    EXPECT_THROW(oEntity.getArrayCount("t"), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.getArrayCount(L"t"), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_addInteger)
@@ -587,15 +587,15 @@ TEST(TestEntity, Entity_addInteger)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addInteger("height", 25);
-    auto pValue = oEntity.valueByName("height");
+    oEntity.addInteger(L"height", 25);
+    auto pValue = oEntity.valueByName(L"height");
     EXPECT_EQ(true, pValue != nullptr);
     auto n = pValue->getCount();
     EXPECT_EQ(1, n);
     auto val = pValue->getItems(0)->asInteger();
     EXPECT_EQ(25, val);
 
-    EXPECT_THROW(oEntity.addInteger("t", 123), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.addInteger(L"t", 123), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_getInteger)
@@ -613,11 +613,11 @@ TEST(TestEntity, Entity_getInteger)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addInteger("height", 25);
-    auto val = oEntity.getInteger("height", 0);
+    oEntity.addInteger(L"height", 25);
+    auto val = oEntity.getInteger(L"height", 0);
     EXPECT_EQ(25, val);
 
-    EXPECT_THROW(oEntity.getInteger("t", 0), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.getInteger(L"t", 0), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_addBoolean)
@@ -635,15 +635,15 @@ TEST(TestEntity, Entity_addBoolean)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addBoolean("height", true);
-    auto pValue = oEntity.valueByName("height");
+    oEntity.addBoolean(L"height", true);
+    auto pValue = oEntity.valueByName(L"height");
     EXPECT_EQ(true, pValue != nullptr);
     auto n = pValue->getCount();
     EXPECT_EQ(1, n);
     auto val = pValue->getItems(0)->asBoolean();
     EXPECT_EQ(true, val);
 
-    EXPECT_THROW(oEntity.addBoolean("t", false), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.addBoolean(L"t", false), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_getBoolean)
@@ -661,11 +661,11 @@ TEST(TestEntity, Entity_getBoolean)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addBoolean("height", true);
-    auto val = oEntity.getBoolean("height", 0);
+    oEntity.addBoolean(L"height", true);
+    auto val = oEntity.getBoolean(L"height", 0);
     EXPECT_EQ(true, val);
 
-    EXPECT_THROW(oEntity.getBoolean("t", 0), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.getBoolean(L"t", 0), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_addEntityRef)
@@ -684,15 +684,15 @@ TEST(TestEntity, Entity_addEntityRef)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addEntityRef("height", 25);
-    auto pValue = oEntity.valueByName("height");
+    oEntity.addEntityRef(L"height", 25);
+    auto pValue = oEntity.valueByName(L"height");
     EXPECT_EQ(true, pValue != nullptr);
     auto n = pValue->getCount();
     EXPECT_EQ(1, n);
     auto val = pValue->getItems(0)->asEntityRef();
     EXPECT_EQ(25, val);
 
-    EXPECT_THROW(oEntity.addEntityRef("t", 123), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.addEntityRef(L"t", 123), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_getEntityRef)
@@ -711,11 +711,11 @@ TEST(TestEntity, Entity_getEntityRef)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addEntityRef("height", 25);
-    auto val = oEntity.getEntityRef("height", 0);
+    oEntity.addEntityRef(L"height", 25);
+    auto val = oEntity.getEntityRef(L"height", 0);
     EXPECT_EQ(25, val);
 
-    EXPECT_THROW(oEntity.getEntityRef("t", 0), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.getEntityRef(L"t", 0), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_addDouble)
@@ -733,15 +733,15 @@ TEST(TestEntity, Entity_addDouble)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addDouble("height", 25);
-    auto pValue = oEntity.valueByName("height");
+    oEntity.addDouble(L"height", 25);
+    auto pValue = oEntity.valueByName(L"height");
     EXPECT_EQ(true, pValue != nullptr);
     auto n = pValue->getCount();
     EXPECT_EQ(1, n);
     auto val = pValue->getItems(0)->asDouble();
     EXPECT_NEAR(25, val, 1e-7);
 
-    EXPECT_THROW(oEntity.addDouble("t", 123), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.addDouble(L"t", 123), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_getDouble)
@@ -759,11 +759,11 @@ TEST(TestEntity, Entity_getDouble)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addDouble("height", 25);
-    auto val = oEntity.getDouble("height", 0);
+    oEntity.addDouble(L"height", 25);
+    auto val = oEntity.getDouble(L"height", 0);
     EXPECT_NEAR(25, val, 1e-7);
 
-    EXPECT_THROW(oEntity.getDouble("t", 0), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.getDouble(L"t", 0), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_addString)
@@ -781,15 +781,15 @@ TEST(TestEntity, Entity_addString)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addString("height", "abc");
-    auto pValue = oEntity.valueByName("height");
+    oEntity.addString(L"height", "abc");
+    auto pValue = oEntity.valueByName(L"height");
     EXPECT_EQ(true, pValue != nullptr);
     auto n = pValue->getCount();
     EXPECT_EQ(1, n);
     auto val = pValue->getItems(0)->asString();
     EXPECT_STREQ("abc", val.c_str());
 
-    EXPECT_THROW(oEntity.addString("t", "123"), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.addString(L"t", "123"), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_getString)
@@ -807,11 +807,11 @@ TEST(TestEntity, Entity_getString)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addString("height", "25");
-    auto val = oEntity.getString("height", 0);
+    oEntity.addString(L"height", "25");
+    auto val = oEntity.getString(L"height", 0);
     EXPECT_STREQ("25", val.c_str());
 
-    EXPECT_THROW(oEntity.getString("t", 0), gfc2::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.getString(L"t", 0), gfc2::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_asEntity)
@@ -833,16 +833,16 @@ TEST(TestEntity, Entity_asEntity)
 
     auto pEntity = new gfc2::engine::Entity();
     pEntity->setSchema(pClass);
-    pEntity->setAsEntityRef("factory", 125);
+    pEntity->setAsEntityRef(L"factory", 125);
     oDoc.add(123, pEntity);
     auto pEntity2 = new gfc2::engine::Entity();
     pEntity2->setSchema(pClass2);
     oDoc.add(125, pEntity2);
 
-    auto n = pEntity->asEntity("factory");
+    auto n = pEntity->asEntity(L"factory");
     EXPECT_EQ(pEntity2, n.get());
-    pEntity->setAsEntityRef("factory", 11);
-    n = pEntity->asEntity("factory");
+    pEntity->setAsEntityRef(L"factory", 11);
+    n = pEntity->asEntity(L"factory");
     EXPECT_EQ(nullptr, n.get());
 }
 
@@ -866,16 +866,16 @@ TEST(TestEntity, Entity_getEntity)
 
     auto pEntity = new gfc2::engine::Entity();
     pEntity->setSchema(pClass);
-    pEntity->addEntityRef("factory", 125);
+    pEntity->addEntityRef(L"factory", 125);
     oDoc.add(123, pEntity);
     auto pEntity2 = new gfc2::engine::Entity();
     pEntity2->setSchema(pClass2);
     oDoc.add(125, pEntity2);
 
-    auto n = pEntity->getEntity("factory", 0);
+    auto n = pEntity->getEntity(L"factory", 0);
     EXPECT_EQ(pEntity2, n.get());
-    pEntity->addEntityRef("factory", 11);
-    n = pEntity->getEntity("factory", 1);
+    pEntity->addEntityRef(L"factory", 11);
+    n = pEntity->getEntity(L"factory", 1);
     EXPECT_EQ(nullptr, n.get());
 }
 
@@ -917,12 +917,12 @@ TEST(TestEntity, Entity_create_parent)
     oEntity.setSchema(&oClass2);
 
     EXPECT_EQ(4, oEntity.getPropCount());
-    oEntity.setAsString("name", "中华人民共和国");
-    oEntity.setAsInteger("height", 235456);
-    oEntity.setAsDouble("area", 12.0);
+    oEntity.setAsString(L"name", "中华人民共和国");
+    oEntity.setAsInteger(L"height", 235456);
+    oEntity.setAsDouble(L"area", 12.0);
     //oEntity.asBooleanList("list").push_back(true);
-    EXPECT_NEAR(12.0, oEntity.asDouble("area"), 1e-7);
-    EXPECT_EQ(235456, oEntity.asInteger("height"));
-    EXPECT_STREQ("中华人民共和国", oEntity.asString("name").c_str());
+    EXPECT_NEAR(12.0, oEntity.asDouble(L"area"), 1e-7);
+    EXPECT_EQ(235456, oEntity.asInteger(L"height"));
+    EXPECT_STREQ("中华人民共和国", oEntity.asString(L"name").c_str());
     //EXPECT_EQ(true, oEntity.asBooleanList("list")[0]);
 }
