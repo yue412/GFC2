@@ -2,7 +2,7 @@
 #define CLASSCOMPATIBILITY_H
 
 #include <vector>
-#include "SchemaMacro.h"
+#include "GfcSchema\SchemaMacro.h"
 
 GFC_NAMESPACE_BEGIN
 

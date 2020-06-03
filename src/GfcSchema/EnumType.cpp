@@ -1,4 +1,4 @@
-#include "EnumType.h"
+#include "GfcSchema\EnumType.h"
 #include <algorithm>
 
 GFC_NAMESPACE_BEGIN

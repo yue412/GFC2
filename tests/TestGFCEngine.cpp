@@ -5,7 +5,7 @@
 #include "GfcEngine\GfcEngineUtils.h"
 //#include "Classes\Gfc2EdgeData.h"
 #include "Common.h"
-#include "Model.h"
+#include "GfcSchema/Model.h"
 
 TEST(TestGFCEngine, WriteEmptyFile)
 {

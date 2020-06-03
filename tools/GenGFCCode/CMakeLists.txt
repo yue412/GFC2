@@ -12,7 +12,8 @@ project(GenGFCCode)
 
 include_directories(
 	${PROJECT_SOURCE_DIR}/../../thirdparty/tinyxml
-	${PROJECT_SOURCE_DIR}/../../src/EntitySchema
+	${PROJECT_SOURCE_DIR}/../../include
+	${PROJECT_SOURCE_DIR}/../../src/GfcSchema
 	${PROJECT_SOURCE_DIR}/../../src/GfcCommon
 	)
 link_directories(${CMAKE_SOURCE_DIR}/../../lib)
@@ -28,5 +29,5 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEAD_FILES})
 #set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
 
 target_link_libraries(${PROJECT_NAME} debug tinyxmld optimized tinyxml)
-target_link_libraries(${PROJECT_NAME} debug EntitySchemad optimized EntitySchema)
+target_link_libraries(${PROJECT_NAME} debug GfcSchemad optimized GfcSchema)
 target_link_libraries(${PROJECT_NAME} debug GfcCommond optimized GfcCommon)

@@ -3,9 +3,9 @@
 #include <sstream>
 #include <time.h>
 #include <io.h>
-#include "EntityClass.h"
-#include "EntityAttribute.h"
-#include "EnumType.h"
+#include "GfcSchema\EntityClass.h"
+#include "GfcSchema\EntityAttribute.h"
+#include "GfcSchema\EnumType.h"
 #include "GfcEngine\PropValue.h"
 #include "Common.h"
 

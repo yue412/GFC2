@@ -1,7 +1,7 @@
 #ifndef TYPEDEFINE_H
 #define TYPEDEFINE_H
 
-#include "TypeObject.h"
+#include "GfcSchema\TypeObject.h"
 
 GFC_NAMESPACE_BEGIN
 

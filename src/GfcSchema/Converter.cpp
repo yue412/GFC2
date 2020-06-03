@@ -1,5 +1,5 @@
 #include "Converter.h"
-#include "EnumType.h"
+#include "GfcSchema\EnumType.h"
 
 GFC_NAMESPACE_BEGIN
 

@@ -1,7 +1,7 @@
 #include "gtest\gtest.h"
 #include "Parser.h"
-#include "BuildinType.h"
-#include "TypeDefine.h"
+#include "GfcSchema/BuildinType.h"
+#include "GfcSchema/TypeDefine.h"
 
 TEST(TestExpParse, TypeDefine)
 {

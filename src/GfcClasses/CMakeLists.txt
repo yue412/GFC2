@@ -5,7 +5,7 @@ include_directories(
 	${PROJECT_SOURCE_DIR}/../include 
 	${PROJECT_SOURCE_DIR}/../include/${PROJECT_NAME}
 	${PROJECT_SOURCE_DIR}/GfcEngine
-	${PROJECT_SOURCE_DIR}/EntitySchema
+	${PROJECT_SOURCE_DIR}/GfcSchema
 	${PROJECT_SOURCE_DIR}/${PROJECT_NAME}
 )
 
@@ -18,5 +18,5 @@ link_directories(${PROJECT_SOURCE_DIR}/../lib)
 #编译选项
 add_compile_definitions(UNICODE GFCCLASSES_EXPORTS TIXML_USE_STL _CRT_SECURE_NO_WARNINGS)
 add_library(${PROJECT_NAME} SHARED ${SRC_FILES} ${HEAD_FILES} ${RESOURCE_FILE})
-target_link_libraries(${PROJECT_NAME} debug EntitySchemad optimized EntitySchema)
+target_link_libraries(${PROJECT_NAME} debug GfcSchemad optimized GfcSchema)
 target_link_libraries(${PROJECT_NAME} debug GfcEngined optimized GfcEngine)

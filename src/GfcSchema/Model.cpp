@@ -1,5 +1,5 @@
-#include "model.h"
-#include "BuildinType.h"
+#include "GfcSchema\Model.h"
+#include "GfcSchema\BuildinType.h"
 
 GFC_NAMESPACE_BEGIN
 

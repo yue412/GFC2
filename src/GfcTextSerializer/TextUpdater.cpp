@@ -15,7 +15,7 @@
 #include "EntityParser\Parser.h"
 #include "EntityParser\Scanner.h"
 #include "AttributeValue.h"
-#include "BuildinType.h"
+#include "GfcSchema/BuildinType.h"
 
 namespace glodon {
 namespace objectbuf {

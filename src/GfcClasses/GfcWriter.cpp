@@ -1,6 +1,6 @@
 #include "GfcWriter.h"
 #include "GfcSchema.h"
-#include "Model.h"
+#include "GfcSchema\Model.h"
 
 GfcWriter::GfcWriter(const std::wstring& sProductCode): Writer(g_pModel->version(), sProductCode)
 {

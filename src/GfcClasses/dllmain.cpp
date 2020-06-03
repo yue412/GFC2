@@ -1,5 +1,5 @@
 #include <Windows.h>
-#include "Model.h"
+#include "GfcSchema\Model.h"
 #include "GfcEngine\GfcEngineUtils.h"
 #include "resource.h"
 #include "GfcSchema.h"

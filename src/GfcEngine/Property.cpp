@@ -1,7 +1,7 @@
 #include "GfcEngine\Property.h"
 #include "GfcEngine\PropValue.h"
-#include "EntityAttribute.h"
-#include "TypeObject.h"
+#include "GfcSchema\EntityAttribute.h"
+#include "GfcSchema\TypeObject.h"
 #include "Common.h"
 #include <assert.h>
 

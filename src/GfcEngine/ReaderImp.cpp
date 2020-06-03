@@ -3,8 +3,8 @@
 #include "ReaderImp.h"
 #include "FileMap.h"
 #include "Common.h"
-#include "TypeObject.h"
-#include "EntityClass.h"
+#include "GfcSchema\TypeObject.h"
+#include "GfcSchema\EntityClass.h"
 #include <algorithm>
 
 GFCENGINE_NAMESPACE_BEGIN

@@ -1,10 +1,10 @@
 #include <iostream>
 #include "umlreader.h"
-#include "EntityClass.h"
-#include "TypeDefine.h"
-#include "enumtype.h"
-#include "model.h"
-#include "EntityAttribute.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/TypeDefine.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/EntityAttribute.h"
 #include "tinyxml.h"
 #include "common.h"
 

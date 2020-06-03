@@ -1,7 +1,7 @@
 #ifndef TEXTUPDATER_H
 #define TEXTUPDATER_H
 
-#include "SchemaMacro.h"
+#include "GfcSchema/SchemaMacro.h"
 #include <string>
 
 GFC_NAMESPACE_BEGIN

@@ -3,10 +3,10 @@
 #include "GfcEngine\GfcEngineUtils.h"
 #include "GfcEngine\Document.h"
 #include "Common.h"
-#include "EntityClass.h"
-#include "EntityAttribute.h"
-#include "BuildinType.h"
-#include "Model.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/BuildinType.h"
+#include "GfcSchema/Model.h"
 
 TEST(TestDocument, Document_add)
 {

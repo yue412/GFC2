@@ -10,7 +10,7 @@
 #include <assert.h>
 #include "GfcEngine\GfcEngine.h"
 #include "GfcEngine\Iterator.h"
-#include "Model.h"
+#include "GfcSchema\Model.h"
 
 namespace gfc {
     namespace schema {

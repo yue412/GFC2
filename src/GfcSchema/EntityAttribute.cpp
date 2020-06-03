@@ -1,7 +1,7 @@
-#include "EntityAttribute.h"
-#include "TypeObject.h"
-#include "EntityClass.h"
-#include "TypeDefine.h"
+#include "GfcSchema\EntityAttribute.h"
+#include "GfcSchema\TypeObject.h"
+#include "GfcSchema\EntityClass.h"
+#include "GfcSchema\TypeDefine.h"
 
 GFC_NAMESPACE_BEGIN
 

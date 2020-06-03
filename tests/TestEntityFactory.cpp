@@ -2,12 +2,12 @@
 #include "GfcEngine\Entity.h"
 #include "GfcEngine\GfcEngineUtils.h"
 #include "Common.h"
-#include "EntityClass.h"
-#include "EntityAttribute.h"
-#include "BuildinType.h"
-#include "Model.h"
-#include "EnumType.h"
-#include "TypeDefine.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/BuildinType.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcSchema/TypeDefine.h"
 
 TEST(TestEntityFactory, EntityFactory_create)
 {

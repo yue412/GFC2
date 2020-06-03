@@ -1,7 +1,7 @@
 #include "ModelCompatibility.h"
 #include "ClassCompatibility.h"
-#include "Model.h"
-#include "EntityClass.h"
+#include "GfcSchema\Model.h"
+#include "GfcSchema\EntityClass.h"
 #include <assert.h>
 
 GFC_NAMESPACE_BEGIN

@@ -4,7 +4,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include "SchemaMacro.h"
+#include "GfcSchema/SchemaMacro.h"
 
 GFC_NAMESPACE_BEGIN
 class CModel;

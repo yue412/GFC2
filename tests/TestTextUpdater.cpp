@@ -1,8 +1,8 @@
 #include "gtest\gtest.h"
 #include "TextUpdater.h"
-#include "EntityClass.h"
-#include "EntityAttribute.h"
-#include "BuildinType.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/BuildinType.h"
 #include "ClassCompatibility.h"
 #include "AttributeValue.h"
 

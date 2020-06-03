@@ -1,11 +1,11 @@
 ﻿#include "DocumentWriter.h"
 #include <vector>
-#include "typeobject.h"
-#include "model.h"
-#include "EntityClass.h"
-#include "enumtype.h"
-#include "TypeDefine.h"
-#include "EntityAttribute.h"
+#include "GfcSchema/TypeObject.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcSchema/TypeDefine.h"
+#include "GfcSchema/EntityAttribute.h"
 #include <algorithm>
 #include <iostream>
 #include "common.h"

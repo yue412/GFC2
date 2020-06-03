@@ -4,12 +4,12 @@
 #define COCO_PARSER_H__
 
 #include <string>
-#include "Model.h"
-#include "TypeDefine.h"
-#include "EnumType.h"
-#include "EntityClass.h"
-#include "EntityAttribute.h"
-#include "UndefineType.h"
+#include "GfcSchema\Model.h"
+#include "GfcSchema\TypeDefine.h"
+#include "GfcSchema\EnumType.h"
+#include "GfcSchema\EntityClass.h"
+#include "GfcSchema\EntityAttribute.h"
+#include "GfcSchema\UndefineType.h"
 
 
 #include "Scanner.h"

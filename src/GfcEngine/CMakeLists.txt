@@ -7,7 +7,7 @@ include_directories(
 	${PROJECT_SOURCE_DIR}/../include 
 	${PROJECT_SOURCE_DIR}/../thirdparty/tinyxml
 	${PROJECT_SOURCE_DIR}/GfcCommon
-	${PROJECT_SOURCE_DIR}/EntitySchema
+	${PROJECT_SOURCE_DIR}/GfcSchema
 	${PROJECT_SOURCE_DIR}/${PROJECT_NAME}
 )
 link_directories(${PROJECT_SOURCE_DIR}/../lib)
@@ -20,6 +20,6 @@ source_group(TREE ${PROJECT_SOURCE_DIR}/GfcEngine PREFIX "Source Files" FILES ${
 add_compile_definitions(GFCENGINE_EXPORTS TIXML_USE_STL UNICODE)
 add_library(${PROJECT_NAME} SHARED ${SRC_FILES} ${HEAD_FILES})
 
-target_link_libraries(${PROJECT_NAME} debug EntitySchemad optimized EntitySchema)
+target_link_libraries(${PROJECT_NAME} debug GfcSchemad optimized GfcSchema)
 target_link_libraries(${PROJECT_NAME} debug GfcCommond optimized GfcCommon)
 target_link_libraries(${PROJECT_NAME} debug tinyxmld optimized tinyxml)

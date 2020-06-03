@@ -1,6 +1,6 @@
 #include "ClassCompatibility.h"
-#include "EntityClass.h"
-#include "EntityAttribute.h"
+#include "GfcSchema\EntityClass.h"
+#include "GfcSchema\EntityAttribute.h"
 #include <algorithm>
 #include <assert.h>
 #include "AttributeCompatibility.h"

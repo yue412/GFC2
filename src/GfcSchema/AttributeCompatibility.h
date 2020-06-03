@@ -2,7 +2,7 @@
 #define ATTRIBUTECOMPATIBILITY_H
 
 #include <string>
-#include "SchemaMacro.h"
+#include "GfcSchema\SchemaMacro.h"
 
 GFC_NAMESPACE_BEGIN
 

@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include "SchemaMacro.h"
+#include "GfcSchema\SchemaMacro.h"
 
 GFC_NAMESPACE_BEGIN
 

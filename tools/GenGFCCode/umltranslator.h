@@ -2,7 +2,7 @@
 #define CUMLTRANSLATOR_H
 
 #include <string>
-#include "SchemaMacro.h"
+#include "GfcSchema/SchemaMacro.h"
 
 struct CTranslateInfo
 {

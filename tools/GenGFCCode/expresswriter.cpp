@@ -2,11 +2,11 @@
 #include "common.h"
 #include <algorithm>
 #include "expresswriter.h"
-#include "EntityClass.h"
-#include "TypeDefine.h"
-#include "enumtype.h"
-#include "model.h"
-#include "EntityAttribute.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/TypeDefine.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/EntityAttribute.h"
 
 CExpressWriter::CExpressWriter(CModel *pModel): m_pModel(pModel)
 {

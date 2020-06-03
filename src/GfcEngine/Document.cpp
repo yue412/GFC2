@@ -1,6 +1,6 @@
 #include "GfcEngine/Document.h"
-#include "EntityClass.h"
-#include "Model.h"
+#include "GfcSchema\EntityClass.h"
+#include "GfcSchema\Model.h"
 #include "Common.h"
 #include "ContainerImp.h"
 #include <assert.h>

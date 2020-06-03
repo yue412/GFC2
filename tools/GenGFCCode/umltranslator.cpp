@@ -1,7 +1,7 @@
 #include "umltranslator.h"
-#include "model.h"
+#include "GfcSchema/Model.h"
 #include "umlreader.h"
-#include "buildintype.h"
+#include "GfcSchema/BuildinType.h"
 #include "codewriter.h"
 #include "expresswriter.h"
 #include <iostream>

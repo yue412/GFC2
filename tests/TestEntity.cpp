@@ -4,11 +4,11 @@
 #include "GfcEngine\PropValue.h"
 #include "GfcEngine\Document.h"
 #include "Common.h"
-#include "Model.h"
-#include "EntityClass.h"
-#include "EntityAttribute.h"
-#include "BuildinType.h"
-#include "TypeDefine.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/BuildinType.h"
+#include "GfcSchema/TypeDefine.h"
 
 TEST(TestEntity, Entity_create)
 {

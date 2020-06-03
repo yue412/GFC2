@@ -1,7 +1,7 @@
 #ifndef CONVERTER_H
 #define CONVERTER_H
 
-#include "SchemaMacro.h"
+#include "GfcSchema\SchemaMacro.h"
 #include <string>
 #include "AttributeValue.h"
 

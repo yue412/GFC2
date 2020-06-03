@@ -2,7 +2,7 @@
 #define ENUMTYPE_H
 
 #include <vector>
-#include "TypeObject.h"
+#include "GfcSchema\TypeObject.h"
 
 GFC_NAMESPACE_BEGIN
 
