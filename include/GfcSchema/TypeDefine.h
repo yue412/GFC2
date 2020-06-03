@@ -5,7 +5,7 @@
 
 GFC_NAMESPACE_BEGIN
 
-class CTypeDef : public CTypeObject
+class GFCSCHEMA_API CTypeDef : public CTypeObject
 {
 public:
     CTypeDef();

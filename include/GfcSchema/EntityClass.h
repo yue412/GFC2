@@ -14,7 +14,18 @@ class CClass;
 typedef std::vector<CClass*> CClassList;
 typedef std::vector<CAttribute*> CAttributeList;
 
-class CClass : public CTypeObject
+template class __declspec(dllexport) std::_Vector_val<std::_Simple_types<gfc::schema::CAttribute *>>;
+template class __declspec(dllexport) std::_Compressed_pair<std::_Wrap_alloc<std::allocator<gfc::schema::CAttribute *>>, std::_Vector_val<std::_Simple_types<gfc::schema::CAttribute *>>, true>;
+template class __declspec(dllexport) std::vector<gfc::schema::CAttribute *, std::allocator<gfc::schema::CAttribute *>>;
+template class __declspec(dllexport) std::_Vector_val<std::_Simple_types<gfc::schema::CClass *>>;
+template class __declspec(dllexport) std::_Compressed_pair<std::_Wrap_alloc<std::allocator<gfc::schema::CClass *>>, std::_Vector_val<std::_Simple_types<gfc::schema::CClass *>>, true>;
+template class __declspec(dllexport) std::vector<gfc::schema::CClass *, std::allocator<gfc::schema::CClass *>>;
+template class __declspec(dllexport) std::_Tree_val<std::_Tree_simple_types<std::pair<const std::wstring, std::size_t>>>;
+template class __declspec(dllexport) std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::pair<const std::wstring, std::size_t>, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::pair<const std::wstring, std::size_t>>>, true>;
+template class __declspec(dllexport) std::_Compressed_pair<std::less<std::wstring>, std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::pair<const std::wstring, std::size_t>, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::pair<const std::wstring, std::size_t>>>, true>, true>;
+template class __declspec(dllexport) std::map<std::wstring, std::size_t, std::less<std::wstring>, std::allocator<std::pair<const std::wstring, std::size_t>>>;
+
+class GFCSCHEMA_API CClass : public CTypeObject
 {
 public:
     CClass();

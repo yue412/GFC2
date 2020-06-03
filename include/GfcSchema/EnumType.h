@@ -6,7 +6,7 @@
 
 GFC_NAMESPACE_BEGIN
 
-class CEnumType : public CTypeObject
+class GFCSCHEMA_API CEnumType : public CTypeObject
 {
 public:
     CEnumType();

@@ -16,4 +16,6 @@ typedef int EntityRef;
 
 GFCENGINE_NAMESPACE_END
 
+//#pragma warning(disable:4251)
+
 #endif

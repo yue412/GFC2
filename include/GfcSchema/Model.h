@@ -9,7 +9,15 @@ GFC_NAMESPACE_BEGIN
 
 typedef std::vector<CTypeObject*> CTypeObjectList;
 
-class CModel
+template class __declspec(dllexport) std::_Vector_val<std::_Simple_types<gfc::schema::CTypeObject *>>;
+template class __declspec(dllexport) std::_Compressed_pair<std::_Wrap_alloc<std::allocator<gfc::schema::CTypeObject *>>, std::_Vector_val<std::_Simple_types<gfc::schema::CTypeObject *>>, true>;
+template class __declspec(dllexport) std::vector<gfc::schema::CTypeObject *, std::allocator<gfc::schema::CTypeObject *>>;
+template class __declspec(dllexport) std::_Tree_val<std::_Tree_simple_types<std::pair<const std::wstring, gfc::schema::CTypeObject *>>>;
+template class __declspec(dllexport) std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::pair<const std::wstring, gfc::schema::CTypeObject *>, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::pair<const std::wstring, gfc::schema::CTypeObject *>>>, true>;
+template class __declspec(dllexport) std::_Compressed_pair<std::less<std::wstring>, std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::pair<const std::wstring, gfc::schema::CTypeObject *>, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::pair<const std::wstring, gfc::schema::CTypeObject *>>>, true>, true>;
+template class __declspec(dllexport) std::map<std::wstring, gfc::schema::CTypeObject *, std::less<std::wstring>, std::allocator<std::pair<const std::wstring, gfc::schema::CTypeObject *>>>;
+
+class GFCSCHEMA_API CModel
 {
 public:
     CModel();

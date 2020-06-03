@@ -28,7 +28,7 @@ enum CDataTypeEnum
 };
 
 
-class CTypeObject
+class GFCSCHEMA_API CTypeObject
 {
 public:
     CTypeObject();
@@ -47,7 +47,7 @@ private:
     std::wstring m_sDocument;
 };
 
-bool lessTypeObject(CTypeObject* type1, CTypeObject* type2);
+bool GFCSCHEMA_API lessTypeObject(CTypeObject* type1, CTypeObject* type2);
 
 GFC_NAMESPACE_END
 

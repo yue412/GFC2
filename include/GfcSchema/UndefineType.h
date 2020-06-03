@@ -5,7 +5,7 @@
 
 GFC_NAMESPACE_BEGIN
 
-class CUndefineType : public CTypeObject
+class GFCSCHEMA_API CUndefineType : public CTypeObject
 {
 public:
     CUndefineType();

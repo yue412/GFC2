@@ -5,7 +5,7 @@
 
 GFC_NAMESPACE_BEGIN
 
-class CBuildinType : public CTypeObject
+class GFCSCHEMA_API CBuildinType : public CTypeObject
 {
 public:
     CBuildinType();
@@ -14,28 +14,28 @@ public:
     virtual CDataTypeEnum getDataType() const = 0;
 };
 
-class CBooleanType : public CBuildinType
+class GFCSCHEMA_API CBooleanType : public CBuildinType
 {
 public:
     CBooleanType() : CBuildinType(L"BOOLEAN") {}
     virtual CDataTypeEnum getDataType() const { return EDT_BOOLEAN; }
 };
 
-class CIntegerType : public CBuildinType
+class GFCSCHEMA_API CIntegerType : public CBuildinType
 {
 public:
     CIntegerType() : CBuildinType(L"INTEGER") {}
     virtual CDataTypeEnum getDataType() const { return EDT_INTEGER; }
 };
 
-class CRealType : public CBuildinType
+class GFCSCHEMA_API CRealType : public CBuildinType
 {
 public:
     CRealType() : CBuildinType(L"REAL") {}
     virtual CDataTypeEnum getDataType() const { return EDT_DOUBLE; }
 };
 
-class CStringType : public CBuildinType
+class GFCSCHEMA_API CStringType : public CBuildinType
 {
 public:
     CStringType() : CBuildinType(L"STRING") {}

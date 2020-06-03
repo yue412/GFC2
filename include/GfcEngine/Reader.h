@@ -24,10 +24,10 @@ class ReaderImp;
 //typedef void (*FieldCacheProc) ();
 //typedef std::map<wstring, std::pair<EntityFactory*, FieldCacheInitializer*>> SchemaInfoMap;
 
-struct GFCENGINE_API std::_Container_base12;
-template class GFCENGINE_API std::_Vector_val<std::_Simple_types<std::wstring>>;
-template class GFCENGINE_API std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::wstring>>, std::_Vector_val<std::_Simple_types<std::wstring>>, true>;
-template class GFCENGINE_API std::vector<std::wstring, std::allocator<std::wstring>>;
+struct __declspec(dllexport) std::_Container_base12;
+template class __declspec(dllexport) std::_Vector_val<std::_Simple_types<std::wstring>>;
+template class __declspec(dllexport) std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::wstring>>, std::_Vector_val<std::_Simple_types<std::wstring>>, true>;
+template class __declspec(dllexport) std::vector<std::wstring, std::allocator<std::wstring>>;
 
 class GFCENGINE_API Reader
 {

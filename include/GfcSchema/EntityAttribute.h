@@ -8,7 +8,7 @@ GFC_NAMESPACE_BEGIN
 
 class CTypeObject;
 
-class CAttribute
+class GFCSCHEMA_API CAttribute
 {
 public:
     CAttribute();
