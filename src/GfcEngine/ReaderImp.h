@@ -31,7 +31,7 @@ public:
     virtual ~ReaderImp(void);
     bool open(const std::wstring& sFileName);
     void close();
-    void setFactory(EntityFactory* pFactory) { m_pFactory = pFactory; }
+    void setModel(gfc2::schema::CModel* pModel) { m_pModel = pModel; }
 
     virtual bool preRead(const std::wstring& sFileName) = 0; // 判断是否是可以读的格式
     virtual void read(Document* pDoc,std::vector<std::wstring>& errors) = 0;
@@ -42,7 +42,6 @@ public:
 protected:
     virtual bool getIndex(EntityInfo& oInfo) = 0;//顺序读取index
     virtual Entity* createEntity(EntityInfo& oInfo) = 0;
-    EntityFactory* factory() { return m_pFactory; }
     gfc2::schema::CModel* schema();
 
     FileMap* m_pFileMap;
@@ -54,7 +53,7 @@ private:
     //std::vector<EntityInfo> m_oEntityInfos; // 索引 保证有序
     //std::map<std::string, std::vector<std::size_t>*> m_oEntityInfoMap;
     ContainerImp<EntityInfo>* m_pContainer;
-    EntityFactory* m_pFactory;
+    gfc2::schema::CModel* m_pModel;
 };
 
 struct EntityInfo

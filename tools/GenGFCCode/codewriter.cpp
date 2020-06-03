@@ -198,7 +198,7 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
     std::set<std::wstring> oIncludeSet;
     int nCount = pTypeObject->getAttributeCount();
     oFile.addInclude(L"GfcClasses.h");
-    oFile.addInclude(L"GfcEngine/EntityFactory.h");
+    //oFile.addInclude(L"GfcEngine/EntityFactory.h");
 //    if (nCount > 0)
 //        oFile.addInclude(L"vector", true);
 //    oFile.addInclude("google/protobuf/io/coded_stream.h", true);
@@ -1306,7 +1306,7 @@ CppClass *CCodeWriter::createCppClass(CClass *pTypeObject, int nTypeId)
     std::wstring sName = pTypeObject->getName();
     CppClass* pClass = new CppClass(sName, AT_PUBLIC, getParentClassCode(pTypeObject));
     pClass->setExportFlag(L"GFCCLASSES_API");
-    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%s,gfc2::engine::EntityFactory)", 
+    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%s, gfc2::engine::Entity)", 
         sName.c_str()
     ));
 //    CFunction* pFunc = NULL;

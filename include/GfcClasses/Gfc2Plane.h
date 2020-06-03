@@ -2,7 +2,6 @@
 #define GFC2PLANE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Surface.h"
 #include "Gfc2Vector3d.h"
 #include "Gfc2Intervald.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2Plane: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Plane,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Plane, gfc2::engine::Entity)
 public:
     Gfc2Plane();
     Gfc2Plane(bool bSetSchema);

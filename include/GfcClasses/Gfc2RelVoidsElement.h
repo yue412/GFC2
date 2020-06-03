@@ -2,14 +2,13 @@
 #define GFC2RELVOIDSELEMENT_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2RelDecomposes.h"
 #include "Gfc2Element.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RelVoidsElement: public Gfc2RelDecomposes
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelVoidsElement,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2RelVoidsElement, gfc2::engine::Entity)
 public:
     Gfc2RelVoidsElement();
     Gfc2RelVoidsElement(bool bSetSchema);

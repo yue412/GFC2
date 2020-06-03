@@ -2,14 +2,13 @@
 #define GFC2GEOPROPERTY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2SingleProperty.h"
 #include "Gfc2Geometry.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2GeoProperty: public Gfc2SingleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2GeoProperty,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2GeoProperty, gfc2::engine::Entity)
 public:
     Gfc2GeoProperty();
     Gfc2GeoProperty(bool bSetSchema);

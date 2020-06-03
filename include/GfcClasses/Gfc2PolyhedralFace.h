@@ -2,7 +2,6 @@
 #define GFC2POLYHEDRALFACE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Topology.h"
 #include "Gfc2PolyhedralLoop.h"
 #include "Gfc2PlaneCoef.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2PolyhedralFace: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2PolyhedralFace,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2PolyhedralFace, gfc2::engine::Entity)
 public:
     Gfc2PolyhedralFace();
     Gfc2PolyhedralFace(bool bSetSchema);

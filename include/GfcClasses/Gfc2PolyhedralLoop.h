@@ -2,14 +2,13 @@
 #define GFC2POLYHEDRALLOOP_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Topology.h"
 #include "Gfc2PolyhedralEdge.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2PolyhedralLoop: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2PolyhedralLoop,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2PolyhedralLoop, gfc2::engine::Entity)
 public:
     Gfc2PolyhedralLoop();
     Gfc2PolyhedralLoop(bool bSetSchema);

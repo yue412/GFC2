@@ -2,7 +2,6 @@
 #define GFC2COMPOSITECURVE3DSWEPTSOLIDSHAPE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2SweptAreaSolidShape.h"
 #include "Gfc2Curve3d.h"
 #include "Gfc2Surface.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2CompositeCurve3dSweptSolidShape: public Gfc2SweptAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2CompositeCurve3dSweptSolidShape,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2CompositeCurve3dSweptSolidShape, gfc2::engine::Entity)
 public:
     Gfc2CompositeCurve3dSweptSolidShape();
     Gfc2CompositeCurve3dSweptSolidShape(bool bSetSchema);

@@ -2,7 +2,6 @@
 #define GFC2LIGHTSOURCE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2RepresentationItem.h"
 #include "Gfc2Color.h"
 #include "TypeDef.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2LightSource: public Gfc2RepresentationItem
 {
-GFCENGINE_DEC_OBJECT(Gfc2LightSource,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2LightSource, gfc2::engine::Entity)
 public:
     Gfc2LightSource();
     Gfc2LightSource(bool bSetSchema);

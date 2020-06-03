@@ -2,14 +2,13 @@
 #define GFC2DOUBLEPROPERTY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2SingleProperty.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2DoubleProperty: public Gfc2SingleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2DoubleProperty,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2DoubleProperty, gfc2::engine::Entity)
 public:
     Gfc2DoubleProperty();
     Gfc2DoubleProperty(bool bSetSchema);

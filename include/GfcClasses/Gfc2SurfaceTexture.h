@@ -2,7 +2,6 @@
 #define GFC2SURFACETEXTURE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2String.h"
 #include "Gfc2Matrix.h"
 #include "TypeDef.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2SurfaceTexture: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2SurfaceTexture,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2SurfaceTexture, gfc2::engine::Entity)
 public:
     Gfc2SurfaceTexture();
     Gfc2SurfaceTexture(bool bSetSchema);

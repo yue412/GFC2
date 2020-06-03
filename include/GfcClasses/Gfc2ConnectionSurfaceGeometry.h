@@ -2,14 +2,13 @@
 #define GFC2CONNECTIONSURFACEGEOMETRY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2ConnectionGeometry.h"
 #include "Gfc2Surface.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2ConnectionSurfaceGeometry: public Gfc2ConnectionGeometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2ConnectionSurfaceGeometry,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2ConnectionSurfaceGeometry, gfc2::engine::Entity)
 public:
     Gfc2ConnectionSurfaceGeometry();
     Gfc2ConnectionSurfaceGeometry(bool bSetSchema);

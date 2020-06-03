@@ -2,13 +2,12 @@
 #define GFC2RELATIONSHIP_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RelationShip: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelationShip,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2RelationShip, gfc2::engine::Entity)
 public:
     Gfc2RelationShip();
     Gfc2RelationShip(bool bSetSchema);

@@ -2,7 +2,6 @@
 #define GFC2INDEXEDTEXTUREMAP_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2PrimitiveRenderable.h"
 #include "Gfc2Vector2d.h"
 #include "Gfc2SurfaceTexture.h"
@@ -11,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2IndexedTextureMap: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2IndexedTextureMap,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2IndexedTextureMap, gfc2::engine::Entity)
 public:
     Gfc2IndexedTextureMap();
     Gfc2IndexedTextureMap(bool bSetSchema);

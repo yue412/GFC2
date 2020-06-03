@@ -2,14 +2,13 @@
 #define GFC2INTERNALCHART_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2InternalPt.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2InternalChart: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2InternalChart,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2InternalChart, gfc2::engine::Entity)
 public:
     Gfc2InternalChart();
     Gfc2InternalChart(bool bSetSchema);

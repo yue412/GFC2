@@ -2,7 +2,6 @@
 #define GFC2ARC2D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve2d.h"
 #include "Gfc2Vector2d.h"
 #include "Gfc2Intervald.h"
@@ -11,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2Arc2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2Arc2d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Arc2d, gfc2::engine::Entity)
 public:
     Gfc2Arc2d();
     Gfc2Arc2d(bool bSetSchema);

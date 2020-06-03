@@ -21,6 +21,8 @@ public:
     CModel* getRefModel() { return m_pRefModel; }
     void setRefModel(CModel* pRefModel) { m_pRefModel = pRefModel; }
     void clear();
+    std::wstring version() { return m_sVersion; }
+    void setVersion(const std::wstring& sVersion) { m_sVersion = sVersion; }
 
 	// 扩展接口，只生成指定的gfc文件，xuxp,2017-6-19
     void getTypeObjectList(CTypeObjectList& oTypeList/*,QStringList files = QStringList()*/);
@@ -29,6 +31,7 @@ private:
     typedef std::map<std::wstring, CTypeObject*> CTypeMap;
     CTypeMap m_oTypeIndex;
     CModel* m_pRefModel;
+    std::wstring m_sVersion;
 };
 
 GFC_NAMESPACE_END

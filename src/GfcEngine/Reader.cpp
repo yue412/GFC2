@@ -5,7 +5,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Reader::Reader(EntityFactory* pFactory): m_pImp(nullptr), m_pFactory(pFactory)
+Reader::Reader(gfc2::schema::CModel* pModel): m_pImp(nullptr), m_pModel(pModel)
 {
 }
 
@@ -26,7 +26,7 @@ bool Reader::open(const std::wstring & sFileName)
             if (pImp->preRead(sFileName))
             {
                 m_pImp = pImp;
-                m_pImp->setFactory(m_pFactory);
+                m_pImp->setModel(m_pModel);
                 return m_pImp->open(sFileName);
             }
             else

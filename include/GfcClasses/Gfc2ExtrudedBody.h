@@ -2,7 +2,6 @@
 #define GFC2EXTRUDEDBODY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2PrimitiveBody.h"
 #include "Gfc2Coordinates3d.h"
 #include "Gfc2Polygon.h"
@@ -11,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2ExtrudedBody: public Gfc2PrimitiveBody
 {
-GFCENGINE_DEC_OBJECT(Gfc2ExtrudedBody,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2ExtrudedBody, gfc2::engine::Entity)
 public:
     Gfc2ExtrudedBody();
     Gfc2ExtrudedBody(bool bSetSchema);

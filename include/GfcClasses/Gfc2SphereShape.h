@@ -2,14 +2,13 @@
 #define GFC2SPHERESHAPE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2PrimitiveShape.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2SphereShape: public Gfc2PrimitiveShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2SphereShape,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2SphereShape, gfc2::engine::Entity)
 public:
     Gfc2SphereShape();
     Gfc2SphereShape(bool bSetSchema);

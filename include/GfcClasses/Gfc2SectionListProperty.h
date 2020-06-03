@@ -2,14 +2,13 @@
 #define GFC2SECTIONLISTPROPERTY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2ListProperty.h"
 #include "Gfc2Section.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2SectionListProperty: public Gfc2ListProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2SectionListProperty,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2SectionListProperty, gfc2::engine::Entity)
 public:
     Gfc2SectionListProperty();
     Gfc2SectionListProperty(bool bSetSchema);

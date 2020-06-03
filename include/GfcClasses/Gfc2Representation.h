@@ -2,14 +2,13 @@
 #define GFC2REPRESENTATION_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2String.h"
 #include "Gfc2RepresentationItem.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Representation: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2Representation,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Representation, gfc2::engine::Entity)
 public:
     Gfc2Representation();
     Gfc2Representation(bool bSetSchema);

@@ -5,10 +5,10 @@
 #include "EntityAttribute.h"
 #include "EnumType.h"
 #include "Common.h"
-#include "GfcEngine\EntityFactory.h"
 #include "GfcEngine\Entity.h"
 #include "GfcEngine\PropValue.h"
 #include "GfcEngine\Document.h"
+#include "GfcEngine\GfcEngineUtils.h"
 #include <fstream>
 #include <stack>
 
@@ -73,7 +73,7 @@ void ReaderTextImp::read( Document* pDoc,std::vector<std::wstring>& errors )
         std::wstring sError;
         if (parseLine(sLine, nId, sName, sContent))
         {
-            if (Entity* pEntity = factory()->create(toWstring(sName)))
+            if (Entity* pEntity = GfcEngineUtils::createEntity(schema(), toWstring(sName)))
             {
                 if (!parse(sContent, pEntity, sError))
                 {
@@ -198,7 +198,7 @@ Entity * ReaderTextImp::createEntity(EntityInfo & oInfo)
         std::wstring sError;
         parseLine(sLine, nId, sName, sContext);
 
-        pEntity = factory()->create(toWstring(sName));
+        pEntity = GfcEngineUtils::createEntity(schema(), toWstring(sName));
         if (pEntity)
         {
             //pEntity->setID(oInfo.id);

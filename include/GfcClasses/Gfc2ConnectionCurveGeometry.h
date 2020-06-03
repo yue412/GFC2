@@ -2,14 +2,13 @@
 #define GFC2CONNECTIONCURVEGEOMETRY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2ConnectionGeometry.h"
 #include "Gfc2Curve3d.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2ConnectionCurveGeometry: public Gfc2ConnectionGeometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2ConnectionCurveGeometry,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2ConnectionCurveGeometry, gfc2::engine::Entity)
 public:
     Gfc2ConnectionCurveGeometry();
     Gfc2ConnectionCurveGeometry(bool bSetSchema);

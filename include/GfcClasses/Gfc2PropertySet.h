@@ -2,13 +2,12 @@
 #define GFC2PROPERTYSET_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Property.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2PropertySet: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2PropertySet,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2PropertySet, gfc2::engine::Entity)
 public:
     Gfc2PropertySet();
     Gfc2PropertySet(bool bSetSchema);

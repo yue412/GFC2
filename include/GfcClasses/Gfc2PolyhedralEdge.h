@@ -2,14 +2,13 @@
 #define GFC2POLYHEDRALEDGE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Topology.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2PolyhedralEdge: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2PolyhedralEdge,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2PolyhedralEdge, gfc2::engine::Entity)
 public:
     Gfc2PolyhedralEdge();
     Gfc2PolyhedralEdge(bool bSetSchema);

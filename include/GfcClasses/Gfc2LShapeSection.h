@@ -2,14 +2,13 @@
 #define GFC2LSHAPESECTION_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2ParameterizedSection.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2LShapeSection: public Gfc2ParameterizedSection
 {
-GFCENGINE_DEC_OBJECT(Gfc2LShapeSection,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2LShapeSection, gfc2::engine::Entity)
 public:
     Gfc2LShapeSection();
     Gfc2LShapeSection(bool bSetSchema);

@@ -2,13 +2,12 @@
 #define GFC2COMPLEXPROPERTY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Property.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2ComplexProperty: public Gfc2Property
 {
-GFCENGINE_DEC_OBJECT(Gfc2ComplexProperty,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2ComplexProperty, gfc2::engine::Entity)
 public:
     Gfc2ComplexProperty();
     Gfc2ComplexProperty(bool bSetSchema);

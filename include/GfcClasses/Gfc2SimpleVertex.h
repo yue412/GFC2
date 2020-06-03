@@ -2,7 +2,6 @@
 #define GFC2SIMPLEVERTEX_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Topology.h"
 #include "Gfc2Vector2d.h"
 #include "TypeDef.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2SimpleVertex: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2SimpleVertex,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2SimpleVertex, gfc2::engine::Entity)
 public:
     Gfc2SimpleVertex();
     Gfc2SimpleVertex(bool bSetSchema);

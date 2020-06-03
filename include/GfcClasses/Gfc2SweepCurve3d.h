@@ -2,7 +2,6 @@
 #define GFC2SWEEPCURVE3D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve3d.h"
 #include "Gfc2Vector3d.h"
 #include "Gfc2Vector2d.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2SweepCurve3d: public Gfc2Curve3d
 {
-GFCENGINE_DEC_OBJECT(Gfc2SweepCurve3d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2SweepCurve3d, gfc2::engine::Entity)
 public:
     Gfc2SweepCurve3d();
     Gfc2SweepCurve3d(bool bSetSchema);

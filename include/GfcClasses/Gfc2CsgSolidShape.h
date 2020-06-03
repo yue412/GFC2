@@ -2,14 +2,13 @@
 #define GFC2CSGSOLIDSHAPE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2SolidShape.h"
 #include "Gfc2BooleanResult.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2CsgSolidShape: public Gfc2SolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2CsgSolidShape,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2CsgSolidShape, gfc2::engine::Entity)
 public:
     Gfc2CsgSolidShape();
     Gfc2CsgSolidShape(bool bSetSchema);

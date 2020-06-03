@@ -2,13 +2,12 @@
 #define GFC2COLOR_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Color: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2Color,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Color, gfc2::engine::Entity)
 public:
     Gfc2Color();
     Gfc2Color(bool bSetSchema);

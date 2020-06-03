@@ -2,7 +2,6 @@
 #define GFC2BREPBODY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Body.h"
 #include "Gfc2Face.h"
 #include "Gfc2Edge.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2BrepBody: public Gfc2Body
 {
-GFCENGINE_DEC_OBJECT(Gfc2BrepBody,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2BrepBody, gfc2::engine::Entity)
 public:
     Gfc2BrepBody();
     Gfc2BrepBody(bool bSetSchema);

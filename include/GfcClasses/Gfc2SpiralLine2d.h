@@ -2,7 +2,6 @@
 #define GFC2SPIRALLINE2D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve2d.h"
 #include "Gfc2Coordinates2d.h"
 #include "Gfc2Intervald.h"
@@ -11,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2SpiralLine2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2SpiralLine2d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2SpiralLine2d, gfc2::engine::Entity)
 public:
     Gfc2SpiralLine2d();
     Gfc2SpiralLine2d(bool bSetSchema);

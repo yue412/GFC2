@@ -2,7 +2,6 @@
 #define GFC2LIGHTSOURCEPOSITIONAL_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2LightSource.h"
 #include "Gfc2Vector3d.h"
 #include "TypeDef.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2LightSourcePositional: public Gfc2LightSource
 {
-GFCENGINE_DEC_OBJECT(Gfc2LightSourcePositional,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2LightSourcePositional, gfc2::engine::Entity)
 public:
     Gfc2LightSourcePositional();
     Gfc2LightSourcePositional(bool bSetSchema);

@@ -2,7 +2,6 @@
 #define GFC2PLANECURVE3D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve3d.h"
 #include "Gfc2Curve2d.h"
 #include "Gfc2PlaneInfo.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2PlaneCurve3d: public Gfc2Curve3d
 {
-GFCENGINE_DEC_OBJECT(Gfc2PlaneCurve3d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2PlaneCurve3d, gfc2::engine::Entity)
 public:
     Gfc2PlaneCurve3d();
     Gfc2PlaneCurve3d(bool bSetSchema);

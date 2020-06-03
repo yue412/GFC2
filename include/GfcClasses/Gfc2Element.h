@@ -2,7 +2,6 @@
 #define GFC2ELEMENT_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Object.h"
 #include "Gfc2Representation.h"
 #include "Gfc2ElementShape.h"
@@ -11,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2Element: public Gfc2Object
 {
-GFCENGINE_DEC_OBJECT(Gfc2Element,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Element, gfc2::engine::Entity)
 public:
     Gfc2Element();
     Gfc2Element(bool bSetSchema);

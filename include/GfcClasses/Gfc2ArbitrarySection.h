@@ -2,14 +2,13 @@
 #define GFC2ARBITRARYSECTION_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Section.h"
 #include "Gfc2Polygon.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2ArbitrarySection: public Gfc2Section
 {
-GFCENGINE_DEC_OBJECT(Gfc2ArbitrarySection,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2ArbitrarySection, gfc2::engine::Entity)
 public:
     Gfc2ArbitrarySection();
     Gfc2ArbitrarySection(bool bSetSchema);

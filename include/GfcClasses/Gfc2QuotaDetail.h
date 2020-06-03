@@ -2,14 +2,13 @@
 #define GFC2QUOTADETAIL_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2String.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2QuotaDetail: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2QuotaDetail,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2QuotaDetail, gfc2::engine::Entity)
 public:
     Gfc2QuotaDetail();
     Gfc2QuotaDetail(bool bSetSchema);

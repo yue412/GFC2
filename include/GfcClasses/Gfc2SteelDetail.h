@@ -2,14 +2,13 @@
 #define GFC2STEELDETAIL_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2String.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2SteelDetail: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2SteelDetail,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2SteelDetail, gfc2::engine::Entity)
 public:
     Gfc2SteelDetail();
     Gfc2SteelDetail(bool bSetSchema);

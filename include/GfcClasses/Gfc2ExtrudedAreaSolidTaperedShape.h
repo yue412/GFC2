@@ -2,14 +2,13 @@
 #define GFC2EXTRUDEDAREASOLIDTAPEREDSHAPE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2ExtrudedAreaSolidShape.h"
 #include "Gfc2Section.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2ExtrudedAreaSolidTaperedShape: public Gfc2ExtrudedAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2ExtrudedAreaSolidTaperedShape,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2ExtrudedAreaSolidTaperedShape, gfc2::engine::Entity)
 public:
     Gfc2ExtrudedAreaSolidTaperedShape();
     Gfc2ExtrudedAreaSolidTaperedShape(bool bSetSchema);

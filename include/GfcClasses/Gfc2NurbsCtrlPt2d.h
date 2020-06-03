@@ -2,14 +2,13 @@
 #define GFC2NURBSCTRLPT2D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Vector2d.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2NurbsCtrlPt2d: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2NurbsCtrlPt2d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2NurbsCtrlPt2d, gfc2::engine::Entity)
 public:
     Gfc2NurbsCtrlPt2d();
     Gfc2NurbsCtrlPt2d(bool bSetSchema);

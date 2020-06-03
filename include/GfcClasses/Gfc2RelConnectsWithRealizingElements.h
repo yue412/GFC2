@@ -2,14 +2,13 @@
 #define GFC2RELCONNECTSWITHREALIZINGELEMENTS_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2RelConnectsElements.h"
 #include "Gfc2Element.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RelConnectsWithRealizingElements: public Gfc2RelConnectsElements
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelConnectsWithRealizingElements,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2RelConnectsWithRealizingElements, gfc2::engine::Entity)
 public:
     Gfc2RelConnectsWithRealizingElements();
     Gfc2RelConnectsWithRealizingElements(bool bSetSchema);

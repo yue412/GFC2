@@ -2,14 +2,13 @@
 #define GFC2VECTOR2D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Geometry.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Vector2d: public Gfc2Geometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2Vector2d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Vector2d, gfc2::engine::Entity)
 public:
     Gfc2Vector2d();
     Gfc2Vector2d(bool bSetSchema);

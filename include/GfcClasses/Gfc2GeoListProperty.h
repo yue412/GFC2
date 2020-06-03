@@ -2,14 +2,13 @@
 #define GFC2GEOLISTPROPERTY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2ListProperty.h"
 #include "Gfc2Geometry.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2GeoListProperty: public Gfc2ListProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2GeoListProperty,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2GeoListProperty, gfc2::engine::Entity)
 public:
     Gfc2GeoListProperty();
     Gfc2GeoListProperty(bool bSetSchema);

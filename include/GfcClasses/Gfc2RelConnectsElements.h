@@ -2,7 +2,6 @@
 #define GFC2RELCONNECTSELEMENTS_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2RelConnects.h"
 #include "Gfc2Element.h"
 #include "Gfc2ConnectionGeometry.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2RelConnectsElements: public Gfc2RelConnects
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelConnectsElements,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2RelConnectsElements, gfc2::engine::Entity)
 public:
     Gfc2RelConnectsElements();
     Gfc2RelConnectsElements(bool bSetSchema);

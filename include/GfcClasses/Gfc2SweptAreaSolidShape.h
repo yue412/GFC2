@@ -2,14 +2,13 @@
 #define GFC2SWEPTAREASOLIDSHAPE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2SolidShape.h"
 #include "Gfc2Section.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2SweptAreaSolidShape: public Gfc2SolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2SweptAreaSolidShape,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2SweptAreaSolidShape, gfc2::engine::Entity)
 public:
     Gfc2SweptAreaSolidShape();
     Gfc2SweptAreaSolidShape(bool bSetSchema);

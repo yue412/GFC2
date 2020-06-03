@@ -2,7 +2,6 @@
 #define GFC2EDGE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Topology.h"
 #include "Gfc2Curve3d.h"
 #include "TypeDef.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2Edge: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2Edge,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Edge, gfc2::engine::Entity)
 public:
     Gfc2Edge();
     Gfc2Edge(bool bSetSchema);

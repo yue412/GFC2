@@ -2,14 +2,13 @@
 #define GFC2RECTANGLESECTION_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2ParameterizedSection.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RectangleSection: public Gfc2ParameterizedSection
 {
-GFCENGINE_DEC_OBJECT(Gfc2RectangleSection,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2RectangleSection, gfc2::engine::Entity)
 public:
     Gfc2RectangleSection();
     Gfc2RectangleSection(bool bSetSchema);

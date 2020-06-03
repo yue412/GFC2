@@ -2,14 +2,13 @@
 #define GFC2LIGHTSOURCEDIRECTIONAL_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2LightSource.h"
 #include "Gfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2LightSourceDirectional: public Gfc2LightSource
 {
-GFCENGINE_DEC_OBJECT(Gfc2LightSourceDirectional,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2LightSourceDirectional, gfc2::engine::Entity)
 public:
     Gfc2LightSourceDirectional();
     Gfc2LightSourceDirectional(bool bSetSchema);

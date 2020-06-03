@@ -2,7 +2,6 @@
 #define GFC2HALFSPACESOLIDSHAPE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2SolidShape.h"
 #include "Gfc2Surface.h"
 #include "TypeDef.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2HalfSpaceSolidShape: public Gfc2SolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2HalfSpaceSolidShape,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2HalfSpaceSolidShape, gfc2::engine::Entity)
 public:
     Gfc2HalfSpaceSolidShape();
     Gfc2HalfSpaceSolidShape(bool bSetSchema);

@@ -2,14 +2,13 @@
 #define GFC2BILLTOTAL_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2String.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2BillTotal: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2BillTotal,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2BillTotal, gfc2::engine::Entity)
 public:
     Gfc2BillTotal();
     Gfc2BillTotal(bool bSetSchema);

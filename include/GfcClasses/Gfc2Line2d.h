@@ -2,14 +2,13 @@
 #define GFC2LINE2D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve2d.h"
 #include "Gfc2Vector2d.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Line2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2Line2d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Line2d, gfc2::engine::Entity)
 public:
     Gfc2Line2d();
     Gfc2Line2d(bool bSetSchema);

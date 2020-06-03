@@ -2,7 +2,6 @@
 #define GFC2PRIMITIVERENDERABLE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2RepresentationItem.h"
 #include "Gfc2Vector3d.h"
 #include "TypeDef.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2PrimitiveRenderable: public Gfc2RepresentationItem
 {
-GFCENGINE_DEC_OBJECT(Gfc2PrimitiveRenderable,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2PrimitiveRenderable, gfc2::engine::Entity)
 public:
     Gfc2PrimitiveRenderable();
     Gfc2PrimitiveRenderable(bool bSetSchema);

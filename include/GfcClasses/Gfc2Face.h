@@ -2,7 +2,6 @@
 #define GFC2FACE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2CommonPolygonEx.h"
 #include "Gfc2Surface.h"
 #include "Gfc2Box3d.h"
@@ -11,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2Face: public Gfc2CommonPolygonEx
 {
-GFCENGINE_DEC_OBJECT(Gfc2Face,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Face, gfc2::engine::Entity)
 public:
     Gfc2Face();
     Gfc2Face(bool bSetSchema);

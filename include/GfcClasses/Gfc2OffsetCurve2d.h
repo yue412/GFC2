@@ -2,14 +2,13 @@
 #define GFC2OFFSETCURVE2D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve2d.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2OffsetCurve2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2OffsetCurve2d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2OffsetCurve2d, gfc2::engine::Entity)
 public:
     Gfc2OffsetCurve2d();
     Gfc2OffsetCurve2d(bool bSetSchema);

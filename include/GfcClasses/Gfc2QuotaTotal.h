@@ -2,13 +2,12 @@
 #define GFC2QUOTATOTAL_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2String.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2QuotaTotal: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2QuotaTotal,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2QuotaTotal, gfc2::engine::Entity)
 public:
     Gfc2QuotaTotal();
     Gfc2QuotaTotal(bool bSetSchema);

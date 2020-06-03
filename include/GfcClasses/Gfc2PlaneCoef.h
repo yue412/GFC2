@@ -2,13 +2,12 @@
 #define GFC2PLANECOEF_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2PlaneCoef: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2PlaneCoef,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2PlaneCoef, gfc2::engine::Entity)
 public:
     Gfc2PlaneCoef();
     Gfc2PlaneCoef(bool bSetSchema);

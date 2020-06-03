@@ -2,14 +2,13 @@
 #define GFC2CONNECTIONVOLUMEGEOMETRY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2ConnectionGeometry.h"
 #include "Gfc2Body.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2ConnectionVolumeGeometry: public Gfc2ConnectionGeometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2ConnectionVolumeGeometry,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2ConnectionVolumeGeometry, gfc2::engine::Entity)
 public:
     Gfc2ConnectionVolumeGeometry();
     Gfc2ConnectionVolumeGeometry(bool bSetSchema);

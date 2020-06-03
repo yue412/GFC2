@@ -6,6 +6,7 @@
 #include "GfcEngine\GfcEngine.h"
 #include "GfcEngine\Property.h"
 #include "GfcEngine\Object.h"
+#include "GfcEngine\SysMarco.h"
 
 namespace gfc2 {
     namespace schema {
@@ -25,6 +26,7 @@ typedef std::shared_ptr<Entity> EntityPtr;
 
 class GFCENGINE_API Entity: public Object
 {
+    GFCENGINE_DEC_FACTORY(Entity, 0, std::wstring)
 public:
     Entity(void);
     virtual ~Entity(void);

@@ -2,7 +2,6 @@
 #define GFC2IMAGECURVE3D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve3d.h"
 #include "Gfc2Curve2d.h"
 #include "Gfc2Surface.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2ImageCurve3d: public Gfc2Curve3d
 {
-GFCENGINE_DEC_OBJECT(Gfc2ImageCurve3d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2ImageCurve3d, gfc2::engine::Entity)
 public:
     Gfc2ImageCurve3d();
     Gfc2ImageCurve3d(bool bSetSchema);

@@ -2,14 +2,13 @@
 #define GFC2STRINGPROPERTY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2SingleProperty.h"
 #include "Gfc2String.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2StringProperty: public Gfc2SingleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2StringProperty,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2StringProperty, gfc2::engine::Entity)
 public:
     Gfc2StringProperty();
     Gfc2StringProperty(bool bSetSchema);

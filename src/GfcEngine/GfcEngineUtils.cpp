@@ -1,34 +1,12 @@
 #include <assert.h>
 #include "GfcEngine\GfcEngineUtils.h"
-#include "GfcEngine\EntityFactory.h"
+#include "GfcEngine\Entity.h"
 #include "Model.h"
 #include "Common.h"
 #include "Parser.h"
 #include "Scanner.h"
 
 GFCENGINE_NAMESPACE_BEGIN
-
-EntityFactory * GfcEngineUtils::createFactory(const std::wstring & sFileName)
-{
-    auto pModel = new gfc2::schema::CModel();
-    if (loadSchema(sFileName, pModel))
-        return new EntityFactory(pModel);
-    else {
-        delete pModel;
-        return nullptr;
-    }
-}
-
-EntityFactory * GfcEngineUtils::createFactory(const char * buf, int len)
-{
-    auto pModel = new gfc2::schema::CModel();
-    if (loadSchema(buf, len, pModel))
-        return new EntityFactory(pModel);
-    else {
-        delete pModel;
-        return nullptr;
-    }
-}
 
 bool GfcEngineUtils::loadSchema(const std::wstring & sFileName, gfc2::schema::CModel * pModel)
 {
@@ -77,6 +55,27 @@ bool GfcEngineUtils::loadSchema(const char * buf, int len, gfc2::schema::CModel 
         return false;
     }
     return true;
+}
+
+Entity * GfcEngineUtils::createEntity(gfc2::schema::CModel* pModel, const std::wstring & sName)
+{
+    auto pEntity = Entity::GetFactory()->Create(sName);
+    if (pEntity)
+        return dynamic_cast<Entity*>(pEntity);
+    assert(pModel);
+    if (pModel == nullptr)
+        return nullptr;
+    auto pType = pModel->findTypeObject(sName);
+    if (pType && pType->getDataType() == gfc2::schema::EDT_ENTITY)
+    {
+        Entity* pEntity = new Entity;
+        pEntity->setSchema(pType);
+        return pEntity;
+    }
+    else
+    {
+        return nullptr;
+    }
 }
 
 GFCENGINE_NAMESPACE_END

@@ -12,6 +12,8 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
+GFCENGINE_IMP_FACTORY(Entity, 0)
+
 Entity::Entity(void): m_pContainer(nullptr), m_pSchema(nullptr), m_pProps(nullptr)
 {
     m_pProps = new std::vector<Property*>();

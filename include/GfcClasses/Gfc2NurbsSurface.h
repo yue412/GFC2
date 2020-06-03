@@ -2,7 +2,6 @@
 #define GFC2NURBSSURFACE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Surface.h"
 #include "Gfc2NurbsCtrlPt3d.h"
 #include "TypeDef.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2NurbsSurface: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2NurbsSurface,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2NurbsSurface, gfc2::engine::Entity)
 public:
     Gfc2NurbsSurface();
     Gfc2NurbsSurface(bool bSetSchema);

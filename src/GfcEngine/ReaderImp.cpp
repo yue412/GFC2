@@ -1,5 +1,4 @@
 #include "GfcEngine\Reader.h"
-#include "GfcEngine\EntityFactory.h"
 #include "ContainerImp.h"
 #include "ReaderImp.h"
 #include "FileMap.h"
@@ -27,7 +26,7 @@ private:
     ReaderImp* m_pReader;
 };
 
-ReaderImp::ReaderImp() : m_pFileMap(nullptr), m_pFactory(nullptr), m_pContainer(nullptr)
+ReaderImp::ReaderImp() : m_pFileMap(nullptr), m_pModel(nullptr), m_pContainer(nullptr)
 {
 }
 
@@ -110,12 +109,7 @@ void ReaderImp::buildIndex()
 
 gfc2::schema::CModel * ReaderImp::schema()
 {
-    assert(m_pFactory);
-    if (m_pFactory)
-    {
-        return m_pFactory->schema();
-    }
-    return nullptr;
+    return m_pModel;
 }
 
 gfc2::schema::CClass * EntityInfo::getClass() const

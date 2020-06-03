@@ -2,7 +2,6 @@
 #define GFC2PREIMAGECURVE2D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve2d.h"
 #include "Gfc2Intervald.h"
 #include "Gfc2Surface.h"
@@ -12,7 +11,7 @@
 
 class GFCCLASSES_API Gfc2PreimageCurve2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2PreimageCurve2d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2PreimageCurve2d, gfc2::engine::Entity)
 public:
     Gfc2PreimageCurve2d();
     Gfc2PreimageCurve2d(bool bSetSchema);

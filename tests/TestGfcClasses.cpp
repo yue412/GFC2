@@ -1,5 +1,4 @@
 #include "gtest\gtest.h"
-#include "GfcEngine\EntityFactory.h"
 #include "GfcEngine\Entity.h"
 #include "GfcEngine\EngineException.h"
 #include "GfcEngine\PropValue.h"
@@ -67,15 +66,15 @@ TEST(TestGfcClasses, Element_add)
     EXPECT_EQ(1000, obj.getShapes(0));
 }
 
-#include "GfcEngine\Reader.h"
-#include "GfcEngine\Writer.h"
 #include "Gfc2ElementShape.h"
+#include "GfcReader.h"
+#include "GfcWriter.h"
 
 TEST(TestGfcClasses, write_document)
 {
     //auto pFactory = gfc2::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
-    gfc2::engine::Writer oWriter;
-    auto result = oWriter.open(getFullPath(L"test.gfc"), L"express", L"3x0");
+    GfcWriter oWriter;
+    auto result = oWriter.open(getFullPath(L"test.gfc"), L"express");
     Gfc2SphereShape oShape;
     oShape.setRadius(101.0);
     auto nShapeRef = oWriter.writeEntity(&oShape);
@@ -91,8 +90,7 @@ TEST(TestGfcClasses, write_document)
 
 TEST(TestGfcClasses, read_document)
 {
-    auto pFactory = gfc2::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
-    gfc2::engine::Reader oReader(pFactory);
+    GfcReader oReader;
     oReader.open(getFullPath(L"test.gfc"));
     auto itr = oReader.getEntities(L"Gfc2Element");
     itr->first();

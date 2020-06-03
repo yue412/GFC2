@@ -2,7 +2,6 @@
 #define GFC2NURBSCURVE3D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve3d.h"
 #include "Gfc2NurbsCtrlPt3d.h"
 #include "TypeDef.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2NurbsCurve3d: public Gfc2Curve3d
 {
-GFCENGINE_DEC_OBJECT(Gfc2NurbsCurve3d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2NurbsCurve3d, gfc2::engine::Entity)
 public:
     Gfc2NurbsCurve3d();
     Gfc2NurbsCurve3d(bool bSetSchema);

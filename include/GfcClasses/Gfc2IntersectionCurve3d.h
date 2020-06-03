@@ -2,7 +2,6 @@
 #define GFC2INTERSECTIONCURVE3D_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Curve3d.h"
 #include "Gfc2Surface.h"
 #include "Gfc2Intervald.h"
@@ -11,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2IntersectionCurve3d: public Gfc2Curve3d
 {
-GFCENGINE_DEC_OBJECT(Gfc2IntersectionCurve3d,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2IntersectionCurve3d, gfc2::engine::Entity)
 public:
     Gfc2IntersectionCurve3d();
     Gfc2IntersectionCurve3d(bool bSetSchema);

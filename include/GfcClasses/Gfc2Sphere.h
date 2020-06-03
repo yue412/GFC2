@@ -2,7 +2,6 @@
 #define GFC2SPHERE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Surface.h"
 #include "Gfc2Coordinates3d.h"
 #include "Gfc2Intervald.h"
@@ -11,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2Sphere: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Sphere,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Sphere, gfc2::engine::Entity)
 public:
     Gfc2Sphere();
     Gfc2Sphere(bool bSetSchema);

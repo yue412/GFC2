@@ -2,14 +2,13 @@
 #define GFC2RELAGGREGATES_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2RelDecomposes.h"
 #include "Gfc2Object.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RelAggregates: public Gfc2RelDecomposes
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelAggregates,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2RelAggregates, gfc2::engine::Entity)
 public:
     Gfc2RelAggregates();
     Gfc2RelAggregates(bool bSetSchema);

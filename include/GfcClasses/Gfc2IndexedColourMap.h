@@ -2,7 +2,6 @@
 #define GFC2INDEXEDCOLOURMAP_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Color.h"
 #include "Gfc2PrimitiveRenderable.h"
 #include "TypeDef.h"
@@ -10,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2IndexedColourMap: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2IndexedColourMap,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2IndexedColourMap, gfc2::engine::Entity)
 public:
     Gfc2IndexedColourMap();
     Gfc2IndexedColourMap(bool bSetSchema);

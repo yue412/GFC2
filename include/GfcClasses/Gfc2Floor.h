@@ -2,14 +2,13 @@
 #define GFC2FLOOR_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2SpatialStructureElement.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2Floor: public Gfc2SpatialStructureElement
 {
-GFCENGINE_DEC_OBJECT(Gfc2Floor,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Floor, gfc2::engine::Entity)
 public:
     Gfc2Floor();
     Gfc2Floor(bool bSetSchema);

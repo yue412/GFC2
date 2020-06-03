@@ -2,14 +2,13 @@
 #define GFC2ELEMENTSHAPE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2String.h"
 #include "Gfc2Shape.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2ElementShape: public gfc2::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2ElementShape,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2ElementShape, gfc2::engine::Entity)
 public:
     Gfc2ElementShape();
     Gfc2ElementShape(bool bSetSchema);

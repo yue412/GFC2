@@ -2,14 +2,13 @@
 #define GFC2BINARYBOOLEANRESULT_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2BooleanResult.h"
 #include "Gfc2SolidShape.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2BinaryBooleanResult: public Gfc2BooleanResult
 {
-GFCENGINE_DEC_OBJECT(Gfc2BinaryBooleanResult,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2BinaryBooleanResult, gfc2::engine::Entity)
 public:
     Gfc2BinaryBooleanResult();
     Gfc2BinaryBooleanResult(bool bSetSchema);

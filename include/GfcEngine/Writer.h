@@ -13,13 +13,15 @@ class WriterImp;
 class GFCENGINE_API Writer
 {
 public:
-    Writer(void);
+    Writer(const std::wstring& sVersion, const std::wstring& sProductCode = L"");
     ~Writer(void);
-    bool open(const std::wstring& sFileName, const std::wstring& sFormatType, const std::wstring& sVersion, const std::wstring& sProductCode = L"");
+    bool open(const std::wstring& sFileName, const std::wstring& sFormatType);
     void close();
     EntityRef writeEntity(Entity* pEntity); 
 private:
     WriterImp* m_pImp;
+    std::wstring m_sVersion;
+    std::wstring m_sProductCode;
 };
 
 GFCENGINE_NAMESPACE_END

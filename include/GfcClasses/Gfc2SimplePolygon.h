@@ -2,14 +2,13 @@
 #define GFC2SIMPLEPOLYGON_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Polygon.h"
 #include "Gfc2SimpleLoop.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2SimplePolygon: public Gfc2Polygon
 {
-GFCENGINE_DEC_OBJECT(Gfc2SimplePolygon,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2SimplePolygon, gfc2::engine::Entity)
 public:
     Gfc2SimplePolygon();
     Gfc2SimplePolygon(bool bSetSchema);

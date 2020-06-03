@@ -2,7 +2,6 @@
 #define GFC2CYLINDER_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Surface.h"
 #include "Gfc2Intervald.h"
 #include "Gfc2Curve2d.h"
@@ -11,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2Cylinder: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Cylinder,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2Cylinder, gfc2::engine::Entity)
 public:
     Gfc2Cylinder();
     Gfc2Cylinder(bool bSetSchema);

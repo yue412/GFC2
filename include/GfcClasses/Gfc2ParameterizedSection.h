@@ -2,14 +2,13 @@
 #define GFC2PARAMETERIZEDSECTION_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2Section.h"
 #include "Gfc2Coordinates3d.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2ParameterizedSection: public Gfc2Section
 {
-GFCENGINE_DEC_OBJECT(Gfc2ParameterizedSection,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2ParameterizedSection, gfc2::engine::Entity)
 public:
     Gfc2ParameterizedSection();
     Gfc2ParameterizedSection(bool bSetSchema);

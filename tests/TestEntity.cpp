@@ -1,5 +1,4 @@
 #include "gtest\gtest.h"
-#include "GfcEngine\EntityFactory.h"
 #include "GfcEngine\Entity.h"
 #include "GfcEngine\EngineException.h"
 #include "GfcEngine\PropValue.h"

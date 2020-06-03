@@ -2,14 +2,13 @@
 #define GFC2REVOLVEDAREASOLIDTAPEREDSHAPE_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2RevolvedAreaSolidShape.h"
 #include "Gfc2Section.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2RevolvedAreaSolidTaperedShape: public Gfc2RevolvedAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2RevolvedAreaSolidTaperedShape,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2RevolvedAreaSolidTaperedShape, gfc2::engine::Entity)
 public:
     Gfc2RevolvedAreaSolidTaperedShape();
     Gfc2RevolvedAreaSolidTaperedShape(bool bSetSchema);

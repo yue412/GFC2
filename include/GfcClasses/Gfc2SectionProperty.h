@@ -2,14 +2,13 @@
 #define GFC2SECTIONPROPERTY_H
 
 #include "GfcClasses.h"
-#include "GfcEngine/EntityFactory.h"
 #include "Gfc2SingleProperty.h"
 #include "Gfc2Section.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2SectionProperty: public Gfc2SingleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2SectionProperty,gfc2::engine::EntityFactory)
+GFCENGINE_DEC_OBJECT(Gfc2SectionProperty, gfc2::engine::Entity)
 public:
     Gfc2SectionProperty();
     Gfc2SectionProperty(bool bSetSchema);
