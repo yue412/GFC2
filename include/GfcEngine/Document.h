@@ -10,7 +10,7 @@
 #include "GfcEngine\Container.h"
 #include <functional>
 
-namespace gfc2 {
+namespace gfc {
     namespace schema {
         class CClass;
         class CModel;
@@ -27,8 +27,8 @@ typedef std::function<void (Document*)> afterReadDocFunc;
 template<class T> class ContainerImp;
 
 struct GFCENGINE_API std::_Container_base12;
-template class GFCENGINE_API std::function<void(gfc2::engine::Document *)>;
-template class GFCENGINE_API std::function<bool(gfc2::engine::Document *, EntityRef, gfc2::engine::Entity *)>;
+template class GFCENGINE_API std::function<void(gfc::engine::Document *)>;
+template class GFCENGINE_API std::function<bool(gfc::engine::Document *, EntityRef, gfc::engine::Entity *)>;
 template class GFCENGINE_API std::_Tree_val<std::_Tree_simple_types<std::wstring>>;
 template class GFCENGINE_API std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::wstring, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::wstring>>, true>;
 template class GFCENGINE_API std::_Compressed_pair<std::less<std::wstring>, std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::wstring, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::wstring>>, true>, true>;
@@ -38,17 +38,17 @@ template class GFCENGINE_API std::set<std::wstring, std::less<std::wstring>, std
 class GFCENGINE_API Document: public IContainer
 {
 public:
-    Document(gfc2::schema::CModel* pModel, int nEntityInitCount = 1000000);
+    Document(gfc::schema::CModel* pModel, int nEntityInitCount = 1000000);
     ~Document(void);
     void add(EntityRef nId, Entity* pEntity);
-    gfc2::schema::CModel* model() const;
+    gfc::schema::CModel* model() const;
 
     virtual EntityPtr getEntity(EntityRef nId);
     virtual EntityIteratorPtr getEntities(const std::wstring& nType, bool bIncludeSubType = false);
     virtual EntityIteratorPtr getIterator();
 
     //void linkSchemaByParent();
-    //bool schemaFilter(gfc2::schema::CClass* pSchema, const std::string& nFilterType, bool bIncludeSubType);
+    //bool schemaFilter(gfc::schema::CClass* pSchema, const std::string& nFilterType, bool bIncludeSubType);
     void setNeedAddEntityFunc(needAddEntityFunc pFunc){m_pNeedAddEntityFunc = pFunc;}
     needAddEntityFunc getNeedAddEntityFunc(){return m_pNeedAddEntityFunc;}
     void setAfterReadDocFunc(afterReadDocFunc pFunc){m_pAfterReadDocFunc = pFunc;}

@@ -9,19 +9,19 @@
 
 class GFCCLASSES_API Gfc2BrepBody: public Gfc2Body
 {
-GFCENGINE_DEC_OBJECT(Gfc2BrepBody, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2BrepBody, gfc::engine::Entity)
 public:
     Gfc2BrepBody();
     Gfc2BrepBody(bool bSetSchema);
     int getFacesCount() const;
     void clearFaces();
-    void addFaces(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getFaces(int nIndex) const;
+    void addFaces(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getFaces(int nIndex) const;
     std::shared_ptr<Gfc2Face> getFacesPtr(int nIndex);
     int getEdgesCount() const;
     void clearEdges();
-    void addEdges(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getEdges(int nIndex) const;
+    void addEdges(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getEdges(int nIndex) const;
     std::shared_ptr<Gfc2Edge> getEdgesPtr(int nIndex);
 
 };

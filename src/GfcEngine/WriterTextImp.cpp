@@ -106,33 +106,33 @@ void WriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring&
     *m_pTextStream << "ENDSEC;" << std::endl;
 }
 
-void WriterTextImp::writeValue(gfc2::schema::CAttribute* pSchema, PropValue* pValue)
+void WriterTextImp::writeValue(gfc::schema::CAttribute* pSchema, PropValue* pValue)
 {
     auto nType = pSchema->getType()->getDataType();
     switch (nType)
     {
-    case gfc2::schema::EDT_BOOLEAN:
+    case gfc::schema::EDT_BOOLEAN:
         *m_pTextStream << pValue->asBoolean() ? ".T." : ".F.";
         break;
-    case gfc2::schema::EDT_INTEGER:
+    case gfc::schema::EDT_INTEGER:
         *m_pTextStream << pValue->asInteger();
         break;
-    case gfc2::schema::EDT_DOUBLE:
+    case gfc::schema::EDT_DOUBLE:
         *m_pTextStream << pValue->asDouble();
         break;
-    case gfc2::schema::EDT_STRING:
+    case gfc::schema::EDT_STRING:
         *m_pTextStream << pValue->asString().c_str();
         break;
-    case gfc2::schema::EDT_ENUM:
+    case gfc::schema::EDT_ENUM:
         {
-        auto pEnumType = dynamic_cast<gfc2::schema::CEnumType*>(pSchema->getType()->getBaseType());
+        auto pEnumType = dynamic_cast<gfc::schema::CEnumType*>(pSchema->getType()->getBaseType());
         std::string str = "$";
         if (pValue->asInteger() < pEnumType->getEnumCount())
             str = "." + toString(pEnumType->getEnum(pValue->asInteger())) + ".";
         *m_pTextStream << str.c_str();
         }
         break;
-    case gfc2::schema::EDT_ENTITY:
+    case gfc::schema::EDT_ENTITY:
         *m_pTextStream << "#" << pValue->asEntityRef();
         break;
     default:

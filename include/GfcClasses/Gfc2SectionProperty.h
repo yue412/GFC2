@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2SectionProperty: public Gfc2SingleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2SectionProperty, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SectionProperty, gfc::engine::Entity)
 public:
     Gfc2SectionProperty();
     Gfc2SectionProperty(bool bSetSchema);
-    void setSection(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getSection() const;
+    void setSection(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getSection() const;
     bool hasSection() const;
     std::shared_ptr<Gfc2Section> getSectionPtr();
 

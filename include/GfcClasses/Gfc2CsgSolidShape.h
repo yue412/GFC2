@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2CsgSolidShape: public Gfc2SolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2CsgSolidShape, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CsgSolidShape, gfc::engine::Entity)
 public:
     Gfc2CsgSolidShape();
     Gfc2CsgSolidShape(bool bSetSchema);
-    void setTreeRootExpression(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getTreeRootExpression() const;
+    void setTreeRootExpression(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getTreeRootExpression() const;
     bool hasTreeRootExpression() const;
     std::shared_ptr<Gfc2BooleanResult> getTreeRootExpressionPtr();
 

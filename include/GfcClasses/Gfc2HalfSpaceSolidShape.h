@@ -9,12 +9,12 @@
 
 class GFCCLASSES_API Gfc2HalfSpaceSolidShape: public Gfc2SolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2HalfSpaceSolidShape, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2HalfSpaceSolidShape, gfc::engine::Entity)
 public:
     Gfc2HalfSpaceSolidShape();
     Gfc2HalfSpaceSolidShape(bool bSetSchema);
-    void setBaseSurface(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getBaseSurface() const;
+    void setBaseSurface(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getBaseSurface() const;
     bool hasBaseSurface() const;
     std::shared_ptr<Gfc2Surface> getBaseSurfacePtr();
     void setAgreementFlag(const Gfc2Boolean& bValue);

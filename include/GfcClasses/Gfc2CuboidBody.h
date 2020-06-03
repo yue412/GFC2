@@ -9,16 +9,16 @@
 
 class GFCCLASSES_API Gfc2CuboidBody: public Gfc2PrimitiveBody
 {
-GFCENGINE_DEC_OBJECT(Gfc2CuboidBody, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CuboidBody, gfc::engine::Entity)
 public:
     Gfc2CuboidBody();
     Gfc2CuboidBody(bool bSetSchema);
-    void setCoordinate(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCoordinate() const;
+    void setCoordinate(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCoordinate() const;
     bool hasCoordinate() const;
     std::shared_ptr<Gfc2Coordinates3d> getCoordinatePtr();
-    void setDimension(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getDimension() const;
+    void setDimension(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getDimension() const;
     bool hasDimension() const;
     std::shared_ptr<Gfc2Vector3d> getDimensionPtr();
 

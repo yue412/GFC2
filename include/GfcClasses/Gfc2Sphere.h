@@ -10,23 +10,23 @@
 
 class GFCCLASSES_API Gfc2Sphere: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Sphere, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Sphere, gfc::engine::Entity)
 public:
     Gfc2Sphere();
     Gfc2Sphere(bool bSetSchema);
     void setRadius(const Gfc2Double& dValue);
     Gfc2Double getRadius() const;
     bool hasRadius() const;
-    void setCoords(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCoords() const;
+    void setCoords(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCoords() const;
     bool hasCoords() const;
     std::shared_ptr<Gfc2Coordinates3d> getCoordsPtr();
-    void setRangeU(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRangeU() const;
+    void setRangeU(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRangeU() const;
     bool hasRangeU() const;
     std::shared_ptr<Gfc2Intervald> getRangeUPtr();
-    void setRangeV(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRangeV() const;
+    void setRangeV(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRangeV() const;
     bool hasRangeV() const;
     std::shared_ptr<Gfc2Intervald> getRangeVPtr();
 

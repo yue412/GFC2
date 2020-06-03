@@ -9,18 +9,18 @@
 
 TEST(TestGFCEngine, WriteEmptyFile)
 {
-    gfc2::engine::Writer writer(L"GFC3X0", L"gfc2_unit_test");
+    gfc::engine::Writer writer(L"GFC3X0", L"gfc2_unit_test");
     auto result = writer.open(getFullPath(L"empty.gfc"), L"express");
     EXPECT_EQ(true, result);
 }
 
 TEST(TestGFCEngine, WriteFile)
 {
-    gfc2::engine::Writer writer(L"GFC3X0", L"gfc2_unit_test");
+    gfc::engine::Writer writer(L"GFC3X0", L"gfc2_unit_test");
     auto result = writer.open(getFullPath(L"one.gfc"), L"express");
-    gfc2::schema::CModel oModel;
-    gfc2::engine::GfcEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
-    auto pEntity = gfc2::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Vector3d");
+    gfc::schema::CModel oModel;
+    gfc::engine::GfcEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    auto pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Vector3d");
     //Gfc2Vector3d oVector;
     //oVector.setX(1.0);
     //oVector.setY(2.0);
@@ -34,10 +34,10 @@ TEST(TestGFCEngine, WriteFile)
 
 TEST(TestGFCEngine, ReadFile)
 {
-    gfc2::schema::CModel oModel;
-    gfc2::engine::GfcEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
-    gfc2::engine::Reader reader(&oModel);
-    gfc2::engine::Document document(&oModel);
+    gfc::schema::CModel oModel;
+    gfc::engine::GfcEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::Reader reader(&oModel);
+    gfc::engine::Document document(&oModel);
     auto result = reader.open(getFullPath(L"one.gfc"));
     EXPECT_EQ(true, result);
     if (result)
@@ -58,10 +58,10 @@ TEST(TestGFCEngine, ReadFile)
 
 TEST(TestGFCEngine, ReadEmptyFile)
 {
-    gfc2::schema::CModel oModel;
-    gfc2::engine::GfcEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
-    gfc2::engine::Reader reader(&oModel);
-    gfc2::engine::Document document(&oModel);
+    gfc::schema::CModel oModel;
+    gfc::engine::GfcEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::Reader reader(&oModel);
+    gfc::engine::Document document(&oModel);
     auto result = reader.open(getFullPath(L"empty.gfc"));
     EXPECT_EQ(true, result);
     if (result)
@@ -75,14 +75,14 @@ TEST(TestGFCEngine, ReadEmptyFile)
 
 //TEST(BinaryWriterTest, WriteEmptyFile)
 //{
-//    gfc2::engine::Writer writer;
+//    gfc::engine::Writer writer;
 //    auto result = writer.open(UnicodeToUtf8(getFullPath(L"empty_bin.gfc")), "bin", "gfc2_unit_test");
 //    EXPECT_EQ(true, result);
 //}
 //
 //TEST(BinaryWriterTest, WriteFile)
 //{
-//    gfc2::engine::Writer writer;
+//    gfc::engine::Writer writer;
 //    auto result = writer.open(UnicodeToUtf8(getFullPath(L"one_bin.gfc")), "bin", "gfc2_unit_test");
 //    Gfc2Vector3d oVector;
 //    oVector.setX(1.0);
@@ -94,8 +94,8 @@ TEST(TestGFCEngine, ReadEmptyFile)
 //
 //TEST(BinaryReaderTest, ReadFile)
 //{
-//    gfc2::engine::Reader reader;
-//    gfc2::engine::Document document(1);
+//    gfc::engine::Reader reader;
+//    gfc::engine::Document document(1);
 //    auto result = reader.read(UnicodeToUtf8(getFullPath(L"one_bin.gfc")), &document);
 //    EXPECT_EQ(true, result);
 //    auto itr = document.getIterator();
@@ -111,8 +111,8 @@ TEST(TestGFCEngine, ReadEmptyFile)
 //
 //TEST(BinaryReaderTest, ReadEmptyFile)
 //{
-//    gfc2::engine::Reader reader;
-//    gfc2::engine::Document document;
+//    gfc::engine::Reader reader;
+//    gfc::engine::Document document;
 //    auto result = reader.read(UnicodeToUtf8(getFullPath(L"empty_bin.gfc")), &document);
 //    EXPECT_EQ(true, result);
 //    //EXPECT_EQ(0, document
@@ -120,8 +120,8 @@ TEST(TestGFCEngine, ReadEmptyFile)
 //
 //TEST(TextReaderTest, ReadFile_update_add_attribute)
 //{
-//    gfc2::engine::Reader reader;
-//    gfc2::engine::Document document(1);
+//    gfc::engine::Reader reader;
+//    gfc::engine::Document document(1);
 //    auto result = reader.read(UnicodeToUtf8(getFullPath(L"one1x9.gfc")), &document);
 //    EXPECT_EQ(true, result);
 //    auto itr = document.getIterator();
@@ -136,8 +136,8 @@ TEST(TestGFCEngine, ReadEmptyFile)
 //
 //TEST(TextReaderTest, ReadFile_update_remove_attribute)
 //{
-//    gfc2::engine::Reader reader;
-//    gfc2::engine::Document document(1);
+//    gfc::engine::Reader reader;
+//    gfc::engine::Document document(1);
 //    auto result = reader.read(UnicodeToUtf8(getFullPath(L"one1x91.gfc")), &document);
 //    EXPECT_EQ(true, result);
 //    auto itr = document.getIterator();
@@ -157,8 +157,8 @@ TEST(TestGFCEngine, ReadEmptyFile)
 //
 //TEST(TextReaderTest, ReadFile_update_exchange_attribute)
 //{
-//    gfc2::engine::Reader reader;
-//    gfc2::engine::Document document(1);
+//    gfc::engine::Reader reader;
+//    gfc::engine::Document document(1);
 //    auto result = reader.read(UnicodeToUtf8(getFullPath(L"one1x92.gfc")), &document);
 //    EXPECT_EQ(true, result);
 //    auto itr = document.getIterator();

@@ -56,8 +56,8 @@ public:
 	Token *t;			// last recognized token
 	Token *la;			// lookahead token
 
-gfc2::schema::CModel* m_pModel;
-gfc2::schema::CModel* m_pTempModel;
+gfc::schema::CModel* m_pModel;
+gfc::schema::CModel* m_pTempModel;
 typedef std::vector<std::wstring> CStringList;
 std::wstring m_sName;
 
@@ -79,31 +79,31 @@ void canNotFindType(const std::wstring& sName)
     throwException(sMsg);
 }
 
-gfc2::schema::CTypeObject* findType(const std::wstring& sName)
+gfc::schema::CTypeObject* findType(const std::wstring& sName)
 {
     auto pType = m_pModel->findTypeObject(sName);
     if(pType == nullptr)
     {
-        pType = new gfc2::schema::CUndefineType(sName);
+        pType = new gfc::schema::CUndefineType(sName);
         //m_pModel->addTypeObject(pType);
         m_pTempModel->addTypeObject(pType);
     }
     return pType;
 }
 
-gfc2::schema::CClass* getClass(const std::wstring& sName)
+gfc::schema::CClass* getClass(const std::wstring& sName)
 {
     auto pType = m_pModel->findTypeObject(sName);
     if(pType == nullptr)
     {
-        auto pClass = new gfc2::schema::CClass(sName);
+        auto pClass = new gfc::schema::CClass(sName);
         pClass->setIsValid(false);
         m_pModel->addTypeObject(pClass);
         return pClass;
     }
     else 
     {
-        auto pClass = dynamic_cast<gfc2::schema::CClass*>(pType);
+        auto pClass = dynamic_cast<gfc::schema::CClass*>(pType);
         if (pClass == nullptr)
             canNotFindEntity(sName);
         return pClass;
@@ -117,9 +117,9 @@ void finalize()
         auto pType = m_pModel->getTypeObject(i);
         switch (pType->getType())
         {
-        case gfc2::schema::TOE_TYPE: {
-            auto pTypeDef = dynamic_cast<gfc2::schema::CTypeDef*>(pType);
-            if (pTypeDef->getRefType()->getType() == gfc2::schema::TOE_UNDEFINE)
+        case gfc::schema::TOE_TYPE: {
+            auto pTypeDef = dynamic_cast<gfc::schema::CTypeDef*>(pType);
+            if (pTypeDef->getRefType()->getType() == gfc::schema::TOE_UNDEFINE)
             {
                 auto sName = pTypeDef->getRefType()->getName();
                 auto pRefType = m_pModel->findTypeObject(sName);
@@ -130,8 +130,8 @@ void finalize()
             }
             break;
         }
-        case gfc2::schema::TOE_CLASS: {
-            auto pClass = dynamic_cast<gfc2::schema::CClass*>(pType);
+        case gfc::schema::TOE_CLASS: {
+            auto pClass = dynamic_cast<gfc::schema::CClass*>(pType);
             if (pClass->getParent() && !pClass->getParent()->getIsValid())
                 canNotFindEntity(pClass->getParent()->getName());
             for (int i = 0; i < pClass->getChildCount(); i++)
@@ -143,7 +143,7 @@ void finalize()
             for (int i = 0; i < pClass->getAttributeCount(); i++)
             {
                 auto pAttribute = pClass->getAttribute(i);
-                if (pAttribute->getType()->getType() == gfc2::schema::TOE_UNDEFINE)
+                if (pAttribute->getType()->getType() == gfc::schema::TOE_UNDEFINE)
                 {
                     auto sName = pAttribute->getType()->getName();
                     auto pRefType = m_pModel->findTypeObject(sName);
@@ -171,10 +171,10 @@ void finalize()
 	void TypedefOrEnum();
 	void Entity();
 	void IdentList(CStringList& oStringList);
-	void SuperType(gfc2::schema::CClass* pClass);
-	void SubType(gfc2::schema::CClass* pClass);
-	void Attribute(gfc2::schema::CAttribute* pAttribute);
-	void AttributeType(gfc2::schema::CAttribute* pAttribute);
+	void SuperType(gfc::schema::CClass* pClass);
+	void SubType(gfc::schema::CClass* pClass);
+	void Attribute(gfc::schema::CAttribute* pAttribute);
+	void AttributeType(gfc::schema::CAttribute* pAttribute);
 
 	void Parse();
 

@@ -7,7 +7,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Property::Property(gfc2::schema::CAttribute* pAttribute, PropValue* pValue): m_pValue(pValue), m_pAttribute(pAttribute)
+Property::Property(gfc::schema::CAttribute* pAttribute, PropValue* pValue): m_pValue(pValue), m_pAttribute(pAttribute)
 {
 }
 
@@ -26,27 +26,27 @@ PropValue * Property::value() const
     return m_pValue;
 }
 
-PropValue * Property::createValue(gfc2::schema::CTypeObject * pType)
+PropValue * Property::createValue(gfc::schema::CTypeObject * pType)
 {
     PropValue* pResult;
     switch (pType->getDataType())
     {
-    case gfc2::schema::EDT_BOOLEAN:
+    case gfc::schema::EDT_BOOLEAN:
         pResult = new BooleanValue;
         break;
-    case gfc2::schema::EDT_INTEGER:
+    case gfc::schema::EDT_INTEGER:
         pResult = new IntegerValue;
         break;
-    case gfc2::schema::EDT_DOUBLE:
+    case gfc::schema::EDT_DOUBLE:
         pResult = new DoubleValue;
         break;
-    case gfc2::schema::EDT_STRING:
+    case gfc::schema::EDT_STRING:
         pResult = new StringValue;
         break;
-    case gfc2::schema::EDT_ENUM:
+    case gfc::schema::EDT_ENUM:
         pResult = new IntegerValue;
         break;
-    case gfc2::schema::EDT_ENTITY:
+    case gfc::schema::EDT_ENTITY:
         pResult = new EntityRefValue;
         break;
     default:

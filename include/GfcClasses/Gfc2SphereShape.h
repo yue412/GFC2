@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2SphereShape: public Gfc2PrimitiveShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2SphereShape, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SphereShape, gfc::engine::Entity)
 public:
     Gfc2SphereShape();
     Gfc2SphereShape(bool bSetSchema);

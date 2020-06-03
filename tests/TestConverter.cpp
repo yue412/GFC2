@@ -2,11 +2,11 @@
 #include "Converter.h"
 #include "EnumType.h"
 
-using namespace gfc2::schema;
+using namespace gfc::schema;
 
 TEST(TestConverter, ArrayToArrayConverter_Empty)
 {
-    gfc2::schema::CArrayToArrayConverter oConverter;
+    gfc::schema::CArrayToArrayConverter oConverter;
     std::wstring sValue = L"$";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -15,7 +15,7 @@ TEST(TestConverter, ArrayToArrayConverter_Empty)
 
 TEST(TestConverter, ArrayToArrayConverter_Empty2)
 {
-    gfc2::schema::CArrayToArrayConverter oConverter;
+    gfc::schema::CArrayToArrayConverter oConverter;
     //std::wstring sValue = L"()";
     CAttributeValuePtr pValue(new CCompositeAttributeValue);
     oConverter.transform(pValue);
@@ -24,7 +24,7 @@ TEST(TestConverter, ArrayToArrayConverter_Empty2)
 
 TEST(TestConverter, ArrayToArrayConverter)
 {
-    gfc2::schema::CArrayToArrayConverter oConverter;
+    gfc::schema::CArrayToArrayConverter oConverter;
     //std::wstring sValue = L"(a,b,c)";
     CAttributeValuePtr pValue(new CCompositeAttributeValue);
     pValue->add(CAttributeValuePtr(new CLeafAttributeValue(L"a")));
@@ -36,7 +36,7 @@ TEST(TestConverter, ArrayToArrayConverter)
 
 TEST(TestConverter, ArrayToOneConverter_Empty)
 {
-    gfc2::schema::CArrayToOneConverter oConverter;
+    gfc::schema::CArrayToOneConverter oConverter;
     std::wstring sValue = L"$";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -45,7 +45,7 @@ TEST(TestConverter, ArrayToOneConverter_Empty)
 
 TEST(TestConverter, ArrayToOneConverter_Empty2)
 {
-    gfc2::schema::CArrayToOneConverter oConverter;
+    gfc::schema::CArrayToOneConverter oConverter;
 //    std::wstring sValue = L"()";
     CAttributeValuePtr pValue(new CCompositeAttributeValue);
     oConverter.transform(pValue);
@@ -54,7 +54,7 @@ TEST(TestConverter, ArrayToOneConverter_Empty2)
 
 TEST(TestConverter, ArrayToOneConverter)
 {
-    gfc2::schema::CArrayToOneConverter oConverter;
+    gfc::schema::CArrayToOneConverter oConverter;
 //    std::wstring sValue = L"(a,b,c)";
     CAttributeValuePtr pValue(new CCompositeAttributeValue);
     pValue->add(CAttributeValuePtr(new CLeafAttributeValue(L"a")));
@@ -66,7 +66,7 @@ TEST(TestConverter, ArrayToOneConverter)
 
 TEST(TestConverter, OneToArrayConverter_Empty)
 {
-    gfc2::schema::COneToArrayConverter oConverter;
+    gfc::schema::COneToArrayConverter oConverter;
     std::wstring sValue = L"$";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -75,7 +75,7 @@ TEST(TestConverter, OneToArrayConverter_Empty)
 
 TEST(TestConverter, OneToArrayConverter)
 {
-    gfc2::schema::COneToArrayConverter oConverter;
+    gfc::schema::COneToArrayConverter oConverter;
     std::wstring sValue = L"a";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -84,7 +84,7 @@ TEST(TestConverter, OneToArrayConverter)
 
 TEST(TestConverter, OptionalConverter)
 {
-    gfc2::schema::COptionalConverter oConverter;
+    gfc::schema::COptionalConverter oConverter;
     std::wstring sValue = L"abc";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -93,7 +93,7 @@ TEST(TestConverter, OptionalConverter)
 
 TEST(TestConverter, OptionalConverter_Empty)
 {
-    gfc2::schema::COptionalConverter oConverter;
+    gfc::schema::COptionalConverter oConverter;
     std::wstring sValue = L"$";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -102,7 +102,7 @@ TEST(TestConverter, OptionalConverter_Empty)
 
 TEST(TestConverter, CopyConverter)
 {
-    gfc2::schema::CCopyConverter oConverter;
+    gfc::schema::CCopyConverter oConverter;
     std::wstring sValue = L"abc";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -111,7 +111,7 @@ TEST(TestConverter, CopyConverter)
 
 TEST(TestConverter, EmptyConverter)
 {
-    gfc2::schema::CEmptyConverter oConverter;
+    gfc::schema::CEmptyConverter oConverter;
     std::wstring sValue = L"abc";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -120,7 +120,7 @@ TEST(TestConverter, EmptyConverter)
 
 TEST(TestConverter, BoolToIntConverter_True)
 {
-    gfc2::schema::CBoolToIntConverter oConverter;
+    gfc::schema::CBoolToIntConverter oConverter;
     std::wstring sValue = L".T.";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -129,7 +129,7 @@ TEST(TestConverter, BoolToIntConverter_True)
 
 TEST(TestConverter, BoolToIntConverter_False)
 {
-    gfc2::schema::CBoolToIntConverter oConverter;
+    gfc::schema::CBoolToIntConverter oConverter;
     std::wstring sValue = L".F.";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -138,7 +138,7 @@ TEST(TestConverter, BoolToIntConverter_False)
 
 TEST(TestConverter, BoolToStringConverter_True)
 {
-    gfc2::schema::CBoolToStringConverter oConverter;
+    gfc::schema::CBoolToStringConverter oConverter;
     std::wstring sValue = L".T.";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -147,7 +147,7 @@ TEST(TestConverter, BoolToStringConverter_True)
 
 TEST(TestConverter, BoolToStringConverter_False)
 {
-    gfc2::schema::CBoolToStringConverter oConverter;
+    gfc::schema::CBoolToStringConverter oConverter;
     std::wstring sValue = L".F.";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -156,8 +156,8 @@ TEST(TestConverter, BoolToStringConverter_False)
 
 TEST(TestConverter, BoolToEnumConverter_True)
 {
-    gfc2::schema::CBoolToEnumConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CBoolToEnumConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
@@ -170,8 +170,8 @@ TEST(TestConverter, BoolToEnumConverter_True)
 
 TEST(TestConverter, BoolToEnumConverter_False)
 {
-    gfc2::schema::CBoolToEnumConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CBoolToEnumConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
@@ -184,8 +184,8 @@ TEST(TestConverter, BoolToEnumConverter_False)
 
 TEST(TestConverter, BoolToEnumConverter_True2)
 {
-    gfc2::schema::CBoolToEnumConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CBoolToEnumConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oConverter.init(nullptr, &oEnum);
     std::wstring sValue = L".T.";
@@ -196,8 +196,8 @@ TEST(TestConverter, BoolToEnumConverter_True2)
 
 TEST(TestConverter, BoolToEnumConverter_True_Empty)
 {
-    gfc2::schema::CBoolToEnumConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CBoolToEnumConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     std::wstring sValue = L".T.";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -206,7 +206,7 @@ TEST(TestConverter, BoolToEnumConverter_True_Empty)
 
 TEST(TestConverter, IntToBoolConverter_0)
 {
-    gfc2::schema::CIntToBoolConverter oConverter;
+    gfc::schema::CIntToBoolConverter oConverter;
     std::wstring sValue = L"0";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -215,7 +215,7 @@ TEST(TestConverter, IntToBoolConverter_0)
 
 TEST(TestConverter, IntToBoolConverter_not0)
 {
-    gfc2::schema::CIntToBoolConverter oConverter;
+    gfc::schema::CIntToBoolConverter oConverter;
     std::wstring sValue = L"123";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -224,7 +224,7 @@ TEST(TestConverter, IntToBoolConverter_not0)
 
 TEST(TestConverter, StringConverter)
 {
-    gfc2::schema::CStringConverter oConverter;
+    gfc::schema::CStringConverter oConverter;
     std::wstring sValue = L"123";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -233,8 +233,8 @@ TEST(TestConverter, StringConverter)
 
 TEST(TestConverter, IntToEnumConverter)
 {
-    gfc2::schema::CIntToEnumConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CIntToEnumConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
@@ -247,8 +247,8 @@ TEST(TestConverter, IntToEnumConverter)
 
 TEST(TestConverter, IntToEnumConverter_0)
 {
-    gfc2::schema::CIntToEnumConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CIntToEnumConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
@@ -261,8 +261,8 @@ TEST(TestConverter, IntToEnumConverter_0)
 
 TEST(TestConverter, IntToEnumConverter_1)
 {
-    gfc2::schema::CIntToEnumConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CIntToEnumConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     std::wstring sValue = L"4";
     CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
     oConverter.transform(pValue);
@@ -271,8 +271,8 @@ TEST(TestConverter, IntToEnumConverter_1)
 
 TEST(TestConverter, EnumToBoolConverter_false)
 {
-    gfc2::schema::CEnumToBoolConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CEnumToBoolConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
@@ -285,8 +285,8 @@ TEST(TestConverter, EnumToBoolConverter_false)
 
 TEST(TestConverter, EnumToBoolConverter_true)
 {
-    gfc2::schema::CEnumToBoolConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CEnumToBoolConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
@@ -299,8 +299,8 @@ TEST(TestConverter, EnumToBoolConverter_true)
 
 TEST(TestConverter, EnumToIntConverter)
 {
-    gfc2::schema::CEnumToIntConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CEnumToIntConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
@@ -313,8 +313,8 @@ TEST(TestConverter, EnumToIntConverter)
 
 TEST(TestConverter, EnumToStringConverter)
 {
-    gfc2::schema::CEnumToStringConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CEnumToStringConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
@@ -327,8 +327,8 @@ TEST(TestConverter, EnumToStringConverter)
 
 TEST(TestConverter, EnumConverter)
 {
-    gfc2::schema::CEnumConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CEnumConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
@@ -341,8 +341,8 @@ TEST(TestConverter, EnumConverter)
 
 TEST(TestConverter, EnumConverter_Empty)
 {
-    gfc2::schema::CEnumConverter oConverter;
-    gfc2::schema::CEnumType oEnum;
+    gfc::schema::CEnumConverter oConverter;
+    gfc::schema::CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");

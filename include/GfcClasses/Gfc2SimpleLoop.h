@@ -8,14 +8,14 @@
 
 class GFCCLASSES_API Gfc2SimpleLoop: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2SimpleLoop, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SimpleLoop, gfc::engine::Entity)
 public:
     Gfc2SimpleLoop();
     Gfc2SimpleLoop(bool bSetSchema);
     int getVertexesCount() const;
     void clearVertexes();
-    void addVertexes(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getVertexes(int nIndex) const;
+    void addVertexes(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getVertexes(int nIndex) const;
     std::shared_ptr<Gfc2SimpleVertex> getVertexesPtr(int nIndex);
 
 };

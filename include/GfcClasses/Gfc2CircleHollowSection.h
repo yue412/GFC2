@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2CircleHollowSection: public Gfc2CircleSection
 {
-GFCENGINE_DEC_OBJECT(Gfc2CircleHollowSection, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CircleHollowSection, gfc::engine::Entity)
 public:
     Gfc2CircleHollowSection();
     Gfc2CircleHollowSection(bool bSetSchema);

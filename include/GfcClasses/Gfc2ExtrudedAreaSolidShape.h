@@ -9,12 +9,12 @@
 
 class GFCCLASSES_API Gfc2ExtrudedAreaSolidShape: public Gfc2SweptAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2ExtrudedAreaSolidShape, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ExtrudedAreaSolidShape, gfc::engine::Entity)
 public:
     Gfc2ExtrudedAreaSolidShape();
     Gfc2ExtrudedAreaSolidShape(bool bSetSchema);
-    void setExtrudedDirection(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getExtrudedDirection() const;
+    void setExtrudedDirection(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getExtrudedDirection() const;
     bool hasExtrudedDirection() const;
     std::shared_ptr<Gfc2Vector3d> getExtrudedDirectionPtr();
     void setLength(const Gfc2Double& dValue);

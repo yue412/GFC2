@@ -6,18 +6,18 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2Property: public gfc2::engine::Entity
+class GFCCLASSES_API Gfc2Property: public gfc::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2Property, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Property, gfc::engine::Entity)
 public:
     Gfc2Property();
     Gfc2Property(bool bSetSchema);
-    void setName(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getName() const;
+    void setName(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getName() const;
     bool hasName() const;
     std::shared_ptr<Gfc2Label> getNamePtr();
-    void setCode(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCode() const;
+    void setCode(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCode() const;
     bool hasCode() const;
     std::shared_ptr<Gfc2String> getCodePtr();
 

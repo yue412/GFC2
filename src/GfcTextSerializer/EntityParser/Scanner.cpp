@@ -4,7 +4,7 @@
 #include <string.h>
 #include "Scanner.h"
 
-namespace gfc2 {
+namespace gfc {
 
 
 

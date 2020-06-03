@@ -8,16 +8,16 @@
 
 class GFCCLASSES_API Gfc2Line2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2Line2d, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Line2d, gfc::engine::Entity)
 public:
     Gfc2Line2d();
     Gfc2Line2d(bool bSetSchema);
-    void setStartPt(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getStartPt() const;
+    void setStartPt(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getStartPt() const;
     bool hasStartPt() const;
     std::shared_ptr<Gfc2Vector2d> getStartPtPtr();
-    void setEndPt(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getEndPt() const;
+    void setEndPt(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getEndPt() const;
     bool hasEndPt() const;
     std::shared_ptr<Gfc2Vector2d> getEndPtPtr();
 

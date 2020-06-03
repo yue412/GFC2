@@ -9,12 +9,12 @@
 
 class GFCCLASSES_API Gfc2LightSourcePositional: public Gfc2LightSource
 {
-GFCENGINE_DEC_OBJECT(Gfc2LightSourcePositional, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2LightSourcePositional, gfc::engine::Entity)
 public:
     Gfc2LightSourcePositional();
     Gfc2LightSourcePositional(bool bSetSchema);
-    void setPosition(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getPosition() const;
+    void setPosition(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getPosition() const;
     bool hasPosition() const;
     std::shared_ptr<Gfc2Vector3d> getPositionPtr();
     void setRadius(const Gfc2Double& dValue);

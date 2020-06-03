@@ -12,7 +12,7 @@
 #include "GfcEngine\Iterator.h"
 #include "Model.h"
 
-namespace gfc2 {
+namespace gfc {
     namespace schema {
         class CClass;
         class CModel;
@@ -27,7 +27,7 @@ template<class T>
 class ContainerImp
 {
 public:
-    ContainerImp(gfc2::schema::CModel* pModel, int nInitSize = 10000): m_pModel(pModel) 
+    ContainerImp(gfc::schema::CModel* pModel, int nInitSize = 10000): m_pModel(pModel) 
     {
         m_oEntities.resize(nInitSize);
     }
@@ -44,7 +44,7 @@ public:
             m_oEntities.resize(nSize);
         }
         m_oEntities[nId] = pEntity;
-        gfc2::schema::CClass* pSchema = pEntity.get()->getClass();
+        gfc::schema::CClass* pSchema = pEntity.get()->getClass();
         auto sType = pSchema->getName();
         auto itr = m_oEntityTypeMap.find(sType);
         if (itr == m_oEntityTypeMap.end())
@@ -77,8 +77,8 @@ public:
         }
         else
         {
-            std::function<void(gfc2::schema::CClass*, EntityRefListlist&)> pCollectEntitiesFunc;
-            pCollectEntitiesFunc = [&](gfc2::schema::CClass* pSchema, EntityRefListlist& oCollector)
+            std::function<void(gfc::schema::CClass*, EntityRefListlist&)> pCollectEntitiesFunc;
+            pCollectEntitiesFunc = [&](gfc::schema::CClass* pSchema, EntityRefListlist& oCollector)
             {
                 std::wstring nID = pSchema->getName();
                 std::map<std::wstring, std::vector<EntityRef>*>::iterator itr = m_oEntityTypeMap.find(nID);
@@ -93,7 +93,7 @@ public:
                 }
             };
 
-            if (gfc2::schema::CClass* pSchema = dynamic_cast<gfc2::schema::CClass*>(model()->findTypeObject(sType)))
+            if (gfc::schema::CClass* pSchema = dynamic_cast<gfc::schema::CClass*>(model()->findTypeObject(sType)))
             {
                 pCollectEntitiesFunc(pSchema, oList);
             }
@@ -109,11 +109,11 @@ public:
         }
         return std::shared_ptr<Iterator<T>>(new ListIterator<T>(this, oList));
     }
-    gfc2::schema::CModel* model() const { return m_pModel; }
+    gfc::schema::CModel* model() const { return m_pModel; }
 private:
     std::vector<T> m_oEntities;
     std::map<std::wstring, std::vector<EntityRef>*> m_oEntityTypeMap;
-    gfc2::schema::CModel* m_pModel;
+    gfc::schema::CModel* m_pModel;
 };
 
 template<class T>

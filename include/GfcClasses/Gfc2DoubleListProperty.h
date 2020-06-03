@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2DoubleListProperty: public Gfc2ListProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2DoubleListProperty, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2DoubleListProperty, gfc::engine::Entity)
 public:
     Gfc2DoubleListProperty();
     Gfc2DoubleListProperty(bool bSetSchema);

@@ -10,16 +10,16 @@
 
 class GFCCLASSES_API Gfc2SinCurve2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2SinCurve2d, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SinCurve2d, gfc::engine::Entity)
 public:
     Gfc2SinCurve2d();
     Gfc2SinCurve2d(bool bSetSchema);
-    void setPos(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getPos() const;
+    void setPos(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getPos() const;
     bool hasPos() const;
     std::shared_ptr<Gfc2Vector2d> getPosPtr();
-    void setDirX(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getDirX() const;
+    void setDirX(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getDirX() const;
     bool hasDirX() const;
     std::shared_ptr<Gfc2Vector2d> getDirXPtr();
     void setA(const Gfc2Double& dValue);
@@ -28,8 +28,8 @@ public:
     void setB(const Gfc2Double& dValue);
     Gfc2Double getB() const;
     bool hasB() const;
-    void setRange(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRange() const;
+    void setRange(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRange() const;
     bool hasRange() const;
     std::shared_ptr<Gfc2Intervald> getRangePtr();
     void setClockSign(const Gfc2Integer& nValue);

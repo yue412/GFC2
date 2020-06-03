@@ -20,7 +20,7 @@ GFC_NAMESPACE_BEGIN
 class CModel;
 GFC_NAMESPACE_END
 
-using namespace gfc2::schema;
+using namespace gfc::schema;
 
 class CUMLTranslator
 {

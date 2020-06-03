@@ -9,16 +9,16 @@
 
 class GFCCLASSES_API Gfc2LightSource: public Gfc2RepresentationItem
 {
-GFCENGINE_DEC_OBJECT(Gfc2LightSource, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2LightSource, gfc::engine::Entity)
 public:
     Gfc2LightSource();
     Gfc2LightSource(bool bSetSchema);
-    void setName(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getName() const;
+    void setName(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getName() const;
     bool hasName() const;
     std::shared_ptr<Gfc2Label> getNamePtr();
-    void setLightColour(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getLightColour() const;
+    void setLightColour(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getLightColour() const;
     bool hasLightColour() const;
     std::shared_ptr<Gfc2Color> getLightColourPtr();
     void setAmbientIntensity(const Gfc2Double& dValue);

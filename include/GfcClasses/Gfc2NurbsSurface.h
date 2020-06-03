@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2NurbsSurface: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2NurbsSurface, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2NurbsSurface, gfc::engine::Entity)
 public:
     Gfc2NurbsSurface();
     Gfc2NurbsSurface(bool bSetSchema);
@@ -27,8 +27,8 @@ public:
     bool hasCtrlPtCountV() const;
     int getCtrlPtsCount() const;
     void clearCtrlPts();
-    void addCtrlPts(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCtrlPts(int nIndex) const;
+    void addCtrlPts(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCtrlPts(int nIndex) const;
     std::shared_ptr<Gfc2NurbsCtrlPt3d> getCtrlPtsPtr(int nIndex);
     int getKnotsUCount() const;
     void clearKnotsU();

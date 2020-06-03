@@ -5,7 +5,7 @@
 #include "Scanner.h"
 
 
-namespace gfc2 {
+namespace gfc {
 
 
 void Parser::SynErr(int n) {
@@ -80,8 +80,8 @@ void Parser::Entity() {
 		Expect(10 /* ";" */);
 }
 
-void Parser::ParameterList(gfc2::schema::CAttributeValue* pParameterList) {
-		gfc2::schema::CAttributeValuePtr pValue = nullptr; 
+void Parser::ParameterList(gfc::schema::CAttributeValue* pParameterList) {
+		gfc::schema::CAttributeValuePtr pValue = nullptr; 
 		Parameter(pValue);
 		if(pParameterList) pParameterList->add(pValue); 
 		while (la->kind == 11 /* "," */) {
@@ -91,7 +91,7 @@ void Parser::ParameterList(gfc2::schema::CAttributeValue* pParameterList) {
 		}
 }
 
-void Parser::Parameter(gfc2::schema::CAttributeValuePtr& pValue) {
+void Parser::Parameter(gfc::schema::CAttributeValuePtr& pValue) {
 		if (StartOf(2)) {
 			switch (la->kind) {
 			case 12 /* "$" */: {
@@ -123,14 +123,14 @@ void Parser::Parameter(gfc2::schema::CAttributeValuePtr& pValue) {
 				break;
 			}
 			}
-			pValue = gfc2::schema::CAttributeValuePtr(new gfc2::schema::CLeafAttributeValue(t->val)); 
+			pValue = gfc::schema::CAttributeValuePtr(new gfc::schema::CLeafAttributeValue(t->val)); 
 		} else if (la->kind == 8 /* "(" */) {
 			List(pValue);
 		} else SynErr(15);
 }
 
-void Parser::List(gfc2::schema::CAttributeValuePtr& pValue) {
-		pValue = gfc2::schema::CAttributeValuePtr(new gfc2::schema::CCompositeAttributeValue); 
+void Parser::List(gfc::schema::CAttributeValuePtr& pValue) {
+		pValue = gfc::schema::CAttributeValuePtr(new gfc::schema::CCompositeAttributeValue); 
 		Expect(8 /* "(" */);
 		if (StartOf(1)) {
 			ParameterList(pValue.get());

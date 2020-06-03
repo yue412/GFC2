@@ -269,31 +269,31 @@ bool ReaderTextImp::parse(const std::string& input, Entity* pEntity, std::wstrin
     return bResult;
 }
 
-bool ReaderTextImp::parseField(const std::string & input, gfc2::schema::CTypeObject* pType, PropValue * pValue)
+bool ReaderTextImp::parseField(const std::string & input, gfc::schema::CTypeObject* pType, PropValue * pValue)
 {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
     auto nType = pType->getDataType();
     switch (nType)
     {
-    case gfc2::schema::EDT_BOOLEAN:
+    case gfc::schema::EDT_BOOLEAN:
         DO_(parseBooleanField(input, pValue));
         break;
-    case gfc2::schema::EDT_INTEGER:
+    case gfc::schema::EDT_INTEGER:
         DO_(parseIntField(input, pValue));
         break;
-    case gfc2::schema::EDT_DOUBLE:
+    case gfc::schema::EDT_DOUBLE:
         DO_(parseFloatField(input, pValue));
         break;
-    case gfc2::schema::EDT_STRING:
+    case gfc::schema::EDT_STRING:
         DO_(parseStringField(input, pValue));
         break;
-    case gfc2::schema::EDT_ENUM:
+    case gfc::schema::EDT_ENUM:
         {
-            auto pEnumType = dynamic_cast<gfc2::schema::CEnumType*>(pType->getBaseType());
+            auto pEnumType = dynamic_cast<gfc::schema::CEnumType*>(pType->getBaseType());
             DO_(parseEnumField(input, pEnumType, pValue));
         }
         break;
-    case gfc2::schema::EDT_ENTITY:
+    case gfc::schema::EDT_ENTITY:
         DO_(parseEntityField(input, pValue));
         break;
     default:
@@ -491,7 +491,7 @@ bool ReaderTextImp::parseStringField(const std::string& input, PropValue* pValue
     return bResult;
 }
 
-bool ReaderTextImp::parseEnumField(const std::string & input, gfc2::schema::CEnumType * pEnumType, PropValue * pValue)
+bool ReaderTextImp::parseEnumField(const std::string & input, gfc::schema::CEnumType * pEnumType, PropValue * pValue)
 {
     bool bResult = false;
     if (input.length() > 1 && input[0] == '.' && input[input.length() - 1] == '.' && pEnumType)

@@ -7,7 +7,7 @@
 #include "GfcEngine\SysMarco.h"
 #include "GfcEngine\Container.h"
 
-namespace gfc2 {
+namespace gfc {
     namespace schema {
         class CModel;
         class CTypeObject;
@@ -31,7 +31,7 @@ public:
     virtual ~ReaderImp(void);
     bool open(const std::wstring& sFileName);
     void close();
-    void setModel(gfc2::schema::CModel* pModel) { m_pModel = pModel; }
+    void setModel(gfc::schema::CModel* pModel) { m_pModel = pModel; }
 
     virtual bool preRead(const std::wstring& sFileName) = 0; // 判断是否是可以读的格式
     virtual void read(Document* pDoc,std::vector<std::wstring>& errors) = 0;
@@ -42,7 +42,7 @@ public:
 protected:
     virtual bool getIndex(EntityInfo& oInfo) = 0;//顺序读取index
     virtual Entity* createEntity(EntityInfo& oInfo) = 0;
-    gfc2::schema::CModel* schema();
+    gfc::schema::CModel* schema();
 
     FileMap* m_pFileMap;
 private:
@@ -53,17 +53,17 @@ private:
     //std::vector<EntityInfo> m_oEntityInfos; // 索引 保证有序
     //std::map<std::string, std::vector<std::size_t>*> m_oEntityInfoMap;
     ContainerImp<EntityInfo>* m_pContainer;
-    gfc2::schema::CModel* m_pModel;
+    gfc::schema::CModel* m_pModel;
 };
 
 struct EntityInfo
 {
-    EntityInfo(EntityRef nId, __int64 nPos, gfc2::schema::CTypeObject* pType) : id(nId), pos(nPos), type(pType) {}
+    EntityInfo(EntityRef nId, __int64 nPos, gfc::schema::CTypeObject* pType) : id(nId), pos(nPos), type(pType) {}
     EntityInfo(): id(-1), pos(0), type(nullptr) {}
     EntityRef id;
     __int64 pos;
-    gfc2::schema::CTypeObject* type;
-    gfc2::schema::CClass* getClass() const;
+    gfc::schema::CTypeObject* type;
+    gfc::schema::CClass* getClass() const;
     EntityInfo* get() const;
 };
 

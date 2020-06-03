@@ -13,7 +13,7 @@ class CEnumType;
 class CBuildinType;
 GFC_NAMESPACE_END
 
-using namespace gfc2::schema;
+using namespace gfc::schema;
 
 class CExpressWriter
 {

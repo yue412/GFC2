@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2Vector2d: public Gfc2Geometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2Vector2d, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Vector2d, gfc::engine::Entity)
 public:
     Gfc2Vector2d();
     Gfc2Vector2d(bool bSetSchema);

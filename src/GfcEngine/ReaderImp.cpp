@@ -107,14 +107,14 @@ void ReaderImp::buildIndex()
     //sort();
 }
 
-gfc2::schema::CModel * ReaderImp::schema()
+gfc::schema::CModel * ReaderImp::schema()
 {
     return m_pModel;
 }
 
-gfc2::schema::CClass * EntityInfo::getClass() const
+gfc::schema::CClass * EntityInfo::getClass() const
 {
-    return dynamic_cast<gfc2::schema::CClass*>(type->getBaseType());
+    return dynamic_cast<gfc::schema::CClass*>(type->getBaseType());
 }
 
 EntityInfo * EntityInfo::get() const

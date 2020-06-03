@@ -8,14 +8,14 @@
 
 class GFCCLASSES_API Gfc2SimplePolygon: public Gfc2Polygon
 {
-GFCENGINE_DEC_OBJECT(Gfc2SimplePolygon, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SimplePolygon, gfc::engine::Entity)
 public:
     Gfc2SimplePolygon();
     Gfc2SimplePolygon(bool bSetSchema);
     int getLoopsCount() const;
     void clearLoops();
-    void addLoops(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getLoops(int nIndex) const;
+    void addLoops(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getLoops(int nIndex) const;
     std::shared_ptr<Gfc2SimpleLoop> getLoopsPtr(int nIndex);
 
 };

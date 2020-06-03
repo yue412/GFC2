@@ -6,9 +6,9 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2InternalChart: public gfc2::engine::Entity
+class GFCCLASSES_API Gfc2InternalChart: public gfc::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2InternalChart, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2InternalChart, gfc::engine::Entity)
 public:
     Gfc2InternalChart();
     Gfc2InternalChart(bool bSetSchema);
@@ -23,8 +23,8 @@ public:
     bool hasTra3() const;
     int getIPSCount() const;
     void clearIPS();
-    void addIPS(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getIPS(int nIndex) const;
+    void addIPS(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getIPS(int nIndex) const;
     std::shared_ptr<Gfc2InternalPt> getIPSPtr(int nIndex);
 
 };

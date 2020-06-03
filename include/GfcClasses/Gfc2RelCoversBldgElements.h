@@ -8,18 +8,18 @@
 
 class GFCCLASSES_API Gfc2RelCoversBldgElements: public Gfc2RelConnects
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelCoversBldgElements, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelCoversBldgElements, gfc::engine::Entity)
 public:
     Gfc2RelCoversBldgElements();
     Gfc2RelCoversBldgElements(bool bSetSchema);
-    void setRelatingBuildingElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRelatingBuildingElement() const;
+    void setRelatingBuildingElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRelatingBuildingElement() const;
     bool hasRelatingBuildingElement() const;
     std::shared_ptr<Gfc2Element> getRelatingBuildingElementPtr();
     int getRelatedCoveringsCount() const;
     void clearRelatedCoverings();
-    void addRelatedCoverings(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRelatedCoverings(int nIndex) const;
+    void addRelatedCoverings(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRelatedCoverings(int nIndex) const;
     std::shared_ptr<Gfc2Element> getRelatedCoveringsPtr(int nIndex);
 
 };

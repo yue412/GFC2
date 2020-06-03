@@ -9,18 +9,18 @@
 
 class GFCCLASSES_API Gfc2RelDefinesByType: public Gfc2RelDefines
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelDefinesByType, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelDefinesByType, gfc::engine::Entity)
 public:
     Gfc2RelDefinesByType();
     Gfc2RelDefinesByType(bool bSetSchema);
-    void setRelatingType(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRelatingType() const;
+    void setRelatingType(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRelatingType() const;
     bool hasRelatingType() const;
     std::shared_ptr<Gfc2ElementType> getRelatingTypePtr();
     int getRelatingElementCount() const;
     void clearRelatingElement();
-    void addRelatingElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRelatingElement(int nIndex) const;
+    void addRelatingElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRelatingElement(int nIndex) const;
     std::shared_ptr<Gfc2Element> getRelatingElementPtr(int nIndex);
 
 };

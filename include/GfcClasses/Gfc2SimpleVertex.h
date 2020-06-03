@@ -9,12 +9,12 @@
 
 class GFCCLASSES_API Gfc2SimpleVertex: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2SimpleVertex, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SimpleVertex, gfc::engine::Entity)
 public:
     Gfc2SimpleVertex();
     Gfc2SimpleVertex(bool bSetSchema);
-    void setPoint(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getPoint() const;
+    void setPoint(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getPoint() const;
     bool hasPoint() const;
     std::shared_ptr<Gfc2Vector2d> getPointPtr();
     void setRadius(const Gfc2Double& dValue);

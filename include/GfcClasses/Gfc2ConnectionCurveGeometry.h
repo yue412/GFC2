@@ -8,16 +8,16 @@
 
 class GFCCLASSES_API Gfc2ConnectionCurveGeometry: public Gfc2ConnectionGeometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2ConnectionCurveGeometry, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ConnectionCurveGeometry, gfc::engine::Entity)
 public:
     Gfc2ConnectionCurveGeometry();
     Gfc2ConnectionCurveGeometry(bool bSetSchema);
-    void setCurveOnRelatingElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCurveOnRelatingElement() const;
+    void setCurveOnRelatingElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCurveOnRelatingElement() const;
     bool hasCurveOnRelatingElement() const;
     std::shared_ptr<Gfc2Curve3d> getCurveOnRelatingElementPtr();
-    void setCurveOnRelatedElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCurveOnRelatedElement() const;
+    void setCurveOnRelatedElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCurveOnRelatedElement() const;
     bool hasCurveOnRelatedElement() const;
     std::shared_ptr<Gfc2Curve3d> getCurveOnRelatedElementPtr();
 

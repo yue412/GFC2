@@ -36,13 +36,13 @@ void TextUpdater::init(const std::string & sVersion)
     // Load File model
     auto sSchema = sVersion;
     std::replace(sSchema.begin(), sSchema.end(), '.', 'X');
-    m_pTempModel = new gfc2::schema::CModel;
+    m_pTempModel = new gfc::schema::CModel;
     loadFileModel(sSchema);
     // Load dll model
     loadDllModel();
     if (m_pDllModel && m_pFileModel)
     {
-        m_pModelCompatibility = new gfc2::schema::CModelCompatibility;
+        m_pModelCompatibility = new gfc::schema::CModelCompatibility;
         m_pModelCompatibility->init(m_pFileModel, m_pDllModel);
     }
 }
@@ -51,8 +51,8 @@ void TextUpdater::update(std::string & sLine)
 {
     if (m_pModelCompatibility == nullptr)
         return; // no update
-    gfc2::Scanner oScanner((unsigned char*)sLine.c_str(), sLine.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sLine.c_str(), sLine.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     if (oParser.errors->count > 0)
     { 
@@ -71,9 +71,9 @@ void TextUpdater::update(std::string & sLine)
     sLine = UnicodeToUtf8(oParser.m_sInstance) + "=" + UnicodeToUtf8(oParser.m_sEntityName) + "(" + sParams + ");";
 }
 
-void TextUpdater::transform(gfc2::schema::CClassCompatibility * pClassCompatibility, gfc2::schema::CAttributeValue * pParamList, std::string& sOutput)
+void TextUpdater::transform(gfc::schema::CClassCompatibility * pClassCompatibility, gfc::schema::CAttributeValue * pParamList, std::string& sOutput)
 {
-    std::map<int, gfc2::schema::CAttributeValuePtr> oNewMap;
+    std::map<int, gfc::schema::CAttributeValuePtr> oNewMap;
     for (int i = 0; i < pClassCompatibility->getCount(); i++)
     {
         auto pAttributeCompatibility = pClassCompatibility->getCompatibilityAttribute(i);
@@ -81,11 +81,11 @@ void TextUpdater::transform(gfc2::schema::CClassCompatibility * pClassCompatibil
         auto pConverter = pAttributeCompatibility->converter();
         if (nIndex != -1)
         {
-            auto pValue = i < (int)pParamList->getCount() ? pParamList->getItems(i) : gfc2::schema::CAttributeValuePtr(new gfc2::schema::CLeafAttributeValue(L"$"));
+            auto pValue = i < (int)pParamList->getCount() ? pParamList->getItems(i) : gfc::schema::CAttributeValuePtr(new gfc::schema::CLeafAttributeValue(L"$"));
             if (pConverter)
                 pConverter->transform(pValue);
             else
-                pValue = gfc2::schema::CAttributeValuePtr(new gfc2::schema::CLeafAttributeValue(L"$"));
+                pValue = gfc::schema::CAttributeValuePtr(new gfc::schema::CLeafAttributeValue(L"$"));
             oNewMap[nIndex] = pValue;
         }
     }
@@ -121,7 +121,7 @@ void TextUpdater::loadDllModel()
     // ½âÎö
     Scanner oScanner(pByte, dwSize);
     Parser oParser(&oScanner);
-    m_pDllModel = new gfc2::schema::CModel;
+    m_pDllModel = new gfc::schema::CModel;
     initModel(m_pDllModel);
     oParser.m_pModel = m_pDllModel;
     oParser.m_pTempModel = m_pTempModel;
@@ -139,7 +139,7 @@ void TextUpdater::loadFileModel(const std::string& sFileSchema)
     // ½âÎö
     Scanner oScanner(sFileName.c_str());
     Parser oParser(&oScanner);
-    m_pFileModel = new gfc2::schema::CModel;
+    m_pFileModel = new gfc::schema::CModel;
     initModel(m_pFileModel);
     oParser.m_pModel = m_pFileModel;
     oParser.m_pTempModel = m_pTempModel;
@@ -150,12 +150,12 @@ void TextUpdater::loadFileModel(const std::string& sFileSchema)
     }
 }
 
-void TextUpdater::initModel(gfc2::schema::CModel * pModel)
+void TextUpdater::initModel(gfc::schema::CModel * pModel)
 {
-    //pModel->addTypeObject(new gfc2::schema::CBuildinType(L"BOOLEAN"));
-    //pModel->addTypeObject(new gfc2::schema::CBuildinType(L"REAL"));
-    //pModel->addTypeObject(new gfc2::schema::CBuildinType(L"STRING"));
-    //pModel->addTypeObject(new gfc2::schema::CBuildinType(L"INTEGER"));
+    //pModel->addTypeObject(new gfc::schema::CBuildinType(L"BOOLEAN"));
+    //pModel->addTypeObject(new gfc::schema::CBuildinType(L"REAL"));
+    //pModel->addTypeObject(new gfc::schema::CBuildinType(L"STRING"));
+    //pModel->addTypeObject(new gfc::schema::CBuildinType(L"INTEGER"));
 }
 
 }

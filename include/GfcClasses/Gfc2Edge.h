@@ -9,12 +9,12 @@
 
 class GFCCLASSES_API Gfc2Edge: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2Edge, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Edge, gfc::engine::Entity)
 public:
     Gfc2Edge();
     Gfc2Edge(bool bSetSchema);
-    void setCurve(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCurve() const;
+    void setCurve(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCurve() const;
     bool hasCurve() const;
     std::shared_ptr<Gfc2Curve3d> getCurvePtr();
     void setFaceIndex1(const Gfc2Integer& nValue);

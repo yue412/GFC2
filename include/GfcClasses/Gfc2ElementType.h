@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2ElementType: public Gfc2Object
 {
-GFCENGINE_DEC_OBJECT(Gfc2ElementType, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ElementType, gfc::engine::Entity)
 public:
     Gfc2ElementType();
     Gfc2ElementType(bool bSetSchema);
-    void setType(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getType() const;
+    void setType(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getType() const;
     bool hasType() const;
     std::shared_ptr<Gfc2Label> getTypePtr();
 

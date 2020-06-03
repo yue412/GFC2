@@ -32,7 +32,7 @@
 #define COCO_HEAP_BLOCK_SIZE (64*1024*1024)
 #define COCO_CPP_NAMESPACE_SEPARATOR L':'
 
-namespace gfc2 {
+namespace gfc {
 
 
 // string handling, wide character

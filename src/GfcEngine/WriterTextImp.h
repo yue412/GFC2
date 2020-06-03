@@ -21,7 +21,7 @@ public:
     virtual EntityRef writeEntity(Entity* pEntity); 
 private:
     void writeHead(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
-    void writeValue(gfc2::schema::CAttribute* pSchema, PropValue* pValue);
+    void writeValue(gfc::schema::CAttribute* pSchema, PropValue* pValue);
     void writeProperty(Property* pProp);
     std::fstream* m_pTextStream;
 };

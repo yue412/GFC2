@@ -6,7 +6,7 @@
 #include <memory>
 #include "GfcEngine\GfcEngine.h"
 
-namespace gfc2 {
+namespace gfc {
     namespace schema {
         class CAttribute;
         class CTypeObject;
@@ -21,16 +21,16 @@ class PropValue;
 class GFCENGINE_API Property
 {
 public:
-    Property(gfc2::schema::CAttribute* pAttribute, PropValue* pValue);
+    Property(gfc::schema::CAttribute* pAttribute, PropValue* pValue);
     ~Property();
 
-    gfc2::schema::CAttribute* schema() const { return m_pAttribute; }
+    gfc::schema::CAttribute* schema() const { return m_pAttribute; }
     std::wstring name() const;
     PropValue* value() const;
-    static PropValue* createValue(gfc2::schema::CTypeObject* pType);
+    static PropValue* createValue(gfc::schema::CTypeObject* pType);
 private:
     PropValue* m_pValue;
-    gfc2::schema::CAttribute* m_pAttribute;
+    gfc::schema::CAttribute* m_pAttribute;
 };
 
 GFCENGINE_NAMESPACE_END

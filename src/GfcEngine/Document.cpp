@@ -7,7 +7,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Document::Document( gfc2::schema::CModel* pModel, int nEntityInitCount /*= 1000000*/ ): m_pContainer(nullptr)
+Document::Document( gfc::schema::CModel* pModel, int nEntityInitCount /*= 1000000*/ ): m_pContainer(nullptr)
 {
     m_pContainer = new ContainerImp<EntityPtr>(pModel, nEntityInitCount);
     //m_pEntityTypeTree = new EntityTypeTree(this);
@@ -31,7 +31,7 @@ EntityPtr Document::getEntity( EntityRef nId )
     return m_pContainer->getItem(nId);
 }
 
-gfc2::schema::CModel* Document::model() const 
+gfc::schema::CModel* Document::model() const 
 { 
     return m_pContainer->model(); 
 }
@@ -51,10 +51,10 @@ void Document::linkSchemaByParent()
 {
     for (int i = 0; i < m_pModel->getTypeObjectCount(); ++i)
     {
-        gfc2::schema::CClass* pSchema = dynamic_cast<gfc2::schema::CClass*>(m_pModel->getTypeObject(i));
+        gfc::schema::CClass* pSchema = dynamic_cast<gfc::schema::CClass*>(m_pModel->getTypeObject(i));
         if (pSchema == nullptr)
             continue;
-        gfc2::schema::CClass* pParent = pSchema->getParent();
+        gfc::schema::CClass* pParent = pSchema->getParent();
         while (pParent != nullptr)
         {
             auto sTypeKey = pParent->getName();
@@ -65,7 +65,7 @@ void Document::linkSchemaByParent()
     }
 }
 
-bool Document::schemaFilter( gfc2::schema::CClass* pSchema, const std::string& nFilterType, bool bIncludeSubType )
+bool Document::schemaFilter( gfc::schema::CClass* pSchema, const std::string& nFilterType, bool bIncludeSubType )
 {
     auto sFilterTypeName = normalizeTypeName(nFilterType); // done for typedef class
     auto nTypeID = toString(pSchema->getName());

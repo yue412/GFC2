@@ -8,18 +8,18 @@
 
 class GFCCLASSES_API Gfc2RelVoidsElement: public Gfc2RelDecomposes
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelVoidsElement, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelVoidsElement, gfc::engine::Entity)
 public:
     Gfc2RelVoidsElement();
     Gfc2RelVoidsElement(bool bSetSchema);
-    void setRelatedOpeningElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRelatedOpeningElement() const;
+    void setRelatedOpeningElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRelatedOpeningElement() const;
     bool hasRelatedOpeningElement() const;
     std::shared_ptr<Gfc2Element> getRelatedOpeningElementPtr();
     int getRelatingBuildingElementCount() const;
     void clearRelatingBuildingElement();
-    void addRelatingBuildingElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRelatingBuildingElement(int nIndex) const;
+    void addRelatingBuildingElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRelatingBuildingElement(int nIndex) const;
     std::shared_ptr<Gfc2Element> getRelatingBuildingElementPtr(int nIndex);
 
 };

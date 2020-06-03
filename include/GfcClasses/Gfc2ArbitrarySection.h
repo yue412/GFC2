@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2ArbitrarySection: public Gfc2Section
 {
-GFCENGINE_DEC_OBJECT(Gfc2ArbitrarySection, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ArbitrarySection, gfc::engine::Entity)
 public:
     Gfc2ArbitrarySection();
     Gfc2ArbitrarySection(bool bSetSchema);
-    void setPoly(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getPoly() const;
+    void setPoly(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getPoly() const;
     bool hasPoly() const;
     std::shared_ptr<Gfc2Polygon> getPolyPtr();
 

@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2ParameterizedSection: public Gfc2Section
 {
-GFCENGINE_DEC_OBJECT(Gfc2ParameterizedSection, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ParameterizedSection, gfc::engine::Entity)
 public:
     Gfc2ParameterizedSection();
     Gfc2ParameterizedSection(bool bSetSchema);
-    void setPosition(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getPosition() const;
+    void setPosition(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getPosition() const;
     bool hasPosition() const;
     std::shared_ptr<Gfc2Coordinates3d> getPositionPtr();
 

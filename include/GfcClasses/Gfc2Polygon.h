@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2Polygon: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2Polygon, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Polygon, gfc::engine::Entity)
 public:
     Gfc2Polygon();
     Gfc2Polygon(bool bSetSchema);

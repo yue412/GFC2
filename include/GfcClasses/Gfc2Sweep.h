@@ -10,20 +10,20 @@
 
 class GFCCLASSES_API Gfc2Sweep: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Sweep, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Sweep, gfc::engine::Entity)
 public:
     Gfc2Sweep();
     Gfc2Sweep(bool bSetSchema);
-    void setProfile(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getProfile() const;
+    void setProfile(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getProfile() const;
     bool hasProfile() const;
     std::shared_ptr<Gfc2Curve2d> getProfilePtr();
-    void setSpine3d(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getSpine3d() const;
+    void setSpine3d(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getSpine3d() const;
     bool hasSpine3d() const;
     std::shared_ptr<Gfc2Curve3d> getSpine3dPtr();
-    void setReferenceVector(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getReferenceVector() const;
+    void setReferenceVector(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getReferenceVector() const;
     bool hasReferenceVector() const;
     std::shared_ptr<Gfc2Vector3d> getReferenceVectorPtr();
     void setSweepType(const Gfc2SweepType& nValue);

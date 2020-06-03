@@ -8,20 +8,20 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2IndexedTextureMap: public gfc2::engine::Entity
+class GFCCLASSES_API Gfc2IndexedTextureMap: public gfc::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2IndexedTextureMap, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2IndexedTextureMap, gfc::engine::Entity)
 public:
     Gfc2IndexedTextureMap();
     Gfc2IndexedTextureMap(bool bSetSchema);
-    void setMappedTo(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getMappedTo() const;
+    void setMappedTo(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getMappedTo() const;
     bool hasMappedTo() const;
     std::shared_ptr<Gfc2PrimitiveRenderable> getMappedToPtr();
     int getTexCoordsCount() const;
     void clearTexCoords();
-    void addTexCoords(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getTexCoords(int nIndex) const;
+    void addTexCoords(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getTexCoords(int nIndex) const;
     std::shared_ptr<Gfc2Vector2d> getTexCoordsPtr(int nIndex);
     int getTexCoordIndexCount() const;
     void clearTexCoordIndex();
@@ -29,8 +29,8 @@ public:
     Gfc2Integer getTexCoordIndex(int nIndex) const;
     int getMapsCount() const;
     void clearMaps();
-    void addMaps(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getMaps(int nIndex) const;
+    void addMaps(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getMaps(int nIndex) const;
     std::shared_ptr<Gfc2SurfaceTexture> getMapsPtr(int nIndex);
 
 };

@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2RelConnectsWithRealizingElements: public Gfc2RelConnectsElements
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelConnectsWithRealizingElements, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelConnectsWithRealizingElements, gfc::engine::Entity)
 public:
     Gfc2RelConnectsWithRealizingElements();
     Gfc2RelConnectsWithRealizingElements(bool bSetSchema);
-    void setRealizingElements(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRealizingElements() const;
+    void setRealizingElements(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRealizingElements() const;
     bool hasRealizingElements() const;
     std::shared_ptr<Gfc2Element> getRealizingElementsPtr();
 

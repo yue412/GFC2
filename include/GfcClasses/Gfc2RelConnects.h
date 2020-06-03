@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2RelConnects: public Gfc2RelationShip
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelConnects, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelConnects, gfc::engine::Entity)
 public:
     Gfc2RelConnects();
     Gfc2RelConnects(bool bSetSchema);

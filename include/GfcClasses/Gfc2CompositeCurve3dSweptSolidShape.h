@@ -9,19 +9,19 @@
 
 class GFCCLASSES_API Gfc2CompositeCurve3dSweptSolidShape: public Gfc2SweptAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2CompositeCurve3dSweptSolidShape, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CompositeCurve3dSweptSolidShape, gfc::engine::Entity)
 public:
     Gfc2CompositeCurve3dSweptSolidShape();
     Gfc2CompositeCurve3dSweptSolidShape(bool bSetSchema);
     int getSegmentsCount() const;
     void clearSegments();
-    void addSegments(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getSegments(int nIndex) const;
+    void addSegments(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getSegments(int nIndex) const;
     std::shared_ptr<Gfc2Curve3d> getSegmentsPtr(int nIndex);
     int getReferencesCount() const;
     void clearReferences();
-    void addReferences(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getReferences(int nIndex) const;
+    void addReferences(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getReferences(int nIndex) const;
     std::shared_ptr<Gfc2Surface> getReferencesPtr(int nIndex);
 
 };

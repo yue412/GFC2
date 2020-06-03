@@ -6,20 +6,20 @@
 #include "Gfc2RepresentationItem.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2Representation: public gfc2::engine::Entity
+class GFCCLASSES_API Gfc2Representation: public gfc::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2Representation, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Representation, gfc::engine::Entity)
 public:
     Gfc2Representation();
     Gfc2Representation(bool bSetSchema);
-    void setIdentifier(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getIdentifier() const;
+    void setIdentifier(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getIdentifier() const;
     bool hasIdentifier() const;
     std::shared_ptr<Gfc2String> getIdentifierPtr();
     int getitemsCount() const;
     void clearitems();
-    void additems(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getitems(int nIndex) const;
+    void additems(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getitems(int nIndex) const;
     std::shared_ptr<Gfc2RepresentationItem> getitemsPtr(int nIndex);
 
 };

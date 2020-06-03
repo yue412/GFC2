@@ -8,14 +8,14 @@
 
 class GFCCLASSES_API Gfc2CoedgeListEx: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2CoedgeListEx, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CoedgeListEx, gfc::engine::Entity)
 public:
     Gfc2CoedgeListEx();
     Gfc2CoedgeListEx(bool bSetSchema);
     int getCoedgeExsCount() const;
     void clearCoedgeExs();
-    void addCoedgeExs(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCoedgeExs(int nIndex) const;
+    void addCoedgeExs(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCoedgeExs(int nIndex) const;
     std::shared_ptr<Gfc2Coedge> getCoedgeExsPtr(int nIndex);
 
 };

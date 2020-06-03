@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2PrimitiveShape: public Gfc2SolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2PrimitiveShape, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PrimitiveShape, gfc::engine::Entity)
 public:
     Gfc2PrimitiveShape();
     Gfc2PrimitiveShape(bool bSetSchema);

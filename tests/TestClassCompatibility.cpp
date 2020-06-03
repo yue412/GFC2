@@ -10,9 +10,9 @@
 
 TEST(TestClassCompatibility, Empty)
 {
-    gfc2::schema::CClass oFromClass, oToClass;
+    gfc::schema::CClass oFromClass, oToClass;
     oFromClass.SetName(L"CTest");
-    gfc2::schema::CClassCompatibility oCompatibility;
+    gfc::schema::CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
     EXPECT_EQ(true, L"CTest" == oCompatibility.getName());
     EXPECT_EQ(0, oCompatibility.getCount());
@@ -20,33 +20,33 @@ TEST(TestClassCompatibility, Empty)
 
 TEST(TestClassCompatibility, Class1)
 {
-    gfc2::schema::CClass oFromClass, oToClass;
-    gfc2::schema::CAttribute* pFromAttrib1 = new gfc2::schema::CAttribute();
+    gfc::schema::CClass oFromClass, oToClass;
+    gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
     pFromAttrib1->SetName(L"ID");
-    gfc2::schema::CIntegerType oType;
+    gfc::schema::CIntegerType oType;
     pFromAttrib1->SetType(&oType);
     oFromClass.addAttribute(pFromAttrib1);
 
-    gfc2::schema::CAttribute* pFromAttrib2 = new gfc2::schema::CAttribute();
+    gfc::schema::CAttribute* pFromAttrib2 = new gfc::schema::CAttribute();
     pFromAttrib2->SetName(L"Name");
-    gfc2::schema::CStringType oType2;
+    gfc::schema::CStringType oType2;
     pFromAttrib2->SetType(&oType2);
     oFromClass.addAttribute(pFromAttrib2);
 
 
-    gfc2::schema::CAttribute* pToAttrib1 = new gfc2::schema::CAttribute();
+    gfc::schema::CAttribute* pToAttrib1 = new gfc::schema::CAttribute();
     pToAttrib1->SetName(L"ID");
-    //gfc2::schema::CIntegerType oType;
+    //gfc::schema::CIntegerType oType;
     pToAttrib1->SetType(&oType);
     oToClass.addAttribute(pToAttrib1);
 
-    gfc2::schema::CAttribute* pToAttrib2 = new gfc2::schema::CAttribute();
+    gfc::schema::CAttribute* pToAttrib2 = new gfc::schema::CAttribute();
     pToAttrib2->SetName(L"Name2");
-    //gfc2::schema::CBuildinType oType(L"STRING");
+    //gfc::schema::CBuildinType oType(L"STRING");
     pToAttrib2->SetType(&oType2);
     oToClass.addAttribute(pToAttrib2);
 
-    gfc2::schema::CClassCompatibility oCompatibility;
+    gfc::schema::CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
     EXPECT_EQ(3, oCompatibility.getCount());
     EXPECT_EQ(0, oCompatibility.getCompatibilityAttribute(0)->toIndex());
@@ -56,35 +56,35 @@ TEST(TestClassCompatibility, Class1)
 
 TEST(TestClassCompatibility, Class2)
 {
-    gfc2::schema::CClass oFromClass, oToClass;
-    gfc2::schema::CClass oFromParentClass, oToParentClass;
+    gfc::schema::CClass oFromClass, oToClass;
+    gfc::schema::CClass oFromParentClass, oToParentClass;
     oFromClass.setParent(&oFromParentClass);
-    gfc2::schema::CAttribute* pFromAttrib1 = new gfc2::schema::CAttribute();
+    gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
     pFromAttrib1->SetName(L"ID");
-    gfc2::schema::CIntegerType oType;
+    gfc::schema::CIntegerType oType;
     pFromAttrib1->SetType(&oType);
     oFromParentClass.addAttribute(pFromAttrib1);
 
-    gfc2::schema::CAttribute* pFromAttrib2 = new gfc2::schema::CAttribute();
+    gfc::schema::CAttribute* pFromAttrib2 = new gfc::schema::CAttribute();
     pFromAttrib2->SetName(L"Name");
-    gfc2::schema::CStringType oType2;
+    gfc::schema::CStringType oType2;
     pFromAttrib2->SetType(&oType2);
     oFromClass.addAttribute(pFromAttrib2);
 
     oToClass.setParent(&oToParentClass);
-    gfc2::schema::CAttribute* pToAttrib1 = new gfc2::schema::CAttribute();
+    gfc::schema::CAttribute* pToAttrib1 = new gfc::schema::CAttribute();
     pToAttrib1->SetName(L"ID");
-    //gfc2::schema::CIntegerType oType;
+    //gfc::schema::CIntegerType oType;
     pToAttrib1->SetType(&oType);
     oToParentClass.addAttribute(pToAttrib1);
 
-    gfc2::schema::CAttribute* pToAttrib2 = new gfc2::schema::CAttribute();
+    gfc::schema::CAttribute* pToAttrib2 = new gfc::schema::CAttribute();
     pToAttrib2->SetName(L"Name2");
-    //gfc2::schema::CBuildinType oType(L"STRING");
+    //gfc::schema::CBuildinType oType(L"STRING");
     pToAttrib2->SetType(&oType2);
     oToClass.addAttribute(pToAttrib2);
 
-    gfc2::schema::CClassCompatibility oCompatibility;
+    gfc::schema::CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
     EXPECT_EQ(3, oCompatibility.getCount());
     EXPECT_EQ(0, oCompatibility.getCompatibilityAttribute(0)->toIndex());

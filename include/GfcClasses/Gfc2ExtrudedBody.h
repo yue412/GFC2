@@ -10,19 +10,19 @@
 
 class GFCCLASSES_API Gfc2ExtrudedBody: public Gfc2PrimitiveBody
 {
-GFCENGINE_DEC_OBJECT(Gfc2ExtrudedBody, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ExtrudedBody, gfc::engine::Entity)
 public:
     Gfc2ExtrudedBody();
     Gfc2ExtrudedBody(bool bSetSchema);
-    void setCoordinate(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCoordinate() const;
+    void setCoordinate(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCoordinate() const;
     bool hasCoordinate() const;
     std::shared_ptr<Gfc2Coordinates3d> getCoordinatePtr();
     void setLength(const Gfc2Double& dValue);
     Gfc2Double getLength() const;
     bool hasLength() const;
-    void setSection(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getSection() const;
+    void setSection(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getSection() const;
     bool hasSection() const;
     std::shared_ptr<Gfc2Polygon> getSectionPtr();
 

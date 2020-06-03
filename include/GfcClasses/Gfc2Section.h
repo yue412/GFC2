@@ -4,9 +4,9 @@
 #include "GfcClasses.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2Section: public gfc2::engine::Entity
+class GFCCLASSES_API Gfc2Section: public gfc::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2Section, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Section, gfc::engine::Entity)
 public:
     Gfc2Section();
     Gfc2Section(bool bSetSchema);

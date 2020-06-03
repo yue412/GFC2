@@ -86,7 +86,7 @@ void Parser::TypedefOrEnum() {
 		Expect(7 /* "=" */);
 		if (la->kind == _ident) {
 			Get();
-			gfc2::schema::CTypeDef* pTypeDef = new gfc2::schema::CTypeDef(sTypeName);
+			gfc::schema::CTypeDef* pTypeDef = new gfc::schema::CTypeDef(sTypeName);
 			m_pModel->addTypeObject(pTypeDef); 
 			auto pRefType = findType(t->val);
 			pTypeDef->SetRefType(pRefType);
@@ -97,7 +97,7 @@ void Parser::TypedefOrEnum() {
 			Expect(10 /* "(" */);
 			CStringList oEnumList; 
 			IdentList(oEnumList);
-			gfc2::schema::CEnumType* pEnumType = new gfc2::schema::CEnumType(sTypeName);
+			gfc::schema::CEnumType* pEnumType = new gfc::schema::CEnumType(sTypeName);
 			m_pModel->addTypeObject(pEnumType); 
 			for each (auto sEnum in oEnumList)
 			{
@@ -131,7 +131,7 @@ void Parser::Entity() {
 		}
 		Expect(4 /* ";" */);
 		while (la->kind == _ident) {
-			gfc2::schema::CAttribute* pAttribute = new gfc2::schema::CAttribute; 
+			gfc::schema::CAttribute* pAttribute = new gfc::schema::CAttribute; 
 			Attribute(pAttribute);
 			pClass->addAttribute(pAttribute); 
 			Expect(4 /* ";" */);
@@ -149,7 +149,7 @@ void Parser::IdentList(CStringList& oStringList) {
 		}
 }
 
-void Parser::SuperType(gfc2::schema::CClass* pClass) {
+void Parser::SuperType(gfc::schema::CClass* pClass) {
 		if (la->kind == 16 /* "ABSTRACT" */) {
 			Get();
 			pClass->setIsAbstract(true); 
@@ -171,7 +171,7 @@ void Parser::SuperType(gfc2::schema::CClass* pClass) {
 		Expect(11 /* ")" */);
 }
 
-void Parser::SubType(gfc2::schema::CClass* pClass) {
+void Parser::SubType(gfc::schema::CClass* pClass) {
 		Expect(19 /* "SUBTYPE" */);
 		Expect(9 /* "OF" */);
 		Expect(10 /* "(" */);
@@ -182,14 +182,14 @@ void Parser::SubType(gfc2::schema::CClass* pClass) {
 		Expect(11 /* ")" */);
 }
 
-void Parser::Attribute(gfc2::schema::CAttribute* pAttribute) {
+void Parser::Attribute(gfc::schema::CAttribute* pAttribute) {
 		Expect(_ident);
 		pAttribute->SetName(t->val); 
 		Expect(20 /* ":" */);
 		AttributeType(pAttribute);
 }
 
-void Parser::AttributeType(gfc2::schema::CAttribute* pAttribute) {
+void Parser::AttributeType(gfc::schema::CAttribute* pAttribute) {
 		if (la->kind == _ident || la->kind == 21 /* "OPTIONAL" */) {
 			if (la->kind == 21 /* "OPTIONAL" */) {
 				Get();

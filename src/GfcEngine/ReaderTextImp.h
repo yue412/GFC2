@@ -5,7 +5,7 @@
 #include "ReaderImp.h"
 #include "GfcEngine\GfcEngine.h"
 
-namespace gfc2 {
+namespace gfc {
     namespace schema {
         class CEnumType;
         class CTypeObject;
@@ -33,7 +33,7 @@ private:
     bool parseLine(const std::string & sLine, EntityRef& nId, std::string& sName, std::string& sContent);
     bool getNextValue(const std::string& input, int nStartPos, std::string& sValue);
     bool parse(const std::string& input, Entity* pEntity, std::wstring& error);
-    bool parseField(const std::string& input, gfc2::schema::CTypeObject* pType, PropValue * pValue);
+    bool parseField(const std::string& input, gfc::schema::CTypeObject* pType, PropValue * pValue);
     bool parseBoolean(const std::string& input, bool& value);
     bool parseInt(const std::string& input, int& value);
     bool parseFloat(const std::string& input, double& value);
@@ -44,7 +44,7 @@ private:
     bool parseIntField(const std::string& input, PropValue* pValue);
     bool parseFloatField(const std::string& input, PropValue* pValue);
     bool parseStringField(const std::string& input, PropValue* pValue);
-    bool parseEnumField(const std::string& input, gfc2::schema::CEnumType* pEnumType, PropValue* pValue);
+    bool parseEnumField(const std::string& input, gfc::schema::CEnumType* pEnumType, PropValue* pValue);
     bool parseEntityField(const std::string& input, PropValue* pValue);
 
 };

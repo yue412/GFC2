@@ -8,14 +8,14 @@
 
 class GFCCLASSES_API Gfc2CommonPolygonEx: public Gfc2Polygon
 {
-GFCENGINE_DEC_OBJECT(Gfc2CommonPolygonEx, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CommonPolygonEx, gfc::engine::Entity)
 public:
     Gfc2CommonPolygonEx();
     Gfc2CommonPolygonEx(bool bSetSchema);
     int getLoopExsCount() const;
     void clearLoopExs();
-    void addLoopExs(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getLoopExs(int nIndex) const;
+    void addLoopExs(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getLoopExs(int nIndex) const;
     std::shared_ptr<Gfc2CoedgeListEx> getLoopExsPtr(int nIndex);
 
 };

@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2ExtrudedAreaSolidTaperedShape: public Gfc2ExtrudedAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2ExtrudedAreaSolidTaperedShape, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ExtrudedAreaSolidTaperedShape, gfc::engine::Entity)
 public:
     Gfc2ExtrudedAreaSolidTaperedShape();
     Gfc2ExtrudedAreaSolidTaperedShape(bool bSetSchema);
-    void setEndSweptArea(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getEndSweptArea() const;
+    void setEndSweptArea(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getEndSweptArea() const;
     bool hasEndSweptArea() const;
     std::shared_ptr<Gfc2Section> getEndSweptAreaPtr();
 

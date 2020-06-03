@@ -7,7 +7,7 @@
 #define GFCENGINE_API __declspec(dllimport)
 #endif
 
-#define GFCENGINE_NAMESPACE_BEGIN namespace gfc2 { namespace engine {
+#define GFCENGINE_NAMESPACE_BEGIN namespace gfc { namespace engine {
 #define GFCENGINE_NAMESPACE_END } }
 
 GFCENGINE_NAMESPACE_BEGIN

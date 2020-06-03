@@ -4,8 +4,8 @@
 TEST(TestGFCParse, Empty)
 {
     std::string sCode="#1=Gfc2String();";
-    gfc2::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     EXPECT_EQ(true, L"Gfc2String" == oParser.m_sEntityName);
     EXPECT_EQ(0, oParser.m_oParameterList.getCount());
@@ -15,8 +15,8 @@ TEST(TestGFCParse, Empty)
 TEST(TestGFCParse, Boolean)
 {
     std::string sCode = "#1=Gfc2String(.T.);";
-    gfc2::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(1, oParser.m_oParameterList.getCount());
@@ -26,8 +26,8 @@ TEST(TestGFCParse, Boolean)
 TEST(TestGFCParse, Integer)
 {
     std::string sCode = "#1=Gfc2String(100);";
-    gfc2::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(1, oParser.m_oParameterList.getCount());
@@ -37,8 +37,8 @@ TEST(TestGFCParse, Integer)
 TEST(TestGFCParse, Real)
 {
     std::string sCode = "#1=Gfc2String(100.0);";
-    gfc2::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(1, oParser.m_oParameterList.getCount());
@@ -48,8 +48,8 @@ TEST(TestGFCParse, Real)
 TEST(TestGFCParse, Real2)
 {
     std::string sCode = "#1=Gfc2String(-1.1e-10);";
-    gfc2::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(1, oParser.m_oParameterList.getCount());
@@ -59,8 +59,8 @@ TEST(TestGFCParse, Real2)
 TEST(TestGFCParse, String)
 {
     std::string sCode = "#1=Gfc2String('abc');";
-    gfc2::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(1, oParser.m_oParameterList.getCount());
@@ -70,8 +70,8 @@ TEST(TestGFCParse, String)
 TEST(TestGFCParse, other1)
 {
     std::string sCode = "#1=Gfc2String($);";
-    gfc2::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(1, oParser.m_oParameterList.getCount());
@@ -81,8 +81,8 @@ TEST(TestGFCParse, other1)
 TEST(TestGFCParse, other2)
 {
     std::string sCode = "#1=Gfc2String(*);";
-    gfc2::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(1, oParser.m_oParameterList.getCount());
@@ -92,8 +92,8 @@ TEST(TestGFCParse, other2)
 TEST(TestGFCParse, other3)
 {
     std::string sCode = "#1=Gfc2String(#13);";
-    gfc2::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(1, oParser.m_oParameterList.getCount());
@@ -103,8 +103,8 @@ TEST(TestGFCParse, other3)
 TEST(TestGFCParse, Array)
 {
     std::string sCode = "#1=Gfc2String((1,2,3));";
-    gfc2::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(1, oParser.m_oParameterList.getCount());
@@ -115,8 +115,8 @@ TEST(TestGFCParse, Array)
 TEST(TestGFCParse, composite)
 {
     std::string sCode = "#1=Gfc2String(-123,#13,12.0,$,*,'abc',.abc.,(1,2,3));";
-    gfc2::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
-    gfc2::Parser oParser(&oScanner);
+    gfc::Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
+    gfc::Parser oParser(&oScanner);
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(8, oParser.m_oParameterList.getCount());

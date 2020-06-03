@@ -10,19 +10,19 @@
 
 class GFCCLASSES_API Gfc2Arc2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2Arc2d, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Arc2d, gfc::engine::Entity)
 public:
     Gfc2Arc2d();
     Gfc2Arc2d(bool bSetSchema);
-    void setCenterPt(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCenterPt() const;
+    void setCenterPt(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCenterPt() const;
     bool hasCenterPt() const;
     std::shared_ptr<Gfc2Vector2d> getCenterPtPtr();
     void setRadius(const Gfc2Double& dValue);
     Gfc2Double getRadius() const;
     bool hasRadius() const;
-    void setRange(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRange() const;
+    void setRange(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRange() const;
     bool hasRange() const;
     std::shared_ptr<Gfc2Intervald> getRangePtr();
     void setClockSign(const Gfc2Integer& nValue);

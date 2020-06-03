@@ -28,7 +28,7 @@ class CppBaseFile;
 class CppClass;
 class CppCode;
 
-using namespace gfc2::schema;
+using namespace gfc::schema;
 
 class CCodeWriter
 {

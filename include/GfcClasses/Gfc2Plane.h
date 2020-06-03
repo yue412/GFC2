@@ -9,28 +9,28 @@
 
 class GFCCLASSES_API Gfc2Plane: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Plane, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Plane, gfc::engine::Entity)
 public:
     Gfc2Plane();
     Gfc2Plane(bool bSetSchema);
-    void setPos(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getPos() const;
+    void setPos(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getPos() const;
     bool hasPos() const;
     std::shared_ptr<Gfc2Vector3d> getPosPtr();
-    void setDirU(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getDirU() const;
+    void setDirU(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getDirU() const;
     bool hasDirU() const;
     std::shared_ptr<Gfc2Vector3d> getDirUPtr();
-    void setDirV(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getDirV() const;
+    void setDirV(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getDirV() const;
     bool hasDirV() const;
     std::shared_ptr<Gfc2Vector3d> getDirVPtr();
-    void setRangeU(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRangeU() const;
+    void setRangeU(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRangeU() const;
     bool hasRangeU() const;
     std::shared_ptr<Gfc2Intervald> getRangeUPtr();
-    void setRangeV(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRangeV() const;
+    void setRangeV(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRangeV() const;
     bool hasRangeV() const;
     std::shared_ptr<Gfc2Intervald> getRangeVPtr();
 

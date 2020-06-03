@@ -9,20 +9,20 @@
 
 class GFCCLASSES_API Gfc2RelConnectsElements: public Gfc2RelConnects
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelConnectsElements, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelConnectsElements, gfc::engine::Entity)
 public:
     Gfc2RelConnectsElements();
     Gfc2RelConnectsElements(bool bSetSchema);
-    void setRelatingElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRelatingElement() const;
+    void setRelatingElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRelatingElement() const;
     bool hasRelatingElement() const;
     std::shared_ptr<Gfc2Element> getRelatingElementPtr();
-    void setRelatedElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRelatedElement() const;
+    void setRelatedElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRelatedElement() const;
     bool hasRelatedElement() const;
     std::shared_ptr<Gfc2Element> getRelatedElementPtr();
-    void setConnectionGeometry(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getConnectionGeometry() const;
+    void setConnectionGeometry(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getConnectionGeometry() const;
     bool hasConnectionGeometry() const;
     std::shared_ptr<Gfc2ConnectionGeometry> getConnectionGeometryPtr();
 

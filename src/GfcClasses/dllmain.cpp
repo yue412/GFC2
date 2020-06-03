@@ -4,7 +4,7 @@
 #include "resource.h"
 #include "GfcSchema.h"
 
-gfc2::schema::CModel* g_pModel = nullptr;
+gfc::schema::CModel* g_pModel = nullptr;
 
 BOOL WINAPI DllMain(
     _In_ HINSTANCE hinstDLL,
@@ -30,9 +30,9 @@ BOOL WINAPI DllMain(
             BYTE* pByte = new BYTE[dwSize + 1];
             memcpy(pByte, pBuffer, dwSize);
             GlobalUnlock(hGlobal);
-            g_pModel = new gfc2::schema::CModel;
+            g_pModel = new gfc::schema::CModel;
             // ½âÎö
-            gfc2::engine::GfcEngineUtils::loadSchema((char*)pByte, dwSize, g_pModel);
+            gfc::engine::GfcEngineUtils::loadSchema((char*)pByte, dwSize, g_pModel);
         }
     }
         break;

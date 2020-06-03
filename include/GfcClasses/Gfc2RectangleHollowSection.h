@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2RectangleHollowSection: public Gfc2RectangleSection
 {
-GFCENGINE_DEC_OBJECT(Gfc2RectangleHollowSection, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RectangleHollowSection, gfc::engine::Entity)
 public:
     Gfc2RectangleHollowSection();
     Gfc2RectangleHollowSection(bool bSetSchema);

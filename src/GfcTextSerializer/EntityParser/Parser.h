@@ -10,7 +10,7 @@
 
 #include "Scanner.h"
 
-namespace gfc2 {
+namespace gfc {
 
 
 class Errors {
@@ -60,7 +60,7 @@ public:
 std::wstring m_sEntityName;
 std::wstring m_sInstance;
 //typedef std::vector<std::wstring> CStringList;
-gfc2::schema::CCompositeAttributeValue m_oParameterList;
+gfc::schema::CCompositeAttributeValue m_oParameterList;
 
 
 
@@ -70,9 +70,9 @@ gfc2::schema::CCompositeAttributeValue m_oParameterList;
 
 	void GfcEntity();
 	void Entity();
-	void ParameterList(gfc2::schema::CAttributeValue* pParameterList);
-	void Parameter(gfc2::schema::CAttributeValuePtr& pValue);
-	void List(gfc2::schema::CAttributeValuePtr& pValue);
+	void ParameterList(gfc::schema::CAttributeValue* pParameterList);
+	void Parameter(gfc::schema::CAttributeValuePtr& pValue);
+	void List(gfc::schema::CAttributeValuePtr& pValue);
 
 	void Parse();
 

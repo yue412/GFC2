@@ -30,11 +30,11 @@ void Entity::setContainer( IContainer* pContainer )
     m_pContainer = pContainer;
 }
 
-void Entity::setSchema(gfc2::schema::CTypeObject * pType)
+void Entity::setSchema(gfc::schema::CTypeObject * pType)
 {
     assert(pType);
-    assert(pType->getDataType() == gfc2::schema::EDT_ENTITY);
-    if (pType != m_pSchema && pType->getDataType() == gfc2::schema::EDT_ENTITY)
+    assert(pType->getDataType() == gfc::schema::EDT_ENTITY);
+    if (pType != m_pSchema && pType->getDataType() == gfc::schema::EDT_ENTITY)
     {
         free();
         m_pSchema = pType;
@@ -42,11 +42,11 @@ void Entity::setSchema(gfc2::schema::CTypeObject * pType)
     }
 }
 
-gfc2::schema::CClass * Entity::getClass() const
+gfc::schema::CClass * Entity::getClass() const
 {
     if (m_pSchema)
     {
-        return (gfc2::schema::CClass *)m_pSchema->getBaseType();
+        return (gfc::schema::CClass *)m_pSchema->getBaseType();
     }
     return nullptr;
 }
@@ -137,7 +137,7 @@ void Entity::init()
     initProps(getClass());
 }
 
-void Entity::initProps(gfc2::schema::CClass* pClass)
+void Entity::initProps(gfc::schema::CClass* pClass)
 {
     if (pClass)
     {

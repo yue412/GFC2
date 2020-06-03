@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2GeoProperty: public Gfc2SingleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2GeoProperty, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2GeoProperty, gfc::engine::Entity)
 public:
     Gfc2GeoProperty();
     Gfc2GeoProperty(bool bSetSchema);
-    void setGeo(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getGeo() const;
+    void setGeo(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getGeo() const;
     bool hasGeo() const;
     std::shared_ptr<Gfc2Geometry> getGeoPtr();
 

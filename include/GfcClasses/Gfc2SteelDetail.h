@@ -6,25 +6,25 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2SteelDetail: public gfc2::engine::Entity
+class GFCCLASSES_API Gfc2SteelDetail: public gfc::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2SteelDetail, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SteelDetail, gfc::engine::Entity)
 public:
     Gfc2SteelDetail();
     Gfc2SteelDetail(bool bSetSchema);
     void setEntityID(const Gfc2Integer& nValue);
     Gfc2Integer getEntityID() const;
     bool hasEntityID() const;
-    void setName(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getName() const;
+    void setName(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getName() const;
     bool hasName() const;
     std::shared_ptr<Gfc2String> getNamePtr();
-    void setDesc(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getDesc() const;
+    void setDesc(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getDesc() const;
     bool hasDesc() const;
     std::shared_ptr<Gfc2String> getDescPtr();
-    void setLevel(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getLevel() const;
+    void setLevel(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getLevel() const;
     bool hasLevel() const;
     std::shared_ptr<Gfc2String> getLevelPtr();
     void setDia(const Gfc2Integer& nValue);
@@ -45,8 +45,8 @@ public:
     void setTieinNum(const Gfc2Integer& nValue);
     Gfc2Integer getTieinNum() const;
     bool hasTieinNum() const;
-    void setTieinType(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getTieinType() const;
+    void setTieinType(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getTieinType() const;
     bool hasTieinType() const;
     std::shared_ptr<Gfc2String> getTieinTypePtr();
 

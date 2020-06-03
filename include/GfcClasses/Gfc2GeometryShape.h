@@ -8,14 +8,14 @@
 
 class GFCCLASSES_API Gfc2GeometryShape: public Gfc2Shape
 {
-GFCENGINE_DEC_OBJECT(Gfc2GeometryShape, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2GeometryShape, gfc::engine::Entity)
 public:
     Gfc2GeometryShape();
     Gfc2GeometryShape(bool bSetSchema);
     int getGeosCount() const;
     void clearGeos();
-    void addGeos(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getGeos(int nIndex) const;
+    void addGeos(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getGeos(int nIndex) const;
     std::shared_ptr<Gfc2Geometry> getGeosPtr(int nIndex);
 
 };

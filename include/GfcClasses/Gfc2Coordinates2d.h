@@ -8,20 +8,20 @@
 
 class GFCCLASSES_API Gfc2Coordinates2d: public Gfc2Geometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2Coordinates2d, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Coordinates2d, gfc::engine::Entity)
 public:
     Gfc2Coordinates2d();
     Gfc2Coordinates2d(bool bSetSchema);
-    void setOrigin(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getOrigin() const;
+    void setOrigin(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getOrigin() const;
     bool hasOrigin() const;
     std::shared_ptr<Gfc2Vector2d> getOriginPtr();
-    void setX(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getX() const;
+    void setX(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getX() const;
     bool hasX() const;
     std::shared_ptr<Gfc2Vector2d> getXPtr();
-    void setY(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getY() const;
+    void setY(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getY() const;
     bool hasY() const;
     std::shared_ptr<Gfc2Vector2d> getYPtr();
 

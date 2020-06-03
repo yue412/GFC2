@@ -5,7 +5,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Reader::Reader(gfc2::schema::CModel* pModel): m_pImp(nullptr), m_pModel(pModel)
+Reader::Reader(gfc::schema::CModel* pModel): m_pImp(nullptr), m_pModel(pModel)
 {
 }
 
@@ -50,7 +50,7 @@ void Reader::close()
 
 void Reader::read(Document* pDoc)
 {
-    //gfc2::engine::Entity::setDocument(pDoc);
+    //gfc::engine::Entity::setDocument(pDoc);
     //m_pSerializerManager = SerializerManager::getInstance();
     //for (int i = 0; i < m_pSerializerManager->getCount(); i++)
     //{

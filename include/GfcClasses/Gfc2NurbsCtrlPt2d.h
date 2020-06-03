@@ -6,14 +6,14 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2NurbsCtrlPt2d: public gfc2::engine::Entity
+class GFCCLASSES_API Gfc2NurbsCtrlPt2d: public gfc::engine::Entity
 {
-GFCENGINE_DEC_OBJECT(Gfc2NurbsCtrlPt2d, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2NurbsCtrlPt2d, gfc::engine::Entity)
 public:
     Gfc2NurbsCtrlPt2d();
     Gfc2NurbsCtrlPt2d(bool bSetSchema);
-    void setPoint(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getPoint() const;
+    void setPoint(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getPoint() const;
     bool hasPoint() const;
     std::shared_ptr<Gfc2Vector2d> getPointPtr();
     void setWeight(const Gfc2Double& dValue);

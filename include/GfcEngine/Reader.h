@@ -9,7 +9,7 @@
 #include "GfcEngine\Entity.h"
 #include "GfcEngine\Container.h"
 
-namespace gfc2 {
+namespace gfc {
     namespace schema {
         class CModel;
     }
@@ -32,7 +32,7 @@ template class GFCENGINE_API std::vector<std::wstring, std::allocator<std::wstri
 class GFCENGINE_API Reader
 {
 public:
-    Reader(gfc2::schema::CModel* pModel);
+    Reader(gfc::schema::CModel* pModel);
     virtual ~Reader(void);
     bool open(const std::wstring& sFileName);
     void close();
@@ -47,7 +47,7 @@ private:
     //Entity* read();
     std::vector<std::wstring> m_oErrors;
     ReaderImp* m_pImp;
-    gfc2::schema::CModel* m_pModel;
+    gfc::schema::CModel* m_pModel;
 };
 
 GFCENGINE_NAMESPACE_END

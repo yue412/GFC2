@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2RectangleSection: public Gfc2ParameterizedSection
 {
-GFCENGINE_DEC_OBJECT(Gfc2RectangleSection, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RectangleSection, gfc::engine::Entity)
 public:
     Gfc2RectangleSection();
     Gfc2RectangleSection(bool bSetSchema);

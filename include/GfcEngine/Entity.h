@@ -8,7 +8,7 @@
 #include "GfcEngine\Object.h"
 #include "GfcEngine\SysMarco.h"
 
-namespace gfc2 {
+namespace gfc {
     namespace schema {
         class CClass;
         class CTypeObject;
@@ -31,9 +31,9 @@ public:
     Entity(void);
     virtual ~Entity(void);
     void setContainer(IContainer* pContainer);
-    void setSchema(gfc2::schema::CTypeObject* pType);
-    gfc2::schema::CTypeObject* getSchema() const { return m_pSchema; }
-    gfc2::schema::CClass* getClass() const;
+    void setSchema(gfc::schema::CTypeObject* pType);
+    gfc::schema::CTypeObject* getSchema() const { return m_pSchema; }
+    gfc::schema::CClass* getClass() const;
 
     std::wstring entityName() const;
     bool isInitialized() const;
@@ -77,10 +77,10 @@ protected:
 private:
     void init();
     void free();
-    void initProps(gfc2::schema::CClass* pClass);
+    void initProps(gfc::schema::CClass* pClass);
 
     IContainer* m_pContainer;
-    gfc2::schema::CTypeObject* m_pSchema;
+    gfc::schema::CTypeObject* m_pSchema;
     std::vector<Property*>* m_pProps;
 };
 

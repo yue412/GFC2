@@ -9,12 +9,12 @@
 
 class GFCCLASSES_API Gfc2RevolvedAreaSolidShape: public Gfc2SweptAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2RevolvedAreaSolidShape, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RevolvedAreaSolidShape, gfc::engine::Entity)
 public:
     Gfc2RevolvedAreaSolidShape();
     Gfc2RevolvedAreaSolidShape(bool bSetSchema);
-    void setAxis(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getAxis() const;
+    void setAxis(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getAxis() const;
     bool hasAxis() const;
     std::shared_ptr<Gfc2Vector2d> getAxisPtr();
     void setAngle(const Gfc2Double& dValue);

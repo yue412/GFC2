@@ -9,17 +9,17 @@
 
 class GFCCLASSES_API Gfc2PolyhedralFace: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2PolyhedralFace, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PolyhedralFace, gfc::engine::Entity)
 public:
     Gfc2PolyhedralFace();
     Gfc2PolyhedralFace(bool bSetSchema);
     int getLoopsCount() const;
     void clearLoops();
-    void addLoops(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getLoops(int nIndex) const;
+    void addLoops(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getLoops(int nIndex) const;
     std::shared_ptr<Gfc2PolyhedralLoop> getLoopsPtr(int nIndex);
-    void setPlane(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getPlane() const;
+    void setPlane(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getPlane() const;
     bool hasPlane() const;
     std::shared_ptr<Gfc2PlaneCoef> getPlanePtr();
 

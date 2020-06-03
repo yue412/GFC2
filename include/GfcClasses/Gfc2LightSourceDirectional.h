@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2LightSourceDirectional: public Gfc2LightSource
 {
-GFCENGINE_DEC_OBJECT(Gfc2LightSourceDirectional, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2LightSourceDirectional, gfc::engine::Entity)
 public:
     Gfc2LightSourceDirectional();
     Gfc2LightSourceDirectional(bool bSetSchema);
-    void setOrientation(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getOrientation() const;
+    void setOrientation(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getOrientation() const;
     bool hasOrientation() const;
     std::shared_ptr<Gfc2Vector3d> getOrientationPtr();
 

@@ -10,16 +10,16 @@
 
 class GFCCLASSES_API Gfc2Face: public Gfc2CommonPolygonEx
 {
-GFCENGINE_DEC_OBJECT(Gfc2Face, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Face, gfc::engine::Entity)
 public:
     Gfc2Face();
     Gfc2Face(bool bSetSchema);
-    void setSurface(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getSurface() const;
+    void setSurface(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getSurface() const;
     bool hasSurface() const;
     std::shared_ptr<Gfc2Surface> getSurfacePtr();
-    void setBox(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getBox() const;
+    void setBox(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getBox() const;
     bool hasBox() const;
     std::shared_ptr<Gfc2Box3d> getBoxPtr();
     void setSameDir(const Gfc2Boolean& bValue);

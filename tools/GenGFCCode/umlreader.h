@@ -33,7 +33,7 @@ struct CAssociationEnd
 
 class TiXmlElement;
 
-using namespace gfc2::schema;
+using namespace gfc::schema;
 
 class CUMLReader
 {

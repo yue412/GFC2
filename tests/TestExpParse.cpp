@@ -12,17 +12,17 @@ TEST(TestExpParse, TypeDefine)
         ;
     Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
     Parser oParser(&oScanner);
-    gfc2::schema::CModel oModel, oTempModel;
+    gfc::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
 
-//    oModel.addTypeObject(new gfc2::schema::CBooleanType());
+//    oModel.addTypeObject(new gfc::schema::CBooleanType());
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(5, oParser.m_pModel->getTypeObjectCount());
     auto pTypeObject = oParser.m_pModel->getTypeObject(4);
-    EXPECT_NE(nullptr, dynamic_cast<gfc2::schema::CTypeDef*>(pTypeObject));
+    EXPECT_NE(nullptr, dynamic_cast<gfc::schema::CTypeDef*>(pTypeObject));
     EXPECT_EQ(true, L"Gfc2Boolean" == pTypeObject->getName());
     //EXPECT_EQ(0, oParser.m_oParameterList.getCount());
 }
@@ -41,7 +41,7 @@ TEST(TestExpParse, Enumeration)
         ;
     Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
     Parser oParser(&oScanner);
-    gfc2::schema::CModel oModel, oTempModel;
+    gfc::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
 
@@ -49,7 +49,7 @@ TEST(TestExpParse, Enumeration)
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(5, oParser.m_pModel->getTypeObjectCount());
     auto pTypeObject = oParser.m_pModel->getTypeObject(4);
-    auto pEnum = dynamic_cast<gfc2::schema::CEnumType*>(pTypeObject);
+    auto pEnum = dynamic_cast<gfc::schema::CEnumType*>(pTypeObject);
     EXPECT_NE(nullptr, pEnum);
     EXPECT_EQ(5, pEnum->getEnumCount());
 }
@@ -68,16 +68,16 @@ TEST(TestExpParse, Entity1)
         ;
     Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
     Parser oParser(&oScanner);
-    gfc2::schema::CModel oModel, oTempModel;
+    gfc::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
-    //oModel.addTypeObject(new gfc2::schema::CIntegerType());
+    //oModel.addTypeObject(new gfc::schema::CIntegerType());
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(6, oParser.m_pModel->getTypeObjectCount());
     auto pTypeObject = oParser.m_pModel->getTypeObject(5);
-    auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
+    auto pClass = dynamic_cast<gfc::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(2, pClass->getAttributeCount());
 }
@@ -96,19 +96,19 @@ TEST(TestExpParse, Entity_addType)
         ;
     Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
     Parser oParser(&oScanner);
-    gfc2::schema::CModel oModel, oTempModel;
+    gfc::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
-    //oModel.addTypeObject(new gfc2::schema::CIntegerType);
+    //oModel.addTypeObject(new gfc::schema::CIntegerType);
     
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(6, oParser.m_pModel->getTypeObjectCount());
     auto pTypeObject = oParser.m_pModel->getTypeObject(4);
-    auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
+    auto pClass = dynamic_cast<gfc::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(2, pClass->getAttributeCount());
-    EXPECT_EQ(gfc2::schema::TOE_TYPE, pClass->getAttribute(0)->getType()->getType());
+    EXPECT_EQ(gfc::schema::TOE_TYPE, pClass->getAttribute(0)->getType()->getType());
 }
 
 
@@ -128,7 +128,7 @@ TEST(TestExpParse, Entity_SUBTYPE)
         ;
     Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
     Parser oParser(&oScanner);
-    gfc2::schema::CModel oModel, oTempModel;
+    gfc::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
 
@@ -136,7 +136,7 @@ TEST(TestExpParse, Entity_SUBTYPE)
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(7, oParser.m_pModel->getTypeObjectCount());
     auto pTypeObject = oParser.m_pModel->getTypeObject(4);
-    auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
+    auto pClass = dynamic_cast<gfc::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(true, pClass->getName() == L"Gfc2Bevel");
     EXPECT_EQ(1, pClass->getAttributeCount());
@@ -164,7 +164,7 @@ TEST(TestExpParse, Entity_SUPERTYPE)
         ;
     Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
     Parser oParser(&oScanner);
-    gfc2::schema::CModel oModel, oTempModel;
+    gfc::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
 
@@ -172,7 +172,7 @@ TEST(TestExpParse, Entity_SUPERTYPE)
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(8, oParser.m_pModel->getTypeObjectCount());
     auto pTypeObject = oParser.m_pModel->getTypeObject(4);
-    auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
+    auto pClass = dynamic_cast<gfc::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(true, pClass->getName() == L"Gfc2RelationShip");
     EXPECT_EQ(2, pClass->getChildCount());
@@ -198,7 +198,7 @@ TEST(TestExpParse, Entity_ABSTRACT_SUPERTYPE)
         ;
     Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
     Parser oParser(&oScanner);
-    gfc2::schema::CModel oModel, oTempModel;
+    gfc::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
 
@@ -206,7 +206,7 @@ TEST(TestExpParse, Entity_ABSTRACT_SUPERTYPE)
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(8, oParser.m_pModel->getTypeObjectCount());
     auto pTypeObject = oParser.m_pModel->getTypeObject(4);
-    auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
+    auto pClass = dynamic_cast<gfc::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(true, pClass->getName() == L"Gfc2RelationShip");
     EXPECT_EQ(true, pClass->getIsAbstract());
@@ -236,7 +236,7 @@ TEST(TestExpParse, Entity_ABSTRACT_SUPERTYPE_SUBTYPE)
         ;
     Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
     Parser oParser(&oScanner);
-    gfc2::schema::CModel oModel, oTempModel;
+    gfc::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
 
@@ -244,7 +244,7 @@ TEST(TestExpParse, Entity_ABSTRACT_SUPERTYPE_SUBTYPE)
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(9, oParser.m_pModel->getTypeObjectCount());
     auto pTypeObject = oParser.m_pModel->getTypeObject(4);
-    auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
+    auto pClass = dynamic_cast<gfc::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(true, pClass->getName() == L"Gfc2RelationShip");
     EXPECT_EQ(true, pClass->getIsAbstract());
@@ -267,19 +267,19 @@ TEST(TestExpParse, Entity_optional)
         ;
     Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
     Parser oParser(&oScanner);
-    gfc2::schema::CModel oModel, oTempModel;
+    gfc::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
-    //oModel.addTypeObject(new gfc2::schema::CIntegerType);
+    //oModel.addTypeObject(new gfc::schema::CIntegerType);
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(6, oParser.m_pModel->getTypeObjectCount());
     auto pTypeObject = oParser.m_pModel->getTypeObject(4);
-    auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
+    auto pClass = dynamic_cast<gfc::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(2, pClass->getAttributeCount());
-    EXPECT_EQ(gfc2::schema::TOE_TYPE, pClass->getAttribute(1)->getType()->getType());
+    EXPECT_EQ(gfc::schema::TOE_TYPE, pClass->getAttribute(1)->getType()->getType());
     EXPECT_EQ(true, pClass->getAttribute(1)->getOptionalFlag());
 }
 
@@ -297,18 +297,18 @@ TEST(TestExpParse, Entity_Array)
         ;
     Scanner oScanner((unsigned char*)sCode.c_str(), sCode.length());
     Parser oParser(&oScanner);
-    gfc2::schema::CModel oModel, oTempModel;
+    gfc::schema::CModel oModel, oTempModel;
     oParser.m_pModel = &oModel;
     oParser.m_pTempModel = &oTempModel;
-    //oModel.addTypeObject(new gfc2::schema::CIntegerType);
+    //oModel.addTypeObject(new gfc::schema::CIntegerType);
 
     oParser.Parse();
     EXPECT_EQ(0, oParser.errors->count);
     EXPECT_EQ(6, oParser.m_pModel->getTypeObjectCount());
     auto pTypeObject = oParser.m_pModel->getTypeObject(4);
-    auto pClass = dynamic_cast<gfc2::schema::CClass*>(pTypeObject);
+    auto pClass = dynamic_cast<gfc::schema::CClass*>(pTypeObject);
     EXPECT_NE(nullptr, pClass);
     EXPECT_EQ(2, pClass->getAttributeCount());
-    EXPECT_EQ(gfc2::schema::TOE_TYPE, pClass->getAttribute(1)->getType()->getType());
+    EXPECT_EQ(gfc::schema::TOE_TYPE, pClass->getAttribute(1)->getType()->getType());
     EXPECT_EQ(true, pClass->getAttribute(1)->getRepeatFlag());
 }

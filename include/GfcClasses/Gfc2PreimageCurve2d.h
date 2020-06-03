@@ -11,23 +11,23 @@
 
 class GFCCLASSES_API Gfc2PreimageCurve2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2PreimageCurve2d, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PreimageCurve2d, gfc::engine::Entity)
 public:
     Gfc2PreimageCurve2d();
     Gfc2PreimageCurve2d(bool bSetSchema);
-    void setRange(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getRange() const;
+    void setRange(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getRange() const;
     bool hasRange() const;
     std::shared_ptr<Gfc2Intervald> getRangePtr();
     void setReversed(const Gfc2Boolean& bValue);
     Gfc2Boolean getReversed() const;
     bool hasReversed() const;
-    void setBase(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getBase() const;
+    void setBase(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getBase() const;
     bool hasBase() const;
     std::shared_ptr<Gfc2Surface> getBasePtr();
-    void setCurve(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCurve() const;
+    void setCurve(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCurve() const;
     bool hasCurve() const;
     std::shared_ptr<Gfc2Curve3d> getCurvePtr();
     void setTolerance(const Gfc2Double& dValue);

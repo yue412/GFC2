@@ -8,16 +8,16 @@
 
 class GFCCLASSES_API Gfc2ConnectionVolumeGeometry: public Gfc2ConnectionGeometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2ConnectionVolumeGeometry, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ConnectionVolumeGeometry, gfc::engine::Entity)
 public:
     Gfc2ConnectionVolumeGeometry();
     Gfc2ConnectionVolumeGeometry(bool bSetSchema);
-    void setVolumeOnRelatingElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getVolumeOnRelatingElement() const;
+    void setVolumeOnRelatingElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getVolumeOnRelatingElement() const;
     bool hasVolumeOnRelatingElement() const;
     std::shared_ptr<Gfc2Body> getVolumeOnRelatingElementPtr();
-    void setVolumeOnRelatedElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getVolumeOnRelatedElement() const;
+    void setVolumeOnRelatedElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getVolumeOnRelatedElement() const;
     bool hasVolumeOnRelatedElement() const;
     std::shared_ptr<Gfc2Body> getVolumeOnRelatedElementPtr();
 

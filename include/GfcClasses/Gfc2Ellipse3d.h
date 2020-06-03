@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2Ellipse3d: public Gfc2PlaneCurve3d
 {
-GFCENGINE_DEC_OBJECT(Gfc2Ellipse3d, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Ellipse3d, gfc::engine::Entity)
 public:
     Gfc2Ellipse3d();
     Gfc2Ellipse3d(bool bSetSchema);

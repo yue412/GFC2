@@ -8,14 +8,14 @@
 
 class GFCCLASSES_API Gfc2SectionListProperty: public Gfc2ListProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2SectionListProperty, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SectionListProperty, gfc::engine::Entity)
 public:
     Gfc2SectionListProperty();
     Gfc2SectionListProperty(bool bSetSchema);
     int getValueCount() const;
     void clearValue();
-    void addValue(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getValue(int nIndex) const;
+    void addValue(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getValue(int nIndex) const;
     std::shared_ptr<Gfc2Section> getValuePtr(int nIndex);
 
 };

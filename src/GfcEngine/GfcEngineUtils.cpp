@@ -8,7 +8,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-bool GfcEngineUtils::loadSchema(const std::wstring & sFileName, gfc2::schema::CModel * pModel)
+bool GfcEngineUtils::loadSchema(const std::wstring & sFileName, gfc::schema::CModel * pModel)
 {
     if (!fileExists(sFileName))
         return false;
@@ -31,12 +31,12 @@ bool GfcEngineUtils::loadSchema(const std::wstring & sFileName, gfc2::schema::CM
     return false;
 }
 
-bool GfcEngineUtils::loadSchema(const char * buf, int len, gfc2::schema::CModel * pModel)
+bool GfcEngineUtils::loadSchema(const char * buf, int len, gfc::schema::CModel * pModel)
 {
     assert(pModel);
     Scanner oScanner((const unsigned char *)buf, len);
     Parser oParser(&oScanner);
-    gfc2::schema::CModel oTempModel;
+    gfc::schema::CModel oTempModel;
     oParser.m_pModel = pModel;
     oParser.m_pTempModel = &oTempModel;
     try
@@ -57,7 +57,7 @@ bool GfcEngineUtils::loadSchema(const char * buf, int len, gfc2::schema::CModel 
     return true;
 }
 
-Entity * GfcEngineUtils::createEntity(gfc2::schema::CModel* pModel, const std::wstring & sName)
+Entity * GfcEngineUtils::createEntity(gfc::schema::CModel* pModel, const std::wstring & sName)
 {
     auto pEntity = Entity::GetFactory()->Create(sName);
     if (pEntity)
@@ -66,7 +66,7 @@ Entity * GfcEngineUtils::createEntity(gfc2::schema::CModel* pModel, const std::w
     if (pModel == nullptr)
         return nullptr;
     auto pType = pModel->findTypeObject(sName);
-    if (pType && pType->getDataType() == gfc2::schema::EDT_ENTITY)
+    if (pType && pType->getDataType() == gfc::schema::EDT_ENTITY)
     {
         Entity* pEntity = new Entity;
         pEntity->setSchema(pType);

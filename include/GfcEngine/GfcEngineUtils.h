@@ -4,7 +4,7 @@
 #include <string>
 #include "GfcEngine\GfcEngine.h"
 
-namespace gfc2 {
+namespace gfc {
     namespace schema {
         class CModel;
     }
@@ -17,9 +17,9 @@ class Entity;
 class GFCENGINE_API GfcEngineUtils
 {
 public:
-    static bool loadSchema(const std::wstring& sFileName, gfc2::schema::CModel* pModel);
-    static bool loadSchema(const char* buf, int len, gfc2::schema::CModel* pModel);
-    static Entity* createEntity(gfc2::schema::CModel* pModel, const std::wstring& sName);
+    static bool loadSchema(const std::wstring& sFileName, gfc::schema::CModel* pModel);
+    static bool loadSchema(const char* buf, int len, gfc::schema::CModel* pModel);
+    static Entity* createEntity(gfc::schema::CModel* pModel, const std::wstring& sName);
 };
 
 GFCENGINE_NAMESPACE_END

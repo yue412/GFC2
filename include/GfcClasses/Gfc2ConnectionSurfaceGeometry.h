@@ -8,16 +8,16 @@
 
 class GFCCLASSES_API Gfc2ConnectionSurfaceGeometry: public Gfc2ConnectionGeometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2ConnectionSurfaceGeometry, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ConnectionSurfaceGeometry, gfc::engine::Entity)
 public:
     Gfc2ConnectionSurfaceGeometry();
     Gfc2ConnectionSurfaceGeometry(bool bSetSchema);
-    void setSurfaceOnRelatingElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getSurfaceOnRelatingElement() const;
+    void setSurfaceOnRelatingElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getSurfaceOnRelatingElement() const;
     bool hasSurfaceOnRelatingElement() const;
     std::shared_ptr<Gfc2Surface> getSurfaceOnRelatingElementPtr();
-    void setSurfaceOnRelatedElement(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getSurfaceOnRelatedElement() const;
+    void setSurfaceOnRelatedElement(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getSurfaceOnRelatedElement() const;
     bool hasSurfaceOnRelatedElement() const;
     std::shared_ptr<Gfc2Surface> getSurfaceOnRelatedElementPtr();
 

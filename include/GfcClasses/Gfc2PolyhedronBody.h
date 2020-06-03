@@ -9,19 +9,19 @@
 
 class GFCCLASSES_API Gfc2PolyhedronBody: public Gfc2Body
 {
-GFCENGINE_DEC_OBJECT(Gfc2PolyhedronBody, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PolyhedronBody, gfc::engine::Entity)
 public:
     Gfc2PolyhedronBody();
     Gfc2PolyhedronBody(bool bSetSchema);
     int getFacesCount() const;
     void clearFaces();
-    void addFaces(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getFaces(int nIndex) const;
+    void addFaces(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getFaces(int nIndex) const;
     std::shared_ptr<Gfc2PolyhedralFace> getFacesPtr(int nIndex);
     int getVertexesCount() const;
     void clearVertexes();
-    void addVertexes(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getVertexes(int nIndex) const;
+    void addVertexes(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getVertexes(int nIndex) const;
     std::shared_ptr<Gfc2Vector3d> getVertexesPtr(int nIndex);
 
 };

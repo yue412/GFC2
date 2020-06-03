@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2PrimitiveRenderable: public Gfc2RepresentationItem
 {
-GFCENGINE_DEC_OBJECT(Gfc2PrimitiveRenderable, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PrimitiveRenderable, gfc::engine::Entity)
 public:
     Gfc2PrimitiveRenderable();
     Gfc2PrimitiveRenderable(bool bSetSchema);
@@ -21,13 +21,13 @@ public:
     bool hasGeometryDataType() const;
     int getVertexesCount() const;
     void clearVertexes();
-    void addVertexes(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getVertexes(int nIndex) const;
+    void addVertexes(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getVertexes(int nIndex) const;
     std::shared_ptr<Gfc2Vector3d> getVertexesPtr(int nIndex);
     int getNormalsCount() const;
     void clearNormals();
-    void addNormals(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getNormals(int nIndex) const;
+    void addNormals(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getNormals(int nIndex) const;
     std::shared_ptr<Gfc2Vector3d> getNormalsPtr(int nIndex);
     int getIndexesCount() const;
     void clearIndexes();

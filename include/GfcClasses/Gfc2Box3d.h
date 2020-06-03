@@ -8,16 +8,16 @@
 
 class GFCCLASSES_API Gfc2Box3d: public Gfc2Geometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2Box3d, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Box3d, gfc::engine::Entity)
 public:
     Gfc2Box3d();
     Gfc2Box3d(bool bSetSchema);
-    void setMin(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getMin() const;
+    void setMin(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getMin() const;
     bool hasMin() const;
     std::shared_ptr<Gfc2Vector3d> getMinPtr();
-    void setMax(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getMax() const;
+    void setMax(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getMax() const;
     bool hasMax() const;
     std::shared_ptr<Gfc2Vector3d> getMaxPtr();
 

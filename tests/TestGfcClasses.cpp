@@ -72,7 +72,7 @@ TEST(TestGfcClasses, Element_add)
 
 TEST(TestGfcClasses, write_document)
 {
-    //auto pFactory = gfc2::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
+    //auto pFactory = gfc::engine::GfcEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
     GfcWriter oWriter;
     auto result = oWriter.open(getFullPath(L"test.gfc"), L"express");
     Gfc2SphereShape oShape;

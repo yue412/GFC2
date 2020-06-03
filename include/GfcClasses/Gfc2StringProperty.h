@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2StringProperty: public Gfc2SingleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2StringProperty, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2StringProperty, gfc::engine::Entity)
 public:
     Gfc2StringProperty();
     Gfc2StringProperty(bool bSetSchema);
-    void setValue(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getValue() const;
+    void setValue(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getValue() const;
     bool hasValue() const;
     std::shared_ptr<Gfc2String> getValuePtr();
 

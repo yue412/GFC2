@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2UnaryBooleanResult: public Gfc2BooleanResult
 {
-GFCENGINE_DEC_OBJECT(Gfc2UnaryBooleanResult, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2UnaryBooleanResult, gfc::engine::Entity)
 public:
     Gfc2UnaryBooleanResult();
     Gfc2UnaryBooleanResult(bool bSetSchema);
-    void setOperand(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getOperand() const;
+    void setOperand(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getOperand() const;
     bool hasOperand() const;
     std::shared_ptr<Gfc2SolidShape> getOperandPtr();
 

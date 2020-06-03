@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2NurbsCurve2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2NurbsCurve2d, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2NurbsCurve2d, gfc::engine::Entity)
 public:
     Gfc2NurbsCurve2d();
     Gfc2NurbsCurve2d(bool bSetSchema);
@@ -18,8 +18,8 @@ public:
     bool hasDegree() const;
     int getCtrlPtsCount() const;
     void clearCtrlPts();
-    void addCtrlPts(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCtrlPts(int nIndex) const;
+    void addCtrlPts(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCtrlPts(int nIndex) const;
     std::shared_ptr<Gfc2NurbsCtrlPt2d> getCtrlPtsPtr(int nIndex);
     int getKnotsCount() const;
     void clearKnots();

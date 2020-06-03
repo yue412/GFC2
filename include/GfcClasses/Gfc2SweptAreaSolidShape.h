@@ -8,12 +8,12 @@
 
 class GFCCLASSES_API Gfc2SweptAreaSolidShape: public Gfc2SolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2SweptAreaSolidShape, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SweptAreaSolidShape, gfc::engine::Entity)
 public:
     Gfc2SweptAreaSolidShape();
     Gfc2SweptAreaSolidShape(bool bSetSchema);
-    void setSweptArea(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getSweptArea() const;
+    void setSweptArea(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getSweptArea() const;
     bool hasSweptArea() const;
     std::shared_ptr<Gfc2Section> getSweptAreaPtr();
 

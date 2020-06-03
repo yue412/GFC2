@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2EllipseSection: public Gfc2ParameterizedSection
 {
-GFCENGINE_DEC_OBJECT(Gfc2EllipseSection, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2EllipseSection, gfc::engine::Entity)
 public:
     Gfc2EllipseSection();
     Gfc2EllipseSection(bool bSetSchema);

@@ -9,12 +9,12 @@
 
 class GFCCLASSES_API Gfc2Coedge: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2Coedge, gfc2::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Coedge, gfc::engine::Entity)
 public:
     Gfc2Coedge();
     Gfc2Coedge(bool bSetSchema);
-    void setCurve(const gfc2::engine::EntityRef& nValue);
-    gfc2::engine::EntityRef getCurve() const;
+    void setCurve(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCurve() const;
     bool hasCurve() const;
     std::shared_ptr<Gfc2Curve2d> getCurvePtr();
     void setEdgeIndex(const Gfc2Integer& nValue);
