@@ -3,11 +3,15 @@
 
 #include <vector>
 #include <map>
-#include "GfcSchema\SchemaMacro.h"
+#include "GfcEngine\GfcEngine.h"
 
-GFC_NAMESPACE_BEGIN
+namespace gfc {
+    namespace schema {
+        class CModel;
+    }
+}
 
-class CModel;
+GFCENGINE_NAMESPACE_BEGIN
 
 class CClassCompatibility;
 
@@ -16,7 +20,7 @@ class CModelCompatibility
 public:
     CModelCompatibility(void);
     virtual ~CModelCompatibility(void);
-    void init(CModel* pFrom, CModel* pTo);
+    void init(gfc::schema::CModel* pFrom, gfc::schema::CModel* pTo);
     CClassCompatibility* find(const std::wstring& sName);
     CClassCompatibility* getItems(int nIndex);
     int getCount();
@@ -27,6 +31,6 @@ public:
     std::map<std::wstring, CClassCompatibility*> m_oClassIndex;
 };
 
-GFC_NAMESPACE_END
+GFCENGINE_NAMESPACE_END
 
 #endif

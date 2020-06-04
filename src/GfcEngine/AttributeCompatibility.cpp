@@ -6,28 +6,28 @@
 #include "GfcSchema\EntityClass.h"
 
 
-GFC_NAMESPACE_BEGIN
+GFCENGINE_NAMESPACE_BEGIN
 
 TypeCompatibility g_BuildinCompatibilityTable[4][4] = {
-    { { true, new CCopyConverter },       { true, new CBoolToIntConverter }, { true, new CBoolToIntConverter }, { true, new CBoolToStringConverter } },
-    { { true, new CIntToBoolConverter },  { true, new CCopyConverter },      { true, new CCopyConverter },      { true, new CStringConverter } },
-    { { false, new CEmptyConverter },     { false, new CEmptyConverter },    { true, new CCopyConverter },      { true, new CStringConverter } },
-    { { false, new CEmptyConverter },     { false, new CEmptyConverter },    { false, new CEmptyConverter },    { true, new CCopyConverter } },
+    { { true, new CIntConverter },       { true, new CIntConverter }, { true, new CIntConverter }, { true, new CBoolToStringConverter } },
+    { { true, new CIntConverter },  { true, new CIntConverter },      { true, new CIntConverter },      { true, new CIntToStringConverter } },
+    { { false, new CEmptyConverter },     { false, new CEmptyConverter },    { true, new CFloatConverter },      { true, new CFloatToStringConverter } },
+    { { false, new CEmptyConverter },     { false, new CEmptyConverter },    { false, new CEmptyConverter },    { true, new CStringConverter } }
 };
 
-TypeCompatibility g_EnumToBuildinTable[4] = { { true, new CEnumToBoolConverter },{ true, new CEnumToIntConverter },{ true, new CEnumToIntConverter },{ true, new CEnumToStringConverter } };
-TypeCompatibility g_BuildinToEnumTable[4] = { { true, new CBoolToEnumConverter },{ true, new CIntToEnumConverter },{ false, new CEmptyConverter },{ false, new CEmptyConverter } };
+TypeCompatibility g_EnumToBuildinTable[4] = { { true, new CIntConverter },{ true, new CIntConverter },{ true, new CIntConverter },{ true, new CIntToStringConverter } };
+TypeCompatibility g_BuildinToEnumTable[4] = { { true, new CIntToEnumConverter },{ true, new CIntToEnumConverter },{ false, new CEmptyConverter },{ false, new CEmptyConverter } };
 
 std::vector<std::wstring> g_TypeNames = {L"BOOLEAN", L"INTEGER", L"REAL", L"STRING"};
 
-typedef TypeCompatibility (*TypeCompatibilityFunc)(CTypeObject * pFrom, CTypeObject * pTo);
+typedef TypeCompatibility (*TypeCompatibilityFunc)(gfc::schema::CTypeObject * pFrom, gfc::schema::CTypeObject * pTo);
 
-TypeCompatibilityFunc g_TypeCompatibilityFuncTable[][TOE_CLASS + 1] = {
+TypeCompatibilityFunc g_TypeCompatibilityFuncTable[][gfc::schema::TOE_CLASS + 1] = {
     { &CAttributeCompatibility::noCompatibility, &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::noCompatibility},
     { &CAttributeCompatibility::noCompatibility, &CAttributeCompatibility::buildinCompatibility , &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::buildinToEnumCompatibility , &CAttributeCompatibility::noCompatibility },
     { &CAttributeCompatibility::noCompatibility, &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::noCompatibility },
     { &CAttributeCompatibility::noCompatibility, &CAttributeCompatibility::enumToBuildinCompatibility , &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::enumCompatibility , &CAttributeCompatibility::noCompatibility },
-    { &CAttributeCompatibility::noCompatibility, &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::classCompatibility },
+    { &CAttributeCompatibility::noCompatibility, &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::noCompatibility , &CAttributeCompatibility::classCompatibility }
 };
 
 // Repeated
@@ -36,7 +36,7 @@ TypeCompatibilityFunc g_TypeCompatibilityFuncTable[][TOE_CLASS + 1] = {
 TypeCompatibility g_MultiCompatibilityTable[3][3] = {
     { { true, new CArrayToArrayConverter },{ true, new CArrayToOneConverter },{ false, new CArrayToOneConverter } },
     { { true, new COneToArrayConverter },{ true, new COptionalConverter },{ false, new COptionalConverter } },
-    { { true, new COneToArrayConverter },{ true, new CCopyConverter },{ true, new CCopyConverter } }
+    { { true, new COneToArrayConverter },{ true, new COptionalConverter },{ true, new COptionalConverter } }
 };
 
 
@@ -45,7 +45,7 @@ CAttributeCompatibility::~CAttributeCompatibility()
     delete m_pConverter;
 }
 
-void CAttributeCompatibility::init(CAttribute * pFrom, CAttribute * pTo, int nToIndex)
+void CAttributeCompatibility::init(gfc::schema::CAttribute * pFrom, gfc::schema::CAttribute * pTo, int nToIndex)
 {
     m_nToIndex = nToIndex;
     delete m_pConverter;
@@ -79,10 +79,10 @@ void CAttributeCompatibility::init(CAttribute * pFrom, CAttribute * pTo, int nTo
     }
 }
 
-TypeCompatibility CAttributeCompatibility::enumCompatibility(CTypeObject * pFrom, CTypeObject * pTo)
+TypeCompatibility CAttributeCompatibility::enumCompatibility(gfc::schema::CTypeObject * pFrom, gfc::schema::CTypeObject * pTo)
 {
     TypeCompatibility oResult;
-    if (pFrom->getName() != pTo->getName() || !isEnumCompatibility((CEnumType*)pFrom, (CEnumType*)pTo))
+    if (pFrom->getName() != pTo->getName() || !isEnumCompatibility((gfc::schema::CEnumType*)pFrom, (gfc::schema::CEnumType*)pTo))
     {
         //需要比较一下枚举值是否相同
         oResult.isCompatibility = false;
@@ -91,18 +91,18 @@ TypeCompatibility CAttributeCompatibility::enumCompatibility(CTypeObject * pFrom
     else
     {
         oResult.isCompatibility = true;
-        oResult.converter = new CCopyConverter;
+        oResult.converter = new CIntConverter;
     }
     return oResult;
 }
 
-TypeCompatibility CAttributeCompatibility::classCompatibility(CTypeObject * pFrom, CTypeObject * pTo)
+TypeCompatibility CAttributeCompatibility::classCompatibility(gfc::schema::CTypeObject * pFrom, gfc::schema::CTypeObject * pTo)
 {
     TypeCompatibility oResult;
-    if (isClassCompatibility((CClass*)pFrom, (CClass*)pTo))
+    if (isClassCompatibility((gfc::schema::CClass*)pFrom, (gfc::schema::CClass*)pTo))
     {
         oResult.isCompatibility = true;
-        oResult.converter = new CCopyConverter;
+        oResult.converter = new CEntityRefConverter;
     }
     else
     {
@@ -112,7 +112,7 @@ TypeCompatibility CAttributeCompatibility::classCompatibility(CTypeObject * pFro
     return oResult;
 }
 
-TypeCompatibility CAttributeCompatibility::getTypeCompatibility(CTypeObject * pFrom, CTypeObject * pTo)
+TypeCompatibility CAttributeCompatibility::getTypeCompatibility(gfc::schema::CTypeObject * pFrom, gfc::schema::CTypeObject * pTo)
 {
     auto oResult = (*g_TypeCompatibilityFuncTable[pFrom->getType()][pTo->getType()])(pFrom, pTo);
     oResult.converter = oResult.converter->clone();
@@ -120,7 +120,7 @@ TypeCompatibility CAttributeCompatibility::getTypeCompatibility(CTypeObject * pF
     return oResult;
 }
 
-TypeCompatibility CAttributeCompatibility::getMultiCompatibility(CAttribute * pFrom, CAttribute * pTo)
+TypeCompatibility CAttributeCompatibility::getMultiCompatibility(gfc::schema::CAttribute * pFrom, gfc::schema::CAttribute * pTo)
 {
     auto nFromIndex = getMultiIndex(pFrom);
     auto nToIndex = getMultiIndex(pTo);
@@ -129,7 +129,7 @@ TypeCompatibility CAttributeCompatibility::getMultiCompatibility(CAttribute * pF
     return oResult;
 }
 
-int CAttributeCompatibility::getMultiIndex(CAttribute * pAttrib)
+int CAttributeCompatibility::getMultiIndex(gfc::schema::CAttribute * pAttrib)
 {
     if (pAttrib->getRepeatFlag())
         return 0;
@@ -139,13 +139,13 @@ int CAttributeCompatibility::getMultiIndex(CAttribute * pAttrib)
         return 2;
 }
 
-int CAttributeCompatibility::getTypeIndex(CTypeObject * pType)
+int CAttributeCompatibility::getTypeIndex(gfc::schema::CTypeObject * pType)
 {
     auto itr = std::find(g_TypeNames.begin(), g_TypeNames.end(), pType->getName());
     return itr == g_TypeNames.end() ? -1 : itr - g_TypeNames.begin();
 }
 
-bool CAttributeCompatibility::isEnumCompatibility(CEnumType * pFrom, CEnumType * pTo)
+bool CAttributeCompatibility::isEnumCompatibility(gfc::schema::CEnumType * pFrom, gfc::schema::CEnumType * pTo)
 {
     for (int i = 0; i < pFrom->getEnumCount(); i++)
     {
@@ -157,7 +157,7 @@ bool CAttributeCompatibility::isEnumCompatibility(CEnumType * pFrom, CEnumType *
     return true;
 }
 
-bool CAttributeCompatibility::isClassCompatibility(CClass * pFrom, CClass * pTo)
+bool CAttributeCompatibility::isClassCompatibility(gfc::schema::CClass * pFrom, gfc::schema::CClass * pTo)
 {
     auto pParent = pFrom;
     do
@@ -173,29 +173,29 @@ bool CAttributeCompatibility::isClassCompatibility(CClass * pFrom, CClass * pTo)
     return false;
 }
 
-TypeCompatibility CAttributeCompatibility::noCompatibility(CTypeObject * pFrom, CTypeObject * pTo)
+TypeCompatibility CAttributeCompatibility::noCompatibility(gfc::schema::CTypeObject * pFrom, gfc::schema::CTypeObject * pTo)
 {
     return TypeCompatibility(false, new CEmptyConverter);
 }
 
-TypeCompatibility CAttributeCompatibility::buildinCompatibility(CTypeObject * pFrom, CTypeObject * pTo)
+TypeCompatibility CAttributeCompatibility::buildinCompatibility(gfc::schema::CTypeObject * pFrom, gfc::schema::CTypeObject * pTo)
 {
     auto nRow = getTypeIndex(pFrom);
     auto nCol = getTypeIndex(pTo);
     return g_BuildinCompatibilityTable[nRow][nCol];
 }
 
-TypeCompatibility CAttributeCompatibility::buildinToEnumCompatibility(CTypeObject * pFrom, CTypeObject * pTo)
+TypeCompatibility CAttributeCompatibility::buildinToEnumCompatibility(gfc::schema::CTypeObject * pFrom, gfc::schema::CTypeObject * pTo)
 {
     auto nIndex = getTypeIndex(pFrom);
     return g_BuildinToEnumTable[nIndex];
 }
 
-TypeCompatibility CAttributeCompatibility::enumToBuildinCompatibility(CTypeObject * pFrom, CTypeObject * pTo)
+TypeCompatibility CAttributeCompatibility::enumToBuildinCompatibility(gfc::schema::CTypeObject * pFrom, gfc::schema::CTypeObject * pTo)
 {
     auto nIndex = getTypeIndex(pTo);
     return g_EnumToBuildinTable[nIndex];
 }
 
-GFC_NAMESPACE_END
+GFCENGINE_NAMESPACE_END
 

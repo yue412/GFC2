@@ -2,12 +2,17 @@
 #define CLASSCOMPATIBILITY_H
 
 #include <vector>
-#include "GfcSchema\SchemaMacro.h"
+#include "GfcEngine\GfcEngine.h"
 
-GFC_NAMESPACE_BEGIN
+namespace gfc {
+    namespace schema {
+        class CClass;
+        class CAttribute;
+    }
+}
 
-class CClass;
-class CAttribute;
+GFCENGINE_NAMESPACE_BEGIN
+
 class CAttributeCompatibility;
 
 class CClassCompatibility
@@ -16,17 +21,17 @@ public:
     CClassCompatibility(void) {}
     virtual ~CClassCompatibility(void);
 public:
-    void init(CClass* pFrom, CClass* pTo);
+    void init(gfc::schema::CClass* pFrom, gfc::schema::CClass* pTo);
     std::wstring getName() { return m_sName; }
     int getCount() { return (int)m_oList.size(); }
     CAttributeCompatibility* getCompatibilityAttribute(int nIndex) { return m_oList[nIndex]; }
 private:
-    void getAttributeList(CClass* pClass, std::vector<CAttribute*>& oAttributeList);
+    void getAttributeList(gfc::schema::CClass* pClass, std::vector<gfc::schema::CAttribute*>& oAttributeList);
     void clear();
     std::vector<CAttributeCompatibility*> m_oList; // all
     std::wstring m_sName;
 };
 
-GFC_NAMESPACE_END
+GFCENGINE_NAMESPACE_END
 
 #endif

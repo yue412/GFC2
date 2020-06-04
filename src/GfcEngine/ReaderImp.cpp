@@ -5,6 +5,8 @@
 #include "Common.h"
 #include "GfcSchema\TypeObject.h"
 #include "GfcSchema\EntityClass.h"
+#include "GfcEngine\GfcEngineUtils.h"
+#include "Upgrader.h"
 #include <algorithm>
 
 GFCENGINE_NAMESPACE_BEGIN
@@ -26,17 +28,28 @@ private:
     ReaderImp* m_pReader;
 };
 
-ReaderImp::ReaderImp() : m_pFileMap(nullptr), m_pModel(nullptr), m_pContainer(nullptr)
+ReaderImp::ReaderImp() : m_pFileMap(nullptr), m_pModel(nullptr), m_pContainer(nullptr), m_pFileModel(nullptr), m_pUpgrader(nullptr)
 {
 }
 
 
 ReaderImp::~ReaderImp(void)
 {
+    delete m_pFileModel;
 }
 
 bool ReaderImp::open(const std::wstring & sFileName)
 {
+    auto sFileVer = readFileVersion();
+    if (sFileVer != m_pModel->version())
+    {
+        // 版本不同，需要升级或降级
+        if (!openFileModel(sFileVer))
+            return false;
+        delete m_pUpgrader; m_pUpgrader = nullptr;
+        m_pUpgrader = new Upgrader(m_pModel, m_pFileModel);
+        m_pUpgrader->init();
+    }
     m_pFileMap = new FileMap(sFileName);
     if (m_pFileMap->init())
     {
@@ -61,7 +74,17 @@ EntityPtr ReaderImp::getEntity(EntityRef nId)
         auto oInfo = m_pContainer->getItem(nId);
         auto pEntity = (oInfo.type != nullptr) ? createEntity(oInfo) : nullptr;
         if (pEntity)
+        {
+            if (needUpdate()) 
+            {
+                auto pOldEntity = pEntity;
+                pEntity = m_pUpgrader->update(pEntity);
+                delete pOldEntity;
+                if (pEntity == nullptr) // 可能无法升级
+                    return nullptr;
+            }
             pEntity->setContainer(this);
+        }
         return EntityPtr(pEntity);
     }
     else
@@ -92,6 +115,21 @@ void ReaderImp::addInfo(const EntityInfo & oInfo)
         m_pContainer->add(oInfo.id, oInfo);
 }
 
+bool ReaderImp::openFileModel(const std::wstring & sFileVer)
+{
+    delete m_pFileModel; m_pFileModel = nullptr;
+    auto sFileName = getFullPath(m_sSchemaPath + L"\\" + sFileVer + L".exp");
+    if (!fileExists(sFileName))
+        return false;
+    m_pFileModel = new gfc::schema::CModel();
+    return GfcEngineUtils::loadSchema(sFileName, m_pFileModel);
+}
+
+bool ReaderImp::needUpdate()
+{
+    return m_pUpgrader != nullptr;
+}
+
 void ReaderImp::buildIndex()
 {
     //std::map<std::string, std::vector<EntityRef>*> o;
@@ -109,7 +147,7 @@ void ReaderImp::buildIndex()
 
 gfc::schema::CModel * ReaderImp::schema()
 {
-    return m_pModel;
+    return m_pUpgrader ? m_pFileModel : m_pModel;
 }
 
 gfc::schema::CClass * EntityInfo::getClass() const

@@ -5,26 +5,26 @@
 #include <assert.h>
 #include "AttributeCompatibility.h"
 
-GFC_NAMESPACE_BEGIN
+GFCENGINE_NAMESPACE_BEGIN
 
 CClassCompatibility::~CClassCompatibility(void)
 {
     clear();
 }
 
-void CClassCompatibility::init(CClass * pFrom, CClass * pTo)
+void CClassCompatibility::init(gfc::schema::CClass * pFrom, gfc::schema::CClass * pTo)
 {
     clear();
     m_sName = pFrom->getName();
-    std::vector<CAttribute*> oFromAttributeList;
-    std::vector<CAttribute*> oToAttributeList;
+    std::vector<gfc::schema::CAttribute*> oFromAttributeList;
+    std::vector<gfc::schema::CAttribute*> oToAttributeList;
     getAttributeList(pFrom, oFromAttributeList);
     getAttributeList(pTo, oToAttributeList);
     for each (auto pFromAttrib in oFromAttributeList)
     {
         auto itr = std::find_if(oToAttributeList.begin(), oToAttributeList.end(),
-            [pFromAttrib](CAttribute* pAttrib) {return pFromAttrib->getName() == pAttrib->getName(); });
-        CAttribute* pToAttrib = nullptr;
+            [pFromAttrib](gfc::schema::CAttribute* pAttrib) {return pFromAttrib->getName() == pAttrib->getName(); });
+        gfc::schema::CAttribute* pToAttrib = nullptr;
         int nToIndex = -1; 
         if (itr != oToAttributeList.end())
         {
@@ -39,7 +39,7 @@ void CClassCompatibility::init(CClass * pFrom, CClass * pTo)
     {
         auto pToAttrib = oToAttributeList[i];
         auto itr = std::find_if(oFromAttributeList.begin(), oFromAttributeList.end(),
-            [pToAttrib](CAttribute* pAttrib) {return pToAttrib->getName() == pAttrib->getName(); });
+            [pToAttrib](gfc::schema::CAttribute* pAttrib) {return pToAttrib->getName() == pAttrib->getName(); });
         if (itr == oFromAttributeList.end())
         {
             auto pCompatibility = new CAttributeCompatibility;
@@ -49,9 +49,9 @@ void CClassCompatibility::init(CClass * pFrom, CClass * pTo)
     }
 }
 
-void CClassCompatibility::getAttributeList(CClass * pClass, std::vector<CAttribute*>& oAttributeList)
+void CClassCompatibility::getAttributeList(gfc::schema::CClass * pClass, std::vector<gfc::schema::CAttribute*>& oAttributeList)
 {
-    std::vector<CClass*> oDerivedChain;
+    std::vector<gfc::schema::CClass*> oDerivedChain;
     oDerivedChain.push_back(pClass);
     auto pParent = pClass->getParent();
     while (pParent)
@@ -60,7 +60,7 @@ void CClassCompatibility::getAttributeList(CClass * pClass, std::vector<CAttribu
         pParent = pParent->getParent();
     }
     std::for_each(oDerivedChain.rbegin(), oDerivedChain.rend(), 
-        [&oAttributeList](CClass* pClass) {
+        [&oAttributeList](gfc::schema::CClass* pClass) {
             for (int i = 0; i < pClass->getAttributeCount(); i++)
             {
                 oAttributeList.push_back(pClass->getAttribute(i));
@@ -78,4 +78,4 @@ void CClassCompatibility::clear()
     m_oList.clear();
 }
 
-GFC_NAMESPACE_END
+GFCENGINE_NAMESPACE_END

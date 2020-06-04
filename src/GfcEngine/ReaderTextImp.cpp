@@ -100,6 +100,30 @@ void ReaderTextImp::read( Document* pDoc,std::vector<std::wstring>& errors )
     }
 }
 
+std::wstring ReaderTextImp::readFileVersion()
+{
+    std::string sResult;
+    m_pFileMap->setPos(0);
+    while (!m_pFileMap->eof())
+    {
+        auto sLine = m_pFileMap->getLine();
+    
+    	auto schema = sLine.substr(0,11);
+    	if (_stricmp(schema.c_str(), "FILE_SCHEMA"))
+    	{
+    		int nStartPos = sLine.find_first_of('\'');
+    		int nLastPos = sLine.find_last_of('\'');
+    		sResult = sLine.substr(nStartPos + 1, nLastPos - nStartPos - 1);
+            break;
+    	}
+    	else if (_stricmp(sLine.c_str(),"ENDSEC;"))
+    	{
+    		break;
+    	}
+    }
+    return toWstring(sResult);
+}
+
 //string ReaderTextImp::getFileSchema( fstream& in )
 //{
 //    string sResult;
