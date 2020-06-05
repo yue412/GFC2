@@ -35,71 +35,6 @@ bool ReaderTextImp::preRead(const std::wstring& sFileName)
     return strcmp(sHead, "HEADER;") == 0;
 }
 
-void ReaderTextImp::read( Document* pDoc,std::vector<std::wstring>& errors )
-{
-    //m_oSerMap.clear();
-
-    //fstream in;
-    ////增加读取缓冲区
-    //char* buf = new char[1024 * 1024];
-    //in.rdbuf()->pubsetbuf(buf, sizeof buf);
-    //in.open(sFileName, ios::in);
-
-    // 版本号不一致，也需要继续读取，只读取可以读取到的信息，xuxp，2018-5-17
-    //todo update
-/*
-    string sSchema = getFileSchema(in);
-    m_oUpdater.init(sSchema);
-*/
-    // 	if (!_stricmp(sSchema.c_str(),Entity::Version().c_str()))
-    // 	{
-    // 		return false;
-    // 	}
-
-    //if (!locate(in, "DATA;"))
-    //{
-    //    in.close();
-    //    delete[] buf;
-    //    return false;
-    //}
-
-    m_pFileMap->setPos(0);
-    while (!m_pFileMap->eof())
-    {
-        std::string sLine = m_pFileMap->getLine();
-//        m_oUpdater.update(sLine);
-        EntityRef nId;
-        std::string sName, sContent;
-        std::wstring sError;
-        if (parseLine(sLine, nId, sName, sContent))
-        {
-            if (Entity* pEntity = GfcEngineUtils::createEntity(schema(), toWstring(sName)))
-            {
-                if (!parse(sContent, pEntity, sError))
-                {
-                    delete pEntity;
-                    // 添加log日志
-                    errors.push_back(toWstring(sLine) + L" {" + sError + L"}");
-                    continue;
-                }
-
-                if (!pDoc->getNeedAddEntityFunc() || pDoc->getNeedAddEntityFunc()(pDoc, nId, pEntity))
-                {
-                    pDoc->add(nId, pEntity);
-                }
-                else
-                {
-                    delete pEntity;
-                }
-            }
-        }
-    }
-    if (pDoc->getAfterReadDocFunc())
-    {
-        pDoc->getAfterReadDocFunc()(pDoc);
-    }
-}
-
 std::wstring ReaderTextImp::readFileVersion()
 {
     std::string sResult;
@@ -211,30 +146,31 @@ bool ReaderTextImp::getIndex(EntityInfo & oInfo)
     return false;
 }
 
-Entity * ReaderTextImp::createEntity(EntityInfo & oInfo)
+Entity * ReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
 {
     Entity* pEntity = nullptr;
     if (m_pFileMap)
     {
-        std::string sLine = m_pFileMap->getLine(oInfo.pos, nullptr);
-        EntityRef nId;
-        std::string sName, sContext;
+        m_pFileMap->setPos(nPos);
+        std::string sLine = m_pFileMap->getLine();
+        std::string sName, sContent;
         std::wstring sError;
-        parseLine(sLine, nId, sName, sContext);
-
-        pEntity = GfcEngineUtils::createEntity(schema(), toWstring(sName));
-        if (pEntity)
+        if (parseLine(sLine, nId, sName, sContent))
         {
-            //pEntity->setID(oInfo.id);
-            if (!parse(sContext, pEntity, sError))
+            if (pEntity = GfcEngineUtils::createEntity(schema(), toWstring(sName)))
             {
-                delete pEntity;
-                pEntity = nullptr;
+                if (!parse(sContent, pEntity, sError))
+                {
+                    delete pEntity;
+                    pEntity = nullptr;
+                    // 添加log日志
+                    log(toWstring(sLine) + L" {" + sError + L"}");
+                }
             }
+
         }
     }
     return pEntity;
-
 }
 
 bool ReaderTextImp::parse(const std::string& input, Entity* pEntity, std::wstring& error)

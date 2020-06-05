@@ -6,6 +6,7 @@
 #include "GfcSchema\TypeObject.h"
 #include "GfcSchema\EntityClass.h"
 #include "GfcEngine\GfcEngineUtils.h"
+#include "GfcEngine\Document.h"
 #include "Upgrader.h"
 #include <algorithm>
 
@@ -67,12 +68,52 @@ void ReaderImp::close()
     m_pContainer = nullptr;
 }
 
+void ReaderImp::read(Document * pDoc)
+{
+    if (m_pFileMap == nullptr)
+    {
+        // 添加log日志
+        log(L"文件未打开");
+        return;
+    }
+    m_pFileMap->setPos(0);
+    while (!m_pFileMap->eof())
+    {
+        EntityRef nId = -1;
+        auto pEntity = createEntity(m_pFileMap->pos(), nId);
+        if (pEntity)
+        {
+            if (needUpdate())
+            {
+                Entity* pOldEntity = pEntity;
+                pEntity = m_pUpgrader->update(pEntity);
+                delete pOldEntity;
+            }
+            if (pEntity)
+            {
+                if (!pDoc->getNeedAddEntityFunc() || pDoc->getNeedAddEntityFunc()(pDoc, nId, pEntity))
+                {
+                    pDoc->add(nId, pEntity);
+                }
+                else
+                {
+                    delete pEntity;
+                }
+            }
+        }
+    }
+    if (pDoc->getAfterReadDocFunc())
+    {
+        pDoc->getAfterReadDocFunc()(pDoc);
+    }
+}
+
 EntityPtr ReaderImp::getEntity(EntityRef nId)
 {
     if (m_pContainer)
     {
         auto oInfo = m_pContainer->getItem(nId);
-        auto pEntity = (oInfo.type != nullptr) ? createEntity(oInfo) : nullptr;
+        auto pEntity = (oInfo.type != nullptr) ? createEntity(oInfo.pos, nId) : nullptr;
         if (pEntity)
         {
             if (needUpdate()) 
@@ -143,6 +184,11 @@ void ReaderImp::buildIndex()
         addInfo(oInfo);
     }
     //sort();
+}
+
+void ReaderImp::log(const std::wstring & sError)
+{
+    m_oErrors.push_back(sError);
 }
 
 gfc::schema::CModel * ReaderImp::schema()

@@ -33,9 +33,10 @@ public:
     void close();
     void setModel(gfc::schema::CModel* pModel) { m_pModel = pModel; }
     void setSchemaPath(const std::wstring& sSchemaPath) { m_sSchemaPath = sSchemaPath; }
+    void read(Document* pDoc);
+    std::vector<std::wstring>& errors() { return m_oErrors; }
 
     virtual bool preRead(const std::wstring& sFileName) = 0; // 判断是否是可以读的格式
-    virtual void read(Document* pDoc,std::vector<std::wstring>& errors) = 0;
     virtual std::wstring readFileVersion() = 0;
     // 继承 IContainer接口
     virtual EntityPtr getEntity(EntityRef nId);
@@ -43,7 +44,8 @@ public:
     virtual EntityIteratorPtr getIterator();
 protected:
     virtual bool getIndex(EntityInfo& oInfo) = 0;//顺序读取index
-    virtual Entity* createEntity(EntityInfo& oInfo) = 0;
+    virtual Entity* createEntity(__int64 nPos, EntityRef& nId) = 0;
+    void log(const std::wstring& sError);
     gfc::schema::CModel* schema(); 
 
     FileMap* m_pFileMap;
@@ -61,6 +63,7 @@ private:
     gfc::schema::CModel* m_pModel;
     gfc::schema::CModel* m_pFileModel;
     std::wstring m_sSchemaPath;
+    std::vector<std::wstring> m_oErrors;
 };
 
 struct EntityInfo

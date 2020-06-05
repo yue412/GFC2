@@ -64,7 +64,7 @@ void Reader::read(Document* pDoc)
     //}
     if (m_pImp)
     {
-        m_pImp->read(pDoc, m_oErrors);
+        m_pImp->read(pDoc);
     }
 }
 
