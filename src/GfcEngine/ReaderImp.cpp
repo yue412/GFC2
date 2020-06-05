@@ -40,19 +40,19 @@ ReaderImp::~ReaderImp(void)
 
 bool ReaderImp::open(const std::wstring & sFileName)
 {
-    auto sFileVer = readFileVersion();
-    if (sFileVer != m_pModel->version())
-    {
-        // 版本不同，需要升级或降级
-        if (!openFileModel(sFileVer))
-            return false;
-        delete m_pUpgrader; m_pUpgrader = nullptr;
-        m_pUpgrader = new Upgrader(m_pModel, m_pFileModel);
-        m_pUpgrader->init();
-    }
     m_pFileMap = new FileMap(sFileName);
     if (m_pFileMap->init())
     {
+        auto sFileVer = readFileVersion();
+        if (sFileVer != m_pModel->version())
+        {
+            // 版本不同，需要升级或降级
+            if (!openFileModel(sFileVer))
+                return false;
+            delete m_pUpgrader; m_pUpgrader = nullptr;
+            m_pUpgrader = new Upgrader;
+            m_pUpgrader->init(m_pModel, m_pFileModel);
+        }
         buildIndex();
         return true;
     }

@@ -65,6 +65,8 @@ void Parser::ExpFile() {
 		Expect(3 /* "SCHEMA" */);
 		Expect(_ident);
 		m_sName = t->val; 
+		m_pModel->setVersion(t->val);
+		
 		Expect(4 /* ";" */);
 		while (la->kind == 6 /* "TYPE" */ || la->kind == 14 /* "ENTITY" */) {
 			if (la->kind == 6 /* "TYPE" */) {

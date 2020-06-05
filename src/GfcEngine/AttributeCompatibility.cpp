@@ -88,10 +88,14 @@ TypeCompatibility CAttributeCompatibility::enumCompatibility(gfc::schema::CTypeO
         oResult.isCompatibility = false;
         oResult.converter = new CEnumConverter;
     }
-    else
+    else 
     {
         oResult.isCompatibility = true;
-        oResult.converter = new CIntConverter;
+        // 枚举顺序都是一致的
+        if (isEnumSame((gfc::schema::CEnumType*)pFrom, (gfc::schema::CEnumType*)pTo))
+            oResult.converter = new CIntToEnumConverter;
+        else
+            oResult.converter = new CEnumConverter;
     }
     return oResult;
 }
@@ -150,6 +154,18 @@ bool CAttributeCompatibility::isEnumCompatibility(gfc::schema::CEnumType * pFrom
     for (int i = 0; i < pFrom->getEnumCount(); i++)
     {
         if (!pTo->exists(pFrom->getEnum(i)))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool CAttributeCompatibility::isEnumSame(gfc::schema::CEnumType * pFrom, gfc::schema::CEnumType * pTo)
+{
+    for (int i = 0; i < pFrom->getEnumCount() && i < pTo->getEnumCount(); i++)
+    {
+        if (pFrom->getEnum(i) != pTo->getEnum(i))
         {
             return false;
         }

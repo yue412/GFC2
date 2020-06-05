@@ -132,7 +132,6 @@ public:
 class COptionalConverter : public CConverter
 {
 public:
-    virtual void transform(PropValue* pFrom, PropValue* pTo);
     virtual void doTransform(PropValue* pFrom, PropValue* pTo);
     virtual CConverter* clone() { return new COptionalConverter(*this); }
 };

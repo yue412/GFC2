@@ -21,13 +21,15 @@ Upgrader::~Upgrader()
     clear();
 }
 
-void Upgrader::init()
+void Upgrader::init(gfc::schema::CModel* pModel, gfc::schema::CModel* pFileModel)
 {
     clear();
-    if (m_pModel && m_pFileModel)
+    m_pModel = pModel;
+    m_pFileModel = pFileModel;
+    if (pModel && pFileModel)
     {
         m_pModelCompatibility = new CModelCompatibility;
-        m_pModelCompatibility->init(m_pFileModel, m_pModel);
+        m_pModelCompatibility->init(pFileModel, pModel);
     }
 }
 

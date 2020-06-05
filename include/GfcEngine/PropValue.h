@@ -72,7 +72,7 @@ class GFCENGINE_API BooleanValue : public LeafPropValue
 {
 public:
     BooleanValue() : m_bValue(false) { }
-    BooleanValue(bool bValue): m_bValue(bValue) { }
+    BooleanValue(bool bValue) : m_bValue(bValue) { setIsNull(false); }
 public:
     //virtual std::string asString() const;
     virtual int asInteger() const;
@@ -90,7 +90,7 @@ class GFCENGINE_API IntegerValue : public LeafPropValue
 {
 public:
     IntegerValue() : m_nValue(0){ }
-    IntegerValue(int nValue) : m_nValue(nValue) { }
+    IntegerValue(int nValue) : m_nValue(nValue) { setIsNull(false); }
 public:
     //virtual std::string asString() const;
     virtual int asInteger() const;
@@ -108,7 +108,7 @@ class GFCENGINE_API DoubleValue : public LeafPropValue
 {
 public:
     DoubleValue() : m_dValue(0.0) { }
-    DoubleValue(double dValue) : m_dValue(dValue) { }
+    DoubleValue(double dValue) : m_dValue(dValue) { setIsNull(false); }
 public:
     //virtual std::string asString() const;
     virtual double asDouble() const;
@@ -125,7 +125,7 @@ class GFCENGINE_API StringValue : public LeafPropValue
 {
 public:
     StringValue() { }
-    StringValue(const std::string& sValue): m_sValue(sValue) { }
+    StringValue(const std::string& sValue): m_sValue(sValue) { setIsNull(false); }
 public:
     virtual std::string asString() const;
 
@@ -141,7 +141,7 @@ class GFCENGINE_API EntityRefValue : public LeafPropValue
 {
 public:
     EntityRefValue() : m_nValue(-1) { }
-    EntityRefValue(EntityRef nValue) : m_nValue(nValue) { }
+    EntityRefValue(EntityRef nValue) : m_nValue(nValue) { setIsNull(false); }
 public:
     virtual EntityRef asEntityRef() const;
 

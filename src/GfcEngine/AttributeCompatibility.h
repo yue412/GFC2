@@ -46,6 +46,7 @@ public:
 
     static bool isClassCompatibility(gfc::schema::CClass* pFrom, gfc::schema::CClass* pTo);
     static bool isEnumCompatibility(gfc::schema::CEnumType* pFrom, gfc::schema::CEnumType* pTo);
+    static bool isEnumSame(gfc::schema::CEnumType* pFrom, gfc::schema::CEnumType* pTo);
     static int getTypeIndex(gfc::schema::CTypeObject* pType);
     static TypeCompatibility getTypeCompatibility(gfc::schema::CTypeObject* pFrom, gfc::schema::CTypeObject* pTo);
     static TypeCompatibility getMultiCompatibility(gfc::schema::CAttribute* pFrom, gfc::schema::CAttribute* pTo);

@@ -1,14 +1,15 @@
 #include "gtest\gtest.h"
-#include "TextUpdater.h"
+#include "Upgrader.h"
 #include "GfcSchema/EntityClass.h"
 #include "GfcSchema/EntityAttribute.h"
 #include "GfcSchema/BuildinType.h"
 #include "ClassCompatibility.h"
-#include "AttributeValue.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcEngine\Entity.h"
 
-TEST(TestTextUpdater, transform_same)
+TEST(TestUpdater, transform_same)
 {
-    glodon::objectbuf::TextUpdater oUpdater;
+    gfc::engine::Upgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
@@ -23,20 +24,23 @@ TEST(TestTextUpdater, transform_same)
     pToAttrib1->SetType(&oType);
     oToClass.addAttribute(pToAttrib1);
 
-    gfc::schema::CClassCompatibility oCompatibility;
+    gfc::engine::CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
 
-    gfc::schema::CCompositeAttributeValue oParamList;
-    oParamList.add(gfc::schema::CAttributeValuePtr(new gfc::schema::CLeafAttributeValue(L"123")));
-    std::string sLine;
-    oUpdater.transform(&oCompatibility, &oParamList, sLine);
+    gfc::engine::Entity oFromEntity;
+    oFromEntity.setSchema(&oFromClass);
+    gfc::engine::Entity oToEntity;
+    oToEntity.setSchema(&oToClass);
+
+    oFromEntity.setAsInteger(L"ID", 123);
+    oUpdater.transform(&oCompatibility, &oFromEntity, &oToEntity);
     
-    EXPECT_STREQ("123", sLine.c_str());
+    EXPECT_EQ(123, oToEntity.asInteger(L"ID"));
 }
 
-TEST(TestTextUpdater, transform_delete)
+TEST(TestUpdater, transform_delete)
 {
-    glodon::objectbuf::TextUpdater oUpdater;
+    gfc::engine::Upgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
@@ -45,20 +49,23 @@ TEST(TestTextUpdater, transform_delete)
     pFromAttrib1->SetType(&oType);
     oFromClass.addAttribute(pFromAttrib1);
 
-    gfc::schema::CClassCompatibility oCompatibility;
+    gfc::engine::CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
 
-    gfc::schema::CCompositeAttributeValue oParamList;
-    oParamList.add(gfc::schema::CAttributeValuePtr(new gfc::schema::CLeafAttributeValue(L"123")));
-    std::string sLine;
-    oUpdater.transform(&oCompatibility, &oParamList, sLine);
+    gfc::engine::Entity oFromEntity;
+    oFromEntity.setSchema(&oFromClass);
+    gfc::engine::Entity oToEntity;
+    oToEntity.setSchema(&oToClass);
 
-    EXPECT_STREQ("", sLine.c_str());
+    oFromEntity.setAsInteger(L"ID", 123);
+    oUpdater.transform(&oCompatibility, &oFromEntity, &oToEntity);
+
+    EXPECT_EQ(0, oToEntity.getPropCount());
 }
 
-TEST(TestTextUpdater, transform_add)
+TEST(TestUpdater, transform_add)
 {
-    glodon::objectbuf::TextUpdater oUpdater;
+    gfc::engine::Upgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
@@ -73,20 +80,23 @@ TEST(TestTextUpdater, transform_add)
     pToAttrib1->SetType(&oType);
     oToClass.addAttribute(pToAttrib1);
 
-    gfc::schema::CClassCompatibility oCompatibility;
+    gfc::engine::CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
 
-    gfc::schema::CCompositeAttributeValue oParamList;
-    oParamList.add(gfc::schema::CAttributeValuePtr(new gfc::schema::CLeafAttributeValue(L"123")));
-    std::string sLine;
-    oUpdater.transform(&oCompatibility, &oParamList, sLine);
+    gfc::engine::Entity oFromEntity;
+    oFromEntity.setSchema(&oFromClass);
+    gfc::engine::Entity oToEntity;
+    oToEntity.setSchema(&oToClass);
 
-    EXPECT_STREQ("$", sLine.c_str());
+    oFromEntity.setAsInteger(L"ID", 123);
+    oUpdater.transform(&oCompatibility, &oFromEntity, &oToEntity);
+
+    EXPECT_EQ(true, oToEntity.isNull(L"Name"));
 }
 
-TEST(TestTextUpdater, transform_exchange)
+TEST(TestUpdater, transform_exchange)
 {
-    glodon::objectbuf::TextUpdater oUpdater;
+    gfc::engine::Upgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
@@ -115,14 +125,18 @@ TEST(TestTextUpdater, transform_exchange)
     oToClass.addAttribute(pToAttrib2);
     oToClass.addAttribute(pToAttrib1);
 
-    gfc::schema::CClassCompatibility oCompatibility;
+    gfc::engine::CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
 
-    gfc::schema::CCompositeAttributeValue oParamList;
-    oParamList.add(gfc::schema::CAttributeValuePtr(new gfc::schema::CLeafAttributeValue(L"123")));
-    oParamList.add(gfc::schema::CAttributeValuePtr(new gfc::schema::CLeafAttributeValue(L"'abc'")));
-    std::string sLine;
-    oUpdater.transform(&oCompatibility, &oParamList, sLine);
+    gfc::engine::Entity oFromEntity;
+    oFromEntity.setSchema(&oFromClass);
+    gfc::engine::Entity oToEntity;
+    oToEntity.setSchema(&oToClass);
 
-    EXPECT_STREQ("'abc',123", sLine.c_str());
+    oFromEntity.setAsInteger(L"ID", 123);
+    oFromEntity.setAsString(L"Name", "abc");
+    oUpdater.transform(&oCompatibility, &oFromEntity, &oToEntity);
+
+    EXPECT_EQ(123, oToEntity.asInteger(L"ID"));
+    EXPECT_STREQ("abc", oToEntity.asString(L"Name").c_str());
 }

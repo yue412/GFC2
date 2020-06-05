@@ -5,14 +5,16 @@
 #include "GfcSchema/EnumType.h"
 #include "GfcSchema/EntityClass.h"
 #include "Converter.h"
-#include "AttributeValue.h"
+#include "GfcEngine\PropValue.h"
 #include "ClassCompatibility.h"
+
+using namespace gfc::engine;
 
 TEST(TestClassCompatibility, Empty)
 {
     gfc::schema::CClass oFromClass, oToClass;
     oFromClass.SetName(L"CTest");
-    gfc::schema::CClassCompatibility oCompatibility;
+    CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
     EXPECT_EQ(true, L"CTest" == oCompatibility.getName());
     EXPECT_EQ(0, oCompatibility.getCount());
@@ -46,7 +48,7 @@ TEST(TestClassCompatibility, Class1)
     pToAttrib2->SetType(&oType2);
     oToClass.addAttribute(pToAttrib2);
 
-    gfc::schema::CClassCompatibility oCompatibility;
+    CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
     EXPECT_EQ(3, oCompatibility.getCount());
     EXPECT_EQ(0, oCompatibility.getCompatibilityAttribute(0)->toIndex());
@@ -84,7 +86,7 @@ TEST(TestClassCompatibility, Class2)
     pToAttrib2->SetType(&oType2);
     oToClass.addAttribute(pToAttrib2);
 
-    gfc::schema::CClassCompatibility oCompatibility;
+    CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
     EXPECT_EQ(3, oCompatibility.getCount());
     EXPECT_EQ(0, oCompatibility.getCompatibilityAttribute(0)->toIndex());

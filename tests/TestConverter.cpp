@@ -1,354 +1,425 @@
 #include "gtest\gtest.h"
 #include "Converter.h"
 #include "GfcSchema/EnumType.h"
+#include "GfcEngine\PropValue.h"
+#include "GfcSchema\BuildinType.h"
 
 using namespace gfc::schema;
+using namespace gfc::engine;
 
 TEST(TestConverter, ArrayToArrayConverter_Empty)
 {
-    gfc::schema::CArrayToArrayConverter oConverter;
-    std::wstring sValue = L"$";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"$" == pValue->asString());
-}
-
-TEST(TestConverter, ArrayToArrayConverter_Empty2)
-{
-    gfc::schema::CArrayToArrayConverter oConverter;
-    //std::wstring sValue = L"()";
-    CAttributeValuePtr pValue(new CCompositeAttributeValue);
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"$" == pValue->asString());
+    CArrayToArrayConverter oConverter;
+    CompositePropValue oFrom;
+    CompositePropValue oTo;
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
 }
 
 TEST(TestConverter, ArrayToArrayConverter)
 {
-    gfc::schema::CArrayToArrayConverter oConverter;
-    //std::wstring sValue = L"(a,b,c)";
-    CAttributeValuePtr pValue(new CCompositeAttributeValue);
-    pValue->add(CAttributeValuePtr(new CLeafAttributeValue(L"a")));
-    pValue->add(CAttributeValuePtr(new CLeafAttributeValue(L"b")));
-    pValue->add(CAttributeValuePtr(new CLeafAttributeValue(L"c")));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"(a,b,c)" == pValue->asString());
+    CArrayToArrayConverter oConverter;
+    CIntConverter oIntConverter;
+    oConverter.setNext(oIntConverter.clone());
+    CIntegerType oInteger;
+    oConverter.init(&oInteger, &oInteger);
+    CompositePropValue oFrom;
+    CompositePropValue oTo;
+    oFrom.add(new IntegerValue(1));
+    oFrom.add(new IntegerValue(2));
+    oFrom.add(new IntegerValue(3));
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(3, oTo.getCount());
+    EXPECT_EQ(1, oTo.getItems(0)->asInteger());
+    EXPECT_EQ(2, oTo.getItems(1)->asInteger());
+    EXPECT_EQ(3, oTo.getItems(2)->asInteger());
+    EXPECT_EQ(false, oTo.isNull());
 }
 
 TEST(TestConverter, ArrayToOneConverter_Empty)
 {
-    gfc::schema::CArrayToOneConverter oConverter;
-    std::wstring sValue = L"$";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"$" == pValue->asString());
-}
-
-TEST(TestConverter, ArrayToOneConverter_Empty2)
-{
-    gfc::schema::CArrayToOneConverter oConverter;
-//    std::wstring sValue = L"()";
-    CAttributeValuePtr pValue(new CCompositeAttributeValue);
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"$" == pValue->asString());
+    CArrayToOneConverter oConverter;
+    CompositePropValue oFrom;
+    IntegerValue oTo;
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
 }
 
 TEST(TestConverter, ArrayToOneConverter)
 {
-    gfc::schema::CArrayToOneConverter oConverter;
-//    std::wstring sValue = L"(a,b,c)";
-    CAttributeValuePtr pValue(new CCompositeAttributeValue);
-    pValue->add(CAttributeValuePtr(new CLeafAttributeValue(L"a")));
-    pValue->add(CAttributeValuePtr(new CLeafAttributeValue(L"b")));
-    pValue->add(CAttributeValuePtr(new CLeafAttributeValue(L"c")));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"a" == pValue->asString());
+    CArrayToOneConverter oConverter;
+    CIntConverter oIntConverter;
+    oConverter.setNext(oIntConverter.clone());
+    CIntegerType oInteger;
+    oConverter.init(&oInteger, &oInteger);
+    CompositePropValue oFrom;
+    IntegerValue oTo;
+    oFrom.add(new IntegerValue(111));
+    oFrom.add(new IntegerValue(2));
+    oFrom.add(new IntegerValue(3));
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(111, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
 }
 
 TEST(TestConverter, OneToArrayConverter_Empty)
 {
-    gfc::schema::COneToArrayConverter oConverter;
-    std::wstring sValue = L"$";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"$" == pValue->asString());
+    COneToArrayConverter oConverter;
+    IntegerValue oFrom;
+    CompositePropValue oTo;
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
 }
 
 TEST(TestConverter, OneToArrayConverter)
 {
-    gfc::schema::COneToArrayConverter oConverter;
-    std::wstring sValue = L"a";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"(a)" == pValue->asString());
-}
+    COneToArrayConverter oConverter;
+    CIntConverter oIntConverter;
+    oConverter.setNext(oIntConverter.clone());
+    CIntegerType oInteger;
+    oConverter.init(&oInteger, &oInteger);
 
-TEST(TestConverter, OptionalConverter)
-{
-    gfc::schema::COptionalConverter oConverter;
-    std::wstring sValue = L"abc";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"abc" == pValue->asString());
+    IntegerValue oFrom;
+    CompositePropValue oTo;
+    oFrom.setAsInteger(1234);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(1, oTo.getCount());
+    EXPECT_EQ(1234, oTo.getItems(0)->asInteger());
+    EXPECT_EQ(false, oTo.isNull());
 }
 
 TEST(TestConverter, OptionalConverter_Empty)
 {
-    gfc::schema::COptionalConverter oConverter;
-    std::wstring sValue = L"$";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"$" == pValue->asString());
+    COptionalConverter oConverter;
+    IntegerValue oFrom;
+    IntegerValue oTo;
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
 }
 
-TEST(TestConverter, CopyConverter)
+TEST(TestConverter, OptionalConverter)
 {
-    gfc::schema::CCopyConverter oConverter;
-    std::wstring sValue = L"abc";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"abc" == pValue->asString());
+    COptionalConverter oConverter;
+    CIntConverter oIntConverter;
+    oConverter.setNext(oIntConverter.clone());
+    CIntegerType oInteger;
+    oConverter.init(&oInteger, &oInteger);
+
+    IntegerValue oFrom;
+    IntegerValue oTo;
+    oFrom.setAsInteger(1234);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(1234, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
 }
 
 TEST(TestConverter, EmptyConverter)
 {
-    gfc::schema::CEmptyConverter oConverter;
-    std::wstring sValue = L"abc";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"$" == pValue->asString());
+    CEmptyConverter oConverter;
+    IntegerValue oFrom;
+    StringValue oTo;
+    oFrom.setAsInteger(1234);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
 }
 
-TEST(TestConverter, BoolToIntConverter_True)
+TEST(TestConverter, IntConverter_Bool_Bool)
 {
-    gfc::schema::CBoolToIntConverter oConverter;
-    std::wstring sValue = L".T.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"1" == pValue->asString());
+    CIntConverter oConverter;
+    BooleanValue oFrom;
+    BooleanValue oTo;
+    oFrom.setAsBoolean(true);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.asBoolean());
+    EXPECT_EQ(false, oTo.isNull());
+    oFrom.setAsBoolean(false);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(false, oTo.asBoolean());
+    EXPECT_EQ(false, oTo.isNull());
 }
 
-TEST(TestConverter, BoolToIntConverter_False)
+TEST(TestConverter, IntConverter_Bool_Int)
 {
-    gfc::schema::CBoolToIntConverter oConverter;
-    std::wstring sValue = L".F.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"0" == pValue->asString());
+    CIntConverter oConverter;
+    BooleanValue oFrom;
+    IntegerValue oTo;
+    oFrom.setAsBoolean(true);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(1, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
+    oFrom.setAsBoolean(false);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(0, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
 }
 
-TEST(TestConverter, BoolToStringConverter_True)
+TEST(TestConverter, IntConverter_Bool_Double)
 {
-    gfc::schema::CBoolToStringConverter oConverter;
-    std::wstring sValue = L".T.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"'1'" == pValue->asString());
+    CIntConverter oConverter;
+    BooleanValue oFrom;
+    DoubleValue oTo;
+    oFrom.setAsBoolean(true);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_NEAR(1, oTo.asDouble(), 1e-7);
+    EXPECT_EQ(false, oTo.isNull());
+    oFrom.setAsBoolean(false);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_NEAR(0, oTo.asDouble(), 1e-7);
+    EXPECT_EQ(false, oTo.isNull());
 }
 
-TEST(TestConverter, BoolToStringConverter_False)
+TEST(TestConverter, IntConverter_Int_Bool)
 {
-    gfc::schema::CBoolToStringConverter oConverter;
-    std::wstring sValue = L".F.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"'0'" == pValue->asString());
+    CIntConverter oConverter;
+    IntegerValue oFrom;
+    BooleanValue oTo;
+    oFrom.setAsInteger(-19);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.asBoolean());
+    EXPECT_EQ(false, oTo.isNull());
+    oFrom.setAsInteger(0);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(false, oTo.asBoolean());
+    EXPECT_EQ(false, oTo.isNull());
 }
 
-TEST(TestConverter, BoolToEnumConverter_True)
+TEST(TestConverter, IntConverter_Int_Int)
 {
-    gfc::schema::CBoolToEnumConverter oConverter;
-    gfc::schema::CEnumType oEnum;
+    CIntConverter oConverter;
+    IntegerValue oFrom;
+    IntegerValue oTo;
+    oFrom.setAsInteger(-19);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(-19, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
+    oFrom.setAsInteger(0);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(0, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
+}
+
+TEST(TestConverter, IntConverter_Int_Double)
+{
+    CIntConverter oConverter;
+    IntegerValue oFrom;
+    DoubleValue oTo;
+    oFrom.setAsInteger(-19);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_NEAR(-19, oTo.asDouble(), 1e-7);
+    EXPECT_EQ(false, oTo.isNull());
+    oFrom.setAsInteger(0);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_NEAR(0, oTo.asDouble(), 1e-7);
+    EXPECT_EQ(false, oTo.isNull());
+}
+
+TEST(TestConverter, BoolToStringConverter)
+{
+    CBoolToStringConverter oConverter;
+    BooleanValue oFrom;
+    StringValue oTo;
+    oFrom.setAsBoolean(true);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, "1" == oTo.asString());
+    EXPECT_EQ(false, oTo.isNull());
+    oFrom.setAsBoolean(false);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, "0" == oTo.asString());
+    EXPECT_EQ(false, oTo.isNull());
+}
+
+TEST(TestConverter, IntToEnumConverter_bool)
+{
+    CIntToEnumConverter oConverter;
+    CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
     oConverter.init(nullptr, &oEnum);
-    std::wstring sValue = L".T.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L".def." == pValue->asString());
+    BooleanValue oFrom;
+    IntegerValue oTo;
+    oFrom.setAsBoolean(true);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(1, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
+    oFrom.setAsBoolean(false);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(0, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
 }
 
-TEST(TestConverter, BoolToEnumConverter_False)
+TEST(TestConverter, IntToEnumConverter_bool_empty)
 {
-    gfc::schema::CBoolToEnumConverter oConverter;
-    gfc::schema::CEnumType oEnum;
+    CIntToEnumConverter oConverter;
+    CEnumType oEnum;
+    oConverter.init(nullptr, &oEnum);
+    BooleanValue oFrom;
+    IntegerValue oTo;
+    oFrom.setAsBoolean(true);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
+    oFrom.setAsBoolean(false);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
+}
+
+TEST(TestConverter, IntToEnumConverter_int)
+{
+    CIntToEnumConverter oConverter;
+    CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
     oConverter.init(nullptr, &oEnum);
-    std::wstring sValue = L".F.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L".abc." == pValue->asString());
+    IntegerValue oFrom;
+    IntegerValue oTo;
+    oFrom.setAsInteger(2);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(2, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
+    oFrom.setAsInteger(0);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(0, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
+    oFrom.setAsInteger(43);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(1, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
 }
 
-TEST(TestConverter, BoolToEnumConverter_True2)
+TEST(TestConverter, IntToEnumConverter_int_empty)
 {
-    gfc::schema::CBoolToEnumConverter oConverter;
-    gfc::schema::CEnumType oEnum;
-    oEnum.addEnum(L"abc", L"");
+    CIntToEnumConverter oConverter;
+    CEnumType oEnum;
     oConverter.init(nullptr, &oEnum);
-    std::wstring sValue = L".T.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L".abc." == pValue->asString());
+    IntegerValue oFrom;
+    IntegerValue oTo;
+    oFrom.setAsInteger(2);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
+    oFrom.setAsInteger(0);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
 }
 
-TEST(TestConverter, BoolToEnumConverter_True_Empty)
+TEST(TestConverter, IntToStringConverter)
 {
-    gfc::schema::CBoolToEnumConverter oConverter;
-    gfc::schema::CEnumType oEnum;
-    std::wstring sValue = L".T.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"$" == pValue->asString());
+    CIntToStringConverter oConverter;
+    IntegerValue oFrom;
+    StringValue oTo;
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
+    oFrom.setAsInteger(1234);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, "1234" == oTo.asString());
+    EXPECT_EQ(false, oTo.isNull());
 }
 
-TEST(TestConverter, IntToBoolConverter_0)
+TEST(TestConverter, FloatToStringConverter)
 {
-    gfc::schema::CIntToBoolConverter oConverter;
-    std::wstring sValue = L"0";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L".F." == pValue->asString());
+    CFloatToStringConverter oConverter;
+    DoubleValue oFrom;
+    StringValue oTo;
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
+    oFrom.setAsDouble(1234.5);
+    oConverter.transform(&oFrom, &oTo);
+    auto d = std::stod(oTo.asString());
+    EXPECT_NEAR(1234.5, d, 1e-7);
+    EXPECT_EQ(false, oTo.isNull());
 }
 
-TEST(TestConverter, IntToBoolConverter_not0)
+TEST(TestConverter, FloatConverter)
 {
-    gfc::schema::CIntToBoolConverter oConverter;
-    std::wstring sValue = L"123";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L".T." == pValue->asString());
+    CFloatConverter oConverter;
+    DoubleValue oFrom;
+    DoubleValue oTo;
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
+    oFrom.setAsDouble(1234.5);
+    oConverter.transform(&oFrom, &oTo);
+    auto d = oTo.asDouble();
+    EXPECT_NEAR(1234.5, d, 1e-7);
+    EXPECT_EQ(false, oTo.isNull());
 }
 
 TEST(TestConverter, StringConverter)
 {
-    gfc::schema::CStringConverter oConverter;
-    std::wstring sValue = L"123";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"'123'" == pValue->asString());
-}
-
-TEST(TestConverter, IntToEnumConverter)
-{
-    gfc::schema::CIntToEnumConverter oConverter;
-    gfc::schema::CEnumType oEnum;
-    oEnum.addEnum(L"abc", L"");
-    oEnum.addEnum(L"def", L"");
-    oEnum.addEnum(L"ghi", L"");
-    oConverter.init(nullptr, &oEnum);
-    std::wstring sValue = L"2";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L".ghi." == pValue->asString());
-}
-
-TEST(TestConverter, IntToEnumConverter_0)
-{
-    gfc::schema::CIntToEnumConverter oConverter;
-    gfc::schema::CEnumType oEnum;
-    oEnum.addEnum(L"abc", L"");
-    oEnum.addEnum(L"def", L"");
-    oEnum.addEnum(L"ghi", L"");
-    oConverter.init(nullptr, &oEnum);
-    std::wstring sValue = L"4";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L".def." == pValue->asString());
-}
-
-TEST(TestConverter, IntToEnumConverter_1)
-{
-    gfc::schema::CIntToEnumConverter oConverter;
-    gfc::schema::CEnumType oEnum;
-    std::wstring sValue = L"4";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"$" == pValue->asString());
-}
-
-TEST(TestConverter, EnumToBoolConverter_false)
-{
-    gfc::schema::CEnumToBoolConverter oConverter;
-    gfc::schema::CEnumType oEnum;
-    oEnum.addEnum(L"abc", L"");
-    oEnum.addEnum(L"def", L"");
-    oEnum.addEnum(L"ghi", L"");
-    oConverter.init(&oEnum, nullptr);
-    std::wstring sValue = L".abc.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L".F." == pValue->asString());
-}
-
-TEST(TestConverter, EnumToBoolConverter_true)
-{
-    gfc::schema::CEnumToBoolConverter oConverter;
-    gfc::schema::CEnumType oEnum;
-    oEnum.addEnum(L"abc", L"");
-    oEnum.addEnum(L"def", L"");
-    oEnum.addEnum(L"ghi", L"");
-    oConverter.init(&oEnum, nullptr);
-    std::wstring sValue = L".ghi.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L".T." == pValue->asString());
-}
-
-TEST(TestConverter, EnumToIntConverter)
-{
-    gfc::schema::CEnumToIntConverter oConverter;
-    gfc::schema::CEnumType oEnum;
-    oEnum.addEnum(L"abc", L"");
-    oEnum.addEnum(L"def", L"");
-    oEnum.addEnum(L"ghi", L"");
-    oConverter.init(&oEnum, nullptr);
-    std::wstring sValue = L".ghi.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"2" == pValue->asString());
-}
-
-TEST(TestConverter, EnumToStringConverter)
-{
-    gfc::schema::CEnumToStringConverter oConverter;
-    gfc::schema::CEnumType oEnum;
-    oEnum.addEnum(L"abc", L"");
-    oEnum.addEnum(L"def", L"");
-    oEnum.addEnum(L"ghi", L"");
-    oConverter.init(&oEnum, nullptr);
-    std::wstring sValue = L".ghi.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"'2'" == pValue->asString());
+    CStringConverter oConverter;
+    StringValue oFrom;
+    StringValue oTo;
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
+    oFrom.setAsString("中国");
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, "中国" == oTo.asString());
+    EXPECT_EQ(false, oTo.isNull());
 }
 
 TEST(TestConverter, EnumConverter)
 {
-    gfc::schema::CEnumConverter oConverter;
-    gfc::schema::CEnumType oEnum;
+    CEnumConverter oConverter;
+    CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
-    oConverter.init(nullptr, &oEnum);
-    std::wstring sValue = L".ghi.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L".ghi." == pValue->asString());
+    CEnumType oFromEnum;
+    oFromEnum.addEnum(L"abc", L"");
+    oFromEnum.addEnum(L"de", L"");
+    oFromEnum.addEnum(L"gh", L"");
+    oConverter.init(&oFromEnum, &oEnum);
+    IntegerValue oFrom;
+    IntegerValue oTo;
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
+
+    oFrom.setAsInteger(1);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
+
+    oFrom.setAsInteger(0);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(false, oTo.isNull());
+    EXPECT_EQ(0, oTo.asInteger());
 }
 
-TEST(TestConverter, EnumConverter_Empty)
+TEST(TestConverter, EnumConverter_2)
 {
-    gfc::schema::CEnumConverter oConverter;
-    gfc::schema::CEnumType oEnum;
+    CEnumConverter oConverter;
+    CEnumType oEnum;
     oEnum.addEnum(L"abc", L"");
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
-    oConverter.init(nullptr, &oEnum);
-    std::wstring sValue = L".kkk.";
-    CAttributeValuePtr pValue(new CLeafAttributeValue(sValue));
-    oConverter.transform(pValue);
-    EXPECT_EQ(true, L"$" == pValue->asString());
+    CEnumType oFromEnum;
+    oFromEnum.addEnum(L"def", L"");
+    oFromEnum.addEnum(L"ghi", L"");
+    oFromEnum.addEnum(L"abc", L"");
+    oConverter.init(&oFromEnum, &oEnum);
+    IntegerValue oFrom;
+    IntegerValue oTo;
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
+
+    oFrom.setAsInteger(1);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(2, oTo.asInteger());
+    EXPECT_EQ(false, oTo.isNull());
+
+    oFrom.setAsInteger(2);
+    oConverter.transform(&oFrom, &oTo);
+    EXPECT_EQ(false, oTo.isNull());
+    EXPECT_EQ(0, oTo.asInteger());
+}
+
+TEST(TestConverter, CEntityRefConverter)
+{
+    CEntityRefConverter converter;
+    EntityRefValue oFrom;
+    EntityRefValue oTo;
+    converter.transform(&oFrom, &oTo);
+    EXPECT_EQ(true, oTo.isNull());
+    oFrom.setAsEntityRef(123);
+    converter.transform(&oFrom, &oTo);
+    EXPECT_EQ(123, oTo.asEntityRef());
+    EXPECT_EQ(false, oTo.isNull());
 }

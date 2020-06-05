@@ -64,15 +64,12 @@ void CArrayToArrayConverter::transform(PropValue* pFrom, PropValue* pTo)
     for (int i = 0; i < pFrom->getCount(); i++)
     {
         auto pItem = pFrom->getItems(i);
-        if (!pItem->isNull())
-        {
-            auto pToItem = Property::createValue(m_pTo);
-            CConverter::transform(pItem, pToItem);
-            if (!pToItem->isNull())
-                pTo->add(pToItem);
-            else
-                delete pToItem;
-        }
+        auto pToItem = Property::createValue(m_pTo);
+        CConverter::transform(pItem, pToItem);
+        if (!pToItem->isNull())
+            pTo->add(pToItem);
+        else
+            delete pToItem;
     }
     //if (pValue->getCount() != 0)
     //{
@@ -96,12 +93,6 @@ void CArrayToArrayConverter::transform(PropValue* pFrom, PropValue* pTo)
 void CArrayToArrayConverter::doTransform(PropValue* pFrom, PropValue* pTo)
 {
     //do nothing
-}
-
-void COptionalConverter::transform(PropValue* pFrom, PropValue* pTo)
-{
-    if (!pFrom->isNull())
-        CConverter::transform(pFrom, pTo);
 }
 
 void COptionalConverter::doTransform(PropValue* pFrom, PropValue* pTo)

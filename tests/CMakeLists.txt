@@ -25,8 +25,8 @@ link_directories(
 	${CMAKE_SOURCE_DIR}/../thirdparty/googletest/cmake/lib/$<CONFIG>
 	)
 
-FILE(GLOB SRC_FILES "./*.c*" "../src/GfcTextSerializer/EntityParser/*.cpp" "../src/GfcTextSerializer/TextUpdater.cpp" "../src/GfcTextSerializer/Parser.cpp" "../src/GfcTextSerializer/Scanner.cpp" "../src/GfcTextSerializer/dllmain.cpp") 
-FILE(GLOB HEAD_FILES "./*.h" "../src/GfcTextSerializer/EntityParser/*.h" "../src/GfcTextSerializer/TextUpdater.h" "../src/GfcTextSerializer/Parser.h" "../src/GfcTextSerializer/Scanner.h") 
+FILE(GLOB SRC_FILES "./*.c*" "../src/GfcEngine/*Compatibility.cpp" "../src/GfcEngine/Converter.cpp" "../src/GfcEngine/Parser.cpp" "../src/GfcEngine/Scanner.cpp" "../src/GfcEngine/Upgrader.cpp") 
+FILE(GLOB HEAD_FILES "./*.h" "../src/GfcEngine/*Compatibility.h" "../src/GfcEngine/Converter.h"  "../src/GfcEngine/Parser.h" "../src/GfcEngine/Scanner.h" "../src/GfcEngine/Upgrader.h") 
 
 add_compile_definitions(TIXML_USE_STL _CRT_SECURE_NO_DEPRECATE UNICODE)
 

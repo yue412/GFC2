@@ -21,15 +21,14 @@ class Entity;
 class Upgrader
 {
 public:
-    Upgrader(gfc::schema::CModel* pModel, gfc::schema::CModel* pFileModel) : m_pModel(pModel), m_pFileModel(pFileModel), m_pModelCompatibility(nullptr) {}
+    Upgrader() : m_pModelCompatibility(nullptr) {}
     ~Upgrader();
-    void init();
+    void init(gfc::schema::CModel* pModel, gfc::schema::CModel* pFileModel);
     Entity* update(Entity* pEntity);
     // for test
     void transform(CClassCompatibility* pClassCompatibility, Entity* pSrcEntity, Entity* pDestEntity);
 private:
     void clear();
-
     gfc::schema::CModel* m_pModel;
     gfc::schema::CModel* m_pFileModel;
     CModelCompatibility* m_pModelCompatibility;

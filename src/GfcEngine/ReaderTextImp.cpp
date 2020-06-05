@@ -109,14 +109,14 @@ std::wstring ReaderTextImp::readFileVersion()
         auto sLine = m_pFileMap->getLine();
     
     	auto schema = sLine.substr(0,11);
-    	if (_stricmp(schema.c_str(), "FILE_SCHEMA"))
+    	if (_stricmp(schema.c_str(), "FILE_SCHEMA") == 0)
     	{
     		int nStartPos = sLine.find_first_of('\'');
     		int nLastPos = sLine.find_last_of('\'');
     		sResult = sLine.substr(nStartPos + 1, nLastPos - nStartPos - 1);
             break;
     	}
-    	else if (_stricmp(sLine.c_str(),"ENDSEC;"))
+    	else if (_stricmp(sLine.c_str(),"ENDSEC;") == 0)
     	{
     		break;
     	}
