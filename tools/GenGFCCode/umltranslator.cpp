@@ -37,7 +37,7 @@ void CUMLTranslator::done(CTranslateInfo & oInfo)
     if (!oInfo.sExpressFile.empty())
     {
         CExpressWriter oWriter(&oModel);
-        oWriter.write(oInfo.sExpressFile, L"GFC2X1");
+        oWriter.write(oInfo.sExpressFile, L"GFC3X0");
     }
     if (!oInfo.sHtmlPath.empty())
     {

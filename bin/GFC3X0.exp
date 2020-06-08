@@ -393,7 +393,7 @@ END_ENTITY;
 
 ENTITY Gfc2Element
  SUBTYPE OF (Gfc2Object);
-	Type : Gfc2Integer;
+	Type : Gfc2Label;
 	Representations : LIST [0:?] OF Gfc2Representation;
 	Shapes : LIST [0:?] OF Gfc2ElementShape;
 END_ENTITY;
@@ -405,7 +405,7 @@ END_ENTITY;
 
 ENTITY Gfc2ElementType
  SUBTYPE OF (Gfc2Object);
-	Type : Gfc2Integer;
+	Type : Gfc2Label;
 END_ENTITY;
 
 ENTITY Gfc2Ellipse2d
@@ -463,6 +463,16 @@ ENTITY Gfc2Floor
 	StructuralElevation : Gfc2Double;
 	StartFloorNo : Gfc2Integer;
 	Remark : Gfc2Text;
+END_ENTITY;
+
+ENTITY Gfc2GeoListProperty
+ SUBTYPE OF (Gfc2ListProperty);
+	Value : LIST [0:?] OF Gfc2Geometry;
+END_ENTITY;
+
+ENTITY Gfc2GeoProperty
+ SUBTYPE OF (Gfc2SingleProperty);
+	Geo : Gfc2Geometry;
 END_ENTITY;
 
 ENTITY Gfc2Geometry
@@ -619,7 +629,9 @@ ENTITY Gfc2ListProperty
 	(Gfc2IntegerListProperty
 	,Gfc2DoubleListProperty
 	,Gfc2BooleanListProperty
-	,Gfc2StringListProperty))
+	,Gfc2StringListProperty
+	,Gfc2SectionListProperty
+	,Gfc2GeoListProperty))
  SUBTYPE OF (Gfc2SimpleProperty);
 END_ENTITY;
 
@@ -807,6 +819,7 @@ ENTITY Gfc2Property
 	(Gfc2ComplexProperty
 	,Gfc2SimpleProperty));
 	Name : Gfc2Label;
+	Code : OPTIONAL Gfc2String;
 END_ENTITY;
 
 ENTITY Gfc2PropertySet;
@@ -861,11 +874,17 @@ END_ENTITY;
 ENTITY Gfc2RelConnectsElements
  SUPERTYPE OF (ONEOF
 	(Gfc2RelConnectsWithRealizingElements
-	,IfcRelConnectsPathElements))
+	,Gfc2RelConnectsPathElements))
  SUBTYPE OF (Gfc2RelConnects);
 	RelatingElement : Gfc2Element;
 	RelatedElement : Gfc2Element;
 	ConnectionGeometry : Gfc2ConnectionGeometry;
+END_ENTITY;
+
+ENTITY Gfc2RelConnectsPathElements
+ SUBTYPE OF (Gfc2RelConnectsElements);
+	RelatedConnectionType : Gfc2ConnectionType;
+	RelatingConnectionType : Gfc2ConnectionType;
 END_ENTITY;
 
 ENTITY Gfc2RelConnectsWithRealizingElements
@@ -958,6 +977,16 @@ ENTITY Gfc2Section
 	,Gfc2ParameterizedSection));
 END_ENTITY;
 
+ENTITY Gfc2SectionListProperty
+ SUBTYPE OF (Gfc2ListProperty);
+	Value : LIST [0:?] OF Gfc2Section;
+END_ENTITY;
+
+ENTITY Gfc2SectionProperty
+ SUBTYPE OF (Gfc2SingleProperty);
+	Section : Gfc2Section;
+END_ENTITY;
+
 ENTITY Gfc2Shape
  SUPERTYPE OF (ONEOF
 	(Gfc2GeometryShape
@@ -1005,7 +1034,9 @@ ENTITY Gfc2SingleProperty
 	(Gfc2IntegerProperty
 	,Gfc2DoubleProperty
 	,Gfc2BooleanProperty
-	,Gfc2StringProperty))
+	,Gfc2StringProperty
+	,Gfc2SectionProperty
+	,Gfc2GeoProperty))
  SUBTYPE OF (Gfc2SimpleProperty);
 END_ENTITY;
 
@@ -1204,12 +1235,6 @@ ENTITY Gfc2Vector3d
 	X : Gfc2Double;
 	Y : Gfc2Double;
 	Z : Gfc2Double;
-END_ENTITY;
-
-ENTITY IfcRelConnectsPathElements
- SUBTYPE OF (Gfc2RelConnectsElements);
-	RelatedConnectionType : Gfc2ConnectionType;
-	RelatingConnectionType : Gfc2ConnectionType;
 END_ENTITY;
 
 END_SCHEMA;

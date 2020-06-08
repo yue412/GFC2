@@ -17,6 +17,6 @@ echo on
 cd ..
 del CMakeCache.txt /S
 cd bin
-call _build.bat %generator% "Debug"
-call _build.bat %generator% "Release"
+call _build.bat "Debug" %generator% 
+call _build.bat "Release" %generator% 
 pause

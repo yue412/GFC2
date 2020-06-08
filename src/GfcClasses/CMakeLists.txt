@@ -11,6 +11,7 @@ include_directories(
 
 file(GLOB HEAD_FILES "${PROJECT_SOURCE_DIR}/../include/GfcClasses/*.h") 
 file(GLOB_RECURSE SRC_FILES  ${PROJECT_SOURCE_DIR}/${PROJECT_NAME} *.cpp *.h *.rc)
+source_group(TREE ${PROJECT_SOURCE_DIR}/${PROJECT_NAME} PREFIX "Source Files" FILES ${SRC_FILES})
 
 #set_source_files_properties(Gfc2.rc PROPERTIES LANGUAGE RC)
 
