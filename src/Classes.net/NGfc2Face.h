@@ -13,12 +13,12 @@ public ref class NGfc2Face: public NGfc2CommonPolygonEx
 public:
     NGfc2Face();
     NGfc2Face(void* pEntity, bool bOwner);
-    void setSurface(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getSurface();
+    void setSurface(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getSurface();
     bool hasSurface();
     NGfc2Surface^ getSurfacePtr();
-    void setBox(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getBox();
+    void setBox(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getBox();
     bool hasBox();
     NGfc2Box3d^ getBoxPtr();
     void setSameDir(NGfc2Boolean bValue);

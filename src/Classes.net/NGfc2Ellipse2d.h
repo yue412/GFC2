@@ -13,12 +13,12 @@ public ref class NGfc2Ellipse2d: public NGfc2Curve2d
 public:
     NGfc2Ellipse2d();
     NGfc2Ellipse2d(void* pEntity, bool bOwner);
-    void setCenterPt(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCenterPt();
+    void setCenterPt(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCenterPt();
     bool hasCenterPt();
     NGfc2Vector2d^ getCenterPtPtr();
-    void setMajorAxis(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getMajorAxis();
+    void setMajorAxis(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getMajorAxis();
     bool hasMajorAxis();
     NGfc2Vector2d^ getMajorAxisPtr();
     void setdMajorRad(NGfc2Double dValue);
@@ -27,8 +27,8 @@ public:
     void setdMinorRad(NGfc2Double dValue);
     NGfc2Double getdMinorRad();
     bool hasdMinorRad();
-    void setRange(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRange();
+    void setRange(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRange();
     bool hasRange();
     NGfc2Intervald^ getRangePtr();
     void setClockSign(NGfc2Integer nValue);

@@ -11,12 +11,12 @@ NGfc2RelCoversBldgElements::NGfc2RelCoversBldgElements(void* pEntity, bool bOwne
 {
 }
 
-void NGfc2RelCoversBldgElements::setRelatingBuildingElement(gfc2::engine::EntityRef nValue)
+void NGfc2RelCoversBldgElements::setRelatingBuildingElement(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RelCoversBldgElements*)m_pEntity)->setRelatingBuildingElement(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2RelCoversBldgElements::getRelatingBuildingElement()
+gfc::engine::EntityRef NGfc2RelCoversBldgElements::getRelatingBuildingElement()
 {
     return ((Gfc2RelCoversBldgElements*)m_pEntity)->getRelatingBuildingElement();
 }
@@ -41,12 +41,12 @@ void NGfc2RelCoversBldgElements::clearRelatedCoverings()
     ((Gfc2RelCoversBldgElements*)m_pEntity)->clearRelatedCoverings();
 }
 
-void NGfc2RelCoversBldgElements::addRelatedCoverings(gfc2::engine::EntityRef nValue)
+void NGfc2RelCoversBldgElements::addRelatedCoverings(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RelCoversBldgElements*)m_pEntity)->addRelatedCoverings(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2RelCoversBldgElements::getRelatedCoverings(int nIndex)
+gfc::engine::EntityRef NGfc2RelCoversBldgElements::getRelatedCoverings(int nIndex)
 {
     return ((Gfc2RelCoversBldgElements*)m_pEntity)->getRelatedCoverings(nIndex);
 }

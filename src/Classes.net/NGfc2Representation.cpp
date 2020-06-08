@@ -11,12 +11,12 @@ NGfc2Representation::NGfc2Representation(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Representation::setIdentifier(gfc2::engine::EntityRef nValue)
+void NGfc2Representation::setIdentifier(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Representation*)m_pEntity)->setIdentifier(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Representation::getIdentifier()
+gfc::engine::EntityRef NGfc2Representation::getIdentifier()
 {
     return ((Gfc2Representation*)m_pEntity)->getIdentifier();
 }
@@ -41,12 +41,12 @@ void NGfc2Representation::clearitems()
     ((Gfc2Representation*)m_pEntity)->clearitems();
 }
 
-void NGfc2Representation::additems(gfc2::engine::EntityRef nValue)
+void NGfc2Representation::additems(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Representation*)m_pEntity)->additems(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Representation::getitems(int nIndex)
+gfc::engine::EntityRef NGfc2Representation::getitems(int nIndex)
 {
     return ((Gfc2Representation*)m_pEntity)->getitems(nIndex);
 }

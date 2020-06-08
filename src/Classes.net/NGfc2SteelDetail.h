@@ -14,16 +14,16 @@ public:
     void setEntityID(NGfc2Integer nValue);
     NGfc2Integer getEntityID();
     bool hasEntityID();
-    void setName(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getName();
+    void setName(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getName();
     bool hasName();
     NGfc2String^ getNamePtr();
-    void setDesc(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getDesc();
+    void setDesc(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getDesc();
     bool hasDesc();
     NGfc2String^ getDescPtr();
-    void setLevel(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getLevel();
+    void setLevel(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getLevel();
     bool hasLevel();
     NGfc2String^ getLevelPtr();
     void setDia(NGfc2Integer nValue);
@@ -44,8 +44,8 @@ public:
     void setTieinNum(NGfc2Integer nValue);
     NGfc2Integer getTieinNum();
     bool hasTieinNum();
-    void setTieinType(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getTieinType();
+    void setTieinType(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getTieinType();
     bool hasTieinType();
     NGfc2String^ getTieinTypePtr();
 

@@ -16,20 +16,20 @@ public:
     void setApexIndex(NGfc2Integer nValue);
     NGfc2Integer getApexIndex();
     bool hasApexIndex();
-    void setRangeV(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRangeV();
+    void setRangeV(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRangeV();
     bool hasRangeV();
     NGfc2Intervald^ getRangeVPtr();
-    void setRangeU(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRangeU();
+    void setRangeU(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRangeU();
     bool hasRangeU();
     NGfc2Intervald^ getRangeUPtr();
-    void setDirectrix1(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getDirectrix1();
+    void setDirectrix1(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getDirectrix1();
     bool hasDirectrix1();
     NGfc2Curve3d^ getDirectrix1Ptr();
-    void setDirectrix2(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getDirectrix2();
+    void setDirectrix2(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getDirectrix2();
     bool hasDirectrix2();
     NGfc2Curve3d^ getDirectrix2Ptr();
 

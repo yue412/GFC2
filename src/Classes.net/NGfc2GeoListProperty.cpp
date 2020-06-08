@@ -21,12 +21,12 @@ void NGfc2GeoListProperty::clearValue()
     ((Gfc2GeoListProperty*)m_pEntity)->clearValue();
 }
 
-void NGfc2GeoListProperty::addValue(gfc2::engine::EntityRef nValue)
+void NGfc2GeoListProperty::addValue(gfc::engine::EntityRef nValue)
 {
     ((Gfc2GeoListProperty*)m_pEntity)->addValue(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2GeoListProperty::getValue(int nIndex)
+gfc::engine::EntityRef NGfc2GeoListProperty::getValue(int nIndex)
 {
     return ((Gfc2GeoListProperty*)m_pEntity)->getValue(nIndex);
 }

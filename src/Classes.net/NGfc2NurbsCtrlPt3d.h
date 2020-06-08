@@ -11,8 +11,8 @@ public ref class NGfc2NurbsCtrlPt3d: public glodon::objectbufnet::Entity
 public:
     NGfc2NurbsCtrlPt3d();
     NGfc2NurbsCtrlPt3d(void* pEntity, bool bOwner);
-    void setPoint(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getPoint();
+    void setPoint(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getPoint();
     bool hasPoint();
     NGfc2Vector3d^ getPointPtr();
     void setWeight(NGfc2Double dValue);

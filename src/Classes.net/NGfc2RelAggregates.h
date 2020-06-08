@@ -11,14 +11,14 @@ public ref class NGfc2RelAggregates: public NGfc2RelDecomposes
 public:
     NGfc2RelAggregates();
     NGfc2RelAggregates(void* pEntity, bool bOwner);
-    void setRelatingObject(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRelatingObject();
+    void setRelatingObject(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRelatingObject();
     bool hasRelatingObject();
     NGfc2Object^ getRelatingObjectPtr();
     int getRelatedObjectsCount();
     void clearRelatedObjects();
-    void addRelatedObjects(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRelatedObjects(int nIndex);
+    void addRelatedObjects(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRelatedObjects(int nIndex);
     NGfc2Object^ getRelatedObjectsPtr(int nIndex);
 
 };

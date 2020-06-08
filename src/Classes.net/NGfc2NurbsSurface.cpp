@@ -81,12 +81,12 @@ void NGfc2NurbsSurface::clearCtrlPts()
     ((Gfc2NurbsSurface*)m_pEntity)->clearCtrlPts();
 }
 
-void NGfc2NurbsSurface::addCtrlPts(gfc2::engine::EntityRef nValue)
+void NGfc2NurbsSurface::addCtrlPts(gfc::engine::EntityRef nValue)
 {
     ((Gfc2NurbsSurface*)m_pEntity)->addCtrlPts(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2NurbsSurface::getCtrlPts(int nIndex)
+gfc::engine::EntityRef NGfc2NurbsSurface::getCtrlPts(int nIndex)
 {
     return ((Gfc2NurbsSurface*)m_pEntity)->getCtrlPts(nIndex);
 }

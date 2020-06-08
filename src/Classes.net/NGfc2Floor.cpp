@@ -71,12 +71,12 @@ bool NGfc2Floor::hasStartFloorNo()
     return ((Gfc2Floor*)m_pEntity)->hasStartFloorNo();
 }
 
-void NGfc2Floor::setRemark(gfc2::engine::EntityRef nValue)
+void NGfc2Floor::setRemark(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Floor*)m_pEntity)->setRemark(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Floor::getRemark()
+gfc::engine::EntityRef NGfc2Floor::getRemark()
 {
     return ((Gfc2Floor*)m_pEntity)->getRemark();
 }

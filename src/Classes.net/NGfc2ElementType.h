@@ -11,8 +11,8 @@ public ref class NGfc2ElementType: public NGfc2Object
 public:
     NGfc2ElementType();
     NGfc2ElementType(void* pEntity, bool bOwner);
-    void setType(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getType();
+    void setType(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getType();
     bool hasType();
     NGfc2Label^ getTypePtr();
 

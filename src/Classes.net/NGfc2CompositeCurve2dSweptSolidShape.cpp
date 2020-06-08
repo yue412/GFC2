@@ -21,12 +21,12 @@ void NGfc2CompositeCurve2dSweptSolidShape::clearSegments()
     ((Gfc2CompositeCurve2dSweptSolidShape*)m_pEntity)->clearSegments();
 }
 
-void NGfc2CompositeCurve2dSweptSolidShape::addSegments(gfc2::engine::EntityRef nValue)
+void NGfc2CompositeCurve2dSweptSolidShape::addSegments(gfc::engine::EntityRef nValue)
 {
     ((Gfc2CompositeCurve2dSweptSolidShape*)m_pEntity)->addSegments(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2CompositeCurve2dSweptSolidShape::getSegments(int nIndex)
+gfc::engine::EntityRef NGfc2CompositeCurve2dSweptSolidShape::getSegments(int nIndex)
 {
     return ((Gfc2CompositeCurve2dSweptSolidShape*)m_pEntity)->getSegments(nIndex);
 }

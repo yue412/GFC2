@@ -10,8 +10,8 @@ public ref class NGfc2RelationShip: public glodon::objectbufnet::Entity
 public:
     NGfc2RelationShip();
     NGfc2RelationShip(void* pEntity, bool bOwner);
-    void setName(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getName();
+    void setName(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getName();
     bool hasName();
     NGfc2Label^ getNamePtr();
 

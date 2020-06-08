@@ -11,12 +11,12 @@ NGfc2QuotaTotal::NGfc2QuotaTotal(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2QuotaTotal::setCode(gfc2::engine::EntityRef nValue)
+void NGfc2QuotaTotal::setCode(gfc::engine::EntityRef nValue)
 {
     ((Gfc2QuotaTotal*)m_pEntity)->setCode(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2QuotaTotal::getCode()
+gfc::engine::EntityRef NGfc2QuotaTotal::getCode()
 {
     return ((Gfc2QuotaTotal*)m_pEntity)->getCode();
 }
@@ -31,12 +31,12 @@ NGfc2String^ NGfc2QuotaTotal::getCodePtr()
     return gcnew NGfc2String(((Gfc2QuotaTotal*)m_pEntity)->getCodePtr(), false);
 }
 
-void NGfc2QuotaTotal::setSubCode(gfc2::engine::EntityRef nValue)
+void NGfc2QuotaTotal::setSubCode(gfc::engine::EntityRef nValue)
 {
     ((Gfc2QuotaTotal*)m_pEntity)->setSubCode(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2QuotaTotal::getSubCode()
+gfc::engine::EntityRef NGfc2QuotaTotal::getSubCode()
 {
     return ((Gfc2QuotaTotal*)m_pEntity)->getSubCode();
 }
@@ -51,12 +51,12 @@ NGfc2String^ NGfc2QuotaTotal::getSubCodePtr()
     return gcnew NGfc2String(((Gfc2QuotaTotal*)m_pEntity)->getSubCodePtr(), false);
 }
 
-void NGfc2QuotaTotal::setName(gfc2::engine::EntityRef nValue)
+void NGfc2QuotaTotal::setName(gfc::engine::EntityRef nValue)
 {
     ((Gfc2QuotaTotal*)m_pEntity)->setName(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2QuotaTotal::getName()
+gfc::engine::EntityRef NGfc2QuotaTotal::getName()
 {
     return ((Gfc2QuotaTotal*)m_pEntity)->getName();
 }
@@ -71,12 +71,12 @@ NGfc2String^ NGfc2QuotaTotal::getNamePtr()
     return gcnew NGfc2String(((Gfc2QuotaTotal*)m_pEntity)->getNamePtr(), false);
 }
 
-void NGfc2QuotaTotal::setContent(gfc2::engine::EntityRef nValue)
+void NGfc2QuotaTotal::setContent(gfc::engine::EntityRef nValue)
 {
     ((Gfc2QuotaTotal*)m_pEntity)->setContent(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2QuotaTotal::getContent()
+gfc::engine::EntityRef NGfc2QuotaTotal::getContent()
 {
     return ((Gfc2QuotaTotal*)m_pEntity)->getContent();
 }
@@ -91,12 +91,12 @@ NGfc2String^ NGfc2QuotaTotal::getContentPtr()
     return gcnew NGfc2String(((Gfc2QuotaTotal*)m_pEntity)->getContentPtr(), false);
 }
 
-void NGfc2QuotaTotal::setUnit(gfc2::engine::EntityRef nValue)
+void NGfc2QuotaTotal::setUnit(gfc::engine::EntityRef nValue)
 {
     ((Gfc2QuotaTotal*)m_pEntity)->setUnit(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2QuotaTotal::getUnit()
+gfc::engine::EntityRef NGfc2QuotaTotal::getUnit()
 {
     return ((Gfc2QuotaTotal*)m_pEntity)->getUnit();
 }
@@ -111,12 +111,12 @@ NGfc2String^ NGfc2QuotaTotal::getUnitPtr()
     return gcnew NGfc2String(((Gfc2QuotaTotal*)m_pEntity)->getUnitPtr(), false);
 }
 
-void NGfc2QuotaTotal::setQuantity(gfc2::engine::EntityRef nValue)
+void NGfc2QuotaTotal::setQuantity(gfc::engine::EntityRef nValue)
 {
     ((Gfc2QuotaTotal*)m_pEntity)->setQuantity(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2QuotaTotal::getQuantity()
+gfc::engine::EntityRef NGfc2QuotaTotal::getQuantity()
 {
     return ((Gfc2QuotaTotal*)m_pEntity)->getQuantity();
 }
@@ -131,12 +131,12 @@ NGfc2String^ NGfc2QuotaTotal::getQuantityPtr()
     return gcnew NGfc2String(((Gfc2QuotaTotal*)m_pEntity)->getQuantityPtr(), false);
 }
 
-void NGfc2QuotaTotal::setMemo(gfc2::engine::EntityRef nValue)
+void NGfc2QuotaTotal::setMemo(gfc::engine::EntityRef nValue)
 {
     ((Gfc2QuotaTotal*)m_pEntity)->setMemo(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2QuotaTotal::getMemo()
+gfc::engine::EntityRef NGfc2QuotaTotal::getMemo()
 {
     return ((Gfc2QuotaTotal*)m_pEntity)->getMemo();
 }

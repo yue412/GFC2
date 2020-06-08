@@ -11,12 +11,12 @@ NGfc2Coordinates2d::NGfc2Coordinates2d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Coordinates2d::setOrigin(gfc2::engine::EntityRef nValue)
+void NGfc2Coordinates2d::setOrigin(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Coordinates2d*)m_pEntity)->setOrigin(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Coordinates2d::getOrigin()
+gfc::engine::EntityRef NGfc2Coordinates2d::getOrigin()
 {
     return ((Gfc2Coordinates2d*)m_pEntity)->getOrigin();
 }
@@ -31,12 +31,12 @@ NGfc2Vector2d^ NGfc2Coordinates2d::getOriginPtr()
     return gcnew NGfc2Vector2d(((Gfc2Coordinates2d*)m_pEntity)->getOriginPtr(), false);
 }
 
-void NGfc2Coordinates2d::setX(gfc2::engine::EntityRef nValue)
+void NGfc2Coordinates2d::setX(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Coordinates2d*)m_pEntity)->setX(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Coordinates2d::getX()
+gfc::engine::EntityRef NGfc2Coordinates2d::getX()
 {
     return ((Gfc2Coordinates2d*)m_pEntity)->getX();
 }
@@ -51,12 +51,12 @@ NGfc2Vector2d^ NGfc2Coordinates2d::getXPtr()
     return gcnew NGfc2Vector2d(((Gfc2Coordinates2d*)m_pEntity)->getXPtr(), false);
 }
 
-void NGfc2Coordinates2d::setY(gfc2::engine::EntityRef nValue)
+void NGfc2Coordinates2d::setY(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Coordinates2d*)m_pEntity)->setY(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Coordinates2d::getY()
+gfc::engine::EntityRef NGfc2Coordinates2d::getY()
 {
     return ((Gfc2Coordinates2d*)m_pEntity)->getY();
 }

@@ -18,18 +18,18 @@ public:
     void setRepeatT(NGfc2Boolean bValue);
     NGfc2Boolean getRepeatT();
     bool hasRepeatT();
-    void setImageFileName(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getImageFileName();
+    void setImageFileName(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getImageFileName();
     bool hasImageFileName();
     NGfc2String^ getImageFileNamePtr();
-    void setTranfromsMatirx(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getTranfromsMatirx();
+    void setTranfromsMatirx(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getTranfromsMatirx();
     bool hasTranfromsMatirx();
     NGfc2Matrix^ getTranfromsMatirxPtr();
     int getParameterCount();
     void clearParameter();
-    void addParameter(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getParameter(int nIndex);
+    void addParameter(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getParameter(int nIndex);
     NGfc2String^ getParameterPtr(int nIndex);
 
 };

@@ -11,16 +11,16 @@ public ref class NGfc2Coordinates2d: public NGfc2Geometry
 public:
     NGfc2Coordinates2d();
     NGfc2Coordinates2d(void* pEntity, bool bOwner);
-    void setOrigin(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getOrigin();
+    void setOrigin(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getOrigin();
     bool hasOrigin();
     NGfc2Vector2d^ getOriginPtr();
-    void setX(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getX();
+    void setX(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getX();
     bool hasX();
     NGfc2Vector2d^ getXPtr();
-    void setY(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getY();
+    void setY(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getY();
     bool hasY();
     NGfc2Vector2d^ getYPtr();
 

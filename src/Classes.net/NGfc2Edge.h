@@ -12,8 +12,8 @@ public ref class NGfc2Edge: public NGfc2Topology
 public:
     NGfc2Edge();
     NGfc2Edge(void* pEntity, bool bOwner);
-    void setCurve(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCurve();
+    void setCurve(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCurve();
     bool hasCurve();
     NGfc2Curve3d^ getCurvePtr();
     void setFaceIndex1(NGfc2Integer nValue);

@@ -11,12 +11,12 @@ NGfc2InternalPt::NGfc2InternalPt(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2InternalPt::setP(gfc2::engine::EntityRef nValue)
+void NGfc2InternalPt::setP(gfc::engine::EntityRef nValue)
 {
     ((Gfc2InternalPt*)m_pEntity)->setP(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2InternalPt::getP()
+gfc::engine::EntityRef NGfc2InternalPt::getP()
 {
     return ((Gfc2InternalPt*)m_pEntity)->getP();
 }
@@ -31,12 +31,12 @@ NGfc2Vector3d^ NGfc2InternalPt::getPPtr()
     return gcnew NGfc2Vector3d(((Gfc2InternalPt*)m_pEntity)->getPPtr(), false);
 }
 
-void NGfc2InternalPt::setTVec(gfc2::engine::EntityRef nValue)
+void NGfc2InternalPt::setTVec(gfc::engine::EntityRef nValue)
 {
     ((Gfc2InternalPt*)m_pEntity)->setTVec(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2InternalPt::getTVec()
+gfc::engine::EntityRef NGfc2InternalPt::getTVec()
 {
     return ((Gfc2InternalPt*)m_pEntity)->getTVec();
 }
@@ -66,12 +66,12 @@ bool NGfc2InternalPt::hasT()
     return ((Gfc2InternalPt*)m_pEntity)->hasT();
 }
 
-void NGfc2InternalPt::setUV(gfc2::engine::EntityRef nValue)
+void NGfc2InternalPt::setUV(gfc::engine::EntityRef nValue)
 {
     ((Gfc2InternalPt*)m_pEntity)->setUV(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2InternalPt::getUV()
+gfc::engine::EntityRef NGfc2InternalPt::getUV()
 {
     return ((Gfc2InternalPt*)m_pEntity)->getUV();
 }
@@ -86,12 +86,12 @@ NGfc2Vector2d^ NGfc2InternalPt::getUVPtr()
     return gcnew NGfc2Vector2d(((Gfc2InternalPt*)m_pEntity)->getUVPtr(), false);
 }
 
-void NGfc2InternalPt::setST(gfc2::engine::EntityRef nValue)
+void NGfc2InternalPt::setST(gfc::engine::EntityRef nValue)
 {
     ((Gfc2InternalPt*)m_pEntity)->setST(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2InternalPt::getST()
+gfc::engine::EntityRef NGfc2InternalPt::getST()
 {
     return ((Gfc2InternalPt*)m_pEntity)->getST();
 }
@@ -106,12 +106,12 @@ NGfc2Vector2d^ NGfc2InternalPt::getSTPtr()
     return gcnew NGfc2Vector2d(((Gfc2InternalPt*)m_pEntity)->getSTPtr(), false);
 }
 
-void NGfc2InternalPt::setUVDir(gfc2::engine::EntityRef nValue)
+void NGfc2InternalPt::setUVDir(gfc::engine::EntityRef nValue)
 {
     ((Gfc2InternalPt*)m_pEntity)->setUVDir(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2InternalPt::getUVDir()
+gfc::engine::EntityRef NGfc2InternalPt::getUVDir()
 {
     return ((Gfc2InternalPt*)m_pEntity)->getUVDir();
 }
@@ -126,12 +126,12 @@ NGfc2Vector2d^ NGfc2InternalPt::getUVDirPtr()
     return gcnew NGfc2Vector2d(((Gfc2InternalPt*)m_pEntity)->getUVDirPtr(), false);
 }
 
-void NGfc2InternalPt::setSTDir(gfc2::engine::EntityRef nValue)
+void NGfc2InternalPt::setSTDir(gfc::engine::EntityRef nValue)
 {
     ((Gfc2InternalPt*)m_pEntity)->setSTDir(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2InternalPt::getSTDir()
+gfc::engine::EntityRef NGfc2InternalPt::getSTDir()
 {
     return ((Gfc2InternalPt*)m_pEntity)->getSTDir();
 }

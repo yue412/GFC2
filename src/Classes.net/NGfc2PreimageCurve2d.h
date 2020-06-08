@@ -14,19 +14,19 @@ public ref class NGfc2PreimageCurve2d: public NGfc2Curve2d
 public:
     NGfc2PreimageCurve2d();
     NGfc2PreimageCurve2d(void* pEntity, bool bOwner);
-    void setRange(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRange();
+    void setRange(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRange();
     bool hasRange();
     NGfc2Intervald^ getRangePtr();
     void setReversed(NGfc2Boolean bValue);
     NGfc2Boolean getReversed();
     bool hasReversed();
-    void setBase(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getBase();
+    void setBase(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getBase();
     bool hasBase();
     NGfc2Surface^ getBasePtr();
-    void setCurve(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCurve();
+    void setCurve(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCurve();
     bool hasCurve();
     NGfc2Curve3d^ getCurvePtr();
     void setTolerance(NGfc2Double dValue);

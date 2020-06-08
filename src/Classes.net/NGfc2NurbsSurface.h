@@ -26,8 +26,8 @@ public:
     bool hasCtrlPtCountV();
     int getCtrlPtsCount();
     void clearCtrlPts();
-    void addCtrlPts(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCtrlPts(int nIndex);
+    void addCtrlPts(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCtrlPts(int nIndex);
     NGfc2NurbsCtrlPt3d^ getCtrlPtsPtr(int nIndex);
     int getKnotsUCount();
     void clearKnotsU();

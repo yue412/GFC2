@@ -13,8 +13,8 @@ public:
     NGfc2PolyhedralLoop(void* pEntity, bool bOwner);
     int getEdgesCount();
     void clearEdges();
-    void addEdges(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getEdges(int nIndex);
+    void addEdges(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getEdges(int nIndex);
     NGfc2PolyhedralEdge^ getEdgesPtr(int nIndex);
 
 };

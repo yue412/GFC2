@@ -13,15 +13,15 @@ public ref class NGfc2SpiralLine3d: public NGfc2Curve3d
 public:
     NGfc2SpiralLine3d();
     NGfc2SpiralLine3d(void* pEntity, bool bOwner);
-    void setCoord(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCoord();
+    void setCoord(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCoord();
     bool hasCoord();
     NGfc2Coordinates3d^ getCoordPtr();
     void setRadius(NGfc2Double dValue);
     NGfc2Double getRadius();
     bool hasRadius();
-    void setRange(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRange();
+    void setRange(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRange();
     bool hasRange();
     NGfc2Intervald^ getRangePtr();
     void setClockSign(NGfc2Integer nValue);

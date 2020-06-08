@@ -11,12 +11,12 @@ NGfc2IntersectionCurve3d::NGfc2IntersectionCurve3d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2IntersectionCurve3d::setBases1(gfc2::engine::EntityRef nValue)
+void NGfc2IntersectionCurve3d::setBases1(gfc::engine::EntityRef nValue)
 {
     ((Gfc2IntersectionCurve3d*)m_pEntity)->setBases1(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2IntersectionCurve3d::getBases1()
+gfc::engine::EntityRef NGfc2IntersectionCurve3d::getBases1()
 {
     return ((Gfc2IntersectionCurve3d*)m_pEntity)->getBases1();
 }
@@ -31,12 +31,12 @@ NGfc2Surface^ NGfc2IntersectionCurve3d::getBases1Ptr()
     return gcnew NGfc2Surface(((Gfc2IntersectionCurve3d*)m_pEntity)->getBases1Ptr(), false);
 }
 
-void NGfc2IntersectionCurve3d::setBases2(gfc2::engine::EntityRef nValue)
+void NGfc2IntersectionCurve3d::setBases2(gfc::engine::EntityRef nValue)
 {
     ((Gfc2IntersectionCurve3d*)m_pEntity)->setBases2(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2IntersectionCurve3d::getBases2()
+gfc::engine::EntityRef NGfc2IntersectionCurve3d::getBases2()
 {
     return ((Gfc2IntersectionCurve3d*)m_pEntity)->getBases2();
 }
@@ -51,12 +51,12 @@ NGfc2Surface^ NGfc2IntersectionCurve3d::getBases2Ptr()
     return gcnew NGfc2Surface(((Gfc2IntersectionCurve3d*)m_pEntity)->getBases2Ptr(), false);
 }
 
-void NGfc2IntersectionCurve3d::setRange(gfc2::engine::EntityRef nValue)
+void NGfc2IntersectionCurve3d::setRange(gfc::engine::EntityRef nValue)
 {
     ((Gfc2IntersectionCurve3d*)m_pEntity)->setRange(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2IntersectionCurve3d::getRange()
+gfc::engine::EntityRef NGfc2IntersectionCurve3d::getRange()
 {
     return ((Gfc2IntersectionCurve3d*)m_pEntity)->getRange();
 }
@@ -71,12 +71,12 @@ NGfc2Intervald^ NGfc2IntersectionCurve3d::getRangePtr()
     return gcnew NGfc2Intervald(((Gfc2IntersectionCurve3d*)m_pEntity)->getRangePtr(), false);
 }
 
-void NGfc2IntersectionCurve3d::setChart(gfc2::engine::EntityRef nValue)
+void NGfc2IntersectionCurve3d::setChart(gfc::engine::EntityRef nValue)
 {
     ((Gfc2IntersectionCurve3d*)m_pEntity)->setChart(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2IntersectionCurve3d::getChart()
+gfc::engine::EntityRef NGfc2IntersectionCurve3d::getChart()
 {
     return ((Gfc2IntersectionCurve3d*)m_pEntity)->getChart();
 }

@@ -12,12 +12,12 @@ public ref class NGfc2PlaneCurve3d: public NGfc2Curve3d
 public:
     NGfc2PlaneCurve3d();
     NGfc2PlaneCurve3d(void* pEntity, bool bOwner);
-    void setPlaneCurve(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getPlaneCurve();
+    void setPlaneCurve(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getPlaneCurve();
     bool hasPlaneCurve();
     NGfc2Curve2d^ getPlaneCurvePtr();
-    void setPlane(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getPlane();
+    void setPlane(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getPlane();
     bool hasPlane();
     NGfc2PlaneInfo^ getPlanePtr();
 

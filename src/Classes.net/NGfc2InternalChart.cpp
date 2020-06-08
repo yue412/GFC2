@@ -66,12 +66,12 @@ void NGfc2InternalChart::clearIPS()
     ((Gfc2InternalChart*)m_pEntity)->clearIPS();
 }
 
-void NGfc2InternalChart::addIPS(gfc2::engine::EntityRef nValue)
+void NGfc2InternalChart::addIPS(gfc::engine::EntityRef nValue)
 {
     ((Gfc2InternalChart*)m_pEntity)->addIPS(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2InternalChart::getIPS(int nIndex)
+gfc::engine::EntityRef NGfc2InternalChart::getIPS(int nIndex)
 {
     return ((Gfc2InternalChart*)m_pEntity)->getIPS(nIndex);
 }

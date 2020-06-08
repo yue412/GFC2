@@ -11,12 +11,12 @@ NGfc2SectionProperty::NGfc2SectionProperty(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2SectionProperty::setSection(gfc2::engine::EntityRef nValue)
+void NGfc2SectionProperty::setSection(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SectionProperty*)m_pEntity)->setSection(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SectionProperty::getSection()
+gfc::engine::EntityRef NGfc2SectionProperty::getSection()
 {
     return ((Gfc2SectionProperty*)m_pEntity)->getSection();
 }

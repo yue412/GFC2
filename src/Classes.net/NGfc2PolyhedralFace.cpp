@@ -21,12 +21,12 @@ void NGfc2PolyhedralFace::clearLoops()
     ((Gfc2PolyhedralFace*)m_pEntity)->clearLoops();
 }
 
-void NGfc2PolyhedralFace::addLoops(gfc2::engine::EntityRef nValue)
+void NGfc2PolyhedralFace::addLoops(gfc::engine::EntityRef nValue)
 {
     ((Gfc2PolyhedralFace*)m_pEntity)->addLoops(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2PolyhedralFace::getLoops(int nIndex)
+gfc::engine::EntityRef NGfc2PolyhedralFace::getLoops(int nIndex)
 {
     return ((Gfc2PolyhedralFace*)m_pEntity)->getLoops(nIndex);
 }
@@ -36,12 +36,12 @@ NGfc2PolyhedralLoop^ NGfc2PolyhedralFace::getLoopsPtr(int nIndex)
     return gcnew NGfc2PolyhedralLoop(((Gfc2PolyhedralFace*)m_pEntity)->getLoopsPtr(nIndex), false);
 }
 
-void NGfc2PolyhedralFace::setPlane(gfc2::engine::EntityRef nValue)
+void NGfc2PolyhedralFace::setPlane(gfc::engine::EntityRef nValue)
 {
     ((Gfc2PolyhedralFace*)m_pEntity)->setPlane(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2PolyhedralFace::getPlane()
+gfc::engine::EntityRef NGfc2PolyhedralFace::getPlane()
 {
     return ((Gfc2PolyhedralFace*)m_pEntity)->getPlane();
 }

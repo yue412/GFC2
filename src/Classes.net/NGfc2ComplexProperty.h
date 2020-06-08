@@ -12,8 +12,8 @@ public:
     NGfc2ComplexProperty(void* pEntity, bool bOwner);
     int getHasPropertiesCount();
     void clearHasProperties();
-    void addHasProperties(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getHasProperties(int nIndex);
+    void addHasProperties(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getHasProperties(int nIndex);
     NGfc2Property^ getHasPropertiesPtr(int nIndex);
 
 };

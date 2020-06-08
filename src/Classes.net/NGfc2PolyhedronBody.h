@@ -14,13 +14,13 @@ public:
     NGfc2PolyhedronBody(void* pEntity, bool bOwner);
     int getFacesCount();
     void clearFaces();
-    void addFaces(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getFaces(int nIndex);
+    void addFaces(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getFaces(int nIndex);
     NGfc2PolyhedralFace^ getFacesPtr(int nIndex);
     int getVertexesCount();
     void clearVertexes();
-    void addVertexes(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getVertexes(int nIndex);
+    void addVertexes(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getVertexes(int nIndex);
     NGfc2Vector3d^ getVertexesPtr(int nIndex);
 
 };

@@ -11,12 +11,12 @@ NGfc2RelDefinesByType::NGfc2RelDefinesByType(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2RelDefinesByType::setRelatingType(gfc2::engine::EntityRef nValue)
+void NGfc2RelDefinesByType::setRelatingType(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RelDefinesByType*)m_pEntity)->setRelatingType(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2RelDefinesByType::getRelatingType()
+gfc::engine::EntityRef NGfc2RelDefinesByType::getRelatingType()
 {
     return ((Gfc2RelDefinesByType*)m_pEntity)->getRelatingType();
 }
@@ -41,12 +41,12 @@ void NGfc2RelDefinesByType::clearRelatingElement()
     ((Gfc2RelDefinesByType*)m_pEntity)->clearRelatingElement();
 }
 
-void NGfc2RelDefinesByType::addRelatingElement(gfc2::engine::EntityRef nValue)
+void NGfc2RelDefinesByType::addRelatingElement(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RelDefinesByType*)m_pEntity)->addRelatingElement(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2RelDefinesByType::getRelatingElement(int nIndex)
+gfc::engine::EntityRef NGfc2RelDefinesByType::getRelatingElement(int nIndex)
 {
     return ((Gfc2RelDefinesByType*)m_pEntity)->getRelatingElement(nIndex);
 }

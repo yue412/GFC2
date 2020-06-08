@@ -11,12 +11,12 @@ NGfc2Face::NGfc2Face(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Face::setSurface(gfc2::engine::EntityRef nValue)
+void NGfc2Face::setSurface(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Face*)m_pEntity)->setSurface(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Face::getSurface()
+gfc::engine::EntityRef NGfc2Face::getSurface()
 {
     return ((Gfc2Face*)m_pEntity)->getSurface();
 }
@@ -31,12 +31,12 @@ NGfc2Surface^ NGfc2Face::getSurfacePtr()
     return gcnew NGfc2Surface(((Gfc2Face*)m_pEntity)->getSurfacePtr(), false);
 }
 
-void NGfc2Face::setBox(gfc2::engine::EntityRef nValue)
+void NGfc2Face::setBox(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Face*)m_pEntity)->setBox(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Face::getBox()
+gfc::engine::EntityRef NGfc2Face::getBox()
 {
     return ((Gfc2Face*)m_pEntity)->getBox();
 }

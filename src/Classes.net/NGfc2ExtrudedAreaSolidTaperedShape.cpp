@@ -11,12 +11,12 @@ NGfc2ExtrudedAreaSolidTaperedShape::NGfc2ExtrudedAreaSolidTaperedShape(void* pEn
 {
 }
 
-void NGfc2ExtrudedAreaSolidTaperedShape::setEndSweptArea(gfc2::engine::EntityRef nValue)
+void NGfc2ExtrudedAreaSolidTaperedShape::setEndSweptArea(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ExtrudedAreaSolidTaperedShape*)m_pEntity)->setEndSweptArea(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2ExtrudedAreaSolidTaperedShape::getEndSweptArea()
+gfc::engine::EntityRef NGfc2ExtrudedAreaSolidTaperedShape::getEndSweptArea()
 {
     return ((Gfc2ExtrudedAreaSolidTaperedShape*)m_pEntity)->getEndSweptArea();
 }

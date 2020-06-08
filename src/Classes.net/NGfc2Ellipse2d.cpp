@@ -11,12 +11,12 @@ NGfc2Ellipse2d::NGfc2Ellipse2d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Ellipse2d::setCenterPt(gfc2::engine::EntityRef nValue)
+void NGfc2Ellipse2d::setCenterPt(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Ellipse2d*)m_pEntity)->setCenterPt(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Ellipse2d::getCenterPt()
+gfc::engine::EntityRef NGfc2Ellipse2d::getCenterPt()
 {
     return ((Gfc2Ellipse2d*)m_pEntity)->getCenterPt();
 }
@@ -31,12 +31,12 @@ NGfc2Vector2d^ NGfc2Ellipse2d::getCenterPtPtr()
     return gcnew NGfc2Vector2d(((Gfc2Ellipse2d*)m_pEntity)->getCenterPtPtr(), false);
 }
 
-void NGfc2Ellipse2d::setMajorAxis(gfc2::engine::EntityRef nValue)
+void NGfc2Ellipse2d::setMajorAxis(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Ellipse2d*)m_pEntity)->setMajorAxis(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Ellipse2d::getMajorAxis()
+gfc::engine::EntityRef NGfc2Ellipse2d::getMajorAxis()
 {
     return ((Gfc2Ellipse2d*)m_pEntity)->getMajorAxis();
 }
@@ -81,12 +81,12 @@ bool NGfc2Ellipse2d::hasdMinorRad()
     return ((Gfc2Ellipse2d*)m_pEntity)->hasdMinorRad();
 }
 
-void NGfc2Ellipse2d::setRange(gfc2::engine::EntityRef nValue)
+void NGfc2Ellipse2d::setRange(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Ellipse2d*)m_pEntity)->setRange(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Ellipse2d::getRange()
+gfc::engine::EntityRef NGfc2Ellipse2d::getRange()
 {
     return ((Gfc2Ellipse2d*)m_pEntity)->getRange();
 }

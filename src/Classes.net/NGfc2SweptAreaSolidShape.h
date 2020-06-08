@@ -11,8 +11,8 @@ public ref class NGfc2SweptAreaSolidShape: public NGfc2SolidShape
 public:
     NGfc2SweptAreaSolidShape();
     NGfc2SweptAreaSolidShape(void* pEntity, bool bOwner);
-    void setSweptArea(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getSweptArea();
+    void setSweptArea(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getSweptArea();
     bool hasSweptArea();
     NGfc2Section^ getSweptAreaPtr();
 

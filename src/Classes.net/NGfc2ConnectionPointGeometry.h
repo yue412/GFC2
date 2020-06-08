@@ -11,12 +11,12 @@ public ref class NGfc2ConnectionPointGeometry: public NGfc2ConnectionGeometry
 public:
     NGfc2ConnectionPointGeometry();
     NGfc2ConnectionPointGeometry(void* pEntity, bool bOwner);
-    void setPointOnRelatingElement(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getPointOnRelatingElement();
+    void setPointOnRelatingElement(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getPointOnRelatingElement();
     bool hasPointOnRelatingElement();
     NGfc2Vector3d^ getPointOnRelatingElementPtr();
-    void setPointOnRelatedElement(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getPointOnRelatedElement();
+    void setPointOnRelatedElement(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getPointOnRelatedElement();
     bool hasPointOnRelatedElement();
     NGfc2Vector3d^ getPointOnRelatedElementPtr();
 

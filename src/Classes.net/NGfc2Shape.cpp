@@ -11,12 +11,12 @@ NGfc2Shape::NGfc2Shape(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Shape::setLocalCoordinate(gfc2::engine::EntityRef nValue)
+void NGfc2Shape::setLocalCoordinate(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Shape*)m_pEntity)->setLocalCoordinate(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Shape::getLocalCoordinate()
+gfc::engine::EntityRef NGfc2Shape::getLocalCoordinate()
 {
     return ((Gfc2Shape*)m_pEntity)->getLocalCoordinate();
 }
@@ -31,12 +31,12 @@ NGfc2Coordinates3d^ NGfc2Shape::getLocalCoordinatePtr()
     return gcnew NGfc2Coordinates3d(((Gfc2Shape*)m_pEntity)->getLocalCoordinatePtr(), false);
 }
 
-void NGfc2Shape::setBoundingBox(gfc2::engine::EntityRef nValue)
+void NGfc2Shape::setBoundingBox(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Shape*)m_pEntity)->setBoundingBox(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Shape::getBoundingBox()
+gfc::engine::EntityRef NGfc2Shape::getBoundingBox()
 {
     return ((Gfc2Shape*)m_pEntity)->getBoundingBox();
 }

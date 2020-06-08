@@ -11,14 +11,14 @@ public ref class NGfc2RelVoidsElement: public NGfc2RelDecomposes
 public:
     NGfc2RelVoidsElement();
     NGfc2RelVoidsElement(void* pEntity, bool bOwner);
-    void setRelatedOpeningElement(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRelatedOpeningElement();
+    void setRelatedOpeningElement(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRelatedOpeningElement();
     bool hasRelatedOpeningElement();
     NGfc2Element^ getRelatedOpeningElementPtr();
     int getRelatingBuildingElementCount();
     void clearRelatingBuildingElement();
-    void addRelatingBuildingElement(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRelatingBuildingElement(int nIndex);
+    void addRelatingBuildingElement(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRelatingBuildingElement(int nIndex);
     NGfc2Element^ getRelatingBuildingElementPtr(int nIndex);
 
 };

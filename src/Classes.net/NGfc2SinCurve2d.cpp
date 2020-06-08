@@ -11,12 +11,12 @@ NGfc2SinCurve2d::NGfc2SinCurve2d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2SinCurve2d::setPos(gfc2::engine::EntityRef nValue)
+void NGfc2SinCurve2d::setPos(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SinCurve2d*)m_pEntity)->setPos(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SinCurve2d::getPos()
+gfc::engine::EntityRef NGfc2SinCurve2d::getPos()
 {
     return ((Gfc2SinCurve2d*)m_pEntity)->getPos();
 }
@@ -31,12 +31,12 @@ NGfc2Vector2d^ NGfc2SinCurve2d::getPosPtr()
     return gcnew NGfc2Vector2d(((Gfc2SinCurve2d*)m_pEntity)->getPosPtr(), false);
 }
 
-void NGfc2SinCurve2d::setDirX(gfc2::engine::EntityRef nValue)
+void NGfc2SinCurve2d::setDirX(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SinCurve2d*)m_pEntity)->setDirX(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SinCurve2d::getDirX()
+gfc::engine::EntityRef NGfc2SinCurve2d::getDirX()
 {
     return ((Gfc2SinCurve2d*)m_pEntity)->getDirX();
 }
@@ -81,12 +81,12 @@ bool NGfc2SinCurve2d::hasB()
     return ((Gfc2SinCurve2d*)m_pEntity)->hasB();
 }
 
-void NGfc2SinCurve2d::setRange(gfc2::engine::EntityRef nValue)
+void NGfc2SinCurve2d::setRange(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SinCurve2d*)m_pEntity)->setRange(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SinCurve2d::getRange()
+gfc::engine::EntityRef NGfc2SinCurve2d::getRange()
 {
     return ((Gfc2SinCurve2d*)m_pEntity)->getRange();
 }

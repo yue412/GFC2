@@ -41,12 +41,12 @@ bool NGfc2BillDetail::hasEntityID()
     return ((Gfc2BillDetail*)m_pEntity)->hasEntityID();
 }
 
-void NGfc2BillDetail::setUnit(gfc2::engine::EntityRef nValue)
+void NGfc2BillDetail::setUnit(gfc::engine::EntityRef nValue)
 {
     ((Gfc2BillDetail*)m_pEntity)->setUnit(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2BillDetail::getUnit()
+gfc::engine::EntityRef NGfc2BillDetail::getUnit()
 {
     return ((Gfc2BillDetail*)m_pEntity)->getUnit();
 }
@@ -61,12 +61,12 @@ NGfc2String^ NGfc2BillDetail::getUnitPtr()
     return gcnew NGfc2String(((Gfc2BillDetail*)m_pEntity)->getUnitPtr(), false);
 }
 
-void NGfc2BillDetail::setExpress(gfc2::engine::EntityRef nValue)
+void NGfc2BillDetail::setExpress(gfc::engine::EntityRef nValue)
 {
     ((Gfc2BillDetail*)m_pEntity)->setExpress(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2BillDetail::getExpress()
+gfc::engine::EntityRef NGfc2BillDetail::getExpress()
 {
     return ((Gfc2BillDetail*)m_pEntity)->getExpress();
 }
@@ -81,12 +81,12 @@ NGfc2String^ NGfc2BillDetail::getExpressPtr()
     return gcnew NGfc2String(((Gfc2BillDetail*)m_pEntity)->getExpressPtr(), false);
 }
 
-void NGfc2BillDetail::setQuantity(gfc2::engine::EntityRef nValue)
+void NGfc2BillDetail::setQuantity(gfc::engine::EntityRef nValue)
 {
     ((Gfc2BillDetail*)m_pEntity)->setQuantity(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2BillDetail::getQuantity()
+gfc::engine::EntityRef NGfc2BillDetail::getQuantity()
 {
     return ((Gfc2BillDetail*)m_pEntity)->getQuantity();
 }
@@ -101,12 +101,12 @@ NGfc2String^ NGfc2BillDetail::getQuantityPtr()
     return gcnew NGfc2String(((Gfc2BillDetail*)m_pEntity)->getQuantityPtr(), false);
 }
 
-void NGfc2BillDetail::setMemo(gfc2::engine::EntityRef nValue)
+void NGfc2BillDetail::setMemo(gfc::engine::EntityRef nValue)
 {
     ((Gfc2BillDetail*)m_pEntity)->setMemo(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2BillDetail::getMemo()
+gfc::engine::EntityRef NGfc2BillDetail::getMemo()
 {
     return ((Gfc2BillDetail*)m_pEntity)->getMemo();
 }

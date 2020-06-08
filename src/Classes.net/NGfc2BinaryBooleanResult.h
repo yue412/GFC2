@@ -15,12 +15,12 @@ public:
     void setOperator(NGfc2BooleanOperator nValue);
     NGfc2BooleanOperator getOperator();
     bool hasOperator();
-    void setFirstOperand(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getFirstOperand();
+    void setFirstOperand(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getFirstOperand();
     bool hasFirstOperand();
     NGfc2SolidShape^ getFirstOperandPtr();
-    void setSecondOperand(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getSecondOperand();
+    void setSecondOperand(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getSecondOperand();
     bool hasSecondOperand();
     NGfc2SolidShape^ getSecondOperandPtr();
 

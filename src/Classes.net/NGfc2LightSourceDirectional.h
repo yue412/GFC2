@@ -11,8 +11,8 @@ public ref class NGfc2LightSourceDirectional: public NGfc2LightSource
 public:
     NGfc2LightSourceDirectional();
     NGfc2LightSourceDirectional(void* pEntity, bool bOwner);
-    void setOrientation(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getOrientation();
+    void setOrientation(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getOrientation();
     bool hasOrientation();
     NGfc2Vector3d^ getOrientationPtr();
 

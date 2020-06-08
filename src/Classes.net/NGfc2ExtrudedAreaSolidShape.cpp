@@ -11,12 +11,12 @@ NGfc2ExtrudedAreaSolidShape::NGfc2ExtrudedAreaSolidShape(void* pEntity, bool bOw
 {
 }
 
-void NGfc2ExtrudedAreaSolidShape::setExtrudedDirection(gfc2::engine::EntityRef nValue)
+void NGfc2ExtrudedAreaSolidShape::setExtrudedDirection(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ExtrudedAreaSolidShape*)m_pEntity)->setExtrudedDirection(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2ExtrudedAreaSolidShape::getExtrudedDirection()
+gfc::engine::EntityRef NGfc2ExtrudedAreaSolidShape::getExtrudedDirection()
 {
     return ((Gfc2ExtrudedAreaSolidShape*)m_pEntity)->getExtrudedDirection();
 }

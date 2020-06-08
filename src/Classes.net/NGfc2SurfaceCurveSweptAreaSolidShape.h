@@ -12,12 +12,12 @@ public ref class NGfc2SurfaceCurveSweptAreaSolidShape: public NGfc2SweptAreaSoli
 public:
     NGfc2SurfaceCurveSweptAreaSolidShape();
     NGfc2SurfaceCurveSweptAreaSolidShape(void* pEntity, bool bOwner);
-    void setDirectrix(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getDirectrix();
+    void setDirectrix(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getDirectrix();
     bool hasDirectrix();
     NGfc2Curve3d^ getDirectrixPtr();
-    void setReferenceSurface(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getReferenceSurface();
+    void setReferenceSurface(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getReferenceSurface();
     bool hasReferenceSurface();
     NGfc2Surface^ getReferenceSurfacePtr();
 

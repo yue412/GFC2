@@ -13,8 +13,8 @@ public:
     NGfc2SectionListProperty(void* pEntity, bool bOwner);
     int getValueCount();
     void clearValue();
-    void addValue(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getValue(int nIndex);
+    void addValue(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getValue(int nIndex);
     NGfc2Section^ getValuePtr(int nIndex);
 
 };

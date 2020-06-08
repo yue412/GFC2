@@ -13,8 +13,8 @@ public:
     NGfc2GeometryShape(void* pEntity, bool bOwner);
     int getGeosCount();
     void clearGeos();
-    void addGeos(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getGeos(int nIndex);
+    void addGeos(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getGeos(int nIndex);
     NGfc2Geometry^ getGeosPtr(int nIndex);
 
 };

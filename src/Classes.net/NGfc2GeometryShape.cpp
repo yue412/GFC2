@@ -21,12 +21,12 @@ void NGfc2GeometryShape::clearGeos()
     ((Gfc2GeometryShape*)m_pEntity)->clearGeos();
 }
 
-void NGfc2GeometryShape::addGeos(gfc2::engine::EntityRef nValue)
+void NGfc2GeometryShape::addGeos(gfc::engine::EntityRef nValue)
 {
     ((Gfc2GeometryShape*)m_pEntity)->addGeos(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2GeometryShape::getGeos(int nIndex)
+gfc::engine::EntityRef NGfc2GeometryShape::getGeos(int nIndex)
 {
     return ((Gfc2GeometryShape*)m_pEntity)->getGeos(nIndex);
 }

@@ -23,8 +23,8 @@ public:
     void setStartFloorNo(NGfc2Integer nValue);
     NGfc2Integer getStartFloorNo();
     bool hasStartFloorNo();
-    void setRemark(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRemark();
+    void setRemark(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRemark();
     bool hasRemark();
     NGfc2Text^ getRemarkPtr();
 

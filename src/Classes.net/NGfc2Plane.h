@@ -12,24 +12,24 @@ public ref class NGfc2Plane: public NGfc2Surface
 public:
     NGfc2Plane();
     NGfc2Plane(void* pEntity, bool bOwner);
-    void setPos(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getPos();
+    void setPos(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getPos();
     bool hasPos();
     NGfc2Vector3d^ getPosPtr();
-    void setDirU(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getDirU();
+    void setDirU(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getDirU();
     bool hasDirU();
     NGfc2Vector3d^ getDirUPtr();
-    void setDirV(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getDirV();
+    void setDirV(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getDirV();
     bool hasDirV();
     NGfc2Vector3d^ getDirVPtr();
-    void setRangeU(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRangeU();
+    void setRangeU(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRangeU();
     bool hasRangeU();
     NGfc2Intervald^ getRangeUPtr();
-    void setRangeV(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRangeV();
+    void setRangeV(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRangeV();
     bool hasRangeV();
     NGfc2Intervald^ getRangeVPtr();
 

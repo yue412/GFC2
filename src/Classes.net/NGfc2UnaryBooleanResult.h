@@ -11,8 +11,8 @@ public ref class NGfc2UnaryBooleanResult: public NGfc2BooleanResult
 public:
     NGfc2UnaryBooleanResult();
     NGfc2UnaryBooleanResult(void* pEntity, bool bOwner);
-    void setOperand(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getOperand();
+    void setOperand(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getOperand();
     bool hasOperand();
     NGfc2SolidShape^ getOperandPtr();
 

@@ -12,12 +12,12 @@ public ref class NGfc2ImageCurve3d: public NGfc2Curve3d
 public:
     NGfc2ImageCurve3d();
     NGfc2ImageCurve3d(void* pEntity, bool bOwner);
-    void setCurve(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCurve();
+    void setCurve(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCurve();
     bool hasCurve();
     NGfc2Curve2d^ getCurvePtr();
-    void setSurface(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getSurface();
+    void setSurface(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getSurface();
     bool hasSurface();
     NGfc2Surface^ getSurfacePtr();
 

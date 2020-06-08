@@ -12,14 +12,14 @@ public ref class NGfc2RelDefinesByType: public NGfc2RelDefines
 public:
     NGfc2RelDefinesByType();
     NGfc2RelDefinesByType(void* pEntity, bool bOwner);
-    void setRelatingType(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRelatingType();
+    void setRelatingType(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRelatingType();
     bool hasRelatingType();
     NGfc2ElementType^ getRelatingTypePtr();
     int getRelatingElementCount();
     void clearRelatingElement();
-    void addRelatingElement(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRelatingElement(int nIndex);
+    void addRelatingElement(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRelatingElement(int nIndex);
     NGfc2Element^ getRelatingElementPtr(int nIndex);
 
 };

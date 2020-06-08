@@ -11,12 +11,12 @@ NGfc2SurfaceCurveSweptAreaSolidShape::NGfc2SurfaceCurveSweptAreaSolidShape(void*
 {
 }
 
-void NGfc2SurfaceCurveSweptAreaSolidShape::setDirectrix(gfc2::engine::EntityRef nValue)
+void NGfc2SurfaceCurveSweptAreaSolidShape::setDirectrix(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SurfaceCurveSweptAreaSolidShape*)m_pEntity)->setDirectrix(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SurfaceCurveSweptAreaSolidShape::getDirectrix()
+gfc::engine::EntityRef NGfc2SurfaceCurveSweptAreaSolidShape::getDirectrix()
 {
     return ((Gfc2SurfaceCurveSweptAreaSolidShape*)m_pEntity)->getDirectrix();
 }
@@ -31,12 +31,12 @@ NGfc2Curve3d^ NGfc2SurfaceCurveSweptAreaSolidShape::getDirectrixPtr()
     return gcnew NGfc2Curve3d(((Gfc2SurfaceCurveSweptAreaSolidShape*)m_pEntity)->getDirectrixPtr(), false);
 }
 
-void NGfc2SurfaceCurveSweptAreaSolidShape::setReferenceSurface(gfc2::engine::EntityRef nValue)
+void NGfc2SurfaceCurveSweptAreaSolidShape::setReferenceSurface(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SurfaceCurveSweptAreaSolidShape*)m_pEntity)->setReferenceSurface(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SurfaceCurveSweptAreaSolidShape::getReferenceSurface()
+gfc::engine::EntityRef NGfc2SurfaceCurveSweptAreaSolidShape::getReferenceSurface()
 {
     return ((Gfc2SurfaceCurveSweptAreaSolidShape*)m_pEntity)->getReferenceSurface();
 }

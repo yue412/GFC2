@@ -14,8 +14,8 @@ public ref class NGfc2Torus: public NGfc2Surface
 public:
     NGfc2Torus();
     NGfc2Torus(void* pEntity, bool bOwner);
-    void setCoord(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCoord();
+    void setCoord(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCoord();
     bool hasCoord();
     NGfc2Coordinates3d^ getCoordPtr();
     void setRadius(NGfc2Double dValue);
@@ -24,12 +24,12 @@ public:
     void setClockSign(NGfc2Integer nValue);
     NGfc2Integer getClockSign();
     bool hasClockSign();
-    void setRangeV(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRangeV();
+    void setRangeV(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRangeV();
     bool hasRangeV();
     NGfc2Intervald^ getRangeVPtr();
-    void setCurve(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCurve();
+    void setCurve(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCurve();
     bool hasCurve();
     NGfc2Curve2d^ getCurvePtr();
 

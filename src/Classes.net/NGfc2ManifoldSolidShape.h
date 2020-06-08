@@ -11,8 +11,8 @@ public ref class NGfc2ManifoldSolidShape: public NGfc2SolidShape
 public:
     NGfc2ManifoldSolidShape();
     NGfc2ManifoldSolidShape(void* pEntity, bool bOwner);
-    void setBody(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getBody();
+    void setBody(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getBody();
     bool hasBody();
     NGfc2Body^ getBodyPtr();
 

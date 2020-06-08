@@ -13,8 +13,8 @@ public:
     NGfc2CoedgeList(void* pEntity, bool bOwner);
     int getCoedgesCount();
     void clearCoedges();
-    void addCoedges(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCoedges(int nIndex);
+    void addCoedges(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCoedges(int nIndex);
     NGfc2Curve2d^ getCoedgesPtr(int nIndex);
 
 };

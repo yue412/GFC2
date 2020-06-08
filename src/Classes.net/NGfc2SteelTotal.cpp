@@ -11,12 +11,12 @@ NGfc2SteelTotal::NGfc2SteelTotal(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2SteelTotal::setCompType(gfc2::engine::EntityRef nValue)
+void NGfc2SteelTotal::setCompType(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SteelTotal*)m_pEntity)->setCompType(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SteelTotal::getCompType()
+gfc::engine::EntityRef NGfc2SteelTotal::getCompType()
 {
     return ((Gfc2SteelTotal*)m_pEntity)->getCompType();
 }
@@ -31,12 +31,12 @@ NGfc2String^ NGfc2SteelTotal::getCompTypePtr()
     return gcnew NGfc2String(((Gfc2SteelTotal*)m_pEntity)->getCompTypePtr(), false);
 }
 
-void NGfc2SteelTotal::setLevel(gfc2::engine::EntityRef nValue)
+void NGfc2SteelTotal::setLevel(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SteelTotal*)m_pEntity)->setLevel(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SteelTotal::getLevel()
+gfc::engine::EntityRef NGfc2SteelTotal::getLevel()
 {
     return ((Gfc2SteelTotal*)m_pEntity)->getLevel();
 }
@@ -81,12 +81,12 @@ bool NGfc2SteelTotal::hasWeight()
     return ((Gfc2SteelTotal*)m_pEntity)->hasWeight();
 }
 
-void NGfc2SteelTotal::setUnit(gfc2::engine::EntityRef nValue)
+void NGfc2SteelTotal::setUnit(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SteelTotal*)m_pEntity)->setUnit(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SteelTotal::getUnit()
+gfc::engine::EntityRef NGfc2SteelTotal::getUnit()
 {
     return ((Gfc2SteelTotal*)m_pEntity)->getUnit();
 }

@@ -11,12 +11,12 @@ public ref class NGfc2SteelTotal: public glodon::objectbufnet::Entity
 public:
     NGfc2SteelTotal();
     NGfc2SteelTotal(void* pEntity, bool bOwner);
-    void setCompType(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCompType();
+    void setCompType(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCompType();
     bool hasCompType();
     NGfc2String^ getCompTypePtr();
-    void setLevel(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getLevel();
+    void setLevel(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getLevel();
     bool hasLevel();
     NGfc2String^ getLevelPtr();
     void setDia(NGfc2Integer nValue);
@@ -25,8 +25,8 @@ public:
     void setWeight(NGfc2Double dValue);
     NGfc2Double getWeight();
     bool hasWeight();
-    void setUnit(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getUnit();
+    void setUnit(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getUnit();
     bool hasUnit();
     NGfc2String^ getUnitPtr();
 

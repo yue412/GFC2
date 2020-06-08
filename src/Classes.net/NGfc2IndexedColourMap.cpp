@@ -36,12 +36,12 @@ void NGfc2IndexedColourMap::clearColours()
     ((Gfc2IndexedColourMap*)m_pEntity)->clearColours();
 }
 
-void NGfc2IndexedColourMap::addColours(gfc2::engine::EntityRef nValue)
+void NGfc2IndexedColourMap::addColours(gfc::engine::EntityRef nValue)
 {
     ((Gfc2IndexedColourMap*)m_pEntity)->addColours(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2IndexedColourMap::getColours(int nIndex)
+gfc::engine::EntityRef NGfc2IndexedColourMap::getColours(int nIndex)
 {
     return ((Gfc2IndexedColourMap*)m_pEntity)->getColours(nIndex);
 }
@@ -71,12 +71,12 @@ NGfc2Integer NGfc2IndexedColourMap::getColourIndex(int nIndex)
     return ((Gfc2IndexedColourMap*)m_pEntity)->getColourIndex(nIndex);
 }
 
-void NGfc2IndexedColourMap::setMappedTo(gfc2::engine::EntityRef nValue)
+void NGfc2IndexedColourMap::setMappedTo(gfc::engine::EntityRef nValue)
 {
     ((Gfc2IndexedColourMap*)m_pEntity)->setMappedTo(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2IndexedColourMap::getMappedTo()
+gfc::engine::EntityRef NGfc2IndexedColourMap::getMappedTo()
 {
     return ((Gfc2IndexedColourMap*)m_pEntity)->getMappedTo();
 }

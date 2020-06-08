@@ -12,8 +12,8 @@ public ref class NGfc2HalfSpaceSolidShape: public NGfc2SolidShape
 public:
     NGfc2HalfSpaceSolidShape();
     NGfc2HalfSpaceSolidShape(void* pEntity, bool bOwner);
-    void setBaseSurface(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getBaseSurface();
+    void setBaseSurface(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getBaseSurface();
     bool hasBaseSurface();
     NGfc2Surface^ getBaseSurfacePtr();
     void setAgreementFlag(NGfc2Boolean bValue);

@@ -21,12 +21,12 @@ void NGfc2SectionListProperty::clearValue()
     ((Gfc2SectionListProperty*)m_pEntity)->clearValue();
 }
 
-void NGfc2SectionListProperty::addValue(gfc2::engine::EntityRef nValue)
+void NGfc2SectionListProperty::addValue(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SectionListProperty*)m_pEntity)->addValue(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SectionListProperty::getValue(int nIndex)
+gfc::engine::EntityRef NGfc2SectionListProperty::getValue(int nIndex)
 {
     return ((Gfc2SectionListProperty*)m_pEntity)->getValue(nIndex);
 }

@@ -26,12 +26,12 @@ bool NGfc2Object::hasID()
     return ((Gfc2Object*)m_pEntity)->hasID();
 }
 
-void NGfc2Object::setName(gfc2::engine::EntityRef nValue)
+void NGfc2Object::setName(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Object*)m_pEntity)->setName(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Object::getName()
+gfc::engine::EntityRef NGfc2Object::getName()
 {
     return ((Gfc2Object*)m_pEntity)->getName();
 }

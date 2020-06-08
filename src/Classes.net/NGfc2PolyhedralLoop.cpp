@@ -21,12 +21,12 @@ void NGfc2PolyhedralLoop::clearEdges()
     ((Gfc2PolyhedralLoop*)m_pEntity)->clearEdges();
 }
 
-void NGfc2PolyhedralLoop::addEdges(gfc2::engine::EntityRef nValue)
+void NGfc2PolyhedralLoop::addEdges(gfc::engine::EntityRef nValue)
 {
     ((Gfc2PolyhedralLoop*)m_pEntity)->addEdges(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2PolyhedralLoop::getEdges(int nIndex)
+gfc::engine::EntityRef NGfc2PolyhedralLoop::getEdges(int nIndex)
 {
     return ((Gfc2PolyhedralLoop*)m_pEntity)->getEdges(nIndex);
 }

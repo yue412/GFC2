@@ -12,14 +12,14 @@ public ref class NGfc2RelDefinesByProperties: public NGfc2RelDefines
 public:
     NGfc2RelDefinesByProperties();
     NGfc2RelDefinesByProperties(void* pEntity, bool bOwner);
-    void setRelatingPropertySet(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRelatingPropertySet();
+    void setRelatingPropertySet(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRelatingPropertySet();
     bool hasRelatingPropertySet();
     NGfc2PropertySet^ getRelatingPropertySetPtr();
     int getRelatedObjectsCount();
     void clearRelatedObjects();
-    void addRelatedObjects(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRelatedObjects(int nIndex);
+    void addRelatedObjects(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRelatedObjects(int nIndex);
     NGfc2Object^ getRelatedObjectsPtr(int nIndex);
 
 };

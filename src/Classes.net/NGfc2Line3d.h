@@ -11,12 +11,12 @@ public ref class NGfc2Line3d: public NGfc2Curve3d
 public:
     NGfc2Line3d();
     NGfc2Line3d(void* pEntity, bool bOwner);
-    void setStartPt(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getStartPt();
+    void setStartPt(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getStartPt();
     bool hasStartPt();
     NGfc2Vector3d^ getStartPtPtr();
-    void setEndPt(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getEndPt();
+    void setEndPt(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getEndPt();
     bool hasEndPt();
     NGfc2Vector3d^ getEndPtPtr();
 

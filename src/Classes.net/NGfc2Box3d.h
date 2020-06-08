@@ -11,12 +11,12 @@ public ref class NGfc2Box3d: public NGfc2Geometry
 public:
     NGfc2Box3d();
     NGfc2Box3d(void* pEntity, bool bOwner);
-    void setMin(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getMin();
+    void setMin(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getMin();
     bool hasMin();
     NGfc2Vector3d^ getMinPtr();
-    void setMax(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getMax();
+    void setMax(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getMax();
     bool hasMax();
     NGfc2Vector3d^ getMaxPtr();
 

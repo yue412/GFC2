@@ -14,13 +14,13 @@ public:
     NGfc2CompositeCurve3dSweptSolidShape(void* pEntity, bool bOwner);
     int getSegmentsCount();
     void clearSegments();
-    void addSegments(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getSegments(int nIndex);
+    void addSegments(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getSegments(int nIndex);
     NGfc2Curve3d^ getSegmentsPtr(int nIndex);
     int getReferencesCount();
     void clearReferences();
-    void addReferences(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getReferences(int nIndex);
+    void addReferences(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getReferences(int nIndex);
     NGfc2Surface^ getReferencesPtr(int nIndex);
 
 };

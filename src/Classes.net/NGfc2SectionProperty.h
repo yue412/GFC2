@@ -11,8 +11,8 @@ public ref class NGfc2SectionProperty: public NGfc2SingleProperty
 public:
     NGfc2SectionProperty();
     NGfc2SectionProperty(void* pEntity, bool bOwner);
-    void setSection(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getSection();
+    void setSection(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getSection();
     bool hasSection();
     NGfc2Section^ getSectionPtr();
 

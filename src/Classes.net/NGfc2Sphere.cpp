@@ -26,12 +26,12 @@ bool NGfc2Sphere::hasRadius()
     return ((Gfc2Sphere*)m_pEntity)->hasRadius();
 }
 
-void NGfc2Sphere::setCoords(gfc2::engine::EntityRef nValue)
+void NGfc2Sphere::setCoords(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Sphere*)m_pEntity)->setCoords(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Sphere::getCoords()
+gfc::engine::EntityRef NGfc2Sphere::getCoords()
 {
     return ((Gfc2Sphere*)m_pEntity)->getCoords();
 }
@@ -46,12 +46,12 @@ NGfc2Coordinates3d^ NGfc2Sphere::getCoordsPtr()
     return gcnew NGfc2Coordinates3d(((Gfc2Sphere*)m_pEntity)->getCoordsPtr(), false);
 }
 
-void NGfc2Sphere::setRangeU(gfc2::engine::EntityRef nValue)
+void NGfc2Sphere::setRangeU(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Sphere*)m_pEntity)->setRangeU(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Sphere::getRangeU()
+gfc::engine::EntityRef NGfc2Sphere::getRangeU()
 {
     return ((Gfc2Sphere*)m_pEntity)->getRangeU();
 }
@@ -66,12 +66,12 @@ NGfc2Intervald^ NGfc2Sphere::getRangeUPtr()
     return gcnew NGfc2Intervald(((Gfc2Sphere*)m_pEntity)->getRangeUPtr(), false);
 }
 
-void NGfc2Sphere::setRangeV(gfc2::engine::EntityRef nValue)
+void NGfc2Sphere::setRangeV(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Sphere*)m_pEntity)->setRangeV(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Sphere::getRangeV()
+gfc::engine::EntityRef NGfc2Sphere::getRangeV()
 {
     return ((Gfc2Sphere*)m_pEntity)->getRangeV();
 }

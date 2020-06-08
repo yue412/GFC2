@@ -11,12 +11,12 @@ NGfc2CsgSolidShape::NGfc2CsgSolidShape(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2CsgSolidShape::setTreeRootExpression(gfc2::engine::EntityRef nValue)
+void NGfc2CsgSolidShape::setTreeRootExpression(gfc::engine::EntityRef nValue)
 {
     ((Gfc2CsgSolidShape*)m_pEntity)->setTreeRootExpression(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2CsgSolidShape::getTreeRootExpression()
+gfc::engine::EntityRef NGfc2CsgSolidShape::getTreeRootExpression()
 {
     return ((Gfc2CsgSolidShape*)m_pEntity)->getTreeRootExpression();
 }

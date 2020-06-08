@@ -11,12 +11,12 @@ NGfc2UnaryBooleanResult::NGfc2UnaryBooleanResult(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2UnaryBooleanResult::setOperand(gfc2::engine::EntityRef nValue)
+void NGfc2UnaryBooleanResult::setOperand(gfc::engine::EntityRef nValue)
 {
     ((Gfc2UnaryBooleanResult*)m_pEntity)->setOperand(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2UnaryBooleanResult::getOperand()
+gfc::engine::EntityRef NGfc2UnaryBooleanResult::getOperand()
 {
     return ((Gfc2UnaryBooleanResult*)m_pEntity)->getOperand();
 }

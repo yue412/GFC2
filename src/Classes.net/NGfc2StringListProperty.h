@@ -13,8 +13,8 @@ public:
     NGfc2StringListProperty(void* pEntity, bool bOwner);
     int getValuesCount();
     void clearValues();
-    void addValues(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getValues(int nIndex);
+    void addValues(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getValues(int nIndex);
     NGfc2String^ getValuesPtr(int nIndex);
 
 };

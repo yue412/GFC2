@@ -16,16 +16,16 @@ public:
     void setRadius(NGfc2Double dValue);
     NGfc2Double getRadius();
     bool hasRadius();
-    void setCoords(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCoords();
+    void setCoords(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCoords();
     bool hasCoords();
     NGfc2Coordinates3d^ getCoordsPtr();
-    void setRangeU(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRangeU();
+    void setRangeU(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRangeU();
     bool hasRangeU();
     NGfc2Intervald^ getRangeUPtr();
-    void setRangeV(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRangeV();
+    void setRangeV(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRangeV();
     bool hasRangeV();
     NGfc2Intervald^ getRangeVPtr();
 

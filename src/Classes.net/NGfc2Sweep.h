@@ -14,16 +14,16 @@ public ref class NGfc2Sweep: public NGfc2Surface
 public:
     NGfc2Sweep();
     NGfc2Sweep(void* pEntity, bool bOwner);
-    void setProfile(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getProfile();
+    void setProfile(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getProfile();
     bool hasProfile();
     NGfc2Curve2d^ getProfilePtr();
-    void setSpine3d(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getSpine3d();
+    void setSpine3d(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getSpine3d();
     bool hasSpine3d();
     NGfc2Curve3d^ getSpine3dPtr();
-    void setReferenceVector(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getReferenceVector();
+    void setReferenceVector(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getReferenceVector();
     bool hasReferenceVector();
     NGfc2Vector3d^ getReferenceVectorPtr();
     void setSweepType(NGfc2SweepType nValue);

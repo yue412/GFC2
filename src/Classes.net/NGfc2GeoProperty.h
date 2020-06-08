@@ -11,8 +11,8 @@ public ref class NGfc2GeoProperty: public NGfc2SingleProperty
 public:
     NGfc2GeoProperty();
     NGfc2GeoProperty(void* pEntity, bool bOwner);
-    void setGeo(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getGeo();
+    void setGeo(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getGeo();
     bool hasGeo();
     NGfc2Geometry^ getGeoPtr();
 

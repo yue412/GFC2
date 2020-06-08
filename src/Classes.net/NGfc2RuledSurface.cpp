@@ -26,12 +26,12 @@ bool NGfc2RuledSurface::hasApexIndex()
     return ((Gfc2RuledSurface*)m_pEntity)->hasApexIndex();
 }
 
-void NGfc2RuledSurface::setRangeV(gfc2::engine::EntityRef nValue)
+void NGfc2RuledSurface::setRangeV(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RuledSurface*)m_pEntity)->setRangeV(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2RuledSurface::getRangeV()
+gfc::engine::EntityRef NGfc2RuledSurface::getRangeV()
 {
     return ((Gfc2RuledSurface*)m_pEntity)->getRangeV();
 }
@@ -46,12 +46,12 @@ NGfc2Intervald^ NGfc2RuledSurface::getRangeVPtr()
     return gcnew NGfc2Intervald(((Gfc2RuledSurface*)m_pEntity)->getRangeVPtr(), false);
 }
 
-void NGfc2RuledSurface::setRangeU(gfc2::engine::EntityRef nValue)
+void NGfc2RuledSurface::setRangeU(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RuledSurface*)m_pEntity)->setRangeU(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2RuledSurface::getRangeU()
+gfc::engine::EntityRef NGfc2RuledSurface::getRangeU()
 {
     return ((Gfc2RuledSurface*)m_pEntity)->getRangeU();
 }
@@ -66,12 +66,12 @@ NGfc2Intervald^ NGfc2RuledSurface::getRangeUPtr()
     return gcnew NGfc2Intervald(((Gfc2RuledSurface*)m_pEntity)->getRangeUPtr(), false);
 }
 
-void NGfc2RuledSurface::setDirectrix1(gfc2::engine::EntityRef nValue)
+void NGfc2RuledSurface::setDirectrix1(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RuledSurface*)m_pEntity)->setDirectrix1(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2RuledSurface::getDirectrix1()
+gfc::engine::EntityRef NGfc2RuledSurface::getDirectrix1()
 {
     return ((Gfc2RuledSurface*)m_pEntity)->getDirectrix1();
 }
@@ -86,12 +86,12 @@ NGfc2Curve3d^ NGfc2RuledSurface::getDirectrix1Ptr()
     return gcnew NGfc2Curve3d(((Gfc2RuledSurface*)m_pEntity)->getDirectrix1Ptr(), false);
 }
 
-void NGfc2RuledSurface::setDirectrix2(gfc2::engine::EntityRef nValue)
+void NGfc2RuledSurface::setDirectrix2(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RuledSurface*)m_pEntity)->setDirectrix2(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2RuledSurface::getDirectrix2()
+gfc::engine::EntityRef NGfc2RuledSurface::getDirectrix2()
 {
     return ((Gfc2RuledSurface*)m_pEntity)->getDirectrix2();
 }

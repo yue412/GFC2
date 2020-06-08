@@ -11,12 +11,12 @@ NGfc2Line3d::NGfc2Line3d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Line3d::setStartPt(gfc2::engine::EntityRef nValue)
+void NGfc2Line3d::setStartPt(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Line3d*)m_pEntity)->setStartPt(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Line3d::getStartPt()
+gfc::engine::EntityRef NGfc2Line3d::getStartPt()
 {
     return ((Gfc2Line3d*)m_pEntity)->getStartPt();
 }
@@ -31,12 +31,12 @@ NGfc2Vector3d^ NGfc2Line3d::getStartPtPtr()
     return gcnew NGfc2Vector3d(((Gfc2Line3d*)m_pEntity)->getStartPtPtr(), false);
 }
 
-void NGfc2Line3d::setEndPt(gfc2::engine::EntityRef nValue)
+void NGfc2Line3d::setEndPt(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Line3d*)m_pEntity)->setEndPt(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Line3d::getEndPt()
+gfc::engine::EntityRef NGfc2Line3d::getEndPt()
 {
     return ((Gfc2Line3d*)m_pEntity)->getEndPt();
 }

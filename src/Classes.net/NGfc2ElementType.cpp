@@ -11,12 +11,12 @@ NGfc2ElementType::NGfc2ElementType(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2ElementType::setType(gfc2::engine::EntityRef nValue)
+void NGfc2ElementType::setType(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ElementType*)m_pEntity)->setType(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2ElementType::getType()
+gfc::engine::EntityRef NGfc2ElementType::getType()
 {
     return ((Gfc2ElementType*)m_pEntity)->getType();
 }

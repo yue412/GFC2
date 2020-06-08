@@ -13,15 +13,15 @@ public ref class NGfc2ExtrudedBody: public NGfc2PrimitiveBody
 public:
     NGfc2ExtrudedBody();
     NGfc2ExtrudedBody(void* pEntity, bool bOwner);
-    void setCoordinate(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCoordinate();
+    void setCoordinate(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCoordinate();
     bool hasCoordinate();
     NGfc2Coordinates3d^ getCoordinatePtr();
     void setLength(NGfc2Double dValue);
     NGfc2Double getLength();
     bool hasLength();
-    void setSection(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getSection();
+    void setSection(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getSection();
     bool hasSection();
     NGfc2Polygon^ getSectionPtr();
 

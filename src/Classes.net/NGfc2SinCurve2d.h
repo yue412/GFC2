@@ -13,12 +13,12 @@ public ref class NGfc2SinCurve2d: public NGfc2Curve2d
 public:
     NGfc2SinCurve2d();
     NGfc2SinCurve2d(void* pEntity, bool bOwner);
-    void setPos(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getPos();
+    void setPos(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getPos();
     bool hasPos();
     NGfc2Vector2d^ getPosPtr();
-    void setDirX(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getDirX();
+    void setDirX(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getDirX();
     bool hasDirX();
     NGfc2Vector2d^ getDirXPtr();
     void setA(NGfc2Double dValue);
@@ -27,8 +27,8 @@ public:
     void setB(NGfc2Double dValue);
     NGfc2Double getB();
     bool hasB();
-    void setRange(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRange();
+    void setRange(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRange();
     bool hasRange();
     NGfc2Intervald^ getRangePtr();
     void setClockSign(NGfc2Integer nValue);

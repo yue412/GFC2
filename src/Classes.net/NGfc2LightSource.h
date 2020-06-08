@@ -12,12 +12,12 @@ public ref class NGfc2LightSource: public NGfc2RepresentationItem
 public:
     NGfc2LightSource();
     NGfc2LightSource(void* pEntity, bool bOwner);
-    void setName(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getName();
+    void setName(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getName();
     bool hasName();
     NGfc2Label^ getNamePtr();
-    void setLightColour(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getLightColour();
+    void setLightColour(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getLightColour();
     bool hasLightColour();
     NGfc2Color^ getLightColourPtr();
     void setAmbientIntensity(NGfc2Double dValue);

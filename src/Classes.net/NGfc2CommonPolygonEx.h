@@ -13,8 +13,8 @@ public:
     NGfc2CommonPolygonEx(void* pEntity, bool bOwner);
     int getLoopExsCount();
     void clearLoopExs();
-    void addLoopExs(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getLoopExs(int nIndex);
+    void addLoopExs(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getLoopExs(int nIndex);
     NGfc2CoedgeListEx^ getLoopExsPtr(int nIndex);
 
 };

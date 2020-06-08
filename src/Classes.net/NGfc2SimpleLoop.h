@@ -13,8 +13,8 @@ public:
     NGfc2SimpleLoop(void* pEntity, bool bOwner);
     int getVertexesCount();
     void clearVertexes();
-    void addVertexes(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getVertexes(int nIndex);
+    void addVertexes(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getVertexes(int nIndex);
     NGfc2SimpleVertex^ getVertexesPtr(int nIndex);
 
 };

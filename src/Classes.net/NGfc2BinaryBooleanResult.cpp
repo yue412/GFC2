@@ -26,12 +26,12 @@ bool NGfc2BinaryBooleanResult::hasOperator()
     return ((Gfc2BinaryBooleanResult*)m_pEntity)->hasOperator();
 }
 
-void NGfc2BinaryBooleanResult::setFirstOperand(gfc2::engine::EntityRef nValue)
+void NGfc2BinaryBooleanResult::setFirstOperand(gfc::engine::EntityRef nValue)
 {
     ((Gfc2BinaryBooleanResult*)m_pEntity)->setFirstOperand(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2BinaryBooleanResult::getFirstOperand()
+gfc::engine::EntityRef NGfc2BinaryBooleanResult::getFirstOperand()
 {
     return ((Gfc2BinaryBooleanResult*)m_pEntity)->getFirstOperand();
 }
@@ -46,12 +46,12 @@ NGfc2SolidShape^ NGfc2BinaryBooleanResult::getFirstOperandPtr()
     return gcnew NGfc2SolidShape(((Gfc2BinaryBooleanResult*)m_pEntity)->getFirstOperandPtr(), false);
 }
 
-void NGfc2BinaryBooleanResult::setSecondOperand(gfc2::engine::EntityRef nValue)
+void NGfc2BinaryBooleanResult::setSecondOperand(gfc::engine::EntityRef nValue)
 {
     ((Gfc2BinaryBooleanResult*)m_pEntity)->setSecondOperand(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2BinaryBooleanResult::getSecondOperand()
+gfc::engine::EntityRef NGfc2BinaryBooleanResult::getSecondOperand()
 {
     return ((Gfc2BinaryBooleanResult*)m_pEntity)->getSecondOperand();
 }

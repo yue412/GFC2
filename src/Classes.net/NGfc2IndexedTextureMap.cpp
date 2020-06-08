@@ -11,12 +11,12 @@ NGfc2IndexedTextureMap::NGfc2IndexedTextureMap(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2IndexedTextureMap::setMappedTo(gfc2::engine::EntityRef nValue)
+void NGfc2IndexedTextureMap::setMappedTo(gfc::engine::EntityRef nValue)
 {
     ((Gfc2IndexedTextureMap*)m_pEntity)->setMappedTo(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2IndexedTextureMap::getMappedTo()
+gfc::engine::EntityRef NGfc2IndexedTextureMap::getMappedTo()
 {
     return ((Gfc2IndexedTextureMap*)m_pEntity)->getMappedTo();
 }
@@ -41,12 +41,12 @@ void NGfc2IndexedTextureMap::clearTexCoords()
     ((Gfc2IndexedTextureMap*)m_pEntity)->clearTexCoords();
 }
 
-void NGfc2IndexedTextureMap::addTexCoords(gfc2::engine::EntityRef nValue)
+void NGfc2IndexedTextureMap::addTexCoords(gfc::engine::EntityRef nValue)
 {
     ((Gfc2IndexedTextureMap*)m_pEntity)->addTexCoords(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2IndexedTextureMap::getTexCoords(int nIndex)
+gfc::engine::EntityRef NGfc2IndexedTextureMap::getTexCoords(int nIndex)
 {
     return ((Gfc2IndexedTextureMap*)m_pEntity)->getTexCoords(nIndex);
 }
@@ -86,12 +86,12 @@ void NGfc2IndexedTextureMap::clearMaps()
     ((Gfc2IndexedTextureMap*)m_pEntity)->clearMaps();
 }
 
-void NGfc2IndexedTextureMap::addMaps(gfc2::engine::EntityRef nValue)
+void NGfc2IndexedTextureMap::addMaps(gfc::engine::EntityRef nValue)
 {
     ((Gfc2IndexedTextureMap*)m_pEntity)->addMaps(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2IndexedTextureMap::getMaps(int nIndex)
+gfc::engine::EntityRef NGfc2IndexedTextureMap::getMaps(int nIndex)
 {
     return ((Gfc2IndexedTextureMap*)m_pEntity)->getMaps(nIndex);
 }

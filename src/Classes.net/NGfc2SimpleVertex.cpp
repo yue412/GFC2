@@ -11,12 +11,12 @@ NGfc2SimpleVertex::NGfc2SimpleVertex(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2SimpleVertex::setPoint(gfc2::engine::EntityRef nValue)
+void NGfc2SimpleVertex::setPoint(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SimpleVertex*)m_pEntity)->setPoint(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SimpleVertex::getPoint()
+gfc::engine::EntityRef NGfc2SimpleVertex::getPoint()
 {
     return ((Gfc2SimpleVertex*)m_pEntity)->getPoint();
 }

@@ -11,8 +11,8 @@ public ref class NGfc2RelConnectsWithRealizingElements: public NGfc2RelConnectsE
 public:
     NGfc2RelConnectsWithRealizingElements();
     NGfc2RelConnectsWithRealizingElements(void* pEntity, bool bOwner);
-    void setRealizingElements(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getRealizingElements();
+    void setRealizingElements(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getRealizingElements();
     bool hasRealizingElements();
     NGfc2Element^ getRealizingElementsPtr();
 

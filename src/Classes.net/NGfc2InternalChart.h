@@ -22,8 +22,8 @@ public:
     bool hasTra3();
     int getIPSCount();
     void clearIPS();
-    void addIPS(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getIPS(int nIndex);
+    void addIPS(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getIPS(int nIndex);
     NGfc2InternalPt^ getIPSPtr(int nIndex);
 
 };

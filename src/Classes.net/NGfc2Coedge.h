@@ -12,8 +12,8 @@ public ref class NGfc2Coedge: public NGfc2Topology
 public:
     NGfc2Coedge();
     NGfc2Coedge(void* pEntity, bool bOwner);
-    void setCurve(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCurve();
+    void setCurve(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCurve();
     bool hasCurve();
     NGfc2Curve2d^ getCurvePtr();
     void setEdgeIndex(NGfc2Integer nValue);

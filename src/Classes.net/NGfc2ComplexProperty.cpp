@@ -21,12 +21,12 @@ void NGfc2ComplexProperty::clearHasProperties()
     ((Gfc2ComplexProperty*)m_pEntity)->clearHasProperties();
 }
 
-void NGfc2ComplexProperty::addHasProperties(gfc2::engine::EntityRef nValue)
+void NGfc2ComplexProperty::addHasProperties(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ComplexProperty*)m_pEntity)->addHasProperties(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2ComplexProperty::getHasProperties(int nIndex)
+gfc::engine::EntityRef NGfc2ComplexProperty::getHasProperties(int nIndex)
 {
     return ((Gfc2ComplexProperty*)m_pEntity)->getHasProperties(nIndex);
 }

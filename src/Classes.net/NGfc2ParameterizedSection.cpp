@@ -11,12 +11,12 @@ NGfc2ParameterizedSection::NGfc2ParameterizedSection(void* pEntity, bool bOwner)
 {
 }
 
-void NGfc2ParameterizedSection::setPosition(gfc2::engine::EntityRef nValue)
+void NGfc2ParameterizedSection::setPosition(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ParameterizedSection*)m_pEntity)->setPosition(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2ParameterizedSection::getPosition()
+gfc::engine::EntityRef NGfc2ParameterizedSection::getPosition()
 {
     return ((Gfc2ParameterizedSection*)m_pEntity)->getPosition();
 }

@@ -11,12 +11,12 @@ NGfc2Helicoid::NGfc2Helicoid(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Helicoid::setCoord(gfc2::engine::EntityRef nValue)
+void NGfc2Helicoid::setCoord(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Helicoid*)m_pEntity)->setCoord(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Helicoid::getCoord()
+gfc::engine::EntityRef NGfc2Helicoid::getCoord()
 {
     return ((Gfc2Helicoid*)m_pEntity)->getCoord();
 }
@@ -46,12 +46,12 @@ bool NGfc2Helicoid::hasRadius()
     return ((Gfc2Helicoid*)m_pEntity)->hasRadius();
 }
 
-void NGfc2Helicoid::setRangeV(gfc2::engine::EntityRef nValue)
+void NGfc2Helicoid::setRangeV(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Helicoid*)m_pEntity)->setRangeV(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Helicoid::getRangeV()
+gfc::engine::EntityRef NGfc2Helicoid::getRangeV()
 {
     return ((Gfc2Helicoid*)m_pEntity)->getRangeV();
 }
@@ -111,12 +111,12 @@ bool NGfc2Helicoid::hasRadiusCoef()
     return ((Gfc2Helicoid*)m_pEntity)->hasRadiusCoef();
 }
 
-void NGfc2Helicoid::setCurve(gfc2::engine::EntityRef nValue)
+void NGfc2Helicoid::setCurve(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Helicoid*)m_pEntity)->setCurve(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Helicoid::getCurve()
+gfc::engine::EntityRef NGfc2Helicoid::getCurve()
 {
     return ((Gfc2Helicoid*)m_pEntity)->getCurve();
 }

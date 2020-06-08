@@ -13,8 +13,8 @@ public:
     NGfc2CoedgeListEx(void* pEntity, bool bOwner);
     int getCoedgeExsCount();
     void clearCoedgeExs();
-    void addCoedgeExs(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCoedgeExs(int nIndex);
+    void addCoedgeExs(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCoedgeExs(int nIndex);
     NGfc2Coedge^ getCoedgeExsPtr(int nIndex);
 
 };

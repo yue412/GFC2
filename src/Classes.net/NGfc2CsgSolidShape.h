@@ -11,8 +11,8 @@ public ref class NGfc2CsgSolidShape: public NGfc2SolidShape
 public:
     NGfc2CsgSolidShape();
     NGfc2CsgSolidShape(void* pEntity, bool bOwner);
-    void setTreeRootExpression(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getTreeRootExpression();
+    void setTreeRootExpression(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getTreeRootExpression();
     bool hasTreeRootExpression();
     NGfc2BooleanResult^ getTreeRootExpressionPtr();
 

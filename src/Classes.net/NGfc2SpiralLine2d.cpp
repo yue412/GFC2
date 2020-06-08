@@ -11,12 +11,12 @@ NGfc2SpiralLine2d::NGfc2SpiralLine2d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2SpiralLine2d::setCoord(gfc2::engine::EntityRef nValue)
+void NGfc2SpiralLine2d::setCoord(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SpiralLine2d*)m_pEntity)->setCoord(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SpiralLine2d::getCoord()
+gfc::engine::EntityRef NGfc2SpiralLine2d::getCoord()
 {
     return ((Gfc2SpiralLine2d*)m_pEntity)->getCoord();
 }
@@ -46,12 +46,12 @@ bool NGfc2SpiralLine2d::hasRadius()
     return ((Gfc2SpiralLine2d*)m_pEntity)->hasRadius();
 }
 
-void NGfc2SpiralLine2d::setRange(gfc2::engine::EntityRef nValue)
+void NGfc2SpiralLine2d::setRange(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SpiralLine2d*)m_pEntity)->setRange(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2SpiralLine2d::getRange()
+gfc::engine::EntityRef NGfc2SpiralLine2d::getRange()
 {
     return ((Gfc2SpiralLine2d*)m_pEntity)->getRange();
 }

@@ -10,16 +10,16 @@ public ref class NGfc2PlaneInfo: public glodon::objectbufnet::Entity
 public:
     NGfc2PlaneInfo();
     NGfc2PlaneInfo(void* pEntity, bool bOwner);
-    void setDirX(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getDirX();
+    void setDirX(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getDirX();
     bool hasDirX();
     NGfc2Vector3d^ getDirXPtr();
-    void setDirY(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getDirY();
+    void setDirY(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getDirY();
     bool hasDirY();
     NGfc2Vector3d^ getDirYPtr();
-    void setPos(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getPos();
+    void setPos(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getPos();
     bool hasPos();
     NGfc2Vector3d^ getPosPtr();
 

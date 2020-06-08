@@ -14,13 +14,13 @@ public:
     NGfc2BrepBody(void* pEntity, bool bOwner);
     int getFacesCount();
     void clearFaces();
-    void addFaces(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getFaces(int nIndex);
+    void addFaces(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getFaces(int nIndex);
     NGfc2Face^ getFacesPtr(int nIndex);
     int getEdgesCount();
     void clearEdges();
-    void addEdges(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getEdges(int nIndex);
+    void addEdges(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getEdges(int nIndex);
     NGfc2Edge^ getEdgesPtr(int nIndex);
 
 };

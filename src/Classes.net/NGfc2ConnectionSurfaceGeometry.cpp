@@ -11,12 +11,12 @@ NGfc2ConnectionSurfaceGeometry::NGfc2ConnectionSurfaceGeometry(void* pEntity, bo
 {
 }
 
-void NGfc2ConnectionSurfaceGeometry::setSurfaceOnRelatingElement(gfc2::engine::EntityRef nValue)
+void NGfc2ConnectionSurfaceGeometry::setSurfaceOnRelatingElement(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->setSurfaceOnRelatingElement(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatingElement()
+gfc::engine::EntityRef NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatingElement()
 {
     return ((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->getSurfaceOnRelatingElement();
 }
@@ -31,12 +31,12 @@ NGfc2Surface^ NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatingElementPtr()
     return gcnew NGfc2Surface(((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->getSurfaceOnRelatingElementPtr(), false);
 }
 
-void NGfc2ConnectionSurfaceGeometry::setSurfaceOnRelatedElement(gfc2::engine::EntityRef nValue)
+void NGfc2ConnectionSurfaceGeometry::setSurfaceOnRelatedElement(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->setSurfaceOnRelatedElement(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatedElement()
+gfc::engine::EntityRef NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatedElement()
 {
     return ((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->getSurfaceOnRelatedElement();
 }

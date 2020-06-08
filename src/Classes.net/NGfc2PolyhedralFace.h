@@ -14,11 +14,11 @@ public:
     NGfc2PolyhedralFace(void* pEntity, bool bOwner);
     int getLoopsCount();
     void clearLoops();
-    void addLoops(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getLoops(int nIndex);
+    void addLoops(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getLoops(int nIndex);
     NGfc2PolyhedralLoop^ getLoopsPtr(int nIndex);
-    void setPlane(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getPlane();
+    void setPlane(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getPlane();
     bool hasPlane();
     NGfc2PlaneCoef^ getPlanePtr();
 

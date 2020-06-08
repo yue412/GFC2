@@ -11,14 +11,14 @@ public ref class NGfc2Representation: public glodon::objectbufnet::Entity
 public:
     NGfc2Representation();
     NGfc2Representation(void* pEntity, bool bOwner);
-    void setIdentifier(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getIdentifier();
+    void setIdentifier(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getIdentifier();
     bool hasIdentifier();
     NGfc2String^ getIdentifierPtr();
     int getitemsCount();
     void clearitems();
-    void additems(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getitems(int nIndex);
+    void additems(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getitems(int nIndex);
     NGfc2RepresentationItem^ getitemsPtr(int nIndex);
 
 };

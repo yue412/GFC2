@@ -51,12 +51,12 @@ void NGfc2PrimitiveRenderable::clearVertexes()
     ((Gfc2PrimitiveRenderable*)m_pEntity)->clearVertexes();
 }
 
-void NGfc2PrimitiveRenderable::addVertexes(gfc2::engine::EntityRef nValue)
+void NGfc2PrimitiveRenderable::addVertexes(gfc::engine::EntityRef nValue)
 {
     ((Gfc2PrimitiveRenderable*)m_pEntity)->addVertexes(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2PrimitiveRenderable::getVertexes(int nIndex)
+gfc::engine::EntityRef NGfc2PrimitiveRenderable::getVertexes(int nIndex)
 {
     return ((Gfc2PrimitiveRenderable*)m_pEntity)->getVertexes(nIndex);
 }
@@ -76,12 +76,12 @@ void NGfc2PrimitiveRenderable::clearNormals()
     ((Gfc2PrimitiveRenderable*)m_pEntity)->clearNormals();
 }
 
-void NGfc2PrimitiveRenderable::addNormals(gfc2::engine::EntityRef nValue)
+void NGfc2PrimitiveRenderable::addNormals(gfc::engine::EntityRef nValue)
 {
     ((Gfc2PrimitiveRenderable*)m_pEntity)->addNormals(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2PrimitiveRenderable::getNormals(int nIndex)
+gfc::engine::EntityRef NGfc2PrimitiveRenderable::getNormals(int nIndex)
 {
     return ((Gfc2PrimitiveRenderable*)m_pEntity)->getNormals(nIndex);
 }

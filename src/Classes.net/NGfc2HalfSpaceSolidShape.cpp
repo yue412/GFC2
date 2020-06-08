@@ -11,12 +11,12 @@ NGfc2HalfSpaceSolidShape::NGfc2HalfSpaceSolidShape(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2HalfSpaceSolidShape::setBaseSurface(gfc2::engine::EntityRef nValue)
+void NGfc2HalfSpaceSolidShape::setBaseSurface(gfc::engine::EntityRef nValue)
 {
     ((Gfc2HalfSpaceSolidShape*)m_pEntity)->setBaseSurface(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2HalfSpaceSolidShape::getBaseSurface()
+gfc::engine::EntityRef NGfc2HalfSpaceSolidShape::getBaseSurface()
 {
     return ((Gfc2HalfSpaceSolidShape*)m_pEntity)->getBaseSurface();
 }

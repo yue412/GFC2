@@ -11,8 +11,8 @@ public ref class NGfc2StringProperty: public NGfc2SingleProperty
 public:
     NGfc2StringProperty();
     NGfc2StringProperty(void* pEntity, bool bOwner);
-    void setValue(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getValue();
+    void setValue(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getValue();
     bool hasValue();
     NGfc2String^ getValuePtr();
 

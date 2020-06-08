@@ -21,12 +21,12 @@ void NGfc2CommonPolygon::clearLoops()
     ((Gfc2CommonPolygon*)m_pEntity)->clearLoops();
 }
 
-void NGfc2CommonPolygon::addLoops(gfc2::engine::EntityRef nValue)
+void NGfc2CommonPolygon::addLoops(gfc::engine::EntityRef nValue)
 {
     ((Gfc2CommonPolygon*)m_pEntity)->addLoops(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2CommonPolygon::getLoops(int nIndex)
+gfc::engine::EntityRef NGfc2CommonPolygon::getLoops(int nIndex)
 {
     return ((Gfc2CommonPolygon*)m_pEntity)->getLoops(nIndex);
 }

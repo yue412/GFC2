@@ -13,14 +13,14 @@ public ref class NGfc2IndexedTextureMap: public glodon::objectbufnet::Entity
 public:
     NGfc2IndexedTextureMap();
     NGfc2IndexedTextureMap(void* pEntity, bool bOwner);
-    void setMappedTo(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getMappedTo();
+    void setMappedTo(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getMappedTo();
     bool hasMappedTo();
     NGfc2PrimitiveRenderable^ getMappedToPtr();
     int getTexCoordsCount();
     void clearTexCoords();
-    void addTexCoords(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getTexCoords(int nIndex);
+    void addTexCoords(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getTexCoords(int nIndex);
     NGfc2Vector2d^ getTexCoordsPtr(int nIndex);
     int getTexCoordIndexCount();
     void clearTexCoordIndex();
@@ -28,8 +28,8 @@ public:
     NGfc2Integer getTexCoordIndex(int nIndex);
     int getMapsCount();
     void clearMaps();
-    void addMaps(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getMaps(int nIndex);
+    void addMaps(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getMaps(int nIndex);
     NGfc2SurfaceTexture^ getMapsPtr(int nIndex);
 
 };

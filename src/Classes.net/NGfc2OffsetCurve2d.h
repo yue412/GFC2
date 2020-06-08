@@ -14,8 +14,8 @@ public:
     void setOffDist(NGfc2Double dValue);
     NGfc2Double getOffDist();
     bool hasOffDist();
-    void setInitCurve(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getInitCurve();
+    void setInitCurve(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getInitCurve();
     bool hasInitCurve();
     NGfc2Curve2d^ getInitCurvePtr();
 

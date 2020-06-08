@@ -11,12 +11,12 @@ NGfc2GeoProperty::NGfc2GeoProperty(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2GeoProperty::setGeo(gfc2::engine::EntityRef nValue)
+void NGfc2GeoProperty::setGeo(gfc::engine::EntityRef nValue)
 {
     ((Gfc2GeoProperty*)m_pEntity)->setGeo(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2GeoProperty::getGeo()
+gfc::engine::EntityRef NGfc2GeoProperty::getGeo()
 {
     return ((Gfc2GeoProperty*)m_pEntity)->getGeo();
 }

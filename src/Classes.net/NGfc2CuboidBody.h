@@ -12,12 +12,12 @@ public ref class NGfc2CuboidBody: public NGfc2PrimitiveBody
 public:
     NGfc2CuboidBody();
     NGfc2CuboidBody(void* pEntity, bool bOwner);
-    void setCoordinate(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getCoordinate();
+    void setCoordinate(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCoordinate();
     bool hasCoordinate();
     NGfc2Coordinates3d^ getCoordinatePtr();
-    void setDimension(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getDimension();
+    void setDimension(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getDimension();
     bool hasDimension();
     NGfc2Vector3d^ getDimensionPtr();
 

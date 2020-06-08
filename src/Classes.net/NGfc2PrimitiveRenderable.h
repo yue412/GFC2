@@ -20,13 +20,13 @@ public:
     bool hasGeometryDataType();
     int getVertexesCount();
     void clearVertexes();
-    void addVertexes(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getVertexes(int nIndex);
+    void addVertexes(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getVertexes(int nIndex);
     NGfc2Vector3d^ getVertexesPtr(int nIndex);
     int getNormalsCount();
     void clearNormals();
-    void addNormals(gfc2::engine::EntityRef nValue);
-    gfc2::engine::EntityRef getNormals(int nIndex);
+    void addNormals(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getNormals(int nIndex);
     NGfc2Vector3d^ getNormalsPtr(int nIndex);
     int getIndexesCount();
     void clearIndexes();

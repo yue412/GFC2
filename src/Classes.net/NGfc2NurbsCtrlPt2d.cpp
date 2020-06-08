@@ -11,12 +11,12 @@ NGfc2NurbsCtrlPt2d::NGfc2NurbsCtrlPt2d(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2NurbsCtrlPt2d::setPoint(gfc2::engine::EntityRef nValue)
+void NGfc2NurbsCtrlPt2d::setPoint(gfc::engine::EntityRef nValue)
 {
     ((Gfc2NurbsCtrlPt2d*)m_pEntity)->setPoint(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2NurbsCtrlPt2d::getPoint()
+gfc::engine::EntityRef NGfc2NurbsCtrlPt2d::getPoint()
 {
     return ((Gfc2NurbsCtrlPt2d*)m_pEntity)->getPoint();
 }

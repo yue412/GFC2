@@ -11,12 +11,12 @@ NGfc2StringProperty::NGfc2StringProperty(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2StringProperty::setValue(gfc2::engine::EntityRef nValue)
+void NGfc2StringProperty::setValue(gfc::engine::EntityRef nValue)
 {
     ((Gfc2StringProperty*)m_pEntity)->setValue(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2StringProperty::getValue()
+gfc::engine::EntityRef NGfc2StringProperty::getValue()
 {
     return ((Gfc2StringProperty*)m_pEntity)->getValue();
 }

@@ -11,12 +11,12 @@ NGfc2Coedge::NGfc2Coedge(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Coedge::setCurve(gfc2::engine::EntityRef nValue)
+void NGfc2Coedge::setCurve(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Coedge*)m_pEntity)->setCurve(nValue);
 }
 
-gfc2::engine::EntityRef NGfc2Coedge::getCurve()
+gfc::engine::EntityRef NGfc2Coedge::getCurve()
 {
     return ((Gfc2Coedge*)m_pEntity)->getCurve();
 }
