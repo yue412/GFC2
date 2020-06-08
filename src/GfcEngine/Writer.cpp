@@ -5,24 +5,24 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Writer::Writer(const std::wstring& sVersion, const std::wstring& sProductCode): m_pImp(NULL), m_sVersion(sVersion), m_sProductCode(sProductCode)
+CWriter::CWriter(const std::wstring& sVersion, const std::wstring& sProductCode): m_pImp(NULL), m_sVersion(sVersion), m_sProductCode(sProductCode)
 {
 }
 
 
-Writer::~Writer(void)
+CWriter::~CWriter(void)
 {
     close();
 }
 
-bool Writer::open( const std::wstring& sFileName, const std::wstring& sFormatType )
+bool CWriter::open( const std::wstring& sFileName, const std::wstring& sFormatType )
 {
     close();
-    m_pImp = (WriterImp*)WriterImp::GetFactory()->Create(sFormatType);
+    m_pImp = (CWriterImp*)CWriterImp::GetFactory()->Create(sFormatType);
     return m_pImp->open(sFileName, m_sProductCode, m_sVersion);
 }
 
-void Writer::close()
+void CWriter::close()
 {
     if (m_pImp)
     {
@@ -32,7 +32,7 @@ void Writer::close()
     }
 }
 
-EntityRef Writer::writeEntity( Entity* pEntity )
+EntityRef CWriter::writeEntity( CEntity* pEntity )
 {
     if (m_pImp)
     {

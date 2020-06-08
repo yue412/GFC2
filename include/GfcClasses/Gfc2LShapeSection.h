@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2LShapeSection: public Gfc2ParameterizedSection
 {
-GFCENGINE_DEC_OBJECT(Gfc2LShapeSection, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2LShapeSection, gfc::engine::CEntity)
 public:
     Gfc2LShapeSection();
     Gfc2LShapeSection(bool bSetSchema);

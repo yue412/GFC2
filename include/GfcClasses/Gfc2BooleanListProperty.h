@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2BooleanListProperty: public Gfc2ListProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2BooleanListProperty, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2BooleanListProperty, gfc::engine::CEntity)
 public:
     Gfc2BooleanListProperty();
     Gfc2BooleanListProperty(bool bSetSchema);

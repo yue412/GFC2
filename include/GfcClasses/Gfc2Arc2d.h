@@ -10,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2Arc2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2Arc2d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Arc2d, gfc::engine::CEntity)
 public:
     Gfc2Arc2d();
     Gfc2Arc2d(bool bSetSchema);

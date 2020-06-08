@@ -10,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2ExtrudedBody: public Gfc2PrimitiveBody
 {
-GFCENGINE_DEC_OBJECT(Gfc2ExtrudedBody, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ExtrudedBody, gfc::engine::CEntity)
 public:
     Gfc2ExtrudedBody();
     Gfc2ExtrudedBody(bool bSetSchema);

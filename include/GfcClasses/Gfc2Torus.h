@@ -11,7 +11,7 @@
 
 class GFCCLASSES_API Gfc2Torus: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Torus, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Torus, gfc::engine::CEntity)
 public:
     Gfc2Torus();
     Gfc2Torus(bool bSetSchema);

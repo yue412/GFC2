@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2PolyhedralLoop: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2PolyhedralLoop, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PolyhedralLoop, gfc::engine::CEntity)
 public:
     Gfc2PolyhedralLoop();
     Gfc2PolyhedralLoop(bool bSetSchema);

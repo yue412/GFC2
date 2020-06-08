@@ -12,12 +12,12 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-GFCENGINE_IMP_FACTORY(ReaderImp, 0)
+GFCENGINE_IMP_FACTORY(CReaderImp, 0)
 
-class ReaderIterator : public Iterator<EntityPtr>
+class ReaderIterator : public CIterator<EntityPtr>
 {
 public:
-    ReaderIterator(ReaderImp* pReader, std::shared_ptr<Iterator<EntityInfo>> pIterator): m_pReader(pReader), m_pIterator(pIterator) {}
+    ReaderIterator(CReaderImp* pReader, std::shared_ptr<CIterator<EntityInfo>> pIterator): m_pReader(pReader), m_pIterator(pIterator) {}
     virtual void first() { m_pIterator->first(); }
     virtual void next() { m_pIterator->next(); }
     virtual bool isDone() { return m_pIterator->isDone(); }
@@ -25,23 +25,23 @@ public:
         return m_pReader->getEntity(m_pIterator->current().id);
     }
 private:
-    std::shared_ptr<Iterator<EntityInfo>> m_pIterator;
-    ReaderImp* m_pReader;
+    std::shared_ptr<CIterator<EntityInfo>> m_pIterator;
+    CReaderImp* m_pReader;
 };
 
-ReaderImp::ReaderImp() : m_pFileMap(nullptr), m_pModel(nullptr), m_pContainer(nullptr), m_pFileModel(nullptr), m_pUpgrader(nullptr)
+CReaderImp::CReaderImp() : m_pFileMap(nullptr), m_pModel(nullptr), m_pContainer(nullptr), m_pFileModel(nullptr), m_pUpgrader(nullptr)
 {
 }
 
 
-ReaderImp::~ReaderImp(void)
+CReaderImp::~CReaderImp(void)
 {
     delete m_pFileModel;
 }
 
-bool ReaderImp::open(const std::wstring & sFileName)
+bool CReaderImp::open(const std::wstring & sFileName)
 {
-    m_pFileMap = new FileMap(sFileName);
+    m_pFileMap = new CFileMap(sFileName);
     if (m_pFileMap->init())
     {
         auto sFileVer = readFileVersion();
@@ -51,7 +51,7 @@ bool ReaderImp::open(const std::wstring & sFileName)
             if (!openFileModel(sFileVer))
                 return false;
             delete m_pUpgrader; m_pUpgrader = nullptr;
-            m_pUpgrader = new Upgrader;
+            m_pUpgrader = new CUpgrader;
             m_pUpgrader->init(m_pModel, m_pFileModel);
         }
         buildIndex();
@@ -60,7 +60,7 @@ bool ReaderImp::open(const std::wstring & sFileName)
     return false;
 }
 
-void ReaderImp::close()
+void CReaderImp::close()
 {
     delete m_pFileMap;
     m_pFileMap = nullptr;
@@ -68,7 +68,7 @@ void ReaderImp::close()
     m_pContainer = nullptr;
 }
 
-void ReaderImp::read(Document * pDoc)
+void CReaderImp::read(CDocument * pDoc)
 {
     if (m_pFileMap == nullptr)
     {
@@ -85,7 +85,7 @@ void ReaderImp::read(Document * pDoc)
         {
             if (needUpdate())
             {
-                Entity* pOldEntity = pEntity;
+                CEntity* pOldEntity = pEntity;
                 pEntity = m_pUpgrader->update(pEntity);
                 delete pOldEntity;
             }
@@ -108,7 +108,7 @@ void ReaderImp::read(Document * pDoc)
     }
 }
 
-EntityPtr ReaderImp::getEntity(EntityRef nId)
+EntityPtr CReaderImp::getEntity(EntityRef nId)
 {
     if (m_pContainer)
     {
@@ -134,7 +134,7 @@ EntityPtr ReaderImp::getEntity(EntityRef nId)
     }
 }
 
-EntityIteratorPtr ReaderImp::getEntities(const std::wstring & sType, bool bIncludeSubType)
+EntityIteratorPtr CReaderImp::getEntities(const std::wstring & sType, bool bIncludeSubType)
 {
     if (m_pContainer)
         return EntityIteratorPtr(new ReaderIterator(this, m_pContainer->getItems(sType, bIncludeSubType)));
@@ -142,7 +142,7 @@ EntityIteratorPtr ReaderImp::getEntities(const std::wstring & sType, bool bInclu
         return nullptr;
 }
 
-EntityIteratorPtr ReaderImp::getIterator()
+EntityIteratorPtr CReaderImp::getIterator()
 {
     if (m_pContainer)
         return EntityIteratorPtr(new ReaderIterator(this, m_pContainer->iterator()));
@@ -150,33 +150,33 @@ EntityIteratorPtr ReaderImp::getIterator()
         return nullptr;
 }
 
-void ReaderImp::addInfo(const EntityInfo & oInfo)
+void CReaderImp::addInfo(const EntityInfo & oInfo)
 {
     if (m_pContainer)
         m_pContainer->add(oInfo.id, oInfo);
 }
 
-bool ReaderImp::openFileModel(const std::wstring & sFileVer)
+bool CReaderImp::openFileModel(const std::wstring & sFileVer)
 {
     delete m_pFileModel; m_pFileModel = nullptr;
     auto sFileName = getFullPath(m_sSchemaPath + L"\\" + sFileVer + L".exp");
     if (!fileExists(sFileName))
         return false;
     m_pFileModel = new gfc::schema::CModel();
-    return GfcEngineUtils::loadSchema(sFileName, m_pFileModel);
+    return CEngineUtils::loadSchema(sFileName, m_pFileModel);
 }
 
-bool ReaderImp::needUpdate()
+bool CReaderImp::needUpdate()
 {
     return m_pUpgrader != nullptr;
 }
 
-void ReaderImp::buildIndex()
+void CReaderImp::buildIndex()
 {
     //std::map<std::string, std::vector<EntityRef>*> o;
     //auto a = o.begin();
     //a->second->empty()
-    m_pContainer = new ContainerImp<EntityInfo>(schema());
+    m_pContainer = new CContainerImp<EntityInfo>(schema());
     EntityInfo oInfo;
     m_pFileMap->setPos(0);
     while (getIndex(oInfo))
@@ -186,12 +186,12 @@ void ReaderImp::buildIndex()
     //sort();
 }
 
-void ReaderImp::log(const std::wstring & sError)
+void CReaderImp::log(const std::wstring & sError)
 {
     m_oErrors.push_back(sError);
 }
 
-gfc::schema::CModel * ReaderImp::schema()
+gfc::schema::CModel * CReaderImp::schema()
 {
     return m_pUpgrader ? m_pFileModel : m_pModel;
 }

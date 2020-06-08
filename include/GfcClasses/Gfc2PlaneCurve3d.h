@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2PlaneCurve3d: public Gfc2Curve3d
 {
-GFCENGINE_DEC_OBJECT(Gfc2PlaneCurve3d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PlaneCurve3d, gfc::engine::CEntity)
 public:
     Gfc2PlaneCurve3d();
     Gfc2PlaneCurve3d(bool bSetSchema);

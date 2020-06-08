@@ -3,11 +3,11 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-FileMap::FileMap(const std::wstring& sFileName): m_hFile(0), m_hFileMapping(0), m_pbFile(0), m_dwFileSize(0), m_sFileName(sFileName), m_nPos(0)
+CFileMap::CFileMap(const std::wstring& sFileName): m_hFile(0), m_hFileMapping(0), m_pbFile(0), m_dwFileSize(0), m_sFileName(sFileName), m_nPos(0)
 {
 }
 
-bool FileMap::init()
+bool CFileMap::init()
 {
     m_hFile = ::CreateFile(m_sFileName.c_str(),
         GENERIC_READ,
@@ -50,7 +50,7 @@ bool FileMap::init()
     return true;
 }
 
-std::string FileMap::getLine(__int64 nStart, __int64 * pEnd)
+std::string CFileMap::getLine(__int64 nStart, __int64 * pEnd)
 {
     __int64 i = nStart;
     while (i < size())
@@ -69,7 +69,7 @@ std::string FileMap::getLine(__int64 nStart, __int64 * pEnd)
     return std::string((char*)(ptr() + nStart), i - nStart);
 }
 
-__int64 FileMap::getLineEnd(__int64 nStart)
+__int64 CFileMap::getLineEnd(__int64 nStart)
 {
     __int64 i = nStart;
     while (i < size())
@@ -83,7 +83,7 @@ __int64 FileMap::getLineEnd(__int64 nStart)
     return i;
 }
 
-__int64 FileMap::getLineCount()
+__int64 CFileMap::getLineCount()
 {
     __int64 nCount = 0;
     __int64 i = 0;
@@ -104,12 +104,12 @@ __int64 FileMap::getLineCount()
     return nCount;
 }
 
-void FileMap::setPos(__int64 nPos)
+void CFileMap::setPos(__int64 nPos)
 {
     m_nPos = nPos;
 }
 
-std::string FileMap::getLine()
+std::string CFileMap::getLine()
 {
     __int64 nEnd;
     auto str = getLine(m_nPos, &nEnd);
@@ -117,13 +117,13 @@ std::string FileMap::getLine()
     return str;
 }
 
-bool FileMap::eof()
+bool CFileMap::eof()
 {
     return m_nPos >= m_dwFileSize;
 }
 
 
-FileMap::~FileMap()
+CFileMap::~CFileMap()
 {
     if (m_pbFile)
     {

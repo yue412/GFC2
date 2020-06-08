@@ -4,7 +4,7 @@
 #include "GfcEngine\Reader.h"
 #include "GfcClasses.h"
 
-class GFCCLASSES_API GfcReader: public gfc::engine::Reader
+class GFCCLASSES_API GfcReader: public gfc::engine::CReader
 {
 public:
     GfcReader();

@@ -10,14 +10,14 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-class GFCENGINE_API Object
+class GFCENGINE_API CObject
 {
 public:
-    Object(){};
-    virtual ~Object(){};
+    CObject(){};
+    virtual ~CObject(){};
 };
 
-typedef Object* (*CREATETHIS)();
+typedef CObject* (*CREATETHIS)();
 
 GFCENGINE_NAMESPACE_END
 

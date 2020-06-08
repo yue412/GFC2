@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2RelConnectsPathElements: public Gfc2RelConnectsElements
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelConnectsPathElements, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelConnectsPathElements, gfc::engine::CEntity)
 public:
     Gfc2RelConnectsPathElements();
     Gfc2RelConnectsPathElements(bool bSetSchema);

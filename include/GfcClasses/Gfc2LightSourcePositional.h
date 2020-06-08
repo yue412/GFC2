@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2LightSourcePositional: public Gfc2LightSource
 {
-GFCENGINE_DEC_OBJECT(Gfc2LightSourcePositional, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2LightSourcePositional, gfc::engine::CEntity)
 public:
     Gfc2LightSourcePositional();
     Gfc2LightSourcePositional(bool bSetSchema);

@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2CuboidBody: public Gfc2PrimitiveBody
 {
-GFCENGINE_DEC_OBJECT(Gfc2CuboidBody, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CuboidBody, gfc::engine::CEntity)
 public:
     Gfc2CuboidBody();
     Gfc2CuboidBody(bool bSetSchema);

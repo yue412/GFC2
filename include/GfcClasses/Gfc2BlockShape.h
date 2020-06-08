@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2BlockShape: public Gfc2PrimitiveShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2BlockShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2BlockShape, gfc::engine::CEntity)
 public:
     Gfc2BlockShape();
     Gfc2BlockShape(bool bSetSchema);

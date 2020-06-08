@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2LightSource: public Gfc2RepresentationItem
 {
-GFCENGINE_DEC_OBJECT(Gfc2LightSource, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2LightSource, gfc::engine::CEntity)
 public:
     Gfc2LightSource();
     Gfc2LightSource(bool bSetSchema);

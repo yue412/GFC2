@@ -11,7 +11,7 @@
 
 class GFCCLASSES_API Gfc2PreimageCurve2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2PreimageCurve2d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PreimageCurve2d, gfc::engine::CEntity)
 public:
     Gfc2PreimageCurve2d();
     Gfc2PreimageCurve2d(bool bSetSchema);

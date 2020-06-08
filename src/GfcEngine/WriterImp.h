@@ -9,16 +9,16 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-class WriterImp: public Object
+class CWriterImp: public CObject
 {
-    GFCENGINE_DEC_FACTORY(WriterImp, 0, std::wstring)
+    GFCENGINE_DEC_FACTORY(CWriterImp, 0, std::wstring)
 public:
-    WriterImp(void);
-    virtual ~WriterImp(void);
+    CWriterImp(void);
+    virtual ~CWriterImp(void);
 
     virtual bool open(const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion) = 0;
     virtual void close() = 0;
-    virtual EntityRef writeEntity(Entity* pEntity) = 0; 
+    virtual EntityRef writeEntity(CEntity* pEntity) = 0; 
 protected:
     EntityRef m_nCount;
 };

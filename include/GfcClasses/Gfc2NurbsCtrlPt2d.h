@@ -6,9 +6,9 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2NurbsCtrlPt2d: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2NurbsCtrlPt2d: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2NurbsCtrlPt2d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2NurbsCtrlPt2d, gfc::engine::CEntity)
 public:
     Gfc2NurbsCtrlPt2d();
     Gfc2NurbsCtrlPt2d(bool bSetSchema);

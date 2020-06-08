@@ -18,14 +18,14 @@
 #define GFCENGINE_DEC_FACTORY(className,factoryType,classKeyType) \
 public: \
     typedef classKeyType RegKeyType;\
-	typedef ObjectFactory<RegKeyType> ObjectFactory;\
-    class RegClearHelper \
+	typedef CObjectFactory<RegKeyType> CObjectFactory;\
+    class CRegClearHelper \
     {\
     public:\
-        RegClearHelper()\
+        CRegClearHelper()\
         {\
         }\
-        virtual ~RegClearHelper()\
+        virtual ~CRegClearHelper()\
         {\
             if(className::s_pClassFactory != NULL)\
             {\
@@ -35,36 +35,36 @@ public: \
         }\
      };\
 protected:\
-    static ObjectFactory* s_pClassFactory;\
-    static RegClearHelper m_autoRegClear;\
+    static CObjectFactory* s_pClassFactory;\
+    static CRegClearHelper m_autoRegClear;\
 public:\
-    static ObjectFactory* GetFactory()\
+    static CObjectFactory* GetFactory()\
     {\
         if(s_pClassFactory == NULL)\
         {\
-            s_pClassFactory = new ObjectFactory(factoryType);\
+            s_pClassFactory = new CObjectFactory(factoryType);\
         }\
         return s_pClassFactory;\
     }
 
 #define GFCENGINE_IMP_FACTORY(className,factoryType) \
-className::ObjectFactory* className::s_pClassFactory = NULL;\
-className::RegClearHelper className::m_autoRegClear;
+className::CObjectFactory* className::s_pClassFactory = NULL;\
+className::CRegClearHelper className::m_autoRegClear;
 
 
 #define GFCENGINE_DEC_OBJECT(className,factoryClassName) \
 public:\
     typedef className thisClass;\
     typedef factoryClassName baseClassName;\
-    typedef gfc::engine::RegItem<baseClassName::RegKeyType> ClassRegItem; \
-    typedef gfc::engine::RegHelper<baseClassName::RegKeyType> ClassRegHelper; \
+    typedef gfc::engine::CRegItem<baseClassName::RegKeyType> ClassRegItem; \
+    typedef gfc::engine::CRegHelper<baseClassName::RegKeyType> ClassRegHelper; \
 public:\
     static ClassRegHelper s_##className##RegHelper; \
-    static gfc::engine::Object* CreateInstance()\
+    static gfc::engine::CObject* CreateInstance()\
     { \
-        return dynamic_cast<gfc::engine::Object*> (new className); \
+        return dynamic_cast<gfc::engine::CObject*> (new className); \
     }\
-    static baseClassName::ObjectFactory* GetFactory() \
+    static baseClassName::CObjectFactory* GetFactory() \
     {\
         return baseClassName::GetFactory();\
     }

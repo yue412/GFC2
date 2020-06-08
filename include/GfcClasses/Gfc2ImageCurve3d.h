@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2ImageCurve3d: public Gfc2Curve3d
 {
-GFCENGINE_DEC_OBJECT(Gfc2ImageCurve3d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ImageCurve3d, gfc::engine::CEntity)
 public:
     Gfc2ImageCurve3d();
     Gfc2ImageCurve3d(bool bSetSchema);

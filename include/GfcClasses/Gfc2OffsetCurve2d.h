@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2OffsetCurve2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2OffsetCurve2d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2OffsetCurve2d, gfc::engine::CEntity)
 public:
     Gfc2OffsetCurve2d();
     Gfc2OffsetCurve2d(bool bSetSchema);

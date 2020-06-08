@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2Body: public Gfc2Geometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2Body, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Body, gfc::engine::CEntity)
 public:
     Gfc2Body();
     Gfc2Body(bool bSetSchema);

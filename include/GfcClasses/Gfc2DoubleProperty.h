@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2DoubleProperty: public Gfc2SingleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2DoubleProperty, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2DoubleProperty, gfc::engine::CEntity)
 public:
     Gfc2DoubleProperty();
     Gfc2DoubleProperty(bool bSetSchema);

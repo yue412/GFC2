@@ -6,9 +6,9 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2InternalChart: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2InternalChart: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2InternalChart, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2InternalChart, gfc::engine::CEntity)
 public:
     Gfc2InternalChart();
     Gfc2InternalChart(bool bSetSchema);

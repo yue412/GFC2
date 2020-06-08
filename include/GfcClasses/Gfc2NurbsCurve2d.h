@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2NurbsCurve2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2NurbsCurve2d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2NurbsCurve2d, gfc::engine::CEntity)
 public:
     Gfc2NurbsCurve2d();
     Gfc2NurbsCurve2d(bool bSetSchema);

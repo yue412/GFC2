@@ -8,7 +8,7 @@
 GFCENGINE_NAMESPACE_BEGIN
 
 class EntityIterator;
-typedef std::shared_ptr<Iterator<EntityPtr>> EntityIteratorPtr;
+typedef std::shared_ptr<CIterator<EntityPtr>> EntityIteratorPtr;
 
 class GFCENGINE_API IContainer
 {

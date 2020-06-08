@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2PrimitiveRenderable: public Gfc2RepresentationItem
 {
-GFCENGINE_DEC_OBJECT(Gfc2PrimitiveRenderable, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PrimitiveRenderable, gfc::engine::CEntity)
 public:
     Gfc2PrimitiveRenderable();
     Gfc2PrimitiveRenderable(bool bSetSchema);

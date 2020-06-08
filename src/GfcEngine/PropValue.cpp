@@ -3,87 +3,87 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-PropValue::PropValue()
+CPropValue::CPropValue()
 {
 }
 
 
-PropValue::~PropValue()
+CPropValue::~CPropValue()
 {
 }
 
-std::string PropValue::asString() const
-{
-    throw ETypeMatchError();
-}
-
-int PropValue::asInteger() const
+std::string CPropValue::asString() const
 {
     throw ETypeMatchError();
 }
 
-double PropValue::asDouble() const
+int CPropValue::asInteger() const
 {
     throw ETypeMatchError();
 }
 
-bool PropValue::asBoolean() const
+double CPropValue::asDouble() const
 {
     throw ETypeMatchError();
 }
 
-EntityRef PropValue::asEntityRef() const
+bool CPropValue::asBoolean() const
 {
     throw ETypeMatchError();
 }
 
-void PropValue::setAsString(const std::string& sValue)
+EntityRef CPropValue::asEntityRef() const
 {
     throw ETypeMatchError();
 }
 
-void PropValue::setAsInteger(const int& nValue)
+void CPropValue::setAsString(const std::string& sValue)
 {
     throw ETypeMatchError();
 }
 
-void PropValue::setAsDouble(const double& dValue)
+void CPropValue::setAsInteger(const int& nValue)
 {
     throw ETypeMatchError();
 }
 
-void PropValue::setAsBoolean(const bool& bValue)
+void CPropValue::setAsDouble(const double& dValue)
 {
     throw ETypeMatchError();
 }
 
-void PropValue::setAsEntityRef(const EntityRef& nValue)
+void CPropValue::setAsBoolean(const bool& bValue)
 {
     throw ETypeMatchError();
 }
 
-CompositePropValue::CompositePropValue()
+void CPropValue::setAsEntityRef(const EntityRef& nValue)
+{
+    throw ETypeMatchError();
+}
+
+CCompositePropValue::CCompositePropValue()
 {
 }
 
-CompositePropValue::~CompositePropValue()
+CCompositePropValue::~CCompositePropValue()
 {
     clear();
 }
 
-void CompositePropValue::add(PropValue* pValue)
+void CCompositePropValue::add(CPropValue* pValue)
 {
     m_oList.push_back(pValue);
 }
 
-void CompositePropValue::setItems(int nIndex, PropValue* pValue)
+void CCompositePropValue::setItems(int nIndex, CPropValue* pValue)
 {
     auto pOldValue = getItems(nIndex);
     delete pOldValue;
     m_oList[nIndex] = pValue;
 }
 
-void CompositePropValue::clear()
+void CCompositePropValue::clear()
 {
     for each (auto pValue in m_oList)
     {
@@ -92,111 +92,111 @@ void CompositePropValue::clear()
     m_oList.clear();
 }
 
-int BooleanValue::asInteger() const
+int CBooleanValue::asInteger() const
 {
     return asBoolean();
 }
 
-double BooleanValue::asDouble() const
+double CBooleanValue::asDouble() const
 {
     return asInteger();
 }
 
-bool BooleanValue::asBoolean() const
+bool CBooleanValue::asBoolean() const
 {
     return m_bValue;
 }
 
-void BooleanValue::setAsInteger(const int & nValue)
+void CBooleanValue::setAsInteger(const int & nValue)
 {
     setAsBoolean(nValue != 0);
 }
 
-void BooleanValue::setAsBoolean(const bool & bValue)
+void CBooleanValue::setAsBoolean(const bool & bValue)
 {
     m_bValue = bValue;
     setIsNull(false);
 }
 
-int IntegerValue::asInteger() const
+int CIntegerValue::asInteger() const
 {
     return m_nValue;
 }
 
-double IntegerValue::asDouble() const
+double CIntegerValue::asDouble() const
 {
     return asInteger();
 }
 
-bool IntegerValue::asBoolean() const
+bool CIntegerValue::asBoolean() const
 {
     return asInteger() != 0;
 }
 
-void IntegerValue::setAsInteger(const int & nValue)
+void CIntegerValue::setAsInteger(const int & nValue)
 {
     m_nValue = nValue;
     setIsNull(false);
 }
 
-void IntegerValue::setAsBoolean(const bool & bValue)
+void CIntegerValue::setAsBoolean(const bool & bValue)
 {
     setAsInteger(bValue);
 }
 
-double DoubleValue::asDouble() const
+double CDoubleValue::asDouble() const
 {
     return m_dValue;
 }
 
-void DoubleValue::setAsInteger(const int & nValue)
+void CDoubleValue::setAsInteger(const int & nValue)
 {
     setAsDouble(nValue);
 }
 
-void DoubleValue::setAsDouble(const double & dValue)
+void CDoubleValue::setAsDouble(const double & dValue)
 {
     m_dValue = dValue;
     setIsNull(false);
 }
 
-void DoubleValue::setAsBoolean(const bool & bValue)
+void CDoubleValue::setAsBoolean(const bool & bValue)
 {
     setAsDouble(bValue);
 }
 
-std::string StringValue::asString() const
+std::string CStringValue::asString() const
 {
     return m_sValue;
 }
 
-void StringValue::setAsString(const std::string & sValue)
+void CStringValue::setAsString(const std::string & sValue)
 {
     m_sValue = sValue;
     setIsNull(false);
 }
 
-void StringValue::setAsInteger(const int & nValue)
+void CStringValue::setAsInteger(const int & nValue)
 {
     setAsString(std::to_string(nValue));
 }
 
-void StringValue::setAsDouble(const double & dValue)
+void CStringValue::setAsDouble(const double & dValue)
 {
     setAsString(std::to_string(dValue));
 }
 
-void StringValue::setAsBoolean(const bool & bValue)
+void CStringValue::setAsBoolean(const bool & bValue)
 {
     setAsString(std::to_string(bValue));
 }
 
-EntityRef EntityRefValue::asEntityRef() const
+EntityRef CEntityRefValue::asEntityRef() const
 {
     return m_nValue;
 }
 
-void EntityRefValue::setAsEntityRef(const EntityRef & nValue)
+void CEntityRefValue::setAsEntityRef(const EntityRef & nValue)
 {
     m_nValue = nValue;
     setIsNull(false);

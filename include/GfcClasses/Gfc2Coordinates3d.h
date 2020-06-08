@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2Coordinates3d: public Gfc2Geometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2Coordinates3d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Coordinates3d, gfc::engine::CEntity)
 public:
     Gfc2Coordinates3d();
     Gfc2Coordinates3d(bool bSetSchema);

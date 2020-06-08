@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2Line3d: public Gfc2Curve3d
 {
-GFCENGINE_DEC_OBJECT(Gfc2Line3d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Line3d, gfc::engine::CEntity)
 public:
     Gfc2Line3d();
     Gfc2Line3d(bool bSetSchema);

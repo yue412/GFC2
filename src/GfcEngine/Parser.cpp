@@ -72,7 +72,7 @@ void Parser::ExpFile() {
 			if (la->kind == 6 /* "TYPE" */) {
 				TypedefOrEnum();
 			} else {
-				Entity();
+				CEntity();
 			}
 			Expect(4 /* ";" */);
 		}
@@ -112,7 +112,7 @@ void Parser::TypedefOrEnum() {
 		Expect(12 /* "END_TYPE" */);
 }
 
-void Parser::Entity() {
+void Parser::CEntity() {
 		Expect(14 /* "ENTITY" */);
 		Expect(_ident);
 		auto pClass = getClass(t->val);

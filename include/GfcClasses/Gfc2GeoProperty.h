@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2GeoProperty: public Gfc2SingleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2GeoProperty, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2GeoProperty, gfc::engine::CEntity)
 public:
     Gfc2GeoProperty();
     Gfc2GeoProperty(bool bSetSchema);

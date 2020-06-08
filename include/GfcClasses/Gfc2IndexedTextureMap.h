@@ -8,9 +8,9 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2IndexedTextureMap: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2IndexedTextureMap: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2IndexedTextureMap, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2IndexedTextureMap, gfc::engine::CEntity)
 public:
     Gfc2IndexedTextureMap();
     Gfc2IndexedTextureMap(bool bSetSchema);

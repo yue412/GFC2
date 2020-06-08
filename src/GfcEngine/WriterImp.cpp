@@ -2,14 +2,14 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-GFCENGINE_IMP_FACTORY(WriterImp, 0)
+GFCENGINE_IMP_FACTORY(CWriterImp, 0)
 
-WriterImp::WriterImp(void): m_nCount(0)
+CWriterImp::CWriterImp(void): m_nCount(0)
 {
 }
 
 
-WriterImp::~WriterImp(void)
+CWriterImp::~CWriterImp(void)
 {
 }
 

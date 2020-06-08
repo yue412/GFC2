@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2Intervald: public Gfc2Geometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2Intervald, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Intervald, gfc::engine::CEntity)
 public:
     Gfc2Intervald();
     Gfc2Intervald(bool bSetSchema);

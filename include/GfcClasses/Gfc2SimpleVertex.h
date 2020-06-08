@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2SimpleVertex: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2SimpleVertex, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SimpleVertex, gfc::engine::CEntity)
 public:
     Gfc2SimpleVertex();
     Gfc2SimpleVertex(bool bSetSchema);

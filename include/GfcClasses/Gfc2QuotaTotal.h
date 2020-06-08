@@ -5,9 +5,9 @@
 #include "Gfc2String.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2QuotaTotal: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2QuotaTotal: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2QuotaTotal, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2QuotaTotal, gfc::engine::CEntity)
 public:
     Gfc2QuotaTotal();
     Gfc2QuotaTotal(bool bSetSchema);

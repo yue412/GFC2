@@ -7,9 +7,9 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2InternalPt: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2InternalPt: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2InternalPt, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2InternalPt, gfc::engine::CEntity)
 public:
     Gfc2InternalPt();
     Gfc2InternalPt(bool bSetSchema);

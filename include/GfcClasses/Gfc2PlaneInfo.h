@@ -5,9 +5,9 @@
 #include "Gfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2PlaneInfo: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2PlaneInfo: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2PlaneInfo, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PlaneInfo, gfc::engine::CEntity)
 public:
     Gfc2PlaneInfo();
     Gfc2PlaneInfo(bool bSetSchema);

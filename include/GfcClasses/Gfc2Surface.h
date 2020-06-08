@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2Surface: public Gfc2Geometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2Surface, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Surface, gfc::engine::CEntity)
 public:
     Gfc2Surface();
     Gfc2Surface(bool bSetSchema);

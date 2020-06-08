@@ -6,9 +6,9 @@
 #include "Gfc2Box3d.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2Shape: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2Shape: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2Shape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Shape, gfc::engine::CEntity)
 public:
     Gfc2Shape();
     Gfc2Shape(bool bSetSchema);

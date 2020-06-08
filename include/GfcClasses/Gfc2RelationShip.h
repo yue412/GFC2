@@ -5,9 +5,9 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2RelationShip: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2RelationShip: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelationShip, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelationShip, gfc::engine::CEntity)
 public:
     Gfc2RelationShip();
     Gfc2RelationShip(bool bSetSchema);

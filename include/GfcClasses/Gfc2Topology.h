@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2Topology: public Gfc2Geometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2Topology, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Topology, gfc::engine::CEntity)
 public:
     Gfc2Topology();
     Gfc2Topology(bool bSetSchema);

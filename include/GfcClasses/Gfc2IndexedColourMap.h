@@ -7,9 +7,9 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2IndexedColourMap: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2IndexedColourMap: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2IndexedColourMap, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2IndexedColourMap, gfc::engine::CEntity)
 public:
     Gfc2IndexedColourMap();
     Gfc2IndexedColourMap(bool bSetSchema);

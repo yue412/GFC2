@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2Box3d: public Gfc2Geometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2Box3d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Box3d, gfc::engine::CEntity)
 public:
     Gfc2Box3d();
     Gfc2Box3d(bool bSetSchema);

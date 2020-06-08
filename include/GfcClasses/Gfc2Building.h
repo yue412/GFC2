@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2Building: public Gfc2SpatialStructureElement
 {
-GFCENGINE_DEC_OBJECT(Gfc2Building, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Building, gfc::engine::CEntity)
 public:
     Gfc2Building();
     Gfc2Building(bool bSetSchema);

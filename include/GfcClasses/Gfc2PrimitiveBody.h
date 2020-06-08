@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2PrimitiveBody: public Gfc2Body
 {
-GFCENGINE_DEC_OBJECT(Gfc2PrimitiveBody, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PrimitiveBody, gfc::engine::CEntity)
 public:
     Gfc2PrimitiveBody();
     Gfc2PrimitiveBody(bool bSetSchema);

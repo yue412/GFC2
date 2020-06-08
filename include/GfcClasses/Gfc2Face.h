@@ -10,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2Face: public Gfc2CommonPolygonEx
 {
-GFCENGINE_DEC_OBJECT(Gfc2Face, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Face, gfc::engine::CEntity)
 public:
     Gfc2Face();
     Gfc2Face(bool bSetSchema);

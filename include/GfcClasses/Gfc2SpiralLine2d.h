@@ -10,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2SpiralLine2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2SpiralLine2d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SpiralLine2d, gfc::engine::CEntity)
 public:
     Gfc2SpiralLine2d();
     Gfc2SpiralLine2d(bool bSetSchema);

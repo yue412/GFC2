@@ -5,24 +5,24 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Reader::Reader(gfc::schema::CModel* pModel): m_pImp(nullptr), m_pModel(pModel)
+CReader::CReader(gfc::schema::CModel* pModel): m_pImp(nullptr), m_pModel(pModel)
 {
 }
 
 
-Reader::~Reader(void)
+CReader::~CReader(void)
 {
 }
 
-bool Reader::open(const std::wstring & sFileName)
+bool CReader::open(const std::wstring & sFileName)
 {
     close();
-    for (auto itr = ReaderImp::GetFactory()->begin(); itr != ReaderImp::GetFactory()->end(); ++itr)
+    for (auto itr = CReaderImp::GetFactory()->begin(); itr != CReaderImp::GetFactory()->end(); ++itr)
     {
         auto pRegObjInfo = itr->second;
         if (pRegObjInfo->GetFunPtr() != NULL)
         {
-            auto pImp = dynamic_cast<ReaderImp*> (pRegObjInfo->GetFunPtr()());
+            auto pImp = dynamic_cast<CReaderImp*> (pRegObjInfo->GetFunPtr()());
             if (pImp->preRead(sFileName))
             {
                 m_pImp = pImp;
@@ -38,7 +38,7 @@ bool Reader::open(const std::wstring & sFileName)
     return false;
 }
 
-void Reader::close()
+void CReader::close()
 {
     if (m_pImp)
     {
@@ -48,7 +48,7 @@ void Reader::close()
     }
 }
 
-void Reader::read(Document* pDoc)
+void CReader::read(CDocument* pDoc)
 {
     //gfc::engine::Entity::setDocument(pDoc);
     //m_pSerializerManager = SerializerManager::getInstance();
@@ -68,7 +68,7 @@ void Reader::read(Document* pDoc)
     }
 }
 
-EntityPtr Reader::getEntity(EntityRef nId)
+EntityPtr CReader::getEntity(EntityRef nId)
 {
     if (m_pImp)
     {
@@ -77,7 +77,7 @@ EntityPtr Reader::getEntity(EntityRef nId)
     return nullptr;
 }
 
-EntityIteratorPtr Reader::getEntities(const std::wstring & sType, bool bIncludeSubType)
+EntityIteratorPtr CReader::getEntities(const std::wstring & sType, bool bIncludeSubType)
 {
     if (m_pImp)
     {

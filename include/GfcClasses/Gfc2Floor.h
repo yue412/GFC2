@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2Floor: public Gfc2SpatialStructureElement
 {
-GFCENGINE_DEC_OBJECT(Gfc2Floor, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Floor, gfc::engine::CEntity)
 public:
     Gfc2Floor();
     Gfc2Floor(bool bSetSchema);

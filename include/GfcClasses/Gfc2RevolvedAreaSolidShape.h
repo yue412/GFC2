@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2RevolvedAreaSolidShape: public Gfc2SweptAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2RevolvedAreaSolidShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RevolvedAreaSolidShape, gfc::engine::CEntity)
 public:
     Gfc2RevolvedAreaSolidShape();
     Gfc2RevolvedAreaSolidShape(bool bSetSchema);

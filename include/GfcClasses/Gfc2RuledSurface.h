@@ -10,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2RuledSurface: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2RuledSurface, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RuledSurface, gfc::engine::CEntity)
 public:
     Gfc2RuledSurface();
     Gfc2RuledSurface(bool bSetSchema);

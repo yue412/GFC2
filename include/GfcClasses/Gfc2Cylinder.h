@@ -10,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2Cylinder: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Cylinder, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Cylinder, gfc::engine::CEntity)
 public:
     Gfc2Cylinder();
     Gfc2Cylinder(bool bSetSchema);

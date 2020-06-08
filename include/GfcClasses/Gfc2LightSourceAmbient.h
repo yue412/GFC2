@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2LightSourceAmbient: public Gfc2LightSource
 {
-GFCENGINE_DEC_OBJECT(Gfc2LightSourceAmbient, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2LightSourceAmbient, gfc::engine::CEntity)
 public:
     Gfc2LightSourceAmbient();
     Gfc2LightSourceAmbient(bool bSetSchema);

@@ -7,11 +7,11 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-class FileMap
+class CFileMap
 {
 public:
-    FileMap(const std::wstring& sFileName);
-    ~FileMap();
+    CFileMap(const std::wstring& sFileName);
+    ~CFileMap();
     bool init();
     __int64 size() { return m_dwFileSize; }
     PBYTE ptr() { return m_pbFile; }

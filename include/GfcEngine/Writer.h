@@ -8,18 +8,18 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-class WriterImp;
+class CWriterImp;
 
-class GFCENGINE_API Writer
+class GFCENGINE_API CWriter
 {
 public:
-    Writer(const std::wstring& sVersion, const std::wstring& sProductCode = L"");
-    ~Writer(void);
+    CWriter(const std::wstring& sVersion, const std::wstring& sProductCode = L"");
+    ~CWriter(void);
     bool open(const std::wstring& sFileName, const std::wstring& sFormatType);
     void close();
-    EntityRef writeEntity(Entity* pEntity); 
+    EntityRef writeEntity(CEntity* pEntity); 
 private:
-    WriterImp* m_pImp;
+    CWriterImp* m_pImp;
     std::wstring m_sVersion;
     std::wstring m_sProductCode;
 };

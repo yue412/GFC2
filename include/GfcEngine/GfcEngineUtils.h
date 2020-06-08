@@ -12,14 +12,14 @@ namespace gfc {
 
 GFCENGINE_NAMESPACE_BEGIN
 
-class Entity;
+class CEntity;
 
-class GFCENGINE_API GfcEngineUtils
+class GFCENGINE_API CEngineUtils
 {
 public:
     static bool loadSchema(const std::wstring& sFileName, gfc::schema::CModel* pModel);
     static bool loadSchema(const char* buf, int len, gfc::schema::CModel* pModel);
-    static Entity* createEntity(gfc::schema::CModel* pModel, const std::wstring& sName);
+    static CEntity* createEntity(gfc::schema::CModel* pModel, const std::wstring& sName);
 };
 
 GFCENGINE_NAMESPACE_END

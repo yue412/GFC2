@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2ParametricShape: public Gfc2Shape
 {
-GFCENGINE_DEC_OBJECT(Gfc2ParametricShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ParametricShape, gfc::engine::CEntity)
 public:
     Gfc2ParametricShape();
     Gfc2ParametricShape(bool bSetSchema);

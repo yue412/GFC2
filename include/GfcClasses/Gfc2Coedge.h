@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2Coedge: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2Coedge, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Coedge, gfc::engine::CEntity)
 public:
     Gfc2Coedge();
     Gfc2Coedge(bool bSetSchema);

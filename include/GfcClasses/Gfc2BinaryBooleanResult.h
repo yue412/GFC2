@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2BinaryBooleanResult: public Gfc2BooleanResult
 {
-GFCENGINE_DEC_OBJECT(Gfc2BinaryBooleanResult, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2BinaryBooleanResult, gfc::engine::CEntity)
 public:
     Gfc2BinaryBooleanResult();
     Gfc2BinaryBooleanResult(bool bSetSchema);

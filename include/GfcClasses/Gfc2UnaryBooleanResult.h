@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2UnaryBooleanResult: public Gfc2BooleanResult
 {
-GFCENGINE_DEC_OBJECT(Gfc2UnaryBooleanResult, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2UnaryBooleanResult, gfc::engine::CEntity)
 public:
     Gfc2UnaryBooleanResult();
     Gfc2UnaryBooleanResult(bool bSetSchema);

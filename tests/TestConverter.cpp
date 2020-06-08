@@ -10,8 +10,8 @@ using namespace gfc::engine;
 TEST(TestConverter, ArrayToArrayConverter_Empty)
 {
     CArrayToArrayConverter oConverter;
-    CompositePropValue oFrom;
-    CompositePropValue oTo;
+    CCompositePropValue oFrom;
+    CCompositePropValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
 }
@@ -23,11 +23,11 @@ TEST(TestConverter, ArrayToArrayConverter)
     oConverter.setNext(oIntConverter.clone());
     CIntegerType oInteger;
     oConverter.init(&oInteger, &oInteger);
-    CompositePropValue oFrom;
-    CompositePropValue oTo;
-    oFrom.add(new IntegerValue(1));
-    oFrom.add(new IntegerValue(2));
-    oFrom.add(new IntegerValue(3));
+    CCompositePropValue oFrom;
+    CCompositePropValue oTo;
+    oFrom.add(new CIntegerValue(1));
+    oFrom.add(new CIntegerValue(2));
+    oFrom.add(new CIntegerValue(3));
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(3, oTo.getCount());
     EXPECT_EQ(1, oTo.getItems(0)->asInteger());
@@ -39,8 +39,8 @@ TEST(TestConverter, ArrayToArrayConverter)
 TEST(TestConverter, ArrayToOneConverter_Empty)
 {
     CArrayToOneConverter oConverter;
-    CompositePropValue oFrom;
-    IntegerValue oTo;
+    CCompositePropValue oFrom;
+    CIntegerValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
 }
@@ -52,11 +52,11 @@ TEST(TestConverter, ArrayToOneConverter)
     oConverter.setNext(oIntConverter.clone());
     CIntegerType oInteger;
     oConverter.init(&oInteger, &oInteger);
-    CompositePropValue oFrom;
-    IntegerValue oTo;
-    oFrom.add(new IntegerValue(111));
-    oFrom.add(new IntegerValue(2));
-    oFrom.add(new IntegerValue(3));
+    CCompositePropValue oFrom;
+    CIntegerValue oTo;
+    oFrom.add(new CIntegerValue(111));
+    oFrom.add(new CIntegerValue(2));
+    oFrom.add(new CIntegerValue(3));
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(111, oTo.asInteger());
     EXPECT_EQ(false, oTo.isNull());
@@ -65,8 +65,8 @@ TEST(TestConverter, ArrayToOneConverter)
 TEST(TestConverter, OneToArrayConverter_Empty)
 {
     COneToArrayConverter oConverter;
-    IntegerValue oFrom;
-    CompositePropValue oTo;
+    CIntegerValue oFrom;
+    CCompositePropValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
 }
@@ -79,8 +79,8 @@ TEST(TestConverter, OneToArrayConverter)
     CIntegerType oInteger;
     oConverter.init(&oInteger, &oInteger);
 
-    IntegerValue oFrom;
-    CompositePropValue oTo;
+    CIntegerValue oFrom;
+    CCompositePropValue oTo;
     oFrom.setAsInteger(1234);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(1, oTo.getCount());
@@ -91,8 +91,8 @@ TEST(TestConverter, OneToArrayConverter)
 TEST(TestConverter, OptionalConverter_Empty)
 {
     COptionalConverter oConverter;
-    IntegerValue oFrom;
-    IntegerValue oTo;
+    CIntegerValue oFrom;
+    CIntegerValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
 }
@@ -105,8 +105,8 @@ TEST(TestConverter, OptionalConverter)
     CIntegerType oInteger;
     oConverter.init(&oInteger, &oInteger);
 
-    IntegerValue oFrom;
-    IntegerValue oTo;
+    CIntegerValue oFrom;
+    CIntegerValue oTo;
     oFrom.setAsInteger(1234);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(1234, oTo.asInteger());
@@ -116,8 +116,8 @@ TEST(TestConverter, OptionalConverter)
 TEST(TestConverter, EmptyConverter)
 {
     CEmptyConverter oConverter;
-    IntegerValue oFrom;
-    StringValue oTo;
+    CIntegerValue oFrom;
+    CStringValue oTo;
     oFrom.setAsInteger(1234);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
@@ -126,8 +126,8 @@ TEST(TestConverter, EmptyConverter)
 TEST(TestConverter, IntConverter_Bool_Bool)
 {
     CIntConverter oConverter;
-    BooleanValue oFrom;
-    BooleanValue oTo;
+    CBooleanValue oFrom;
+    CBooleanValue oTo;
     oFrom.setAsBoolean(true);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.asBoolean());
@@ -141,8 +141,8 @@ TEST(TestConverter, IntConverter_Bool_Bool)
 TEST(TestConverter, IntConverter_Bool_Int)
 {
     CIntConverter oConverter;
-    BooleanValue oFrom;
-    IntegerValue oTo;
+    CBooleanValue oFrom;
+    CIntegerValue oTo;
     oFrom.setAsBoolean(true);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(1, oTo.asInteger());
@@ -156,8 +156,8 @@ TEST(TestConverter, IntConverter_Bool_Int)
 TEST(TestConverter, IntConverter_Bool_Double)
 {
     CIntConverter oConverter;
-    BooleanValue oFrom;
-    DoubleValue oTo;
+    CBooleanValue oFrom;
+    CDoubleValue oTo;
     oFrom.setAsBoolean(true);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_NEAR(1, oTo.asDouble(), 1e-7);
@@ -171,8 +171,8 @@ TEST(TestConverter, IntConverter_Bool_Double)
 TEST(TestConverter, IntConverter_Int_Bool)
 {
     CIntConverter oConverter;
-    IntegerValue oFrom;
-    BooleanValue oTo;
+    CIntegerValue oFrom;
+    CBooleanValue oTo;
     oFrom.setAsInteger(-19);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.asBoolean());
@@ -186,8 +186,8 @@ TEST(TestConverter, IntConverter_Int_Bool)
 TEST(TestConverter, IntConverter_Int_Int)
 {
     CIntConverter oConverter;
-    IntegerValue oFrom;
-    IntegerValue oTo;
+    CIntegerValue oFrom;
+    CIntegerValue oTo;
     oFrom.setAsInteger(-19);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(-19, oTo.asInteger());
@@ -201,8 +201,8 @@ TEST(TestConverter, IntConverter_Int_Int)
 TEST(TestConverter, IntConverter_Int_Double)
 {
     CIntConverter oConverter;
-    IntegerValue oFrom;
-    DoubleValue oTo;
+    CIntegerValue oFrom;
+    CDoubleValue oTo;
     oFrom.setAsInteger(-19);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_NEAR(-19, oTo.asDouble(), 1e-7);
@@ -216,8 +216,8 @@ TEST(TestConverter, IntConverter_Int_Double)
 TEST(TestConverter, BoolToStringConverter)
 {
     CBoolToStringConverter oConverter;
-    BooleanValue oFrom;
-    StringValue oTo;
+    CBooleanValue oFrom;
+    CStringValue oTo;
     oFrom.setAsBoolean(true);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, "1" == oTo.asString());
@@ -236,8 +236,8 @@ TEST(TestConverter, IntToEnumConverter_bool)
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
     oConverter.init(nullptr, &oEnum);
-    BooleanValue oFrom;
-    IntegerValue oTo;
+    CBooleanValue oFrom;
+    CIntegerValue oTo;
     oFrom.setAsBoolean(true);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(1, oTo.asInteger());
@@ -253,8 +253,8 @@ TEST(TestConverter, IntToEnumConverter_bool_empty)
     CIntToEnumConverter oConverter;
     CEnumType oEnum;
     oConverter.init(nullptr, &oEnum);
-    BooleanValue oFrom;
-    IntegerValue oTo;
+    CBooleanValue oFrom;
+    CIntegerValue oTo;
     oFrom.setAsBoolean(true);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
@@ -271,8 +271,8 @@ TEST(TestConverter, IntToEnumConverter_int)
     oEnum.addEnum(L"def", L"");
     oEnum.addEnum(L"ghi", L"");
     oConverter.init(nullptr, &oEnum);
-    IntegerValue oFrom;
-    IntegerValue oTo;
+    CIntegerValue oFrom;
+    CIntegerValue oTo;
     oFrom.setAsInteger(2);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(2, oTo.asInteger());
@@ -292,8 +292,8 @@ TEST(TestConverter, IntToEnumConverter_int_empty)
     CIntToEnumConverter oConverter;
     CEnumType oEnum;
     oConverter.init(nullptr, &oEnum);
-    IntegerValue oFrom;
-    IntegerValue oTo;
+    CIntegerValue oFrom;
+    CIntegerValue oTo;
     oFrom.setAsInteger(2);
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
@@ -305,8 +305,8 @@ TEST(TestConverter, IntToEnumConverter_int_empty)
 TEST(TestConverter, IntToStringConverter)
 {
     CIntToStringConverter oConverter;
-    IntegerValue oFrom;
-    StringValue oTo;
+    CIntegerValue oFrom;
+    CStringValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
     oFrom.setAsInteger(1234);
@@ -318,8 +318,8 @@ TEST(TestConverter, IntToStringConverter)
 TEST(TestConverter, FloatToStringConverter)
 {
     CFloatToStringConverter oConverter;
-    DoubleValue oFrom;
-    StringValue oTo;
+    CDoubleValue oFrom;
+    CStringValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
     oFrom.setAsDouble(1234.5);
@@ -332,8 +332,8 @@ TEST(TestConverter, FloatToStringConverter)
 TEST(TestConverter, FloatConverter)
 {
     CFloatConverter oConverter;
-    DoubleValue oFrom;
-    DoubleValue oTo;
+    CDoubleValue oFrom;
+    CDoubleValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
     oFrom.setAsDouble(1234.5);
@@ -346,8 +346,8 @@ TEST(TestConverter, FloatConverter)
 TEST(TestConverter, StringConverter)
 {
     CStringConverter oConverter;
-    StringValue oFrom;
-    StringValue oTo;
+    CStringValue oFrom;
+    CStringValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
     oFrom.setAsString("ÖÐ¹ú");
@@ -368,8 +368,8 @@ TEST(TestConverter, EnumConverter)
     oFromEnum.addEnum(L"de", L"");
     oFromEnum.addEnum(L"gh", L"");
     oConverter.init(&oFromEnum, &oEnum);
-    IntegerValue oFrom;
-    IntegerValue oTo;
+    CIntegerValue oFrom;
+    CIntegerValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
 
@@ -395,8 +395,8 @@ TEST(TestConverter, EnumConverter_2)
     oFromEnum.addEnum(L"ghi", L"");
     oFromEnum.addEnum(L"abc", L"");
     oConverter.init(&oFromEnum, &oEnum);
-    IntegerValue oFrom;
-    IntegerValue oTo;
+    CIntegerValue oFrom;
+    CIntegerValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
 
@@ -414,8 +414,8 @@ TEST(TestConverter, EnumConverter_2)
 TEST(TestConverter, CEntityRefConverter)
 {
     CEntityRefConverter converter;
-    EntityRefValue oFrom;
-    EntityRefValue oTo;
+    CEntityRefValue oFrom;
+    CEntityRefValue oTo;
     converter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
     oFrom.setAsEntityRef(123);

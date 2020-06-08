@@ -17,19 +17,19 @@ namespace gfc {
 
 GFCENGINE_NAMESPACE_BEGIN
 
-class Document;
-class Property;
-class PropValue;
+class CDocument;
+class CProperty;
+class CPropValue;
 class IContainer;
 
-typedef std::shared_ptr<Entity> EntityPtr;
+typedef std::shared_ptr<CEntity> EntityPtr;
 
-class GFCENGINE_API Entity: public Object
+class GFCENGINE_API CEntity: public CObject
 {
-    GFCENGINE_DEC_FACTORY(Entity, 0, std::wstring)
+    GFCENGINE_DEC_FACTORY(CEntity, 0, std::wstring)
 public:
-    Entity(void);
-    virtual ~Entity(void);
+    CEntity(void);
+    virtual ~CEntity(void);
     void setContainer(IContainer* pContainer);
     void setSchema(gfc::schema::CTypeObject* pType);
     gfc::schema::CTypeObject* getSchema() const { return m_pSchema; }
@@ -39,9 +39,9 @@ public:
     bool isInitialized() const;
 public:
     int getPropCount() const;
-    Property* getProps(int nIndex) const;
-    Property* propByName(const std::wstring sPropName) const;
-    PropValue* valueByName(const std::wstring sPropName) const;
+    CProperty* getProps(int nIndex) const;
+    CProperty* propByName(const std::wstring sPropName) const;
+    CPropValue* valueByName(const std::wstring sPropName) const;
     bool isNull(const std::wstring& sPropName) const;
 
     std::string asString(const std::wstring& sPropName) const;
@@ -81,7 +81,7 @@ private:
 
     IContainer* m_pContainer;
     gfc::schema::CTypeObject* m_pSchema;
-    std::vector<Property*>* m_pProps;
+    std::vector<CProperty*>* m_pProps;
 };
 
 GFCENGINE_NAMESPACE_END

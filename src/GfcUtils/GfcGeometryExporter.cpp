@@ -84,7 +84,7 @@ gfc::engine::EntityRef GfcGeometryExporter::m_nVec3d010 = -1;
 gfc::engine::EntityRef GfcGeometryExporter::m_nVec3d001 = -1;
 gfc::engine::EntityRef GfcGeometryExporter::m_nVec3d000 = -1;
 
-gfc::engine::EntityRef GfcGeometryExporter::exportVector2d( gfc::engine::Writer* pWriter, ggp::CVector2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportVector2d( gfc::engine::CWriter* pWriter, ggp::CVector2d* pSrc )
 {
     assert(pSrc);
     Gfc2Vector2d oVector2d;
@@ -99,7 +99,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportVector2d( gfc::engine::Writer*
 //     pDest->setY(pSrc->Y);
 // }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportVector3d( gfc::engine::Writer* pWriter, ggp::CVector3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportVector3d( gfc::engine::CWriter* pWriter, ggp::CVector3d* pSrc )
 {
     assert(pSrc);
     Gfc2Vector3d oVector;
@@ -109,7 +109,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportVector3d( gfc::engine::Writer*
     return pWriter->writeEntity(&oVector);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportIntervald( gfc::engine::Writer* pWriter, ggp::CIntervald* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportIntervald( gfc::engine::CWriter* pWriter, ggp::CIntervald* pSrc )
 {
     assert(pSrc);
     Gfc2Intervald oDest;
@@ -118,7 +118,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportIntervald( gfc::engine::Writer
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportCoordinates3d( gfc::engine::Writer* pWriter, ggp::CCoordinates3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportCoordinates3d( gfc::engine::CWriter* pWriter, ggp::CCoordinates3d* pSrc )
 {
     assert(pSrc);
     Gfc2Coordinates3d oDest;
@@ -129,7 +129,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCoordinates3d( gfc::engine::Wr
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportCoordinates2d( gfc::engine::Writer* pWriter, ggp::CCoordinates2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportCoordinates2d( gfc::engine::CWriter* pWriter, ggp::CCoordinates2d* pSrc )
 {
     assert(pSrc);
     Gfc2Coordinates2d oDest;
@@ -139,7 +139,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCoordinates2d( gfc::engine::Wr
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportBox3d( gfc::engine::Writer* pWriter, ggp::CBox3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportBox3d( gfc::engine::CWriter* pWriter, ggp::CBox3d* pSrc )
 {
     assert(pSrc);
     Gfc2Box3d oDest;
@@ -148,7 +148,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportBox3d( gfc::engine::Writer* pW
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportLine2d( gfc::engine::Writer* pWriter, ggp::CLine2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportLine2d( gfc::engine::CWriter* pWriter, ggp::CLine2d* pSrc )
 {
     assert(pSrc);
     Gfc2Line2d oDest;
@@ -158,7 +158,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportLine2d( gfc::engine::Writer* p
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportArc2d( gfc::engine::Writer* pWriter, ggp::CArc2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportArc2d( gfc::engine::CWriter* pWriter, ggp::CArc2d* pSrc )
 {
     assert(pSrc);
     Gfc2Arc2d oDest;
@@ -169,7 +169,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportArc2d( gfc::engine::Writer* pW
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportEllipse2d( gfc::engine::Writer* pWriter, ggp::CEllipse2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportEllipse2d( gfc::engine::CWriter* pWriter, ggp::CEllipse2d* pSrc )
 {
     assert(pSrc);
     Gfc2Ellipse2d oDest;
@@ -182,7 +182,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportEllipse2d( gfc::engine::Writer
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCurve2d( gfc::engine::Writer* pWriter, ggp::CNurbsCurve2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCurve2d( gfc::engine::CWriter* pWriter, ggp::CNurbsCurve2d* pSrc )
 {
     assert(pSrc);
     Gfc2NurbsCurve2d oDest;
@@ -200,7 +200,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCurve2d( gfc::engine::Wri
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCtrlPt2d( gfc::engine::Writer* pWriter, ggp::NurbsCtrlPt2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCtrlPt2d( gfc::engine::CWriter* pWriter, ggp::NurbsCtrlPt2d* pSrc )
 {
     assert(pSrc);
     Gfc2NurbsCtrlPt2d oDest;
@@ -209,7 +209,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCtrlPt2d( gfc::engine::Wr
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportPreimageCurve2d( gfc::engine::Writer* pWriter, ggp::CPreimageCurve2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportPreimageCurve2d( gfc::engine::CWriter* pWriter, ggp::CPreimageCurve2d* pSrc )
 {
     assert(pSrc);
     Gfc2PreimageCurve2d oDest;
@@ -221,7 +221,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPreimageCurve2d( gfc::engine::
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportSinCurve2d( gfc::engine::Writer* pWriter, ggp::CSinCurve2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportSinCurve2d( gfc::engine::CWriter* pWriter, ggp::CSinCurve2d* pSrc )
 {
     assert(pSrc);
     Gfc2SinCurve2d oDest;
@@ -234,7 +234,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSinCurve2d( gfc::engine::Write
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportSpiralLine2d( gfc::engine::Writer* pWriter, ggp::CSpiralLine2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportSpiralLine2d( gfc::engine::CWriter* pWriter, ggp::CSpiralLine2d* pSrc )
 {
     assert(pSrc);
     Gfc2SpiralLine2d oDest;
@@ -246,7 +246,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSpiralLine2d( gfc::engine::Wri
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportCurve2d( gfc::engine::Writer* pWriter, ggp::CCurve2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportCurve2d( gfc::engine::CWriter* pWriter, ggp::CCurve2d* pSrc )
 {
 	//pSrc有可能存在为null的情况
 	if (nullptr == pSrc)
@@ -277,7 +277,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCurve2d( gfc::engine::Writer* 
     }
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportLine3d( gfc::engine::Writer* pWriter, ggp::CLine3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportLine3d( gfc::engine::CWriter* pWriter, ggp::CLine3d* pSrc )
 {
     assert(pSrc);
     Gfc2Line3d oDest;
@@ -305,7 +305,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportLine3d( gfc::engine::Writer* p
 //	return pWriter->writeEntity(&oDest);
 //}
 
-gfc::engine::EntityRef GfcGeometryExporter::exportPlaneCurve3d( gfc::engine::Writer* pWriter, ggp::CPlaneCurve3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportPlaneCurve3d( gfc::engine::CWriter* pWriter, ggp::CPlaneCurve3d* pSrc )
 {
 	assert(pSrc);
 	Gfc2PlaneCurve3d oDest;
@@ -314,7 +314,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPlaneCurve3d( gfc::engine::Wri
 	return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCurve3d( gfc::engine::Writer* pWriter, ggp::CNurbsCurve3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCurve3d( gfc::engine::CWriter* pWriter, ggp::CNurbsCurve3d* pSrc )
 {
     assert(pSrc);
     Gfc2NurbsCurve3d oDest;
@@ -332,7 +332,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCurve3d( gfc::engine::Wri
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportIntersectionCurve3d( gfc::engine::Writer* pWriter, ggp::CIntersectionCurve3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportIntersectionCurve3d( gfc::engine::CWriter* pWriter, ggp::CIntersectionCurve3d* pSrc )
 {
     assert(pSrc);
     Gfc2IntersectionCurve3d oDest;
@@ -345,7 +345,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportIntersectionCurve3d( gfc::engi
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportSpiralLine3d( gfc::engine::Writer* pWriter, ggp::CSpiralLine* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportSpiralLine3d( gfc::engine::CWriter* pWriter, ggp::CSpiralLine* pSrc )
 {
     assert(pSrc);
     Gfc2SpiralLine3d oDest;
@@ -358,7 +358,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSpiralLine3d( gfc::engine::Wri
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportSweepCurve3d( gfc::engine::Writer* pWriter, ggp::CSweepCurve3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportSweepCurve3d( gfc::engine::CWriter* pWriter, ggp::CSweepCurve3d* pSrc )
 {
     assert(pSrc);
     Gfc2SweepCurve3d oDest;
@@ -368,7 +368,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSweepCurve3d( gfc::engine::Wri
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportCurve3d( gfc::engine::Writer* pWriter, ggp::CCurve3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportCurve3d( gfc::engine::CWriter* pWriter, ggp::CCurve3d* pSrc )
 {
     switch (pSrc->Type())
     {
@@ -392,7 +392,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCurve3d( gfc::engine::Writer* 
     }
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCtrlPt3d( gfc::engine::Writer* pWriter, ggp::NurbsCtrlPt3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCtrlPt3d( gfc::engine::CWriter* pWriter, ggp::NurbsCtrlPt3d* pSrc )
 {
     assert(pSrc);
     Gfc2NurbsCtrlPt3d oDest;
@@ -401,7 +401,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCtrlPt3d( gfc::engine::Wr
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportInternalChart( gfc::engine::Writer* pWriter, ggp::CInternalChart* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportInternalChart( gfc::engine::CWriter* pWriter, ggp::CInternalChart* pSrc )
 {
     assert(pSrc);
     Gfc2InternalChart oDest;
@@ -416,7 +416,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportInternalChart( gfc::engine::Wr
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportInternalPt( gfc::engine::Writer* pWriter, ggp::CInternalPt* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportInternalPt( gfc::engine::CWriter* pWriter, ggp::CInternalPt* pSrc )
 {
     assert(pSrc);
     Gfc2InternalPt oDest;
@@ -430,7 +430,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportInternalPt( gfc::engine::Write
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportPlaneInfo( gfc::engine::Writer* pWriter, ggp::CVector3d* pDirX, ggp::CVector3d* pDirY, ggp::CVector3d* pPos )
+gfc::engine::EntityRef GfcGeometryExporter::exportPlaneInfo( gfc::engine::CWriter* pWriter, ggp::CVector3d* pDirX, ggp::CVector3d* pDirY, ggp::CVector3d* pPos )
 {
     assert(pDirX);
     assert(pDirY);
@@ -442,7 +442,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPlaneInfo( gfc::engine::Writer
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportBevel( gfc::engine::Writer* pWriter, ggp::CBevel* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportBevel( gfc::engine::CWriter* pWriter, ggp::CBevel* pSrc )
 {
     assert(pSrc);
     Gfc2Bevel oDest;
@@ -454,7 +454,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportBevel( gfc::engine::Writer* pW
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportCylinder( gfc::engine::Writer* pWriter, ggp::CCylinder* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportCylinder( gfc::engine::CWriter* pWriter, ggp::CCylinder* pSrc )
 {
     assert(pSrc);
     Gfc2Cylinder oDest;
@@ -469,7 +469,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCylinder( gfc::engine::Writer*
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportHelicoid( gfc::engine::Writer* pWriter, ggp::CHelicoid* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportHelicoid( gfc::engine::CWriter* pWriter, ggp::CHelicoid* pSrc )
 {
     assert(pSrc);
     Gfc2Helicoid oDest;
@@ -483,7 +483,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportHelicoid( gfc::engine::Writer*
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportNurbsSurface( gfc::engine::Writer* pWriter, ggp::CNurbsSurface* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportNurbsSurface( gfc::engine::CWriter* pWriter, ggp::CNurbsSurface* pSrc )
 {
     assert(pSrc);
     Gfc2NurbsSurface oDest;
@@ -509,7 +509,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportNurbsSurface( gfc::engine::Wri
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportPlane( gfc::engine::Writer* pWriter, ggp::CPlane* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportPlane( gfc::engine::CWriter* pWriter, ggp::CPlane* pSrc )
 {
     assert(pSrc);
     Gfc2Plane oDest;
@@ -521,7 +521,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPlane( gfc::engine::Writer* pW
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportSphere( gfc::engine::Writer* pWriter, ggp::CSphere* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportSphere( gfc::engine::CWriter* pWriter, ggp::CSphere* pSrc )
 {
     assert(pSrc);
     Gfc2Sphere oDest;
@@ -532,7 +532,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSphere( gfc::engine::Writer* p
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportSweep( gfc::engine::Writer* pWriter, ggp::CSweep* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportSweep( gfc::engine::CWriter* pWriter, ggp::CSweep* pSrc )
 {
     assert(pSrc);
     Gfc2Sweep oDest;
@@ -542,7 +542,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSweep( gfc::engine::Writer* pW
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportTorus( gfc::engine::Writer* pWriter, ggp::CTorus* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportTorus( gfc::engine::CWriter* pWriter, ggp::CTorus* pSrc )
 {
     assert(pSrc);
     Gfc2Torus oDest;
@@ -554,7 +554,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportTorus( gfc::engine::Writer* pW
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportSurface( gfc::engine::Writer* pWriter, ggp::CSurface* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportSurface( gfc::engine::CWriter* pWriter, ggp::CSurface* pSrc )
 {
     switch (pSrc->Type())
     {
@@ -582,7 +582,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSurface( gfc::engine::Writer* 
     }
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportBrepBody( gfc::engine::Writer* pWriter, ggp::CBrepBody* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportBrepBody( gfc::engine::CWriter* pWriter, ggp::CBrepBody* pSrc )
 {
     assert(pSrc);
     Gfc2BrepBody oDest;
@@ -599,7 +599,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportBrepBody( gfc::engine::Writer*
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportCuboidBody( gfc::engine::Writer* pWriter, ggp::CCuboidBody* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportCuboidBody( gfc::engine::CWriter* pWriter, ggp::CCuboidBody* pSrc )
 {
     assert(pSrc);
     Gfc2CuboidBody oDest;
@@ -608,7 +608,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCuboidBody( gfc::engine::Write
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportExtrudedBody( gfc::engine::Writer* pWriter, ggp::CExtrudedBody* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportExtrudedBody( gfc::engine::CWriter* pWriter, ggp::CExtrudedBody* pSrc )
 {
     assert(pSrc);
     Gfc2ExtrudedBody oDest;
@@ -618,7 +618,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportExtrudedBody( gfc::engine::Wri
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedronBody( gfc::engine::Writer* pWriter, ggp::CPolyhedronBody* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedronBody( gfc::engine::CWriter* pWriter, ggp::CPolyhedronBody* pSrc )
 {
     assert(pSrc);
     Gfc2PolyhedronBody oDest;
@@ -635,7 +635,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedronBody( gfc::engine::W
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportBody( gfc::engine::Writer* pWriter, ggp::CBody* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportBody( gfc::engine::CWriter* pWriter, ggp::CBody* pSrc )
 {
     switch (pSrc->Type())
     {
@@ -655,7 +655,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportBody( gfc::engine::Writer* pWr
     }
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportFace( gfc::engine::Writer* pWriter, ggp::CFace* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportFace( gfc::engine::CWriter* pWriter, ggp::CFace* pSrc )
 {
     assert(pSrc);
     Gfc2Face oDest;
@@ -667,7 +667,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportFace( gfc::engine::Writer* pWr
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportEdge( gfc::engine::Writer* pWriter, ggp::CEdge* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportEdge( gfc::engine::CWriter* pWriter, ggp::CEdge* pSrc )
 {
     assert(pSrc);
     Gfc2Edge oDest;
@@ -681,7 +681,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportEdge( gfc::engine::Writer* pWr
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportPolygon( gfc::engine::Writer* pWriter, ggp::CPolygon* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportPolygon( gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc )
 {
     assert(pSrc);
     if (isSimplePolygon(pSrc))
@@ -691,7 +691,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPolygon( gfc::engine::Writer* 
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportCoedgeList( gfc::engine::Writer* pWriter, ggp::CCoedgeList* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportCoedgeList( gfc::engine::CWriter* pWriter, ggp::CCoedgeList* pSrc )
 {
     assert(pSrc);
     Gfc2CoedgeList oDest;
@@ -703,7 +703,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCoedgeList( gfc::engine::Write
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportCoedgeListEx( gfc::engine::Writer* pWriter, ggp::CCoedgeList* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportCoedgeListEx( gfc::engine::CWriter* pWriter, ggp::CCoedgeList* pSrc )
 {
 	assert(pSrc);
 	Gfc2CoedgeListEx oDest;
@@ -723,7 +723,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCoedgeListEx( gfc::engine::Wri
 	return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralFace( gfc::engine::Writer* pWriter, ggp::CPolyhedralFace* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralFace( gfc::engine::CWriter* pWriter, ggp::CPolyhedralFace* pSrc )
 {
     assert(pSrc);
     Gfc2PolyhedralFace oDest;
@@ -736,7 +736,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralFace( gfc::engine::W
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportPlaneCoef( gfc::engine::Writer* pWriter, ggp::CPlaneCoef* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportPlaneCoef( gfc::engine::CWriter* pWriter, ggp::CPlaneCoef* pSrc )
 {
     assert(pSrc);
     Gfc2PlaneCoef oDest;
@@ -747,7 +747,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPlaneCoef( gfc::engine::Writer
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralLoop( gfc::engine::Writer* pWriter, ggp::CPolyhedralLoop* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralLoop( gfc::engine::CWriter* pWriter, ggp::CPolyhedralLoop* pSrc )
 {
     assert(pSrc);
     Gfc2PolyhedralLoop oDest;
@@ -758,7 +758,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralLoop( gfc::engine::W
     }
     return pWriter->writeEntity(&oDest);}
 
-gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralEdge( gfc::engine::Writer* pWriter, ggp::CPolyhedralEdge* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralEdge( gfc::engine::CWriter* pWriter, ggp::CPolyhedralEdge* pSrc )
 {
     assert(pSrc);
     Gfc2PolyhedralEdge oDest;
@@ -767,7 +767,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralEdge( gfc::engine::W
     return pWriter->writeEntity(&oDest);
 }
 
-void GfcGeometryExporter::innerExportPolygon( gfc::engine::Writer* pWriter, ggp::CPolygon* pSrc, Gfc2CommonPolygon* pDest )
+void GfcGeometryExporter::innerExportPolygon( gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, Gfc2CommonPolygon* pDest )
 {
     int nCount = pSrc->LoopCount();
     for (int i = 0; i < nCount; ++i)
@@ -776,7 +776,7 @@ void GfcGeometryExporter::innerExportPolygon( gfc::engine::Writer* pWriter, ggp:
     }
 }
 
-void GfcGeometryExporter::innerExportPolygonEx(gfc::engine::Writer* pWriter, ggp::CPolygon* pSrc, Gfc2CommonPolygonEx* pDest)
+void GfcGeometryExporter::innerExportPolygonEx(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, Gfc2CommonPolygonEx* pDest)
 {
 	int nCount = pSrc->LoopCount();
 	for (int i = 0; i < nCount; ++i)
@@ -785,7 +785,7 @@ void GfcGeometryExporter::innerExportPolygonEx(gfc::engine::Writer* pWriter, ggp
 	}
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportRuledSurface( gfc::engine::Writer* pWriter, ggp::CRuledSurface* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportRuledSurface( gfc::engine::CWriter* pWriter, ggp::CRuledSurface* pSrc )
 {
     assert(pSrc);
     Gfc2RuledSurface oDest;
@@ -797,7 +797,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportRuledSurface( gfc::engine::Wri
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportImageCurve3d( gfc::engine::Writer* pWriter, ggp::CImageCurve3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportImageCurve3d( gfc::engine::CWriter* pWriter, ggp::CImageCurve3d* pSrc )
 {
     assert(pSrc);
     Gfc2ImageCurve3d oDest;
@@ -806,7 +806,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportImageCurve3d( gfc::engine::Wri
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportOffsetCurve2d( gfc::engine::Writer* pWriter, ggp::COffsetCurve2d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportOffsetCurve2d( gfc::engine::CWriter* pWriter, ggp::COffsetCurve2d* pSrc )
 {
     assert(pSrc);
     Gfc2OffsetCurve2d oDest;
@@ -815,7 +815,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportOffsetCurve2d( gfc::engine::Wr
     return pWriter->writeEntity(&oDest);
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportVector3dCompact( gfc::engine::Writer* pWriter, ggp::CVector3d* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportVector3dCompact( gfc::engine::CWriter* pWriter, ggp::CVector3d* pSrc )
 {
     assert(pSrc);
 //    Gfc2Vector3d oVector;
@@ -842,7 +842,7 @@ void GfcGeometryExporter::clean()
     m_nVec3d000 = -1;
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::export100Vector3d( gfc::engine::Writer* pWriter )
+gfc::engine::EntityRef GfcGeometryExporter::export100Vector3d( gfc::engine::CWriter* pWriter )
 {
     if (m_nVec3d100 == -1)
     {
@@ -855,7 +855,7 @@ gfc::engine::EntityRef GfcGeometryExporter::export100Vector3d( gfc::engine::Writ
     return m_nVec3d100;
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::export010Vector3d( gfc::engine::Writer* pWriter )
+gfc::engine::EntityRef GfcGeometryExporter::export010Vector3d( gfc::engine::CWriter* pWriter )
 {
     if (m_nVec3d010 == -1)
     {
@@ -868,7 +868,7 @@ gfc::engine::EntityRef GfcGeometryExporter::export010Vector3d( gfc::engine::Writ
     return m_nVec3d010;
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::export001Vector3d( gfc::engine::Writer* pWriter )
+gfc::engine::EntityRef GfcGeometryExporter::export001Vector3d( gfc::engine::CWriter* pWriter )
 {
     if (m_nVec3d001 == -1)
     {
@@ -882,7 +882,7 @@ gfc::engine::EntityRef GfcGeometryExporter::export001Vector3d( gfc::engine::Writ
 
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::export000Vector3d( gfc::engine::Writer* pWriter )
+gfc::engine::EntityRef GfcGeometryExporter::export000Vector3d( gfc::engine::CWriter* pWriter )
 {
     if (m_nVec3d000 == -1)
     {
@@ -897,7 +897,7 @@ gfc::engine::EntityRef GfcGeometryExporter::export000Vector3d( gfc::engine::Writ
 
 
 
-gfc::engine::EntityRef GfcGeometryExporter::exportSimplePolygon( gfc::engine::Writer* pWriter, ggp::CPolygon* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportSimplePolygon( gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc )
 {
     Gfc2SimplePolygon oPolygon;
     int nLoopCount = pSrc->LoopCount();
@@ -927,7 +927,7 @@ bool GfcGeometryExporter::isSimplePolygon( ggp::CPolygon* pSrc )
     return true;
 }
 
-gfc::engine::EntityRef GfcGeometryExporter::exportSimpleLoop( gfc::engine::Writer* pWriter, ggp::CCoedgeList* pSrc )
+gfc::engine::EntityRef GfcGeometryExporter::exportSimpleLoop( gfc::engine::CWriter* pWriter, ggp::CCoedgeList* pSrc )
 {
     Gfc2SimpleLoop oDest;
     int nCount = pSrc->CoedgeCount();

@@ -15,14 +15,14 @@ GFCENGINE_NAMESPACE_BEGIN
 #define    END_REG_ITEM        -1
 
     template<typename Type> 
-    struct GFCENGINE_API RegItem
+    struct GFCENGINE_API CRegItem
     {
-        RegItem()
+        CRegItem()
         {
             unMode = END_REG_ITEM;
         }
 
-        RegItem(const Type& objType,int64_t mode)
+        CRegItem(const Type& objType,int64_t mode)
         {
             unObjType = objType;
             unMode = mode;
@@ -33,30 +33,30 @@ GFCENGINE_NAMESPACE_BEGIN
     };
 
     template<typename Type> 
-    class GFCENGINE_API RegObjInfo
+    class GFCENGINE_API CRegObjInfo
     {
     public:
-        RegObjInfo()
+        CRegObjInfo()
         {
             m_pCreateFunPtr = NULL;
             m_pUserData = NULL;
         }
 
-        RegObjInfo(CREATETHIS i_pThisFun,const RegItem<Type>& i_regItem)
+        CRegObjInfo(CREATETHIS i_pThisFun,const CRegItem<Type>& i_regItem)
         {
             m_pCreateFunPtr = i_pThisFun;
             regItem = i_regItem;
             m_pUserData = NULL;
         }
 
-        RegObjInfo(const RegObjInfo<Type>& i_regObjInfo)
+        CRegObjInfo(const CRegObjInfo<Type>& i_regObjInfo)
         {
             m_pCreateFunPtr = i_regObjInfo.m_pCreateFunPtr;
             regItem = i_regObjInfo.regItem;
             m_pUserData = i_regObjInfo.m_pUserData;
         }
 
-        ~RegObjInfo()
+        ~CRegObjInfo()
         {
         }
 
@@ -86,16 +86,16 @@ GFCENGINE_NAMESPACE_BEGIN
         }
     private:
         CREATETHIS m_pCreateFunPtr;   //函数指针
-        RegItem<Type> regItem;       //注册输入数据
+        CRegItem<Type> regItem;       //注册输入数据
         void* m_pUserData;            //用户数据
     };
 
 
     template<typename Type>
-    class GFCENGINE_API ObjectFactory
+    class GFCENGINE_API CObjectFactory
     {
     public:
-        ObjectFactory(unsigned int type)
+        CObjectFactory(unsigned int type)
         {
             m_type = type;
             //确保内部没有任何遗留注册项
@@ -107,9 +107,9 @@ GFCENGINE_NAMESPACE_BEGIN
             return m_type;
         }
 
-        virtual Object* Create(const Type& unObjType)
+        virtual CObject* Create(const Type& unObjType)
         {
-            const RegObjInfo<Type>* pRegObjInfo = FindCreateHelper(unObjType);
+            const CRegObjInfo<Type>* pRegObjInfo = FindCreateHelper(unObjType);
             if(pRegObjInfo == NULL)
             {
                 return NULL;
@@ -117,7 +117,7 @@ GFCENGINE_NAMESPACE_BEGIN
 
             if(pRegObjInfo->GetFunPtr()!=NULL)
             {
-                Object* pObj = dynamic_cast<Object*> (pRegObjInfo->GetFunPtr()());
+                CObject* pObj = dynamic_cast<CObject*> (pRegObjInfo->GetFunPtr()());
                 return pObj;
             }
             else
@@ -128,12 +128,12 @@ GFCENGINE_NAMESPACE_BEGIN
 
         bool IsExist(const Type& unObjType) const
         {
-            typename std::map<Type, RegObjInfo<Type> *>::const_iterator iterator;
+            typename std::map<Type, CRegObjInfo<Type> *>::const_iterator iterator;
             iterator = m_regHelperMap.find(unObjType);
             return (iterator == m_regHelperMap.end()) ? false : true;
         }
 
-        bool RegisterCreateHelper(const Type& unObjType,const RegObjInfo<Type>& regInfo) 
+        bool RegisterCreateHelper(const Type& unObjType,const CRegObjInfo<Type>& regInfo) 
         {
             //输入参数判断，避免加入空指针
             if(regInfo.GetFunPtr() == NULL)
@@ -142,12 +142,12 @@ GFCENGINE_NAMESPACE_BEGIN
             }
 
             //进行注册,如果已经存在，则覆盖以前的注册信息，进行覆盖
-            typename std::map<Type,RegObjInfo<Type>* >::const_iterator iterator = m_regHelperMap.find(unObjType);
+            typename std::map<Type,CRegObjInfo<Type>* >::const_iterator iterator = m_regHelperMap.find(unObjType);
             if(iterator != m_regHelperMap.end())
             {
                 UnRegisterCreateHelper(unObjType);
             }
-            RegObjInfo<Type>* pNewObjInfo = new RegObjInfo<Type>;
+            CRegObjInfo<Type>* pNewObjInfo = new CRegObjInfo<Type>;
             *pNewObjInfo = regInfo;
 
             m_regHelperMap.insert(std::make_pair(unObjType,pNewObjInfo));
@@ -156,14 +156,14 @@ GFCENGINE_NAMESPACE_BEGIN
 
         bool UnRegisterCreateHelper(const Type& unObjType) 
         {
-            typename std::map<Type,RegObjInfo<Type>*>::const_iterator iterator = m_regHelperMap.find(unObjType);
+            typename std::map<Type,CRegObjInfo<Type>*>::const_iterator iterator = m_regHelperMap.find(unObjType);
             if(iterator == m_regHelperMap.end())
             {
                 return false;
             }
             else
             {
-                RegObjInfo<Type>* pObjInfo = (*iterator).second;
+                CRegObjInfo<Type>* pObjInfo = (*iterator).second;
                 m_regHelperMap.erase(iterator);
                 if(pObjInfo != NULL)
                 {
@@ -175,9 +175,9 @@ GFCENGINE_NAMESPACE_BEGIN
         }
 
 
-        const RegObjInfo<Type>* FindCreateHelper(const Type& unObjType) const
+        const CRegObjInfo<Type>* FindCreateHelper(const Type& unObjType) const
         {
-            typename std::map<Type,RegObjInfo<Type>*>::const_iterator iterator = m_regHelperMap.find(unObjType);
+            typename std::map<Type,CRegObjInfo<Type>*>::const_iterator iterator = m_regHelperMap.find(unObjType);
             if(iterator == m_regHelperMap.end())
             {
                 return NULL;
@@ -188,13 +188,13 @@ GFCENGINE_NAMESPACE_BEGIN
             }
         }
 
-        virtual ~ObjectFactory()
+        virtual ~CObjectFactory()
         {
-            typename std::map<Type,RegObjInfo<Type>*>::iterator iterator;
-            typename std::map<Type,RegObjInfo<Type>*>::iterator endIterator = m_regHelperMap.end();
+            typename std::map<Type,CRegObjInfo<Type>*>::iterator iterator;
+            typename std::map<Type,CRegObjInfo<Type>*>::iterator endIterator = m_regHelperMap.end();
             for(iterator = m_regHelperMap.begin(); iterator != endIterator; iterator++ )
             {
-                RegObjInfo<Type>* pObjInfo = (*iterator).second;
+                CRegObjInfo<Type>* pObjInfo = (*iterator).second;
                 if(pObjInfo != NULL)
                 {
                     delete pObjInfo;
@@ -205,18 +205,18 @@ GFCENGINE_NAMESPACE_BEGIN
             m_regHelperMap.clear();
         }
 
-        typename std::map<Type, RegObjInfo<Type>*>::iterator begin()
+        typename std::map<Type, CRegObjInfo<Type>*>::iterator begin()
         {
             return m_regHelperMap.begin();
         }
 
-        typename std::map<Type, RegObjInfo<Type>*>::iterator end()
+        typename std::map<Type, CRegObjInfo<Type>*>::iterator end()
         {
             return m_regHelperMap.end();
         }
 
     private:
-        std::map<Type,RegObjInfo<Type>*> m_regHelperMap;  //子类注册信息表
+        std::map<Type,CRegObjInfo<Type>*> m_regHelperMap;  //子类注册信息表
         unsigned int m_type;                               //类厂的类型
 
     };

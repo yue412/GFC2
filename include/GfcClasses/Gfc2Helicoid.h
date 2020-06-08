@@ -11,7 +11,7 @@
 
 class GFCCLASSES_API Gfc2Helicoid: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Helicoid, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Helicoid, gfc::engine::CEntity)
 public:
     Gfc2Helicoid();
     Gfc2Helicoid(bool bSetSchema);

@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2SweepCurve3d: public Gfc2Curve3d
 {
-GFCENGINE_DEC_OBJECT(Gfc2SweepCurve3d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SweepCurve3d, gfc::engine::CEntity)
 public:
     Gfc2SweepCurve3d();
     Gfc2SweepCurve3d(bool bSetSchema);

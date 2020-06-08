@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2ConeShape: public Gfc2PrimitiveShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2ConeShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ConeShape, gfc::engine::CEntity)
 public:
     Gfc2ConeShape();
     Gfc2ConeShape(bool bSetSchema);

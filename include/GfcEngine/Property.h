@@ -15,21 +15,21 @@ namespace gfc {
 
 GFCENGINE_NAMESPACE_BEGIN
 
-class Entity;
-class PropValue;
+class CEntity;
+class CPropValue;
 
-class GFCENGINE_API Property
+class GFCENGINE_API CProperty
 {
 public:
-    Property(gfc::schema::CAttribute* pAttribute, PropValue* pValue);
-    ~Property();
+    CProperty(gfc::schema::CAttribute* pAttribute, CPropValue* pValue);
+    ~CProperty();
 
     gfc::schema::CAttribute* schema() const { return m_pAttribute; }
     std::wstring name() const;
-    PropValue* value() const;
-    static PropValue* createValue(gfc::schema::CTypeObject* pType);
+    CPropValue* value() const;
+    static CPropValue* createValue(gfc::schema::CTypeObject* pType);
 private:
-    PropValue* m_pValue;
+    CPropValue* m_pValue;
     gfc::schema::CAttribute* m_pAttribute;
 };
 

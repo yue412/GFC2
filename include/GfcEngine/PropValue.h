@@ -12,13 +12,13 @@ GFCENGINE_NAMESPACE_BEGIN
 
 //typedef std::shared_ptr<PropValue> CAttributeValuePtr;
 
-class Entity;
+class CEntity;
 
-class GFCENGINE_API PropValue
+class GFCENGINE_API CPropValue
 {
 public:
-    PropValue();
-    virtual ~PropValue();
+    CPropValue();
+    virtual ~CPropValue();
 public:
     virtual bool isNull() const = 0;
 
@@ -34,17 +34,17 @@ public:
     virtual void setAsBoolean(const bool& bValue);
     virtual void setAsEntityRef(const EntityRef& nValue);
 public:
-    virtual void add(PropValue* pValue) {}
+    virtual void add(CPropValue* pValue) {}
     virtual int getCount() const { return 0; }
-    virtual PropValue* getItems(int nIndex) { return nullptr; }
-    virtual void setItems(int nIndex, PropValue* pValue) {}
+    virtual CPropValue* getItems(int nIndex) { return nullptr; }
+    virtual void setItems(int nIndex, CPropValue* pValue) {}
     virtual void clear() {}
 };
 
-class GFCENGINE_API LeafPropValue : public PropValue
+class GFCENGINE_API CLeafPropValue : public CPropValue
 {
 public:
-    LeafPropValue() : m_bIsNull(true) {}
+    CLeafPropValue() : m_bIsNull(true) {}
     virtual bool isNull() const { return m_bIsNull; }
 protected:
     void setIsNull(bool bIsNull) { m_bIsNull = bIsNull; }
@@ -52,27 +52,27 @@ private:
     bool m_bIsNull;
 };
 
-class GFCENGINE_API CompositePropValue : public PropValue
+class GFCENGINE_API CCompositePropValue : public CPropValue
 {
 public:
-    CompositePropValue();
-    virtual ~CompositePropValue();
+    CCompositePropValue();
+    virtual ~CCompositePropValue();
 public:
     virtual bool isNull() const { return getCount() == 0; }
-    virtual void add(PropValue* pValue);
+    virtual void add(CPropValue* pValue);
     virtual int getCount() const { return (int)m_oList.size(); }
-    virtual PropValue* getItems(int nIndex) { return m_oList[nIndex]; }
-    virtual void setItems(int nIndex, PropValue* pValue);
+    virtual CPropValue* getItems(int nIndex) { return m_oList[nIndex]; }
+    virtual void setItems(int nIndex, CPropValue* pValue);
     virtual void clear();
 private:
-    std::vector<PropValue*> m_oList;
+    std::vector<CPropValue*> m_oList;
 };
 
-class GFCENGINE_API BooleanValue : public LeafPropValue
+class GFCENGINE_API CBooleanValue : public CLeafPropValue
 {
 public:
-    BooleanValue() : m_bValue(false) { }
-    BooleanValue(bool bValue) : m_bValue(bValue) { setIsNull(false); }
+    CBooleanValue() : m_bValue(false) { }
+    CBooleanValue(bool bValue) : m_bValue(bValue) { setIsNull(false); }
 public:
     //virtual std::string asString() const;
     virtual int asInteger() const;
@@ -86,11 +86,11 @@ private:
     bool m_bValue;
 };
 
-class GFCENGINE_API IntegerValue : public LeafPropValue
+class GFCENGINE_API CIntegerValue : public CLeafPropValue
 {
 public:
-    IntegerValue() : m_nValue(0){ }
-    IntegerValue(int nValue) : m_nValue(nValue) { setIsNull(false); }
+    CIntegerValue() : m_nValue(0){ }
+    CIntegerValue(int nValue) : m_nValue(nValue) { setIsNull(false); }
 public:
     //virtual std::string asString() const;
     virtual int asInteger() const;
@@ -104,11 +104,11 @@ private:
     int m_nValue;
 };
 
-class GFCENGINE_API DoubleValue : public LeafPropValue
+class GFCENGINE_API CDoubleValue : public CLeafPropValue
 {
 public:
-    DoubleValue() : m_dValue(0.0) { }
-    DoubleValue(double dValue) : m_dValue(dValue) { setIsNull(false); }
+    CDoubleValue() : m_dValue(0.0) { }
+    CDoubleValue(double dValue) : m_dValue(dValue) { setIsNull(false); }
 public:
     //virtual std::string asString() const;
     virtual double asDouble() const;
@@ -121,11 +121,11 @@ private:
     double m_dValue;
 };
 
-class GFCENGINE_API StringValue : public LeafPropValue
+class GFCENGINE_API CStringValue : public CLeafPropValue
 {
 public:
-    StringValue() { }
-    StringValue(const std::string& sValue): m_sValue(sValue) { setIsNull(false); }
+    CStringValue() { }
+    CStringValue(const std::string& sValue): m_sValue(sValue) { setIsNull(false); }
 public:
     virtual std::string asString() const;
 
@@ -137,11 +137,11 @@ private:
     std::string m_sValue;
 };
 
-class GFCENGINE_API EntityRefValue : public LeafPropValue
+class GFCENGINE_API CEntityRefValue : public CLeafPropValue
 {
 public:
-    EntityRefValue() : m_nValue(-1) { }
-    EntityRefValue(EntityRef nValue) : m_nValue(nValue) { setIsNull(false); }
+    CEntityRefValue() : m_nValue(-1) { }
+    CEntityRefValue(EntityRef nValue) : m_nValue(nValue) { setIsNull(false); }
 public:
     virtual EntityRef asEntityRef() const;
 

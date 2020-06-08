@@ -7,22 +7,22 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-class PropValue;
+class CPropValue;
 
 // 内部实现，不对外公开
-class WriterTextImp: public WriterImp
+class CWriterTextImp: public CWriterImp
 {
-    GFCENGINE_DEC_OBJECT(WriterTextImp, WriterImp)
+    GFCENGINE_DEC_OBJECT(CWriterTextImp, CWriterImp)
 public:
-    WriterTextImp(void);
-    virtual ~WriterTextImp(void);
+    CWriterTextImp(void);
+    virtual ~CWriterTextImp(void);
     virtual bool open(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
     virtual void close();
-    virtual EntityRef writeEntity(Entity* pEntity); 
+    virtual EntityRef writeEntity(CEntity* pEntity); 
 private:
     void writeHead(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
-    void writeValue(gfc::schema::CAttribute* pSchema, PropValue* pValue);
-    void writeProperty(Property* pProp);
+    void writeValue(gfc::schema::CAttribute* pSchema, CPropValue* pValue);
+    void writeProperty(CProperty* pProp);
     std::fstream* m_pTextStream;
 };
 

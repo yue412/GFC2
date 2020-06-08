@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2IntegerProperty: public Gfc2SingleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2IntegerProperty, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2IntegerProperty, gfc::engine::CEntity)
 public:
     Gfc2IntegerProperty();
     Gfc2IntegerProperty(bool bSetSchema);

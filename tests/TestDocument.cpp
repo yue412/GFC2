@@ -11,11 +11,11 @@
 TEST(TestDocument, Document_add)
 {
     gfc::schema::CModel oModel;
-    gfc::engine::GfcEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
-    gfc::engine::Document oDoc(&oModel);
-    auto pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Vector3d");
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CDocument oDoc(&oModel);
+    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Vector3d");
     oDoc.add(20, pEntity);
-    pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2TShapeSection");
+    pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2TShapeSection");
     oDoc.add(30, pEntity);
     auto itr = oDoc.getIterator();
     itr->first();
@@ -29,11 +29,11 @@ TEST(TestDocument, Document_add)
 TEST(TestDocument, Document_getEntity)
 {
     gfc::schema::CModel oModel;
-    gfc::engine::GfcEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
-    gfc::engine::Document oDoc(&oModel);
-    auto pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Vector3d");
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CDocument oDoc(&oModel);
+    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Vector3d");
     oDoc.add(20, pEntity);
-    pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2TShapeSection");
+    pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2TShapeSection");
     oDoc.add(30, pEntity);
     auto p = oDoc.getEntity(30);
     EXPECT_EQ(true, p->entityName() == L"Gfc2TShapeSection");
@@ -44,13 +44,13 @@ TEST(TestDocument, Document_getEntity)
 TEST(TestDocument, Document_getEntities_no_subtype)
 {
     gfc::schema::CModel oModel;
-    gfc::engine::GfcEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
-    gfc::engine::Document oDoc(&oModel);
-    auto pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Object");
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CDocument oDoc(&oModel);
+    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Object");
     oDoc.add(20, pEntity);
-    pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Element");
+    pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Element");
     oDoc.add(30, pEntity);
-    pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Building");
+    pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Building");
     oDoc.add(25, pEntity);
     auto itr = oDoc.getEntities(L"Gfc2Object", false);
     itr->first();
@@ -64,13 +64,13 @@ TEST(TestDocument, Document_getEntities_no_subtype)
 TEST(TestDocument, Document_getEntities_subtype)
 {
     gfc::schema::CModel oModel;
-    gfc::engine::GfcEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
-    gfc::engine::Document oDoc(&oModel);
-    auto pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Object");
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CDocument oDoc(&oModel);
+    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Object");
     oDoc.add(20, pEntity);
-    pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Element");
+    pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Element");
     oDoc.add(30, pEntity);
-    pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Building");
+    pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Building");
     oDoc.add(25, pEntity);
     auto itr = oDoc.getEntities(L"Gfc2Object", true);
     itr->first();
@@ -95,13 +95,13 @@ TEST(TestDocument, Document_getEntities_subtype)
 TEST(TestDocument, Document_getIterator)
 {
     gfc::schema::CModel oModel;
-    gfc::engine::GfcEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
-    gfc::engine::Document oDoc(&oModel);
-    auto pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Object");
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CDocument oDoc(&oModel);
+    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Object");
     oDoc.add(20, pEntity);
-    pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Element");
+    pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Element");
     oDoc.add(30, pEntity);
-    pEntity = gfc::engine::GfcEngineUtils::createEntity(&oModel, L"Gfc2Building");
+    pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Building");
     oDoc.add(25, pEntity);
     auto itr = oDoc.getIterator();
     itr->first();

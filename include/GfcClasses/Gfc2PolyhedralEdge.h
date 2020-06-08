@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2PolyhedralEdge: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2PolyhedralEdge, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PolyhedralEdge, gfc::engine::CEntity)
 public:
     Gfc2PolyhedralEdge();
     Gfc2PolyhedralEdge(bool bSetSchema);

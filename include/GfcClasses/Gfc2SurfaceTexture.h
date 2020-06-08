@@ -7,9 +7,9 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2SurfaceTexture: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2SurfaceTexture: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2SurfaceTexture, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SurfaceTexture, gfc::engine::CEntity)
 public:
     Gfc2SurfaceTexture();
     Gfc2SurfaceTexture(bool bSetSchema);

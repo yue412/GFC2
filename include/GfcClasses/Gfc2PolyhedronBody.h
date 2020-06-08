@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2PolyhedronBody: public Gfc2Body
 {
-GFCENGINE_DEC_OBJECT(Gfc2PolyhedronBody, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PolyhedronBody, gfc::engine::CEntity)
 public:
     Gfc2PolyhedronBody();
     Gfc2PolyhedronBody(bool bSetSchema);

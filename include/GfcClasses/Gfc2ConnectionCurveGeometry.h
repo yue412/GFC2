@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2ConnectionCurveGeometry: public Gfc2ConnectionGeometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2ConnectionCurveGeometry, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ConnectionCurveGeometry, gfc::engine::CEntity)
 public:
     Gfc2ConnectionCurveGeometry();
     Gfc2ConnectionCurveGeometry(bool bSetSchema);

@@ -9,18 +9,18 @@
 GFCENGINE_NAMESPACE_BEGIN
 
 template<typename Type> 
-class GFCENGINE_API RegHelper
+class GFCENGINE_API CRegHelper
 {
 public:
-    virtual ~RegHelper()
+    virtual ~CRegHelper()
     {
     }
 
-    RegHelper(const RegItem<Type>& regItem,CREATETHIS funPtr,ObjectFactory<Type>* pFactory)
+    CRegHelper(const CRegItem<Type>& regItem,CREATETHIS funPtr,CObjectFactory<Type>* pFactory)
     {
         if(pFactory != NULL)
         {
-            pFactory->RegisterCreateHelper(regItem.unObjType,RegObjInfo<Type>(funPtr,regItem));
+            pFactory->RegisterCreateHelper(regItem.unObjType,CRegObjInfo<Type>(funPtr,regItem));
         }
     }
 };

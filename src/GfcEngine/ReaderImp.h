@@ -16,24 +16,24 @@ namespace gfc {
 
 GFCENGINE_NAMESPACE_BEGIN
 
-class Document;
-class FileMap;
+class CDocument;
+class CFileMap;
 struct EntityInfo;
-class Upgrader;
+class CUpgrader;
 
-template<class T> class ContainerImp;
+template<class T> class CContainerImp;
 
-class ReaderImp : public Object, public IContainer
+class CReaderImp : public CObject, public IContainer
 {
-    GFCENGINE_DEC_FACTORY(ReaderImp, 0, std::wstring)
+    GFCENGINE_DEC_FACTORY(CReaderImp, 0, std::wstring)
 public:
-    ReaderImp();
-    virtual ~ReaderImp(void);
+    CReaderImp();
+    virtual ~CReaderImp(void);
     bool open(const std::wstring& sFileName);
     void close();
     void setModel(gfc::schema::CModel* pModel) { m_pModel = pModel; }
     void setSchemaPath(const std::wstring& sSchemaPath) { m_sSchemaPath = sSchemaPath; }
-    void read(Document* pDoc);
+    void read(CDocument* pDoc);
     std::vector<std::wstring>& errors() { return m_oErrors; }
 
     virtual bool preRead(const std::wstring& sFileName) = 0; // 判断是否是可以读的格式
@@ -44,12 +44,12 @@ public:
     virtual EntityIteratorPtr getIterator();
 protected:
     virtual bool getIndex(EntityInfo& oInfo) = 0;//顺序读取index
-    virtual Entity* createEntity(__int64 nPos, EntityRef& nId) = 0;
+    virtual CEntity* createEntity(__int64 nPos, EntityRef& nId) = 0;
     void log(const std::wstring& sError);
     gfc::schema::CModel* schema(); 
 
-    FileMap* m_pFileMap;
-    Upgrader* m_pUpgrader;
+    CFileMap* m_pFileMap;
+    CUpgrader* m_pUpgrader;
 private:
     //void sort();
     void buildIndex();
@@ -59,7 +59,7 @@ private:
 
     //std::vector<EntityInfo> m_oEntityInfos; // 索引 保证有序
     //std::map<std::string, std::vector<std::size_t>*> m_oEntityInfoMap;
-    ContainerImp<EntityInfo>* m_pContainer;
+    CContainerImp<EntityInfo>* m_pContainer;
     gfc::schema::CModel* m_pModel;
     gfc::schema::CModel* m_pFileModel;
     std::wstring m_sSchemaPath;

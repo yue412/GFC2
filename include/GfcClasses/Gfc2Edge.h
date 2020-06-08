@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2Edge: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2Edge, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Edge, gfc::engine::CEntity)
 public:
     Gfc2Edge();
     Gfc2Edge(bool bSetSchema);

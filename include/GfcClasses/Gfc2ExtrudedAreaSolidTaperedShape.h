@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2ExtrudedAreaSolidTaperedShape: public Gfc2ExtrudedAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2ExtrudedAreaSolidTaperedShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ExtrudedAreaSolidTaperedShape, gfc::engine::CEntity)
 public:
     Gfc2ExtrudedAreaSolidTaperedShape();
     Gfc2ExtrudedAreaSolidTaperedShape(bool bSetSchema);

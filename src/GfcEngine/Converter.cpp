@@ -10,7 +10,7 @@ CConverter::~CConverter()
     delete m_pNext;
 }
 
-void CConverter::transform(PropValue* pFrom, PropValue* pTo)
+void CConverter::transform(CPropValue* pFrom, CPropValue* pTo)
 {
     // 为空不用转换
     if (pFrom->isNull())
@@ -34,12 +34,12 @@ void CConverter::init(gfc::schema::CTypeObject * pFrom, gfc::schema::CTypeObject
         m_pNext->init(pFrom, pTo);
 }
 
-void CEmptyConverter::doTransform(PropValue* pFrom, PropValue* pTo)
+void CEmptyConverter::doTransform(CPropValue* pFrom, CPropValue* pTo)
 {
     //pValue->setAsString(c_sEmptyFlag);
 }
 
-void CBoolToStringConverter::doTransform(PropValue* pFrom, PropValue* pTo)
+void CBoolToStringConverter::doTransform(CPropValue* pFrom, CPropValue* pTo)
 {
     //auto sValue = pValue->asString();
     //sValue = std::to_wstring(boolToInt(sValue));
@@ -47,24 +47,24 @@ void CBoolToStringConverter::doTransform(PropValue* pFrom, PropValue* pTo)
     pTo->setAsString(std::to_string(pFrom->asInteger()));
 }
 
-void CStringConverter::doTransform(PropValue* pFrom, PropValue* pTo)
+void CStringConverter::doTransform(CPropValue* pFrom, CPropValue* pTo)
 {
     pTo->setAsString(pFrom->asString());
 }
 
-void CIntToEnumConverter::doTransform(PropValue* pFrom, PropValue* pTo)
+void CIntToEnumConverter::doTransform(CPropValue* pFrom, CPropValue* pTo)
 {
     auto pEnum = dynamic_cast<gfc::schema::CEnumType*>(m_pTo);
     if (pEnum && pEnum->getEnumCount() > 0)
         pTo->setAsInteger(abs(pFrom->asInteger()) % pEnum->getEnumCount());
 }
 
-void CArrayToArrayConverter::transform(PropValue* pFrom, PropValue* pTo)
+void CArrayToArrayConverter::transform(CPropValue* pFrom, CPropValue* pTo)
 {
     for (int i = 0; i < pFrom->getCount(); i++)
     {
         auto pItem = pFrom->getItems(i);
-        auto pToItem = Property::createValue(m_pTo);
+        auto pToItem = CProperty::createValue(m_pTo);
         CConverter::transform(pItem, pToItem);
         if (!pToItem->isNull())
             pTo->add(pToItem);
@@ -90,17 +90,17 @@ void CArrayToArrayConverter::transform(PropValue* pFrom, PropValue* pTo)
     //}
 }
 
-void CArrayToArrayConverter::doTransform(PropValue* pFrom, PropValue* pTo)
+void CArrayToArrayConverter::doTransform(CPropValue* pFrom, CPropValue* pTo)
 {
     //do nothing
 }
 
-void COptionalConverter::doTransform(PropValue* pFrom, PropValue* pTo)
+void COptionalConverter::doTransform(CPropValue* pFrom, CPropValue* pTo)
 {
     // do nothing
 }
 
-void CArrayToOneConverter::transform(PropValue* pFrom, PropValue* pTo)
+void CArrayToOneConverter::transform(CPropValue* pFrom, CPropValue* pTo)
 {
     if (pFrom->getCount() > 0 && !pFrom->getItems(0)->isNull())
     {
@@ -121,16 +121,16 @@ void CArrayToOneConverter::transform(PropValue* pFrom, PropValue* pTo)
     //}
 }
 
-void CArrayToOneConverter::doTransform(PropValue* pFrom, PropValue* pTo)
+void CArrayToOneConverter::doTransform(CPropValue* pFrom, CPropValue* pTo)
 {
     // do nothing
 }
 
-void COneToArrayConverter::transform(PropValue* pFrom, PropValue* pTo)
+void COneToArrayConverter::transform(CPropValue* pFrom, CPropValue* pTo)
 {
     if (!pFrom->isNull())
     {
-        auto pToItem = Property::createValue(m_pTo);
+        auto pToItem = CProperty::createValue(m_pTo);
         CConverter::transform(pFrom, pToItem);
         if (!pToItem->isNull())
             pTo->add(pToItem);
@@ -139,7 +139,7 @@ void COneToArrayConverter::transform(PropValue* pFrom, PropValue* pTo)
     }
 }
 
-void COneToArrayConverter::doTransform(PropValue* pFrom, PropValue* pTo)
+void COneToArrayConverter::doTransform(CPropValue* pFrom, CPropValue* pTo)
 {
     //auto sValue = pValue->asString();
     //if (sValue != c_sEmptyFlag)
@@ -155,33 +155,33 @@ void COneToArrayConverter::doTransform(PropValue* pFrom, PropValue* pTo)
 //}
 
 
-void CIntToStringConverter::doTransform(PropValue * pFrom, PropValue * pTo)
+void CIntToStringConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
 {
     pTo->setAsString(std::to_string(pFrom->asInteger()));
 }
 
-void CIntConverter::doTransform(PropValue * pFrom, PropValue * pTo)
+void CIntConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
 {
     pTo->setAsInteger(pFrom->asInteger());
 }
 
-void CFloatToStringConverter::doTransform(PropValue * pFrom, PropValue * pTo)
+void CFloatToStringConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
 {
     pTo->setAsString(std::to_string(pFrom->asDouble()));
 }
 
 
-void CFloatConverter::doTransform(PropValue * pFrom, PropValue * pTo)
+void CFloatConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
 {
     pTo->setAsDouble(pFrom->asDouble());
 }
 
-void CEntityRefConverter::doTransform(PropValue * pFrom, PropValue * pTo)
+void CEntityRefConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
 {
     pTo->setAsEntityRef(pFrom->asEntityRef());
 }
 
-void CEnumConverter::doTransform(PropValue * pFrom, PropValue * pTo)
+void CEnumConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
 {
     auto pToEnum = dynamic_cast<gfc::schema::CEnumType*>(m_pTo);
     auto pFromEnum = dynamic_cast<gfc::schema::CEnumType*>(m_pFrom);

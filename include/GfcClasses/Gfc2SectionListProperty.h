@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2SectionListProperty: public Gfc2ListProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2SectionListProperty, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SectionListProperty, gfc::engine::CEntity)
 public:
     Gfc2SectionListProperty();
     Gfc2SectionListProperty(bool bSetSchema);

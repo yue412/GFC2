@@ -16,12 +16,12 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Upgrader::~Upgrader()
+CUpgrader::~CUpgrader()
 {
     clear();
 }
 
-void Upgrader::init(gfc::schema::CModel* pModel, gfc::schema::CModel* pFileModel)
+void CUpgrader::init(gfc::schema::CModel* pModel, gfc::schema::CModel* pFileModel)
 {
     clear();
     m_pModel = pModel;
@@ -33,7 +33,7 @@ void Upgrader::init(gfc::schema::CModel* pModel, gfc::schema::CModel* pFileModel
     }
 }
 
-Entity* Upgrader::update(Entity* pEntity)
+CEntity* CUpgrader::update(CEntity* pEntity)
 {
     auto pClassCompatibility = m_pModelCompatibility->find(pEntity->entityName());
     if (pClassCompatibility == nullptr)
@@ -41,12 +41,12 @@ Entity* Upgrader::update(Entity* pEntity)
         // no read
         return nullptr;
     }
-    auto pNewEntity = GfcEngineUtils::createEntity(m_pModel, pEntity->entityName());
+    auto pNewEntity = CEngineUtils::createEntity(m_pModel, pEntity->entityName());
     transform(pClassCompatibility, pEntity, pNewEntity);
     return pNewEntity;
 }
 
-void Upgrader::transform(CClassCompatibility* pClassCompatibility, Entity* pSrcEntity, Entity* pDestEntity)
+void CUpgrader::transform(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity)
 {
     for (int i = 0; i < pClassCompatibility->getCount(); i++)
     {
@@ -62,7 +62,7 @@ void Upgrader::transform(CClassCompatibility* pClassCompatibility, Entity* pSrcE
     }
 }
 
-void Upgrader::clear()
+void CUpgrader::clear()
 {
     delete m_pModelCompatibility; m_pModelCompatibility = nullptr;
 }

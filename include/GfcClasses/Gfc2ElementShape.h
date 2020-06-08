@@ -6,9 +6,9 @@
 #include "Gfc2Shape.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2ElementShape: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2ElementShape: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2ElementShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ElementShape, gfc::engine::CEntity)
 public:
     Gfc2ElementShape();
     Gfc2ElementShape(bool bSetSchema);

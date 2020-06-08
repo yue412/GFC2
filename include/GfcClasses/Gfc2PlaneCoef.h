@@ -5,9 +5,9 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2PlaneCoef: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2PlaneCoef: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2PlaneCoef, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PlaneCoef, gfc::engine::CEntity)
 public:
     Gfc2PlaneCoef();
     Gfc2PlaneCoef(bool bSetSchema);

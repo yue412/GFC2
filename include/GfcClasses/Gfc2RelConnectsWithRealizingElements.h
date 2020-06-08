@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2RelConnectsWithRealizingElements: public Gfc2RelConnectsElements
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelConnectsWithRealizingElements, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelConnectsWithRealizingElements, gfc::engine::CEntity)
 public:
     Gfc2RelConnectsWithRealizingElements();
     Gfc2RelConnectsWithRealizingElements(bool bSetSchema);

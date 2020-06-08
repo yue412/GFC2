@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2ListProperty: public Gfc2SimpleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2ListProperty, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ListProperty, gfc::engine::CEntity)
 public:
     Gfc2ListProperty();
     Gfc2ListProperty(bool bSetSchema);

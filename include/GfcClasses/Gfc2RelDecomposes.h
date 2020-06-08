@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2RelDecomposes: public Gfc2RelationShip
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelDecomposes, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelDecomposes, gfc::engine::CEntity)
 public:
     Gfc2RelDecomposes();
     Gfc2RelDecomposes(bool bSetSchema);

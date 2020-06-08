@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2RelAggregates: public Gfc2RelDecomposes
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelAggregates, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelAggregates, gfc::engine::CEntity)
 public:
     Gfc2RelAggregates();
     Gfc2RelAggregates(bool bSetSchema);

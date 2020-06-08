@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2RevolvedAreaSolidTaperedShape: public Gfc2RevolvedAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2RevolvedAreaSolidTaperedShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RevolvedAreaSolidTaperedShape, gfc::engine::CEntity)
 public:
     Gfc2RevolvedAreaSolidTaperedShape();
     Gfc2RevolvedAreaSolidTaperedShape(bool bSetSchema);

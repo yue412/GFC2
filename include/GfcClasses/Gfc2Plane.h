@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2Plane: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Plane, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Plane, gfc::engine::CEntity)
 public:
     Gfc2Plane();
     Gfc2Plane(bool bSetSchema);

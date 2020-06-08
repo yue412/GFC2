@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2SimpleLoop: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2SimpleLoop, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SimpleLoop, gfc::engine::CEntity)
 public:
     Gfc2SimpleLoop();
     Gfc2SimpleLoop(bool bSetSchema);

@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2GeoListProperty: public Gfc2ListProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2GeoListProperty, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2GeoListProperty, gfc::engine::CEntity)
 public:
     Gfc2GeoListProperty();
     Gfc2GeoListProperty(bool bSetSchema);

@@ -10,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2Sweep: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Sweep, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Sweep, gfc::engine::CEntity)
 public:
     Gfc2Sweep();
     Gfc2Sweep(bool bSetSchema);

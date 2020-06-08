@@ -30,20 +30,20 @@ std::string getUserName()
 
 GFCENGINE_NAMESPACE_BEGIN
 
-GFCENGINE_IMP_OBJECT(WriterTextImp, L"express", 0)
+GFCENGINE_IMP_OBJECT(CWriterTextImp, L"express", 0)
 
-WriterTextImp::WriterTextImp(void):m_pTextStream(0)
+CWriterTextImp::CWriterTextImp(void):m_pTextStream(0)
 {
     m_nCount = 1;
 }
 
 
-WriterTextImp::~WriterTextImp(void)
+CWriterTextImp::~CWriterTextImp(void)
 {
     close();
 }
 
-bool WriterTextImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion)
+bool CWriterTextImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion)
 {
     std::string sFile = toString(sFileName);
 	if (-1 != _access(sFile.c_str(), 0))
@@ -58,7 +58,7 @@ bool WriterTextImp::open( const std::wstring& sFileName, const std::wstring& sPr
     return true;
 }
 
-void WriterTextImp::close()
+void CWriterTextImp::close()
 {
     if (m_pTextStream)
     {
@@ -71,7 +71,7 @@ void WriterTextImp::close()
     m_nCount = 0;
 }
 
-EntityRef WriterTextImp::writeEntity( Entity* pEntity )
+EntityRef CWriterTextImp::writeEntity( CEntity* pEntity )
 {
     if (m_pTextStream)
     {
@@ -90,7 +90,7 @@ EntityRef WriterTextImp::writeEntity( Entity* pEntity )
     return -1;
 }
 
-void WriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion)
+void CWriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion)
 {
 	time_t current;
 	time(&current);
@@ -106,7 +106,7 @@ void WriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring&
     *m_pTextStream << "ENDSEC;" << std::endl;
 }
 
-void WriterTextImp::writeValue(gfc::schema::CAttribute* pSchema, PropValue* pValue)
+void CWriterTextImp::writeValue(gfc::schema::CAttribute* pSchema, CPropValue* pValue)
 {
     auto nType = pSchema->getType()->getDataType();
     switch (nType)
@@ -140,7 +140,7 @@ void WriterTextImp::writeValue(gfc::schema::CAttribute* pSchema, PropValue* pVal
     }
 }
 
-void WriterTextImp::writeProperty(Property * pProp)
+void CWriterTextImp::writeProperty(CProperty * pProp)
 {
     auto pSchema = pProp->schema();
     if (pSchema->getRepeatFlag())

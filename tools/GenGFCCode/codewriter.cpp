@@ -765,8 +765,8 @@ void CCodeWriter::writeCliTypedefFile(std::vector<CTypeObject *> &oObjectList)
 CppClass* CCodeWriter::createFactoryClass(CClass *pTypeObject)
 {
     std::wstring sName = pTypeObject->getName();
-    CppClass* pClass = new CppClass(sName + L"Factory", AT_PUBLIC, L"gfc::engine::EntityFactory");
-    CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"gfc::engine::Entity*", L"create", false, true);
+    CppClass* pClass = new CppClass(sName + L"Factory", AT_PUBLIC, L"gfc::engine::CEntityFactory");
+    CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"gfc::engine::CEntity*", L"create", false, true);
     pFunc->body()->addLine(FormatWstring(L"return new %s();", 
         sName.c_str()
     ));
@@ -839,7 +839,7 @@ void CCodeWriter::addByteSizeFunc(CClass *pTypeObject, CppClass* pClass)
 {
     int nCount = pTypeObject->getAttributeCount();
     CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"int", L"byteSize", true);
-    pFunc->addParam(L"gfc::engine::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
         pTypeObject->getName().c_str(),
         pTypeObject->getName().c_str()
@@ -920,7 +920,7 @@ void CCodeWriter::addSerializeWithCachedSizesFunc(CClass *pTypeObject, CppClass*
 {
     CFunction* pFunc = pClass->addFunc(AT_PROTECTED, L"void", L"serializeWithCachedSizes", true, true);
     pFunc->addParam(L"google::protobuf::io::CodedOutputStream*", L"output");
-    pFunc->addParam(L"gfc::engine::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
         pTypeObject->getName().c_str(),
         pTypeObject->getName().c_str()
@@ -977,7 +977,7 @@ void CCodeWriter::addSerializeWithCachedSizesToArrayFunc(CClass *pTypeObject, Cp
 {
     CFunction* pFunc = pClass->addFunc(AT_PROTECTED, L"google::protobuf::uint8*", L"serializeWithCachedSizesToArray", true, true);
     pFunc->addParam(L"google::protobuf::uint8*", L"target");
-    pFunc->addParam(L"gfc::engine::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
 
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
         pTypeObject->getName().c_str(),
@@ -1037,7 +1037,7 @@ void CCodeWriter::addParseField1(CClass *pTypeObject, CppClass* pClass)
     CFunction* pFunc = pClass->addFunc(AT_PROTECTED, L"gfc::engine::EnParseFieldState", L"parseField", false, true);
     pFunc->addParam(L"google::protobuf::io::CodedInputStream*", L"input");
     pFunc->addParam(L"int", L"nFieldNum");
-    pFunc->addParam(L"gfc::engine::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
 
     pFunc->body()->addLine(L"#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure", true);
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
@@ -1126,7 +1126,7 @@ void CCodeWriter::addParseField1(CClass *pTypeObject, CppClass* pClass)
 void CCodeWriter::addSerializeFunc(CClass *pTypeObject, CppClass* pClass)
 {
     CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"std::string", L"serialize", true, true);
-    pFunc->addParam(L"gfc::engine::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
 
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
         pTypeObject->getName().c_str(),
@@ -1188,7 +1188,7 @@ void CCodeWriter::addParseField2(CClass *pTypeObject, CppClass* pClass)
     CFunction* pFunc = pClass->addFunc(AT_PROTECTED, L"gfc::engine::EnParseFieldState", L"parseField", false, true);
     pFunc->addParam(L"const std::string&", L"input");
     pFunc->addParam(L"int", L"nFieldNum");
-    pFunc->addParam(L"gfc::engine::Entity*", L"pEntity");
+    pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
 
     pFunc->body()->addLine(L"#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure", true);
     pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;",
@@ -1306,7 +1306,7 @@ CppClass *CCodeWriter::createCppClass(CClass *pTypeObject, int nTypeId)
     std::wstring sName = pTypeObject->getName();
     CppClass* pClass = new CppClass(sName, AT_PUBLIC, getParentClassCode(pTypeObject));
     pClass->setExportFlag(L"GFCCLASSES_API");
-    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%s, gfc::engine::Entity)", 
+    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%s, gfc::engine::CEntity)", 
         sName.c_str()
     ));
 //    CFunction* pFunc = NULL;
@@ -1665,7 +1665,7 @@ void CCodeWriter::initRepeatAttributeCode(CClass* pTypeObject, int nAttributeInd
     pFunc->addParam(FormatWstring(L"const %s&", sTypeName.c_str()), sPrefix + L"Value");
     pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
     pFunc->body()->addLine(L"assert(pProp);");
-    pFunc->body()->addLine(FormatWstring(L"pProp->value()->add(new gfc::engine::%sValue(%sValue));", 
+    pFunc->body()->addLine(FormatWstring(L"pProp->value()->add(new gfc::engine::C%sValue(%sValue));", 
         getDataTypeName(pAttribute->getType()).c_str(),
         sPrefix.c_str()));
 
@@ -2254,7 +2254,7 @@ std::wstring CCodeWriter::getParentClassCode(CClass *pClass, bool b4cli)
         if (b4cli)
             return L"glodon::objectbufnet::Entity";
         else
-            return L"gfc::engine::Entity";
+            return L"gfc::engine::CEntity";
 }
 
 bool CCodeWriter::hasConstructor(CClass *pTypeObject)

@@ -4,9 +4,9 @@
 #include "GfcClasses.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2RepresentationItem: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2RepresentationItem: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2RepresentationItem, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RepresentationItem, gfc::engine::CEntity)
 public:
     Gfc2RepresentationItem();
     Gfc2RepresentationItem(bool bSetSchema);

@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2LightSourceDirectional: public Gfc2LightSource
 {
-GFCENGINE_DEC_OBJECT(Gfc2LightSourceDirectional, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2LightSourceDirectional, gfc::engine::CEntity)
 public:
     Gfc2LightSourceDirectional();
     Gfc2LightSourceDirectional(bool bSetSchema);

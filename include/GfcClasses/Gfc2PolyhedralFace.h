@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2PolyhedralFace: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2PolyhedralFace, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PolyhedralFace, gfc::engine::CEntity)
 public:
     Gfc2PolyhedralFace();
     Gfc2PolyhedralFace(bool bSetSchema);

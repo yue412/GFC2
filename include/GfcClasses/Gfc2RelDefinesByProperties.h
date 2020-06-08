@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2RelDefinesByProperties: public Gfc2RelDefines
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelDefinesByProperties, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelDefinesByProperties, gfc::engine::CEntity)
 public:
     Gfc2RelDefinesByProperties();
     Gfc2RelDefinesByProperties(bool bSetSchema);

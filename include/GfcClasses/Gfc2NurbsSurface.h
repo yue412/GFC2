@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2NurbsSurface: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2NurbsSurface, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2NurbsSurface, gfc::engine::CEntity)
 public:
     Gfc2NurbsSurface();
     Gfc2NurbsSurface(bool bSetSchema);

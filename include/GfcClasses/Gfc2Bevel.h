@@ -11,7 +11,7 @@
 
 class GFCCLASSES_API Gfc2Bevel: public Gfc2Surface
 {
-GFCENGINE_DEC_OBJECT(Gfc2Bevel, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Bevel, gfc::engine::CEntity)
 public:
     Gfc2Bevel();
     Gfc2Bevel(bool bSetSchema);

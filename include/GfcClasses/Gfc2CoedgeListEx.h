@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2CoedgeListEx: public Gfc2Topology
 {
-GFCENGINE_DEC_OBJECT(Gfc2CoedgeListEx, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CoedgeListEx, gfc::engine::CEntity)
 public:
     Gfc2CoedgeListEx();
     Gfc2CoedgeListEx(bool bSetSchema);

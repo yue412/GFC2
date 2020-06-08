@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2BooleanResult: public Gfc2SolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2BooleanResult, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2BooleanResult, gfc::engine::CEntity)
 public:
     Gfc2BooleanResult();
     Gfc2BooleanResult(bool bSetSchema);

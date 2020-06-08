@@ -6,10 +6,10 @@
 GFCENGINE_NAMESPACE_BEGIN
 
 template<class T>
-class Iterator
+class CIterator
 {
 public:
-    virtual ~Iterator() {}
+    virtual ~CIterator() {}
     virtual void first() = 0;
     virtual void next() = 0;
     virtual bool isDone() = 0;

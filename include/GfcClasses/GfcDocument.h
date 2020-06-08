@@ -4,7 +4,7 @@
 #include "GfcEngine\Document.h"
 #include "GfcClasses.h"
 
-class GFCCLASSES_API GfcDocument: public gfc::engine::Document
+class GFCCLASSES_API GfcDocument: public gfc::engine::CDocument
 {
 public:
     GfcDocument();

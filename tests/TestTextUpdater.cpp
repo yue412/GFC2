@@ -9,7 +9,7 @@
 
 TEST(TestUpdater, transform_same)
 {
-    gfc::engine::Upgrader oUpdater;
+    gfc::engine::CUpgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
@@ -27,9 +27,9 @@ TEST(TestUpdater, transform_same)
     gfc::engine::CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
 
-    gfc::engine::Entity oFromEntity;
+    gfc::engine::CEntity oFromEntity;
     oFromEntity.setSchema(&oFromClass);
-    gfc::engine::Entity oToEntity;
+    gfc::engine::CEntity oToEntity;
     oToEntity.setSchema(&oToClass);
 
     oFromEntity.setAsInteger(L"ID", 123);
@@ -40,7 +40,7 @@ TEST(TestUpdater, transform_same)
 
 TEST(TestUpdater, transform_delete)
 {
-    gfc::engine::Upgrader oUpdater;
+    gfc::engine::CUpgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
@@ -52,9 +52,9 @@ TEST(TestUpdater, transform_delete)
     gfc::engine::CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
 
-    gfc::engine::Entity oFromEntity;
+    gfc::engine::CEntity oFromEntity;
     oFromEntity.setSchema(&oFromClass);
-    gfc::engine::Entity oToEntity;
+    gfc::engine::CEntity oToEntity;
     oToEntity.setSchema(&oToClass);
 
     oFromEntity.setAsInteger(L"ID", 123);
@@ -65,7 +65,7 @@ TEST(TestUpdater, transform_delete)
 
 TEST(TestUpdater, transform_add)
 {
-    gfc::engine::Upgrader oUpdater;
+    gfc::engine::CUpgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
@@ -83,9 +83,9 @@ TEST(TestUpdater, transform_add)
     gfc::engine::CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
 
-    gfc::engine::Entity oFromEntity;
+    gfc::engine::CEntity oFromEntity;
     oFromEntity.setSchema(&oFromClass);
-    gfc::engine::Entity oToEntity;
+    gfc::engine::CEntity oToEntity;
     oToEntity.setSchema(&oToClass);
 
     oFromEntity.setAsInteger(L"ID", 123);
@@ -96,7 +96,7 @@ TEST(TestUpdater, transform_add)
 
 TEST(TestUpdater, transform_exchange)
 {
-    gfc::engine::Upgrader oUpdater;
+    gfc::engine::CUpgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
@@ -128,9 +128,9 @@ TEST(TestUpdater, transform_exchange)
     gfc::engine::CClassCompatibility oCompatibility;
     oCompatibility.init(&oFromClass, &oToClass);
 
-    gfc::engine::Entity oFromEntity;
+    gfc::engine::CEntity oFromEntity;
     oFromEntity.setSchema(&oFromClass);
-    gfc::engine::Entity oToEntity;
+    gfc::engine::CEntity oToEntity;
     oToEntity.setSchema(&oToClass);
 
     oFromEntity.setAsInteger(L"ID", 123);

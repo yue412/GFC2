@@ -24,14 +24,14 @@ GFCENGINE_NAMESPACE_BEGIN
 typedef std::vector<std::vector<EntityRef>*> EntityRefListlist;
 
 template<class T>
-class ContainerImp
+class CContainerImp
 {
 public:
-    ContainerImp(gfc::schema::CModel* pModel, int nInitSize = 10000): m_pModel(pModel) 
+    CContainerImp(gfc::schema::CModel* pModel, int nInitSize = 10000): m_pModel(pModel) 
     {
         m_oEntities.resize(nInitSize);
     }
-    ~ContainerImp() {}
+    ~CContainerImp() {}
     void add(EntityRef nId, const T& pEntity) 
     {
         auto nSize = (EntityRef)m_oEntities.size();
@@ -63,7 +63,7 @@ public:
         return T();
     }
 
-    std::shared_ptr<Iterator<T>> getItems(const std::wstring& sType, bool bIncludeSubType = false)
+    std::shared_ptr<CIterator<T>> getItems(const std::wstring& sType, bool bIncludeSubType = false)
     {
         EntityRefListlist oList;
         if (!bIncludeSubType)
@@ -98,16 +98,16 @@ public:
                 pCollectEntitiesFunc(pSchema, oList);
             }
         }
-        return std::shared_ptr<Iterator<T>>(new ListIterator<T>(this, oList));
+        return std::shared_ptr<CIterator<T>>(new CListIterator<T>(this, oList));
     }
-    std::shared_ptr<Iterator<T>> iterator()
+    std::shared_ptr<CIterator<T>> iterator()
     {
         EntityRefListlist oList;
         for each (auto oPair in m_oEntityTypeMap)
         {
             oList.push_back(oPair.second);
         }
-        return std::shared_ptr<Iterator<T>>(new ListIterator<T>(this, oList));
+        return std::shared_ptr<CIterator<T>>(new CListIterator<T>(this, oList));
     }
     gfc::schema::CModel* model() const { return m_pModel; }
 private:
@@ -117,11 +117,11 @@ private:
 };
 
 template<class T>
-class ListIterator : public Iterator<T>
+class CListIterator : public CIterator<T>
 {
 public:
-    ListIterator(ContainerImp<T>* pContainer, const EntityRefListlist& oList): m_oList(oList), m_nIndex(0), m_pContainer(pContainer) { }
-    virtual ~ListIterator() {}
+    CListIterator(CContainerImp<T>* pContainer, const EntityRefListlist& oList): m_oList(oList), m_nIndex(0), m_pContainer(pContainer) { }
+    virtual ~CListIterator() {}
     virtual void first()
     {
         m_oMItr = m_oList.begin();
@@ -165,7 +165,7 @@ private:
     }
     std::vector<std::vector<EntityRef>*> m_oList;
     std::vector<std::vector<EntityRef>*>::iterator m_oMItr;
-    ContainerImp<T>* m_pContainer;
+    CContainerImp<T>* m_pContainer;
     std::size_t m_nIndex;
 };
 

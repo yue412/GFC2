@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2CompositeCurve2dSweptSolidShape: public Gfc2SweptAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2CompositeCurve2dSweptSolidShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CompositeCurve2dSweptSolidShape, gfc::engine::CEntity)
 public:
     Gfc2CompositeCurve2dSweptSolidShape();
     Gfc2CompositeCurve2dSweptSolidShape(bool bSetSchema);

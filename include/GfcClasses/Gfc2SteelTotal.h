@@ -6,9 +6,9 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2SteelTotal: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2SteelTotal: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2SteelTotal, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SteelTotal, gfc::engine::CEntity)
 public:
     Gfc2SteelTotal();
     Gfc2SteelTotal(bool bSetSchema);

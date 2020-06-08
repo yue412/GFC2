@@ -5,9 +5,9 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2Color: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2Color: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2Color, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Color, gfc::engine::CEntity)
 public:
     Gfc2Color();
     Gfc2Color(bool bSetSchema);

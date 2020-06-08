@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2CylinderShape: public Gfc2PrimitiveShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2CylinderShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CylinderShape, gfc::engine::CEntity)
 public:
     Gfc2CylinderShape();
     Gfc2CylinderShape(bool bSetSchema);

@@ -17,8 +17,8 @@ namespace gfc {
 
 GFCENGINE_NAMESPACE_BEGIN
 
-class Document;
-class ReaderImp;
+class CDocument;
+class CReaderImp;
 
 //typedef void (*RegSchemaInfoProc) (Reader* reader);
 //typedef void (*FieldCacheProc) ();
@@ -29,15 +29,15 @@ template class __declspec(dllexport) std::_Vector_val<std::_Simple_types<std::ws
 template class __declspec(dllexport) std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::wstring>>, std::_Vector_val<std::_Simple_types<std::wstring>>, true>;
 template class __declspec(dllexport) std::vector<std::wstring, std::allocator<std::wstring>>;
 
-class GFCENGINE_API Reader
+class GFCENGINE_API CReader
 {
 public:
-    Reader(gfc::schema::CModel* pModel);
-    virtual ~Reader(void);
+    CReader(gfc::schema::CModel* pModel);
+    virtual ~CReader(void);
     bool open(const std::wstring& sFileName);
     void close();
 
-    void read(Document* pDoc);
+    void read(CDocument* pDoc);
 
     EntityPtr getEntity(EntityRef nId);
     EntityIteratorPtr getEntities(const std::wstring& sType, bool bIncludeSubType = false);
@@ -46,7 +46,7 @@ public:
 private:
     //Entity* read();
     std::vector<std::wstring> m_oErrors;
-    ReaderImp* m_pImp;
+    CReaderImp* m_pImp;
     gfc::schema::CModel* m_pModel;
 };
 

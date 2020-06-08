@@ -4,7 +4,7 @@
 #include "GfcEngine\Writer.h"
 #include "GfcClasses.h"
 
-class GFCCLASSES_API GfcWriter: public gfc::engine::Writer
+class GFCCLASSES_API GfcWriter: public gfc::engine::CWriter
 {
 public:
     GfcWriter(const std::wstring& sProductCode = L"");

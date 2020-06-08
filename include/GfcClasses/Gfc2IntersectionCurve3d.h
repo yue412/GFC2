@@ -10,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2IntersectionCurve3d: public Gfc2Curve3d
 {
-GFCENGINE_DEC_OBJECT(Gfc2IntersectionCurve3d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2IntersectionCurve3d, gfc::engine::CEntity)
 public:
     Gfc2IntersectionCurve3d();
     Gfc2IntersectionCurve3d(bool bSetSchema);

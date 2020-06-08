@@ -7,41 +7,41 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Document::Document( gfc::schema::CModel* pModel, int nEntityInitCount /*= 1000000*/ ): m_pContainer(nullptr)
+CDocument::CDocument( gfc::schema::CModel* pModel, int nEntityInitCount /*= 1000000*/ ): m_pContainer(nullptr)
 {
-    m_pContainer = new ContainerImp<EntityPtr>(pModel, nEntityInitCount);
+    m_pContainer = new CContainerImp<EntityPtr>(pModel, nEntityInitCount);
     //m_pEntityTypeTree = new EntityTypeTree(this);
     //m_oEntities.resize(nEntityInitCount, nullptr);
 }
 
-Document::~Document(void)
+CDocument::~CDocument(void)
 {
     delete m_pContainer;
 }
 
-void Document::add( EntityRef nId, Entity* pEntity )
+void CDocument::add( EntityRef nId, CEntity* pEntity )
 {
     assert(pEntity);
     pEntity->setContainer(this);
     m_pContainer->add(nId, EntityPtr(pEntity));
 }
 
-EntityPtr Document::getEntity( EntityRef nId )
+EntityPtr CDocument::getEntity( EntityRef nId )
 {
     return m_pContainer->getItem(nId);
 }
 
-gfc::schema::CModel* Document::model() const 
+gfc::schema::CModel* CDocument::model() const 
 { 
     return m_pContainer->model(); 
 }
 
-EntityIteratorPtr Document::getIterator()
+EntityIteratorPtr CDocument::getIterator()
 {
     return m_pContainer->iterator();
 }
 
-EntityIteratorPtr Document::getEntities(const std::wstring& sType, bool bIncludeSubType /*= false*/ )
+EntityIteratorPtr CDocument::getEntities(const std::wstring& sType, bool bIncludeSubType /*= false*/ )
 {
     return m_pContainer->getItems(sType, bIncludeSubType);
 }

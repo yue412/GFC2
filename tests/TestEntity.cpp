@@ -40,7 +40,7 @@ TEST(TestEntity, Entity_create)
     pA4->SetName(L"list");
     oClass.addAttribute(pA4);
 
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
     oEntity.setSchema(&oClass);
 
     oEntity.setAsString(L"name", "中华人民共和国");
@@ -86,7 +86,7 @@ TEST(TestEntity, Entity_create_typedef_class)
     gfc::schema::CTypeDef oTypeDef(L"hehe");
     oTypeDef.SetRefType(&oClass);
 
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
     oEntity.setSchema(&oTypeDef);
 
     oEntity.setAsString(L"name", "中华人民共和国");
@@ -103,7 +103,7 @@ TEST(TestEntity, Entity_entityName)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
     oEntity.setSchema(&oClass);
 
     EXPECT_STREQ(L"Test", oEntity.entityName().c_str());
@@ -111,7 +111,7 @@ TEST(TestEntity, Entity_entityName)
     gfc::schema::CTypeDef oTypeDef(L"hehe");
     oTypeDef.SetRefType(&oClass);
 
-    gfc::engine::Entity oEntity2;
+    gfc::engine::CEntity oEntity2;
     oEntity2.setSchema(&oTypeDef);
 
     EXPECT_STREQ(L"hehe", oEntity2.entityName().c_str());
@@ -121,7 +121,7 @@ TEST(TestEntity, Entity_isInitialized)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oDoubleType;
     gfc::schema::CAttribute* pA1 = new gfc::schema::CAttribute();
@@ -146,7 +146,7 @@ TEST(TestEntity, Entity_isInitialized_true)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oDoubleType;
     gfc::schema::CAttribute* pA1 = new gfc::schema::CAttribute();
@@ -172,7 +172,7 @@ TEST(TestEntity, Entity_isInitialized_true_optional)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oDoubleType;
     gfc::schema::CAttribute* pA1 = new gfc::schema::CAttribute();
@@ -205,7 +205,7 @@ TEST(TestEntity, Entity_isInitialized_true_list)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oDoubleType;
     gfc::schema::CAttribute* pA1 = new gfc::schema::CAttribute();
@@ -238,7 +238,7 @@ TEST(TestEntity, Entity_getPropCount)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oDoubleType;
     gfc::schema::CAttribute* pA1 = new gfc::schema::CAttribute();
@@ -268,7 +268,7 @@ TEST(TestEntity, Entity_getProps)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oDoubleType;
     gfc::schema::CAttribute* pA1 = new gfc::schema::CAttribute();
@@ -298,7 +298,7 @@ TEST(TestEntity, Entity_getProps_null)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     oEntity.setSchema(&oClass);
 
@@ -309,7 +309,7 @@ TEST(TestEntity, Entity_propByName)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oDoubleType;
     gfc::schema::CAttribute* pA1 = new gfc::schema::CAttribute();
@@ -343,7 +343,7 @@ TEST(TestEntity, Entity_valueByName)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oDoubleType;
     gfc::schema::CAttribute* pA1 = new gfc::schema::CAttribute();
@@ -377,7 +377,7 @@ TEST(TestEntity, Entity_isNull)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oDoubleType;
     gfc::schema::CAttribute* pA1 = new gfc::schema::CAttribute();
@@ -399,7 +399,7 @@ TEST(TestEntity, Entity_isNull_list)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oDoubleType;
     gfc::schema::CAttribute* pA1 = new gfc::schema::CAttribute();
@@ -422,7 +422,7 @@ TEST(TestEntity, Entity_asString)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CStringType oStringType;
     gfc::schema::CAttribute* pA1 = new gfc::schema::CAttribute();
@@ -447,7 +447,7 @@ TEST(TestEntity, Entity_asInteger)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CIntegerType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -472,7 +472,7 @@ TEST(TestEntity, Entity_asEntityRef)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CClass oClass2;
     oClass2.SetName(L"Factory");
@@ -498,7 +498,7 @@ TEST(TestEntity, Entity_asBoolean)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CBooleanType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -523,7 +523,7 @@ TEST(TestEntity, Entity_asDouble)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -548,7 +548,7 @@ TEST(TestEntity, Entity_getArrayCount)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CIntegerType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -575,7 +575,7 @@ TEST(TestEntity, Entity_addInteger)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CIntegerType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -601,7 +601,7 @@ TEST(TestEntity, Entity_getInteger)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CIntegerType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -623,7 +623,7 @@ TEST(TestEntity, Entity_addBoolean)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CBooleanType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -649,7 +649,7 @@ TEST(TestEntity, Entity_getBoolean)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CBooleanType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -671,7 +671,7 @@ TEST(TestEntity, Entity_addEntityRef)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CClass oIntegerType;
     oIntegerType.SetName(L"T2");
@@ -698,7 +698,7 @@ TEST(TestEntity, Entity_getEntityRef)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CClass oIntegerType;
     oIntegerType.SetName(L"T2");
@@ -721,7 +721,7 @@ TEST(TestEntity, Entity_addDouble)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -747,7 +747,7 @@ TEST(TestEntity, Entity_getDouble)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CRealType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -769,7 +769,7 @@ TEST(TestEntity, Entity_addString)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CStringType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -795,7 +795,7 @@ TEST(TestEntity, Entity_getString)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Test");
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
 
     gfc::schema::CStringType oIntegerType;
     gfc::schema::CAttribute* pA2 = new gfc::schema::CAttribute();
@@ -816,7 +816,7 @@ TEST(TestEntity, Entity_getString)
 TEST(TestEntity, Entity_asEntity)
 {
     gfc::schema::CModel oModel;
-    gfc::engine::Document oDoc(&oModel);
+    gfc::engine::CDocument oDoc(&oModel);
 
     auto pClass = new gfc::schema::CClass;
     pClass->SetName(L"Test");
@@ -830,11 +830,11 @@ TEST(TestEntity, Entity_asEntity)
     pA2->SetType(pClass2);
     pClass->addAttribute(pA2);
 
-    auto pEntity = new gfc::engine::Entity();
+    auto pEntity = new gfc::engine::CEntity();
     pEntity->setSchema(pClass);
     pEntity->setAsEntityRef(L"factory", 125);
     oDoc.add(123, pEntity);
-    auto pEntity2 = new gfc::engine::Entity();
+    auto pEntity2 = new gfc::engine::CEntity();
     pEntity2->setSchema(pClass2);
     oDoc.add(125, pEntity2);
 
@@ -848,7 +848,7 @@ TEST(TestEntity, Entity_asEntity)
 TEST(TestEntity, Entity_getEntity)
 {
     gfc::schema::CModel oModel;
-    gfc::engine::Document oDoc(&oModel);
+    gfc::engine::CDocument oDoc(&oModel);
 
     auto pClass = new gfc::schema::CClass;
     pClass->SetName(L"Test");
@@ -863,11 +863,11 @@ TEST(TestEntity, Entity_getEntity)
     pA2->SetRepeatFlag(true);
     pClass->addAttribute(pA2);
 
-    auto pEntity = new gfc::engine::Entity();
+    auto pEntity = new gfc::engine::CEntity();
     pEntity->setSchema(pClass);
     pEntity->addEntityRef(L"factory", 125);
     oDoc.add(123, pEntity);
-    auto pEntity2 = new gfc::engine::Entity();
+    auto pEntity2 = new gfc::engine::CEntity();
     pEntity2->setSchema(pClass2);
     oDoc.add(125, pEntity2);
 
@@ -912,7 +912,7 @@ TEST(TestEntity, Entity_create_parent)
     pA4->SetName(L"list");
     oClass2.addAttribute(pA4);
 
-    gfc::engine::Entity oEntity;
+    gfc::engine::CEntity oEntity;
     oEntity.setSchema(&oClass2);
 
     EXPECT_EQ(4, oEntity.getPropCount());

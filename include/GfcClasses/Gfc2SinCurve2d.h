@@ -10,7 +10,7 @@
 
 class GFCCLASSES_API Gfc2SinCurve2d: public Gfc2Curve2d
 {
-GFCENGINE_DEC_OBJECT(Gfc2SinCurve2d, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SinCurve2d, gfc::engine::CEntity)
 public:
     Gfc2SinCurve2d();
     Gfc2SinCurve2d(bool bSetSchema);

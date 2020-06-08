@@ -16,17 +16,17 @@ GFCENGINE_NAMESPACE_BEGIN
 
 class CModelCompatibility;
 class CClassCompatibility;
-class Entity;
+class CEntity;
 
-class Upgrader
+class CUpgrader
 {
 public:
-    Upgrader() : m_pModelCompatibility(nullptr) {}
-    ~Upgrader();
+    CUpgrader() : m_pModelCompatibility(nullptr) {}
+    ~CUpgrader();
     void init(gfc::schema::CModel* pModel, gfc::schema::CModel* pFileModel);
-    Entity* update(Entity* pEntity);
+    CEntity* update(CEntity* pEntity);
     // for test
-    void transform(CClassCompatibility* pClassCompatibility, Entity* pSrcEntity, Entity* pDestEntity);
+    void transform(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity);
 private:
     void clear();
     gfc::schema::CModel* m_pModel;

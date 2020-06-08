@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2HalfSpaceSolidShape: public Gfc2SolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2HalfSpaceSolidShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2HalfSpaceSolidShape, gfc::engine::CEntity)
 public:
     Gfc2HalfSpaceSolidShape();
     Gfc2HalfSpaceSolidShape(bool bSetSchema);

@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2RelVoidsElement: public Gfc2RelDecomposes
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelVoidsElement, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelVoidsElement, gfc::engine::CEntity)
 public:
     Gfc2RelVoidsElement();
     Gfc2RelVoidsElement(bool bSetSchema);

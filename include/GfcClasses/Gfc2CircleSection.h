@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2CircleSection: public Gfc2ParameterizedSection
 {
-GFCENGINE_DEC_OBJECT(Gfc2CircleSection, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CircleSection, gfc::engine::CEntity)
 public:
     Gfc2CircleSection();
     Gfc2CircleSection(bool bSetSchema);

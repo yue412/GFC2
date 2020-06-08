@@ -32,7 +32,7 @@ BOOL WINAPI DllMain(
             GlobalUnlock(hGlobal);
             g_pModel = new gfc::schema::CModel;
             // ½âÎö
-            gfc::engine::GfcEngineUtils::loadSchema((char*)pByte, dwSize, g_pModel);
+            gfc::engine::CEngineUtils::loadSchema((char*)pByte, dwSize, g_pModel);
         }
     }
         break;

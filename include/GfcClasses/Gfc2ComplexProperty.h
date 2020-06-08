@@ -7,7 +7,7 @@
 
 class GFCCLASSES_API Gfc2ComplexProperty: public Gfc2Property
 {
-GFCENGINE_DEC_OBJECT(Gfc2ComplexProperty, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ComplexProperty, gfc::engine::CEntity)
 public:
     Gfc2ComplexProperty();
     Gfc2ComplexProperty(bool bSetSchema);

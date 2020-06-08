@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2SimplePolygon: public Gfc2Polygon
 {
-GFCENGINE_DEC_OBJECT(Gfc2SimplePolygon, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2SimplePolygon, gfc::engine::CEntity)
 public:
     Gfc2SimplePolygon();
     Gfc2SimplePolygon(bool bSetSchema);

@@ -5,9 +5,9 @@
 #include "Gfc2Property.h"
 #include "GfcEngine/Entity.h"
 
-class GFCCLASSES_API Gfc2PropertySet: public gfc::engine::Entity
+class GFCCLASSES_API Gfc2PropertySet: public gfc::engine::CEntity
 {
-GFCENGINE_DEC_OBJECT(Gfc2PropertySet, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2PropertySet, gfc::engine::CEntity)
 public:
     Gfc2PropertySet();
     Gfc2PropertySet(bool bSetSchema);

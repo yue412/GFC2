@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2ExtrudedAreaSolidShape: public Gfc2SweptAreaSolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2ExtrudedAreaSolidShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ExtrudedAreaSolidShape, gfc::engine::CEntity)
 public:
     Gfc2ExtrudedAreaSolidShape();
     Gfc2ExtrudedAreaSolidShape(bool bSetSchema);

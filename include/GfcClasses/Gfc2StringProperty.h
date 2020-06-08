@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2StringProperty: public Gfc2SingleProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2StringProperty, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2StringProperty, gfc::engine::CEntity)
 public:
     Gfc2StringProperty();
     Gfc2StringProperty(bool bSetSchema);

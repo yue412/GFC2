@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2RelCoversBldgElements: public Gfc2RelConnects
 {
-GFCENGINE_DEC_OBJECT(Gfc2RelCoversBldgElements, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2RelCoversBldgElements, gfc::engine::CEntity)
 public:
     Gfc2RelCoversBldgElements();
     Gfc2RelCoversBldgElements(bool bSetSchema);

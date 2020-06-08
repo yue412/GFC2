@@ -57,8 +57,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Int)
     gfc::schema::CIntegerType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    BooleanValue oFromValue;
-    IntegerValue oIntValue;
+    CBooleanValue oFromValue;
+    CIntegerValue oIntValue;
     oFromValue.setAsBoolean(true);
     oTypeCompatibility.converter->transform(&oFromValue, &oIntValue);
     EXPECT_EQ(1, oIntValue.asInteger());
@@ -70,8 +70,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Bool)
     gfc::schema::CBooleanType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    BooleanValue oFromValue;
-    BooleanValue oIntValue;
+    CBooleanValue oFromValue;
+    CBooleanValue oIntValue;
     oFromValue.setAsBoolean(true);
     oTypeCompatibility.converter->transform(&oFromValue, &oIntValue);
     EXPECT_EQ(true, oIntValue.asBoolean());
@@ -83,8 +83,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Real)
     gfc::schema::CRealType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    BooleanValue oFromValue;
-    DoubleValue oIntValue;
+    CBooleanValue oFromValue;
+    CDoubleValue oIntValue;
     oFromValue.setAsBoolean(true);
     oTypeCompatibility.converter->transform(&oFromValue, &oIntValue);
     auto dVal = oIntValue.asDouble();
@@ -97,8 +97,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_String)
     gfc::schema::CStringType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    BooleanValue oFromValue;
-    StringValue oToValue;
+    CBooleanValue oFromValue;
+    CStringValue oToValue;
     oFromValue.setAsBoolean(true);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, "1" == oToValue.asString());
@@ -113,8 +113,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Enum)
     oTo.addEnum(L"hig", L"");
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    BooleanValue oFromValue;
-    IntegerValue oToValue;
+    CBooleanValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsBoolean(true);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(1, oToValue.asInteger());
@@ -126,8 +126,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Entity)
     gfc::schema::CClass oTo(L"CTest");
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    BooleanValue oFromValue;
-    EntityRefValue oToValue;
+    CBooleanValue oFromValue;
+    CEntityRefValue oToValue;
     oFromValue.setAsBoolean(true);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -138,8 +138,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Bool)
     gfc::schema::CBooleanType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    BooleanValue oToValue;
+    CIntegerValue oFromValue;
+    CBooleanValue oToValue;
     oFromValue.setAsInteger(12);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -152,8 +152,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Int)
     gfc::schema::CIntegerType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    IntegerValue oToValue;
+    CIntegerValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsInteger(12);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -166,8 +166,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Real)
     gfc::schema::CRealType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    DoubleValue oToValue;
+    CIntegerValue oFromValue;
+    CDoubleValue oToValue;
     oFromValue.setAsInteger(12);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -180,8 +180,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_String)
     gfc::schema::CStringType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    StringValue oToValue;
+    CIntegerValue oFromValue;
+    CStringValue oToValue;
     oFromValue.setAsInteger(12);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -197,8 +197,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Enum)
     oTo.addEnum(L"hig", L"");
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    IntegerValue oToValue;
+    CIntegerValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsInteger(12);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -211,8 +211,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Int_Entity)
     gfc::schema::CClass oTo(L"CTest");
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    EntityRefValue oToValue;
+    CIntegerValue oFromValue;
+    CEntityRefValue oToValue;
     oFromValue.setAsInteger(12);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -224,8 +224,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Bool)
     gfc::schema::CBooleanType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    DoubleValue oFromValue;
-    BooleanValue oToValue;
+    CDoubleValue oFromValue;
+    CBooleanValue oToValue;
     oFromValue.setAsDouble(12.3);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -237,8 +237,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Int)
     gfc::schema::CIntegerType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    DoubleValue oFromValue;
-    IntegerValue oToValue;
+    CDoubleValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsDouble(12.3);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -250,8 +250,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Real)
     gfc::schema::CRealType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    DoubleValue oFromValue;
-    DoubleValue oToValue;
+    CDoubleValue oFromValue;
+    CDoubleValue oToValue;
     oFromValue.setAsDouble(12.3);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -264,8 +264,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_String)
     gfc::schema::CStringType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    DoubleValue oFromValue;
-    StringValue oToValue;
+    CDoubleValue oFromValue;
+    CStringValue oToValue;
     oFromValue.setAsDouble(12.3);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -278,8 +278,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Enum)
     gfc::schema::CEnumType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    DoubleValue oFromValue;
-    IntegerValue oToValue;
+    CDoubleValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsDouble(12.3);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -291,8 +291,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Real_Entity)
     gfc::schema::CClass oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    DoubleValue oFromValue;
-    EntityRefValue oToValue;
+    CDoubleValue oFromValue;
+    CEntityRefValue oToValue;
     oFromValue.setAsDouble(12.3);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -304,8 +304,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_bool)
     gfc::schema::CBooleanType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    StringValue oFromValue;
-    BooleanValue oToValue;
+    CStringValue oFromValue;
+    CBooleanValue oToValue;
     oFromValue.setAsString(".T.");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -317,8 +317,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_Int)
     gfc::schema::CIntegerType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    StringValue oFromValue;
-    IntegerValue oToValue;
+    CStringValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsString("12");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -330,8 +330,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_Real)
     gfc::schema::CRealType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    StringValue oFromValue;
-    DoubleValue oToValue;
+    CStringValue oFromValue;
+    CDoubleValue oToValue;
     oFromValue.setAsString("12.3");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -343,8 +343,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_String)
     gfc::schema::CStringType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    StringValue oFromValue;
-    StringValue oToValue;
+    CStringValue oFromValue;
+    CStringValue oToValue;
     oFromValue.setAsString("sdafasd");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -357,8 +357,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_Enum)
     gfc::schema::CEnumType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    StringValue oFromValue;
-    IntegerValue oToValue;
+    CStringValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsString("12");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -370,8 +370,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_Entity)
     gfc::schema::CClass oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    StringValue oFromValue;
-    EntityRefValue oToValue;
+    CStringValue oFromValue;
+    CEntityRefValue oToValue;
     oFromValue.setAsString("12");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -386,8 +386,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Enum_Bool)
     gfc::schema::CBooleanType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    BooleanValue oToValue;
+    CIntegerValue oFromValue;
+    CBooleanValue oToValue;
     oFromValue.setAsInteger(1);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -403,8 +403,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Enum_Int)
     gfc::schema::CIntegerType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    IntegerValue oToValue;
+    CIntegerValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsInteger(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -420,8 +420,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Enum_Real)
     gfc::schema::CRealType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    IntegerValue oToValue;
+    CIntegerValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsInteger(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -439,8 +439,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Enum_Enum_1)
     oTo.addEnum(L"def", L"");
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    IntegerValue oToValue;
+    CIntegerValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsInteger(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -464,8 +464,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Enum_Enum_2)
     oTo.addEnum(L"klm", L"");
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    IntegerValue oToValue;
+    CIntegerValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsInteger(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -484,8 +484,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Enum_Enum_3)
     oTo.addEnum(L"def", L"");
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    IntegerValue oToValue;
+    CIntegerValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsInteger(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -501,8 +501,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Enum_Class)
     gfc::schema::CClass oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    IntegerValue oFromValue;
-    EntityRefValue oToValue;
+    CIntegerValue oFromValue;
+    CEntityRefValue oToValue;
     oFromValue.setAsInteger(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -514,8 +514,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Bool)
     gfc::schema::CBooleanType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    EntityRefValue oFromValue;
-    BooleanValue oToValue;
+    CEntityRefValue oFromValue;
+    CBooleanValue oToValue;
     oFromValue.setAsEntityRef(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -527,8 +527,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Int)
     gfc::schema::CIntegerType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    EntityRefValue oFromValue;
-    IntegerValue oToValue;
+    CEntityRefValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsEntityRef(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -540,8 +540,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Real)
     gfc::schema::CRealType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    EntityRefValue oFromValue;
-    DoubleValue oToValue;
+    CEntityRefValue oFromValue;
+    CDoubleValue oToValue;
     oFromValue.setAsEntityRef(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -553,8 +553,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Class_String)
     gfc::schema::CStringType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    EntityRefValue oFromValue;
-    StringValue oToValue;
+    CEntityRefValue oFromValue;
+    CStringValue oToValue;
     oFromValue.setAsEntityRef(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -566,8 +566,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Enum)
     gfc::schema::CEnumType oTo;
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    EntityRefValue oFromValue;
-    IntegerValue oToValue;
+    CEntityRefValue oFromValue;
+    CIntegerValue oToValue;
     oFromValue.setAsEntityRef(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -579,8 +579,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Class)
     gfc::schema::CClass oTo(L"CTest");
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    EntityRefValue oFromValue;
-    EntityRefValue oToValue;
+    CEntityRefValue oFromValue;
+    CEntityRefValue oToValue;
     oFromValue.setAsEntityRef(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -593,8 +593,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Class_1)
     gfc::schema::CClass oTo(L"CTest2");
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
-    EntityRefValue oFromValue;
-    EntityRefValue oToValue;
+    CEntityRefValue oFromValue;
+    CEntityRefValue oToValue;
     oFromValue.setAsEntityRef(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
@@ -610,8 +610,8 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Class_Class_2)
     oParent.setParent(&oParent2);
     auto oTypeCompatibility = CAttributeCompatibility::getTypeCompatibility(&oFrom, &oTo);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
-    EntityRefValue oFromValue;
-    EntityRefValue oToValue;
+    CEntityRefValue oFromValue;
+    CEntityRefValue oToValue;
     oFromValue.setAsEntityRef(2);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
@@ -633,11 +633,11 @@ TEST(TestAttributeCompatibility, getMultiCompatibility_Array_Array)
     oTypeCompatibility.converter->init(&oIntegerType, &oIntegerType);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
 //    std::wstring sValue = L"(1,2,3)";
-    CompositePropValue oFromValue;
-    oFromValue.add(new IntegerValue(1));
-    oFromValue.add(new IntegerValue(2));
-    oFromValue.add(new IntegerValue(3));
-    CompositePropValue oToValue;
+    CCompositePropValue oFromValue;
+    oFromValue.add(new CIntegerValue(1));
+    oFromValue.add(new CIntegerValue(2));
+    oFromValue.add(new CIntegerValue(3));
+    CCompositePropValue oToValue;
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(3, oToValue.getCount());
     EXPECT_EQ(1, oToValue.getItems(0)->asInteger());
@@ -660,11 +660,11 @@ TEST(TestAttributeCompatibility, getMultiCompatibility_Array_Optional)
     oTypeCompatibility.converter->init(&oIntegerType, &oIntegerType);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
 //    std::wstring sValue = L"(1,2,3)";
-    CompositePropValue oFromValue;
-    oFromValue.add(new IntegerValue(1));
-    oFromValue.add(new IntegerValue(2));
-    oFromValue.add(new IntegerValue(3));
-    IntegerValue oToValue;
+    CCompositePropValue oFromValue;
+    oFromValue.add(new CIntegerValue(1));
+    oFromValue.add(new CIntegerValue(2));
+    oFromValue.add(new CIntegerValue(3));
+    CIntegerValue oToValue;
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
     EXPECT_EQ(1, oToValue.asInteger());
@@ -684,11 +684,11 @@ TEST(TestAttributeCompatibility, getMultiCompatibility_Array_Required)
     oTypeCompatibility.converter->init(&oIntegerType, &oIntegerType);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     //    std::wstring sValue = L"(1,2,3)";
-    CompositePropValue oFromValue;
-    oFromValue.add(new IntegerValue(1));
-    oFromValue.add(new IntegerValue(2));
-    oFromValue.add(new IntegerValue(3));
-    IntegerValue oToValue;
+    CCompositePropValue oFromValue;
+    oFromValue.add(new CIntegerValue(1));
+    oFromValue.add(new CIntegerValue(2));
+    oFromValue.add(new CIntegerValue(3));
+    CIntegerValue oToValue;
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
     EXPECT_EQ(1, oToValue.asInteger());
@@ -708,8 +708,8 @@ TEST(TestAttributeCompatibility, getMultiCompatibility_Array_Required_2)
     oTypeCompatibility.converter->init(&oIntegerType, &oIntegerType);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
 //    std::wstring sValue = L"()";
-    CompositePropValue oFromValue;
-    IntegerValue oToValue;
+    CCompositePropValue oFromValue;
+    CIntegerValue oToValue;
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
 }
@@ -729,16 +729,16 @@ TEST(TestAttributeCompatibility, getMultiCompatibility_Optional_Array)
     oTypeCompatibility.converter->init(&oIntegerType, &oIntegerType);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     {
-        IntegerValue oFromValue;
-        CompositePropValue oToValue;
+        CIntegerValue oFromValue;
+        CCompositePropValue oToValue;
         oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
         EXPECT_EQ(true, oToValue.isNull());
     }
 
     {
-        IntegerValue oFromValue;
+        CIntegerValue oFromValue;
         oFromValue.setAsInteger(123);
-        CompositePropValue oToValue;
+        CCompositePropValue oToValue;
         oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
         EXPECT_EQ(1, oToValue.getCount());
         EXPECT_EQ(123, oToValue.getItems(0)->asInteger());
@@ -761,16 +761,16 @@ TEST(TestAttributeCompatibility, getMultiCompatibility_Optional_Optional)
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
 
     {
-        IntegerValue oFromValue;
-        IntegerValue oToValue;
+        CIntegerValue oFromValue;
+        CIntegerValue oToValue;
         oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
         EXPECT_EQ(true, oToValue.isNull());
     }
 
     {
-        IntegerValue oFromValue;
+        CIntegerValue oFromValue;
         oFromValue.setAsInteger(123);
-        IntegerValue oToValue;
+        CIntegerValue oToValue;
         oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
         EXPECT_EQ(123, oToValue.asInteger());
     }
@@ -790,16 +790,16 @@ TEST(TestAttributeCompatibility, getMultiCompatibility_Optional_Required)
     oTypeCompatibility.converter->init(&oIntegerType, &oIntegerType);
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     {
-        IntegerValue oFromValue;
-        IntegerValue oToValue;
+        CIntegerValue oFromValue;
+        CIntegerValue oToValue;
         oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
         EXPECT_EQ(true, oToValue.isNull());
     }
 
     {
-        IntegerValue oFromValue;
+        CIntegerValue oFromValue;
         oFromValue.setAsInteger(123);
-        IntegerValue oToValue;
+        CIntegerValue oToValue;
         oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
         EXPECT_EQ(123, oToValue.asInteger());
     }
@@ -819,9 +819,9 @@ TEST(TestAttributeCompatibility, getMultiCompatibility_Required_Array)
     oTypeCompatibility.converter->init(&oIntegerType, &oIntegerType);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
 
-    IntegerValue oFromValue;
+    CIntegerValue oFromValue;
     oFromValue.setAsInteger(123);
-    CompositePropValue oToValue;
+    CCompositePropValue oToValue;
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(1, oToValue.getCount());
     EXPECT_EQ(123, oToValue.getItems(0)->asInteger());
@@ -841,9 +841,9 @@ TEST(TestAttributeCompatibility, getMultiCompatibility_Required_Optional)
     oTypeCompatibility.converter->init(&oIntegerType, &oIntegerType);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
 
-    IntegerValue oFromValue;
+    CIntegerValue oFromValue;
     oFromValue.setAsInteger(123);
-    IntegerValue oToValue;
+    CIntegerValue oToValue;
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(123, oToValue.asInteger());
 }
@@ -861,9 +861,9 @@ TEST(TestAttributeCompatibility, getMultiCompatibility_Required_Required)
     oTypeCompatibility.converter->init(&oIntegerType, &oIntegerType);
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
 
-    IntegerValue oFromValue;
+    CIntegerValue oFromValue;
     oFromValue.setAsInteger(123);
-    IntegerValue oToValue;
+    CIntegerValue oToValue;
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(123, oToValue.asInteger());
 }

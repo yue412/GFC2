@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2Matrix: public Gfc2Geometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2Matrix, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2Matrix, gfc::engine::CEntity)
 public:
     Gfc2Matrix();
     Gfc2Matrix(bool bSetSchema);

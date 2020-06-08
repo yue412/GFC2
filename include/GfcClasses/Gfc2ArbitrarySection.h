@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2ArbitrarySection: public Gfc2Section
 {
-GFCENGINE_DEC_OBJECT(Gfc2ArbitrarySection, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ArbitrarySection, gfc::engine::CEntity)
 public:
     Gfc2ArbitrarySection();
     Gfc2ArbitrarySection(bool bSetSchema);

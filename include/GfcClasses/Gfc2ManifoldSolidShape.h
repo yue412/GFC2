@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2ManifoldSolidShape: public Gfc2SolidShape
 {
-GFCENGINE_DEC_OBJECT(Gfc2ManifoldSolidShape, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ManifoldSolidShape, gfc::engine::CEntity)
 public:
     Gfc2ManifoldSolidShape();
     Gfc2ManifoldSolidShape(bool bSetSchema);

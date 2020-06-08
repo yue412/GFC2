@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2ElementType: public Gfc2Object
 {
-GFCENGINE_DEC_OBJECT(Gfc2ElementType, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ElementType, gfc::engine::CEntity)
 public:
     Gfc2ElementType();
     Gfc2ElementType(bool bSetSchema);

@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2CommonPolygonEx: public Gfc2Polygon
 {
-GFCENGINE_DEC_OBJECT(Gfc2CommonPolygonEx, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2CommonPolygonEx, gfc::engine::CEntity)
 public:
     Gfc2CommonPolygonEx();
     Gfc2CommonPolygonEx(bool bSetSchema);

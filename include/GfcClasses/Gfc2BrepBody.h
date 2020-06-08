@@ -9,7 +9,7 @@
 
 class GFCCLASSES_API Gfc2BrepBody: public Gfc2Body
 {
-GFCENGINE_DEC_OBJECT(Gfc2BrepBody, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2BrepBody, gfc::engine::CEntity)
 public:
     Gfc2BrepBody();
     Gfc2BrepBody(bool bSetSchema);

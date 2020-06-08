@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2ConnectionVolumeGeometry: public Gfc2ConnectionGeometry
 {
-GFCENGINE_DEC_OBJECT(Gfc2ConnectionVolumeGeometry, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2ConnectionVolumeGeometry, gfc::engine::CEntity)
 public:
     Gfc2ConnectionVolumeGeometry();
     Gfc2ConnectionVolumeGeometry(bool bSetSchema);

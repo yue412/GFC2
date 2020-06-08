@@ -14,18 +14,18 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-GFCENGINE_IMP_OBJECT(ReaderTextImp, L"express", 0)
+GFCENGINE_IMP_OBJECT(CReaderTextImp, L"express", 0)
 
-ReaderTextImp::ReaderTextImp(/*SchemaInfoMap* pSchemaInfoMap*/)
+CReaderTextImp::CReaderTextImp(/*SchemaInfoMap* pSchemaInfoMap*/)
 {
 }
 
 
-ReaderTextImp::~ReaderTextImp(void)
+CReaderTextImp::~CReaderTextImp(void)
 {
 }
 
-bool ReaderTextImp::preRead(const std::wstring& sFileName)
+bool CReaderTextImp::preRead(const std::wstring& sFileName)
 {
     char sHead[8];
     std::fstream in(sFileName, std::ios::in | std::ios::binary);
@@ -35,7 +35,7 @@ bool ReaderTextImp::preRead(const std::wstring& sFileName)
     return strcmp(sHead, "HEADER;") == 0;
 }
 
-std::wstring ReaderTextImp::readFileVersion()
+std::wstring CReaderTextImp::readFileVersion()
 {
     std::string sResult;
     m_pFileMap->setPos(0);
@@ -127,7 +127,7 @@ std::wstring ReaderTextImp::readFileVersion()
 //    return false;
 //}
 
-bool ReaderTextImp::getIndex(EntityInfo & oInfo)
+bool CReaderTextImp::getIndex(EntityInfo & oInfo)
 {
     while (!m_pFileMap->eof())
     {
@@ -146,9 +146,9 @@ bool ReaderTextImp::getIndex(EntityInfo & oInfo)
     return false;
 }
 
-Entity * ReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
+CEntity * CReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
 {
-    Entity* pEntity = nullptr;
+    CEntity* pEntity = nullptr;
     if (m_pFileMap)
     {
         m_pFileMap->setPos(nPos);
@@ -157,7 +157,7 @@ Entity * ReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
         std::wstring sError;
         if (parseLine(sLine, nId, sName, sContent))
         {
-            if (pEntity = GfcEngineUtils::createEntity(schema(), toWstring(sName)))
+            if (pEntity = CEngineUtils::createEntity(schema(), toWstring(sName)))
             {
                 if (!parse(sContent, pEntity, sError))
                 {
@@ -173,7 +173,7 @@ Entity * ReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
     return pEntity;
 }
 
-bool ReaderTextImp::parse(const std::string& input, Entity* pEntity, std::wstring& error)
+bool CReaderTextImp::parse(const std::string& input, CEntity* pEntity, std::wstring& error)
 {
     bool bResult = true;
     int nStartPos = 0;
@@ -197,7 +197,7 @@ bool ReaderTextImp::parse(const std::string& input, Entity* pEntity, std::wstrin
             {
                 if (sVal != "$")
                 {
-                    auto pChildValue = Property::createValue(pType);
+                    auto pChildValue = CProperty::createValue(pType);
                     bResult = parseField(sVal, pType, pChildValue);
                     if (!bResult)
                     {
@@ -229,7 +229,7 @@ bool ReaderTextImp::parse(const std::string& input, Entity* pEntity, std::wstrin
     return bResult;
 }
 
-bool ReaderTextImp::parseField(const std::string & input, gfc::schema::CTypeObject* pType, PropValue * pValue)
+bool CReaderTextImp::parseField(const std::string & input, gfc::schema::CTypeObject* pType, CPropValue * pValue)
 {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
     auto nType = pType->getDataType();
@@ -263,7 +263,7 @@ bool ReaderTextImp::parseField(const std::string & input, gfc::schema::CTypeObje
     return true;
 }
 
-bool ReaderTextImp::getNextValue(const std::string& input, int nStartPos, std::string& sValue)
+bool CReaderTextImp::getNextValue(const std::string& input, int nStartPos, std::string& sValue)
 {
     int nLength = input.length();
     if (nStartPos >= nLength)
@@ -298,7 +298,7 @@ bool ReaderTextImp::getNextValue(const std::string& input, int nStartPos, std::s
     return true;
 }
 
-bool ReaderTextImp::parseLine(const std::string & sLine, EntityRef& nId, std::string& sName, std::string& sContent)
+bool CReaderTextImp::parseLine(const std::string & sLine, EntityRef& nId, std::string& sName, std::string& sContent)
 {
     if (sLine.size() < 7) // #0=X(); ÖÁÉÙÆß¸ö×Ö·û
     {
@@ -339,7 +339,7 @@ bool ReaderTextImp::parseLine(const std::string & sLine, EntityRef& nId, std::st
     return true;
 }
 
-bool ReaderTextImp::parseBoolean(const std::string& input, bool& value)
+bool CReaderTextImp::parseBoolean(const std::string& input, bool& value)
 {
     if (input == ".T.")
     {
@@ -356,7 +356,7 @@ bool ReaderTextImp::parseBoolean(const std::string& input, bool& value)
     return true;
 }
 
-bool ReaderTextImp::parseInt(const std::string& input, int& value)
+bool CReaderTextImp::parseInt(const std::string& input, int& value)
 {
 
     try
@@ -370,7 +370,7 @@ bool ReaderTextImp::parseInt(const std::string& input, int& value)
     return true;
 }
 
-bool ReaderTextImp::parseFloat(const std::string& input, double& value)
+bool CReaderTextImp::parseFloat(const std::string& input, double& value)
 {
     try
     {
@@ -383,7 +383,7 @@ bool ReaderTextImp::parseFloat(const std::string& input, double& value)
     return true;
 }
 
-bool ReaderTextImp::parseString(const std::string& input, std::string& value)
+bool CReaderTextImp::parseString(const std::string& input, std::string& value)
 {
     if (input.length() > 1 && input[0] == '\'' && input[input.length() - 1] == '\'')
     {
@@ -396,7 +396,7 @@ bool ReaderTextImp::parseString(const std::string& input, std::string& value)
     return true;
 }
 
-bool ReaderTextImp::parseEntity(const std::string& input, EntityRef& value)
+bool CReaderTextImp::parseEntity(const std::string& input, EntityRef& value)
 {
     if (!input.empty() && input[0] == '#')
     {
@@ -415,7 +415,7 @@ bool ReaderTextImp::parseEntity(const std::string& input, EntityRef& value)
 }
 
 
-bool ReaderTextImp::parseBooleanField(const std::string& input, PropValue* pValue)
+bool CReaderTextImp::parseBooleanField(const std::string& input, CPropValue* pValue)
 {
     bool val;
     bool bResult = parseBoolean(input, val);
@@ -424,7 +424,7 @@ bool ReaderTextImp::parseBooleanField(const std::string& input, PropValue* pValu
     return bResult;
 }
 
-bool ReaderTextImp::parseIntField(const std::string& input, PropValue* pValue)
+bool CReaderTextImp::parseIntField(const std::string& input, CPropValue* pValue)
 {
     int val;
     bool bResult = parseInt(input, val);
@@ -433,7 +433,7 @@ bool ReaderTextImp::parseIntField(const std::string& input, PropValue* pValue)
     return bResult;
 }
 
-bool ReaderTextImp::parseFloatField(const std::string& input, PropValue* pValue)
+bool CReaderTextImp::parseFloatField(const std::string& input, CPropValue* pValue)
 {
     double val;
     bool bResult = parseFloat(input, val);
@@ -442,7 +442,7 @@ bool ReaderTextImp::parseFloatField(const std::string& input, PropValue* pValue)
     return bResult;
 }
 
-bool ReaderTextImp::parseStringField(const std::string& input, PropValue* pValue)
+bool CReaderTextImp::parseStringField(const std::string& input, CPropValue* pValue)
 {
     std::string val;
     bool bResult = parseString(input, val);
@@ -451,7 +451,7 @@ bool ReaderTextImp::parseStringField(const std::string& input, PropValue* pValue
     return bResult;
 }
 
-bool ReaderTextImp::parseEnumField(const std::string & input, gfc::schema::CEnumType * pEnumType, PropValue * pValue)
+bool CReaderTextImp::parseEnumField(const std::string & input, gfc::schema::CEnumType * pEnumType, CPropValue * pValue)
 {
     bool bResult = false;
     if (input.length() > 1 && input[0] == '.' && input[input.length() - 1] == '.' && pEnumType)
@@ -467,7 +467,7 @@ bool ReaderTextImp::parseEnumField(const std::string & input, gfc::schema::CEnum
     return bResult;
 }
 
-bool ReaderTextImp::parseEntityField(const std::string& input, PropValue* pValue)
+bool CReaderTextImp::parseEntityField(const std::string& input, CPropValue* pValue)
 {
     EntityRef val;
     bool bResult = parseEntity(input, val);

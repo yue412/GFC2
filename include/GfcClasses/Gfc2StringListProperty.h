@@ -8,7 +8,7 @@
 
 class GFCCLASSES_API Gfc2StringListProperty: public Gfc2ListProperty
 {
-GFCENGINE_DEC_OBJECT(Gfc2StringListProperty, gfc::engine::Entity)
+GFCENGINE_DEC_OBJECT(Gfc2StringListProperty, gfc::engine::CEntity)
 public:
     Gfc2StringListProperty();
     Gfc2StringListProperty(bool bSetSchema);

@@ -7,51 +7,51 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-Property::Property(gfc::schema::CAttribute* pAttribute, PropValue* pValue): m_pValue(pValue), m_pAttribute(pAttribute)
+CProperty::CProperty(gfc::schema::CAttribute* pAttribute, CPropValue* pValue): m_pValue(pValue), m_pAttribute(pAttribute)
 {
 }
 
-Property::~Property()
+CProperty::~CProperty()
 {
     delete m_pValue;
 }
 
-std::wstring Property::name() const
+std::wstring CProperty::name() const
 {
     return m_pAttribute->getName();
 }
 
-PropValue * Property::value() const
+CPropValue * CProperty::value() const
 {
     return m_pValue;
 }
 
-PropValue * Property::createValue(gfc::schema::CTypeObject * pType)
+CPropValue * CProperty::createValue(gfc::schema::CTypeObject * pType)
 {
-    PropValue* pResult;
+    CPropValue* pResult;
     switch (pType->getDataType())
     {
     case gfc::schema::EDT_BOOLEAN:
-        pResult = new BooleanValue;
+        pResult = new CBooleanValue;
         break;
     case gfc::schema::EDT_INTEGER:
-        pResult = new IntegerValue;
+        pResult = new CIntegerValue;
         break;
     case gfc::schema::EDT_DOUBLE:
-        pResult = new DoubleValue;
+        pResult = new CDoubleValue;
         break;
     case gfc::schema::EDT_STRING:
-        pResult = new StringValue;
+        pResult = new CStringValue;
         break;
     case gfc::schema::EDT_ENUM:
-        pResult = new IntegerValue;
+        pResult = new CIntegerValue;
         break;
     case gfc::schema::EDT_ENTITY:
-        pResult = new EntityRefValue;
+        pResult = new CEntityRefValue;
         break;
     default:
         assert(false);
-        pResult = new LeafPropValue;
+        pResult = new CLeafPropValue;
         break;
     }
     return pResult;
