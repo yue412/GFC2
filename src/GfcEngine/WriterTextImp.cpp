@@ -8,6 +8,7 @@
 #include "GfcSchema\EnumType.h"
 #include "GfcEngine\PropValue.h"
 #include "Common.h"
+#include <iomanip>
 
 std::string getUserName()
 {
@@ -75,16 +76,7 @@ EntityRef CWriterTextImp::writeEntity( CEntity* pEntity )
 {
     if (m_pTextStream)
     {
-        std::string sName = toString(pEntity->entityName());
-        *m_pTextStream << "#" << m_nCount << "=" << sName << "(";
-        for (int i = 0; i < pEntity->getPropCount()-1; i++)
-        {
-            auto pProp = pEntity->getProps(i);
-            writeProperty(pProp);
-            *m_pTextStream << ",";
-        }
-        writeProperty(pEntity->getProps(pEntity->getPropCount() - 1));
-        *m_pTextStream << ");" << std::endl;
+        CWriterEntityUtils::writeEntity(*m_pTextStream, pEntity, m_nCount);
         return m_nCount++;
     }
     return -1;
@@ -106,70 +98,86 @@ void CWriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring
     *m_pTextStream << "ENDSEC;" << std::endl;
 }
 
-void CWriterTextImp::writeValue(gfc::schema::CAttribute* pSchema, CPropValue* pValue)
+void CWriterEntityUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef& nRef)
 {
-    auto nType = pSchema->getType()->getDataType();
+    std::string sName = toString(pEntity->entityName());
+    out << "#" << nRef << "=" << sName << "(";
+    for (int i = 0; i < pEntity->getPropCount() - 1; i++)
+    {
+        auto pProp = pEntity->getProps(i);
+        writeProperty(out, pProp);
+        out << ",";
+    }
+    writeProperty(out, pEntity->getProps(pEntity->getPropCount() - 1));
+    out << ");" << std::endl;
+}
+
+void CWriterEntityUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject * pType, CPropValue * pValue)
+{
+    auto nType = pType->getDataType();
     switch (nType)
     {
     case gfc::schema::EDT_BOOLEAN:
-        *m_pTextStream << pValue->asBoolean() ? ".T." : ".F.";
+        out << (pValue->asBoolean() ? ".T." : ".F.");
         break;
     case gfc::schema::EDT_INTEGER:
-        *m_pTextStream << pValue->asInteger();
+        out << pValue->asInteger();
         break;
     case gfc::schema::EDT_DOUBLE:
-        *m_pTextStream << pValue->asDouble();
+        out << std::setprecision(15) << pValue->asDouble();
         break;
     case gfc::schema::EDT_STRING:
-        *m_pTextStream << pValue->asString().c_str();
+        out << "'" << pValue->asString().c_str() << "'";
         break;
     case gfc::schema::EDT_ENUM:
-        {
-        auto pEnumType = dynamic_cast<gfc::schema::CEnumType*>(pSchema->getType()->getBaseType());
+    {
+        auto pEnumType = dynamic_cast<gfc::schema::CEnumType*>(pType->getBaseType());
         std::string str = "$";
         if (pValue->asInteger() < pEnumType->getEnumCount())
             str = "." + toString(pEnumType->getEnum(pValue->asInteger())) + ".";
-        *m_pTextStream << str.c_str();
-        }
-        break;
+        out << str.c_str();
+    }
+    break;
     case gfc::schema::EDT_ENTITY:
-        *m_pTextStream << "#" << pValue->asEntityRef();
+        out << "#" << pValue->asEntityRef();
         break;
     default:
         break;
     }
 }
 
-void CWriterTextImp::writeProperty(CProperty * pProp)
+void CWriterEntityUtils::writeProperty(std::iostream & out, CProperty * pProp)
 {
     auto pSchema = pProp->schema();
+    auto pType = pSchema->getType();
     if (pSchema->getRepeatFlag())
     {
 
         auto pValue = pProp->value();
         if (pValue->getCount() == 0)
         {
-            *m_pTextStream << "$";
+            out << "$";
         }
         else
         {
-            *m_pTextStream << "(";
+            out << "(";
             for (int j = 0; j < pValue->getCount() - 1; ++j)
             {
-                writeValue(pSchema, pValue->getItems(j));
-                *m_pTextStream << ",";
+                writeValue(out, pType, pValue->getItems(j));
+                out << ",";
             }
-            writeValue(pSchema, pValue->getItems(pValue->getCount() - 1));
-            *m_pTextStream << ")";
+            writeValue(out, pType, pValue->getItems(pValue->getCount() - 1));
+            out << ")";
         }
     }
     else
     {
         if (pProp->value()->isNull())
-            *m_pTextStream << "$";
+            out << "$";
         else
-            writeValue(pSchema, pProp->value());
+            writeValue(out, pType, pProp->value());
     }
+
 }
 
 GFCENGINE_NAMESPACE_END

@@ -61,10 +61,11 @@ public:
     virtual bool isNull() const { return getCount() == 0; }
     virtual void add(CPropValue* pValue);
     virtual int getCount() const { return (int)m_oList.size(); }
-    virtual CPropValue* getItems(int nIndex) { return m_oList[nIndex]; }
+    virtual CPropValue* getItems(int nIndex);
     virtual void setItems(int nIndex, CPropValue* pValue);
     virtual void clear();
 private:
+    bool inRange(int nIndex);
     std::vector<CPropValue*> m_oList;
 };
 
@@ -130,9 +131,9 @@ public:
     virtual std::string asString() const;
 
     virtual void setAsString(const std::string& sValue);
-    virtual void setAsInteger(const int& nValue);
-    virtual void setAsDouble(const double& dValue);
-    virtual void setAsBoolean(const bool& bValue);
+    //virtual void setAsInteger(const int& nValue);
+    //virtual void setAsDouble(const double& dValue);
+    //virtual void setAsBoolean(const bool& bValue);
 private:
     std::string m_sValue;
 };

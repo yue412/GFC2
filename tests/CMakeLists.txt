@@ -25,8 +25,24 @@ link_directories(
 	${CMAKE_SOURCE_DIR}/../thirdparty/googletest/cmake/lib/$<CONFIG>
 	)
 
-FILE(GLOB SRC_FILES "./*.c*" "../src/GfcEngine/*Compatibility.cpp" "../src/GfcEngine/Converter.cpp" "../src/GfcEngine/Parser.cpp" "../src/GfcEngine/Scanner.cpp" "../src/GfcEngine/Upgrader.cpp") 
-FILE(GLOB HEAD_FILES "./*.h" "../src/GfcEngine/*Compatibility.h" "../src/GfcEngine/Converter.h"  "../src/GfcEngine/Parser.h" "../src/GfcEngine/Scanner.h" "../src/GfcEngine/Upgrader.h") 
+FILE(GLOB SRC_FILES "./*.c*" 
+	"../src/GfcEngine/*Compatibility.cpp" 
+	"../src/GfcEngine/Converter.cpp" 
+	"../src/GfcEngine/Parser.cpp" 
+	"../src/GfcEngine/Scanner.cpp" 
+	"../src/GfcEngine/Upgrader.cpp"
+	"../src/GfcEngine/WriterImp.cpp"
+	"../src/GfcEngine/WriterTextImp.cpp"
+	) 
+FILE(GLOB HEAD_FILES "./*.h" 
+	"../src/GfcEngine/*Compatibility.h" 
+	"../src/GfcEngine/Converter.h"  
+	"../src/GfcEngine/Parser.h" 
+	"../src/GfcEngine/Scanner.h" 
+	"../src/GfcEngine/Upgrader.h"
+	"../src/GfcEngine/WriterImp.h"
+	"../src/GfcEngine/WriterTextImp.h"
+	) 
 
 add_compile_definitions(TIXML_USE_STL _CRT_SECURE_NO_DEPRECATE UNICODE)
 

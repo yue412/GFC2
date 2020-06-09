@@ -21,9 +21,15 @@ public:
     virtual EntityRef writeEntity(CEntity* pEntity); 
 private:
     void writeHead(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
-    void writeValue(gfc::schema::CAttribute* pSchema, CPropValue* pValue);
-    void writeProperty(CProperty* pProp);
     std::fstream* m_pTextStream;
+};
+// ±„”⁄≤‚ ‘
+class CWriterEntityUtils
+{
+public:
+    static void writeEntity(std::iostream& out, CEntity* pEntity, EntityRef& nRef);
+    static void writeValue(std::iostream& out, gfc::schema::CTypeObject * pType, CPropValue* pValue);
+    static void writeProperty(std::iostream& out, CProperty* pProp);
 };
 
 GFCENGINE_NAMESPACE_END

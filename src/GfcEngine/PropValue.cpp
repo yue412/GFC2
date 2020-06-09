@@ -76,11 +76,22 @@ void CCompositePropValue::add(CPropValue* pValue)
     m_oList.push_back(pValue);
 }
 
+CPropValue * CCompositePropValue::getItems(int nIndex)
+{
+    if (inRange(nIndex))
+        return m_oList[nIndex];
+    else
+        return nullptr;
+}
+
 void CCompositePropValue::setItems(int nIndex, CPropValue* pValue)
 {
-    auto pOldValue = getItems(nIndex);
-    delete pOldValue;
-    m_oList[nIndex] = pValue;
+    if (inRange(nIndex))
+    {
+        auto pOldValue = getItems(nIndex);
+        delete pOldValue;
+        m_oList[nIndex] = pValue;
+    }
 }
 
 void CCompositePropValue::clear()
@@ -90,6 +101,11 @@ void CCompositePropValue::clear()
         delete pValue;
     }
     m_oList.clear();
+}
+
+bool CCompositePropValue::inRange(int nIndex)
+{
+    return nIndex >= 0 && nIndex < getCount();
 }
 
 int CBooleanValue::asInteger() const
@@ -176,20 +192,20 @@ void CStringValue::setAsString(const std::string & sValue)
     setIsNull(false);
 }
 
-void CStringValue::setAsInteger(const int & nValue)
-{
-    setAsString(std::to_string(nValue));
-}
-
-void CStringValue::setAsDouble(const double & dValue)
-{
-    setAsString(std::to_string(dValue));
-}
-
-void CStringValue::setAsBoolean(const bool & bValue)
-{
-    setAsString(std::to_string(bValue));
-}
+//void CStringValue::setAsInteger(const int & nValue)
+//{
+//    setAsString(std::to_string(nValue));
+//}
+//
+//void CStringValue::setAsDouble(const double & dValue)
+//{
+//    setAsString(std::to_string(dValue));
+//}
+//
+//void CStringValue::setAsBoolean(const bool & bValue)
+//{
+//    setAsString(std::to_string(bValue));
+//}
 
 EntityRef CEntityRefValue::asEntityRef() const
 {
