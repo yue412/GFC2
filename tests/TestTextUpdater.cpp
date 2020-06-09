@@ -134,9 +134,9 @@ TEST(TestUpdater, transform_exchange)
     oToEntity.setSchema(&oToClass);
 
     oFromEntity.setAsInteger(L"ID", 123);
-    oFromEntity.setAsString(L"Name", "abc");
+    oFromEntity.setAsString(L"Name", L"abc");
     oUpdater.transform(&oCompatibility, &oFromEntity, &oToEntity);
 
     EXPECT_EQ(123, oToEntity.asInteger(L"ID"));
-    EXPECT_STREQ("abc", oToEntity.asString(L"Name").c_str());
+    EXPECT_STREQ(L"abc", oToEntity.asString(L"Name").c_str());
 }

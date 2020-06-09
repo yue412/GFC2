@@ -22,13 +22,13 @@ public:
 public:
     virtual bool isNull() const = 0;
 
-    virtual std::string asString() const;
+    virtual std::wstring asString() const;
     virtual int asInteger() const;
     virtual double asDouble() const;
     virtual bool asBoolean() const;
     virtual EntityRef asEntityRef() const;
 
-    virtual void setAsString(const std::string& sValue);
+    virtual void setAsString(const std::wstring& sValue);
     virtual void setAsInteger(const int& nValue);
     virtual void setAsDouble(const double& dValue);
     virtual void setAsBoolean(const bool& bValue);
@@ -126,16 +126,16 @@ class GFCENGINE_API CStringValue : public CLeafPropValue
 {
 public:
     CStringValue() { }
-    CStringValue(const std::string& sValue): m_sValue(sValue) { setIsNull(false); }
+    CStringValue(const std::wstring& sValue): m_sValue(sValue) { setIsNull(false); }
 public:
-    virtual std::string asString() const;
+    virtual std::wstring asString() const;
 
-    virtual void setAsString(const std::string& sValue);
+    virtual void setAsString(const std::wstring& sValue);
     //virtual void setAsInteger(const int& nValue);
     //virtual void setAsDouble(const double& dValue);
     //virtual void setAsBoolean(const bool& bValue);
 private:
-    std::string m_sValue;
+    std::wstring m_sValue;
 };
 
 class GFCENGINE_API CEntityRefValue : public CLeafPropValue

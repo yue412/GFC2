@@ -1480,7 +1480,7 @@ std::wstring CCodeWriter::getBaseTypeCode(CTypeObject *pTypeObject, bool b4cli)
             if (b4cli )
                 return L"String^";
             else
-                return L"std::string";
+                return L"std::wstring";
         case EBT_INT:
             return L"int";
         case EBT_DOUBLE:

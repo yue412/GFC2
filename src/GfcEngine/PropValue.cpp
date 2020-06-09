@@ -12,7 +12,7 @@ CPropValue::~CPropValue()
 {
 }
 
-std::string CPropValue::asString() const
+std::wstring CPropValue::asString() const
 {
     throw ETypeMatchError();
 }
@@ -37,7 +37,7 @@ EntityRef CPropValue::asEntityRef() const
     throw ETypeMatchError();
 }
 
-void CPropValue::setAsString(const std::string& sValue)
+void CPropValue::setAsString(const std::wstring& sValue)
 {
     throw ETypeMatchError();
 }
@@ -181,12 +181,12 @@ void CDoubleValue::setAsBoolean(const bool & bValue)
     setAsDouble(bValue);
 }
 
-std::string CStringValue::asString() const
+std::wstring CStringValue::asString() const
 {
     return m_sValue;
 }
 
-void CStringValue::setAsString(const std::string & sValue)
+void CStringValue::setAsString(const std::wstring & sValue)
 {
     m_sValue = sValue;
     setIsNull(false);

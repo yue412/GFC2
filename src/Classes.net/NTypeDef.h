@@ -13,7 +13,7 @@ typedef double NGfc2Double;
 
 typedef NGfc2String NGfc2Elev;
 
-typedef std::string NGfc2Identity;
+typedef std::wstring NGfc2Identity;
 
 typedef int NGfc2Integer;
 

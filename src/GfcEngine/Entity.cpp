@@ -166,7 +166,7 @@ void CEntity::free()
     m_pProps->clear();
 }
 
-std::string CEntity::asString(const std::wstring& sPropName) const
+std::wstring CEntity::asString(const std::wstring& sPropName) const
 {
     if (m_pSchema)
     {
@@ -180,7 +180,7 @@ std::string CEntity::asString(const std::wstring& sPropName) const
             throw EMissMatchProperty();
         }
     }
-    return "";
+    return L"";
 }
 
 int CEntity::asInteger(const std::wstring& sPropName) const
@@ -268,7 +268,7 @@ EntityPtr CEntity::asEntity(const std::wstring& sPropName) const
     return nullptr;
 }
 
-void CEntity::setAsString(const std::wstring& sPropName, const std::string& sValue)
+void CEntity::setAsString(const std::wstring& sPropName, const std::wstring& sValue)
 {
     if (m_pSchema)
     {
@@ -381,7 +381,7 @@ void CEntity::addEntityRef(const std::wstring& sPropName, const EntityRef& nValu
     }
 }
 
-void CEntity::addString(const std::wstring& sPropName, const std::string& sValue)
+void CEntity::addString(const std::wstring& sPropName, const std::wstring& sValue)
 {
     if (m_pSchema)
     {
@@ -445,7 +445,7 @@ void CEntity::addBoolean(const std::wstring& sPropName, const bool& bValue)
     }
 }
 
-std::string CEntity::getString(const std::wstring& sPropName, int nIndex) const
+std::wstring CEntity::getString(const std::wstring& sPropName, int nIndex) const
 {
     if (m_pSchema)
     {
@@ -453,14 +453,14 @@ std::string CEntity::getString(const std::wstring& sPropName, int nIndex) const
         if (pValue)
         {
             auto pVal = pValue->getItems(nIndex);
-            return pVal ? pVal->asString() : "";
+            return pVal ? pVal->asString() : L"";
         }
         else
         {
             throw EMissMatchProperty();
         }
     }
-    return "";
+    return L"";
 }
 
 int CEntity::getInteger(const std::wstring& sPropName, int nIndex) const

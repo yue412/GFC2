@@ -220,11 +220,11 @@ TEST(TestConverter, BoolToStringConverter)
     CStringValue oTo;
     oFrom.setAsBoolean(true);
     oConverter.transform(&oFrom, &oTo);
-    EXPECT_EQ(true, "1" == oTo.asString());
+    EXPECT_EQ(true, L"1" == oTo.asString());
     EXPECT_EQ(false, oTo.isNull());
     oFrom.setAsBoolean(false);
     oConverter.transform(&oFrom, &oTo);
-    EXPECT_EQ(true, "0" == oTo.asString());
+    EXPECT_EQ(true, L"0" == oTo.asString());
     EXPECT_EQ(false, oTo.isNull());
 }
 
@@ -311,7 +311,7 @@ TEST(TestConverter, IntToStringConverter)
     EXPECT_EQ(true, oTo.isNull());
     oFrom.setAsInteger(1234);
     oConverter.transform(&oFrom, &oTo);
-    EXPECT_EQ(true, "1234" == oTo.asString());
+    EXPECT_EQ(true, L"1234" == oTo.asString());
     EXPECT_EQ(false, oTo.isNull());
 }
 
@@ -350,9 +350,9 @@ TEST(TestConverter, StringConverter)
     CStringValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
-    oFrom.setAsString("中国");
+    oFrom.setAsString(L"中国");
     oConverter.transform(&oFrom, &oTo);
-    EXPECT_EQ(true, "中国" == oTo.asString());
+    EXPECT_EQ(true, L"中国" == oTo.asString());
     EXPECT_EQ(false, oTo.isNull());
 }
 

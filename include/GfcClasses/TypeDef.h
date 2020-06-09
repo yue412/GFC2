@@ -14,7 +14,7 @@ typedef double Gfc2Double;
 
 typedef Gfc2String Gfc2Elev;
 
-typedef std::string Gfc2Identity;
+typedef std::wstring Gfc2Identity;
 
 typedef int Gfc2Integer;
 

@@ -44,14 +44,14 @@ public:
     CPropValue* valueByName(const std::wstring sPropName) const;
     bool isNull(const std::wstring& sPropName) const;
 
-    std::string asString(const std::wstring& sPropName) const;
+    std::wstring asString(const std::wstring& sPropName) const;
     int asInteger(const std::wstring& sPropName) const;
     double asDouble(const std::wstring& sPropName) const;
     bool asBoolean(const std::wstring& sPropName) const;
     EntityRef asEntityRef(const std::wstring& sPropName) const;
     EntityPtr asEntity(const std::wstring& sPropName) const;
 
-    void setAsString(const std::wstring& sPropName, const std::string& sValue);
+    void setAsString(const std::wstring& sPropName, const std::wstring& sValue);
     void setAsInteger(const std::wstring& sPropName, const int& nValue);
     void setAsDouble(const std::wstring& sPropName, const double& dValue);
     void setAsBoolean(const std::wstring& sPropName, const bool& bValue);
@@ -61,12 +61,12 @@ public:
     int getArrayCount(const std::wstring& sPropName) const;
 
     void addEntityRef(const std::wstring& sPropName, const EntityRef& nValue);
-    void addString(const std::wstring& sPropName, const std::string& sValue);
+    void addString(const std::wstring& sPropName, const std::wstring& sValue);
     void addInteger(const std::wstring& sPropName, const int& nValue);
     void addDouble(const std::wstring& sPropName, const double& dValue);
     void addBoolean(const std::wstring& sPropName, const bool& bValue);
 
-    std::string getString(const std::wstring& sPropName, int nIndex) const;
+    std::wstring getString(const std::wstring& sPropName, int nIndex) const;
     int getInteger(const std::wstring& sPropName, int nIndex) const;
     double getDouble(const std::wstring& sPropName, int nIndex) const;
     bool getBoolean(const std::wstring& sPropName, int nIndex) const;

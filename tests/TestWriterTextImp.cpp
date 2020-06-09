@@ -66,13 +66,13 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writevalue_String)
     gfc::schema::CStringType oType;
     {
         std::stringstream ss;
-        gfc::engine::CStringValue oValue("中文");
+        gfc::engine::CStringValue oValue(L"中文");
         gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ("'中文'", ss.str().c_str());
     }
     {
         std::stringstream ss;
-        gfc::engine::CStringValue  oValue("'");
+        gfc::engine::CStringValue  oValue(L"'");
         gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ("'''", ss.str().c_str());
     }

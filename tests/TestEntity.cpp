@@ -43,13 +43,13 @@ TEST(TestEntity, Entity_create)
     gfc::engine::CEntity oEntity;
     oEntity.setSchema(&oClass);
 
-    oEntity.setAsString(L"name", "中华人民共和国");
+    oEntity.setAsString(L"name", L"中华人民共和国");
     oEntity.setAsInteger(L"height", 235456);
     oEntity.setAsDouble(L"area", 12.0);
     //oEntity.asBooleanList("list").push_back(true);
     EXPECT_NEAR(12.0, oEntity.asDouble(L"area"), 1e-7);
     EXPECT_EQ(235456, oEntity.asInteger(L"height"));
-    EXPECT_STREQ("中华人民共和国", oEntity.asString(L"name").c_str());
+    EXPECT_STREQ(L"中华人民共和国", oEntity.asString(L"name").c_str());
     //EXPECT_EQ(true, oEntity.asBooleanList("list")[0]);
 }
 
@@ -89,13 +89,13 @@ TEST(TestEntity, Entity_create_typedef_class)
     gfc::engine::CEntity oEntity;
     oEntity.setSchema(&oTypeDef);
 
-    oEntity.setAsString(L"name", "中华人民共和国");
+    oEntity.setAsString(L"name", L"中华人民共和国");
     oEntity.setAsInteger(L"height", 235456);
     oEntity.setAsDouble(L"area", 12.0);
     //oEntity.asBooleanList("list").push_back(true);
     EXPECT_NEAR(12.0, oEntity.asDouble(L"area"), 1e-7);
     EXPECT_EQ(235456, oEntity.asInteger(L"height"));
-    EXPECT_STREQ("中华人民共和国", oEntity.asString(L"name").c_str());
+    EXPECT_STREQ(L"中华人民共和国", oEntity.asString(L"name").c_str());
     //EXPECT_EQ(true, oEntity.asBooleanList("list")[0]);
 }
 
@@ -433,14 +433,14 @@ TEST(TestEntity, Entity_asString)
     oEntity.setSchema(&oClass);
 
     auto str = oEntity.asString(L"name");
-    EXPECT_STREQ("", str.c_str());
+    EXPECT_STREQ(L"", str.c_str());
 
-    oEntity.setAsString(L"name", "xxx");
+    oEntity.setAsString(L"name", L"xxx");
     str = oEntity.asString(L"name");
-    EXPECT_STREQ("xxx", str.c_str());
+    EXPECT_STREQ(L"xxx", str.c_str());
 
     EXPECT_THROW(oEntity.asString(L"t"), gfc::engine::EMissMatchProperty);
-    EXPECT_THROW(oEntity.setAsString(L"t", "asdf"), gfc::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.setAsString(L"t", L"asdf"), gfc::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_asInteger)
@@ -780,15 +780,15 @@ TEST(TestEntity, Entity_addString)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addString(L"height", "abc");
+    oEntity.addString(L"height", L"abc");
     auto pValue = oEntity.valueByName(L"height");
     EXPECT_EQ(true, pValue != nullptr);
     auto n = pValue->getCount();
     EXPECT_EQ(1, n);
     auto val = pValue->getItems(0)->asString();
-    EXPECT_STREQ("abc", val.c_str());
+    EXPECT_STREQ(L"abc", val.c_str());
 
-    EXPECT_THROW(oEntity.addString(L"t", "123"), gfc::engine::EMissMatchProperty);
+    EXPECT_THROW(oEntity.addString(L"t", L"123"), gfc::engine::EMissMatchProperty);
 }
 
 TEST(TestEntity, Entity_getString)
@@ -806,9 +806,9 @@ TEST(TestEntity, Entity_getString)
 
     oEntity.setSchema(&oClass);
 
-    oEntity.addString(L"height", "25");
+    oEntity.addString(L"height", L"25");
     auto val = oEntity.getString(L"height", 0);
-    EXPECT_STREQ("25", val.c_str());
+    EXPECT_STREQ(L"25", val.c_str());
 
     EXPECT_THROW(oEntity.getString(L"t", 0), gfc::engine::EMissMatchProperty);
 }
@@ -916,12 +916,12 @@ TEST(TestEntity, Entity_create_parent)
     oEntity.setSchema(&oClass2);
 
     EXPECT_EQ(4, oEntity.getPropCount());
-    oEntity.setAsString(L"name", "中华人民共和国");
+    oEntity.setAsString(L"name", L"中华人民共和国");
     oEntity.setAsInteger(L"height", 235456);
     oEntity.setAsDouble(L"area", 12.0);
     //oEntity.asBooleanList("list").push_back(true);
     EXPECT_NEAR(12.0, oEntity.asDouble(L"area"), 1e-7);
     EXPECT_EQ(235456, oEntity.asInteger(L"height"));
-    EXPECT_STREQ("中华人民共和国", oEntity.asString(L"name").c_str());
+    EXPECT_STREQ(L"中华人民共和国", oEntity.asString(L"name").c_str());
     //EXPECT_EQ(true, oEntity.asBooleanList("list")[0]);
 }

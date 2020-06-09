@@ -10,8 +10,8 @@ GFCENGINE_DEC_OBJECT(Gfc2String, gfc::engine::CEntity)
 public:
     Gfc2String();
     Gfc2String(bool bSetSchema);
-    void setValue(const std::string& sValue);
-    std::string getValue() const;
+    void setValue(const std::wstring& sValue);
+    std::wstring getValue() const;
     bool hasValue() const;
 
 };

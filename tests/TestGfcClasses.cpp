@@ -39,15 +39,15 @@ TEST(TestGfcClasses, Entity_set_double)
 TEST(TestGfcClasses, Floor_create)
 {
     Gfc2Floor obj;
-    EXPECT_STREQ("", obj.getID().c_str());
+    EXPECT_STREQ(L"", obj.getID().c_str());
     EXPECT_EQ(0, obj.getStdFloorCount());
 }
 
 TEST(TestGfcClasses, Floor_set_get)
 {
     Gfc2Floor obj;
-    obj.setID("中华人民共和国");
-    EXPECT_STREQ("中华人民共和国", obj.getID().c_str());
+    obj.setID(L"中华人民共和国");
+    EXPECT_STREQ(L"中华人民共和国", obj.getID().c_str());
     obj.setStdFloorCount(12);
     EXPECT_EQ(12, obj.getStdFloorCount());
 }

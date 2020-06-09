@@ -116,7 +116,7 @@ TEST(TestPropValue, CBooleanValue_setAsDouble)
 TEST(TestPropValue, CBooleanValue_setAsString)
 {
     gfc::engine::CBooleanValue oValue;
-    EXPECT_THROW(oValue.setAsString("12"), gfc::engine::ETypeMatchError);
+    EXPECT_THROW(oValue.setAsString(L"12"), gfc::engine::ETypeMatchError);
 }
 
 TEST(TestPropValue, CBooleanValue_setAsEntityRef)
@@ -214,7 +214,7 @@ TEST(TestPropValue, CIntegerValue_setAsDouble)
 TEST(TestPropValue, CIntegerValue_setAsString)
 {
     gfc::engine::CIntegerValue oValue;
-    EXPECT_THROW(oValue.setAsString("12"), gfc::engine::ETypeMatchError);
+    EXPECT_THROW(oValue.setAsString(L"12"), gfc::engine::ETypeMatchError);
 }
 
 TEST(TestPropValue, CIntegerValue_setAsEntityRef)
@@ -324,7 +324,7 @@ TEST(TestPropValue, CDoubleValue_setAsBoolean)
 TEST(TestPropValue, CDoubleValue_setAsString)
 {
     gfc::engine::CDoubleValue oValue;
-    EXPECT_THROW(oValue.setAsString("12"), gfc::engine::ETypeMatchError);
+    EXPECT_THROW(oValue.setAsString(L"12"), gfc::engine::ETypeMatchError);
 }
 
 TEST(TestPropValue, CDoubleValue_setAsEntityRef)
@@ -361,13 +361,13 @@ TEST(TestPropValue, CStringValue_create)
 {
     {
         gfc::engine::CStringValue oValue;
-        EXPECT_STREQ("", oValue.asString().c_str());
+        EXPECT_STREQ(L"", oValue.asString().c_str());
         EXPECT_EQ(true, oValue.isNull());
     }
 
     {
-        gfc::engine::CStringValue oValue("-12.3");
-        EXPECT_STREQ("-12.3", oValue.asString().c_str());
+        gfc::engine::CStringValue oValue(L"-12.3");
+        EXPECT_STREQ(L"-12.3", oValue.asString().c_str());
         EXPECT_EQ(false, oValue.isNull());
     }
 }
@@ -375,9 +375,9 @@ TEST(TestPropValue, CStringValue_create)
 TEST(TestPropValue, CStringValue_setAsString)
 {
     gfc::engine::CStringValue oValue;
-    EXPECT_STREQ("", oValue.asString().c_str());
-    oValue.setAsString("101.23");
-    EXPECT_STREQ("101.23", oValue.asString().c_str());
+    EXPECT_STREQ(L"", oValue.asString().c_str());
+    oValue.setAsString(L"101.23");
+    EXPECT_STREQ(L"101.23", oValue.asString().c_str());
     EXPECT_EQ(false, oValue.isNull());
 }
 
@@ -449,7 +449,7 @@ TEST(TestPropValue, CEntityRefValue_create)
 TEST(TestPropValue, CEntityRefValue_setAsString)
 {
     gfc::engine::CEntityRefValue oValue;
-    EXPECT_THROW(oValue.setAsString("12"), gfc::engine::ETypeMatchError);
+    EXPECT_THROW(oValue.setAsString(L"12"), gfc::engine::ETypeMatchError);
 }
 
 TEST(TestPropValue, CEntityRefValue_setAsInteger)

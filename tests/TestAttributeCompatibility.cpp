@@ -101,7 +101,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_String)
     CStringValue oToValue;
     oFromValue.setAsBoolean(true);
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
-    EXPECT_EQ(true, "1" == oToValue.asString());
+    EXPECT_EQ(true, L"1" == oToValue.asString());
 }
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_Bool_Enum)
@@ -306,7 +306,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_bool)
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     CStringValue oFromValue;
     CBooleanValue oToValue;
-    oFromValue.setAsString(".T.");
+    oFromValue.setAsString(L".T.");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
 }
@@ -319,7 +319,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_Int)
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     CStringValue oFromValue;
     CIntegerValue oToValue;
-    oFromValue.setAsString("12");
+    oFromValue.setAsString(L"12");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
 }
@@ -332,7 +332,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_Real)
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     CStringValue oFromValue;
     CDoubleValue oToValue;
-    oFromValue.setAsString("12.3");
+    oFromValue.setAsString(L"12.3");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
 }
@@ -345,10 +345,10 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_String)
     EXPECT_EQ(true, oTypeCompatibility.isCompatibility);
     CStringValue oFromValue;
     CStringValue oToValue;
-    oFromValue.setAsString("sdafasd");
+    oFromValue.setAsString(L"sdafasd");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(false, oToValue.isNull());
-    EXPECT_STREQ("sdafasd", oToValue.asString().c_str());
+    EXPECT_STREQ(L"sdafasd", oToValue.asString().c_str());
 }
 
 TEST(TestAttributeCompatibility, getTypeCompatibility_String_Enum)
@@ -359,7 +359,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_Enum)
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     CStringValue oFromValue;
     CIntegerValue oToValue;
-    oFromValue.setAsString("12");
+    oFromValue.setAsString(L"12");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
 }
@@ -372,7 +372,7 @@ TEST(TestAttributeCompatibility, getTypeCompatibility_String_Entity)
     EXPECT_EQ(false, oTypeCompatibility.isCompatibility);
     CStringValue oFromValue;
     CEntityRefValue oToValue;
-    oFromValue.setAsString("12");
+    oFromValue.setAsString(L"12");
     oTypeCompatibility.converter->transform(&oFromValue, &oToValue);
     EXPECT_EQ(true, oToValue.isNull());
 }

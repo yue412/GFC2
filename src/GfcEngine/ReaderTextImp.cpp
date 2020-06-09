@@ -447,7 +447,7 @@ bool CReaderTextImp::parseStringField(const std::string& input, CPropValue* pVal
     std::string val;
     bool bResult = parseString(input, val);
     if (bResult)
-        pValue->setAsString(val);
+        pValue->setAsString(Utf8ToUnicode(val));
     return bResult;
 }
 

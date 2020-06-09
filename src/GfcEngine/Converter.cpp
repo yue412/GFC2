@@ -44,7 +44,7 @@ void CBoolToStringConverter::doTransform(CPropValue* pFrom, CPropValue* pTo)
     //auto sValue = pValue->asString();
     //sValue = std::to_wstring(boolToInt(sValue));
     //sValue = enclosedInQuotes(sValue);
-    pTo->setAsString(std::to_string(pFrom->asInteger()));
+    pTo->setAsString(std::to_wstring(pFrom->asInteger()));
 }
 
 void CStringConverter::doTransform(CPropValue* pFrom, CPropValue* pTo)
@@ -157,7 +157,7 @@ void COneToArrayConverter::doTransform(CPropValue* pFrom, CPropValue* pTo)
 
 void CIntToStringConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
 {
-    pTo->setAsString(std::to_string(pFrom->asInteger()));
+    pTo->setAsString(std::to_wstring(pFrom->asInteger()));
 }
 
 void CIntConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
@@ -167,7 +167,8 @@ void CIntConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
 
 void CFloatToStringConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
 {
-    pTo->setAsString(std::to_string(pFrom->asDouble()));
+    //todo ¾«¶È
+    pTo->setAsString(std::to_wstring(pFrom->asDouble()));
 }
 
 
