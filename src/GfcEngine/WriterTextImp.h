@@ -27,7 +27,7 @@ private:
 class CWriterEntityUtils
 {
 public:
-    static void writeEntity(std::iostream& out, CEntity* pEntity, EntityRef& nRef);
+    static void writeEntity(std::iostream& out, CEntity* pEntity, EntityRef nRef);
     static void writeValue(std::iostream& out, gfc::schema::CTypeObject * pType, CPropValue* pValue);
     static void writeProperty(std::iostream& out, CProperty* pProp);
 };

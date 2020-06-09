@@ -9,6 +9,7 @@
 #include "GfcEngine\PropValue.h"
 #include "Common.h"
 #include <iomanip>
+#include <algorithm>
 
 std::string getUserName()
 {
@@ -77,6 +78,7 @@ EntityRef CWriterTextImp::writeEntity( CEntity* pEntity )
     if (m_pTextStream)
     {
         CWriterEntityUtils::writeEntity(*m_pTextStream, pEntity, m_nCount);
+        *m_pTextStream << std::endl;
         return m_nCount++;
     }
     return -1;
@@ -98,18 +100,51 @@ void CWriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring
     *m_pTextStream << "ENDSEC;" << std::endl;
 }
 
-void CWriterEntityUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef& nRef)
+void CWriterEntityUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef nRef)
 {
     std::string sName = toString(pEntity->entityName());
     out << "#" << nRef << "=" << sName << "(";
-    for (int i = 0; i < pEntity->getPropCount() - 1; i++)
+    if (pEntity->getPropCount() > 0)
     {
-        auto pProp = pEntity->getProps(i);
-        writeProperty(out, pProp);
-        out << ",";
+        for (int i = 0; i < pEntity->getPropCount() - 1; i++)
+        {
+            auto pProp = pEntity->getProps(i);
+            writeProperty(out, pProp);
+            out << ",";
+        }
+        writeProperty(out, pEntity->getProps(pEntity->getPropCount() - 1));
     }
-    writeProperty(out, pEntity->getProps(pEntity->getPropCount() - 1));
-    out << ");" << std::endl;
+    out << ");";
+}
+
+std::string transString(const std::string& sStr)
+{
+    std::string sResult;
+    for(auto itr = sStr.begin(); itr != sStr.end(); ++itr) {
+        switch (*itr)
+        {
+        case '\'':
+            sResult.push_back('\\');
+            sResult.push_back('\'');
+            break;
+        case '\n':
+            sResult.push_back('\\');
+            sResult.push_back('n');
+            break;
+        case '\r':
+            sResult.push_back('\\');
+            sResult.push_back('r');
+            break;
+        case '\\':
+            sResult.push_back('\\');
+            sResult.push_back('\\');
+            break;
+        default:
+            sResult.push_back(*itr);
+            break;
+        }
+    };
+    return sResult;
 }
 
 void CWriterEntityUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject * pType, CPropValue * pValue)
@@ -127,14 +162,19 @@ void CWriterEntityUtils::writeValue(std::iostream & out, gfc::schema::CTypeObjec
         out << std::setprecision(15) << pValue->asDouble();
         break;
     case gfc::schema::EDT_STRING:
-        out << "'" << pValue->asString().c_str() << "'";
+        out << "'" << transString(UnicodeToUtf8(pValue->asString())).c_str() << "'";
         break;
     case gfc::schema::EDT_ENUM:
     {
         auto pEnumType = dynamic_cast<gfc::schema::CEnumType*>(pType->getBaseType());
         std::string str = "$";
-        if (pValue->asInteger() < pEnumType->getEnumCount())
-            str = "." + toString(pEnumType->getEnum(pValue->asInteger())) + ".";
+        if (pEnumType && pEnumType->getEnumCount() > 0)
+        {
+            auto n = pValue->asInteger() % pEnumType->getEnumCount();
+            if (n < 0)
+                n += pEnumType->getEnumCount();
+            str = "." + UnicodeToUtf8(pEnumType->getEnum(n)) + ".";
+        }
         out << str.c_str();
     }
     break;
