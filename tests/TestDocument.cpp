@@ -122,3 +122,21 @@ TEST(TestDocument, Document_getIterator)
     itr->next();
     EXPECT_EQ(true, itr->isDone());
 }
+
+TEST(TestDocument, Document_ref)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CDocument oDoc(&oModel);
+    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2ElementShape");
+    pEntity->setAsEntityRef(L"Identifier", 30);
+    oDoc.add(20, pEntity);
+    pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String");
+    pEntity->setAsString(L"Value", L"hehe");
+    oDoc.add(30, pEntity);
+    auto p = oDoc.getEntity(20);
+    EXPECT_EQ(true, p->entityName() == L"Gfc2ElementShape");
+    auto pStr = p->asEntity(L"Identifier");
+    EXPECT_EQ(true, pStr != nullptr);
+    EXPECT_STREQ(L"hehe", pStr->asString(L"Value").c_str());
+}
