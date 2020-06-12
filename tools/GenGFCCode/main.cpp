@@ -33,7 +33,7 @@ std::wstring charToWString(char* str)
 void parseTranslateInfo(int argc, char *argv[], CTranslateInfo& oInfo)
 {
     char opt;
-    while ((opt = getopt(argc, argv, "h:c:t:b:n:e:d:")) != -1)
+    while ((opt = getopt(argc, argv, "h:c:t:b:n:e:d:v:")) != -1)
     {
         switch (opt)
         {
@@ -57,6 +57,9 @@ void parseTranslateInfo(int argc, char *argv[], CTranslateInfo& oInfo)
             break;
         case 'd':
             oInfo.sHtmlPath = getFullPath(charToWString(optarg));
+            break;
+        case 'v':
+            oInfo.sVersion = charToWString(optarg);
             break;
         default:
             std::wcout << L"未识别命令行选项" << std::endl;

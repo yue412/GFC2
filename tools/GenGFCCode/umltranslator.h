@@ -14,6 +14,7 @@ struct CTranslateInfo
     std::wstring sNETPath;
     std::wstring sExpressFile;
     std::wstring sHtmlPath;
+    std::wstring sVersion;
 };
 
 GFC_NAMESPACE_BEGIN

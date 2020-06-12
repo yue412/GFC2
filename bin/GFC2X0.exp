@@ -1,0 +1,4118 @@
+SCHEMA GFC2X0;
+
+TYPE Gfc2Boolean = BOOLEAN;
+END_TYPE;
+
+TYPE Gfc2Date = REAL;
+END_TYPE;
+
+TYPE Gfc2Double = REAL;
+END_TYPE;
+
+TYPE Gfc2Elev = Gfc2String;
+END_TYPE;
+
+TYPE Gfc2Identity = INTEGER;
+END_TYPE;
+
+TYPE Gfc2Integer = INTEGER;
+END_TYPE;
+
+TYPE Gfc2Label = Gfc2String;
+END_TYPE;
+
+TYPE Gfc2Text = Gfc2String;
+END_TYPE;
+
+TYPE Gfc2ArcType = ENUMERATION OF
+	(AT_LINE
+	,AT_ACS
+	,AT_CS
+	,AT_ACL
+	,AT_CL);
+END_TYPE;
+
+TYPE Gfc2AseismicGrade = ENUMERATION OF
+	(FKZ
+	,Grade1
+	,Grade2
+	,Grade3
+	,Grade4);
+END_TYPE;
+
+TYPE Gfc2AxisNoPosEnum = ENUMERATION OF
+	(NONE_POS
+	,START_POS
+	,END_POS
+	,BOTH_POS);
+END_TYPE;
+
+TYPE Gfc2AxisType = ENUMERATION OF
+	(SKJ
+	,XKJ
+	,ZJS
+	,YJS);
+END_TYPE;
+
+TYPE Gfc2BeamFDPostCastType = ENUMERATION OF
+	(BFDPCT_JX);
+END_TYPE;
+
+TYPE Gfc2BeamPostCastType = ENUMERATION OF
+	(BPCT_JX
+	,BPCT_JT
+	,BPCT_CX);
+END_TYPE;
+
+TYPE Gfc2BeamType = ENUMERATION OF
+	(LCKJL
+	,WMKJL
+	,KZL
+	,NKZL
+	,JZL
+	,JCLXL);
+END_TYPE;
+
+TYPE Gfc2ColumnType = ENUMERATION OF
+	(KJZ
+	,KZZ
+	,AZ
+	,DZ);
+END_TYPE;
+
+TYPE Gfc2ConcGrade = ENUMERATION OF
+	(C10
+	,C15
+	,C20
+	,C25
+	,C30
+	,C35
+	,C40
+	,C45
+	,C50
+	,C55
+	,C60
+	,C70
+	,C75
+	,C80
+	,ByFloor);
+END_TYPE;
+
+TYPE Gfc2EmbedBeamType = ENUMERATION OF
+	(AL
+	,BKL);
+END_TYPE;
+
+TYPE Gfc2FDSlabScriptType = ENUMERATION OF
+	(ZXBD
+	,KZBD);
+END_TYPE;
+
+TYPE Gfc2HandRailType = ENUMERATION OF
+	(LGFS
+	,KQFS);
+END_TYPE;
+
+TYPE Gfc2InnerOuterFlag = ENUMERATION OF
+	(In
+	,Out);
+END_TYPE;
+
+TYPE Gfc2InnerWallPostCastType = ENUMERATION OF
+	(IWPCT_JX);
+END_TYPE;
+
+TYPE Gfc2LabelPositionType = ENUMERATION OF
+	(ZZNB
+	,ZZZ
+	,ZZZX
+	,ZZWB);
+END_TYPE;
+
+TYPE Gfc2LintelPosition = ENUMERATION OF
+	(AboveOpening
+	,BelowOpening);
+END_TYPE;
+
+TYPE Gfc2MasonryReinType = ENUMERATION OF
+	(L_1
+	,L_2
+	,L_3
+	,L_4
+	,L_5
+	,L_6
+	,L_7
+	,L_8
+	,T_1
+	,T_2
+	,T_3
+	,T_4
+	,T_5
+	,T_6
+	,Cross_1
+	,Cross_2
+	,Cross_3
+	,Cross_4
+	,One_1
+	,One_2
+	,One_3
+	,One_4
+	,One_5
+	,One_6
+	,One_7);
+END_TYPE;
+
+TYPE Gfc2OuterWallPostCastType = ENUMERATION OF
+	(Outer_JX
+	,Outer_JXWK
+	,Outer_CXWK
+	,Outer_JTWK
+	,Outer_NJWK
+	,Outer_WJWK);
+END_TYPE;
+
+TYPE Gfc2ProtectedIntensity = ENUMERATION OF
+	(Six
+	,Seven
+	,Eight
+	,Nine);
+END_TYPE;
+
+TYPE Gfc2RaftPostCastType = ENUMERATION OF
+	(RaftPCT_JX
+	,RaftPCT_JXXC
+	,RaftPCT_CXXC
+	,RaftPCT_JTXC
+	,RaftPCT_NJXC
+	,RaftPCT_WJXC);
+END_TYPE;
+
+TYPE Gfc2ReinfRangeType = ENUMERATION OF
+	(eRRTUnknow
+	,eRRTSingleSlab
+	,eRRTMutiSlab
+	,eRRTCustom);
+END_TYPE;
+
+TYPE Gfc2ReinforcementType = ENUMERATION OF
+	(DJ
+	,MJ
+	,ZJJ
+	,WDJ);
+END_TYPE;
+
+TYPE Gfc2SiteLevelingType = ENUMERATION OF
+	(Site_RG
+	,Site_JX);
+END_TYPE;
+
+TYPE Gfc2SizeMarkType = ENUMERATION OF
+	(LENGTHMARK
+	,ALIGNMARK
+	,ANGLEMARK
+	,ARCMARK);
+END_TYPE;
+
+TYPE Gfc2SlabPostCastType = ENUMERATION OF
+	(SlabPCT_JX
+	,SlabPCT_JT
+	,SlabPCT_CX);
+END_TYPE;
+
+TYPE Gfc2SlabType = ENUMERATION OF
+	(YLB
+	,WLB
+	,PB
+	,GB
+	,XTB
+	,KTB);
+END_TYPE;
+
+TYPE Gfc2SlopeInputEnum = ENUMERATION OF
+	(ANGLE
+	,WIDTH);
+END_TYPE;
+
+TYPE Gfc2SptType = ENUMERATION OF
+	(XTKWDZZ
+	,JLQ
+	,Beam
+	,Column);
+END_TYPE;
+
+TYPE Gfc2StructureType = ENUMERATION OF
+	(ST_BRICK_CONCRETE
+	,ST_FRAME
+	,ST_FRAME_SHEARWALL
+	,ST_SHEARWALL
+	,ST_FRAME_SUPPORT_SHEARWall
+	,ST_FRAME_TUBE
+	,ST_TUBEINTUBE
+	,ST_SINGLE_STORY_FACTORY
+	,ST_OTHER);
+END_TYPE;
+
+ENTITY Gfc2AbnormityLineArchInfo
+ SUBTYPE OF (Gfc2BaseLineArcInfo);
+	TopArchStartT : Gfc2Double;
+	TopArchEndT : Gfc2Double;
+	TopDefineByRadius : Gfc2Boolean;
+	TopArchHeight : Gfc2Double;
+	TopArchRadius : Gfc2Double;
+	DownArchStartT : Gfc2Double;
+	DownArchEndT : Gfc2Double;
+	DownDefineByRadius : Gfc2Boolean;
+	DownArchHeight : Gfc2Double;
+	DownArchRadius : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2AbnormitySection
+ SUBTYPE OF (Gfc2Section);
+	RefGrid : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Alcove
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointAlcove))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2AloneBeamFinish
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointAloneBeamFinish))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2Apron
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceApron))
+ SUBTYPE OF (Gfc2Entity);
+	Material : Gfc2String;
+	ConcGrade : Gfc2String;
+	ConcType : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Arc2d
+ SUBTYPE OF (Gfc2Curve2d);
+	CenterPt : Gfc2Vector2d;
+	Radius : Gfc2Double;
+	Range : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2Arc3d
+ SUBTYPE OF (Gfc2PlaneCurve3d);
+END_ENTITY;
+
+ENTITY Gfc2AseismicGradeProperty
+ SUBTYPE OF (Gfc2Property);
+	ElementTypeId : Gfc2Integer;
+	AseismicGrade : Gfc2AseismicGrade;
+END_ENTITY;
+
+ENTITY Gfc2AssitAxis
+ SUPERTYPE OF (ONEOF
+	(Gfc2TwoPointAssitAxis
+	,Gfc2ParallelAssitAxis
+	,Gfc2PointAngleAssitAxis
+	,Gfc2PolarAngleAssitAxis
+	,Gfc2CenterStartEndArcAssitAxis
+	,Gfc2AxisAngleAssitAxis
+	,Gfc2ThreePointArcAssitAxis
+	,Gfc2CircleAssitAxis))
+ SUBTYPE OF (Gfc2Entity);
+	AxisNo : Gfc2Label;
+	AxisNoPos : Gfc2AxisNoPosEnum;
+	TrimPoints : LIST [0:?] OF Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2AttachedBedding
+ SUBTYPE OF (Gfc2Bedding);
+	Thickness : Gfc2Double;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2AxisAngleAssitAxis
+ SUBTYPE OF (Gfc2AssitAxis);
+	RefAxisNo : Gfc2Label;
+	RefPoint : Gfc2Vector2d;
+	Angle : Gfc2Double;
+	RefAxisIndex : Gfc2Integer;
+	RefAxisType : Gfc2AxisType;
+END_ENTITY;
+
+ENTITY Gfc2AxisDataItem;
+	AxisNo : Gfc2Label;
+	Distance : Gfc2Double;
+	Level : Gfc2Integer;
+	AxisNoPos : Gfc2AxisNoPosEnum;
+	TrimPoints : LIST [0:?] OF Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2AxisGrid
+ SUPERTYPE OF (ONEOF
+	(Gfc2CartesianAxisGrid
+	,Gfc2PolarAxisGrid))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2Balcony
+ SUPERTYPE OF (ONEOF
+	(Gfc2CompositeBalcony))
+ SUBTYPE OF (Gfc2Entity);
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2BaseLineArcInfo
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2LineArcInfo
+	,Gfc2AbnormityLineArchInfo));
+END_ENTITY;
+
+ENTITY Gfc2Beam
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineBeam))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	BeamType : Gfc2BeamType;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2BeamFDPostCast
+ SUBTYPE OF (Gfc2Object);
+	BeamFDPostCastType : Gfc2BeamFDPostCastType;
+	FDBeamAngleSlopeType : Gfc2Integer;
+	FDBeamConcGradeID : Gfc2Integer;
+	FDBeamHjdParamData : Gfc2String;
+	FDBeamHjdParamPoly : Gfc2String;
+	FDBeamOtherReinforced : Gfc2String;
+	FDBeamOtherReinforced12 : Gfc2String;
+	FDBeamPostCastStripBothSidesHoopBar : Gfc2String;
+	FDBeamPostCastStripHoopBar : Gfc2String;
+	FDBeamPostCastStripSideBar : Gfc2String;
+	FDBeamPostCastStripSideBarInfo : Gfc2String;
+	FDBeamReinforcedBarEnterLength : Gfc2String;
+	FDBeamSectionTypeID : Gfc2Integer;
+	FDBeamSlabReinforcedBarEnterLength : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2BeamPostCast
+ SUBTYPE OF (Gfc2Object);
+	BeamPostCastType : Gfc2BeamPostCastType;
+	BeamAngleSlopeType : Gfc2Integer;
+	BeamConcGradeID : Gfc2Integer;
+	BeamHjdParamData : Gfc2String;
+	BeamHjdParamPoly : Gfc2String;
+	BeamOtherReinforced : Gfc2String;
+	BeamOtherReinforced12 : Gfc2String;
+	BeamPostCastStripBothSidesHoopBar : Gfc2String;
+	BeamPostCastStripHoopBar : Gfc2String;
+	BeamPostCastStripHoopBar11 : Gfc2String;
+	BeamPostCastStripSideBar : Gfc2String;
+	BeamPostCastStripSideBar11 : Gfc2String;
+	BeamPostCastStripSideBarInfo : Gfc2String;
+	BeamReinforcedBarEnterLength : Gfc2String;
+	BeamReinforcedBarEnterLength11 : Gfc2String;
+	BeamReinforcedBarEnterLength12 : Gfc2String;
+	BeamSectionTypeID : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2BeamSpan
+ SUBTYPE OF (Gfc2Property);
+	Code : Gfc2Integer;
+	A1 : Gfc2Integer;
+	A2 : Gfc2Integer;
+	A3 : Gfc2Integer;
+	A4 : Gfc2Integer;
+	Length : Gfc2Double;
+	StartPtTopElev : Gfc2Double;
+	EndPtTopElev : Gfc2Double;
+	SectionWidth : Gfc2Double;
+	SectionHeight : Gfc2Double;
+	AxisOffset : Gfc2Double;
+	TopThroughBar : Gfc2String;
+	LeftSupportBar : Gfc2String;
+	SpanBar : Gfc2String;
+	RightSupportBar : Gfc2String;
+	BottomThroughtBar : Gfc2String;
+	BottomBar : Gfc2String;
+	SideBar : Gfc2String;
+	SideLabelBar : Gfc2String;
+	TieBar : Gfc2String;
+	HoopBar : Gfc2String;
+	SecBeamWidth : Gfc2Integer;
+	SecBeamAddBar : Gfc2String;
+	HangBar : Gfc2String;
+	HangBarAnchor : Gfc2String;
+	DenseLength : Gfc2String;
+	HaunchingLength : Gfc2Double;
+	HaunchingWidth : Gfc2Double;
+	HaunchingBarInfo : Gfc2String;
+	OtherHoopBar : Gfc2String;
+	LimbCount : Gfc2Integer;
+	RealHorzLength : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Bedding
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointBedding
+	,Gfc2AttachedBedding
+	,Gfc2LineBedding
+	,Gfc2FaceBedding))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2BeddingEdgeInfo
+ SUBTYPE OF (Gfc2EdgeInfo);
+	EdgeType : Gfc2Integer;
+	Params : LIST [0:?] OF Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Bevel
+ SUBTYPE OF (Gfc2Surface);
+	Coord : Gfc2Coordinates3d;
+	Height : Gfc2Double;
+	RangeV : Gfc2Intervald;
+	Curve : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2BillDetail
+ SUBTYPE OF (Gfc2Property);
+	FloorNum : Gfc2Integer;
+	EntityID : Gfc2Integer;
+	Unit : Gfc2String;
+	Express : Gfc2String;
+	Quantity : Gfc2String;
+	Memo : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2BillTotal
+ SUBTYPE OF (Gfc2Property);
+	Code : Gfc2String;
+	Name : Gfc2String;
+	Attr : Gfc2String;
+	QuantityType : Gfc2Integer;
+	Unit : Gfc2String;
+	Quantity : Gfc2String;
+	Memo : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Body
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2BrepBody
+	,Gfc2CuboidBody
+	,Gfc2ExtrudedBody
+	,Gfc2PolyhedronBody));
+END_ENTITY;
+
+ENTITY Gfc2BooleanProperty
+ SUBTYPE OF (Gfc2Property);
+	Value : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2Box3d;
+	Min : Gfc2Vector3d;
+	Max : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2BrepBody
+ SUBTYPE OF (Gfc2Body);
+	Faces : LIST [0:?] OF Gfc2Face;
+	Edges : LIST [0:?] OF Gfc2Edge;
+END_ENTITY;
+
+ENTITY Gfc2BrickAbnormityWall
+ SUBTYPE OF (Gfc2BrickWall);
+	Section : Gfc2Section;
+	AxisOffset : Gfc2Double;
+	StartPtBtmElev : Gfc2Elev;
+	EndPtBtmElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2BrickNormalWall
+ SUBTYPE OF (Gfc2BrickWall);
+	StartPtBtmElev : Gfc2Elev;
+	StartPtTopElev : Gfc2Elev;
+	EndPtBtmElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	Thickness : Gfc2Integer;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2BrickWall
+ SUPERTYPE OF (ONEOF
+	(Gfc2BrickNormalWall
+	,Gfc2BrickAbnormityWall))
+ SUBTYPE OF (Gfc2Entity);
+	Material : Gfc2String;
+	InnerOuterFlag : Gfc2InnerOuterFlag;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	MortarType : Gfc2String;
+	MortarGrade : Gfc2String;
+	bType : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2BuildParams;
+	ID : Gfc2Integer;
+	Params : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Building
+ SUBTYPE OF (Gfc2Object);
+END_ENTITY;
+
+ENTITY Gfc2CablePipe
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	PipeMaterial : Gfc2String;
+	BridgeMaterial : Gfc2String;
+	MetalRacewayMaterial : Gfc2String;
+	Diameter : Gfc2Double;
+	EntHeight : Gfc2Double;
+	SystemType : Gfc2String;
+	LayType : Gfc2String;
+	ElectricalWireStander : Gfc2String;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	LevelType : Gfc2Integer;
+	CircuitNumber : Gfc2String;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Canopy
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceCanopy))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2CartesianAxisGrid
+ SUBTYPE OF (Gfc2AxisGrid);
+	InsertPt : Gfc2Vector2d;
+	AxisAngle : Gfc2Double;
+	SKJ : LIST [0:?] OF Gfc2AxisDataItem;
+	ZJS : LIST [0:?] OF Gfc2AxisDataItem;
+	YJS : LIST [0:?] OF Gfc2AxisDataItem;
+	XKJ : LIST [0:?] OF Gfc2AxisDataItem;
+END_ENTITY;
+
+ENTITY Gfc2Ceiling
+ SUBTYPE OF (Gfc2Entity);
+	Thickness : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2CenterStartEndArcAssitAxis
+ SUBTYPE OF (Gfc2AssitAxis);
+	Center : Gfc2Vector2d;
+	StartPoint : Gfc2Vector2d;
+	EndPoint : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2CircleAssitAxis
+ SUBTYPE OF (Gfc2AssitAxis);
+	Center : Gfc2Vector2d;
+	Radius : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2CircleSection
+ SUBTYPE OF (Gfc2Section);
+	Radius : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Coedge;
+	Curve : Gfc2Curve2d;
+	EdgeIndex : Gfc2Integer;
+	EdgeSameDir : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2CoedgeList;
+	Coedges : LIST [0:?] OF Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2CoedgeListEx;
+	CoedgeExs : LIST [0:?] OF Gfc2Coedge;
+END_ENTITY;
+
+ENTITY Gfc2Column
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointColumn))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	ColumnType : Gfc2ColumnType;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2ColumnBase
+ SUPERTYPE OF (ONEOF
+	(Gfc2ParametricColumnBase))
+ SUBTYPE OF (Gfc2Entity);
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	MortarGrade : Gfc2String;
+	MortarType : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2ColumnCap
+ SUPERTYPE OF (ONEOF
+	(Gfc2ParametricColumnCap))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2CommonPolygon
+ SUBTYPE OF (Gfc2Polygon);
+	Loops : LIST [0:?] OF Gfc2CoedgeList;
+END_ENTITY;
+
+ENTITY Gfc2CommonPolygonEx
+ SUPERTYPE OF (ONEOF
+	(Gfc2Face))
+ SUBTYPE OF (Gfc2Polygon);
+	LoopExs : LIST [0:?] OF Gfc2CoedgeListEx;
+END_ENTITY;
+
+ENTITY Gfc2CompositeBalcony
+ SUBTYPE OF (Gfc2Balcony);
+	InsertPt : Gfc2Vector2d;
+	Poly : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2CompositeDormer
+ SUBTYPE OF (Gfc2Dormer);
+	InsertPt : Gfc2Vector2d;
+	Poly : Gfc2Polygon;
+	Params : Gfc2BuildParams;
+END_ENTITY;
+
+ENTITY Gfc2CompositeStair
+ SUBTYPE OF (Gfc2Stair);
+	InsertPt : Gfc2Vector2d;
+	Poly : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2CompositeSwingWin
+ SUBTYPE OF (Gfc2SwingWin);
+	InsertPt : Gfc2Vector2d;
+	Poly : Gfc2Polygon;
+	Params : Gfc2BuildParams;
+	Height : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Coordinates2d;
+	Origin : Gfc2Vector2d;
+	X : Gfc2Vector2d;
+	Y : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2Coordinates3d;
+	Origin : Gfc2Vector3d;
+	X : Gfc2Vector3d;
+	Y : Gfc2Vector3d;
+	Z : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2Coping
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineCoping))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	MortarType : Gfc2String;
+	MortarGrade : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Courtyard
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2CuboidBody
+ SUBTYPE OF (Gfc2Body);
+	Coordinate : Gfc2Coordinates3d;
+	Dimension : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2CurtainWall
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineCurtainWall))
+ SUBTYPE OF (Gfc2Entity);
+	Material : Gfc2String;
+	InnerOuterFlag : Gfc2InnerOuterFlag;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Curve2d
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2Line2d
+	,Gfc2Arc2d
+	,Gfc2Ellipse2d
+	,Gfc2NurbsCurve2d
+	,Gfc2PreimageCurve2d
+	,Gfc2SinCurve2d
+	,Gfc2SpiralLine2d
+	,Gfc2OffsetCurve2d
+	,Gfc2HermiteCurve2d));
+END_ENTITY;
+
+ENTITY Gfc2Curve3d
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2Line3d
+	,Gfc2NurbsCurve3d
+	,Gfc2IntersectionCurve3d
+	,Gfc2SpiralLine3d
+	,Gfc2SweepCurve3d
+	,Gfc2ImageCurve3d
+	,Gfc2PlaneCurve3d
+	,Gfc2HermiteCurve3d));
+END_ENTITY;
+
+ENTITY Gfc2CustomFace
+ SUPERTYPE OF (ONEOF
+	(Gfc2CustomNormalFace))
+ SUBTYPE OF (Gfc2Entity);
+	ConcGrade : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2CustomIsolatedFDUnit
+ SUBTYPE OF (Gfc2IsolatedFDUnit);
+	Height : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2CustomLine
+ SUPERTYPE OF (ONEOF
+	(Gfc2CustomNormalLine))
+ SUBTYPE OF (Gfc2Entity);
+	ConcGrade : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2CustomLineShape
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineShape
+	,Gfc2SectionLineShape))
+ SUBTYPE OF (Gfc2SolidShape);
+	Width : Gfc2Double;
+	LeftWidth : Gfc2Double;
+	Line : Gfc2Curve2d;
+	E_S_Elevation : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2CustomNormalFace
+ SUBTYPE OF (Gfc2CustomFace);
+	Thickness : Gfc2Double;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2CustomNormalLine
+ SUBTYPE OF (Gfc2CustomLine);
+	Section : Gfc2Section;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2CustomNormalPoint
+ SUBTYPE OF (Gfc2CustomPoint);
+	Section : Gfc2Section;
+	TopElev : Gfc2Elev;
+	BottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2CustomPileCapUnit
+ SUBTYPE OF (Gfc2PileCapUnit);
+	Height : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2CustomPoint
+ SUPERTYPE OF (ONEOF
+	(Gfc2CustomNormalPoint))
+ SUBTYPE OF (Gfc2Entity);
+	ConcGrade : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2CustomPointShape
+ SUPERTYPE OF (ONEOF
+	(Gfc2SectionPointShape))
+ SUBTYPE OF (Gfc2SolidShape);
+	InsertPt : Gfc2Vector2d;
+	BaseInsertPt : Gfc2Vector2d;
+	Angle : Gfc2Double;
+	MirrorFlag : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2CustomSlabHole
+ SUBTYPE OF (Gfc2SlabHole);
+END_ENTITY;
+
+ENTITY Gfc2CustomSump
+ SUBTYPE OF (Gfc2Sump);
+END_ENTITY;
+
+ENTITY Gfc2Cylinder
+ SUBTYPE OF (Gfc2Surface);
+	Coord : Gfc2Coordinates3d;
+	RangeV : Gfc2Intervald;
+	Curve : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2Dado
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineDado))
+ SUBTYPE OF (Gfc2Entity);
+	InnerOuterFlag : Gfc2InnerOuterFlag;
+END_ENTITY;
+
+ENTITY Gfc2Distribution
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	CalcWidth : Gfc2Integer;
+	SelfHeight : Gfc2Integer;
+	Thickness : Gfc2Integer;
+	SystemType : Gfc2String;
+	LayType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2DitchEarth
+ SUBTYPE OF (Gfc2Earth);
+	Depth : Gfc2Double;
+	BottomWidth : Gfc2Double;
+	LeftWorkingFaceWidth : Gfc2Double;
+	RightWorkingFaceWidth : Gfc2Double;
+	LeftSlopeFactor : Gfc2Double;
+	RightSlopeFactor : Gfc2Double;
+	AxisOffset : Gfc2Double;
+	StartPtBottomElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2DitchEarthBackfill
+ SUBTYPE OF (Gfc2EarthBackfill);
+	BottomWidth : Gfc2Double;
+	LeftWorkingFaceWidth : Gfc2Double;
+	RightWorkingFaceWidth : Gfc2Double;
+	LeftSlopeFactor : Gfc2Double;
+	RightSlopeFactor : Gfc2Double;
+	AxisOffset : Gfc2Double;
+	StartPtBottomElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+	Material : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2DitchEarthBackfillUnit
+ SUBTYPE OF (Gfc2EarthBackfillUnit);
+END_ENTITY;
+
+ENTITY Gfc2Door
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointDoor))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2DoorWin
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointDoorWin))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2Dormer
+ SUPERTYPE OF (ONEOF
+	(Gfc2ParametricDormer
+	,Gfc2CompositeDormer))
+ SUBTYPE OF (Gfc2Entity);
+	OriginalMaterial : OPTIONAL Gfc2String;
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2DoubleProperty
+ SUBTYPE OF (Gfc2Property);
+	Value : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Earth
+ SUPERTYPE OF (ONEOF
+	(Gfc2ExcavatedEarth
+	,Gfc2DitchEarth
+	,Gfc2PitEarth))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2EarthBackfill
+ SUPERTYPE OF (ONEOF
+	(Gfc2ExcavatedEarthBackfill
+	,Gfc2DitchEarthBackfill
+	,Gfc2PitEarthBackfill))
+ SUBTYPE OF (Gfc2Entity);
+	Layers : LIST [0:?] OF Gfc2EarthBackfillUnit;
+END_ENTITY;
+
+ENTITY Gfc2EarthBackfillUnit
+ SUPERTYPE OF (ONEOF
+	(Gfc2ExcavatedEarthBackfillUnit
+	,Gfc2DitchEarthBackfillUnit
+	,Gfc2PitEarthBackfillUnit))
+ SUBTYPE OF (Gfc2Entity);
+	Depth : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Eave
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceEave
+	,Gfc2LineEave))
+ SUBTYPE OF (Gfc2Entity);
+	ConcGrade : Gfc2String;
+	ConcType : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Edge;
+	Curve : Gfc2Curve3d;
+	FaceIndex1 : Gfc2Integer;
+	FaceIndex2 : Gfc2Integer;
+	LoopIndex1 : Gfc2Integer;
+	LoopIndex2 : Gfc2Integer;
+	CoedgeIndex1 : Gfc2Integer;
+	CoedgeIndex2 : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2EdgeData;
+	EdgeIndex : Gfc2Integer;
+	LoopIndex : Gfc2Integer;
+	Type : Gfc2Integer;
+	EdgeInfo : Gfc2EdgeInfo;
+	Param : Gfc2String;
+	BaseType : Gfc2Integer;
+	SlopePoly : OPTIONAL Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2EdgeInfo
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2FloorFinishEdgeInfo
+	,Gfc2SlopeFactorEdgeInfo
+	,Gfc2RolledEdgeFactorEdgeInfo
+	,Gfc2RaftFDEdgeInfo
+	,Gfc2RecStairsStartEdgeInfo
+	,Gfc2BeddingEdgeInfo
+	,Gfc2SumpEdgeInfo
+	,Gfc2FootStepEdgeInfo
+	,Gfc2RidgeLineEdgeInfo));
+END_ENTITY;
+
+ENTITY Gfc2EditingInfo;
+	Owner : OPTIONAL Gfc2Label;
+	DesigningCompany : OPTIONAL Gfc2Label;
+	Contractor : OPTIONAL Gfc2Label;
+	EditingGroup : OPTIONAL Gfc2Label;
+	Date : OPTIONAL Gfc2Label;
+	Editor : OPTIONAL Gfc2Label;
+	EditorCertNO : OPTIONAL Gfc2Label;
+	Auditer : OPTIONAL Gfc2Label;
+	AuditerCertNo : OPTIONAL Gfc2Label;
+END_ENTITY;
+
+ENTITY Gfc2ElectricalEquipment
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	SystemType : Gfc2String;
+	CircuitNumber : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2ElectricalOtherEnts
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	DevElev : Gfc2Elev;
+	SystemType : Gfc2String;
+	CircuitNumber : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2ElectricityPipe
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	PipeMaterial : Gfc2String;
+	BridgeMaterial : Gfc2String;
+	MetalRacewayMaterial : Gfc2String;
+	Diameter : Gfc2Double;
+	EntHeight : Gfc2Double;
+	Class : Gfc2String;
+	LayType : Gfc2String;
+	ElectricalWireStander : Gfc2String;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	LevelType : Gfc2Integer;
+	CircuitNumber : Gfc2String;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Ellipse2d
+ SUBTYPE OF (Gfc2Curve2d);
+	CenterPt : Gfc2Vector2d;
+	MajorAxis : Gfc2Vector2d;
+	dMajorRad : Gfc2Double;
+	dMinorRad : Gfc2Double;
+	Range : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2Ellipse3d
+ SUBTYPE OF (Gfc2PlaneCurve3d);
+END_ENTITY;
+
+ENTITY Gfc2EmbedBeam
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineEmbedBeam))
+ SUBTYPE OF (Gfc2Entity);
+	EmbedBeamType : Gfc2EmbedBeamType;
+	OriginalMaterial : Gfc2String;
+	ConcGrade : Gfc2ConcGrade;
+	ConcreteAdmixture : Gfc2String;
+	TopHoriBar : Gfc2String;
+	BottomHoriBar : Gfc2String;
+	HoopBar : Gfc2String;
+	SideBarAL : Gfc2String;
+	Limb : Gfc2String;
+	TieBar : Gfc2String;
+	PumpType : Gfc2String;
+	PumpingHeight : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Entity
+ SUPERTYPE OF (ONEOF
+	(Gfc2BrickWall
+	,Gfc2InsulatingWall
+	,Gfc2InsulatingWallUnit
+	,Gfc2Pier
+	,Gfc2CurtainWall
+	,Gfc2Door
+	,Gfc2Window
+	,Gfc2Opening
+	,Gfc2DoorWin
+	,Gfc2RibbonWin
+	,Gfc2RibbonOpening
+	,Gfc2SwingWin
+	,Gfc2Dormer
+	,Gfc2Lintel
+	,Gfc2Alcove
+	,Gfc2Rooflight
+	,Gfc2Column
+	,Gfc2TieColumn
+	,Gfc2Beam
+	,Gfc2LinkBeam
+	,Gfc2TieBeam
+	,Gfc2Slab
+	,Gfc2PrecastSlab
+	,Gfc2SpiralSlab
+	,Gfc2SlabHole
+	,Gfc2ColumnCap
+	,Gfc2FloorFinish
+	,Gfc2Skirt
+	,Gfc2Dado
+	,Gfc2WallFaceFinish
+	,Gfc2Ceiling
+	,Gfc2HungCeiling
+	,Gfc2IsolatedColumnFinish
+	,Gfc2AloneBeamFinish
+	,Gfc2Room
+	,Gfc2Earth
+	,Gfc2EarthBackfill
+	,Gfc2EarthBackfillUnit
+	,Gfc2RoomBackfill
+	,Gfc2FDBeam
+	,Gfc2RaftFD
+	,Gfc2StripFD
+	,Gfc2StripFDUnit
+	,Gfc2IsolatedFD
+	,Gfc2IsolatedFDUnit
+	,Gfc2PileCap
+	,Gfc2PileCapUnit
+	,Gfc2Pile
+	,Gfc2Bedding
+	,Gfc2ColumnBase
+	,Gfc2Sump
+	,Gfc2Trench
+	,Gfc2TrenchUnit
+	,Gfc2FloorArea
+	,Gfc2Courtyard
+	,Gfc2SiteLeveling
+	,Gfc2Apron
+	,Gfc2FootStep
+	,Gfc2PostCastStrip
+	,Gfc2Eave
+	,Gfc2Canopy
+	,Gfc2Balcony
+	,Gfc2Roof
+	,Gfc2InsulatingLayer
+	,Gfc2Coping
+	,Gfc2Handrail
+	,Gfc2Parapet
+	,Gfc2CustomPoint
+	,Gfc2CustomLine
+	,Gfc2CustomFace
+	,Gfc2AxisGrid
+	,Gfc2AssitAxis
+	,Gfc2SizeMark
+	,Gfc2Stair
+	,Gfc2Flight
+	,Gfc2StairWell
+	,Gfc2Fixture
+	,Gfc2WaterPipe
+	,Gfc2PipeDevice
+	,Gfc2Valve
+	,Gfc2PipeAttachment
+	,Gfc2WaterOtherEnts
+	,Gfc2VentilationPipe
+	,Gfc2VentilationParts
+	,Gfc2HeatingDevice
+	,Gfc2FuelGasDevice
+	,Gfc2LightDevice
+	,Gfc2SwitchDevice
+	,Gfc2ElectricityPipe
+	,Gfc2CablePipe
+	,Gfc2FireElectPipe
+	,Gfc2FireCablePipe
+	,Gfc2WeakCurrentPipe
+	,Gfc2WeakCurrentCablePipe
+	,Gfc2Distribution
+	,Gfc2FireDistribution
+	,Gfc2WeakDistribution
+	,Gfc2ElectricalEquipment
+	,Gfc2WeakCurrentUtensil
+	,Gfc2WeakCurrentDevice
+	,Gfc2VentilationDevice
+	,Gfc2VentWaterPipeParts
+	,Gfc2VentilationWaterPipe
+	,Gfc2WindOtherEnts
+	,Gfc2HeatingOtherDevice
+	,Gfc2HeatingPipe
+	,Gfc2HeatingValve
+	,Gfc2HeatingPipeAttachment
+	,Gfc2HeatOtherEnts
+	,Gfc2ElectricalOtherEnts
+	,Gfc2WeakOtherEnts
+	,Gfc2FireProtection
+	,Gfc2FireOtherEnts
+	,Gfc2FireHydrant
+	,Gfc2FireSprinkler
+	,Gfc2FireDevice
+	,Gfc2FireServicePipe
+	,Gfc2FireValve
+	,Gfc2FireAttachment
+	,Gfc2ForceWall
+	,Gfc2MasonryColumn
+	,Gfc2Ramp
+	,Gfc2MasonryReinf
+	,Gfc2EmbedBeam
+	,Gfc2Reinforcement
+	,Gfc2NegReinforcement
+	,Gfc2SlabStrip
+	,Gfc2RaftFDReinf
+	,Gfc2RaftFDNegReinf
+	,Gfc2FDSlabStrip
+	,Gfc2LineInsulatingWall))
+ SUBTYPE OF (Gfc2Object);
+	Shape : OPTIONAL Gfc2Shape;
+END_ENTITY;
+
+ENTITY Gfc2ExcavatedEarth
+ SUBTYPE OF (Gfc2Earth);
+	Depth : Gfc2Double;
+	WorkingFaceWidth : Gfc2Double;
+	SlopeFactor : Gfc2Double;
+	BottomElev : Gfc2Elev;
+	TopElev : Gfc2Elev;
+	EdgeInfos : LIST [0:?] OF Gfc2SlopeFactorEdgeInfo;
+END_ENTITY;
+
+ENTITY Gfc2ExcavatedEarthBackfill
+ SUBTYPE OF (Gfc2EarthBackfill);
+	WorkingFaceWidth : Gfc2Double;
+	SlopeFactor : Gfc2Double;
+	BottomElev : Gfc2Elev;
+	TopElev : Gfc2Elev;
+	Material : Gfc2String;
+	EdgeInfos : LIST [0:?] OF Gfc2SlopeFactorEdgeInfo;
+END_ENTITY;
+
+ENTITY Gfc2ExcavatedEarthBackfillUnit
+ SUBTYPE OF (Gfc2EarthBackfillUnit);
+END_ENTITY;
+
+ENTITY Gfc2ExtrudedBody
+ SUBTYPE OF (Gfc2Body);
+	Coordinate : Gfc2Coordinates3d;
+	Length : Gfc2Double;
+	Section : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2FDBeam
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineFDBeam))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2FDSlabStrip
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineFDSlabStrip))
+ SUBTYPE OF (Gfc2Entity);
+	ConcGrade : Gfc2ConcGrade;
+	BottomReinforcement : Gfc2String;
+	TopReinforcement : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Face
+ SUBTYPE OF (Gfc2CommonPolygonEx);
+	Surface : Gfc2Surface;
+	Box : Gfc2Box3d;
+	SameDir : Gfc2Boolean;
+	Index : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2FaceApron
+ SUBTYPE OF (Gfc2Apron);
+	Thickness : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2FaceArchInfo
+ SUBTYPE OF (Gfc2FaceInfo);
+	AxialLine : Gfc2Line2d;
+	Height : Gfc2Double;
+	Chord : Gfc2Double;
+	Radius : Gfc2Double;
+	DefineByRadius : Gfc2Boolean;
+	CheckInnerChord : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2FaceBedding
+ SUBTYPE OF (Gfc2Bedding);
+	Thickness : Gfc2Double;
+	TopElev : Gfc2Elev;
+	BeddingType : OPTIONAL Gfc2Integer;
+	SectionPoly : OPTIONAL Gfc2Polygon;
+	RefHeight : OPTIONAL Gfc2Double;
+	SubBody : OPTIONAL Gfc2Body;
+	IntBody : OPTIONAL Gfc2Body;
+	IntBodyElev : OPTIONAL Gfc2Double;
+	SubBodyElev : OPTIONAL Gfc2Double;
+	OffSetEdge : OPTIONAL Gfc2Double;
+	EdgeInfos : LIST [0:?] OF Gfc2BeddingEdgeInfo;
+END_ENTITY;
+
+ENTITY Gfc2FaceCanopy
+ SUBTYPE OF (Gfc2Canopy);
+	Thickness : Gfc2Double;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2FaceConeInfo
+ SUBTYPE OF (Gfc2FaceInfo);
+	Height : Gfc2Double;
+	Chord : Gfc2Double;
+	CenterPoint : Gfc2Vector2d;
+	CheckInnerChord : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2FaceEave
+ SUBTYPE OF (Gfc2Eave);
+	Thickness : Gfc2Double;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2FaceFlight
+ SUBTYPE OF (Gfc2Flight);
+	BottomElev : Gfc2Elev;
+	StartStepIndex : Gfc2Integer;
+	EdgeInfos : LIST [0:?] OF Gfc2RecStairsStartEdgeInfo;
+END_ENTITY;
+
+ENTITY Gfc2FaceFloorArea
+ SUBTYPE OF (Gfc2FloorArea);
+	BottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2FaceFloorFinish
+ SUBTYPE OF (Gfc2FloorFinish);
+	Thickness : Gfc2Double;
+	TopElev : Gfc2Elev;
+	FloorThickness : Gfc2Double;
+	EdgeInfos : LIST [0:?] OF Gfc2FloorFinishEdgeInfo;
+END_ENTITY;
+
+ENTITY Gfc2FaceFootStep
+ SUBTYPE OF (Gfc2FootStep);
+	TopElev : Gfc2Elev;
+	Height : Gfc2Double;
+	StepCount : Gfc2Integer;
+	EdgeInfos : LIST [0:?] OF Gfc2FootStepEdgeInfo;
+END_ENTITY;
+
+ENTITY Gfc2FaceHungCeiling
+ SUBTYPE OF (Gfc2HungCeiling);
+	AboveFloorHeight : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2FaceInfo
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2FaceArchInfo
+	,Gfc2FaceSphereInfo
+	,Gfc2FaceConeInfo));
+END_ENTITY;
+
+ENTITY Gfc2FaceIsolatedFD
+ SUBTYPE OF (Gfc2IsolatedFD);
+	Height : Gfc2Double;
+	BottomElev : Gfc2Elev;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2FacePileCap
+ SUBTYPE OF (Gfc2PileCap);
+	BottomElev : Gfc2Elev;
+	TopElev : Gfc2Elev;
+	Height : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2FaceRaftFD
+ SUBTYPE OF (Gfc2RaftFD);
+	Thickness : Gfc2Double;
+	BottomElev : Gfc2Elev;
+	TopElev : Gfc2Elev;
+	EdgeInfos : LIST [0:?] OF Gfc2RaftFDEdgeInfo;
+END_ENTITY;
+
+ENTITY Gfc2FaceRaftFDReinf
+ SUBTYPE OF (Gfc2RaftFDReinf);
+	CurveData : Gfc2Curve2d;
+	ReferenceCurve : Gfc2Curve2d;
+	OffsetValue : Gfc2Integer;
+	ReinfRangeType : Gfc2ReinfRangeType;
+	Radiate : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2FaceReinforcement
+ SUBTYPE OF (Gfc2Reinforcement);
+	CurveData : Gfc2Curve2d;
+	ReferenceCurve : Gfc2Curve2d;
+	OffsetValue : Gfc2Integer;
+	ReinfRangeType : Gfc2ReinfRangeType;
+	Radiate : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2FaceRoom
+ SUBTYPE OF (Gfc2Room);
+	BottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2FaceShape
+ SUBTYPE OF (Gfc2SolidShape);
+	Thickness : Gfc2Double;
+	Poly : Gfc2Polygon;
+	MirrorFlag : OPTIONAL Gfc2Boolean;
+	FaceInfo : OPTIONAL Gfc2FaceInfo;
+END_ENTITY;
+
+ENTITY Gfc2FaceShape2d
+ SUBTYPE OF (Gfc2Shape2d);
+	Poly : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2FaceSiteLeveling
+ SUBTYPE OF (Gfc2SiteLeveling);
+END_ENTITY;
+
+ENTITY Gfc2FaceSlab
+ SUBTYPE OF (Gfc2Slab);
+	Thickness : Gfc2Double;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2FaceSphereInfo
+ SUBTYPE OF (Gfc2FaceInfo);
+	CenterPoint : Gfc2Vector2d;
+	Height : Gfc2Double;
+	Chord : Gfc2Double;
+	Radius : Gfc2Double;
+	DefineByRadius : Gfc2Boolean;
+	CheckInnerChord : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2FaceStair
+ SUBTYPE OF (Gfc2Stair);
+END_ENTITY;
+
+ENTITY Gfc2FaceStairWell
+ SUBTYPE OF (Gfc2StairWell);
+	BottomElev : Gfc2Elev;
+	OffsetElev : Gfc2String;
+	Thickness : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2FireAttachment
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	LinkType : Gfc2String;
+	SystemType : Gfc2String;
+	PipeDevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2FireCablePipe
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	PipeMaterial : Gfc2String;
+	BridgeMaterial : Gfc2String;
+	MetalRacewayMaterial : Gfc2String;
+	Diameter : Gfc2Double;
+	EntHeight : Gfc2Double;
+	Class : Gfc2String;
+	LayType : Gfc2String;
+	ElectricalWireStander : Gfc2String;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	LevelType : Gfc2Integer;
+	CircuitNumber : Gfc2String;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2FireDevice
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	SelfHeight : Gfc2Integer;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2FireDistribution
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	CalcWidth : Gfc2Integer;
+	SelfHeight : Gfc2Integer;
+	Thickness : Gfc2Integer;
+	SystemType : Gfc2String;
+	LayType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2FireElectPipe
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	PipeMaterial : Gfc2String;
+	BridgeMaterial : Gfc2String;
+	MetalRacewayMaterial : Gfc2String;
+	Diameter : Gfc2Double;
+	EntHeight : Gfc2Double;
+	Class : Gfc2String;
+	LayType : Gfc2String;
+	ElectricalWireStander : Gfc2String;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	LevelType : Gfc2Integer;
+	CircuitNumber : Gfc2String;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2FireHydrant
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	SelfHeight : Gfc2Integer;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2FireOtherEnts
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Material : Gfc2String;
+	Class : Gfc2String;
+	PipeType : Gfc2String;
+	Stander : Gfc2String;
+	PipeLen : Gfc2Integer;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+	Diameter : Gfc2Double;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2FireProtection
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2FireServicePipe
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Material : Gfc2String;
+	WaterPipeDiameter : Gfc2String;
+	SystemType : Gfc2String;
+	SystemNumber : Gfc2String;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	LinkType : Gfc2String;
+	LevelType : Gfc2Integer;
+	ProtectMaterial : Gfc2String;
+	ProtectThickness : Gfc2Double;
+	ProtectLayerMaterial : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2FireSprinkler
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2FireValve
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Material : Gfc2String;
+	Stander : Gfc2String;
+	LinkType : Gfc2String;
+	SystemType : Gfc2String;
+	ProtectMaterial : Gfc2String;
+	ProtectThickness : Gfc2Double;
+	ProtectLayerMaterial : Gfc2String;
+	PipeDevElev : Gfc2Elev;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Fixture
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Material : Gfc2String;
+	Stander : Gfc2String;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2Flight
+ SUPERTYPE OF (ONEOF
+	(Gfc2SpiralFlight
+	,Gfc2FaceFlight))
+ SUBTYPE OF (Gfc2Entity);
+	Height : Gfc2Double;
+	StepHeight : Gfc2Double;
+	Thickness : Gfc2Double;
+	ConcGrade : Gfc2String;
+	ConcType : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Floor
+ SUBTYPE OF (Gfc2Object);
+	FirstFloorFlag : Gfc2Boolean;
+	Height : Gfc2Double;
+	StdFloorCount : Gfc2Integer;
+	StructuralElevation : Gfc2Double;
+	StartFloorNo : Gfc2Integer;
+	FloorArea : Gfc2Double;
+	SlabThickness : Gfc2Integer;
+	Remark : Gfc2Text;
+	EntAseismicGrade : Gfc2PropertySet;
+	EntProtectiveThickness : Gfc2PropertySet;
+END_ENTITY;
+
+ENTITY Gfc2FloorArea
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceFloorArea))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2FloorFinish
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceFloorFinish))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2FloorFinishEdgeInfo
+ SUBTYPE OF (Gfc2EdgeInfo);
+	WaterProofHeight : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2FootStep
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceFootStep))
+ SUBTYPE OF (Gfc2Entity);
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	ConcGrade : Gfc2String;
+	ConcType : Gfc2String;
+	MortarGrade : Gfc2String;
+	MortarType : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2FootStepEdgeInfo
+ SUBTYPE OF (Gfc2EdgeInfo);
+	StepWidth : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2ForceAbnormityWall
+ SUBTYPE OF (Gfc2ForceWall);
+	Section : Gfc2Section;
+	AxisOffset : Gfc2Double;
+	StartPtBtmElev : Gfc2Elev;
+	EndPtBtmElev : Gfc2Elev;
+	HoriDistributionBar : Gfc2String;
+	VertDistributionBar : Gfc2String;
+	TieBar : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2ForceNormalWall
+ SUBTYPE OF (Gfc2ForceWall);
+	StartPtBtmElev : Gfc2Elev;
+	StartPtTopElev : Gfc2Elev;
+	EndPtBtmElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	Thickness : Gfc2Integer;
+	AxisOffset : Gfc2Double;
+	HoriDistributionBar : Gfc2String;
+	VertDistributionBar : Gfc2String;
+	TieBar : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2ForceWall
+ SUPERTYPE OF (ONEOF
+	(Gfc2ForceNormalWall
+	,Gfc2ForceAbnormityWall))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	InnerOuterFlag : Gfc2InnerOuterFlag;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	OutterLine : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2FuelGasDevice
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Stander : Gfc2String;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+	Class : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Handrail
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineHandrail
+	,Gfc2HandrailWithoutParapet))
+ SUBTYPE OF (Gfc2Entity);
+	HandRailType : Gfc2HandRailType;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2HandrailWithoutParapet
+ SUBTYPE OF (Gfc2Handrail);
+	HandrailSection : Gfc2Section;
+	Height : Gfc2Double;
+	StartPtBottomElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2HangBar
+ SUBTYPE OF (Gfc2Property);
+	SpanID : Gfc2Integer;
+	Param : Gfc2Double;
+	BarInfo : Gfc2String;
+	AddBar : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2HeatOtherEnts
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Material : Gfc2String;
+	PipeType : Gfc2String;
+	Diameter : Gfc2Double;
+	PipeLen : Gfc2Integer;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2HeatingDevice
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	SubtractLength : Gfc2Integer;
+	Length : Gfc2Integer;
+	BackWaterStyle : Gfc2Integer;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2HeatingOtherDevice
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	SelfHeight : Gfc2Integer;
+	Stander : Gfc2String;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2HeatingPipe
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Material : Gfc2String;
+	WaterPipeDiameter : Gfc2String;
+	SystemType : Gfc2String;
+	SystemNumber : Gfc2String;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	LinkType : Gfc2String;
+	LevelType : Gfc2Integer;
+	ProtectMaterial : Gfc2String;
+	ProtectThickness : Gfc2Double;
+	ProtectLayerMaterial : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2HeatingPipeAttachment
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	LinkType : Gfc2String;
+	SystemType : Gfc2String;
+	PipeDevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2HeatingValve
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Material : Gfc2String;
+	Stander : Gfc2String;
+	LinkType : Gfc2String;
+	SystemType : Gfc2String;
+	ProtectMaterial : Gfc2String;
+	ProtectThickness : Gfc2Double;
+	ProtectLayerMaterial : Gfc2String;
+	PipeDevElev : Gfc2Elev;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Helicoid
+ SUBTYPE OF (Gfc2Surface);
+	Coord : Gfc2Coordinates3d;
+	Radius : Gfc2Double;
+	RangeV : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+	HeightCoef : Gfc2Double;
+	RadiusCoef : Gfc2Double;
+	Curve : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2HermiteCtrlPt2d;
+	Point : Gfc2Vector2d;
+	Tangent : Gfc2Vector2d;
+	Parameter : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2HermiteCtrlPt3d;
+	Point : Gfc2Vector3d;
+	Tangent : Gfc2Vector3d;
+	Parameter : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2HermiteCurve2d
+ SUBTYPE OF (Gfc2Curve2d);
+	CtrlPts : LIST [0:?] OF Gfc2HermiteCtrlPt2d;
+END_ENTITY;
+
+ENTITY Gfc2HermiteCurve3d
+ SUBTYPE OF (Gfc2Curve3d);
+	CtrlPts : LIST [0:?] OF Gfc2HermiteCtrlPt3d;
+END_ENTITY;
+
+ENTITY Gfc2HoopBar
+ SUBTYPE OF (Gfc2Property);
+	ID : Gfc2Integer;
+	Radius : Gfc2Double;
+	VertBarPts : Gfc2PropertySet;
+	BarInfo : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2HungCeiling
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceHungCeiling))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2ImageCurve3d
+ SUBTYPE OF (Gfc2Curve3d);
+	Curve : Gfc2Curve2d;
+	Surface : Gfc2Surface;
+END_ENTITY;
+
+ENTITY Gfc2InnerWallPostCast
+ SUBTYPE OF (Gfc2Object);
+	InnerWallPostCastType : Gfc2InnerWallPostCastType;
+	WallHorizontalReinforcedBar : Gfc2String;
+	WallInAngleSlopeType : Gfc2Integer;
+	WallInConcGradeID : Gfc2Integer;
+	WallInHjdParamData : Gfc2String;
+	WallInHjdParamPoly : Gfc2String;
+	WallInHoriForcedBar : Gfc2String;
+	WallInHoriForcedBarEnterLength : Gfc2String;
+	WallInInDistributedBar : Gfc2String;
+	WallInInForcedBar : Gfc2String;
+	WallInOtherReinforced : Gfc2String;
+	WallInOtherReinforced12 : Gfc2String;
+	WallInOutDistributedBar : Gfc2String;
+	WallInOutForcedBar : Gfc2String;
+	WallInReinforcedBarEnterLength : Gfc2String;
+	WallInSectionTypeID : Gfc2Integer;
+	WallInVertDistributedBar : Gfc2String;
+	WallInVertForcedBar : Gfc2String;
+	WallReinforcedBarEnterLength : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2InsulatingLayer
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineInsulatingLayer))
+ SUBTYPE OF (Gfc2Entity);
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2InsulatingWall
+ SUBTYPE OF (Gfc2Entity);
+	InnerOuterFlag : Gfc2InnerOuterFlag;
+	Layers : LIST [0:?] OF Gfc2LineInsulatingWallUnit;
+END_ENTITY;
+
+ENTITY Gfc2InsulatingWallUnit
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineInsulatingWallUnit))
+ SUBTYPE OF (Gfc2Entity);
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	ConcGrade : Gfc2String;
+	ConcType : Gfc2String;
+	MortarGrade : Gfc2String;
+	MortarType : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2IntegerProperty
+ SUBTYPE OF (Gfc2Property);
+	Value : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2InternalChart;
+	Tra1 : Gfc2Double;
+	Tra2 : Gfc2Double;
+	Tra3 : Gfc2Double;
+	IPS : LIST [0:?] OF Gfc2InternalPt;
+END_ENTITY;
+
+ENTITY Gfc2InternalPt;
+	P : Gfc2Vector3d;
+	TVec : Gfc2Vector3d;
+	T : Gfc2Double;
+	UV : Gfc2Vector2d;
+	ST : Gfc2Vector2d;
+	UVDir : Gfc2Vector2d;
+	STDir : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2IntersectionCurve3d
+ SUBTYPE OF (Gfc2Curve3d);
+	Bases1 : Gfc2Surface;
+	Bases2 : Gfc2Surface;
+	Range : Gfc2Intervald;
+	Chart : Gfc2InternalChart;
+END_ENTITY;
+
+ENTITY Gfc2Intervald;
+	Min : Gfc2Double;
+	Max : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2IsolatedColumnFinish
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointIsolatedColumnFinish))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2IsolatedFD
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointIsolatedFD
+	,Gfc2FaceIsolatedFD))
+ SUBTYPE OF (Gfc2Entity);
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2IsolatedFDUnit
+ SUPERTYPE OF (ONEOF
+	(Gfc2SectionIsolatedFDUnit
+	,Gfc2ParametricIsolatedFDUnit
+	,Gfc2CustomIsolatedFDUnit))
+ SUBTYPE OF (Gfc2Entity);
+	BottomElev : Gfc2Double;
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	MortarGrade : Gfc2String;
+	MortarType : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	InsertPt : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2LightDevice
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	CeilingLightModel : Gfc2String;
+	SystemType : Gfc2String;
+	CircuitNumber : Gfc2String;
+	DevElev : Gfc2String;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Line2d
+ SUBTYPE OF (Gfc2Curve2d);
+	StartPt : Gfc2Vector2d;
+	EndPt : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2Line3d
+ SUBTYPE OF (Gfc2Curve3d);
+	StartPt : Gfc2Vector3d;
+	EndPt : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2LineArcInfo
+ SUBTYPE OF (Gfc2BaseLineArcInfo);
+	BasePoint : Gfc2Vector2d;
+	ArchHeight : Gfc2Double;
+	HalfChordLength : Gfc2Double;
+	Radius : Gfc2Double;
+	DefineByRadius : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2LineBeam
+ SUBTYPE OF (Gfc2Beam);
+	Section : Gfc2Section;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+	TopThroughBar : Gfc2String;
+	BottomThroughBar : Gfc2String;
+	SideBar : Gfc2String;
+	HoopBar : Gfc2String;
+	HangBars : Gfc2PropertySet;
+	VaryingSectionHeight : OPTIONAL Gfc2Double;
+	TieBar : Gfc2String;
+	LimbCount : OPTIONAL Gfc2Integer;
+	PreOrignHeight : OPTIONAL Gfc2Double;
+	BeamSpans : LIST [0:?] OF Gfc2BeamSpan;
+END_ENTITY;
+
+ENTITY Gfc2LineBedding
+ SUBTYPE OF (Gfc2Bedding);
+	Section : Gfc2Section;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineCoping
+ SUBTYPE OF (Gfc2Coping);
+	Section : Gfc2Section;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineCurtainWall
+ SUBTYPE OF (Gfc2CurtainWall);
+	StartPtBtmElev : Gfc2Elev;
+	StartPtTopElev : Gfc2Elev;
+	EndPtBtmElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	Thickness : Gfc2Double;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineDado
+ SUBTYPE OF (Gfc2Dado);
+	Height : Gfc2Double;
+	StartPtBottomElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+	Thickness : Gfc2Integer;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineEave
+ SUBTYPE OF (Gfc2Eave);
+	Section : Gfc2Section;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineEmbedBeam
+ SUBTYPE OF (Gfc2EmbedBeam);
+	SectionWidth : Gfc2Integer;
+	SectionHeight : Gfc2Integer;
+	AxisOffset : Gfc2Double;
+	EndTopFloor : Gfc2Boolean;
+	StartTopFloor : Gfc2Boolean;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2LineFDBeam
+ SUBTYPE OF (Gfc2FDBeam);
+	Cetegory : Gfc2Integer;
+	Section : Gfc2Section;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+	VaryingSectionHeight : OPTIONAL Gfc2Double;
+	TieBar : Gfc2String;
+	TopThroughBar : OPTIONAL Gfc2String;
+	BottomThroughBar : OPTIONAL Gfc2String;
+	SideBar : OPTIONAL Gfc2String;
+	HoopBar : OPTIONAL Gfc2String;
+	LimbCount : OPTIONAL Gfc2Integer;
+	BeamSpans : LIST [0:?] OF Gfc2BeamSpan;
+END_ENTITY;
+
+ENTITY Gfc2LineFDSlabStrip
+ SUBTYPE OF (Gfc2FDSlabStrip);
+	FDSlabScriptType : Gfc2FDSlabScriptType;
+	Thickness : Gfc2Integer;
+	Width : Gfc2Integer;
+	AxisOffset : Gfc2Double;
+	BottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2LineHandrail
+ SUBTYPE OF (Gfc2Handrail);
+	HandrailSection : Gfc2Section;
+	ParapetSection : Gfc2Section;
+	Height : Gfc2Double;
+	Distance : Gfc2Double;
+	StartPtBottomElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2LineInsulatingLayer
+ SUBTYPE OF (Gfc2InsulatingLayer);
+	Thickness : Gfc2Double;
+	StartPtBtmElev : Gfc2Elev;
+	StartPtTopElev : Gfc2Elev;
+	EndPtBtmElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineInsulatingWall
+ SUBTYPE OF (Gfc2Entity);
+	AxisOffset : Gfc2Double;
+	StartPtBtmElev : Gfc2Elev;
+	StartPtTopElev : Gfc2Elev;
+	EndPtBtmElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	InnerOuterFlag : Gfc2InnerOuterFlag;
+END_ENTITY;
+
+ENTITY Gfc2LineInsulatingWallUnit
+ SUBTYPE OF (Gfc2InsulatingWallUnit);
+	Thickness : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineLinkBeam
+ SUBTYPE OF (Gfc2LinkBeam);
+	Section : Gfc2Section;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+	TopHoriBar : Gfc2String;
+	BottomHoriBar : Gfc2String;
+	SideBar : Gfc2String;
+	HoopBar : Gfc2String;
+	TieBar : Gfc2String;
+	LimbCount : OPTIONAL Gfc2Integer;
+	BeamSpans : LIST [0:?] OF Gfc2BeamSpan;
+END_ENTITY;
+
+ENTITY Gfc2LineNegReinforcement
+ SUBTYPE OF (Gfc2NegReinforcement);
+	CurveData : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2LineParapet
+ SUBTYPE OF (Gfc2Parapet);
+	Section : Gfc2Section;
+	StartPtBottomElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LinePostCastStrip
+ SUBTYPE OF (Gfc2PostCastStrip);
+	AxisOffset : Gfc2Double;
+	BoardHjdParamData : Gfc2String;
+	BoardHjdParamPoly : Gfc2String;
+	ExternalID : Gfc2Integer;
+	GroundElev : Gfc2Double;
+	IsEdoAlone : Gfc2Boolean;
+	JointSetting : Gfc2String;
+	NodeSetting : Gfc2String;
+	OffsetElev : Gfc2String;
+	Region : Gfc2String;
+	Remark : Gfc2String;
+	Width : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2LineRaftFDNegReinf
+ SUBTYPE OF (Gfc2RaftFDNegReinf);
+	CurveData : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2LineRibbonOpening
+ SUBTYPE OF (Gfc2RibbonOpening);
+	StartPtBtmElev : Gfc2Elev;
+	StartPtTopElev : Gfc2Elev;
+	EndPtBtmElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	ObliqueWithWall : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2LineRibbonWin
+ SUBTYPE OF (Gfc2RibbonWin);
+	FrameThickness : Gfc2Double;
+	StartPtBtmElev : Gfc2Elev;
+	StartPtTopElev : Gfc2Elev;
+	EndPtBtmElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+	ObliqueWithWall : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2LineShape
+ SUBTYPE OF (Gfc2CustomLineShape);
+	Tilt : OPTIONAL Gfc2Double;
+	StartPtHeight : Gfc2Double;
+	EndPtHeight : Gfc2Double;
+	ArcInfo : OPTIONAL Gfc2LineArcInfo;
+	IsSpiralTop : OPTIONAL Gfc2Boolean;
+	IsSpiralBtm : OPTIONAL Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2LineShape2d
+ SUBTYPE OF (Gfc2Shape2d);
+	Line : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2LineSkirt
+ SUBTYPE OF (Gfc2Skirt);
+	Thickness : Gfc2Integer;
+	Height : Gfc2Double;
+	StartPtBottomElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineSlabStrip
+ SUBTYPE OF (Gfc2SlabStrip);
+	Thickness : Gfc2Integer;
+	Width : Gfc2Integer;
+	AxisOffset : Gfc2Double;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2LineStripFD
+ SUBTYPE OF (Gfc2StripFD);
+	StartPtBottomElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+	Units : LIST [0:?] OF Gfc2StripFDUnit;
+END_ENTITY;
+
+ENTITY Gfc2LineStripFDUnit
+ SUBTYPE OF (Gfc2StripFDUnit);
+	Section : Gfc2Section;
+	BottomElev : Gfc2Double;
+	Offset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineTieBeam
+ SUBTYPE OF (Gfc2TieBeam);
+	Section : Gfc2Section;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineTrench
+ SUBTYPE OF (Gfc2Trench);
+	BottomElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineTrenchUnit
+ SUBTYPE OF (Gfc2TrenchUnit);
+	Section : Gfc2Section;
+	BottomElev : Gfc2Double;
+	Offset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LineWallFaceFinish
+ SUBTYPE OF (Gfc2WallFaceFinish);
+	Thickness : Gfc2Integer;
+	StartPtTopElev : Gfc2Elev;
+	StartPtBottomElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2LinkBeam
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineLinkBeam))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Lintel
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointLintel))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : OPTIONAL Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	MortarType : Gfc2String;
+	MortarGrade : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2MasonryColumn
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointMasonryColumn))
+ SUBTYPE OF (Gfc2Entity);
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	MortarType : Gfc2String;
+	MortarGrade : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2MasonryReinf
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointMasonryReinf))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2NegReinforcement
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineNegReinforcement))
+ SUBTYPE OF (Gfc2Entity);
+	BarInfo : Gfc2String;
+	LeftLabel : Gfc2String;
+	RightLabel : Gfc2String;
+	SaddleBarLineCount : Gfc2String;
+	IncludeSupport : Gfc2Boolean;
+	LeftHook : Gfc2String;
+	RightHook : Gfc2String;
+	DistributedBar : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2NormalRoof
+ SUBTYPE OF (Gfc2Roof);
+	TopElev : Gfc2Elev;
+	RoofAuto : Gfc2Integer;
+	AutoSlabThickness : Gfc2Double;
+	EdgeInfos : LIST [0:?] OF Gfc2EdgeInfo;
+END_ENTITY;
+
+ENTITY Gfc2NurbsCtrlPt2d;
+	Point : Gfc2Vector2d;
+	Weight : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2NurbsCtrlPt3d;
+	Point : Gfc2Vector3d;
+	Weight : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2NurbsCurve2d
+ SUBTYPE OF (Gfc2Curve2d);
+	Degree : Gfc2Integer;
+	CtrlPts : LIST [0:?] OF Gfc2NurbsCtrlPt2d;
+	Knots : LIST [0:?] OF Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2NurbsCurve3d
+ SUBTYPE OF (Gfc2Curve3d);
+	Degree : Gfc2Integer;
+	CtrlPts : LIST [0:?] OF Gfc2NurbsCtrlPt3d;
+	Knots : LIST [0:?] OF Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2NurbsSurface
+ SUBTYPE OF (Gfc2Surface);
+	DegreeU : Gfc2Integer;
+	DegreeV : Gfc2Integer;
+	CtrlPtCountU : Gfc2Integer;
+	CtrlPtCountV : Gfc2Integer;
+	CtrlPts : LIST [0:?] OF Gfc2NurbsCtrlPt3d;
+	KnotsU : LIST [0:?] OF Gfc2Double;
+	KnotsV : LIST [0:?] OF Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Object
+ SUPERTYPE OF (ONEOF
+	(Gfc2PropertySet
+	,Gfc2Project
+	,Gfc2Building
+	,Gfc2Floor
+	,Gfc2Entity
+	,Gfc2RaftPostCast
+	,Gfc2SlabPostCast
+	,Gfc2InnerWallPostCast
+	,Gfc2OuterWallPostCast
+	,Gfc2BeamPostCast
+	,Gfc2BeamFDPostCast))
+ SUBTYPE OF (Gfc2Root);
+	ID : Gfc2Identity;
+	Name : Gfc2Label;
+	OwnerID : OPTIONAL Gfc2Identity;
+END_ENTITY;
+
+ENTITY Gfc2ObjectProperty
+ SUBTYPE OF (Gfc2Property);
+	Value : Gfc2Object;
+END_ENTITY;
+
+ENTITY Gfc2OffsetCurve2d
+ SUBTYPE OF (Gfc2Curve2d);
+	OffDist : Gfc2Double;
+	InitCurve : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2Opening
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointOpening))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2OuterWallPostCast
+ SUBTYPE OF (Gfc2Object);
+	OuterWallPostCastType : Gfc2OuterWallPostCastType;
+	WallOtherReinforced : Gfc2String;
+	WallOutAccessionalBar : Gfc2String;
+	WallOutAngleSlopeType : Gfc2Integer;
+	WallOutConcGradeID : Gfc2Integer;
+	WallOutExpandDistributedBar : Gfc2String;
+	WallOutExpandDistributedBar1 : Gfc2String;
+	WallOutExpandDistributedBar11 : Gfc2String;
+	WallOutExpandDistributedBar2 : Gfc2String;
+	WallOutExpandDistributedBar21 : Gfc2String;
+	WallOutExpandDistributedBar3 : Gfc2String;
+	WallOutExpandElev : Gfc2String;
+	WallOutExpandForcedBar : Gfc2String;
+	WallOutExpandForcedBar1 : Gfc2String;
+	WallOutExpandForcedBar11 : Gfc2String;
+	WallOutExpandForcedBar12 : Gfc2String;
+	WallOutExpandForcedBar13 : Gfc2String;
+	WallOutExpandForcedBar2 : Gfc2String;
+	WallOutExpandForcedBar21 : Gfc2String;
+	WallOutExpandForcedBar22 : Gfc2String;
+	WallOutExpandForcedBar23 : Gfc2String;
+	WallOutExpandTieBar : Gfc2String;
+	WallOutExpandTieBar1 : Gfc2String;
+	WallOutExpandTieBar2 : Gfc2String;
+	WallOutExpandTieBar3 : Gfc2String;
+	WallOutHjdParamData : Gfc2String;
+	WallOutHjdParamPoly : Gfc2String;
+	WallOutHoriForcedBar : Gfc2String;
+	WallOutHoriForcedBarEnterLength : Gfc2String;
+	WallOutInDistributedBar : Gfc2String;
+	WallOutInForcedBar : Gfc2String;
+	WallOutInHoriForcedBar : Gfc2String;
+	WallOutOtherReinforced : Gfc2String;
+	WallOutOtherReinforced12 : Gfc2String;
+	WallOutOutDistributedBar : Gfc2String;
+	WallOutOutForcedBar : Gfc2String;
+	WallOutOutHoriForcedBar : Gfc2String;
+	WallOutReinforcedBarEnterLength : Gfc2String;
+	WallOutSectionTypeID : Gfc2Integer;
+	WallOutSlopeDistributedBar : Gfc2String;
+	WallOutSlopeDistributedBar1 : Gfc2String;
+	WallOutVertDistributedBar : Gfc2String;
+	WallOutVertForcedBar : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2ParallelAssitAxis
+ SUBTYPE OF (Gfc2AssitAxis);
+	RefAxisNo : Gfc2Label;
+	Offset : Gfc2Double;
+	RefAxisIndex : Gfc2Integer;
+	RefAxisType : Gfc2AxisType;
+END_ENTITY;
+
+ENTITY Gfc2ParametricColumnBase
+ SUBTYPE OF (Gfc2ColumnBase);
+	BottomElev : Gfc2Elev;
+	ColumnBaseType : Gfc2Integer;
+	SectionWidth1 : Gfc2Double;
+	SectionHeight1 : Gfc2Double;
+	SectionWidth2 : Gfc2Double;
+	SectionHeight2 : Gfc2Double;
+	Height : Gfc2Double;
+	TopElev : Gfc2Elev;
+	IsEdge : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2ParametricColumnCap
+ SUBTYPE OF (Gfc2ColumnCap);
+	TopElev : Gfc2Elev;
+	ColumnCapType : Gfc2Integer;
+	SectionWidth1 : Gfc2Double;
+	SectionHeight1 : Gfc2Double;
+	SectionWidth2 : Gfc2Double;
+	SectionHeight2 : Gfc2Double;
+	SectionWidth3 : Gfc2Double;
+	SectionHeight3 : Gfc2Double;
+	Height1 : Gfc2Double;
+	Height2 : Gfc2Double;
+	IsEdge : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2ParametricDormer
+ SUBTYPE OF (Gfc2Dormer);
+	Params : Gfc2BuildParams;
+END_ENTITY;
+
+ENTITY Gfc2ParametricIsolatedFDUnit
+ SUBTYPE OF (Gfc2IsolatedFDUnit);
+	Params : Gfc2BuildParams;
+	SectionPoly : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2ParametricPile
+ SUBTYPE OF (Gfc2Pile);
+	Params : Gfc2BuildParams;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2ParametricPileCapUnit
+ SUBTYPE OF (Gfc2PileCapUnit);
+	Params : Gfc2BuildParams;
+	ParamData : Gfc2String;
+	SectionPoly : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2ParametricSection
+ SUBTYPE OF (Gfc2Section);
+	ID : Gfc2Integer;
+	Params : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2ParametricStair
+ SUBTYPE OF (Gfc2Stair);
+	Params : Gfc2BuildParams;
+	BottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2ParametricSwingWin
+ SUBTYPE OF (Gfc2SwingWin);
+	Params : Gfc2BuildParams;
+	AboveFloorHeight : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2ParametricTrench
+ SUBTYPE OF (Gfc2Trench);
+	Params : Gfc2BuildParams;
+	BottomElev : Gfc2Elev;
+	AxisOffset : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Parapet
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineParapet))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	MortarType : Gfc2String;
+	MortarGrade : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Pier
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointPier))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2Pile
+ SUPERTYPE OF (ONEOF
+	(Gfc2SectionlPile
+	,Gfc2ParametricPile))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2PileCap
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointPileCap
+	,Gfc2FacePileCap))
+ SUBTYPE OF (Gfc2Entity);
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2PileCapUnit
+ SUPERTYPE OF (ONEOF
+	(Gfc2SectionPileCapUnit
+	,Gfc2ParametricPileCapUnit
+	,Gfc2CustomPileCapUnit))
+ SUBTYPE OF (Gfc2Entity);
+	BottomElev : Gfc2Double;
+	ConcType : Gfc2Integer;
+	ConcGrade : Gfc2Integer;
+	MortarGrade : Gfc2String;
+	MortarType : Gfc2String;
+	Material : Gfc2Integer;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	VertLine : Gfc2Curve2d;
+	HorzLine : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2PipeAttachment
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	LinkType : Gfc2String;
+	SystemType : Gfc2String;
+	PipeDevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2PipeDevice
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	SelfHeight : Gfc2Integer;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2PitEarth
+ SUBTYPE OF (Gfc2Earth);
+	Depth : Gfc2Double;
+	Section : Gfc2Section;
+	WorkingFaceWidth : Gfc2Double;
+	SlopeFactor : Gfc2Double;
+	BottomElev : Gfc2Elev;
+	TopElev : Gfc2Elev;
+	EdgeInfos : LIST [0:?] OF Gfc2SlopeFactorEdgeInfo;
+END_ENTITY;
+
+ENTITY Gfc2PitEarthBackfill
+ SUBTYPE OF (Gfc2EarthBackfill);
+	Section : Gfc2Section;
+	WorkingFaceWidth : Gfc2Double;
+	SlopeFactor : Gfc2Double;
+	BottomElev : Gfc2Elev;
+	TopElev : Gfc2Elev;
+	Material : Gfc2String;
+	EdgeInfos : LIST [0:?] OF Gfc2SlopeFactorEdgeInfo;
+END_ENTITY;
+
+ENTITY Gfc2PitEarthBackfillUnit
+ SUBTYPE OF (Gfc2EarthBackfillUnit);
+END_ENTITY;
+
+ENTITY Gfc2Plane
+ SUBTYPE OF (Gfc2Surface);
+	Pos : Gfc2Vector3d;
+	DirU : Gfc2Vector3d;
+	DirV : Gfc2Vector3d;
+	RangeU : Gfc2Intervald;
+	RangeV : Gfc2Intervald;
+END_ENTITY;
+
+ENTITY Gfc2PlaneCoef;
+	A : Gfc2Double;
+	B : Gfc2Double;
+	C : Gfc2Double;
+	D : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2PlaneCurve3d
+ SUPERTYPE OF (ONEOF
+	(Gfc2Ellipse3d
+	,Gfc2Arc3d))
+ SUBTYPE OF (Gfc2Curve3d);
+	PlaneCurve : Gfc2Curve2d;
+	Plane : Gfc2PlaneInfo;
+END_ENTITY;
+
+ENTITY Gfc2PlaneInfo;
+	DirX : Gfc2Vector3d;
+	DirY : Gfc2Vector3d;
+	Pos : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2PointAlcove
+ SUBTYPE OF (Gfc2Alcove);
+	Section : Gfc2Section;
+	Depth : Gfc2Double;
+	AboveFloorHeight : Gfc2Double;
+	AlcoveLocation : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2PointAloneBeamFinish
+ SUBTYPE OF (Gfc2AloneBeamFinish);
+	Thickness : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2PointAngleAssitAxis
+ SUBTYPE OF (Gfc2AssitAxis);
+	RefPoint : Gfc2Vector2d;
+	Angle : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2PointBedding
+ SUBTYPE OF (Gfc2Bedding);
+	Section : Gfc2Section;
+	Thickness : Gfc2Double;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2PointColumn
+ SUPERTYPE OF (ONEOF
+	(Gfc2VariantSectionPointColumn))
+ SUBTYPE OF (Gfc2Column);
+	Section : Gfc2Section;
+	TopElev : Gfc2Elev;
+	BottomElev : Gfc2Elev;
+	NodeHoopBar : Gfc2String;
+	BarSectionInfo : Gfc2PropertySet;
+	TopSection : OPTIONAL Gfc2Section;
+END_ENTITY;
+
+ENTITY Gfc2PointDoor
+ SUPERTYPE OF (ONEOF
+	(Gfc2StandardDoor))
+ SUBTYPE OF (Gfc2Door);
+	Section : Gfc2Section;
+	FrameThickness : Gfc2Double;
+	FrameOffset : Gfc2Double;
+	FillingWidth : OPTIONAL Gfc2Double;
+	FillingHeight : OPTIONAL Gfc2Double;
+	AboveFloorHeight : Gfc2Double;
+	ObliqueWithWall : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2PointDoorWin
+ SUPERTYPE OF (ONEOF
+	(Gfc2StandardDoorWin))
+ SUBTYPE OF (Gfc2DoorWin);
+	OpeningWidth : Gfc2Double;
+	OpeningHeight : Gfc2Double;
+	WinWidth : Gfc2Double;
+	WinAboveFloorHeight : Gfc2Double;
+	DoorAboveFloorHeight : Gfc2Double;
+	WinPosition : Gfc2Integer;
+	ObliqueWithWall : Gfc2Boolean;
+	FrameThickness : Gfc2Double;
+	FrameOffset : Gfc2Double;
+	DoorFillingWidth : OPTIONAL Gfc2Double;
+	DoorFillingHeight : OPTIONAL Gfc2Double;
+	WinFillingWidth : OPTIONAL Gfc2Double;
+	WinFillingHeight : OPTIONAL Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2PointIsolatedColumnFinish
+ SUBTYPE OF (Gfc2IsolatedColumnFinish);
+	Thickness : Gfc2Double;
+	TopElev : Gfc2Elev;
+	BottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2PointIsolatedFD
+ SUBTYPE OF (Gfc2IsolatedFD);
+	BottomElev : Gfc2Elev;
+	TopElev : Gfc2Elev;
+	Units : LIST [0:?] OF Gfc2IsolatedFDUnit;
+END_ENTITY;
+
+ENTITY Gfc2PointLintel
+ SUPERTYPE OF (ONEOF
+	(Gfc2StandardLintel))
+ SUBTYPE OF (Gfc2Lintel);
+	Section : Gfc2Section;
+	Len : Gfc2Double;
+	StartPtLenInWall : Gfc2Double;
+	EndPtLenInWall : Gfc2Double;
+	Position : Gfc2LintelPosition;
+	TopElev : Gfc2Elev;
+	CenterAxisOffSet : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2PointMasonryColumn
+ SUBTYPE OF (Gfc2MasonryColumn);
+	Section : Gfc2Section;
+	TopElev : Gfc2Elev;
+	BottomElev : Gfc2Elev;
+	TopSection : OPTIONAL Gfc2Section;
+END_ENTITY;
+
+ENTITY Gfc2PointMasonryReinf
+ SUBTYPE OF (Gfc2MasonryReinf);
+	Section : Gfc2Section;
+	Height : Gfc2Integer;
+	BottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2PointOpening
+ SUBTYPE OF (Gfc2Opening);
+	Section : Gfc2Section;
+	AboveFloorHeight : Gfc2Double;
+	ObliqueWithWall : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2PointPier
+ SUBTYPE OF (Gfc2Pier);
+	Section : Gfc2Section;
+	Len : Gfc2Double;
+	Width : Gfc2Double;
+	TopElev : Gfc2Elev;
+	BottomElev : Gfc2Elev;
+	WallLeft : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2PointPileCap
+ SUBTYPE OF (Gfc2PileCap);
+	BottomElev : Gfc2Elev;
+	TopElev : Gfc2Elev;
+	Units : LIST [0:?] OF Gfc2PileCapUnit;
+END_ENTITY;
+
+ENTITY Gfc2PointPrecastSlab
+ SUPERTYPE OF (ONEOF
+	(Gfc2StandardPrecastSlab))
+ SUBTYPE OF (Gfc2PrecastSlab);
+	Len : Gfc2Double;
+	Width : Gfc2Double;
+	Thickness : Gfc2Double;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2PointRooflight
+ SUBTYPE OF (Gfc2Rooflight);
+	Section : Gfc2Section;
+END_ENTITY;
+
+ENTITY Gfc2PointShape
+ SUBTYPE OF (Gfc2SectionPointShape);
+	Height : Gfc2Double;
+	ObliqueDir : Gfc2Vector3d;
+	TopPoly : OPTIONAL Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2PointShape2d
+ SUBTYPE OF (Gfc2Shape2d);
+	InsertPt : Gfc2Vector2d;
+	Angle : Gfc2Double;
+	MirrorFlag : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2PointSlabHole
+ SUBTYPE OF (Gfc2SlabHole);
+	Section : Gfc2Section;
+END_ENTITY;
+
+ENTITY Gfc2PointSpiralSlab
+ SUBTYPE OF (Gfc2SpiralSlab);
+	Width : Gfc2Double;
+	Thickness : Gfc2Double;
+	InternalRadius : Gfc2Double;
+	SpiralAngle : Gfc2Double;
+	Clockwise : Gfc2Boolean;
+	TopElev : Gfc2Elev;
+	BottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2PointTieColumn
+ SUBTYPE OF (Gfc2TieColumn);
+	Section : Gfc2Section;
+	TopElev : Gfc2Elev;
+	BottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2PointWindow
+ SUPERTYPE OF (ONEOF
+	(Gfc2StandardWindow))
+ SUBTYPE OF (Gfc2Window);
+	Section : Gfc2Section;
+	FrameThickness : Gfc2Double;
+	FrameOffset : Gfc2Double;
+	FillingWidth : OPTIONAL Gfc2Double;
+	FillingHeight : OPTIONAL Gfc2Double;
+	AboveFloorHeight : Gfc2Double;
+	ObliqueWithWall : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2PolarAngleAssitAxis
+ SUBTYPE OF (Gfc2AssitAxis);
+	RefAxisNo : Gfc2Label;
+	Angle : Gfc2Double;
+	RefAxisIndex : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2PolarAxisGrid
+ SUBTYPE OF (Gfc2AxisGrid);
+	InsertPt : Gfc2Vector2d;
+	StartRadius : Gfc2Double;
+	Clockwise : Gfc2Boolean;
+	XKJ : LIST [0:?] OF Gfc2AxisDataItem;
+	ZJS : LIST [0:?] OF Gfc2AxisDataItem;
+END_ENTITY;
+
+ENTITY Gfc2Polygon
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2SimplePolygon
+	,Gfc2CommonPolygon
+	,Gfc2CommonPolygonEx));
+END_ENTITY;
+
+ENTITY Gfc2PolyhedralEdge;
+	StartVertexIndex : Gfc2Integer;
+	EndVertexIndex : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2PolyhedralFace;
+	Loops : LIST [0:?] OF Gfc2PolyhedralLoop;
+	Plane : Gfc2PlaneCoef;
+END_ENTITY;
+
+ENTITY Gfc2PolyhedralLoop;
+	Edges : LIST [0:?] OF Gfc2PolyhedralEdge;
+END_ENTITY;
+
+ENTITY Gfc2PolyhedronBody
+ SUBTYPE OF (Gfc2Body);
+	Faces : LIST [0:?] OF Gfc2PolyhedralFace;
+	Vertexes : LIST [0:?] OF Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2PostCastStrip
+ SUPERTYPE OF (ONEOF
+	(Gfc2LinePostCastStrip))
+ SUBTYPE OF (Gfc2Entity);
+	RaftPostCast : Gfc2RaftPostCast;
+	SlabPostCast : Gfc2SlabPostCast;
+	OuterWallPostCast : Gfc2OuterWallPostCast;
+	InnerWallPostCast : Gfc2InnerWallPostCast;
+	BeamPostCast : Gfc2BeamPostCast;
+	BeamFDPostCast : Gfc2BeamFDPostCast;
+END_ENTITY;
+
+ENTITY Gfc2PrecastSlab
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointPrecastSlab))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2PreimageCurve2d
+ SUBTYPE OF (Gfc2Curve2d);
+	Range : Gfc2Intervald;
+	Reversed : Gfc2Boolean;
+	Base : Gfc2Surface;
+	Curve : Gfc2Curve3d;
+	Tolerance : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Project
+ SUBTYPE OF (Gfc2Object);
+	Code : OPTIONAL Gfc2Label;
+	ProjectType : OPTIONAL Gfc2Label;
+	StructureType : Gfc2StructureType;
+	FDType : OPTIONAL Gfc2Label;
+	ArchiFeature : OPTIONAL Gfc2Label;
+	BelowGroundFloorCount : OPTIONAL Gfc2Integer;
+	AboveGroundFloorCount : OPTIONAL Gfc2Integer;
+	EavesHeight : OPTIONAL Gfc2Double;
+	FloorArea : OPTIONAL Gfc2Double;
+	AseismicGrade : OPTIONAL Gfc2AseismicGrade;
+	ProtectedIntensity : OPTIONAL Gfc2ProtectedIntensity;
+	Quantities : OPTIONAL Gfc2PropertySet;
+	GroundElev : OPTIONAL Gfc2Double;
+	ProjectSize : OPTIONAL Gfc2Double;
+	FrozenEarthThickness : OPTIONAL Gfc2Integer;
+	WetEarthThickness : OPTIONAL Gfc2Integer;
+	WaterElev : OPTIONAL Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2ProjectSetting;
+	BQCalcRuleName : OPTIONAL Gfc2Label;
+	NormCalcRuleName : OPTIONAL Gfc2Label;
+	FlatRule : OPTIONAL Gfc2Label;
+	WorkMode : OPTIONAL Gfc2Integer;
+	WastageTempID : OPTIONAL Gfc2Integer;
+	RegionID : OPTIONAL Gfc2Integer;
+	CollectTypeID : OPTIONAL Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2Property
+ SUPERTYPE OF (ONEOF
+	(Gfc2IntegerProperty
+	,Gfc2DoubleProperty
+	,Gfc2BooleanProperty
+	,Gfc2StringProperty
+	,Gfc2ObjectProperty
+	,Gfc2VertBar
+	,Gfc2HoopBar
+	,Gfc2BeamSpan
+	,Gfc2HangBar
+	,Gfc2AseismicGradeProperty
+	,Gfc2ProtectiveThicknessProperty
+	,Gfc2BillTotal
+	,Gfc2BillDetail
+	,Gfc2QuotaTotal
+	,Gfc2QuotaDetail
+	,Gfc2SteelTotal
+	,Gfc2SteelDetail));
+	Name : Gfc2Label;
+END_ENTITY;
+
+ENTITY Gfc2PropertySet
+ SUBTYPE OF (Gfc2Object);
+	HasProperties : LIST [0:?] OF Gfc2Property;
+END_ENTITY;
+
+ENTITY Gfc2ProtectiveThicknessProperty
+ SUBTYPE OF (Gfc2Property);
+	ElementTypeId : Gfc2Integer;
+	Value : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2QuotaDetail
+ SUBTYPE OF (Gfc2Property);
+	FloorNum : Gfc2Integer;
+	EntityID : Gfc2Integer;
+	Unit : Gfc2String;
+	Express : Gfc2String;
+	Quantity : Gfc2String;
+	Memo : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2QuotaTotal
+ SUBTYPE OF (Gfc2Property);
+	Code : Gfc2String;
+	SubCode : Gfc2String;
+	Name : Gfc2String;
+	Content : Gfc2String;
+	Unit : Gfc2String;
+	Quantity : Gfc2String;
+	Memo : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2RaftFD
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceRaftFD))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2RaftFDEdgeInfo
+ SUBTYPE OF (Gfc2EdgeInfo);
+	EdgeType : Gfc2Integer;
+	Params : LIST [0:?] OF Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2RaftFDNegReinf
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineRaftFDNegReinf))
+ SUBTYPE OF (Gfc2Entity);
+	BarInfo : Gfc2String;
+	LeftLabel : Gfc2String;
+	RightLabel : Gfc2String;
+	IncludeSupport : Gfc2Boolean;
+	LeftHook : Gfc2String;
+	RightHook : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2RaftFDReinf
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceRaftFDReinf))
+ SUBTYPE OF (Gfc2Entity);
+	Position : Gfc2ReinforcementType;
+	ReinType : Gfc2Integer;
+	BarInfo : Gfc2String;
+	LeftLabel : Gfc2String;
+	RightLabel : Gfc2String;
+	LabelPosition : Gfc2LabelPositionType;
+	LeftHook : Gfc2String;
+	RightHook : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2RaftPostCast
+ SUBTYPE OF (Gfc2Object);
+	RaftPostCastType : Gfc2RaftPostCastType;
+	RaftaccessionalBar : Gfc2String;
+	RaftAngleSlopeType : Gfc2Integer;
+	RaftBottomDistributedBar : Gfc2String;
+	RaftBottomReinforcedBar : Gfc2String;
+	RaftBottomReinforcedBar11 : Gfc2String;
+	RaftConcGradeID : Gfc2Integer;
+	RaftHjdParamData : Gfc2String;
+	RaftHjdParamPoly : Gfc2String;
+	RaftOtherReinforced : Gfc2String;
+	RaftOtherReinforced11 : Gfc2String;
+	RaftOtherReinforced12 : Gfc2String;
+	RaftReinforcedBarEnterLength : Gfc2String;
+	RaftReinforcedBarEnterLength11 : Gfc2String;
+	RaftReinforcedBarEnterLength12 : Gfc2String;
+	RaftSectionTypeID : Gfc2Integer;
+	RaftSinkDistributedBar1 : Gfc2String;
+	RaftSinkDistributedBar11 : Gfc2String;
+	RaftSinkDistributedBar12 : Gfc2String;
+	RaftSinkDistributedBar2 : Gfc2String;
+	RaftSinkDistributedBar3 : Gfc2String;
+	RaftSinkDistributedBar4 : Gfc2String;
+	RaftSinkDistributedBar41 : Gfc2String;
+	RaftSinkDistributedBar42 : Gfc2String;
+	RaftSinkReinforced : Gfc2String;
+	RaftSinkReinforced1 : Gfc2String;
+	RaftSinkReinforced11 : Gfc2String;
+	RaftSinkReinforced12 : Gfc2String;
+	RaftSinkReinforced13 : Gfc2String;
+	RaftSinkReinforced2 : Gfc2String;
+	RaftSinkReinforced21 : Gfc2String;
+	RaftSinkReinforced22 : Gfc2String;
+	RaftSinkReinforced23 : Gfc2String;
+	RaftSinkSlopeFaceBar : Gfc2String;
+	RaftSinkSlopeFaceBar1 : Gfc2String;
+	RaftSinkTiebar : Gfc2String;
+	RaftSinkTiebar1 : Gfc2String;
+	RaftSinkTiebar2 : Gfc2String;
+	RaftSinkTiebar3 : Gfc2String;
+	RaftSlopeDistributedBar : Gfc2String;
+	RaftTopDistributedBar : Gfc2String;
+	RaftTopReinforcedBar : Gfc2String;
+	RaftTopReinforcedBar11 : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Ramp
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2RecStairsStartEdgeInfo
+ SUBTYPE OF (Gfc2EdgeInfo);
+	IsStartEdge : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2RectangleSection
+ SUBTYPE OF (Gfc2Section);
+	Width : Gfc2Double;
+	Height : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Reinforcement
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceReinforcement))
+ SUBTYPE OF (Gfc2Entity);
+	Position : Gfc2ReinforcementType;
+	ReinType : Gfc2Integer;
+	BarInfo : Gfc2String;
+	LeftLabel : Gfc2String;
+	RightLabel : Gfc2String;
+	SaddleBarLineCount : Gfc2String;
+	LabelPosition : Gfc2LabelPositionType;
+	LeftHook : Gfc2String;
+	RightHook : Gfc2String;
+	DistributedBar : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2RelAggregates
+ SUBTYPE OF (Gfc2RelDecomposes);
+END_ENTITY;
+
+ENTITY Gfc2RelAttach
+ SUPERTYPE OF (ONEOF
+	(Gfc2RelFloorFinishAttachToRoom
+	,Gfc2RelSkirtAttachToRoom
+	,Gfc2RelDadoAttachToRoom
+	,Gfc2RelWallFaceFinishAttachToRoom
+	,Gfc2RelCeilingAttachToRoom
+	,Gfc2RelHungCeilingAttachToRoom
+	,Gfc2RelIsolatedColumnFinishAttachToRoom
+	,Gfc2RelRoomBackfillAttachToRoom))
+ SUBTYPE OF (Gfc2RelDefines);
+	RelatingObject : Gfc2Object;
+END_ENTITY;
+
+ENTITY Gfc2RelCeilingAttachToRoom
+ SUBTYPE OF (Gfc2RelAttach);
+END_ENTITY;
+
+ENTITY Gfc2RelConnects
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2RelLink))
+ SUBTYPE OF (Gfc2RelationShip);
+END_ENTITY;
+
+ENTITY Gfc2RelDadoAttachToRoom
+ SUBTYPE OF (Gfc2RelAttach);
+	Height : Gfc2Double;
+	StartPtBottomElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2RelDecomposes
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2RelAggregates
+	,Gfc2RelNests))
+ SUBTYPE OF (Gfc2RelationShip);
+	RelatingObject : Gfc2Object;
+	RelatedObjects : LIST [0:?] OF Gfc2Object;
+END_ENTITY;
+
+ENTITY Gfc2RelDefines
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2RelAttach
+	,Gfc2RelDefinesByProperties
+	,Gfc2RelDefinesByElement))
+ SUBTYPE OF (Gfc2RelationShip);
+	RelatedObjects : LIST [0:?] OF Gfc2Object;
+END_ENTITY;
+
+ENTITY Gfc2RelDefinesByElement
+ SUBTYPE OF (Gfc2RelDefines);
+	RelatingElement : Gfc2Entity;
+END_ENTITY;
+
+ENTITY Gfc2RelDefinesByProperties
+ SUBTYPE OF (Gfc2RelDefines);
+	RelatingPropertySet : Gfc2PropertySet;
+END_ENTITY;
+
+ENTITY Gfc2RelFloorFinishAttachToRoom
+ SUBTYPE OF (Gfc2RelAttach);
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2RelHungCeilingAttachToRoom
+ SUBTYPE OF (Gfc2RelAttach);
+	AboveFloorHeight : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2RelIsolatedColumnFinishAttachToRoom
+ SUBTYPE OF (Gfc2RelAttach);
+	TopElev : Gfc2Elev;
+	BottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2RelLink
+ SUBTYPE OF (Gfc2RelConnects);
+	PrevObject : Gfc2Object;
+	NextObject : Gfc2Object;
+END_ENTITY;
+
+ENTITY Gfc2RelNests
+ SUBTYPE OF (Gfc2RelDecomposes);
+END_ENTITY;
+
+ENTITY Gfc2RelRoomBackfillAttachToRoom
+ SUBTYPE OF (Gfc2RelAttach);
+END_ENTITY;
+
+ENTITY Gfc2RelSkirtAttachToRoom
+ SUBTYPE OF (Gfc2RelAttach);
+	Height : Gfc2Double;
+	StartPtBottomElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2RelWallFaceFinishAttachToRoom
+ SUBTYPE OF (Gfc2RelAttach);
+	StartPtTopElev : Gfc2Elev;
+	StartPtBottomElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	EndPtBottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2RelationShip
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2RelDecomposes
+	,Gfc2RelConnects
+	,Gfc2RelDefines))
+ SUBTYPE OF (Gfc2Root);
+END_ENTITY;
+
+ENTITY Gfc2RibbonOpening
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineRibbonOpening))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2RibbonWin
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineRibbonWin))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2RidgeLineEdgeInfo
+ SUBTYPE OF (Gfc2EdgeInfo);
+	IsSetRidgeLine : Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2RolledEdgeFactorEdgeInfo
+ SUBTYPE OF (Gfc2EdgeInfo);
+	RolledEdgeFactor : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Roof
+ SUPERTYPE OF (ONEOF
+	(Gfc2NormalRoof))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2Rooflight
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointRooflight))
+ SUBTYPE OF (Gfc2Entity);
+	FrameThickness : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Room
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceRoom))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2RoomBackfill
+ SUBTYPE OF (Gfc2Entity);
+	Thickness : Gfc2Double;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2Root
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2Object
+	,Gfc2RelationShip));
+END_ENTITY;
+
+ENTITY Gfc2RuledSurface
+ SUBTYPE OF (Gfc2Surface);
+	ApexIndex : Gfc2Integer;
+	RangeV : Gfc2Intervald;
+	RangeU : Gfc2Intervald;
+	Directrix1 : Gfc2Curve3d;
+	Directrix2 : Gfc2Curve3d;
+END_ENTITY;
+
+ENTITY Gfc2Section
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2AbnormitySection
+	,Gfc2ParametricSection
+	,Gfc2RectangleSection
+	,Gfc2CircleSection));
+	Poly : OPTIONAL Gfc2Polygon;
+	InsertPt : OPTIONAL Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2SectionIsolatedFDUnit
+ SUBTYPE OF (Gfc2IsolatedFDUnit);
+	Section : Gfc2Section;
+	Height : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2SectionLineShape
+ SUPERTYPE OF (ONEOF
+	(Gfc2VariableSectionLineShape))
+ SUBTYPE OF (Gfc2CustomLineShape);
+	Poly : Gfc2Polygon;
+	BaseInsertPt : Gfc2Vector2d;
+	Angle : Gfc2Double;
+	MirrorFlag : Gfc2Boolean;
+	ArcInfo : OPTIONAL Gfc2BaseLineArcInfo;
+	IsSpiral : OPTIONAL Gfc2Boolean;
+END_ENTITY;
+
+ENTITY Gfc2SectionPileCapUnit
+ SUBTYPE OF (Gfc2PileCapUnit);
+	Section : Gfc2Section;
+	Height : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2SectionPointShape
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointShape))
+ SUBTYPE OF (Gfc2CustomPointShape);
+	Poly : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2SectionSump
+ SUBTYPE OF (Gfc2Sump);
+	Section : Gfc2Section;
+	EdgeInfos : LIST [0:?] OF Gfc2SumpEdgeInfo;
+END_ENTITY;
+
+ENTITY Gfc2SectionlPile
+ SUBTYPE OF (Gfc2Pile);
+	Section : Gfc2Section;
+	Height : Gfc2Double;
+	TopElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2Shape
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2Shape3d
+	,Gfc2Shape2d));
+	LocalCoordinate : Gfc2Coordinates3d;
+	BoundingBox : OPTIONAL Gfc2Box3d;
+END_ENTITY;
+
+ENTITY Gfc2Shape2d
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2FaceShape2d
+	,Gfc2LineShape2d
+	,Gfc2PointShape2d))
+ SUBTYPE OF (Gfc2Shape);
+	Elev : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Shape3d
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2SolidShape))
+ SUBTYPE OF (Gfc2Shape);
+END_ENTITY;
+
+ENTITY Gfc2SimpleLoop;
+	Vertexes : LIST [0:?] OF Gfc2SimpleVertex;
+END_ENTITY;
+
+ENTITY Gfc2SimplePolygon
+ SUBTYPE OF (Gfc2Polygon);
+	Loops : LIST [0:?] OF Gfc2SimpleLoop;
+END_ENTITY;
+
+ENTITY Gfc2SimpleVertex;
+	Point : Gfc2Vector2d;
+	Radius : OPTIONAL Gfc2Double;
+	ArcType : OPTIONAL Gfc2ArcType;
+END_ENTITY;
+
+ENTITY Gfc2SinCurve2d
+ SUBTYPE OF (Gfc2Curve2d);
+	Pos : Gfc2Vector2d;
+	DirX : Gfc2Vector2d;
+	A : Gfc2Double;
+	B : Gfc2Double;
+	Range : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2SiteLeveling
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceSiteLeveling))
+ SUBTYPE OF (Gfc2Entity);
+	SiteLevelingType : Gfc2SiteLevelingType;
+END_ENTITY;
+
+ENTITY Gfc2SizeMark
+ SUBTYPE OF (Gfc2Entity);
+	SizeMarkType : Gfc2SizeMarkType;
+	StartLine : Gfc2CoedgeList;
+	EndLine : Gfc2CoedgeList;
+END_ENTITY;
+
+ENTITY Gfc2Skirt
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineSkirt))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2Slab
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceSlab))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	SlabType : Gfc2SlabType;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2SlabHole
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointSlabHole
+	,Gfc2CustomSlabHole))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2SlabPostCast
+ SUBTYPE OF (Gfc2Object);
+	SlabPostCastType : Gfc2SlabPostCastType;
+	SlabAngleSlopeType : Gfc2Integer;
+	SlabBottomDistributedBar : Gfc2String;
+	SlabBottomReinforcedBar : Gfc2String;
+	SlabBottomReinforcedBar11 : Gfc2String;
+	SlabConcGradeID : Gfc2Integer;
+	SlabIsCalcDistributedBar : Gfc2String;
+	SlabOtherReinforced : Gfc2String;
+	SlabOtherReinforced12 : Gfc2String;
+	SlabReinforcedBarEnterLength : Gfc2String;
+	SlabReinforcedBarEnterLength11 : Gfc2String;
+	SlabReinforcedBarEnterLength12 : Gfc2String;
+	SlabSectionTypeID : Gfc2Integer;
+	SlabTopDistributedBar : Gfc2String;
+	SlabTopReinforcedBar : Gfc2String;
+	SlabTopReinforcedBar11 : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2SlabStrip
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineSlabStrip))
+ SUBTYPE OF (Gfc2Entity);
+	ConcGrade : Gfc2ConcGrade;
+	BottomReinforcement : Gfc2String;
+	TopReinforcement : Gfc2String;
+	HoopBar : Gfc2String;
+	Limb : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2SlopeFactorEdgeInfo
+ SUBTYPE OF (Gfc2EdgeInfo);
+	WorkingFaceWidth : Gfc2Double;
+	SlopeFactor : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2SolidShape
+ SUPERTYPE OF (ONEOF
+	(Gfc2CustomPointShape
+	,Gfc2CustomLineShape
+	,Gfc2FaceShape))
+ SUBTYPE OF (Gfc2Shape3d);
+	Body : OPTIONAL Gfc2Body;
+	EdgeDatas : LIST [0:?] OF Gfc2EdgeData;
+END_ENTITY;
+
+ENTITY Gfc2Sphere
+ SUBTYPE OF (Gfc2Surface);
+	Radius : Gfc2Double;
+	Coords : Gfc2Coordinates3d;
+	RangeU : Gfc2Intervald;
+	RangeV : Gfc2Intervald;
+END_ENTITY;
+
+ENTITY Gfc2SpiralFlight
+ SUBTYPE OF (Gfc2Flight);
+	Width : Gfc2Double;
+	InternalRadius : Gfc2Double;
+	SpiralAngle : Gfc2Double;
+	Clockwise : Gfc2Boolean;
+	BottomElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2SpiralLine2d
+ SUBTYPE OF (Gfc2Curve2d);
+	Coord : Gfc2Coordinates2d;
+	Radius : Gfc2Double;
+	Range : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+	RadiusCoef : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2SpiralLine3d
+ SUBTYPE OF (Gfc2Curve3d);
+	Coord : Gfc2Coordinates3d;
+	Radius : Gfc2Double;
+	Range : Gfc2Intervald;
+	ClockSign : Gfc2Integer;
+	HeightCoef : Gfc2Double;
+	RadiusCoef : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2SpiralSlab
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointSpiralSlab))
+ SUBTYPE OF (Gfc2Entity);
+	OriginalMaterial : OPTIONAL Gfc2String;
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Stair
+ SUPERTYPE OF (ONEOF
+	(Gfc2CompositeStair
+	,Gfc2FaceStair
+	,Gfc2ParametricStair))
+ SUBTYPE OF (Gfc2Entity);
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2StairWell
+ SUPERTYPE OF (ONEOF
+	(Gfc2FaceStairWell))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+ENTITY Gfc2StandardDoor
+ SUBTYPE OF (Gfc2PointDoor);
+	StdDrawingsID : Gfc2Identity;
+	StdDrawingsName : Gfc2Label;
+	StdCode : Gfc2Label;
+	StdElementID : Gfc2Identity;
+END_ENTITY;
+
+ENTITY Gfc2StandardDoorWin
+ SUBTYPE OF (Gfc2PointDoorWin);
+	StdDrawingsID : Gfc2Identity;
+	StdDrawingsName : Gfc2Label;
+	StdCode : Gfc2Label;
+	StdElementID : Gfc2Identity;
+END_ENTITY;
+
+ENTITY Gfc2StandardLintel
+ SUBTYPE OF (Gfc2PointLintel);
+	StdDrawingsID : Gfc2Identity;
+	StdDrawingsName : Gfc2Label;
+	StdCode : Gfc2Label;
+	StdElementID : Gfc2Identity;
+END_ENTITY;
+
+ENTITY Gfc2StandardPrecastSlab
+ SUBTYPE OF (Gfc2PointPrecastSlab);
+	StdDrawingsID : Gfc2Identity;
+	StdDrawingsName : Gfc2Label;
+	StdCode : Gfc2Label;
+	StdElementID : Gfc2Identity;
+END_ENTITY;
+
+ENTITY Gfc2StandardWindow
+ SUBTYPE OF (Gfc2PointWindow);
+	StdDrawingsID : Gfc2Identity;
+	StdDrawingsName : Gfc2Label;
+	StdCode : Gfc2Label;
+	StdElementID : Gfc2Identity;
+END_ENTITY;
+
+ENTITY Gfc2SteelDetail
+ SUBTYPE OF (Gfc2Property);
+	EntityID : Gfc2Integer;
+	Name : Gfc2String;
+	Desc : Gfc2String;
+	Level : Gfc2String;
+	Dia : Gfc2Integer;
+	Num : Gfc2Integer;
+	Length : Gfc2Integer;
+	SingleWeight : Gfc2Double;
+	TotalWeight : Gfc2Double;
+	TieinNum : Gfc2Integer;
+	TieinType : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2SteelTotal
+ SUBTYPE OF (Gfc2Property);
+	CompType : Gfc2String;
+	Level : Gfc2String;
+	Dia : Gfc2Integer;
+	Weight : Gfc2Double;
+	Unit : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2String;
+	Value : STRING;
+END_ENTITY;
+
+ENTITY Gfc2StringProperty
+ SUBTYPE OF (Gfc2Property);
+	Value : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2StripFD
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineStripFD))
+ SUBTYPE OF (Gfc2Entity);
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2StripFDUnit
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineStripFDUnit))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	MortarGrade : Gfc2String;
+	MortarType : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Sump
+ SUPERTYPE OF (ONEOF
+	(Gfc2SectionSump
+	,Gfc2CustomSump))
+ SUBTYPE OF (Gfc2Entity);
+	Outside : Gfc2Double;
+	BottomSlabThick : Gfc2Double;
+	SlabTopElev : Gfc2Elev;
+	SlopeInput : Gfc2SumpSlopeInput;
+	ConcType : Gfc2Integer;
+	ConcGrade : Gfc2Integer;
+	Material : Gfc2Integer;
+	OriginalMaterial : OPTIONAL Gfc2String;
+	SlopeYBar : Gfc2String;
+	SlopeBar : Gfc2String;
+	HoleWallBar : Gfc2String;
+	VertBar : Gfc2String;
+	VertBottomBar : Gfc2String;
+	TransverseBar : Gfc2String;
+	TransverseBottomBar : Gfc2String;
+	Remark : Gfc2String;
+	VertLine : Gfc2Curve2d;
+	HorzLine : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2SumpAngleSlopeInput
+ SUBTYPE OF (Gfc2SumpSlopeInput);
+	Angle : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2SumpEdgeInfo
+ SUBTYPE OF (Gfc2EdgeInfo);
+	InputMode : Gfc2SlopeInputEnum;
+	Params : LIST [0:?] OF Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2SumpSlopeInput
+ SUPERTYPE OF (ONEOF
+	(Gfc2SumpAngleSlopeInput
+	,Gfc2SumpWideSlopeInput));
+END_ENTITY;
+
+ENTITY Gfc2SumpWideSlopeInput
+ SUBTYPE OF (Gfc2SumpSlopeInput);
+	BottomWide : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Surface
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(Gfc2Bevel
+	,Gfc2Cylinder
+	,Gfc2Plane
+	,Gfc2Sphere
+	,Gfc2NurbsSurface
+	,Gfc2Helicoid
+	,Gfc2Sweep
+	,Gfc2Torus
+	,Gfc2RuledSurface));
+END_ENTITY;
+
+ENTITY Gfc2Sweep
+ SUBTYPE OF (Gfc2Surface);
+	Profile : Gfc2Curve2d;
+	Spine3d : Gfc2Curve3d;
+	ReferenceVector : Gfc2Vector3d;
+END_ENTITY;
+
+ENTITY Gfc2SweepCurve3d
+ SUBTYPE OF (Gfc2Curve3d);
+	Spine3d : Gfc2Curve3d;
+	ReferenceVector : Gfc2Vector3d;
+	Point : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2SwingWin
+ SUPERTYPE OF (ONEOF
+	(Gfc2ParametricSwingWin
+	,Gfc2CompositeSwingWin))
+ SUBTYPE OF (Gfc2Entity);
+	OriginalMaterial : OPTIONAL Gfc2String;
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	AboveFloorHeight : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2SwitchDevice
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	SwitchType : Gfc2String;
+	SystemType : Gfc2String;
+	CircuitNumber : Gfc2String;
+	DevElev : Gfc2String;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2ThreePointArcAssitAxis
+ SUBTYPE OF (Gfc2AssitAxis);
+	RefPoint1 : Gfc2Vector2d;
+	RefPoint2 : Gfc2Vector2d;
+	RefPoint3 : Gfc2Vector2d;
+END_ENTITY;
+
+ENTITY Gfc2TieBeam
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineTieBeam))
+ SUBTYPE OF (Gfc2Entity);
+	ConcType : Gfc2String;
+	ConcGrade : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2TieColumn
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointTieColumn))
+ SUBTYPE OF (Gfc2Entity);
+	IndentingWidth : Gfc2Double;
+	IndentingHeight : Gfc2Double;
+	ConcGrade : Gfc2String;
+	ConcType : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2Torus
+ SUBTYPE OF (Gfc2Surface);
+	Coord : Gfc2Coordinates3d;
+	Radius : Gfc2Double;
+	ClockSign : Gfc2Integer;
+	RangeV : Gfc2Intervald;
+	Curve : Gfc2Curve2d;
+END_ENTITY;
+
+ENTITY Gfc2Trench
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineTrench
+	,Gfc2ParametricTrench))
+ SUBTYPE OF (Gfc2Entity);
+	Units : LIST [0:?] OF Gfc2TrenchUnit;
+END_ENTITY;
+
+ENTITY Gfc2TrenchUnit
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineTrenchUnit))
+ SUBTYPE OF (Gfc2Entity);
+	ConcGrade : Gfc2String;
+	ConcType : Gfc2String;
+	MortarGrade : Gfc2String;
+	MortarType : Gfc2String;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2TwoPointAssitAxis
+ SUBTYPE OF (Gfc2AssitAxis);
+END_ENTITY;
+
+ENTITY Gfc2Valve
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Material : Gfc2String;
+	Stander : Gfc2String;
+	LinkType : Gfc2String;
+	SystemType : Gfc2String;
+	AnticorrosiveType : Gfc2String;
+	ProtectMaterial : Gfc2String;
+	ProtectThickness : Gfc2Double;
+	ProtectLayerMaterial : Gfc2String;
+	PipeDevElev : Gfc2Elev;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2VariableSectionLineShape
+ SUBTYPE OF (Gfc2SectionLineShape);
+	EndPoly : Gfc2Polygon;
+END_ENTITY;
+
+ENTITY Gfc2VariantSectionPointColumn
+ SUBTYPE OF (Gfc2PointColumn);
+	VariantSection : Gfc2Section;
+END_ENTITY;
+
+ENTITY Gfc2Vector2d;
+	X : Gfc2Double;
+	Y : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2Vector3d;
+	X : Gfc2Double;
+	Y : Gfc2Double;
+	Z : Gfc2Double;
+END_ENTITY;
+
+ENTITY Gfc2VentWaterPipeParts
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	LinkType : Gfc2String;
+	SystemType : Gfc2String;
+	PipeDevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2VentilationDevice
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+	SelfHeight : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2VentilationParts
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	SystemType : Gfc2String;
+	DevElev : Gfc2String;
+	PipeDevElev : Gfc2String;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2VentilationPipe
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	SystemType : Gfc2String;
+	SystemNumber : Gfc2String;
+	Material : Gfc2String;
+	EntHeight : Gfc2Double;
+	Diameter : Gfc2Double;
+	StartPtTopElev : Gfc2String;
+	EndPtTopElev : Gfc2String;
+	LevelType : Gfc2Integer;
+	AnticorrosiveType : Gfc2String;
+	ProtectMaterial : Gfc2String;
+	ProtectThickness : Gfc2Double;
+	ProtectLayerMaterial : Gfc2String;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2VentilationWaterPipe
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Material : Gfc2String;
+	WaterPipeDiameter : Gfc2String;
+	SystemType : Gfc2String;
+	SystemNumber : Gfc2String;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	LinkType : Gfc2String;
+	LevelType : Gfc2Integer;
+	ProtectMaterial : Gfc2String;
+	ProtectThickness : Gfc2Double;
+	RefrigerantDiameter : Gfc2String;
+	ProtectLayerMaterial : Gfc2String;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2VertBar
+ SUBTYPE OF (Gfc2Property);
+	ID : Gfc2Integer;
+	Pt : Gfc2Vector2d;
+	BarInfo : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2WallConnectInfo;
+	EntityObj1 : Gfc2Object;
+	EntityObj2 : Gfc2Object;
+	Edo1Change : Gfc2Boolean;
+	Edo2Change : Gfc2Boolean;
+	CrossType : Gfc2Integer;
+END_ENTITY;
+
+ENTITY Gfc2WallFaceFinish
+ SUPERTYPE OF (ONEOF
+	(Gfc2LineWallFaceFinish))
+ SUBTYPE OF (Gfc2Entity);
+	InnerOuterFlag : Gfc2InnerOuterFlag;
+	Material : Gfc2String;
+	OriginalMaterial : OPTIONAL Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2WaterOtherEnts
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Material : Gfc2String;
+	PipeType : Gfc2String;
+	Diameter : Gfc2Double;
+	PipeLen : Gfc2Integer;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2WaterPipe
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Material : Gfc2String;
+	WaterPipeDiameter : Gfc2String;
+	SystemType : Gfc2String;
+	SystemNumber : Gfc2String;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	LinkType : Gfc2String;
+	LinkMaterial : Gfc2String;
+	LevelType : Gfc2Integer;
+	AnticorrosiveType : Gfc2String;
+	ProtectMaterial : Gfc2String;
+	ProtectThickness : Gfc2Double;
+	ProtectLayerMaterial : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2WeakCurrentCablePipe
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	PipeMaterial : Gfc2String;
+	BridgeMaterial : Gfc2String;
+	MetalRacewayMaterial : Gfc2String;
+	Diameter : Gfc2Double;
+	EntHeight : Gfc2Double;
+	Class : Gfc2String;
+	LayType : Gfc2String;
+	ElectricalWireStander : Gfc2String;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	LevelType : Gfc2Integer;
+	CircuitNumber : Gfc2String;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2WeakCurrentDevice
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2WeakCurrentPipe
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	PipeMaterial : Gfc2String;
+	BridgeMaterial : Gfc2String;
+	MetalRacewayMaterial : Gfc2String;
+	Diameter : Gfc2Double;
+	EntHeight : Gfc2Double;
+	SystemType : Gfc2String;
+	LayType : Gfc2String;
+	ElectricalWireStander : Gfc2String;
+	StartPtTopElev : Gfc2Elev;
+	EndPtTopElev : Gfc2Elev;
+	LevelType : Gfc2Integer;
+	CircuitNumber : Gfc2String;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2WeakCurrentUtensil
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+	Type : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2WeakDistribution
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	CalcWidth : Gfc2Integer;
+	SelfHeight : Gfc2Integer;
+	Thickness : Gfc2Integer;
+	SystemType : Gfc2String;
+	LayType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2WeakOtherEnts
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Class : Gfc2String;
+	Stander : Gfc2String;
+	DevElev : Gfc2Elev;
+	SystemType : Gfc2String;
+END_ENTITY;
+
+ENTITY Gfc2WindOtherEnts
+ SUBTYPE OF (Gfc2Entity);
+	Description : Gfc2String;
+	Material : Gfc2String;
+	PipeType : Gfc2String;
+	Diameter : Gfc2Double;
+	PipeLen : Gfc2Integer;
+	SystemType : Gfc2String;
+	DevElev : Gfc2Elev;
+END_ENTITY;
+
+ENTITY Gfc2Window
+ SUPERTYPE OF (ONEOF
+	(Gfc2PointWindow))
+ SUBTYPE OF (Gfc2Entity);
+END_ENTITY;
+
+END_SCHEMA;
