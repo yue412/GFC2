@@ -13,13 +13,13 @@ bool CFileMap::init()
         GENERIC_READ,
         0,
         NULL,
-        OPEN_ALWAYS,
+        OPEN_EXISTING,
         FILE_ATTRIBUTE_NORMAL,
         NULL);
 
     if (INVALID_HANDLE_VALUE == m_hFile)
     {
-        assert(false);
+        //assert(false);
         return false;
     }
     
@@ -34,7 +34,7 @@ bool CFileMap::init()
     {
         CloseHandle(m_hFile);
         m_hFile = 0;
-        assert(false);
+        //assert(false);
         return false;
     }
 
@@ -44,7 +44,7 @@ bool CFileMap::init()
     {
         CloseHandle(m_hFileMapping); m_hFileMapping = 0;
         CloseHandle(m_hFile); m_hFile = 0;
-        assert(false);
+        //assert(false);
         return false;
     }
     return true;

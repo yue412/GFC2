@@ -11,6 +11,7 @@
 #include "GfcEngine\GfcEngineUtils.h"
 #include <fstream>
 #include <stack>
+#include <algorithm>
 
 GFCENGINE_NAMESPACE_BEGIN
 
@@ -38,24 +39,28 @@ bool CReaderTextImp::preRead(const std::wstring& sFileName)
 std::wstring CReaderTextImp::readFileVersion()
 {
     std::string sResult;
-    m_pFileMap->setPos(0);
-    while (!m_pFileMap->eof())
+    if (m_pFileMap)
     {
-        auto sLine = m_pFileMap->getLine();
-    
-    	auto schema = sLine.substr(0,11);
-    	if (_stricmp(schema.c_str(), "FILE_SCHEMA") == 0)
-    	{
-    		int nStartPos = sLine.find_first_of('\'');
-    		int nLastPos = sLine.find_last_of('\'');
-    		sResult = sLine.substr(nStartPos + 1, nLastPos - nStartPos - 1);
-            break;
-    	}
-    	else if (_stricmp(sLine.c_str(),"ENDSEC;") == 0)
-    	{
-    		break;
-    	}
+        m_pFileMap->setPos(0);
+        while (!m_pFileMap->eof())
+        {
+            auto sLine = m_pFileMap->getLine();
+
+            auto schema = sLine.substr(0, 11);
+            if (_stricmp(schema.c_str(), "FILE_SCHEMA") == 0)
+            {
+                int nStartPos = sLine.find_first_of('\'');
+                int nLastPos = sLine.find_last_of('\'');
+                sResult = sLine.substr(nStartPos + 1, nLastPos - nStartPos - 1);
+                break;
+            }
+            else if (_stricmp(sLine.c_str(), "ENDSEC;") == 0)
+            {
+                break;
+            }
+        }
     }
+    std::replace(sResult.begin(), sResult.end(), L'.', L'X');
     return toWstring(sResult);
 }
 
@@ -135,7 +140,7 @@ bool CReaderTextImp::getIndex(EntityInfo & oInfo)
         std::string sLine = m_pFileMap->getLine();
         EntityRef nId;
         std::string sName, sContent;
-        if (parseLine(sLine, nId, sName, sContent))
+        if (CReaderTextUtils::parseLine(sLine, nId, sName, sContent))
         {
             oInfo.id = nId;
             oInfo.pos = nPos;
@@ -155,11 +160,11 @@ CEntity * CReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
         std::string sLine = m_pFileMap->getLine();
         std::string sName, sContent;
         std::wstring sError;
-        if (parseLine(sLine, nId, sName, sContent))
+        if (CReaderTextUtils::parseLine(sLine, nId, sName, sContent))
         {
             if (pEntity = CEngineUtils::createEntity(schema(), toWstring(sName)))
             {
-                if (!parse(sContent, pEntity, sError))
+                if (!CReaderTextUtils::parse(sContent, pEntity, sError))
                 {
                     delete pEntity;
                     pEntity = nullptr;
@@ -173,7 +178,7 @@ CEntity * CReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
     return pEntity;
 }
 
-bool CReaderTextImp::parse(const std::string& input, CEntity* pEntity, std::wstring& error)
+bool CReaderTextUtils::parse(const std::string& input, CEntity* pEntity, std::wstring& error)
 {
     bool bResult = true;
     int nStartPos = 0;
@@ -181,6 +186,8 @@ bool CReaderTextImp::parse(const std::string& input, CEntity* pEntity, std::wstr
     std::string sValue;
     while (getNextValue(input, nStartPos, sValue))
     {
+        auto nLen = sValue.length();
+        trim(sValue);
         if (nFieldNum >= pEntity->getClass()->getTotalAttributeCount())
             break;
         auto pProp = pEntity->getProps(nFieldNum);
@@ -195,6 +202,8 @@ bool CReaderTextImp::parse(const std::string& input, CEntity* pEntity, std::wstr
             std::string sVal;
             while (getNextValue(sInput, nStart, sVal))
             {
+                nStart += sVal.length() + 1;
+                trim(sVal);
                 if (sVal != "$")
                 {
                     auto pChildValue = CProperty::createValue(pType);
@@ -206,7 +215,6 @@ bool CReaderTextImp::parse(const std::string& input, CEntity* pEntity, std::wstr
                     }
                     pValue->add(pChildValue);
                 }
-                nStart += sVal.length() + 1;
             }
         }
         else
@@ -218,7 +226,7 @@ bool CReaderTextImp::parse(const std::string& input, CEntity* pEntity, std::wstr
                     break;
             }
         }
-        nStartPos += sValue.length() + 1;
+        nStartPos += nLen + 1;
         ++nFieldNum;
     }
     if (!bResult)
@@ -229,7 +237,7 @@ bool CReaderTextImp::parse(const std::string& input, CEntity* pEntity, std::wstr
     return bResult;
 }
 
-bool CReaderTextImp::parseField(const std::string & input, gfc::schema::CTypeObject* pType, CPropValue * pValue)
+bool CReaderTextUtils::parseField(const std::string & input, gfc::schema::CTypeObject* pType, CPropValue * pValue)
 {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
     auto nType = pType->getDataType();
@@ -263,7 +271,7 @@ bool CReaderTextImp::parseField(const std::string & input, gfc::schema::CTypeObj
     return true;
 }
 
-bool CReaderTextImp::getNextValue(const std::string& input, int nStartPos, std::string& sValue)
+bool CReaderTextUtils::getNextValue(const std::string& input, int nStartPos, std::string& sValue)
 {
     int nLength = input.length();
     if (nStartPos >= nLength)
@@ -276,29 +284,44 @@ bool CReaderTextImp::getNextValue(const std::string& input, int nStartPos, std::
     for (int nIndex = nStartPos; nIndex < nLength; nIndex++)
     {
         const char& sChar = input[nIndex];
-        if (sChar == '(')
+        if (bInStr)
         {
-            nBracketStack++;
+            // 处理转义
+            if ('\\' == sChar)
+            {
+                ++nIndex;
+            }
+            else if (sChar == '\'')
+            {
+                bInStr = false;
+            }
         }
-        else if (sChar == ')')
+        else
         {
-            nBracketStack--;
-        }
-        else if (sChar == '\'')
-        {
-            bInStr = !bInStr;
-        }
-        else if ((sChar == ',') && !bInStr && nBracketStack == 0)
-        {
-            sValue = input.substr(nStartPos, nIndex - nStartPos);
-            return true;
+            if (sChar == '(')
+            {
+                nBracketStack++;
+            }
+            else if (sChar == ')')
+            {
+                nBracketStack--;
+            }
+            else if (sChar == '\'')
+            {
+                bInStr = true;
+            }
+            else if ((sChar == ',') && !bInStr && nBracketStack == 0)
+            {
+                sValue = input.substr(nStartPos, nIndex - nStartPos);
+                return true;
+            }
         }
     }
     sValue = input.substr(nStartPos, nLength - nStartPos + 1);
     return true;
 }
 
-bool CReaderTextImp::parseLine(const std::string & sLine, EntityRef& nId, std::string& sName, std::string& sContent)
+bool CReaderTextUtils::parseLine(const std::string & sLine, EntityRef& nId, std::string& sName, std::string& sContent)
 {
     if (sLine.size() < 7) // #0=X(); 至少七个字符
     {
@@ -339,7 +362,7 @@ bool CReaderTextImp::parseLine(const std::string & sLine, EntityRef& nId, std::s
     return true;
 }
 
-bool CReaderTextImp::parseBoolean(const std::string& input, bool& value)
+bool CReaderTextUtils::parseBoolean(const std::string& input, bool& value)
 {
     if (input == ".T.")
     {
@@ -356,7 +379,7 @@ bool CReaderTextImp::parseBoolean(const std::string& input, bool& value)
     return true;
 }
 
-bool CReaderTextImp::parseInt(const std::string& input, int& value)
+bool CReaderTextUtils::parseInt(const std::string& input, int& value)
 {
 
     try
@@ -370,7 +393,7 @@ bool CReaderTextImp::parseInt(const std::string& input, int& value)
     return true;
 }
 
-bool CReaderTextImp::parseFloat(const std::string& input, double& value)
+bool CReaderTextUtils::parseFloat(const std::string& input, double& value)
 {
     try
     {
@@ -383,11 +406,43 @@ bool CReaderTextImp::parseFloat(const std::string& input, double& value)
     return true;
 }
 
-bool CReaderTextImp::parseString(const std::string& input, std::string& value)
+bool CReaderTextUtils::parseString(const std::string& input, std::string& value)
 {
+    value = "";
     if (input.length() > 1 && input[0] == '\'' && input[input.length() - 1] == '\'')
     {
-        value = input.substr(1, input.length() - 2);
+        //value = input.substr(1, input.length() - 2);
+        for (std::size_t i = 1; i < (input.length() - 1); ++i)
+        {
+            if ('\\' == input[i])
+            {
+                ++i;
+                if (input.length() - 1 == i)
+                    return false;
+                switch (input[i])
+                {
+                case '\'':
+                    value.push_back('\'');
+                    break;
+                case 'n':
+                    value.push_back('\n');
+                    break;
+                case 'r':
+                    value.push_back('\r');
+                    break;
+                case '\\':
+                    value.push_back('\\');
+                    break;
+                default:
+                    return false;
+                    break;
+                }
+            }
+            else
+            {
+                value.push_back(input[i]);
+            }
+        }
     }
     else
     {
@@ -396,7 +451,7 @@ bool CReaderTextImp::parseString(const std::string& input, std::string& value)
     return true;
 }
 
-bool CReaderTextImp::parseEntity(const std::string& input, EntityRef& value)
+bool CReaderTextUtils::parseEntity(const std::string& input, EntityRef& value)
 {
     if (!input.empty() && input[0] == '#')
     {
@@ -415,7 +470,7 @@ bool CReaderTextImp::parseEntity(const std::string& input, EntityRef& value)
 }
 
 
-bool CReaderTextImp::parseBooleanField(const std::string& input, CPropValue* pValue)
+bool CReaderTextUtils::parseBooleanField(const std::string& input, CPropValue* pValue)
 {
     bool val;
     bool bResult = parseBoolean(input, val);
@@ -424,7 +479,7 @@ bool CReaderTextImp::parseBooleanField(const std::string& input, CPropValue* pVa
     return bResult;
 }
 
-bool CReaderTextImp::parseIntField(const std::string& input, CPropValue* pValue)
+bool CReaderTextUtils::parseIntField(const std::string& input, CPropValue* pValue)
 {
     int val;
     bool bResult = parseInt(input, val);
@@ -433,7 +488,7 @@ bool CReaderTextImp::parseIntField(const std::string& input, CPropValue* pValue)
     return bResult;
 }
 
-bool CReaderTextImp::parseFloatField(const std::string& input, CPropValue* pValue)
+bool CReaderTextUtils::parseFloatField(const std::string& input, CPropValue* pValue)
 {
     double val;
     bool bResult = parseFloat(input, val);
@@ -442,7 +497,7 @@ bool CReaderTextImp::parseFloatField(const std::string& input, CPropValue* pValu
     return bResult;
 }
 
-bool CReaderTextImp::parseStringField(const std::string& input, CPropValue* pValue)
+bool CReaderTextUtils::parseStringField(const std::string& input, CPropValue* pValue)
 {
     std::string val;
     bool bResult = parseString(input, val);
@@ -451,7 +506,7 @@ bool CReaderTextImp::parseStringField(const std::string& input, CPropValue* pVal
     return bResult;
 }
 
-bool CReaderTextImp::parseEnumField(const std::string & input, gfc::schema::CEnumType * pEnumType, CPropValue * pValue)
+bool CReaderTextUtils::parseEnumField(const std::string & input, gfc::schema::CEnumType * pEnumType, CPropValue * pValue)
 {
     bool bResult = false;
     if (input.length() > 1 && input[0] == '.' && input[input.length() - 1] == '.' && pEnumType)
@@ -467,7 +522,7 @@ bool CReaderTextImp::parseEnumField(const std::string & input, gfc::schema::CEnu
     return bResult;
 }
 
-bool CReaderTextImp::parseEntityField(const std::string& input, CPropValue* pValue)
+bool CReaderTextUtils::parseEntityField(const std::string& input, CPropValue* pValue)
 {
     EntityRef val;
     bool bResult = parseEntity(input, val);

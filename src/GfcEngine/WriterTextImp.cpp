@@ -77,7 +77,7 @@ EntityRef CWriterTextImp::writeEntity( CEntity* pEntity )
 {
     if (m_pTextStream)
     {
-        CWriterEntityUtils::writeEntity(*m_pTextStream, pEntity, m_nCount);
+        CWriterTextUtils::writeEntity(*m_pTextStream, pEntity, m_nCount);
         *m_pTextStream << std::endl;
         return m_nCount++;
     }
@@ -100,7 +100,7 @@ void CWriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring
     *m_pTextStream << "ENDSEC;" << std::endl;
 }
 
-void CWriterEntityUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef nRef)
+void CWriterTextUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef nRef)
 {
     std::string sName = toString(pEntity->entityName());
     out << "#" << nRef << "=" << sName << "(";
@@ -147,7 +147,7 @@ std::string transString(const std::string& sStr)
     return sResult;
 }
 
-void CWriterEntityUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject * pType, CPropValue * pValue)
+void CWriterTextUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject * pType, CPropValue * pValue)
 {
     auto nType = pType->getDataType();
     switch (nType)
@@ -186,7 +186,7 @@ void CWriterEntityUtils::writeValue(std::iostream & out, gfc::schema::CTypeObjec
     }
 }
 
-void CWriterEntityUtils::writeProperty(std::iostream & out, CProperty * pProp)
+void CWriterTextUtils::writeProperty(std::iostream & out, CProperty * pProp)
 {
     auto pSchema = pProp->schema();
     auto pType = pSchema->getType();

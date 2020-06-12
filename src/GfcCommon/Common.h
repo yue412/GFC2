@@ -20,5 +20,18 @@ std::fstream& operator<<(std::fstream& out, const std::wstring& s);
 std::fstream& operator<<(std::fstream& out, const wchar_t* s);
 bool fileExists(const std::wstring& sFile);
 
+// trim from start (in place)
+void ltrim(std::string &s);
+// trim from end (in place)
+void rtrim(std::string &s);
+// trim from both ends (in place)
+void trim(std::string &s);
+// trim from start (copying)
+std::string ltrim_copy(std::string s);
+// trim from end (copying)
+std::string rtrim_copy(std::string s);
+// trim from both ends (copying)
+std::string trim_copy(std::string s);
+
 #endif // !COMMON_H
 

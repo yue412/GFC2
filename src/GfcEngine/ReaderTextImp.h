@@ -17,7 +17,7 @@ GFCENGINE_NAMESPACE_BEGIN
 class CEntity;
 class CPropValue;
 
-class CReaderTextImp: public CReaderImp
+class CReaderTextImp : public CReaderImp
 {
     GFCENGINE_DEC_OBJECT(CReaderTextImp, CReaderImp)
 public:
@@ -29,23 +29,29 @@ public:
 protected:
     virtual bool getIndex(EntityInfo& oInfo);//À≥–Ú∂¡»°index
     virtual CEntity* createEntity(__int64 nPos, EntityRef& nId);
-private:
-    bool parseLine(const std::string & sLine, EntityRef& nId, std::string& sName, std::string& sContent);
-    bool getNextValue(const std::string& input, int nStartPos, std::string& sValue);
-    bool parse(const std::string& input, CEntity* pEntity, std::wstring& error);
-    bool parseField(const std::string& input, gfc::schema::CTypeObject* pType, CPropValue * pValue);
-    bool parseBoolean(const std::string& input, bool& value);
-    bool parseInt(const std::string& input, int& value);
-    bool parseFloat(const std::string& input, double& value);
-    bool parseString(const std::string& input, std::string& value);
-    bool parseEntity(const std::string& input, EntityRef& value);
+};
 
-    bool parseBooleanField(const std::string& input, CPropValue* pValue);
-    bool parseIntField(const std::string& input, CPropValue* pValue);
-    bool parseFloatField(const std::string& input, CPropValue* pValue);
-    bool parseStringField(const std::string& input, CPropValue* pValue);
-    bool parseEnumField(const std::string& input, gfc::schema::CEnumType* pEnumType, CPropValue* pValue);
-    bool parseEntityField(const std::string& input, CPropValue* pValue);
+// ±„”⁄≤‚ ‘
+class CReaderTextUtils
+{
+public:
+    static bool parseBoolean(const std::string& input, bool& value);
+    static bool parseInt(const std::string& input, int& value);
+    static bool parseFloat(const std::string& input, double& value);
+    static bool parseString(const std::string& input, std::string& value);
+    static bool parseEntity(const std::string& input, EntityRef& value);
+
+    static bool parseBooleanField(const std::string& input, CPropValue* pValue);
+    static bool parseIntField(const std::string& input, CPropValue* pValue);
+    static bool parseFloatField(const std::string& input, CPropValue* pValue);
+    static bool parseStringField(const std::string& input, CPropValue* pValue);
+    static bool parseEnumField(const std::string& input, gfc::schema::CEnumType* pEnumType, CPropValue* pValue);
+    static bool parseEntityField(const std::string& input, CPropValue* pValue);
+
+    static bool parseLine(const std::string & sLine, EntityRef& nId, std::string& sName, std::string& sContent);
+    static bool getNextValue(const std::string& input, int nStartPos, std::string& sValue);
+    static bool parse(const std::string& input, CEntity* pEntity, std::wstring& error);
+    static bool parseField(const std::string& input, gfc::schema::CTypeObject* pType, CPropValue * pValue);
 
 };
 

@@ -33,6 +33,9 @@ FILE(GLOB SRC_FILES "./*.c*"
 	"../src/GfcEngine/Upgrader.cpp"
 	"../src/GfcEngine/WriterImp.cpp"
 	"../src/GfcEngine/WriterTextImp.cpp"
+	"../src/GfcEngine/ReaderImp.cpp"
+	"../src/GfcEngine/ReaderTextImp.cpp"
+	"../src/GfcEngine/FileMap.cpp"
 	) 
 FILE(GLOB HEAD_FILES "./*.h" 
 	"../src/GfcEngine/*Compatibility.h" 
@@ -42,6 +45,9 @@ FILE(GLOB HEAD_FILES "./*.h"
 	"../src/GfcEngine/Upgrader.h"
 	"../src/GfcEngine/WriterImp.h"
 	"../src/GfcEngine/WriterTextImp.h"
+	"../src/GfcEngine/ReaderImp.h"
+	"../src/GfcEngine/ReaderTextImp.h"
+	"../src/GfcEngine/FileMap.h"
 	) 
 
 add_compile_definitions(TIXML_USE_STL _CRT_SECURE_NO_DEPRECATE UNICODE)

@@ -5,6 +5,7 @@
 #include <vector>
 #include <Windows.h>
 #include <fstream>
+#include <ctype.h>
 
 std::wstring _FormatWstring(const wchar_t * lpcwszFormat, va_list _list)
 {
@@ -181,3 +182,41 @@ bool fileExists(const std::wstring & sFile)
     _file.close();
     return bResult;
 }
+
+void ltrim(std::string &s) {
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {
+        return !isspace(ch);
+    }));
+}
+
+// trim from end (in place)
+void rtrim(std::string &s) {
+    s.erase(std::find_if(s.rbegin(), s.rend(), [](int ch) {
+        return !isspace(ch);
+    }).base(), s.end());
+}
+
+// trim from both ends (in place)
+void trim(std::string &s) {
+    ltrim(s);
+    rtrim(s);
+}
+
+// trim from start (copying)
+std::string ltrim_copy(std::string s) {
+    ltrim(s);
+    return s;
+}
+
+// trim from end (copying)
+std::string rtrim_copy(std::string s) {
+    rtrim(s);
+    return s;
+}
+
+// trim from both ends (copying)
+std::string trim_copy(std::string s) {
+    trim(s);
+    return s;
+}
+

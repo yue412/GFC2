@@ -24,7 +24,7 @@ private:
     std::fstream* m_pTextStream;
 };
 // ±ãÓÚ²âÊÔ
-class CWriterEntityUtils
+class CWriterTextUtils
 {
 public:
     static void writeEntity(std::iostream& out, CEntity* pEntity, EntityRef nRef);

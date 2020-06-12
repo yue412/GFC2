@@ -56,6 +56,7 @@ private:
     void addInfo(const EntityInfo& oInfo);
     bool openFileModel(const std::wstring& sFileVer);
     bool needUpdate();
+    void initUpgrader();
 
     //std::vector<EntityInfo> m_oEntityInfos; // 索引 保证有序
     //std::map<std::string, std::vector<std::size_t>*> m_oEntityInfoMap;

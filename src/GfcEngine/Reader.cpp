@@ -12,6 +12,7 @@ CReader::CReader(gfc::schema::CModel* pModel): m_pImp(nullptr), m_pModel(pModel)
 
 CReader::~CReader(void)
 {
+    close();
 }
 
 bool CReader::open(const std::wstring & sFileName)
@@ -27,6 +28,7 @@ bool CReader::open(const std::wstring & sFileName)
             {
                 m_pImp = pImp;
                 m_pImp->setModel(m_pModel);
+                m_pImp->setSchemaPath(m_sSchemaPath);
                 return m_pImp->open(sFileName);
             }
             else
@@ -82,6 +84,15 @@ EntityIteratorPtr CReader::getEntities(const std::wstring & sType, bool bInclude
     if (m_pImp)
     {
         return m_pImp->getEntities(sType, bIncludeSubType);
+    }
+    return EntityIteratorPtr(nullptr);
+}
+
+EntityIteratorPtr CReader::getIterator()
+{
+    if (m_pImp)
+    {
+        return m_pImp->getIterator();
     }
     return EntityIteratorPtr(nullptr);
 }

@@ -36,24 +36,34 @@ CReaderImp::CReaderImp() : m_pFileMap(nullptr), m_pModel(nullptr), m_pContainer(
 
 CReaderImp::~CReaderImp(void)
 {
-    delete m_pFileModel;
 }
 
-bool CReaderImp::open(const std::wstring & sFileName)
+void CReaderImp::initUpgrader()
 {
-    m_pFileMap = new CFileMap(sFileName);
-    if (m_pFileMap->init())
+    if (m_pModel)
     {
         auto sFileVer = readFileVersion();
         if (sFileVer != m_pModel->version())
         {
             // 版本不同，需要升级或降级
             if (!openFileModel(sFileVer))
-                return false;
-            delete m_pUpgrader; m_pUpgrader = nullptr;
+                return;
             m_pUpgrader = new CUpgrader;
             m_pUpgrader->init(m_pModel, m_pFileModel);
         }
+    }
+}
+
+
+bool CReaderImp::open(const std::wstring & sFileName)
+{
+    assert(m_pModel);
+    if (m_pModel == nullptr)
+        return false;
+    m_pFileMap = new CFileMap(sFileName);
+    if (m_pFileMap->init())
+    {
+        initUpgrader();
         buildIndex();
         return true;
     }
@@ -66,6 +76,10 @@ void CReaderImp::close()
     m_pFileMap = nullptr;
     delete m_pContainer;
     m_pContainer = nullptr;
+    delete m_pUpgrader; 
+    m_pUpgrader = nullptr;
+    delete m_pFileModel; 
+    m_pFileModel = nullptr;
 }
 
 void CReaderImp::read(CDocument * pDoc)
@@ -158,7 +172,6 @@ void CReaderImp::addInfo(const EntityInfo & oInfo)
 
 bool CReaderImp::openFileModel(const std::wstring & sFileVer)
 {
-    delete m_pFileModel; m_pFileModel = nullptr;
     auto sFileName = getFullPath(m_sSchemaPath + L"\\" + sFileVer + L".exp");
     if (!fileExists(sFileName))
         return false;
@@ -181,7 +194,10 @@ void CReaderImp::buildIndex()
     m_pFileMap->setPos(0);
     while (getIndex(oInfo))
     {
-        addInfo(oInfo);
+        if (oInfo.type)
+        {
+            addInfo(oInfo);
+        }
     }
     //sort();
 }

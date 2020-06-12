@@ -9,120 +9,120 @@
 #include "GfcSchema\EnumType.h"
 #include "GfcSchema\EntityAttribute.h"
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writevalue_Integer)
+TEST(TestWriteTextImp, CWriterTextUtils_writevalue_Integer)
 {
     gfc::schema::CIntegerType oIntegerType;
     {
         std::stringstream ss;
         gfc::engine::CIntegerValue oValue(12);
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oIntegerType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oIntegerType, &oValue);
         EXPECT_STREQ("12", ss.str().c_str());
     }
 
     {
         std::stringstream ss;
         gfc::engine::CIntegerValue oValue(-123);
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oIntegerType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oIntegerType, &oValue);
         EXPECT_STREQ("-123", ss.str().c_str());
     }
 }
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writevalue_Boolean)
+TEST(TestWriteTextImp, CWriterTextUtils_writevalue_Boolean)
 {
     gfc::schema::CBooleanType oType;
     {
         std::stringstream ss;
         gfc::engine::CBooleanValue oValue(true);
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ(".T.", ss.str().c_str());
     }
     {
         std::stringstream ss;
         gfc::engine::CBooleanValue oValue(false);
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ(".F.", ss.str().c_str());
     }
 }
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writevalue_Double)
+TEST(TestWriteTextImp, CWriterTextUtils_writevalue_Double)
 {
     gfc::schema::CRealType oType;
     {
         std::stringstream ss;
         gfc::engine::CDoubleValue oValue(22.34);
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         auto d = std::stod(ss.str().c_str());
         EXPECT_NEAR(22.34, d, 1e-7);
     }
     {
         std::stringstream ss;
         gfc::engine::CDoubleValue  oValue(22222.123456);
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         auto s = ss.str();
         auto d = std::stod(s.c_str());
         EXPECT_NEAR(22222.123456, d, 1e-8);
     }
 }
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writevalue_String)
+TEST(TestWriteTextImp, CWriterTextUtils_writevalue_String)
 {
     gfc::schema::CStringType oType;
     {
         std::stringstream ss;
         gfc::engine::CStringValue  oValue(L"1234567890abcXYZ");
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ("'1234567890abcXYZ'", ss.str().c_str());
     }
     {
         std::stringstream ss;
         gfc::engine::CStringValue oValue(L"中文");
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ(UnicodeToUtf8(L"'中文'").c_str(), ss.str().c_str());
     }
     {
         std::stringstream ss;
         gfc::engine::CStringValue oValue(L"'");
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ("'\\''", ss.str().c_str());
     }
     {
         std::stringstream ss;
         gfc::engine::CStringValue oValue(L"\n");
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ("'\\n'", ss.str().c_str());
     }
     {
         std::stringstream ss;
         gfc::engine::CStringValue oValue(L"\r");
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ("'\\r'", ss.str().c_str());
     }
     {
         std::stringstream ss;
         gfc::engine::CStringValue oValue(L"\\");
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ("'\\\\'", ss.str().c_str());
     }
     {
         std::stringstream ss;
         gfc::engine::CStringValue oValue(L"中文='abc'\n\r英文=\\");
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ(UnicodeToUtf8(L"'中文=\\'abc\\'\\n\\r英文=\\\\'").c_str(), ss.str().c_str());
     }
 }
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writevalue_Entity)
+TEST(TestWriteTextImp, CWriterTextUtils_writevalue_Entity)
 {
     gfc::schema::CClass oType;
     {
         std::stringstream ss;
         gfc::engine::CEntityRefValue oValue(12);
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ("#12", ss.str().c_str());
     }
 }
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writevalue_Enum)
+TEST(TestWriteTextImp, CWriterTextUtils_writevalue_Enum)
 {
     gfc::schema::CEnumType oType;
     oType.addEnum(L"abc", L"");
@@ -133,30 +133,30 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writevalue_Enum)
     {
         std::stringstream ss;
         gfc::engine::CIntegerValue oValue(0);
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ(".abc.", ss.str().c_str());
     }
     {
         std::stringstream ss;
         gfc::engine::CIntegerValue oValue(4);
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ(".nop.", ss.str().c_str());
     }
     {
         std::stringstream ss;
         gfc::engine::CIntegerValue oValue(12);
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ(".hij.", ss.str().c_str());
     }
     {
         std::stringstream ss;
         gfc::engine::CIntegerValue oValue(-12);
-        gfc::engine::CWriterEntityUtils::writeValue(ss, &oType, &oValue);
+        gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
         EXPECT_STREQ(".klm.", ss.str().c_str());
     }
 }
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writeProperty)
+TEST(TestWriteTextImp, CWriterTextUtils_writeProperty)
 {
     gfc::schema::CIntegerType oType;
     gfc::schema::CAttribute oAttrib;
@@ -164,18 +164,18 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writeProperty)
     {
         std::stringstream ss;
         gfc::engine::CProperty oProp(&oAttrib, new gfc::engine::CIntegerValue(12));
-        gfc::engine::CWriterEntityUtils::writeProperty(ss, &oProp);
+        gfc::engine::CWriterTextUtils::writeProperty(ss, &oProp);
         EXPECT_STREQ("12", ss.str().c_str());
     }
     {
         std::stringstream ss;
         gfc::engine::CProperty oProp(&oAttrib, new gfc::engine::CIntegerValue());
-        gfc::engine::CWriterEntityUtils::writeProperty(ss, &oProp);
+        gfc::engine::CWriterTextUtils::writeProperty(ss, &oProp);
         EXPECT_STREQ("$", ss.str().c_str());
     }
 }
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writeProperty_list)
+TEST(TestWriteTextImp, CWriterTextUtils_writeProperty_list)
 {
     gfc::schema::CIntegerType oType;
     gfc::schema::CAttribute oAttrib;
@@ -185,7 +185,7 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writeProperty_list)
         std::stringstream ss;
         auto pValue = new gfc::engine::CCompositePropValue;
         gfc::engine::CProperty oProp(&oAttrib, pValue);
-        gfc::engine::CWriterEntityUtils::writeProperty(ss, &oProp);
+        gfc::engine::CWriterTextUtils::writeProperty(ss, &oProp);
         EXPECT_STREQ("$", ss.str().c_str());
     }
     {
@@ -193,7 +193,7 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writeProperty_list)
         auto pValue = new gfc::engine::CCompositePropValue;
         pValue->add(new gfc::engine::CIntegerValue(12));
         gfc::engine::CProperty oProp(&oAttrib, pValue);
-        gfc::engine::CWriterEntityUtils::writeProperty(ss, &oProp);
+        gfc::engine::CWriterTextUtils::writeProperty(ss, &oProp);
         EXPECT_STREQ("(12)", ss.str().c_str());
     }
     {
@@ -203,12 +203,12 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writeProperty_list)
         pValue->add(new gfc::engine::CIntegerValue(34));
         pValue->add(new gfc::engine::CIntegerValue(90));
         gfc::engine::CProperty oProp(&oAttrib, pValue);
-        gfc::engine::CWriterEntityUtils::writeProperty(ss, &oProp);
+        gfc::engine::CWriterTextUtils::writeProperty(ss, &oProp);
         EXPECT_STREQ("(12,34,90)", ss.str().c_str());
     }
 }
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writeEntity)
+TEST(TestWriteTextImp, CWriterTextUtils_writeEntity)
 {
     gfc::schema::CClass oClass;
     oClass.SetName(L"Gfc2Test");
@@ -216,12 +216,12 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writeEntity)
         std::stringstream ss;
         gfc::engine::CEntity* pEntity = new gfc::engine::CEntity;
         pEntity->setSchema(&oClass);
-        gfc::engine::CWriterEntityUtils::writeEntity(ss, pEntity, 101);
+        gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
         EXPECT_STREQ("#101=Gfc2Test();", ss.str().c_str());
     }
 }
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writeEntity_one_attribute)
+TEST(TestWriteTextImp, CWriterTextUtils_writeEntity_one_attribute)
 {
     gfc::schema::CIntegerType oIntegerType;
     gfc::schema::CClass oClass;
@@ -234,7 +234,7 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writeEntity_one_attribute)
         std::stringstream ss;
         gfc::engine::CEntity* pEntity = new gfc::engine::CEntity;
         pEntity->setSchema(&oClass);
-        gfc::engine::CWriterEntityUtils::writeEntity(ss, pEntity, 101);
+        gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
         EXPECT_STREQ("#101=Gfc2Test($);", ss.str().c_str());
     }
     {
@@ -242,12 +242,12 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writeEntity_one_attribute)
         gfc::engine::CEntity* pEntity = new gfc::engine::CEntity;
         pEntity->setSchema(&oClass);
         pEntity->setAsInteger(L"ID", 123);
-        gfc::engine::CWriterEntityUtils::writeEntity(ss, pEntity, 101);
+        gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
         EXPECT_STREQ("#101=Gfc2Test(123);", ss.str().c_str());
     }
 }
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writeEntity_more_attribute)
+TEST(TestWriteTextImp, CWriterTextUtils_writeEntity_more_attribute)
 {
     gfc::schema::CIntegerType oIntegerType;
     gfc::schema::CBooleanType oBooleanType;
@@ -269,7 +269,7 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writeEntity_more_attribute)
         std::stringstream ss;
         gfc::engine::CEntity* pEntity = new gfc::engine::CEntity;
         pEntity->setSchema(&oClass);
-        gfc::engine::CWriterEntityUtils::writeEntity(ss, pEntity, 101);
+        gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
         EXPECT_STREQ("#101=Gfc2Test($,$);", ss.str().c_str());
     }
     {
@@ -278,12 +278,12 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writeEntity_more_attribute)
         pEntity->setSchema(&oClass);
         pEntity->setAsInteger(L"ID", 123);
         pEntity->setAsInteger(L"Flag", true);
-        gfc::engine::CWriterEntityUtils::writeEntity(ss, pEntity, 101);
+        gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
         EXPECT_STREQ("#101=Gfc2Test(123,.T.);", ss.str().c_str());
     }
 }
 
-TEST(TestWriteTextImp, CWriterEntityUtils_writeEntity_more_attribute2)
+TEST(TestWriteTextImp, CWriterTextUtils_writeEntity_more_attribute2)
 {
     gfc::schema::CIntegerType oIntegerType;
     gfc::schema::CBooleanType oBooleanType;
@@ -316,7 +316,7 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writeEntity_more_attribute2)
         std::stringstream ss;
         gfc::engine::CEntity* pEntity = new gfc::engine::CEntity;
         pEntity->setSchema(&oClass);
-        gfc::engine::CWriterEntityUtils::writeEntity(ss, pEntity, 101);
+        gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
         EXPECT_STREQ("#101=Gfc2Test($,$,$);", ss.str().c_str());
     }
     {
@@ -328,7 +328,7 @@ TEST(TestWriteTextImp, CWriterEntityUtils_writeEntity_more_attribute2)
         pEntity->addInteger(L"List", 0);
         pEntity->addInteger(L"List", 1);
         pEntity->addInteger(L"List", 2);
-        gfc::engine::CWriterEntityUtils::writeEntity(ss, pEntity, 101);
+        gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
         EXPECT_STREQ("#101=Gfc2Test(123,.T.,(.abc.,.kkk.,.dtdg.));", ss.str().c_str());
     }
 }

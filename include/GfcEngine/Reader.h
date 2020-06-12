@@ -29,18 +29,20 @@ template class __declspec(dllexport) std::_Vector_val<std::_Simple_types<std::ws
 template class __declspec(dllexport) std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::wstring>>, std::_Vector_val<std::_Simple_types<std::wstring>>, true>;
 template class __declspec(dllexport) std::vector<std::wstring, std::allocator<std::wstring>>;
 
-class GFCENGINE_API CReader
+class GFCENGINE_API CReader : public IContainer
 {
 public:
     CReader(gfc::schema::CModel* pModel);
     virtual ~CReader(void);
+    void setSchemaPath(const std::wstring& sSchemaPath) { m_sSchemaPath = sSchemaPath; }
     bool open(const std::wstring& sFileName);
     void close();
 
     void read(CDocument* pDoc);
 
-    EntityPtr getEntity(EntityRef nId);
-    EntityIteratorPtr getEntities(const std::wstring& sType, bool bIncludeSubType = false);
+    virtual EntityPtr getEntity(EntityRef nId);
+    virtual EntityIteratorPtr getEntities(const std::wstring& sType, bool bIncludeSubType = false);
+    virtual EntityIteratorPtr getIterator();
 
     std::vector<std::wstring>& log() { return m_oErrors; }
 private:
@@ -48,6 +50,7 @@ private:
     std::vector<std::wstring> m_oErrors;
     CReaderImp* m_pImp;
     gfc::schema::CModel* m_pModel;
+    std::wstring m_sSchemaPath;
 };
 
 GFCENGINE_NAMESPACE_END
