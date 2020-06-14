@@ -16,7 +16,7 @@ public:
     void clearValues();
     void addValues(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getValues(int nIndex) const;
-    std::shared_ptr<Gfc2String> getValuesPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2String> getValuesPtr(int nIndex);
 
 };
 #endif

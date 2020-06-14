@@ -27,7 +27,7 @@ public:
     void setRemark(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRemark() const;
     bool hasRemark() const;
-    std::shared_ptr<Gfc2Text> getRemarkPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Text> getRemarkPtr();
 
 };
 #endif

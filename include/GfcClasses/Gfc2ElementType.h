@@ -15,7 +15,7 @@ public:
     void setType(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getType() const;
     bool hasType() const;
-    std::shared_ptr<Gfc2Label> getTypePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Label> getTypePtr();
 
 };
 #endif

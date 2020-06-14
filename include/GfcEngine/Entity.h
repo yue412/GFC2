@@ -7,6 +7,7 @@
 #include "GfcEngine\Property.h"
 #include "GfcEngine\Object.h"
 #include "GfcEngine\SysMarco.h"
+#include "GfcEngine\EntityWrapPtr.h"
 
 namespace gfc {
     namespace schema {
@@ -22,7 +23,7 @@ class CProperty;
 class CPropValue;
 class IContainer;
 
-typedef std::shared_ptr<CEntity> EntityPtr;
+typedef CEntityWrapPtr<CEntity> EntityPtr;
 
 class GFCENGINE_API CEntity: public CObject
 {
@@ -72,6 +73,10 @@ public:
     bool getBoolean(const std::wstring& sPropName, int nIndex) const;
     EntityRef getEntityRef(const std::wstring& sPropName, int nIndex) const;
     EntityPtr getEntity(const std::wstring& sPropName, int nIndex) const;
+    //
+    int getArrayCount(CPropValue* pValue) const;
+    EntityPtr getEntity(CPropValue* pValue, int nIndex) const;
+    bool isNull(CPropValue* pValue, int nIndex) const;
 protected:
     IContainer* getContainer() { return m_pContainer; }
 private:

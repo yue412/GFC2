@@ -16,7 +16,7 @@ public:
     void clearSegments();
     void addSegments(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSegments(int nIndex) const;
-    std::shared_ptr<Gfc2Curve2d> getSegmentsPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getSegmentsPtr(int nIndex);
 
 };
 #endif

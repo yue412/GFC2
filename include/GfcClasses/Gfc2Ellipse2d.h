@@ -17,11 +17,11 @@ public:
     void setCenterPt(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCenterPt() const;
     bool hasCenterPt() const;
-    std::shared_ptr<Gfc2Vector2d> getCenterPtPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getCenterPtPtr();
     void setMajorAxis(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getMajorAxis() const;
     bool hasMajorAxis() const;
-    std::shared_ptr<Gfc2Vector2d> getMajorAxisPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getMajorAxisPtr();
     void setdMajorRad(const Gfc2Double& dValue);
     Gfc2Double getdMajorRad() const;
     bool hasdMajorRad() const;
@@ -31,7 +31,7 @@ public:
     void setRange(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRange() const;
     bool hasRange() const;
-    std::shared_ptr<Gfc2Intervald> getRangePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangePtr();
     void setClockSign(const Gfc2Integer& nValue);
     Gfc2Integer getClockSign() const;
     bool hasClockSign() const;

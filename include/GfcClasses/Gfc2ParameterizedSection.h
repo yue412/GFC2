@@ -15,7 +15,7 @@ public:
     void setPosition(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPosition() const;
     bool hasPosition() const;
-    std::shared_ptr<Gfc2Coordinates3d> getPositionPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getPositionPtr();
 
 };
 #endif

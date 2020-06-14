@@ -15,7 +15,7 @@ public:
     void setEndSweptArea(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getEndSweptArea() const;
     bool hasEndSweptArea() const;
-    std::shared_ptr<Gfc2Section> getEndSweptAreaPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Section> getEndSweptAreaPtr();
 
 };
 #endif

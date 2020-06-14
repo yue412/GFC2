@@ -18,15 +18,15 @@ public:
     void setName(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getName() const;
     bool hasName() const;
-    std::shared_ptr<Gfc2String> getNamePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getNamePtr();
     void setDesc(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getDesc() const;
     bool hasDesc() const;
-    std::shared_ptr<Gfc2String> getDescPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getDescPtr();
     void setLevel(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getLevel() const;
     bool hasLevel() const;
-    std::shared_ptr<Gfc2String> getLevelPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getLevelPtr();
     void setDia(const Gfc2Integer& nValue);
     Gfc2Integer getDia() const;
     bool hasDia() const;
@@ -48,7 +48,7 @@ public:
     void setTieinType(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getTieinType() const;
     bool hasTieinType() const;
-    std::shared_ptr<Gfc2String> getTieinTypePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getTieinTypePtr();
 
 };
 #endif

@@ -14,15 +14,15 @@ public:
     void setDirX(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getDirX() const;
     bool hasDirX() const;
-    std::shared_ptr<Gfc2Vector3d> getDirXPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getDirXPtr();
     void setDirY(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getDirY() const;
     bool hasDirY() const;
-    std::shared_ptr<Gfc2Vector3d> getDirYPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getDirYPtr();
     void setPos(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPos() const;
     bool hasPos() const;
-    std::shared_ptr<Gfc2Vector3d> getPosPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getPosPtr();
 
 };
 #endif

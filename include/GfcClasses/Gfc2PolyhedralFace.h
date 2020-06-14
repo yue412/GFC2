@@ -17,11 +17,11 @@ public:
     void clearLoops();
     void addLoops(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getLoops(int nIndex) const;
-    std::shared_ptr<Gfc2PolyhedralLoop> getLoopsPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2PolyhedralLoop> getLoopsPtr(int nIndex);
     void setPlane(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPlane() const;
     bool hasPlane() const;
-    std::shared_ptr<Gfc2PlaneCoef> getPlanePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2PlaneCoef> getPlanePtr();
 
 };
 #endif

@@ -16,7 +16,7 @@ public:
     void setCurve(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCurve() const;
     bool hasCurve() const;
-    std::shared_ptr<Gfc2Curve2d> getCurvePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getCurvePtr();
     void setEdgeIndex(const Gfc2Integer& nValue);
     Gfc2Integer getEdgeIndex() const;
     bool hasEdgeIndex() const;

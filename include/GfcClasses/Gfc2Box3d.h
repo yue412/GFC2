@@ -15,11 +15,11 @@ public:
     void setMin(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getMin() const;
     bool hasMin() const;
-    std::shared_ptr<Gfc2Vector3d> getMinPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getMinPtr();
     void setMax(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getMax() const;
     bool hasMax() const;
-    std::shared_ptr<Gfc2Vector3d> getMaxPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getMaxPtr();
 
 };
 #endif

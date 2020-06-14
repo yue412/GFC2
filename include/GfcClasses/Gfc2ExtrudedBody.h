@@ -17,14 +17,14 @@ public:
     void setCoordinate(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCoordinate() const;
     bool hasCoordinate() const;
-    std::shared_ptr<Gfc2Coordinates3d> getCoordinatePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getCoordinatePtr();
     void setLength(const Gfc2Double& dValue);
     Gfc2Double getLength() const;
     bool hasLength() const;
     void setSection(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSection() const;
     bool hasSection() const;
-    std::shared_ptr<Gfc2Polygon> getSectionPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Polygon> getSectionPtr();
 
 };
 #endif

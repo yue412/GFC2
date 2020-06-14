@@ -15,7 +15,7 @@ public:
     void setValue(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getValue() const;
     bool hasValue() const;
-    std::shared_ptr<Gfc2String> getValuePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getValuePtr();
 
 };
 #endif

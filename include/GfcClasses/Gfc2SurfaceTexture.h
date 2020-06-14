@@ -22,16 +22,16 @@ public:
     void setImageFileName(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getImageFileName() const;
     bool hasImageFileName() const;
-    std::shared_ptr<Gfc2String> getImageFileNamePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getImageFileNamePtr();
     void setTranfromsMatirx(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getTranfromsMatirx() const;
     bool hasTranfromsMatirx() const;
-    std::shared_ptr<Gfc2Matrix> getTranfromsMatirxPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Matrix> getTranfromsMatirxPtr();
     int getParameterCount() const;
     void clearParameter();
     void addParameter(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getParameter(int nIndex) const;
-    std::shared_ptr<Gfc2String> getParameterPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2String> getParameterPtr(int nIndex);
 
 };
 #endif

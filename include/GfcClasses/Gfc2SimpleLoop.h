@@ -16,7 +16,7 @@ public:
     void clearVertexes();
     void addVertexes(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getVertexes(int nIndex) const;
-    std::shared_ptr<Gfc2SimpleVertex> getVertexesPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2SimpleVertex> getVertexesPtr(int nIndex);
 
 };
 #endif

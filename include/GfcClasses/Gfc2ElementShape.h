@@ -15,11 +15,11 @@ public:
     void setIdentifier(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getIdentifier() const;
     bool hasIdentifier() const;
-    std::shared_ptr<Gfc2String> getIdentifierPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getIdentifierPtr();
     void setShape(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getShape() const;
     bool hasShape() const;
-    std::shared_ptr<Gfc2Shape> getShapePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Shape> getShapePtr();
 
 };
 #endif

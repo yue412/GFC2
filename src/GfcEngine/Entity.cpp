@@ -351,18 +351,9 @@ void CEntity::setAsEntityRef(const std::wstring& sPropName, const EntityRef& nVa
 int CEntity::getArrayCount(const std::wstring& sPropName) const
 {
     if (m_pSchema)
-    {
-        auto pValue = valueByName(sPropName);
-        if (pValue)
-        {
-            return pValue->getCount();
-        }
-        else
-        {
-            throw EMissMatchProperty();
-        }
-    }
-    return 0;
+        return getArrayCount(valueByName(sPropName));
+    else
+        return 0;
 }
 
 void CEntity::addEntityRef(const std::wstring& sPropName, const EntityRef& nValue)
@@ -538,8 +529,27 @@ EntityRef CEntity::getEntityRef(const std::wstring& sPropName, int nIndex) const
 EntityPtr CEntity::getEntity(const std::wstring& sPropName, int nIndex) const
 {
     if (m_pSchema && m_pContainer)
+        return getEntity(valueByName(sPropName), nIndex);
+    else
+        return nullptr;
+}
+
+int CEntity::getArrayCount(CPropValue * pValue) const
+{
+    if (pValue)
     {
-        auto pValue = valueByName(sPropName);
+        return pValue->getCount();
+    }
+    else
+    {
+        throw EMissMatchProperty();
+    }
+}
+
+EntityPtr CEntity::getEntity(CPropValue * pValue, int nIndex) const
+{
+    if (m_pContainer)
+    {
         if (pValue)
         {
             auto pVal = pValue->getItems(nIndex);
@@ -551,6 +561,20 @@ EntityPtr CEntity::getEntity(const std::wstring& sPropName, int nIndex) const
         }
     }
     return nullptr;
+
+}
+
+bool CEntity::isNull(CPropValue * pValue, int nIndex) const
+{
+    if (pValue)
+    {
+        auto pVal = pValue->getItems(nIndex);
+        return pVal ? pVal->isNull() : true;
+    }
+    else
+    {
+        throw EMissMatchProperty();
+    }
 }
 
 GFCENGINE_NAMESPACE_END

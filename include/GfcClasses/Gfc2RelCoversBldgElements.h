@@ -15,12 +15,12 @@ public:
     void setRelatingBuildingElement(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRelatingBuildingElement() const;
     bool hasRelatingBuildingElement() const;
-    std::shared_ptr<Gfc2Element> getRelatingBuildingElementPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Element> getRelatingBuildingElementPtr();
     int getRelatedCoveringsCount() const;
     void clearRelatedCoverings();
     void addRelatedCoverings(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRelatedCoverings(int nIndex) const;
-    std::shared_ptr<Gfc2Element> getRelatedCoveringsPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2Element> getRelatedCoveringsPtr(int nIndex);
 
 };
 #endif

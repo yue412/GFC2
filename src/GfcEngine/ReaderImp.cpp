@@ -140,7 +140,7 @@ EntityPtr CReaderImp::getEntity(EntityRef nId)
             }
             pEntity->setContainer(this);
         }
-        return EntityPtr(pEntity);
+        return EntityPtr(nId, pEntity);
     }
     else
     {

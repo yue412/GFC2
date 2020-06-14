@@ -16,7 +16,7 @@ public:
     void setExtrudedDirection(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getExtrudedDirection() const;
     bool hasExtrudedDirection() const;
-    std::shared_ptr<Gfc2Vector3d> getExtrudedDirectionPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getExtrudedDirectionPtr();
     void setLength(const Gfc2Double& dValue);
     Gfc2Double getLength() const;
     bool hasLength() const;

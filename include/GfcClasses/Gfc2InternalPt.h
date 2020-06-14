@@ -16,30 +16,30 @@ public:
     void setP(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getP() const;
     bool hasP() const;
-    std::shared_ptr<Gfc2Vector3d> getPPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getPPtr();
     void setTVec(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getTVec() const;
     bool hasTVec() const;
-    std::shared_ptr<Gfc2Vector3d> getTVecPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getTVecPtr();
     void setT(const Gfc2Double& dValue);
     Gfc2Double getT() const;
     bool hasT() const;
     void setUV(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getUV() const;
     bool hasUV() const;
-    std::shared_ptr<Gfc2Vector2d> getUVPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getUVPtr();
     void setST(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getST() const;
     bool hasST() const;
-    std::shared_ptr<Gfc2Vector2d> getSTPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getSTPtr();
     void setUVDir(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getUVDir() const;
     bool hasUVDir() const;
-    std::shared_ptr<Gfc2Vector2d> getUVDirPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getUVDirPtr();
     void setSTDir(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSTDir() const;
     bool hasSTDir() const;
-    std::shared_ptr<Gfc2Vector2d> getSTDirPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getSTDirPtr();
 
 };
 #endif

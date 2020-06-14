@@ -1688,7 +1688,7 @@ void CCodeWriter::initRepeatAttributeCode(CClass* pTypeObject, int nAttributeInd
     if (nType == EBT_ENTITY)
     {
         std::wstring sType = pAttribute->getType()->getName();
-        pFunc = pClass->addFunc(AT_PUBLIC, L"std::shared_ptr<" + sType + L">", FormatWstring(L"get%sPtr", sAttributeName.c_str()));
+        pFunc = pClass->addFunc(AT_PUBLIC, L"gfc::engine::CEntityWrapPtr<" + sType + L">", FormatWstring(L"get%sPtr", sAttributeName.c_str()));
         pFunc->setIsConst(false);
         pFunc->setIsInline(false);
         pFunc->addParam(L"int", L"nIndex");
@@ -1696,7 +1696,7 @@ void CCodeWriter::initRepeatAttributeCode(CClass* pTypeObject, int nAttributeInd
         pFunc->body()->addLine(L"assert(pProp);");
         pFunc->body()->addLine(L"auto pValue = pProp->value()->getItems(nIndex);");
         pFunc->body()->addLine(L"assert(pValue);");
-        pFunc->body()->addLine(FormatWstring(L"return std::dynamic_pointer_cast<%s>(getContainer()->getEntity(pValue->asEntityRef()));", sType.c_str()));
+        pFunc->body()->addLine(FormatWstring(L"return gfc::engine::dynamic_entity_cast<%s>(getContainer()->getEntity(pValue->asEntityRef()));", sType.c_str()));
     }
     //pClass->addData(AT_PRIVATE, FormatWstring(L"std::vector<%s>", sTypeName.c_str()), L"m_o" + sAttributeName);
 }
@@ -1832,12 +1832,12 @@ void CCodeWriter::initAttributeCode(CClass *pTypeObject, int nAttributeIndex, Cp
     if (nType == EBT_ENTITY)
     {
         std::wstring sType = pAttribute->getType()->getName();
-        pFunc = pClass->addFunc(AT_PUBLIC, L"std::shared_ptr<" + sType + L">", L"get" + sAttributeName + L"Ptr");
+        pFunc = pClass->addFunc(AT_PUBLIC, L"gfc::engine::CEntityWrapPtr<" + sType + L">", L"get" + sAttributeName + L"Ptr");
         pFunc->setIsConst(false);
         pFunc->setIsInline(false);
         pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
         pFunc->body()->addLine(L"assert(pProp);");
-        pFunc->body()->addLine(FormatWstring(L"return std::dynamic_pointer_cast<%s>(getContainer()->getEntity(pProp->value()->asEntityRef()));", sType.c_str()));
+        pFunc->body()->addLine(FormatWstring(L"return gfc::engine::dynamic_entity_cast<%s>(getContainer()->getEntity(pProp->value()->asEntityRef()));", sType.c_str()));
     }
 }
 

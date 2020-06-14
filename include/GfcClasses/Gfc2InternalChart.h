@@ -25,7 +25,7 @@ public:
     void clearIPS();
     void addIPS(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getIPS(int nIndex) const;
-    std::shared_ptr<Gfc2InternalPt> getIPSPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2InternalPt> getIPSPtr(int nIndex);
 
 };
 #endif

@@ -15,12 +15,12 @@ public:
     void setIdentifier(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getIdentifier() const;
     bool hasIdentifier() const;
-    std::shared_ptr<Gfc2String> getIdentifierPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getIdentifierPtr();
     int getitemsCount() const;
     void clearitems();
     void additems(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getitems(int nIndex) const;
-    std::shared_ptr<Gfc2RepresentationItem> getitemsPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2RepresentationItem> getitemsPtr(int nIndex);
 
 };
 #endif

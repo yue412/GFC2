@@ -18,18 +18,18 @@ public:
     void setCoord(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCoord() const;
     bool hasCoord() const;
-    std::shared_ptr<Gfc2Coordinates3d> getCoordPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getCoordPtr();
     void setHeight(const Gfc2Double& dValue);
     Gfc2Double getHeight() const;
     bool hasHeight() const;
     void setRangeV(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRangeV() const;
     bool hasRangeV() const;
-    std::shared_ptr<Gfc2Intervald> getRangeVPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeVPtr();
     void setCurve(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCurve() const;
     bool hasCurve() const;
-    std::shared_ptr<Gfc2Curve2d> getCurvePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getCurvePtr();
 
 };
 #endif

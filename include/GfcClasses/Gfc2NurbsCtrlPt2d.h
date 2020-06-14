@@ -15,7 +15,7 @@ public:
     void setPoint(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPoint() const;
     bool hasPoint() const;
-    std::shared_ptr<Gfc2Vector2d> getPointPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getPointPtr();
     void setWeight(const Gfc2Double& dValue);
     Gfc2Double getWeight() const;
     bool hasWeight() const;

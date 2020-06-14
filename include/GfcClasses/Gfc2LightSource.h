@@ -16,11 +16,11 @@ public:
     void setName(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getName() const;
     bool hasName() const;
-    std::shared_ptr<Gfc2Label> getNamePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Label> getNamePtr();
     void setLightColour(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getLightColour() const;
     bool hasLightColour() const;
-    std::shared_ptr<Gfc2Color> getLightColourPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Color> getLightColourPtr();
     void setAmbientIntensity(const Gfc2Double& dValue);
     Gfc2Double getAmbientIntensity() const;
     bool hasAmbientIntensity() const;

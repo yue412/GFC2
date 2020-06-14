@@ -17,14 +17,14 @@ public:
     void setCoord(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCoord() const;
     bool hasCoord() const;
-    std::shared_ptr<Gfc2Coordinates2d> getCoordPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Coordinates2d> getCoordPtr();
     void setRadius(const Gfc2Double& dValue);
     Gfc2Double getRadius() const;
     bool hasRadius() const;
     void setRange(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRange() const;
     bool hasRange() const;
-    std::shared_ptr<Gfc2Intervald> getRangePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangePtr();
     void setClockSign(const Gfc2Integer& nValue);
     Gfc2Integer getClockSign() const;
     bool hasClockSign() const;

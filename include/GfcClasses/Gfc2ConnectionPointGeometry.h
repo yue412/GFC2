@@ -15,11 +15,11 @@ public:
     void setPointOnRelatingElement(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPointOnRelatingElement() const;
     bool hasPointOnRelatingElement() const;
-    std::shared_ptr<Gfc2Vector3d> getPointOnRelatingElementPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getPointOnRelatingElementPtr();
     void setPointOnRelatedElement(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPointOnRelatedElement() const;
     bool hasPointOnRelatedElement() const;
-    std::shared_ptr<Gfc2Vector3d> getPointOnRelatedElementPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getPointOnRelatedElementPtr();
 
 };
 #endif

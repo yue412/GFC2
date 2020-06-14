@@ -15,7 +15,7 @@ public:
     void setSection(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSection() const;
     bool hasSection() const;
-    std::shared_ptr<Gfc2Section> getSectionPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Section> getSectionPtr();
 
 };
 #endif

@@ -20,15 +20,15 @@ public:
     void setCoords(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCoords() const;
     bool hasCoords() const;
-    std::shared_ptr<Gfc2Coordinates3d> getCoordsPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getCoordsPtr();
     void setRangeU(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRangeU() const;
     bool hasRangeU() const;
-    std::shared_ptr<Gfc2Intervald> getRangeUPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeUPtr();
     void setRangeV(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRangeV() const;
     bool hasRangeV() const;
-    std::shared_ptr<Gfc2Intervald> getRangeVPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeVPtr();
 
 };
 #endif

@@ -15,11 +15,11 @@ public:
     void setCompType(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCompType() const;
     bool hasCompType() const;
-    std::shared_ptr<Gfc2String> getCompTypePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getCompTypePtr();
     void setLevel(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getLevel() const;
     bool hasLevel() const;
-    std::shared_ptr<Gfc2String> getLevelPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getLevelPtr();
     void setDia(const Gfc2Integer& nValue);
     Gfc2Integer getDia() const;
     bool hasDia() const;
@@ -29,7 +29,7 @@ public:
     void setUnit(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getUnit() const;
     bool hasUnit() const;
-    std::shared_ptr<Gfc2String> getUnitPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getUnitPtr();
 
 };
 #endif

@@ -15,19 +15,19 @@ public:
     void setOrigin(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getOrigin() const;
     bool hasOrigin() const;
-    std::shared_ptr<Gfc2Vector3d> getOriginPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getOriginPtr();
     void setX(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getX() const;
     bool hasX() const;
-    std::shared_ptr<Gfc2Vector3d> getXPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getXPtr();
     void setY(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getY() const;
     bool hasY() const;
-    std::shared_ptr<Gfc2Vector3d> getYPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getYPtr();
     void setZ(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getZ() const;
     bool hasZ() const;
-    std::shared_ptr<Gfc2Vector3d> getZPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getZPtr();
 
 };
 #endif

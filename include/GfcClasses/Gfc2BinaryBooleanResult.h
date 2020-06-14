@@ -18,11 +18,11 @@ public:
     void setFirstOperand(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getFirstOperand() const;
     bool hasFirstOperand() const;
-    std::shared_ptr<Gfc2SolidShape> getFirstOperandPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2SolidShape> getFirstOperandPtr();
     void setSecondOperand(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSecondOperand() const;
     bool hasSecondOperand() const;
-    std::shared_ptr<Gfc2SolidShape> getSecondOperandPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2SolidShape> getSecondOperandPtr();
 
 };
 #endif

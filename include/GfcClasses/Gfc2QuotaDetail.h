@@ -21,19 +21,19 @@ public:
     void setUnit(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getUnit() const;
     bool hasUnit() const;
-    std::shared_ptr<Gfc2String> getUnitPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getUnitPtr();
     void setExpress(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getExpress() const;
     bool hasExpress() const;
-    std::shared_ptr<Gfc2String> getExpressPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getExpressPtr();
     void setQuantity(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getQuantity() const;
     bool hasQuantity() const;
-    std::shared_ptr<Gfc2String> getQuantityPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getQuantityPtr();
     void setMemo(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getMemo() const;
     bool hasMemo() const;
-    std::shared_ptr<Gfc2String> getMemoPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getMemoPtr();
 
 };
 #endif

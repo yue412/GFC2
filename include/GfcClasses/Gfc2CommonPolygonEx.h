@@ -16,7 +16,7 @@ public:
     void clearLoopExs();
     void addLoopExs(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getLoopExs(int nIndex) const;
-    std::shared_ptr<Gfc2CoedgeListEx> getLoopExsPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2CoedgeListEx> getLoopExsPtr(int nIndex);
 
 };
 #endif

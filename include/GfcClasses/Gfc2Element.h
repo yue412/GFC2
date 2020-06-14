@@ -17,17 +17,17 @@ public:
     void setType(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getType() const;
     bool hasType() const;
-    std::shared_ptr<Gfc2Label> getTypePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Label> getTypePtr();
     int getRepresentationsCount() const;
     void clearRepresentations();
     void addRepresentations(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRepresentations(int nIndex) const;
-    std::shared_ptr<Gfc2Representation> getRepresentationsPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2Representation> getRepresentationsPtr(int nIndex);
     int getShapesCount() const;
     void clearShapes();
     void addShapes(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getShapes(int nIndex) const;
-    std::shared_ptr<Gfc2ElementShape> getShapesPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2ElementShape> getShapesPtr(int nIndex);
 
 };
 #endif

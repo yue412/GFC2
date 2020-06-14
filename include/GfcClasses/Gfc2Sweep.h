@@ -17,15 +17,15 @@ public:
     void setProfile(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getProfile() const;
     bool hasProfile() const;
-    std::shared_ptr<Gfc2Curve2d> getProfilePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getProfilePtr();
     void setSpine3d(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSpine3d() const;
     bool hasSpine3d() const;
-    std::shared_ptr<Gfc2Curve3d> getSpine3dPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Curve3d> getSpine3dPtr();
     void setReferenceVector(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getReferenceVector() const;
     bool hasReferenceVector() const;
-    std::shared_ptr<Gfc2Vector3d> getReferenceVectorPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getReferenceVectorPtr();
     void setSweepType(const Gfc2SweepType& nValue);
     Gfc2SweepType getSweepType() const;
     bool hasSweepType() const;

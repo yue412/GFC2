@@ -17,12 +17,12 @@ public:
     void clearFaces();
     void addFaces(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getFaces(int nIndex) const;
-    std::shared_ptr<Gfc2PolyhedralFace> getFacesPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2PolyhedralFace> getFacesPtr(int nIndex);
     int getVertexesCount() const;
     void clearVertexes();
     void addVertexes(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getVertexes(int nIndex) const;
-    std::shared_ptr<Gfc2Vector3d> getVertexesPtr(int nIndex);
+    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getVertexesPtr(int nIndex);
 
 };
 #endif

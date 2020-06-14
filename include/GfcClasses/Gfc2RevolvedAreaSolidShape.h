@@ -16,7 +16,7 @@ public:
     void setAxis(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getAxis() const;
     bool hasAxis() const;
-    std::shared_ptr<Gfc2Vector2d> getAxisPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getAxisPtr();
     void setAngle(const Gfc2Double& dValue);
     Gfc2Double getAngle() const;
     bool hasAngle() const;

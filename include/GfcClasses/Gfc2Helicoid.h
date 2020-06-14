@@ -18,14 +18,14 @@ public:
     void setCoord(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCoord() const;
     bool hasCoord() const;
-    std::shared_ptr<Gfc2Coordinates3d> getCoordPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getCoordPtr();
     void setRadius(const Gfc2Double& dValue);
     Gfc2Double getRadius() const;
     bool hasRadius() const;
     void setRangeV(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRangeV() const;
     bool hasRangeV() const;
-    std::shared_ptr<Gfc2Intervald> getRangeVPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeVPtr();
     void setClockSign(const Gfc2Integer& nValue);
     Gfc2Integer getClockSign() const;
     bool hasClockSign() const;
@@ -38,7 +38,7 @@ public:
     void setCurve(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCurve() const;
     bool hasCurve() const;
-    std::shared_ptr<Gfc2Curve2d> getCurvePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getCurvePtr();
 
 };
 #endif

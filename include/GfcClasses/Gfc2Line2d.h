@@ -15,11 +15,11 @@ public:
     void setStartPt(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getStartPt() const;
     bool hasStartPt() const;
-    std::shared_ptr<Gfc2Vector2d> getStartPtPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getStartPtPtr();
     void setEndPt(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getEndPt() const;
     bool hasEndPt() const;
-    std::shared_ptr<Gfc2Vector2d> getEndPtPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getEndPtPtr();
 
 };
 #endif

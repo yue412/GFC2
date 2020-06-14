@@ -15,7 +15,7 @@ public:
     void setRealizingElements(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRealizingElements() const;
     bool hasRealizingElements() const;
-    std::shared_ptr<Gfc2Element> getRealizingElementsPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Element> getRealizingElementsPtr();
 
 };
 #endif

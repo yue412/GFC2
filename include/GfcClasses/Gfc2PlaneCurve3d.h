@@ -16,11 +16,11 @@ public:
     void setPlaneCurve(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPlaneCurve() const;
     bool hasPlaneCurve() const;
-    std::shared_ptr<Gfc2Curve2d> getPlaneCurvePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getPlaneCurvePtr();
     void setPlane(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPlane() const;
     bool hasPlane() const;
-    std::shared_ptr<Gfc2PlaneInfo> getPlanePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2PlaneInfo> getPlanePtr();
 
 };
 #endif

@@ -23,7 +23,7 @@ void CDocument::add( EntityRef nId, CEntity* pEntity )
 {
     assert(pEntity);
     pEntity->setContainer(this);
-    m_pContainer->add(nId, EntityPtr(pEntity));
+    m_pContainer->add(nId, EntityPtr(nId, pEntity));
 }
 
 EntityPtr CDocument::getEntity( EntityRef nId )

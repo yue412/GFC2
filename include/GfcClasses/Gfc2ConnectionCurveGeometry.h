@@ -15,11 +15,11 @@ public:
     void setCurveOnRelatingElement(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCurveOnRelatingElement() const;
     bool hasCurveOnRelatingElement() const;
-    std::shared_ptr<Gfc2Curve3d> getCurveOnRelatingElementPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Curve3d> getCurveOnRelatingElementPtr();
     void setCurveOnRelatedElement(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCurveOnRelatedElement() const;
     bool hasCurveOnRelatedElement() const;
-    std::shared_ptr<Gfc2Curve3d> getCurveOnRelatedElementPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Curve3d> getCurveOnRelatedElementPtr();
 
 };
 #endif

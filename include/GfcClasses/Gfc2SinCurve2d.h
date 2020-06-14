@@ -17,11 +17,11 @@ public:
     void setPos(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPos() const;
     bool hasPos() const;
-    std::shared_ptr<Gfc2Vector2d> getPosPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getPosPtr();
     void setDirX(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getDirX() const;
     bool hasDirX() const;
-    std::shared_ptr<Gfc2Vector2d> getDirXPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getDirXPtr();
     void setA(const Gfc2Double& dValue);
     Gfc2Double getA() const;
     bool hasA() const;
@@ -31,7 +31,7 @@ public:
     void setRange(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRange() const;
     bool hasRange() const;
-    std::shared_ptr<Gfc2Intervald> getRangePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangePtr();
     void setClockSign(const Gfc2Integer& nValue);
     Gfc2Integer getClockSign() const;
     bool hasClockSign() const;

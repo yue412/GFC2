@@ -18,7 +18,7 @@ public:
     void setInitCurve(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getInitCurve() const;
     bool hasInitCurve() const;
-    std::shared_ptr<Gfc2Curve2d> getInitCurvePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getInitCurvePtr();
 
 };
 #endif

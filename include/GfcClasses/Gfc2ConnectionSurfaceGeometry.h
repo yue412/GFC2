@@ -15,11 +15,11 @@ public:
     void setSurfaceOnRelatingElement(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSurfaceOnRelatingElement() const;
     bool hasSurfaceOnRelatingElement() const;
-    std::shared_ptr<Gfc2Surface> getSurfaceOnRelatingElementPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Surface> getSurfaceOnRelatingElementPtr();
     void setSurfaceOnRelatedElement(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSurfaceOnRelatedElement() const;
     bool hasSurfaceOnRelatedElement() const;
-    std::shared_ptr<Gfc2Surface> getSurfaceOnRelatedElementPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Surface> getSurfaceOnRelatedElementPtr();
 
 };
 #endif

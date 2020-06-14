@@ -15,7 +15,7 @@ public:
     void setGeo(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getGeo() const;
     bool hasGeo() const;
-    std::shared_ptr<Gfc2Geometry> getGeoPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2Geometry> getGeoPtr();
 
 };
 #endif

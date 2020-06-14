@@ -14,31 +14,31 @@ public:
     void setCode(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCode() const;
     bool hasCode() const;
-    std::shared_ptr<Gfc2String> getCodePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getCodePtr();
     void setSubCode(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSubCode() const;
     bool hasSubCode() const;
-    std::shared_ptr<Gfc2String> getSubCodePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getSubCodePtr();
     void setName(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getName() const;
     bool hasName() const;
-    std::shared_ptr<Gfc2String> getNamePtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getNamePtr();
     void setContent(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getContent() const;
     bool hasContent() const;
-    std::shared_ptr<Gfc2String> getContentPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getContentPtr();
     void setUnit(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getUnit() const;
     bool hasUnit() const;
-    std::shared_ptr<Gfc2String> getUnitPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getUnitPtr();
     void setQuantity(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getQuantity() const;
     bool hasQuantity() const;
-    std::shared_ptr<Gfc2String> getQuantityPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getQuantityPtr();
     void setMemo(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getMemo() const;
     bool hasMemo() const;
-    std::shared_ptr<Gfc2String> getMemoPtr();
+    gfc::engine::CEntityWrapPtr<Gfc2String> getMemoPtr();
 
 };
 #endif
