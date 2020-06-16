@@ -15,22 +15,24 @@ namespace gfc {
 GFCENGINE_NAMESPACE_BEGIN
 
 class CPropValue;
-
+class CEntity;
 // ‘»Œ¡¥
 class CConverter
 {
 public:
-    CConverter() : m_pNext(nullptr), m_pFrom(nullptr), m_pTo(nullptr) {}
+    CConverter() : m_pNext(nullptr), m_pFrom(nullptr), m_pTo(nullptr){}
     virtual ~CConverter();
     virtual void transform(CPropValue* pFrom, CPropValue* pTo);
     virtual void doTransform(CPropValue* pFrom, CPropValue* pTo) = 0;
     virtual CConverter* clone() = 0;
     void setNext(CConverter* pNext);
+    CConverter* next() { return m_pNext; }
     void init(gfc::schema::CTypeObject* pFrom, gfc::schema::CTypeObject* pTo);
 protected:
     CConverter* m_pNext;
     gfc::schema::CTypeObject* m_pFrom;
     gfc::schema::CTypeObject* m_pTo;
+    CEntity* m_pFromEntity;
 };
 
 class CEmptyConverter : public CConverter

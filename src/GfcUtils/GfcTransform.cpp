@@ -3,22 +3,64 @@
 #include "GfcSchema\Model.h"
 #include "GfcEngine\GfcEngineUtils.h"
 #include "GfcEngine\PropValue.h"
+#include "GfcUtils\ModelCompatibility.h"
+#include "GfcUtils\ClassCompatibility.h"
+#include "GfcUtils\AttributeCompatibility.h"
+#include "GfcUtils\Converter.h"
 #include <memory>
 #include <assert.h>
 
+class CIDConverter : public gfc::engine::CConverter
+{
+public:
+    virtual void doTransform(gfc::engine::CPropValue* pFrom, gfc::engine::CPropValue* pTo)
+    {
+        pTo->setAsInteger(std::stoi(pFrom->asString()));
+    }
+    virtual CConverter* clone()
+    {
+        return new CIDConverter(*this);
+    }
+};
+
+class CNewEntityRefConverter : public gfc::engine::CEntityRefConverter
+{
+public:
+    CNewEntityRefConverter(GfcTransform* pOwner): m_pOwner(pOwner){}
+    virtual void doTransform(gfc::engine::CPropValue* pFrom, gfc::engine::CPropValue* pTo)
+    {
+        auto nNewRef = m_pOwner->transformEntity(pFrom->asEntityRef());
+        pTo->setAsEntityRef(nNewRef);
+    }
+    virtual CConverter* clone()
+    {
+        return new CNewEntityRefConverter(*this);
+    }
+private:
+    GfcTransform* m_pOwner;
+};
+
 GfcTransform::GfcTransform(gfc::engine::IContainer * pContainer): m_pContainer(pContainer), m_pWriter(nullptr), m_pModel(nullptr)
 {
+    m_pModelCompatibility = new gfc::engine::CModelCompatibility();
 }
 
 GfcTransform::~GfcTransform()
 {
+    delete m_pModelCompatibility;
     clear();
 }
 
-void GfcTransform::setSchema(gfc::schema::CModel * pModel)
+void GfcTransform::setSchema(gfc::schema::CModel* pSrcModel, gfc::schema::CModel* pDestModel)
 {
-    assert(pModel);
-    m_pModel = pModel;
+    assert(pSrcModel);
+    assert(pDestModel);
+    m_pModelCompatibility->init(pSrcModel, pDestModel);
+    changeIDConverter(L"Gfc2Project");
+    changeIDConverter(L"Gfc2Building");
+    changeIDConverter(L"Gfc2Floor");
+    changeEntityRefConverter();
+    m_pModel = pDestModel;
 }
 
 bool GfcTransform::transform(const std::wstring & sFileName)
@@ -43,9 +85,52 @@ bool GfcTransform::transform(const std::wstring & sFileName)
     return true;
 }
 
-std::shared_ptr<gfc::engine::CEntity> GfcTransform::createEntity(const std::wstring & sEntityName)
+gfc::engine::EntityRef GfcTransform::transformEntity(gfc::engine::EntityRef nSrc)
 {
-    return std::shared_ptr<gfc::engine::CEntity>(gfc::engine::CEngineUtils::createEntity(m_pModel, sEntityName));
+    auto itr = m_oTransformMap.find(nSrc);
+    if (itr == m_oTransformMap.end())
+    {
+        auto pSrc = m_pContainer->getEntity(nSrc);
+        auto pDest = doTransformEntity(pSrc);
+        return write(pSrc.ref(), pDest);
+    }
+    else
+        return itr->second;
+}
+
+GfcTransform::DestEntityPtr GfcTransform::createEntity(const std::wstring & sEntityName)
+{
+    return DestEntityPtr(gfc::engine::CEngineUtils::createEntity(m_pModel, sEntityName));
+}
+
+GfcTransform::DestEntityPtr GfcTransform::doTransformEntity(SrcEntityPtr& pSrcEntity)
+{
+    auto pClassCompatibility = m_pModelCompatibility->find(pSrcEntity->entityName());
+    if (pClassCompatibility == nullptr)
+    {
+        // no read
+        return nullptr;
+    }
+    auto pNewEntity = createEntity(pSrcEntity->entityName());
+    transformEntity(pClassCompatibility, pSrcEntity.get(), pNewEntity.get());
+    return pNewEntity;
+}
+
+void GfcTransform::transformEntity(gfc::engine::CClassCompatibility* pClassCompatibility,
+    gfc::engine::CEntity* pSrcEntity, gfc::engine::CEntity* pDestEntity)
+{
+    for (int i = 0; i < pClassCompatibility->getCount(); i++)
+    {
+        auto pAttributeCompatibility = pClassCompatibility->getCompatibilityAttribute(i);
+        int  nIndex = pAttributeCompatibility->toIndex();
+        auto pConverter = pAttributeCompatibility->converter();
+        if (nIndex != -1 && pConverter && i < (int)pSrcEntity->getPropCount())
+        {
+            auto pSrcValue = pSrcEntity->getProps(i)->value();
+            auto pDestValue = pDestEntity->getProps(nIndex)->value();
+            pConverter->transform(pSrcValue, pDestValue);
+        }
+    }
 }
 
 gfc::engine::EntityRef GfcTransform::transformProject()
@@ -56,10 +141,21 @@ gfc::engine::EntityRef GfcTransform::transformProject()
     if (!pItr->isDone())
     {
         auto pProject = pItr->current();
-         auto pNewProject = doTransformProject(pProject);
-        nProjectRef = m_pWriter->writeEntity(pNewProject.get());
+        
+        auto pNewProject = doTransformEntity(pProject);
+        if (pNewProject)
+        {
+            std::vector<SrcEntityPtr> oPropertySetList;
+            getPropertySetList(pProject.ref(), oPropertySetList);
+            transformProjectPropertySet(pProject, oPropertySetList, pNewProject);
+            nProjectRef = write(pProject.ref(), pNewProject);
+        }
     }
     return nProjectRef;
+}
+
+void GfcTransform::getPropertySetList(gfc::engine::EntityRef nRef, std::vector<SrcEntityPtr>& oList)
+{
 }
 
 GfcTransform::GfcEntityRefMap GfcTransform::transformBuilding(gfc::engine::EntityRef nProjectRef)
@@ -70,10 +166,16 @@ GfcTransform::GfcEntityRefMap GfcTransform::transformBuilding(gfc::engine::Entit
     while (!pItr->isDone())
     {
         auto pBuilding = pItr->current();
-        auto pNewBuilding = doTransformBuilding(pBuilding);
-        auto nBuildingRef = m_pWriter->writeEntity(pNewBuilding.get());
-        oResult.insert(std::make_pair(pBuilding.ref(), nBuildingRef));
-        addRelAggregates(nProjectRef, nBuildingRef);
+        auto pNewBuilding = doTransformEntity(pBuilding);
+        if (pNewBuilding)
+        {
+            std::vector<SrcEntityPtr> oPropertySetList;
+            getPropertySetList(pBuilding.ref(), oPropertySetList);
+            transformBuildingPropertySet(pBuilding, oPropertySetList, pNewBuilding);
+            auto nBuildingRef = write(pBuilding.ref(), pNewBuilding);
+            oResult.insert(std::make_pair(pBuilding.ref(), nBuildingRef));
+            addRelAggregates(nProjectRef, nBuildingRef);
+        }
         pItr->next();
     }
     return oResult;
@@ -99,10 +201,17 @@ GfcTransform::GfcEntityRefMap GfcTransform::transformFloor(const GfcEntityRefMap
                 auto pFloor = pAggregate->getEntity(pValue, i);
                 if (pFloor->entityName() != L"Gfc2Floor")
                     continue;
-                auto pNewFloor = doTransformFloor(pFloor);
-                auto nFloorRef = m_pWriter->writeEntity(pNewFloor.get());
-                oResult.insert(std::make_pair(pFloor.ref(), nFloorRef));
-                addRelAggregates(itr->second, nFloorRef);
+                auto pNewFloor = doTransformEntity(pFloor);
+                if (pNewFloor)
+                {
+                    std::vector<SrcEntityPtr> oPropertySetList;
+                    getPropertySetList(pFloor.ref(), oPropertySetList);
+                    transformFloorPropertySet(pFloor, oPropertySetList, pNewFloor);
+
+                    auto nFloorRef = write(pFloor.ref(), pNewFloor);
+                    oResult.insert(std::make_pair(pFloor.ref(), nFloorRef));
+                    addRelAggregates(itr->second, nFloorRef);
+                }
             }
         }
         pItr->next();
@@ -129,16 +238,54 @@ void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
                 auto pElement = pAggregate->getEntity(pValue, i);
                 if (pElement->entityName() != L"Gfc2Element")
                     continue;
+                /*
                 auto pNewShape = doTransformShape(pElement);
-                //auto pNewPropertySet = doTransformPropertySet(pElement);
                 auto pNewElement = doTransformElement(pElement);
                 // todo
                 pNewElement->setAsEntityRef(L"Shape", m_pWriter->writeEntity(pNewShape.get()));
                 auto nElementRef = m_pWriter->writeEntity(pNewElement.get());
                 addRelAggregates(itr->second, nElementRef);
+                */
             }
         }
         pItr->next();
+    }
+}
+
+void GfcTransform::changeIDConverter(const std::wstring sEntityName)
+{
+    auto pClassCompatibility = m_pModelCompatibility->find(sEntityName);
+    if (pClassCompatibility)
+    {
+        for (int i = 0; i < pClassCompatibility->getCount(); ++i)
+        {
+            auto pAttribteCompatibility = pClassCompatibility->getCompatibilityAttribute(i);
+            if (pAttribteCompatibility->getName() == L"ID")
+            {
+                pAttribteCompatibility->setConverter(new CIDConverter);
+            }
+        }
+    }
+}
+
+void GfcTransform::changeEntityRefConverter()
+{
+    for (int i = 0; i < m_pModelCompatibility->getCount(); i++)
+    {
+        auto pClass = m_pModelCompatibility->getItems(i);
+        for (int j = 0; j < pClass->getCount(); j++)
+        {
+            auto pAttribte = pClass->getCompatibilityAttribute(j);
+            auto pConverter = pAttribte->converter();
+            if (pConverter && pConverter->next())
+            {
+                auto p = dynamic_cast<gfc::engine::CEntityRefConverter*>(pConverter->next());
+                if (p)
+                {
+                    pConverter->setNext(new CNewEntityRefConverter(this));
+                }
+            }
+        }
     }
 }
 
@@ -149,6 +296,14 @@ void GfcTransform::addRelAggregates(gfc::engine::EntityRef nRelatingObject, gfc:
 
 void GfcTransform::clear()
 {
+    m_oTransformMap.clear();
     m_oRelAggregates.clear();
     delete m_pWriter; m_pWriter = nullptr;
+}
+
+gfc::engine::EntityRef GfcTransform::write(gfc::engine::EntityRef nSrcRef, DestEntityPtr& pDestEntity)
+{
+    auto nDestRef = m_pWriter->writeEntity(pDestEntity.get());
+    m_oTransformMap[nSrcRef] = nDestRef;
+    return nDestRef;
 }

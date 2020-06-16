@@ -1,9 +1,9 @@
-#include "ClassCompatibility.h"
+#include "GfcUtils\ClassCompatibility.h"
 #include "GfcSchema\EntityClass.h"
 #include "GfcSchema\EntityAttribute.h"
 #include <algorithm>
 #include <assert.h>
-#include "AttributeCompatibility.h"
+#include "GfcUtils\AttributeCompatibility.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 

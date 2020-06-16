@@ -12,33 +12,14 @@ GfcTransform30to20::~GfcTransform30to20()
 {
 }
 
-std::shared_ptr<gfc::engine::CEntity> GfcTransform30to20::doTransformProject(gfc::engine::EntityPtr pEntity)
+GfcTransform::DestEntityPtr GfcTransform30to20::doTransformElement(SrcEntityPtr & pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList)
 {
-    auto pProject = createEntity(L"Gfc2Project");
-    pProject->setAsInteger(L"ID", std::stoi(pEntity->asString(L"ID")));
-    if (!pEntity->isNull(L"Name"))
-        pProject->setAsEntityRef(L"Name", transformString(pEntity->asEntity(L"Name")));
-    return pProject;
+    return DestEntityPtr();
 }
 
-std::shared_ptr<gfc::engine::CEntity> GfcTransform30to20::doTransformBuilding(gfc::engine::EntityPtr pEntity)
+GfcTransform::DestEntityPtr GfcTransform30to20::doTransformShape(SrcEntityPtr & pSrcEntity)
 {
-    return std::shared_ptr<gfc::engine::CEntity>();
-}
-
-std::shared_ptr<gfc::engine::CEntity> GfcTransform30to20::doTransformFloor(gfc::engine::EntityPtr pEntity)
-{
-    return std::shared_ptr<gfc::engine::CEntity>();
-}
-
-std::shared_ptr<gfc::engine::CEntity> GfcTransform30to20::doTransformShape(gfc::engine::EntityPtr pElement)
-{
-    return std::shared_ptr<gfc::engine::CEntity>();
-}
-
-std::shared_ptr<gfc::engine::CEntity> GfcTransform30to20::doTransformElement(gfc::engine::EntityPtr pElement)
-{
-    return std::shared_ptr<gfc::engine::CEntity>();
+    return DestEntityPtr();
 }
 
 void GfcTransform30to20::writeRelAggregates()
@@ -55,13 +36,6 @@ void GfcTransform30to20::writeRelAggregates()
                 pValue->add(new gfc::engine::CEntityRefValue(nRef));
             }
         }
-        m_pWriter->writeEntity(pRelAggregates.get());
+        write(itr.first, pRelAggregates);
     }
-}
-
-gfc::engine::EntityRef GfcTransform30to20::transformString(gfc::engine::EntityPtr pString)
-{
-    auto pStr = createEntity(L"Gfc2String");
-    pStr->setAsString(L"Value", pString->asString(L"Value"));
-    return m_pWriter->writeEntity(pStr.get());
 }

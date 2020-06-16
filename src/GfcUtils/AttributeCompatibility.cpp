@@ -1,7 +1,7 @@
-#include "AttributeCompatibility.h"
+#include "GfcUtils\AttributeCompatibility.h"
 #include "GfcSchema\EntityAttribute.h"
 #include "GfcSchema\TypeObject.h"
-#include "Converter.h"
+#include "GfcUtils\Converter.h"
 #include "GfcSchema\EnumType.h"
 #include "GfcSchema\EntityClass.h"
 
@@ -187,6 +187,15 @@ bool CAttributeCompatibility::isClassCompatibility(gfc::schema::CClass * pFrom, 
     while (pParent);
         
     return false;
+}
+
+void CAttributeCompatibility::setConverter(CConverter * pConverter)
+{
+    if (pConverter != m_pConverter)
+    {
+        delete m_pConverter;
+        m_pConverter = pConverter;
+    }
 }
 
 TypeCompatibility CAttributeCompatibility::noCompatibility(gfc::schema::CTypeObject * pFrom, gfc::schema::CTypeObject * pTo)

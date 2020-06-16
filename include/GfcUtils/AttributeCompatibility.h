@@ -35,6 +35,7 @@ public:
     std::wstring getName() { return m_sName; }
     bool isCompatible() { return m_bIsCompatible; }
     CConverter* converter() { return m_pConverter; }
+    void setConverter(CConverter* pConverter);
     int toIndex() { return m_nToIndex; }
 public:
     static TypeCompatibility noCompatibility(gfc::schema::CTypeObject* pFrom, gfc::schema::CTypeObject* pTo);

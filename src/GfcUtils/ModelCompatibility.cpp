@@ -1,5 +1,5 @@
-#include "ModelCompatibility.h"
-#include "ClassCompatibility.h"
+#include "GfcUtils\ModelCompatibility.h"
+#include "GfcUtils\ClassCompatibility.h"
 #include "GfcSchema\Model.h"
 #include "GfcSchema\EntityClass.h"
 #include <assert.h>
