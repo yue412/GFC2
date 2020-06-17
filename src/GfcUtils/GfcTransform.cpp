@@ -246,8 +246,26 @@ gfc::engine::EntityRef GfcTransform::transformProject()
 
 void GfcTransform::getPropertySetList(gfc::engine::EntityRef nRef, std::vector<SrcEntityPtr>& oList)
 {
-    assert(false);
-    //todo
+    auto itr = m_pContainer->getEntities(L"Gfc2RelDefinesByProperties");
+    itr->first();
+    while (!itr->isDone())
+    {
+        auto pRel = itr->current();
+        auto pValue = pRel->valueByName(L"RelatedObjects");
+        assert(pValue);
+        if (pValue)
+        {
+            for (int i = 0; i < pValue->getCount(); i++)
+            {
+                if (pValue->getItems(i)->asEntityRef() == nRef)
+                {
+                    oList.push_back(pRel->asEntity(L"RelatingPropertySet"));
+                    break;
+                }
+            }
+        }
+        itr->next();
+    }
 }
 
 std::shared_ptr<GfcShapeTransformer> GfcTransform::getShapeTransformer(const std::wstring & sName)
