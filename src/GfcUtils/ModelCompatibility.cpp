@@ -27,11 +27,11 @@ void CModelCompatibility::init(gfc::schema::CModel * pFrom, gfc::schema::CModel 
         if (pFromBaseType->getType() == gfc::schema::TOE_CLASS)
         {
             auto pToType = pTo->findTypeObject(pFromBaseType->getName());
-            if (pToType && pToType->getType() == gfc::schema::TOE_CLASS)
+            if (pToType && pToType->getBaseType()->getType() == gfc::schema::TOE_CLASS)
             {
                 // 必须是同名的类
                 auto pCompatibility = new CClassCompatibility;
-                pCompatibility->init((gfc::schema::CClass*)pFromBaseType, (gfc::schema::CClass*)pToType);
+                pCompatibility->init(pFromType, pToType);
                 add(pCompatibility);
             }// 其他各种情形，都视为未找到匹配的类，可以兼容（取决与别的类是否有引用）
         }

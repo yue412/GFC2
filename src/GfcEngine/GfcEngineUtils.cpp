@@ -59,9 +59,6 @@ bool CEngineUtils::loadSchema(const char * buf, int len, gfc::schema::CModel * p
 
 CEntity * CEngineUtils::createEntity(gfc::schema::CModel* pModel, const std::wstring & sName)
 {
-    auto pEntity = CEntity::GetFactory()->Create(sName);
-    if (pEntity)
-        return dynamic_cast<CEntity*>(pEntity);
     assert(pModel);
     if (pModel == nullptr)
         return nullptr;

@@ -29,6 +29,7 @@ bool CReader::open(const std::wstring & sFileName)
                 m_pImp = pImp;
                 m_pImp->setModel(m_pModel);
                 m_pImp->setSchemaPath(m_sSchemaPath);
+                m_pImp->setUseStaticClass(useStaticClass());
                 return m_pImp->open(sFileName);
             }
             else

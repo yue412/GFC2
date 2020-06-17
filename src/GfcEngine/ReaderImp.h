@@ -33,6 +33,7 @@ public:
     void close();
     void setModel(gfc::schema::CModel* pModel) { m_pModel = pModel; }
     void setSchemaPath(const std::wstring& sSchemaPath) { m_sSchemaPath = sSchemaPath; }
+    void setUseStaticClass(bool bUseStaticClass) { m_bUseStaticClass = bUseStaticClass; }
     void read(CDocument* pDoc);
     std::vector<std::wstring>& errors() { return m_oErrors; }
 
@@ -50,6 +51,7 @@ protected:
 
     CFileMap* m_pFileMap;
     CUpgrader* m_pUpgrader;
+    bool m_bUseStaticClass;
 private:
     //void sort();
     void buildIndex();

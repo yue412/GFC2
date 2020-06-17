@@ -162,7 +162,9 @@ CEntity * CReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
         std::wstring sError;
         if (CReaderTextUtils::parseLine(sLine, nId, sName, sContent))
         {
-            if (pEntity = CEngineUtils::createEntity(schema(), toWstring(sName)))
+            pEntity = m_bUseStaticClass ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(toWstring(sName)))
+                : CEngineUtils::createEntity(schema(), toWstring(sName));
+            if (pEntity)
             {
                 if (!CReaderTextUtils::parse(sContent, pEntity, sError))
                 {

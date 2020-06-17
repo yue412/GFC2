@@ -41,9 +41,9 @@ protected:
     virtual DestEntityPtr doTransformElement(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList) = 0;
     virtual DestEntityPtr doTransformShape(SrcEntityPtr& pSrcEntity) = 0;
     virtual void writeRelAggregates() = 0;
-    DestEntityPtr doTransformEntity(SrcEntityPtr& pSrcEntity);
     DestEntityPtr createEntity(const std::wstring& sEntityName);
     gfc::engine::EntityRef write(gfc::engine::EntityRef nSrcRef, DestEntityPtr& pDestEntity);
+    DestEntityPtr doTransformEntity(SrcEntityPtr& pSrcEntity);
 
     std::map<gfc::engine::EntityRef, std::vector<gfc::engine::EntityRef>> m_oRelAggregates;
 private:

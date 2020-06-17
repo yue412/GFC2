@@ -29,7 +29,7 @@ private:
     CReaderImp* m_pReader;
 };
 
-CReaderImp::CReaderImp() : m_pFileMap(nullptr), m_pModel(nullptr), m_pContainer(nullptr), m_pFileModel(nullptr), m_pUpgrader(nullptr)
+CReaderImp::CReaderImp() : m_pFileMap(nullptr), m_pModel(nullptr), m_pContainer(nullptr), m_pFileModel(nullptr), m_pUpgrader(nullptr), m_bUseStaticClass(false)
 {
 }
 

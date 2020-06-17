@@ -8,6 +8,8 @@ class GFCCLASSES_API GfcReader: public gfc::engine::CReader
 {
 public:
     GfcReader();
+protected:
+    virtual bool useStaticClass();
 };
 
 #endif // !GFCREADER_H

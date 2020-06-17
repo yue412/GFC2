@@ -12,14 +12,14 @@ CClassCompatibility::~CClassCompatibility(void)
     clear();
 }
 
-void CClassCompatibility::init(gfc::schema::CClass * pFrom, gfc::schema::CClass * pTo)
+void CClassCompatibility::init(gfc::schema::CTypeObject * pFrom, gfc::schema::CTypeObject * pTo)
 {
     clear();
     m_sName = pFrom->getName();
     std::vector<gfc::schema::CAttribute*> oFromAttributeList;
     std::vector<gfc::schema::CAttribute*> oToAttributeList;
-    getAttributeList(pFrom, oFromAttributeList);
-    getAttributeList(pTo, oToAttributeList);
+    getAttributeList((gfc::schema::CClass*)pFrom->getBaseType(), oFromAttributeList);
+    getAttributeList((gfc::schema::CClass*)pTo->getBaseType(), oToAttributeList);
     for each (auto pFromAttrib in oFromAttributeList)
     {
         auto itr = std::find_if(oToAttributeList.begin(), oToAttributeList.end(),

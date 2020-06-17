@@ -45,6 +45,8 @@ public:
     virtual EntityIteratorPtr getIterator();
 
     std::vector<std::wstring>& log() { return m_oErrors; }
+protected:
+    virtual bool useStaticClass() { return false; }
 private:
     //Entity* read();
     std::vector<std::wstring> m_oErrors;

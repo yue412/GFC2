@@ -105,11 +105,14 @@ GfcTransform::DestEntityPtr GfcTransform::createEntity(const std::wstring & sEnt
 
 GfcTransform::DestEntityPtr GfcTransform::doTransformEntity(SrcEntityPtr& pSrcEntity)
 {
+  //  pSrcEntity->getSchema()->getBaseType()->getName
     auto pClassCompatibility = m_pModelCompatibility->find(pSrcEntity->entityName());
     if (pClassCompatibility == nullptr)
     {
         // no read
-        return nullptr;
+        pClassCompatibility = m_pModelCompatibility->find(pSrcEntity->getSchema()->getBaseType()->getName());
+        if (pClassCompatibility == nullptr)
+            return nullptr;
     }
     auto pNewEntity = createEntity(pSrcEntity->entityName());
     transformEntity(pClassCompatibility, pSrcEntity.get(), pNewEntity.get());

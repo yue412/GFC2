@@ -8,6 +8,7 @@ namespace gfc {
     namespace schema {
         class CClass;
         class CAttribute;
+        class CTypeObject;
     }
 }
 
@@ -21,7 +22,7 @@ public:
     CClassCompatibility(void) {}
     virtual ~CClassCompatibility(void);
 public:
-    void init(gfc::schema::CClass* pFrom, gfc::schema::CClass* pTo);
+    void init(gfc::schema::CTypeObject* pFrom, gfc::schema::CTypeObject* pTo);
     std::wstring getName() { return m_sName; }
     int getCount() { return (int)m_oList.size(); }
     CAttributeCompatibility* getCompatibilityAttribute(int nIndex) { return m_oList[nIndex]; }

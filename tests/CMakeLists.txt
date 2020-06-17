@@ -26,8 +26,8 @@ link_directories(
 	)
 
 FILE(GLOB SRC_FILES "./*.c*" 
-	"../src/GfcEngine/*Compatibility.cpp" 
-	"../src/GfcEngine/Converter.cpp" 
+	"../src/GfcUtils/*Compatibility.cpp" 
+	"../src/GfcUtils/Converter.cpp" 
 	"../src/GfcEngine/Parser.cpp" 
 	"../src/GfcEngine/Scanner.cpp" 
 	"../src/GfcEngine/Upgrader.cpp"
@@ -38,8 +38,8 @@ FILE(GLOB SRC_FILES "./*.c*"
 	"../src/GfcEngine/FileMap.cpp"
 	) 
 FILE(GLOB HEAD_FILES "./*.h" 
-	"../src/GfcEngine/*Compatibility.h" 
-	"../src/GfcEngine/Converter.h"  
+	"../include/GfcUtils/*Compatibility.h" 
+	"../include/GfcUtils/Converter.h"  
 	"../src/GfcEngine/Parser.h" 
 	"../src/GfcEngine/Scanner.h" 
 	"../src/GfcEngine/Upgrader.h"
@@ -63,3 +63,4 @@ target_link_libraries(${PROJECT_NAME} debug GfcClassesd optimized GfcClasses)
 target_link_libraries(${PROJECT_NAME} debug GfcSchemad optimized GfcSchema)
 target_link_libraries(${PROJECT_NAME} debug GfcCommond optimized GfcCommon)
 target_link_libraries(${PROJECT_NAME} debug tinyxmld optimized tinyxml)
+target_link_libraries(${PROJECT_NAME} debug GfcUtilsd optimized GfcUtils)
