@@ -63,14 +63,19 @@ void GfcTransform::setSchema(gfc::schema::CModel* pSrcModel, gfc::schema::CModel
     m_pModel = pDestModel;
 }
 
-bool GfcTransform::transform(const std::wstring & sFileName)
+void GfcTransform::setWriter(gfc::engine::CWriter * pWriter)
+{
+    assert(pWriter);
+    m_pWriter = pWriter;
+}
+
+bool GfcTransform::transform()
 {
     if (nullptr == m_pModel)
         return false;
-    clear();
-    m_pWriter = new gfc::engine::CWriter(m_pModel->version());
-    if (!m_pWriter->open(sFileName, L"express"))
+    if (nullptr == m_pWriter || !m_pWriter->isOpen())
         return false;
+    clear();
     // 转Project
     auto nProjectRef = transformProject();
     // 转Building
@@ -81,7 +86,6 @@ bool GfcTransform::transform(const std::wstring & sFileName)
     transformElement(oFloorMap);
     // 记录关系
     writeRelAggregates();
-    m_pWriter->close();
     return true;
 }
 
@@ -301,7 +305,6 @@ void GfcTransform::clear()
 {
     m_oTransformMap.clear();
     m_oRelAggregates.clear();
-    delete m_pWriter; m_pWriter = nullptr;
 }
 
 gfc::engine::EntityRef GfcTransform::write(gfc::engine::EntityRef nSrcRef, DestEntityPtr& pDestEntity)

@@ -19,7 +19,13 @@ bool CWriter::open( const std::wstring& sFileName, const std::wstring& sFormatTy
 {
     close();
     m_pImp = (CWriterImp*)CWriterImp::GetFactory()->Create(sFormatType);
-    return m_pImp->open(sFileName, m_sProductCode, m_sVersion);
+    auto bResult = m_pImp->open(sFileName, m_sProductCode, m_sVersion);
+    if (!bResult)
+    {
+        delete m_pImp; 
+        m_pImp = nullptr;
+    }
+    return bResult;
 }
 
 void CWriter::close()
@@ -30,6 +36,11 @@ void CWriter::close()
         delete m_pImp;
         m_pImp = nullptr;
     }
+}
+
+bool CWriter::isOpen()
+{
+    return m_pImp != nullptr;
 }
 
 EntityRef CWriter::writeEntity( CEntity* pEntity )

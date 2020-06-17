@@ -32,7 +32,9 @@ public:
     gfc::engine::IContainer* container() { return m_pContainer; }
     // 设置转换目标的Schema
     void setSchema(gfc::schema::CModel* pSrcModel, gfc::schema::CModel* pDestModel);
-    bool transform(const std::wstring& sFileName);
+    // 输出
+    void setWriter(gfc::engine::CWriter* pWriter);
+    bool transform();
     gfc::engine::EntityRef transformEntity(gfc::engine::EntityRef nSrc);
 protected:
     virtual void transformProjectPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity) {}

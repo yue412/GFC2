@@ -8,6 +8,7 @@
 #include "GfcSchema/Model.h"
 #include "GfcUtils\GfcTransform30to20.h"
 #include "GfcEngine\Container.h"
+#include "MockWriter.h"
 
 class GfcTransform30to20_Test : public GfcTransform30to20
 {
@@ -54,9 +55,11 @@ TEST(TestGFCTransform, doTransformEntity_entityref)
     gfc::schema::CModel oDestModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC2X0.exp"), &oDestModel);
     oTransform.setSchema(&oSrcModel, &oDestModel);
-    auto result = oTransform.transform(getFullPath(L"3_2.gfc"));
-  //  auto pDestEntity = oTransform.doTransformEntity(gfc::engine::EntityPtr(3, pSrcEntity));
-//    EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
-    //XPECT_STREQ(L"ÖÐ¹ú", pDestEntity->asString(L"Name").c_str());
-    EXPECT_EQ(true, result);
+    gfc::engine::CMockWriter oWriter;
+    oWriter.open(L"test", L"mock");
+    oTransform.setWriter(&oWriter);
+    //auto result = oTransform.transform();
+    auto pDestEntity = oTransform.doTransformEntity(Doc.getEntity(3));
+    EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
+    EXPECT_EQ(1, pDestEntity->asEntityRef(L"Name"));
 }

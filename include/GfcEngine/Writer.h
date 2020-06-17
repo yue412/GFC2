@@ -14,10 +14,11 @@ class GFCENGINE_API CWriter
 {
 public:
     CWriter(const std::wstring& sVersion, const std::wstring& sProductCode = L"");
-    ~CWriter(void);
-    bool open(const std::wstring& sFileName, const std::wstring& sFormatType);
-    void close();
-    EntityRef writeEntity(CEntity* pEntity); 
+    virtual ~CWriter(void);
+    virtual bool open(const std::wstring& sFileName, const std::wstring& sFormatType);
+    virtual void close();
+    virtual bool isOpen();
+    virtual EntityRef writeEntity(CEntity* pEntity);
 private:
     CWriterImp* m_pImp;
     std::wstring m_sVersion;
