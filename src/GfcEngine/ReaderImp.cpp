@@ -7,7 +7,7 @@
 #include "GfcSchema\EntityClass.h"
 #include "GfcEngine\GfcEngineUtils.h"
 #include "GfcEngine\Document.h"
-#include "GfcEngine\Upgrader.h"
+#include "GfcEngine\EntityUpgrader.h"
 #include <algorithm>
 
 GFCENGINE_NAMESPACE_BEGIN

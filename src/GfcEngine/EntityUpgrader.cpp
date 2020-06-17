@@ -1,4 +1,4 @@
-#include "GfcEngine\Upgrader.h"
+#include "GfcEngine\EntityUpgrader.h"
 #include <Windows.h>
 #include <assert.h>
 //#include "glodon\objectbuf\Entity.h"

@@ -9,7 +9,7 @@
 #include "GfcEngine\Converter.h"
 #include "GfcUtils\GfcShapeTransformer.h"
 #include "GfcUtils\GfcElementTransformer.h"
-#include "GfcEngine\Upgrader.h"
+#include "GfcEngine\EntityUpgrader.h"
 #include <memory>
 #include <assert.h>
 

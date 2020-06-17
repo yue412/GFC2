@@ -1,5 +1,5 @@
 #include "gtest\gtest.h"
-#include "Upgrader.h"
+#include "GfcEngine\EntityUpgrader.h"
 #include "GfcSchema/EntityClass.h"
 #include "GfcSchema/EntityAttribute.h"
 #include "GfcSchema/BuildinType.h"
@@ -9,7 +9,7 @@
 
 TEST(TestUpdater, transform_same)
 {
-    gfc::engine::CUpgrader oUpdater;
+    gfc::engine::CEntityUpgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
@@ -40,7 +40,7 @@ TEST(TestUpdater, transform_same)
 
 TEST(TestUpdater, transform_delete)
 {
-    gfc::engine::CUpgrader oUpdater;
+    gfc::engine::CEntityUpgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
@@ -65,7 +65,7 @@ TEST(TestUpdater, transform_delete)
 
 TEST(TestUpdater, transform_add)
 {
-    gfc::engine::CUpgrader oUpdater;
+    gfc::engine::CEntityUpgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
@@ -96,7 +96,7 @@ TEST(TestUpdater, transform_add)
 
 TEST(TestUpdater, transform_exchange)
 {
-    gfc::engine::CUpgrader oUpdater;
+    gfc::engine::CEntityUpgrader oUpdater;
 
     gfc::schema::CClass oFromClass, oToClass;
     gfc::schema::CAttribute* pFromAttrib1 = new gfc::schema::CAttribute();
