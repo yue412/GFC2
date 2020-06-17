@@ -15,7 +15,7 @@ GFCENGINE_NAMESPACE_BEGIN
 
 class CClassCompatibility;
 
-class CModelCompatibility
+class GFCENGINE_API CModelCompatibility
 {
 public:
     CModelCompatibility(void);

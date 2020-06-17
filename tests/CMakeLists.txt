@@ -26,8 +26,7 @@ link_directories(
 	)
 
 FILE(GLOB SRC_FILES "./*.c*" 
-	"../src/GfcUtils/*Compatibility.cpp" 
-	"../src/GfcUtils/Converter.cpp" 
+	"../src/GfcEngine/ConverterImp.cpp" 
 	"../src/GfcEngine/Parser.cpp" 
 	"../src/GfcEngine/Scanner.cpp" 
 	"../src/GfcEngine/Upgrader.cpp"
@@ -38,8 +37,7 @@ FILE(GLOB SRC_FILES "./*.c*"
 	"../src/GfcEngine/FileMap.cpp"
 	) 
 FILE(GLOB HEAD_FILES "./*.h" 
-	"../include/GfcUtils/*Compatibility.h" 
-	"../include/GfcUtils/Converter.h"  
+	"../src/GfcEngine/ConverterImp.h"  
 	"../src/GfcEngine/Parser.h" 
 	"../src/GfcEngine/Scanner.h" 
 	"../src/GfcEngine/Upgrader.h"

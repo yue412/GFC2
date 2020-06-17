@@ -1,39 +1,9 @@
-#ifndef CONVERTER_H
-#define CONVERTER_H
+#ifndef CONVERTERIMP_H
+#define CONVERTERIMP_H
 
-#include "GfcEngine\GfcEngine.h"
-#include <string>
-//#include "AttributeValue.h"
-
-namespace gfc {
-    namespace schema {
-        class CEnumType;
-        class CTypeObject;
-    }
-}
+#include "GfcEngine\Converter.h"
 
 GFCENGINE_NAMESPACE_BEGIN
-
-class CPropValue;
-class CEntity;
-// ‘»Œ¡¥
-class CConverter
-{
-public:
-    CConverter() : m_pNext(nullptr), m_pFrom(nullptr), m_pTo(nullptr){}
-    virtual ~CConverter();
-    virtual void transform(CPropValue* pFrom, CPropValue* pTo);
-    virtual void doTransform(CPropValue* pFrom, CPropValue* pTo) = 0;
-    virtual CConverter* clone() = 0;
-    void setNext(CConverter* pNext);
-    CConverter* next() { return m_pNext; }
-    void init(gfc::schema::CTypeObject* pFrom, gfc::schema::CTypeObject* pTo);
-protected:
-    CConverter* m_pNext;
-    gfc::schema::CTypeObject* m_pFrom;
-    gfc::schema::CTypeObject* m_pTo;
-    CEntity* m_pFromEntity;
-};
 
 class CEmptyConverter : public CConverter
 {
@@ -54,13 +24,6 @@ class CIntToStringConverter : public CConverter
 public:
     virtual void doTransform(CPropValue* pFrom, CPropValue* pTo);
     virtual CConverter* clone() { return new CIntToStringConverter(*this); }
-};
-
-class CEntityRefConverter : public CConverter
-{
-public:
-    virtual void doTransform(CPropValue* pFrom, CPropValue* pTo);
-    virtual CConverter* clone() { return new CEntityRefConverter(*this); }
 };
 
 class CIntConverter : public CConverter
@@ -137,7 +100,6 @@ public:
     virtual void doTransform(CPropValue* pFrom, CPropValue* pTo);
     virtual CConverter* clone() { return new COptionalConverter(*this); }
 };
-
 
 GFCENGINE_NAMESPACE_END
 

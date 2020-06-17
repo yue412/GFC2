@@ -3,7 +3,7 @@
 #include "GfcSchema/EntityClass.h"
 #include "GfcSchema/EntityAttribute.h"
 #include "GfcSchema/BuildinType.h"
-#include "GfcUtils\ClassCompatibility.h"
+#include "GfcEngine\ClassCompatibility.h"
 #include "GfcEngine/PropValue.h"
 #include "GfcEngine\Entity.h"
 

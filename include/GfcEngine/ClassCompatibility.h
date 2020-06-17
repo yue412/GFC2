@@ -16,7 +16,7 @@ GFCENGINE_NAMESPACE_BEGIN
 
 class CAttributeCompatibility;
 
-class CClassCompatibility
+class GFCENGINE_API CClassCompatibility
 {
 public:
     CClassCompatibility(void) {}

@@ -21,4 +21,3 @@ add_library(${PROJECT_NAME} SHARED ${SRC_FILES} ${HEAD_FILES})
 
 target_link_libraries(${PROJECT_NAME} debug GfcSchemad optimized GfcSchema)
 target_link_libraries(${PROJECT_NAME} debug GfcCommond optimized GfcCommon)
-target_link_libraries(${PROJECT_NAME} debug GfcUtilsd optimized GfcUtils)

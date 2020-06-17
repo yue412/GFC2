@@ -1,12 +1,12 @@
 #include "gtest\gtest.h"
-#include "GfcUtils\AttributeCompatibility.h"
+#include "GfcEngine\AttributeCompatibility.h"
 #include "GfcSchema/EntityAttribute.h"
 #include "GfcSchema/BuildinType.h"
 #include "GfcSchema/EnumType.h"
 #include "GfcSchema/EntityClass.h"
-#include "GfcUtils\Converter.h"
+#include "GfcEngine\Converter.h"
 #include "GfcEngine\PropValue.h"
-#include "GfcUtils\ClassCompatibility.h"
+#include "GfcEngine\ClassCompatibility.h"
 
 using namespace gfc::engine;
 

@@ -54,6 +54,7 @@ protected:
     void transformElement(const GfcEntityRefMap& oFloorRefMap);
 protected:
     DestEntityPtr doTransformEntity(SrcEntityPtr& pSrcEntity);
+    std::map<gfc::engine::EntityRef, std::vector<gfc::engine::EntityRef>> m_oRelAggregates;
 private:
     // 处理属性集
     void transformProjectPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity);
@@ -73,12 +74,11 @@ private:
     DestEntityPtr createEntity(const std::wstring& sEntityName);
     gfc::engine::EntityRef write(gfc::engine::EntityRef nSrcRef, DestEntityPtr& pDestEntity);
 
-    std::map<gfc::engine::EntityRef, std::vector<gfc::engine::EntityRef>> m_oRelAggregates;
+    std::map<gfc::engine::EntityRef, gfc::engine::EntityRef> m_oTransformMap;
     gfc::engine::IContainer* m_pContainer;
     gfc::schema::CModel* m_pModel;
     gfc::engine::CModelCompatibility* m_pModelCompatibility;
     gfc::engine::CClassCompatibility* m_pObjectCompatibility;
-    std::map<gfc::engine::EntityRef, gfc::engine::EntityRef> m_oTransformMap;
     gfc::engine::CWriter* m_pWriter;
 };
 

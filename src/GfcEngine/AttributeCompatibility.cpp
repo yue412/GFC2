@@ -1,10 +1,9 @@
-#include "GfcUtils\AttributeCompatibility.h"
+#include "GfcEngine\AttributeCompatibility.h"
 #include "GfcSchema\EntityAttribute.h"
 #include "GfcSchema\TypeObject.h"
-#include "GfcUtils\Converter.h"
 #include "GfcSchema\EnumType.h"
 #include "GfcSchema\EntityClass.h"
-
+#include "ConverterImp.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 

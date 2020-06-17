@@ -1,5 +1,6 @@
 #include "gtest\gtest.h"
-#include "GfcUtils\Converter.h"
+#include "GfcEngine\Converter.h"
+#include "ConverterImp.h"
 #include "GfcSchema/EnumType.h"
 #include "GfcEngine\PropValue.h"
 #include "GfcSchema\BuildinType.h"

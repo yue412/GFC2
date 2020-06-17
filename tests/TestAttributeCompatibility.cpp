@@ -1,10 +1,10 @@
 #include "gtest\gtest.h"
-#include "AttributeCompatibility.h"
+#include "GfcEngine\AttributeCompatibility.h"
 #include "GfcSchema/EntityAttribute.h"
 #include "GfcSchema/BuildinType.h"
 #include "GfcSchema/EnumType.h"
 #include "GfcSchema/EntityClass.h"
-#include "Converter.h"
+#include "GfcEngine\Converter.h"
 #include "GfcEngine\Property.h"
 #include "GfcEngine\PropValue.h"
 

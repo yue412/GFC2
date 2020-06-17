@@ -6,34 +6,34 @@
 //#include "Classes\Gfc2EdgeData.h"
 #include "Common.h"
 #include "GfcSchema/Model.h"
-#include "GfcUtils\GfcTransform30to20.h"
+#include "GfcUtils\GfcTransform.h"
 #include "GfcEngine\Container.h"
 #include "MockWriter.h"
 
-class GfcTransform30to20_Test : public GfcTransform30to20
+class GfcTransform30to20_Test : public GfcTransform
 {
 public:
-    GfcTransform30to20_Test() : GfcTransform30to20(nullptr) {}
-    GfcTransform30to20_Test(gfc::engine::IContainer* pContainer) : GfcTransform30to20(pContainer) {}
+    GfcTransform30to20_Test() : GfcTransform(nullptr) {}
+    GfcTransform30to20_Test(gfc::engine::IContainer* pContainer) : GfcTransform(pContainer) {}
     DestEntityPtr doTransformEntity(SrcEntityPtr& pSrcEntity) {
-        return GfcTransform30to20::doTransformEntity(pSrcEntity);
+        return GfcTransform::doTransformEntity(pSrcEntity);
     }
     virtual DestEntityPtr doTransformProject(SrcEntityPtr& pSrcEntity) {
-        return GfcTransform30to20::doTransformProject(pSrcEntity);
+        return GfcTransform::doTransformProject(pSrcEntity);
     }
     virtual DestEntityPtr doTransformBuilding(SrcEntityPtr& pSrcEntity) {
-        return GfcTransform30to20::doTransformBuilding(pSrcEntity);
+        return GfcTransform::doTransformBuilding(pSrcEntity);
     }
     virtual DestEntityPtr doTransformFloor(SrcEntityPtr& pSrcEntity) {
-        return GfcTransform30to20::doTransformFloor(pSrcEntity);
+        return GfcTransform::doTransformFloor(pSrcEntity);
     }
     GfcEntityRefMap transformBuilding(gfc::engine::EntityRef nProjectRef)
     {
-        return GfcTransform30to20::transformBuilding(nProjectRef);
+        return GfcTransform::transformBuilding(nProjectRef);
     }
     GfcEntityRefMap transformFloor(const GfcEntityRefMap& oBuildingRefMap)
     {
-        return GfcTransform30to20::transformFloor(oBuildingRefMap);
+        return GfcTransform::transformFloor(oBuildingRefMap);
     }
     std::map<gfc::engine::EntityRef, std::vector<gfc::engine::EntityRef>>& getRelAggregates() { return m_oRelAggregates; }
 };

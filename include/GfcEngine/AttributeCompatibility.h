@@ -17,7 +17,7 @@ GFCENGINE_NAMESPACE_BEGIN
 
 class CConverter;
 
-struct TypeCompatibility
+struct GFCENGINE_API TypeCompatibility
 {
     TypeCompatibility() : isCompatibility(false), converter(nullptr) {}
     TypeCompatibility(bool bIsCompatibility, CConverter* pConverter): isCompatibility(bIsCompatibility), converter(pConverter) {}
@@ -25,7 +25,7 @@ struct TypeCompatibility
     CConverter* converter;
 };
 
-class CAttributeCompatibility
+class GFCENGINE_API CAttributeCompatibility
 {
 public:
     CAttributeCompatibility() : m_bIsCompatible(false), m_pConverter(nullptr), m_nToIndex(-1){};

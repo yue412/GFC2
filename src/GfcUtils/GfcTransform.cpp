@@ -3,10 +3,10 @@
 #include "GfcSchema\Model.h"
 #include "GfcEngine\GfcEngineUtils.h"
 #include "GfcEngine\PropValue.h"
-#include "GfcUtils\ModelCompatibility.h"
-#include "GfcUtils\ClassCompatibility.h"
-#include "GfcUtils\AttributeCompatibility.h"
-#include "GfcUtils\Converter.h"
+#include "GfcEngine\ModelCompatibility.h"
+#include "GfcEngine\ClassCompatibility.h"
+#include "GfcEngine\AttributeCompatibility.h"
+#include "GfcEngine\Converter.h"
 #include "GfcUtils\GfcShapeTransformer.h"
 #include "GfcUtils\GfcElementTransformer.h"
 #include <memory>
@@ -25,7 +25,7 @@ public:
     }
 };
 
-class CNewEntityRefConverter : public gfc::engine::CEntityRefConverter
+class CNewEntityRefConverter : public gfc::engine::CConverter
 {
 public:
     CNewEntityRefConverter(GfcTransform* pOwner): m_pOwner(pOwner){}
