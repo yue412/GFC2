@@ -19,7 +19,7 @@ GFCENGINE_NAMESPACE_BEGIN
 class CDocument;
 class CFileMap;
 struct EntityInfo;
-class CUpgrader;
+class CEntityUpgrader;
 
 template<class T> class CContainerImp;
 
@@ -50,7 +50,7 @@ protected:
     gfc::schema::CModel* schema(); 
 
     CFileMap* m_pFileMap;
-    CUpgrader* m_pUpgrader;
+    CEntityUpgrader* m_pUpgrader;
     bool m_bUseStaticClass;
 private:
     //void sort();

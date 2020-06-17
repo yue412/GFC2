@@ -7,7 +7,7 @@
 #include "GfcSchema\EntityClass.h"
 #include "GfcEngine\GfcEngineUtils.h"
 #include "GfcEngine\Document.h"
-#include "Upgrader.h"
+#include "GfcEngine\Upgrader.h"
 #include <algorithm>
 
 GFCENGINE_NAMESPACE_BEGIN
@@ -48,7 +48,7 @@ void CReaderImp::initUpgrader()
             // 版本不同，需要升级或降级
             if (!openFileModel(sFileVer))
                 return;
-            m_pUpgrader = new CUpgrader;
+            m_pUpgrader = new CEntityUpgrader;
             m_pUpgrader->init(m_pModel, m_pFileModel);
         }
     }

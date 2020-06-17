@@ -1,4 +1,4 @@
-#include "Upgrader.h"
+#include "GfcEngine\Upgrader.h"
 #include <Windows.h>
 #include <assert.h>
 //#include "glodon\objectbuf\Entity.h"
@@ -16,38 +16,41 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-CUpgrader::~CUpgrader()
+CEntityUpgrader::~CEntityUpgrader()
 {
     clear();
 }
 
-void CUpgrader::init(gfc::schema::CModel* pModel, gfc::schema::CModel* pFileModel)
+void CEntityUpgrader::init(gfc::schema::CModel* pDest, gfc::schema::CModel* pSrc)
 {
     clear();
-    m_pModel = pModel;
-    m_pFileModel = pFileModel;
-    if (pModel && pFileModel)
+    m_pDestModel = pDest;
+    m_pSrcModel = pSrc;
+    if (pDest && pSrc)
     {
         m_pModelCompatibility = new CModelCompatibility;
-        m_pModelCompatibility->init(pFileModel, pModel);
+        m_pModelCompatibility->init(pSrc, pDest);
     }
 }
 
-CEntity* CUpgrader::update(CEntity* pEntity)
+CEntity* CEntityUpgrader::update(CEntity* pEntity)
 {
     auto pClassCompatibility = m_pModelCompatibility->find(pEntity->entityName());
     if (pClassCompatibility == nullptr)
     {
-        // no read
-        return nullptr;
+        pClassCompatibility = m_pModelCompatibility->find(pEntity->getSchema()->getBaseType()->getName());
+        if (pClassCompatibility == nullptr)
+            return nullptr;
     }
-    auto pNewEntity = CEngineUtils::createEntity(m_pModel, pEntity->entityName());
+    auto pNewEntity = CEngineUtils::createEntity(m_pDestModel, pEntity->entityName());
     transform(pClassCompatibility, pEntity, pNewEntity);
     return pNewEntity;
 }
 
-void CUpgrader::transform(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity)
+void CEntityUpgrader::transform(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity)
 {
+    if (nullptr == pClassCompatibility)
+        return;
     for (int i = 0; i < pClassCompatibility->getCount(); i++)
     {
         auto pAttributeCompatibility = pClassCompatibility->getCompatibilityAttribute(i);
@@ -62,7 +65,7 @@ void CUpgrader::transform(CClassCompatibility* pClassCompatibility, CEntity* pSr
     }
 }
 
-void CUpgrader::clear()
+void CEntityUpgrader::clear()
 {
     delete m_pModelCompatibility; m_pModelCompatibility = nullptr;
 }

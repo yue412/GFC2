@@ -13,6 +13,7 @@ namespace gfc {
         class CEntity;
         class CModelCompatibility;
         class CClassCompatibility;
+        class CEntityUpgrader;
     }
     namespace schema {
         class CModel;
@@ -68,8 +69,6 @@ private:
     std::shared_ptr<GfcShapeTransformer> getShapeTransformer(const std::wstring& sName);
     std::shared_ptr<GfcElementTransformer> getElementTransformer(const std::wstring& sTypeName);
     void clear();
-    void transformEntity(gfc::engine::CClassCompatibility* pClassCompatibility,
-        gfc::engine::CEntity* pSrcEntity, gfc::engine::CEntity* pDestEntity);
     void writeRelAggregates();
     DestEntityPtr createEntity(const std::wstring& sEntityName);
     gfc::engine::EntityRef write(gfc::engine::EntityRef nSrcRef, DestEntityPtr& pDestEntity);
@@ -77,9 +76,9 @@ private:
     std::map<gfc::engine::EntityRef, gfc::engine::EntityRef> m_oTransformMap;
     gfc::engine::IContainer* m_pContainer;
     gfc::schema::CModel* m_pModel;
-    gfc::engine::CModelCompatibility* m_pModelCompatibility;
     gfc::engine::CClassCompatibility* m_pObjectCompatibility;
     gfc::engine::CWriter* m_pWriter;
+    gfc::engine::CEntityUpgrader* m_pEntityUpgrader;
 };
 
 #endif // GFCTRANSFORM_H

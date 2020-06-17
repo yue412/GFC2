@@ -18,19 +18,20 @@ class CModelCompatibility;
 class CClassCompatibility;
 class CEntity;
 
-class CUpgrader
+class GFCENGINE_API CEntityUpgrader
 {
 public:
-    CUpgrader() : m_pModelCompatibility(nullptr) {}
-    ~CUpgrader();
-    void init(gfc::schema::CModel* pModel, gfc::schema::CModel* pFileModel);
+    CEntityUpgrader() : m_pModelCompatibility(nullptr) {}
+    ~CEntityUpgrader();
+    void init(gfc::schema::CModel* pDest, gfc::schema::CModel* pSrc);
     CEntity* update(CEntity* pEntity);
     // for test
     void transform(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity);
+    CModelCompatibility* model() { return m_pModelCompatibility; }
 private:
     void clear();
-    gfc::schema::CModel* m_pModel;
-    gfc::schema::CModel* m_pFileModel;
+    gfc::schema::CModel* m_pDestModel;
+    gfc::schema::CModel* m_pSrcModel;
     CModelCompatibility* m_pModelCompatibility;
 };
 

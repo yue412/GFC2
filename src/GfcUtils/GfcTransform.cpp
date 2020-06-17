@@ -9,6 +9,7 @@
 #include "GfcEngine\Converter.h"
 #include "GfcUtils\GfcShapeTransformer.h"
 #include "GfcUtils\GfcElementTransformer.h"
+#include "GfcEngine\Upgrader.h"
 #include <memory>
 #include <assert.h>
 
@@ -42,14 +43,14 @@ private:
     GfcTransform* m_pOwner;
 };
 
-GfcTransform::GfcTransform(gfc::engine::IContainer * pContainer): m_pContainer(pContainer), m_pWriter(nullptr), m_pModel(nullptr), m_pObjectCompatibility(nullptr)
+GfcTransform::GfcTransform(gfc::engine::IContainer * pContainer): m_pContainer(pContainer), m_pWriter(nullptr), m_pModel(nullptr), m_pObjectCompatibility(nullptr), m_pEntityUpgrader(nullptr)
 {
-    m_pModelCompatibility = new gfc::engine::CModelCompatibility();
+    m_pEntityUpgrader = new gfc::engine::CEntityUpgrader;
 }
 
 GfcTransform::~GfcTransform()
 {
-    delete m_pModelCompatibility;
+    delete m_pEntityUpgrader;
     clear();
 }
 
@@ -57,12 +58,12 @@ void GfcTransform::setSchema(gfc::schema::CModel* pSrcModel, gfc::schema::CModel
 {
     assert(pSrcModel);
     assert(pDestModel);
-    m_pModelCompatibility->init(pSrcModel, pDestModel);
+    m_pEntityUpgrader->init(pDestModel, pSrcModel);
     changeIDConverter(L"Gfc2Project");
     changeIDConverter(L"Gfc2Building");
     changeIDConverter(L"Gfc2Floor");
     changeEntityRefConverter();
-    m_pObjectCompatibility = m_pModelCompatibility->find(L"Gfc2Object");
+    m_pObjectCompatibility = m_pEntityUpgrader->model()->find(L"Gfc2Object");
     m_pModel = pDestModel;
 }
 
@@ -175,7 +176,7 @@ GfcTransform::DestEntityPtr GfcTransform::doTransformElement(SrcEntityPtr & pSrc
     if (pElementTransformer)
     {
         auto pNewElement = createEntity(pElementTransformer->elementName());
-        transformEntity(m_pObjectCompatibility, pSrcEntity.get(), pNewElement.get());
+        m_pEntityUpgrader->transform(m_pObjectCompatibility, pSrcEntity.get(), pNewElement.get());
         std::vector<SrcEntityPtr> oPropertySetList;
         getPropertySetList(pSrcEntity.ref(), oPropertySetList);
         pElementTransformer->transformPropertySet(pSrcEntity, oPropertySetList, pNewElement);
@@ -222,37 +223,7 @@ GfcTransform::DestEntityPtr GfcTransform::createEntity(const std::wstring & sEnt
 
 GfcTransform::DestEntityPtr GfcTransform::doTransformEntity(SrcEntityPtr& pSrcEntity)
 {
-  //  pSrcEntity->getSchema()->getBaseType()->getName
-    auto pClassCompatibility = m_pModelCompatibility->find(pSrcEntity->entityName());
-    if (pClassCompatibility == nullptr)
-    {
-        // no read
-        pClassCompatibility = m_pModelCompatibility->find(pSrcEntity->getSchema()->getBaseType()->getName());
-        if (pClassCompatibility == nullptr)
-            return nullptr;
-    }
-    auto pNewEntity = createEntity(pSrcEntity->entityName());
-    transformEntity(pClassCompatibility, pSrcEntity.get(), pNewEntity.get());
-    return pNewEntity;
-}
-
-void GfcTransform::transformEntity(gfc::engine::CClassCompatibility* pClassCompatibility,
-    gfc::engine::CEntity* pSrcEntity, gfc::engine::CEntity* pDestEntity)
-{
-    if (nullptr == pClassCompatibility)
-        return;
-    for (int i = 0; i < pClassCompatibility->getCount(); i++)
-    {
-        auto pAttributeCompatibility = pClassCompatibility->getCompatibilityAttribute(i);
-        int  nIndex = pAttributeCompatibility->toIndex();
-        auto pConverter = pAttributeCompatibility->converter();
-        if (nIndex != -1 && pConverter && i < (int)pSrcEntity->getPropCount())
-        {
-            auto pSrcValue = pSrcEntity->getProps(i)->value();
-            auto pDestValue = pDestEntity->getProps(nIndex)->value();
-            pConverter->transform(pSrcValue, pDestValue);
-        }
-    }
+    return DestEntityPtr(m_pEntityUpgrader->update(pSrcEntity.get()));
 }
 
 gfc::engine::EntityRef GfcTransform::transformProject()
@@ -379,7 +350,7 @@ void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
 
 void GfcTransform::changeIDConverter(const std::wstring sEntityName)
 {
-    auto pClassCompatibility = m_pModelCompatibility->find(sEntityName);
+    auto pClassCompatibility = m_pEntityUpgrader->model()->find(sEntityName);
     if (pClassCompatibility)
     {
         for (int i = 0; i < pClassCompatibility->getCount(); ++i)
@@ -395,9 +366,9 @@ void GfcTransform::changeIDConverter(const std::wstring sEntityName)
 
 void GfcTransform::changeEntityRefConverter()
 {
-    for (int i = 0; i < m_pModelCompatibility->getCount(); i++)
+    for (int i = 0; i < m_pEntityUpgrader->model()->getCount(); i++)
     {
-        auto pClass = m_pModelCompatibility->getItems(i);
+        auto pClass = m_pEntityUpgrader->model()->getItems(i);
         for (int j = 0; j < pClass->getCount(); j++)
         {
             auto pAttribte = pClass->getCompatibilityAttribute(j);
