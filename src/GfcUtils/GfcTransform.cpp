@@ -102,6 +102,42 @@ gfc::engine::EntityRef GfcTransform::transformEntity(gfc::engine::EntityRef nSrc
         return itr->second;
 }
 
+GfcTransform::DestEntityPtr GfcTransform::doTransformProject(SrcEntityPtr & pSrcEntity)
+{
+    auto pNewProject = doTransformEntity(pSrcEntity);
+    if (pNewProject)
+    {
+        std::vector<SrcEntityPtr> oPropertySetList;
+        getPropertySetList(pSrcEntity.ref(), oPropertySetList);
+        transformProjectPropertySet(pSrcEntity, oPropertySetList, pNewProject);
+    }
+    return pNewProject;
+}
+
+GfcTransform::DestEntityPtr GfcTransform::doTransformBuilding(SrcEntityPtr & pSrcEntity)
+{
+    auto pNewBuilding = doTransformEntity(pSrcEntity);
+    if (pNewBuilding)
+    {
+        std::vector<SrcEntityPtr> oPropertySetList;
+        getPropertySetList(pSrcEntity.ref(), oPropertySetList);
+        transformBuildingPropertySet(pSrcEntity, oPropertySetList, pNewBuilding);
+    }
+    return pNewBuilding;
+}
+
+GfcTransform::DestEntityPtr GfcTransform::doTransformFloor(SrcEntityPtr & pSrcEntity)
+{
+    auto pNewFloor = doTransformEntity(pSrcEntity);
+    if (pNewFloor)
+    {
+        std::vector<SrcEntityPtr> oPropertySetList;
+        getPropertySetList(pSrcEntity.ref(), oPropertySetList);
+        transformFloorPropertySet(pSrcEntity, oPropertySetList, pNewFloor);
+    }
+    return pNewFloor;
+}
+
 GfcTransform::DestEntityPtr GfcTransform::createEntity(const std::wstring & sEntityName)
 {
     return DestEntityPtr(gfc::engine::CEngineUtils::createEntity(m_pModel, sEntityName));
@@ -149,12 +185,9 @@ gfc::engine::EntityRef GfcTransform::transformProject()
     {
         auto pProject = pItr->current();
         
-        auto pNewProject = doTransformEntity(pProject);
+        auto pNewProject = doTransformProject(pProject);
         if (pNewProject)
         {
-            std::vector<SrcEntityPtr> oPropertySetList;
-            getPropertySetList(pProject.ref(), oPropertySetList);
-            transformProjectPropertySet(pProject, oPropertySetList, pNewProject);
             nProjectRef = write(pProject.ref(), pNewProject);
         }
     }
@@ -173,12 +206,9 @@ GfcTransform::GfcEntityRefMap GfcTransform::transformBuilding(gfc::engine::Entit
     while (!pItr->isDone())
     {
         auto pBuilding = pItr->current();
-        auto pNewBuilding = doTransformEntity(pBuilding);
+        auto pNewBuilding = doTransformBuilding(pBuilding);
         if (pNewBuilding)
         {
-            std::vector<SrcEntityPtr> oPropertySetList;
-            getPropertySetList(pBuilding.ref(), oPropertySetList);
-            transformBuildingPropertySet(pBuilding, oPropertySetList, pNewBuilding);
             auto nBuildingRef = write(pBuilding.ref(), pNewBuilding);
             oResult.insert(std::make_pair(pBuilding.ref(), nBuildingRef));
             addRelAggregates(nProjectRef, nBuildingRef);
@@ -208,13 +238,9 @@ GfcTransform::GfcEntityRefMap GfcTransform::transformFloor(const GfcEntityRefMap
                 auto pFloor = pAggregate->getEntity(pValue, i);
                 if (pFloor->entityName() != L"Gfc2Floor")
                     continue;
-                auto pNewFloor = doTransformEntity(pFloor);
+                auto pNewFloor = doTransformFloor(pFloor);
                 if (pNewFloor)
                 {
-                    std::vector<SrcEntityPtr> oPropertySetList;
-                    getPropertySetList(pFloor.ref(), oPropertySetList);
-                    transformFloorPropertySet(pFloor, oPropertySetList, pNewFloor);
-
                     auto nFloorRef = write(pFloor.ref(), pNewFloor);
                     oResult.insert(std::make_pair(pFloor.ref(), nFloorRef));
                     addRelAggregates(itr->second, nFloorRef);
@@ -245,8 +271,8 @@ void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
                 auto pElement = pAggregate->getEntity(pValue, i);
                 if (pElement->entityName() != L"Gfc2Element")
                     continue;
-                /*
                 auto pNewShape = doTransformShape(pElement);
+                /*
                 auto pNewElement = doTransformElement(pElement);
                 // todo
                 pNewElement->setAsEntityRef(L"Shape", m_pWriter->writeEntity(pNewShape.get()));

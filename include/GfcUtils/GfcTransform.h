@@ -37,23 +37,28 @@ public:
     bool transform();
     gfc::engine::EntityRef transformEntity(gfc::engine::EntityRef nSrc);
 protected:
+    virtual DestEntityPtr doTransformProject(SrcEntityPtr& pSrcEntity);
+    virtual DestEntityPtr doTransformBuilding(SrcEntityPtr& pSrcEntity);
+    virtual DestEntityPtr doTransformFloor(SrcEntityPtr& pSrcEntity);
+protected:
     virtual void transformProjectPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity) {}
     virtual void transformBuildingPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity) {}
     virtual void transformFloorPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity) {}
+protected:
     virtual DestEntityPtr doTransformElement(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList) = 0;
     virtual DestEntityPtr doTransformShape(SrcEntityPtr& pSrcEntity) = 0;
     virtual void writeRelAggregates() = 0;
     DestEntityPtr createEntity(const std::wstring& sEntityName);
-    gfc::engine::EntityRef write(gfc::engine::EntityRef nSrcRef, DestEntityPtr& pDestEntity);
     DestEntityPtr doTransformEntity(SrcEntityPtr& pSrcEntity);
-
-    std::map<gfc::engine::EntityRef, std::vector<gfc::engine::EntityRef>> m_oRelAggregates;
-private:
+    gfc::engine::EntityRef write(gfc::engine::EntityRef nSrcRef, DestEntityPtr& pDestEntity);
+protected:
     gfc::engine::EntityRef transformProject();
     GfcEntityRefMap transformBuilding(gfc::engine::EntityRef nProjectRef);
     GfcEntityRefMap transformFloor(const GfcEntityRefMap& oBuildingRefMap);
     void transformElement(const GfcEntityRefMap& oFloorRefMap);
 
+    std::map<gfc::engine::EntityRef, std::vector<gfc::engine::EntityRef>> m_oRelAggregates;
+private:
     void changeIDConverter(const std::wstring sEntityName);
     void changeEntityRefConverter();
     void addRelAggregates(gfc::engine::EntityRef nRelatingObject, gfc::engine::EntityRef nRelatedObject);
