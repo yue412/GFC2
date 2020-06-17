@@ -19,6 +19,9 @@ namespace gfc {
     }
 }
 
+class GfcElementTransformer;
+class GfcShapeTransformer;
+
 class GfcTransform
 {
 public:
@@ -37,39 +40,44 @@ public:
     bool transform();
     gfc::engine::EntityRef transformEntity(gfc::engine::EntityRef nSrc);
 protected:
-    virtual DestEntityPtr doTransformProject(SrcEntityPtr& pSrcEntity);
-    virtual DestEntityPtr doTransformBuilding(SrcEntityPtr& pSrcEntity);
-    virtual DestEntityPtr doTransformFloor(SrcEntityPtr& pSrcEntity);
+    // 转换单个实体
+    DestEntityPtr doTransformProject(SrcEntityPtr& pSrcEntity);
+    DestEntityPtr doTransformBuilding(SrcEntityPtr& pSrcEntity);
+    DestEntityPtr doTransformFloor(SrcEntityPtr& pSrcEntity);
+    DestEntityPtr doTransformShape(SrcEntityPtr& pSrcEntity);
+    DestEntityPtr doTransformElement(SrcEntityPtr& pSrcEntity);
 protected:
-    virtual void transformProjectPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity) {}
-    virtual void transformBuildingPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity) {}
-    virtual void transformFloorPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity) {}
-protected:
-    virtual DestEntityPtr doTransformElement(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList) = 0;
-    virtual DestEntityPtr doTransformShape(SrcEntityPtr& pSrcEntity) = 0;
-    virtual void writeRelAggregates() = 0;
-    DestEntityPtr createEntity(const std::wstring& sEntityName);
-    DestEntityPtr doTransformEntity(SrcEntityPtr& pSrcEntity);
-    gfc::engine::EntityRef write(gfc::engine::EntityRef nSrcRef, DestEntityPtr& pDestEntity);
-protected:
+    // 转换流程和实体间关系
     gfc::engine::EntityRef transformProject();
     GfcEntityRefMap transformBuilding(gfc::engine::EntityRef nProjectRef);
     GfcEntityRefMap transformFloor(const GfcEntityRefMap& oBuildingRefMap);
     void transformElement(const GfcEntityRefMap& oFloorRefMap);
-
-    std::map<gfc::engine::EntityRef, std::vector<gfc::engine::EntityRef>> m_oRelAggregates;
+protected:
+    DestEntityPtr doTransformEntity(SrcEntityPtr& pSrcEntity);
+private:
+    // 处理属性集
+    void transformProjectPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity);
+    void transformBuildingPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity);
+    void transformFloorPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity);
 private:
     void changeIDConverter(const std::wstring sEntityName);
     void changeEntityRefConverter();
     void addRelAggregates(gfc::engine::EntityRef nRelatingObject, gfc::engine::EntityRef nRelatedObject);
     void getPropertySetList(gfc::engine::EntityRef nRef, std::vector<SrcEntityPtr>& oList);
+    std::shared_ptr<GfcShapeTransformer> getShapeTransformer(const std::wstring& sName);
+    std::shared_ptr<GfcElementTransformer> getElementTransformer(const std::wstring& sTypeName);
     void clear();
     void transformEntity(gfc::engine::CClassCompatibility* pClassCompatibility,
         gfc::engine::CEntity* pSrcEntity, gfc::engine::CEntity* pDestEntity);
+    void writeRelAggregates();
+    DestEntityPtr createEntity(const std::wstring& sEntityName);
+    gfc::engine::EntityRef write(gfc::engine::EntityRef nSrcRef, DestEntityPtr& pDestEntity);
 
+    std::map<gfc::engine::EntityRef, std::vector<gfc::engine::EntityRef>> m_oRelAggregates;
     gfc::engine::IContainer* m_pContainer;
     gfc::schema::CModel* m_pModel;
     gfc::engine::CModelCompatibility* m_pModelCompatibility;
+    gfc::engine::CClassCompatibility* m_pObjectCompatibility;
     std::map<gfc::engine::EntityRef, gfc::engine::EntityRef> m_oTransformMap;
     gfc::engine::CWriter* m_pWriter;
 };

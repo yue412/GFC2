@@ -18,7 +18,7 @@
 #define GFCENGINE_DEC_FACTORY(className,factoryType,classKeyType) \
 public: \
     typedef classKeyType RegKeyType;\
-	typedef CObjectFactory<RegKeyType> CObjectFactory;\
+	typedef gfc::engine::CObjectFactory<RegKeyType> CObjectFactory;\
     class CRegClearHelper \
     {\
     public:\

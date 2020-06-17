@@ -7,6 +7,8 @@
 #include "GfcUtils\ClassCompatibility.h"
 #include "GfcUtils\AttributeCompatibility.h"
 #include "GfcUtils\Converter.h"
+#include "GfcUtils\GfcShapeTransformer.h"
+#include "GfcUtils\GfcElementTransformer.h"
 #include <memory>
 #include <assert.h>
 
@@ -40,7 +42,7 @@ private:
     GfcTransform* m_pOwner;
 };
 
-GfcTransform::GfcTransform(gfc::engine::IContainer * pContainer): m_pContainer(pContainer), m_pWriter(nullptr), m_pModel(nullptr)
+GfcTransform::GfcTransform(gfc::engine::IContainer * pContainer): m_pContainer(pContainer), m_pWriter(nullptr), m_pModel(nullptr), m_pObjectCompatibility(nullptr)
 {
     m_pModelCompatibility = new gfc::engine::CModelCompatibility();
 }
@@ -60,6 +62,7 @@ void GfcTransform::setSchema(gfc::schema::CModel* pSrcModel, gfc::schema::CModel
     changeIDConverter(L"Gfc2Building");
     changeIDConverter(L"Gfc2Floor");
     changeEntityRefConverter();
+    m_pObjectCompatibility = m_pModelCompatibility->find(L"Gfc2Object");
     m_pModel = pDestModel;
 }
 
@@ -138,6 +141,80 @@ GfcTransform::DestEntityPtr GfcTransform::doTransformFloor(SrcEntityPtr & pSrcEn
     return pNewFloor;
 }
 
+GfcTransform::DestEntityPtr GfcTransform::doTransformShape(SrcEntityPtr & pSrcEntity)
+{
+    auto pShapesValue = pSrcEntity->valueByName(L"Shapes");
+    if (pShapesValue->isNull())
+        return nullptr;
+    // 取第一个
+    auto pElementShape = pSrcEntity->getEntity(pShapesValue, 0);
+    if (nullptr == pElementShape)
+        return nullptr;
+    auto pShape = pElementShape->asEntity(L"Shape");
+    if (nullptr == pShape)
+        return nullptr;
+    auto pShapeTransformer = getShapeTransformer(pShape->entityName());
+    assert(pShapeTransformer);
+    if (nullptr == pShapeTransformer)
+        return nullptr;
+    auto sTypeName = pSrcEntity->asEntity(L"Type")->asString(L"Value");
+    auto pElementTransformer = getElementTransformer(sTypeName);
+    assert(pElementTransformer);
+    if (nullptr == pElementTransformer)
+        return nullptr;
+    auto pNewShape = pElementTransformer->transformShape(pShapeTransformer.get(), pShape);
+    if (nullptr == pNewShape)
+        pNewShape = pShapeTransformer->toSolidShape(pShape);
+    return pNewShape;
+}
+
+GfcTransform::DestEntityPtr GfcTransform::doTransformElement(SrcEntityPtr & pSrcEntity)
+{
+    auto sTypeName = pSrcEntity->asEntity(L"Type")->asString(L"Value");
+    auto pElementTransformer = getElementTransformer(sTypeName);
+    if (pElementTransformer)
+    {
+        auto pNewElement = createEntity(pElementTransformer->elementName());
+        transformEntity(m_pObjectCompatibility, pSrcEntity.get(), pNewElement.get());
+        std::vector<SrcEntityPtr> oPropertySetList;
+        getPropertySetList(pSrcEntity.ref(), oPropertySetList);
+        pElementTransformer->transformPropertySet(pSrcEntity, oPropertySetList, pNewElement);
+        return pNewElement;
+    }
+    else
+        return nullptr;
+}
+
+void GfcTransform::transformProjectPropertySet(SrcEntityPtr & pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr & pDestEntity)
+{
+}
+
+void GfcTransform::transformBuildingPropertySet(SrcEntityPtr & pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr & pDestEntity)
+{
+}
+
+void GfcTransform::transformFloorPropertySet(SrcEntityPtr & pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr & pDestEntity)
+{
+}
+
+void GfcTransform::writeRelAggregates()
+{
+    for (auto itr : m_oRelAggregates)
+    {
+        auto pRelAggregates = createEntity(L"Gfc2RelAggregates");
+        pRelAggregates->setAsEntityRef(L"RelatingObject", itr.first);
+        auto pValue = pRelAggregates->valueByName(L"RelatedObjects");
+        if (pValue)
+        {
+            for (auto nRef : itr.second)
+            {
+                pValue->add(new gfc::engine::CEntityRefValue(nRef));
+            }
+        }
+        write(itr.first, pRelAggregates);
+    }
+}
+
 GfcTransform::DestEntityPtr GfcTransform::createEntity(const std::wstring & sEntityName)
 {
     return DestEntityPtr(gfc::engine::CEngineUtils::createEntity(m_pModel, sEntityName));
@@ -162,6 +239,8 @@ GfcTransform::DestEntityPtr GfcTransform::doTransformEntity(SrcEntityPtr& pSrcEn
 void GfcTransform::transformEntity(gfc::engine::CClassCompatibility* pClassCompatibility,
     gfc::engine::CEntity* pSrcEntity, gfc::engine::CEntity* pDestEntity)
 {
+    if (nullptr == pClassCompatibility)
+        return;
     for (int i = 0; i < pClassCompatibility->getCount(); i++)
     {
         auto pAttributeCompatibility = pClassCompatibility->getCompatibilityAttribute(i);
@@ -196,6 +275,20 @@ gfc::engine::EntityRef GfcTransform::transformProject()
 
 void GfcTransform::getPropertySetList(gfc::engine::EntityRef nRef, std::vector<SrcEntityPtr>& oList)
 {
+    assert(false);
+    //todo
+}
+
+std::shared_ptr<GfcShapeTransformer> GfcTransform::getShapeTransformer(const std::wstring & sName)
+{
+    auto pResult = dynamic_cast<GfcShapeTransformer*>(GfcShapeTransformer::GetFactory()->Create(sName));
+    return std::shared_ptr<GfcShapeTransformer>(pResult);
+}
+
+std::shared_ptr<GfcElementTransformer> GfcTransform::getElementTransformer(const std::wstring & sTypeName)
+{
+    auto pResult = dynamic_cast<GfcElementTransformer*>(GfcElementTransformer::GetFactory()->Create(sTypeName));
+    return std::shared_ptr<GfcElementTransformer>(pResult);
 }
 
 GfcTransform::GfcEntityRefMap GfcTransform::transformBuilding(gfc::engine::EntityRef nProjectRef)
@@ -272,13 +365,12 @@ void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
                 if (pElement->entityName() != L"Gfc2Element")
                     continue;
                 auto pNewShape = doTransformShape(pElement);
-                /*
+                if (nullptr == pNewShape)
+                    continue;
                 auto pNewElement = doTransformElement(pElement);
-                // todo
                 pNewElement->setAsEntityRef(L"Shape", m_pWriter->writeEntity(pNewShape.get()));
-                auto nElementRef = m_pWriter->writeEntity(pNewElement.get());
+                auto nElementRef = write(pElement.ref(), pNewElement);
                 addRelAggregates(itr->second, nElementRef);
-                */
             }
         }
         pItr->next();
