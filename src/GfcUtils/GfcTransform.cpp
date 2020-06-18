@@ -151,18 +151,23 @@ GfcTransform::DestEntityPtr GfcTransform::doTransformShape(SrcEntityPtr & pSrcEn
     auto pElementShape = pSrcEntity->getEntity(pShapesValue, 0);
     if (nullptr == pElementShape)
         return nullptr;
+
     auto pShape = pElementShape->asEntity(L"Shape");
     if (nullptr == pShape)
         return nullptr;
+
     auto pShapeTransformer = getShapeTransformer(pShape->entityName());
     assert(pShapeTransformer);
     if (nullptr == pShapeTransformer)
         return nullptr;
+    pShapeTransformer->setOwner(this);
+
     auto sTypeName = pSrcEntity->asEntity(L"Type")->asString(L"Value");
     auto pElementTransformer = getElementTransformer(sTypeName);
     assert(pElementTransformer);
     if (nullptr == pElementTransformer)
         return nullptr;
+
     auto pNewShape = pElementTransformer->transformShape(pShapeTransformer.get(), pShape);
     if (nullptr == pNewShape)
         pNewShape = pShapeTransformer->toSolidShape(pShape);

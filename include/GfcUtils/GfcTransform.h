@@ -40,6 +40,8 @@ public:
     void setWriter(gfc::engine::CWriter* pWriter);
     bool transform();
     gfc::engine::EntityRef transformEntity(gfc::engine::EntityRef nSrc);
+    DestEntityPtr createEntity(const std::wstring& sEntityName);
+    gfc::engine::CEntityUpgrader* upgrader() { return m_pEntityUpgrader; }
 protected:
     // 转换单个实体
     DestEntityPtr doTransformProject(SrcEntityPtr& pSrcEntity);
@@ -70,7 +72,6 @@ private:
     std::shared_ptr<GfcElementTransformer> getElementTransformer(const std::wstring& sTypeName);
     void clear();
     void writeRelAggregates();
-    DestEntityPtr createEntity(const std::wstring& sEntityName);
     gfc::engine::EntityRef write(gfc::engine::EntityRef nSrcRef, DestEntityPtr& pDestEntity);
 
     std::map<gfc::engine::EntityRef, gfc::engine::EntityRef> m_oTransformMap;
