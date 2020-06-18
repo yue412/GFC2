@@ -24,4 +24,13 @@ public:
     virtual void transformPropertySet(gfc::engine::EntityPtr& pSrcEntity, std::vector<gfc::engine::EntityPtr>& oPropertySetList, std::shared_ptr<gfc::engine::CEntity>& pDestEntity) = 0;
 };
 
+class GfcColumnTransformer : public GfcElementTransformer
+{
+    GFCENGINE_DEC_OBJECT(GfcColumnTransformer, GfcElementTransformer)
+public:
+    virtual std::shared_ptr<gfc::engine::CEntity> transformShape(GfcShapeTransformer* pTransformer, gfc::engine::EntityPtr& pShape);
+    virtual std::wstring elementName() { return L"Gfc2Column"; }
+    virtual void transformPropertySet(gfc::engine::EntityPtr& pSrcEntity, std::vector<gfc::engine::EntityPtr>& oPropertySetList, std::shared_ptr<gfc::engine::CEntity>& pDestEntity);
+};
+
 #endif // !GFCSHAPETRANSFORMER_H
