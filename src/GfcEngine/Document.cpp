@@ -87,7 +87,7 @@ bool Document::schemaFilter( gfc::schema::CClass* pSchema, const std::string& nF
 
 std::string Document::normalizeTypeName(const std::string & sTypeName)
 {
-    auto pType = m_pModel->findTypeObject(toWstring(sTypeName)); // done for typedef class
+    auto pType = m_pModel->findTypeObject(ACPToUnicode(sTypeName)); // done for typedef class
     return pType ? toString(pType->getBaseType()->getName()) : "";
 }
 */

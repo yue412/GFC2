@@ -5,7 +5,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-CWriter::CWriter(const std::wstring& sVersion, const std::wstring& sProductCode): m_pImp(NULL), m_sVersion(sVersion), m_sProductCode(sProductCode)
+CWriter::CWriter(const std::wstring& sVersion, const std::wstring& sProductCode, UINT nCodePage): m_pImp(NULL), m_sVersion(sVersion), m_sProductCode(sProductCode), m_nCodePage(nCodePage)
 {
 }
 
@@ -19,10 +19,14 @@ bool CWriter::open( const std::wstring& sFileName, const std::wstring& sFormatTy
 {
     close();
     m_pImp = (CWriterImp*)CWriterImp::GetFactory()->Create(sFormatType);
+    assert(m_pImp);
+    if (nullptr == m_pImp)
+        return false;
+    m_pImp->setCodePage(m_nCodePage);
     auto bResult = m_pImp->open(sFileName, m_sProductCode, m_sVersion);
     if (!bResult)
     {
-        delete m_pImp; 
+        delete m_pImp;
         m_pImp = nullptr;
     }
     return bResult;

@@ -55,41 +55,16 @@ std::wstring LowerString(const std::wstring & sStr)
 }
 
 // 把一个wstring转化为string
-std::string toString(const std::wstring & str)
+std::string UnicodeToACP(const std::wstring & str)
 {
-    // unicode to Ascii
-    //预转换，得到所需空间的大小，这次用的函数和上面名字相反
-    int u8Len = ::WideCharToMultiByte(CP_ACP, NULL, str.c_str(), wcslen(str.c_str()), NULL, 0, NULL, NULL);
-    //同上，分配空间要给'\0'留个空间
-    //UTF8虽然是Unicode的压缩形式，但也是多字节字符串，所以可以以char的形式保存
-    char* szU8 = new char[u8Len + 1];
-    //转换
-    //unicode版对应的strlen是wcslen
-    ::WideCharToMultiByte(CP_ACP, NULL, str.c_str(), wcslen(str.c_str()), szU8, u8Len, NULL, NULL);
-    //最后加上'\0'
-    szU8[u8Len] = '\0';
-    std::string sResult = szU8;
-    delete[] szU8;
-    return sResult;
+    return WStringToMBString(str, CP_ACP);
 }
 
 // 把一个string转化为wstring
-std::wstring toWstring(const std::string& str)
+std::wstring ACPToUnicode(const std::string& str)
 {
-    //Ascii to Unicode
-    //预转换，得到所需空间的大小
-    int wcsLen = ::MultiByteToWideChar(CP_ACP, NULL, str.c_str(), strlen(str.c_str()), NULL, 0);
-    //分配空间要给'\0'留个空间，MultiByteToWideChar不会给'\0'空间
-    wchar_t* wszString = new wchar_t[wcsLen + 1];
-    //转换
-    ::MultiByteToWideChar(CP_ACP, NULL, str.c_str(), strlen(str.c_str()), wszString, wcsLen);
-    //最后加上'\0'
-    wszString[wcsLen] = '\0';
-    std::wstring sResult = wszString;
-    delete[] wszString;
-    return sResult;
+    return MBStringToWString(str, CP_ACP);
 }
-
 
 std::wstring getExePath()
 {
@@ -99,7 +74,7 @@ std::wstring getExePath()
     GetModuleFileName(NULL, exeFullPath, MAX_PATH);
     char *p = /*wcsrchr*/strrchr(exeFullPath, '\\');
     *p = 0x00;
-    return  toWstring(exeFullPath);
+    return  ACPToUnicode(exeFullPath);
 }
 
 bool isRelativePath(const std::wstring & sPath)
@@ -130,36 +105,12 @@ wchar_t * getWC(const char *c)
 
 std::string UnicodeToUtf8(const std::wstring & str)
 {
-    // unicode to UTF8
-    //预转换，得到所需空间的大小，这次用的函数和上面名字相反
-    int u8Len = ::WideCharToMultiByte(CP_UTF8, NULL, str.c_str(), wcslen(str.c_str()), NULL, 0, NULL, NULL);
-    //同上，分配空间要给'\0'留个空间
-    //UTF8虽然是Unicode的压缩形式，但也是多字节字符串，所以可以以char的形式保存
-    char* szU8 = new char[u8Len + 1];
-    //转换
-    //unicode版对应的strlen是wcslen
-    ::WideCharToMultiByte(CP_UTF8, NULL, str.c_str(), wcslen(str.c_str()), szU8, u8Len, NULL, NULL);
-    //最后加上'\0'
-    szU8[u8Len] = '\0';
-    std::string sResult = szU8;
-    delete[] szU8;
-    return sResult;
+    return WStringToMBString(str, CP_UTF8);
 }
 
 std::wstring Utf8ToUnicode(const std::string& str)
 {
-    //UTF8 to Unicode
-    //预转换，得到所需空间的大小
-    int wcsLen = ::MultiByteToWideChar(CP_UTF8, NULL, str.c_str(), strlen(str.c_str()), NULL, 0);
-    //分配空间要给'\0'留个空间，MultiByteToWideChar不会给'\0'空间
-    wchar_t* wszString = new wchar_t[wcsLen + 1];
-    //转换
-    ::MultiByteToWideChar(CP_UTF8, NULL, str.c_str(), strlen(str.c_str()), wszString, wcsLen);
-    //最后加上'\0'
-    wszString[wcsLen] = '\0';
-    std::wstring sResult = wszString;
-    delete[] wszString;
-    return sResult;
+    return MBStringToWString(str, CP_UTF8);
 }
 
 std::fstream & operator<<(std::fstream & out, const std::wstring & s)
@@ -172,6 +123,40 @@ std::fstream & operator<<(std::fstream & out, const wchar_t * s)
 {
     out << UnicodeToUtf8(s);
     return out;
+}
+
+std::string WStringToMBString(const std::wstring & str, UINT nCodePage)
+{
+    // unicode to UTF8
+    //预转换，得到所需空间的大小，这次用的函数和上面名字相反
+    int u8Len = ::WideCharToMultiByte(nCodePage, NULL, str.c_str(), wcslen(str.c_str()), NULL, 0, NULL, NULL);
+    //同上，分配空间要给'\0'留个空间
+    //UTF8虽然是Unicode的压缩形式，但也是多字节字符串，所以可以以char的形式保存
+    char* szU8 = new char[u8Len + 1];
+    //转换
+    //unicode版对应的strlen是wcslen
+    ::WideCharToMultiByte(nCodePage, NULL, str.c_str(), wcslen(str.c_str()), szU8, u8Len, NULL, NULL);
+    //最后加上'\0'
+    szU8[u8Len] = '\0';
+    std::string sResult = szU8;
+    delete[] szU8;
+    return sResult;
+}
+
+std::wstring MBStringToWString(const std::string & str, UINT nCodePage)
+{
+    //Ascii to Unicode
+    //预转换，得到所需空间的大小
+    int wcsLen = ::MultiByteToWideChar(nCodePage, NULL, str.c_str(), strlen(str.c_str()), NULL, 0);
+    //分配空间要给'\0'留个空间，MultiByteToWideChar不会给'\0'空间
+    wchar_t* wszString = new wchar_t[wcsLen + 1];
+    //转换
+    ::MultiByteToWideChar(nCodePage, NULL, str.c_str(), strlen(str.c_str()), wszString, wcsLen);
+    //最后加上'\0'
+    wszString[wcsLen] = '\0';
+    std::wstring sResult = wszString;
+    delete[] wszString;
+    return sResult;
 }
 
 bool fileExists(const std::wstring & sFile)

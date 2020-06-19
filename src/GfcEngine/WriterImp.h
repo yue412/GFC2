@@ -3,6 +3,7 @@
 
 #include <string>
 #include <set>
+#include <Windows.h>
 #include "GfcEngine\Entity.h"
 #include "GfcEngine\GfcEngine.h"
 #include "GfcEngine\Object.h"
@@ -22,9 +23,11 @@ public:
     EntityRef writeEntity(CEntity* pEntity); 
 public:
     void addIgnoreDuplicates(const std::wstring& sEntityName);
+    void setCodePage(UINT nCodePage);
 protected:
     virtual EntityRef doWriteEntity(CEntity* pEntity) = 0;
     EntityRef m_nCount;
+    UINT m_nCodePage;
 private:
     bool inIgnoreDuplicatesEntitySet(const std::wstring& sEntityName);
     std::map<std::wstring, EntityRef> m_oDuplicatesMap;

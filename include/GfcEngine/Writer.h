@@ -3,6 +3,7 @@
 
 #include <string>
 #include <memory>
+#include <Windows.h>
 #include "GfcEngine\Entity.h"
 #include "GfcEngine\Document.h"
 
@@ -13,17 +14,19 @@ class CWriterImp;
 class GFCENGINE_API CWriter
 {
 public:
-    CWriter(const std::wstring& sVersion, const std::wstring& sProductCode = L"");
+    // 一般情况下，CodePage不用设置。只有生成老版本GFC时有用
+    CWriter(const std::wstring& sVersion, const std::wstring& sProductCode = L"", UINT nCodePage = CP_UTF8);
     virtual ~CWriter(void);
     virtual bool open(const std::wstring& sFileName, const std::wstring& sFormatType);
     virtual void close();
     virtual bool isOpen();
     virtual EntityRef writeEntity(CEntity* pEntity);
-    virtual void addIgnoreDuplicates(const std::wstring& sEntityName);
+    void addIgnoreDuplicates(const std::wstring& sEntityName);
 private:
     CWriterImp* m_pImp;
     std::wstring m_sVersion;
     std::wstring m_sProductCode;
+    UINT m_nCodePage;
 };
 
 GFCENGINE_NAMESPACE_END

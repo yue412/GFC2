@@ -22,15 +22,16 @@ protected:
     virtual EntityRef doWriteEntity(CEntity* pEntity);
 private:
     void writeHead(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
+    std::string toString(const std::wstring& str);
     std::fstream* m_pTextStream;
 };
 // ±„”⁄≤‚ ‘
 class CWriterTextUtils
 {
 public:
-    static void writeEntity(std::iostream& out, CEntity* pEntity, EntityRef nRef);
-    static void writeValue(std::iostream& out, gfc::schema::CTypeObject * pType, CPropValue* pValue);
-    static void writeProperty(std::iostream& out, CProperty* pProp);
+    static void writeEntity(std::iostream& out, CEntity* pEntity, EntityRef nRef, UINT nCodePage = CP_UTF8);
+    static void writeValue(std::iostream& out, gfc::schema::CTypeObject * pType, CPropValue* pValue, UINT nCodePage = CP_UTF8);
+    static void writeProperty(std::iostream& out, CProperty* pProp, UINT nCodePage = CP_UTF8);
 };
 
 GFCENGINE_NAMESPACE_END

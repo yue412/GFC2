@@ -4,7 +4,7 @@ GFCENGINE_NAMESPACE_BEGIN
 
 GFCENGINE_IMP_FACTORY(CWriterImp, 0)
 
-CWriterImp::CWriterImp(void): m_nCount(0)
+CWriterImp::CWriterImp(void): m_nCount(0), m_nCodePage(CP_UTF8)
 {
 }
 
@@ -39,6 +39,11 @@ EntityRef CWriterImp::writeEntity(CEntity * pEntity)
 void CWriterImp::addIgnoreDuplicates(const std::wstring & sEntityName)
 {
     m_oIgnoreDuplicatesEntitySet.insert(sEntityName);
+}
+
+void CWriterImp::setCodePage(UINT nCodePage)
+{
+    m_nCodePage = nCodePage;
 }
 
 bool CWriterImp::inIgnoreDuplicatesEntitySet(const std::wstring & sEntityName)

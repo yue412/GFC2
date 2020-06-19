@@ -61,7 +61,7 @@ std::wstring CReaderTextImp::readFileVersion()
         }
     }
     std::replace(sResult.begin(), sResult.end(), L'.', L'X');
-    return toWstring(sResult);
+    return Utf8ToUnicode(sResult);
 }
 
 //string ReaderTextImp::getFileSchema( fstream& in )
@@ -144,7 +144,7 @@ bool CReaderTextImp::getIndex(EntityInfo & oInfo)
         {
             oInfo.id = nId;
             oInfo.pos = nPos;
-            oInfo.type = schema()->findTypeObject(toWstring(sName));
+            oInfo.type = schema()->findTypeObject(Utf8ToUnicode(sName));
             return true;
         }
     }
@@ -162,8 +162,8 @@ CEntity * CReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
         std::wstring sError;
         if (CReaderTextUtils::parseLine(sLine, nId, sName, sContent))
         {
-            pEntity = m_bUseStaticClass ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(toWstring(sName)))
-                : CEngineUtils::createEntity(schema(), toWstring(sName));
+            pEntity = m_bUseStaticClass ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(ACPToUnicode(sName)))
+                : CEngineUtils::createEntity(schema(), Utf8ToUnicode(sName));
             if (pEntity)
             {
                 if (!CReaderTextUtils::parse(sContent, pEntity, sError))
@@ -171,7 +171,7 @@ CEntity * CReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
                     delete pEntity;
                     pEntity = nullptr;
                     // 添加log日志
-                    log(toWstring(sLine) + L" {" + sError + L"}");
+                    log(Utf8ToUnicode(sLine) + L" {" + sError + L"}");
                 }
             }
 
@@ -234,7 +234,7 @@ bool CReaderTextUtils::parse(const std::string& input, CEntity* pEntity, std::ws
     if (!bResult)
     {
         const std::string descript = "字段解析失败!";
-        error = toWstring("\"" + sValue + "\"" + descript);
+        error = Utf8ToUnicode("\"" + sValue + "\"" + descript);
     }
     return bResult;
 }
@@ -514,7 +514,7 @@ bool CReaderTextUtils::parseEnumField(const std::string & input, gfc::schema::CE
     if (input.length() > 1 && input[0] == '.' && input[input.length() - 1] == '.' && pEnumType)
     {
         auto str = input.substr(1, input.length() - 2);
-        auto nIndex = pEnumType->indexOf(toWstring(str));
+        auto nIndex = pEnumType->indexOf(Utf8ToUnicode(str));
         if (nIndex >= 0)
         {
             pValue->setAsInteger(nIndex);

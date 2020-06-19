@@ -47,7 +47,7 @@ CWriterTextImp::~CWriterTextImp(void)
 
 bool CWriterTextImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion)
 {
-    std::string sFile = toString(sFileName);
+    std::string sFile = UnicodeToACP(sFileName);
 	if (-1 != _access(sFile.c_str(), 0))
 	{
 		//É¾³ýÎÄ¼þ
@@ -77,7 +77,7 @@ EntityRef CWriterTextImp::doWriteEntity( CEntity* pEntity )
 {
     if (m_pTextStream)
     {
-        CWriterTextUtils::writeEntity(*m_pTextStream, pEntity, m_nCount);
+        CWriterTextUtils::writeEntity(*m_pTextStream, pEntity, m_nCount, m_nCodePage);
         *m_pTextStream << std::endl;
         return m_nCount++;
     }
@@ -100,24 +100,29 @@ void CWriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring
     *m_pTextStream << "ENDSEC;" << std::endl;
 }
 
-void CWriterTextUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef nRef)
+std::string CWriterTextImp::toString(const std::wstring & str)
 {
-    std::string sName = toString(pEntity->entityName());
+    return WStringToMBString(str, m_nCodePage);
+}
+
+void CWriterTextUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef nRef, UINT nCodePage)
+{
+    std::string sName = WStringToMBString(pEntity->entityName(), nCodePage);
     out << "#" << nRef << "=" << sName << "(";
     if (pEntity->getPropCount() > 0)
     {
         for (int i = 0; i < pEntity->getPropCount() - 1; i++)
         {
             auto pProp = pEntity->getProps(i);
-            writeProperty(out, pProp);
+            writeProperty(out, pProp, nCodePage);
             out << ",";
         }
-        writeProperty(out, pEntity->getProps(pEntity->getPropCount() - 1));
+        writeProperty(out, pEntity->getProps(pEntity->getPropCount() - 1), nCodePage);
     }
     out << ");";
 }
 
-void CWriterTextUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject * pType, CPropValue * pValue)
+void CWriterTextUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject * pType, CPropValue * pValue, UINT nCodePage)
 {
     auto nType = pType->getDataType();
     switch (nType)
@@ -132,7 +137,7 @@ void CWriterTextUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject 
         out << std::setprecision(15) << pValue->asDouble();
         break;
     case gfc::schema::EDT_STRING:
-        out << "'" << transString(UnicodeToUtf8(pValue->asString())).c_str() << "'";
+        out << "'" << transString(WStringToMBString(pValue->asString(), nCodePage)).c_str() << "'";
         break;
     case gfc::schema::EDT_ENUM:
     {
@@ -143,7 +148,7 @@ void CWriterTextUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject 
             auto n = pValue->asInteger() % pEnumType->getEnumCount();
             if (n < 0)
                 n += pEnumType->getEnumCount();
-            str = "." + UnicodeToUtf8(pEnumType->getEnum(n)) + ".";
+            str = "." + WStringToMBString(pEnumType->getEnum(n), nCodePage) + ".";
         }
         out << str.c_str();
     }
@@ -156,7 +161,7 @@ void CWriterTextUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject 
     }
 }
 
-void CWriterTextUtils::writeProperty(std::iostream & out, CProperty * pProp)
+void CWriterTextUtils::writeProperty(std::iostream & out, CProperty * pProp, UINT nCodePage)
 {
     auto pSchema = pProp->schema();
     auto pType = pSchema->getType();
@@ -173,10 +178,10 @@ void CWriterTextUtils::writeProperty(std::iostream & out, CProperty * pProp)
             out << "(";
             for (int j = 0; j < pValue->getCount() - 1; ++j)
             {
-                writeValue(out, pType, pValue->getItems(j));
+                writeValue(out, pType, pValue->getItems(j), nCodePage);
                 out << ",";
             }
-            writeValue(out, pType, pValue->getItems(pValue->getCount() - 1));
+            writeValue(out, pType, pValue->getItems(pValue->getCount() - 1), nCodePage);
             out << ")";
         }
     }
@@ -185,7 +190,7 @@ void CWriterTextUtils::writeProperty(std::iostream & out, CProperty * pProp)
         if (pProp->value()->isNull())
             out << "$";
         else
-            writeValue(out, pType, pProp->value());
+            writeValue(out, pType, pProp->value(), nCodePage);
     }
 
 }
