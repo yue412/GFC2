@@ -93,7 +93,7 @@ void CWriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring
 
     std::stringstream stream;
 	stream<< "HEADER;" << std::endl;
-	stream<<"FILE_DESCRIPTION(('"<< toString(sVersion) <<"'),'');"<< std::endl;
+	stream<<"FILE_DESCRIPTION(('"<< toString(sVersion) <<"'),'" << m_nCodePage << "');"<< std::endl;
 	stream<<"FILE_NAME('"<< toString(sFileName)<<"','"<<charTime<<"',('"<<getUserName()<<"'),('Glodon'),'objectbuf','"<< toString(sProductCode)<<"','');"<< std::endl;
 	stream<<"FILE_SCHEMA(('"<< toString(sVersion) <<"'));"<< std::endl;
 	*m_pTextStream<<stream.str();
