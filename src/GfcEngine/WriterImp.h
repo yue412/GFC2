@@ -2,6 +2,7 @@
 #define WRITERIMP_H
 
 #include <string>
+#include <set>
 #include "GfcEngine\Entity.h"
 #include "GfcEngine\GfcEngine.h"
 #include "GfcEngine\Object.h"
@@ -18,9 +19,16 @@ public:
 
     virtual bool open(const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion) = 0;
     virtual void close() = 0;
-    virtual EntityRef writeEntity(CEntity* pEntity) = 0; 
+    EntityRef writeEntity(CEntity* pEntity); 
+public:
+    void addIgnoreDuplicates(const std::wstring& sEntityName);
 protected:
+    virtual EntityRef doWriteEntity(CEntity* pEntity) = 0;
     EntityRef m_nCount;
+private:
+    bool inIgnoreDuplicatesEntitySet(const std::wstring& sEntityName);
+    std::map<std::wstring, EntityRef> m_oDuplicatesMap;
+    std::set<std::wstring> m_oIgnoreDuplicatesEntitySet;
 };
 
 GFCENGINE_NAMESPACE_END

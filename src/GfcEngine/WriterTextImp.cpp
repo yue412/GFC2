@@ -73,7 +73,7 @@ void CWriterTextImp::close()
     m_nCount = 0;
 }
 
-EntityRef CWriterTextImp::writeEntity( CEntity* pEntity )
+EntityRef CWriterTextImp::doWriteEntity( CEntity* pEntity )
 {
     if (m_pTextStream)
     {
@@ -115,36 +115,6 @@ void CWriterTextUtils::writeEntity(std::iostream & out, CEntity * pEntity, Entit
         writeProperty(out, pEntity->getProps(pEntity->getPropCount() - 1));
     }
     out << ");";
-}
-
-std::string transString(const std::string& sStr)
-{
-    std::string sResult;
-    for(auto itr = sStr.begin(); itr != sStr.end(); ++itr) {
-        switch (*itr)
-        {
-        case '\'':
-            sResult.push_back('\\');
-            sResult.push_back('\'');
-            break;
-        case '\n':
-            sResult.push_back('\\');
-            sResult.push_back('n');
-            break;
-        case '\r':
-            sResult.push_back('\\');
-            sResult.push_back('r');
-            break;
-        case '\\':
-            sResult.push_back('\\');
-            sResult.push_back('\\');
-            break;
-        default:
-            sResult.push_back(*itr);
-            break;
-        }
-    };
-    return sResult;
 }
 
 void CWriterTextUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject * pType, CPropValue * pValue)

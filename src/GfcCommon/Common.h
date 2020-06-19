@@ -33,5 +33,9 @@ std::string rtrim_copy(std::string s);
 // trim from both ends (copying)
 std::string trim_copy(std::string s);
 
+std::string transString(const std::string& sStr);
+std::wstring transString(const std::wstring& sStr);
+
+
 #endif // !COMMON_H
 

@@ -220,3 +220,37 @@ std::string trim_copy(std::string s) {
     return s;
 }
 
+std::string transString(const std::string& sStr)
+{
+    std::string sResult;
+    for (auto itr = sStr.begin(); itr != sStr.end(); ++itr) {
+        switch (*itr)
+        {
+        case '\'':
+            sResult.push_back('\\');
+            sResult.push_back('\'');
+            break;
+        case '\n':
+            sResult.push_back('\\');
+            sResult.push_back('n');
+            break;
+        case '\r':
+            sResult.push_back('\\');
+            sResult.push_back('r');
+            break;
+        case '\\':
+            sResult.push_back('\\');
+            sResult.push_back('\\');
+            break;
+        default:
+            sResult.push_back(*itr);
+            break;
+        }
+    };
+    return sResult;
+}
+
+std::wstring transString(const std::wstring & sStr)
+{
+    return Utf8ToUnicode(transString(UnicodeToUtf8(sStr)));
+}

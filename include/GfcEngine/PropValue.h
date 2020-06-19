@@ -33,12 +33,15 @@ public:
     virtual void setAsDouble(const double& dValue);
     virtual void setAsBoolean(const bool& bValue);
     virtual void setAsEntityRef(const EntityRef& nValue);
+    virtual std::wstring toString() const;
 public:
     virtual void add(CPropValue* pValue) {}
     virtual int getCount() const { return 0; }
-    virtual CPropValue* getItems(int nIndex) { return nullptr; }
+    virtual CPropValue* getItems(int nIndex) const { return nullptr; }
     virtual void setItems(int nIndex, CPropValue* pValue) {}
     virtual void clear() {}
+protected:
+    virtual std::wstring innerToString() const { return L""; }
 };
 
 class GFCENGINE_API CLeafPropValue : public CPropValue
@@ -61,11 +64,13 @@ public:
     virtual bool isNull() const { return getCount() == 0; }
     virtual void add(CPropValue* pValue);
     virtual int getCount() const { return (int)m_oList.size(); }
-    virtual CPropValue* getItems(int nIndex);
+    virtual CPropValue* getItems(int nIndex) const;
     virtual void setItems(int nIndex, CPropValue* pValue);
     virtual void clear();
+protected:
+    virtual std::wstring innerToString() const;
 private:
-    bool inRange(int nIndex);
+    bool inRange(int nIndex) const;
     std::vector<CPropValue*> m_oList;
 };
 
@@ -83,6 +88,8 @@ public:
     //virtual void setAsString(const std::string& sValue);
     virtual void setAsInteger(const int& nValue);
     virtual void setAsBoolean(const bool& bValue);
+protected:
+    virtual std::wstring innerToString() const;
 private:
     bool m_bValue;
 };
@@ -101,6 +108,8 @@ public:
     //virtual void setAsString(const std::string& sValue);
     virtual void setAsInteger(const int& nValue);
     virtual void setAsBoolean(const bool& bValue);
+protected:
+    virtual std::wstring innerToString() const;
 private:
     int m_nValue;
 };
@@ -118,6 +127,8 @@ public:
     virtual void setAsInteger(const int& nValue);
     virtual void setAsDouble(const double& dValue);
     virtual void setAsBoolean(const bool& bValue);
+protected:
+    virtual std::wstring innerToString() const;
 private:
     double m_dValue;
 };
@@ -134,6 +145,8 @@ public:
     //virtual void setAsInteger(const int& nValue);
     //virtual void setAsDouble(const double& dValue);
     //virtual void setAsBoolean(const bool& bValue);
+protected:
+    virtual std::wstring innerToString() const;
 private:
     std::wstring m_sValue;
 };
@@ -147,6 +160,8 @@ public:
     virtual EntityRef asEntityRef() const;
 
     virtual void setAsEntityRef(const EntityRef& nValue);
+protected:
+    virtual std::wstring innerToString() const;
 private:
     EntityRef m_nValue;
 };

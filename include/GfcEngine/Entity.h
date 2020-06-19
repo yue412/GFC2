@@ -77,6 +77,8 @@ public:
     int getArrayCount(CPropValue* pValue) const;
     EntityPtr getEntity(CPropValue* pValue, int nIndex) const;
     bool isNull(CPropValue* pValue, int nIndex) const;
+    // 
+    std::wstring toString() const;
 protected:
     IContainer* getContainer() { return m_pContainer; }
 private:

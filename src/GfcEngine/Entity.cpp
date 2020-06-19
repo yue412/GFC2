@@ -577,4 +577,14 @@ bool CEntity::isNull(CPropValue * pValue, int nIndex) const
     }
 }
 
+std::wstring CEntity::toString() const
+{
+    std::wstring sResult = entityName() + L"#";
+    for (std::size_t i = 0; i < m_pProps->size(); i++)
+    {
+        sResult += (*m_pProps)[i]->value()->toString() + L"@";
+    }
+    return sResult;
+}
+
 GFCENGINE_NAMESPACE_END

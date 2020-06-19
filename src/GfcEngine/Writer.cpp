@@ -53,4 +53,12 @@ EntityRef CWriter::writeEntity( CEntity* pEntity )
     return -1;
 }
 
+void CWriter::addIgnoreDuplicates(const std::wstring & sEntityName)
+{
+    if (m_pImp)
+    {
+        m_pImp->addIgnoreDuplicates(sEntityName);
+    }
+}
+
 GFCENGINE_NAMESPACE_END

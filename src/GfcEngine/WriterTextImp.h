@@ -18,7 +18,8 @@ public:
     virtual ~CWriterTextImp(void);
     virtual bool open(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
     virtual void close();
-    virtual EntityRef writeEntity(CEntity* pEntity); 
+protected:
+    virtual EntityRef doWriteEntity(CEntity* pEntity);
 private:
     void writeHead(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
     std::fstream* m_pTextStream;

@@ -2,12 +2,14 @@
 #include "GfcEngine\Entity.h"
 #include "GfcEngine\EngineException.h"
 #include "GfcEngine\PropValue.h"
+#include "GfcEngine\GfcEngineUtils.h"
 #include "WriterTextImp.h"
 #include "Common.h"
 #include "GfcSchema\BuildinType.h"
 #include "GfcSchema\EntityClass.h"
 #include "GfcSchema\EnumType.h"
 #include "GfcSchema\EntityAttribute.h"
+#include "GfcSchema\Model.h"
 
 TEST(TestWriteTextImp, CWriterTextUtils_writevalue_Integer)
 {
@@ -331,4 +333,46 @@ TEST(TestWriteTextImp, CWriterTextUtils_writeEntity_more_attribute2)
         gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
         EXPECT_STREQ("#101=Gfc2Test(123,.T.,(.abc.,.kkk.,.dtdg.));", ss.str().c_str());
     }
+}
+
+class CMockWriterImp : public gfc::engine::CWriterImp
+{
+public:
+    virtual bool open(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion)
+    {
+        return true;
+    }
+    virtual void close() 
+    {
+
+    }
+protected:
+    virtual gfc::engine::EntityRef doWriteEntity(gfc::engine::CEntity* pEntity) 
+    {
+        return ++m_nCount;
+    }
+};
+
+TEST(TestWriteTextImp, CWriter_addIgnoreDuplicates)
+{
+    CMockWriterImp oWriter;
+    oWriter.addIgnoreDuplicates(L"Gfc2String");
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    auto pStr = std::shared_ptr<gfc::engine::CEntity>(gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String"));
+    pStr->setAsString(L"Value", L"中国");
+    auto nRef = oWriter.writeEntity(pStr.get());
+    auto pStr2 = std::shared_ptr<gfc::engine::CEntity>(gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String"));
+    pStr2->setAsString(L"Value", L"中国");
+    auto nRef2 = oWriter.writeEntity(pStr2.get());
+    auto pStr3 = std::shared_ptr<gfc::engine::CEntity>(gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String"));
+    pStr3->setAsString(L"Value", L"中国1");
+    auto nRef3 = oWriter.writeEntity(pStr3.get());
+    auto pLabel = std::shared_ptr<gfc::engine::CEntity>(gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Label"));
+    pLabel->setAsString(L"Value", L"中国");
+    auto nRef4 = oWriter.writeEntity(pLabel.get());
+    EXPECT_EQ(nRef, nRef2);
+    EXPECT_NE(nRef, nRef3);
+    EXPECT_NE(nRef, nRef4);
+    EXPECT_NE(nRef3, nRef4);
 }

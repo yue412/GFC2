@@ -19,6 +19,7 @@ public:
     virtual void close();
     virtual bool isOpen();
     virtual EntityRef writeEntity(CEntity* pEntity);
+    virtual void addIgnoreDuplicates(const std::wstring& sEntityName);
 private:
     CWriterImp* m_pImp;
     std::wstring m_sVersion;
