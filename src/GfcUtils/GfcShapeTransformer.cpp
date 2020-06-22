@@ -51,7 +51,7 @@ void GfcShapeTransformer::assignShapeData(gfc::engine::EntityPtr pSrc, std::shar
     m_pOwner->upgrader()->transform(m_pShapeCompatibility, pSrc.get(), pDest.get());
 }
 
-GFCENGINE_IMP_OBJECT(Gfc2ManifoldSolidShapeTransformer, L"Gfc2GeometryShape", 0)
+GFCENGINE_IMP_OBJECT(Gfc2ManifoldSolidShapeTransformer, L"Gfc2ManifoldSolidShape", 0)
 
 std::shared_ptr<gfc::engine::CEntity> Gfc2ManifoldSolidShapeTransformer::toSolidShape(gfc::engine::EntityPtr pShape)
 {
