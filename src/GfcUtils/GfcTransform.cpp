@@ -86,7 +86,7 @@ bool GfcTransform::transform()
     auto oBuildingMap = transformBuilding(nProjectRef);
     // 转Floor
     auto oFloorMap = transformFloor(oBuildingMap);
-    // 转Element
+    // 转Element and ElementType
     transformElement(oFloorMap);
     // 记录关系
     writeRelAggregates();
@@ -341,6 +341,7 @@ GfcTransform::GfcEntityRefMap GfcTransform::transformFloor(const GfcEntityRefMap
 
 void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
 {
+    GfcEntityRefMap oElementRefMap, oElementTypeRefMap;
     // 转楼层
     auto pItr = m_pContainer->getEntities(L"Gfc2RelAggregates");
     pItr->first();
@@ -355,19 +356,73 @@ void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
             {
                 if (pAggregate->isNull(pValue, i))
                     continue;
-                auto pElement = pAggregate->getEntity(pValue, i);
-                if (pElement->entityName() != L"Gfc2Element")
-                    continue;
-                auto pNewShape = doTransformShape(pElement);
-                if (nullptr == pNewShape)
-                    continue;
-                auto pNewElement = doTransformElement(pElement);
-                pNewElement->setAsEntityRef(L"Shape", m_pWriter->writeEntity(pNewShape.get()));
-                auto nElementRef = write(pElement.ref(), pNewElement);
-                addRelAggregates(itr->second, nElementRef);
+                auto pEntity = pAggregate->getEntity(pValue, i);
+                if (pEntity->entityName() == L"Gfc2Element")
+                {
+                    // 构件
+                    auto pNewShape = doTransformShape(pEntity);
+                    if (nullptr == pNewShape)
+                        continue;
+                    auto pNewElement = doTransformElement(pEntity);
+                    pNewElement->setAsEntityRef(L"Shape", m_pWriter->writeEntity(pNewShape.get()));
+                    auto nElementRef = write(pEntity.ref(), pNewElement);
+                    oElementRefMap.insert(std::make_pair(pEntity.ref(), nElementRef));
+                    addRelAggregates(itr->second, nElementRef);
+                }
+                else if (pEntity->entityName() == L"Gfc2ElementType")
+                {
+                    // 构件类型
+                    auto pNewElementType = doTransformElement(pEntity); // 暂时可以用构件的
+                    auto nElementTypeRef = write(pEntity.ref(), pNewElementType);
+                    oElementTypeRefMap.insert(std::make_pair(pEntity.ref(), nElementTypeRef));
+                    addRelAggregates(itr->second, nElementTypeRef);
+                }
             }
         }
         pItr->next();
+    }
+    transformTypeElementRelationShip(oElementTypeRefMap, oElementRefMap);
+}
+
+void GfcTransform::transformTypeElementRelationShip(const GfcEntityRefMap & oElementTypeRefMap, const GfcEntityRefMap & oElementRefMap)
+{
+    std::map<gfc::engine::EntityRef, std::vector<gfc::engine::EntityRef>> oRelMap;
+    auto pItr = m_pContainer->getEntities(L"Gfc2RelDefinesByType");
+    pItr->first();
+    while (!pItr->isDone())
+    {
+        auto pAggregate = pItr->current();
+        auto itr = oElementTypeRefMap.find(pAggregate->asEntityRef(L"RelatingType"));
+        if (itr != oElementTypeRefMap.end())
+        {
+            auto pValue = pAggregate->valueByName(L"RelatingElement");
+            for (int i = 0; i < pValue->getCount(); i++)
+            {
+                auto pItem = pValue->getItems(i);
+                if (pItem->isNull())
+                    continue;
+                auto itr2 = oElementRefMap.find(pItem->asEntityRef());
+                if (itr2 == oElementRefMap.end())
+                    continue;
+                oRelMap[itr->second].push_back(itr2->second);
+            }
+        }
+        pItr->next();
+    }
+    //write
+    for (auto oItem : oRelMap)
+    {
+        auto pRelDefinesByElement = createEntity(L"Gfc2RelDefinesByElement");
+        pRelDefinesByElement->setAsEntityRef(L"RelatingElement", oItem.first);
+        auto pValue = pRelDefinesByElement->valueByName(L"RelatedObjects");
+        if (pValue)
+        {
+            for (auto nRef : oItem.second)
+            {
+                pValue->add(new gfc::engine::CEntityRefValue(nRef));
+            }
+        }
+        write(oItem.first, pRelDefinesByElement);
     }
 }
 

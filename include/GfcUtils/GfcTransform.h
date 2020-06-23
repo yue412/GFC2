@@ -55,6 +55,7 @@ protected:
     GfcEntityRefMap transformBuilding(gfc::engine::EntityRef nProjectRef);
     GfcEntityRefMap transformFloor(const GfcEntityRefMap& oBuildingRefMap);
     void transformElement(const GfcEntityRefMap& oFloorRefMap);
+    void transformTypeElementRelationShip(const GfcEntityRefMap& oElementTypeRefMap, const GfcEntityRefMap& oElementRefMap);
 protected:
     DestEntityPtr doTransformEntity(SrcEntityPtr& pSrcEntity);
     std::map<gfc::engine::EntityRef, std::vector<gfc::engine::EntityRef>> m_oRelAggregates;
