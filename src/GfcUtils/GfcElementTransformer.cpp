@@ -540,7 +540,7 @@ void GfcPitEarthBackfillTransformer::transformPropertySet(gfc::engine::EntityPtr
 
 }
 
-GFCENGINE_IMP_OBJECT(GfcRoomBackFillTransformer, L"RoomBackFill", 0)
+GFCENGINE_IMP_OBJECT(GfcRoomBackFillTransformer, L"RoomBackfill", 0)
 
 std::shared_ptr<gfc::engine::CEntity> GfcRoomBackFillTransformer::transformShape(GfcShapeTransformer* pTransformer, gfc::engine::EntityPtr& pShape)
 {

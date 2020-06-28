@@ -47,8 +47,8 @@
 #include "Geometry/ImageCurve3d.h"
 #include "Geometry/RuledSurface.h"
 #include "Geometry/PlaneCurve3d.h"
-#include "Gfc2CommonPolygonEx.h"
-#include "Gfc2CommonPolygon.h"
+//#include "Gfc2CommonPolygonEx.h"
+//#include "Gfc2CommonPolygon.h"
 
 namespace gfc {
     namespace engine {
@@ -59,6 +59,7 @@ namespace gfc {
 class Gfc2Polygon;
 class Gfc2CommonPolygon;
 class Gfc2Vector2d;
+class Gfc2CommonPolygonEx;
 
 class GfcGeometryExporter
 {

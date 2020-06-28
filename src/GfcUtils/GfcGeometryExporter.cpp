@@ -53,6 +53,8 @@
 #include "Gfc2CoedgeListEx.h"
 #include "Gfc2Coedge.h"
 #include "GfcEngine\Writer.h"
+#include "Gfc2CommonPolygonEx.h"
+#include "Gfc2CommonPolygon.h"
 
 ggp::CArc2d::ArcType _getArcType( double dBulge )
 {

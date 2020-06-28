@@ -425,7 +425,7 @@ class GfcRoomBackFillTransformer : public GfcElementTransformer
     GFCENGINE_DEC_OBJECT(GfcRoomBackFillTransformer, GfcElementTransformer)
 public:
     virtual std::shared_ptr<gfc::engine::CEntity> transformShape(GfcShapeTransformer* pTransformer, gfc::engine::EntityPtr& pShape);
-    virtual std::wstring elementName() { return L"Gfc2RoomBackFill"; }
+    virtual std::wstring elementName() { return L"Gfc2RoomBackfill"; }
     virtual void transformPropertySet(gfc::engine::EntityPtr& pSrcEntity, std::vector<gfc::engine::EntityPtr>& oPropertySetList, std::shared_ptr<gfc::engine::CEntity>& pDestEntity);
 };
 
