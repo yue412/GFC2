@@ -62,6 +62,7 @@ void GfcTransform::setSchema(gfc::schema::CModel* pSrcModel, gfc::schema::CModel
     changeIDConverter(L"Gfc2Project");
     changeIDConverter(L"Gfc2Building");
     changeIDConverter(L"Gfc2Floor");
+    changeIDConverter(L"Gfc2Object");
     changeEntityRefConverter();
     m_pObjectCompatibility = m_pEntityUpgrader->model()->find(L"Gfc2Object");
     m_pModel = pDestModel;
