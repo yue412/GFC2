@@ -240,6 +240,7 @@ private:
 	void AddCh();
 	bool Comment0();
 	bool Comment1();
+	bool Comment2();
 
 	Token* NextToken();
 

@@ -123,6 +123,7 @@ ident = letter{digit|letter|underline}.
 number = digit{digit}.
 
 COMMENTS FROM "/*" TO "*/" NESTED
+COMMENTS FROM "(*" TO "*)" NESTED
 COMMENTS FROM "//" TO '\r'
 
 IGNORE '\t' + '\r' + '\n'

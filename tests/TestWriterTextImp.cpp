@@ -3,6 +3,7 @@
 #include "GfcEngine\EngineException.h"
 #include "GfcEngine\PropValue.h"
 #include "GfcEngine\GfcEngineUtils.h"
+#include "GfcEngine\Writer.h"
 #include "WriterTextImp.h"
 #include "Common.h"
 #include "GfcSchema\BuildinType.h"
@@ -375,4 +376,21 @@ TEST(TestWriteTextImp, CWriter_addIgnoreDuplicates)
     EXPECT_NE(nRef, nRef3);
     EXPECT_NE(nRef, nRef4);
     EXPECT_NE(nRef3, nRef4);
+}
+
+TEST(TestWriteTextImp, CWriter_2)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CWriter oWriter(L"2X0", L"", CP_ACP);
+    if (oWriter.open(L"d:\\0805.gfc", L"express"))
+    {
+        gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC2X0.exp"), &oModel);
+        auto pColumn = std::shared_ptr<gfc::engine::CEntity>(gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2PointColumn"));
+        auto pStr2 = std::shared_ptr<gfc::engine::CEntity>(gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String"));
+        pStr2->setAsString(L"Value", L"Z-1");
+        pColumn->setAsInteger(L"ID", 1234);
+        pColumn->setAsEntityRef(L"Name", oWriter.writeEntity(pStr2.get()));
+        oWriter.writeEntity(pColumn.get());
+        oWriter.close();
+    }
 }

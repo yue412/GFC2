@@ -1633,7 +1633,7 @@ int CCodeWriter::getMaxAttributeCount(CClass *pTypeObject)
     int nMax = 0;
     for (int i = 0; i < nCount; ++i)
     {
-        nMax = std::max(nMax, getMaxAttributeCount(pTypeObject->getChild(i)));
+        nMax = max(nMax, getMaxAttributeCount(pTypeObject->getChild(i)));
     }
     return nMax + pTypeObject->getAttributeCount();
 }

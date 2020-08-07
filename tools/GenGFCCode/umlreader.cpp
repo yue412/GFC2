@@ -30,7 +30,7 @@ void CUMLReader::load(const std::wstring &sFileName)
     // Ô¤´¦Àí
     initial();
     TiXmlDocument oDoc;
-    if (oDoc.LoadFile(toString(sFileName)))
+    if (oDoc.LoadFile(UnicodeToACP(sFileName)))
     {
         TiXmlElement* pElement = oDoc.RootElement()->FirstChildElement();
         while (pElement)

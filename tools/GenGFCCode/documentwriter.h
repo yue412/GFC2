@@ -31,6 +31,7 @@ private:
     void writeTail(std::fstream& out);
     void writeData(const std::vector<std::wstring>& oList, std::fstream& out);
 private:
+    int writeAttributes(CClass* pClass, std::fstream& out);
     CModel* m_pModel;
 };
 

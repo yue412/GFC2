@@ -116,7 +116,7 @@ void CDocumentWriter::writeClass(CClass * pClass, std::fstream& out)
     std::wstring s = pClass->getDocument();
     out << s;
     //return;
-    if (pClass->getAttributeCount() > 0)
+    if (pClass->getTotalAttributeCount() > 0)
     {
         out << L"<div>属性定义</div>";
         out << L"<table border=\"1\">";
@@ -127,35 +127,7 @@ void CDocumentWriter::writeClass(CClass * pClass, std::fstream& out)
         out << L"<td>数据类型</td>";
         out << L"<td>必填</td>";
         out << L"</tr>";
-        for (int i = 0; i < pClass->getAttributeCount(); ++i)
-        {
-            CAttribute* pAttribute = pClass->getAttribute(i);
-            out << L"<tr>";
-            out << L"<td>";
-            out << i + 1;
-            out << L"</td>";
-
-            out << L"<td>";
-            out << pAttribute->getName();
-            out << L"</td>";
-
-            out << L"<td>";
-            out << pAttribute->getDocument();
-            out << L"</td>";
-
-            out << L"<td>";
-            //out << pAttribute->getTypeName();
-            std::wstring sType = pAttribute->getType()->getName();
-            std::wstring sLinkType = L"<a href=\"" + sType + L".html\">" + sType + L"</a>";
-            std::wstring sPrefix = pAttribute->getRepeatFlag() ? L"LIST [0:?] OF " : L"";
-            out << sPrefix << sLinkType;
-            out << L"</td>";
-
-            out << L"<td>";
-            out << (pAttribute->getOptionalFlag() || pAttribute->getRepeatFlag() ? L"" : L"√");
-            out << L"</td>";
-            out << L"</tr>";
-        }
+        writeAttributes(pClass, out);
         out << L"</table>";
     }
     if (pClass->getParent() || pClass->getChildCount() > 0)
@@ -233,4 +205,48 @@ void CDocumentWriter::writeData(const std::vector<std::wstring>& oList, std::fst
     {
         out << L"\"" << s << L"\",";
     }
+}
+
+int CDocumentWriter::writeAttributes(CClass * pClass, std::fstream & out)
+{
+    int nCount = 0;
+    if (pClass->getParent())
+    {
+        nCount = writeAttributes(pClass->getParent(), out);
+    }
+    out << L"<tr>";
+    out << L"<td colspan=\"5\">";
+    out << pClass->getName();
+    out << L"</td>";
+    out << L"</tr>";
+    for (int i = 0; i < pClass->getAttributeCount(); ++i)
+    {
+        CAttribute* pAttribute = pClass->getAttribute(i);
+        out << L"<tr>";
+        out << L"<td>";
+        out << i + 1 + nCount;
+        out << L"</td>";
+
+        out << L"<td>";
+        out << pAttribute->getName();
+        out << L"</td>";
+
+        out << L"<td>";
+        out << pAttribute->getDocument();
+        out << L"</td>";
+
+        out << L"<td>";
+        //out << pAttribute->getTypeName();
+        std::wstring sType = pAttribute->getType()->getName();
+        std::wstring sLinkType = L"<a href=\"" + sType + L".html\">" + sType + L"</a>";
+        std::wstring sPrefix = pAttribute->getRepeatFlag() ? L"LIST [0:?] OF " : L"";
+        out << sPrefix << sLinkType;
+        out << L"</td>";
+
+        out << L"<td>";
+        out << (pAttribute->getOptionalFlag() || pAttribute->getRepeatFlag() ? L"" : L"√");
+        out << L"</td>";
+        out << L"</tr>";
+    }
+    return nCount + pClass->getAttributeCount();
 }

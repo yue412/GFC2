@@ -169,7 +169,7 @@ void finalize()
 
 	void ExpFile();
 	void TypedefOrEnum();
-	void CEntity();
+	void Entity();
 	void IdentList(CStringList& oStringList);
 	void SuperType(gfc::schema::CClass* pClass);
 	void SubType(gfc::schema::CClass* pClass);
