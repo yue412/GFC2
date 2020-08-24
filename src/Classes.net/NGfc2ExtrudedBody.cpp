@@ -31,19 +31,19 @@ NGfc2Coordinates3d^ NGfc2ExtrudedBody::getCoordinatePtr()
     return gcnew NGfc2Coordinates3d(((Gfc2ExtrudedBody*)m_pEntity)->getCoordinatePtr(), false);
 }
 
-void NGfc2ExtrudedBody::setLength(NGfc2Double dValue)
+void NGfc2ExtrudedBody::setLen(NGfc2Double dValue)
 {
-    ((Gfc2ExtrudedBody*)m_pEntity)->setLength(dValue);
+    ((Gfc2ExtrudedBody*)m_pEntity)->setLen(dValue);
 }
 
-NGfc2Double NGfc2ExtrudedBody::getLength()
+NGfc2Double NGfc2ExtrudedBody::getLen()
 {
-    return ((Gfc2ExtrudedBody*)m_pEntity)->getLength();
+    return ((Gfc2ExtrudedBody*)m_pEntity)->getLen();
 }
 
-bool NGfc2ExtrudedBody::hasLength()
+bool NGfc2ExtrudedBody::hasLen()
 {
-    return ((Gfc2ExtrudedBody*)m_pEntity)->hasLength();
+    return ((Gfc2ExtrudedBody*)m_pEntity)->hasLen();
 }
 
 void NGfc2ExtrudedBody::setSection(gfc::engine::EntityRef nValue)

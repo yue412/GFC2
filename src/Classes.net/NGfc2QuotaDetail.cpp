@@ -41,14 +41,14 @@ bool NGfc2QuotaDetail::hasEntityID()
     return ((Gfc2QuotaDetail*)m_pEntity)->hasEntityID();
 }
 
-void NGfc2QuotaDetail::setUnit(gfc::engine::EntityRef nValue)
+void NGfc2QuotaDetail::setUnit(NGfc2String sValue)
 {
-    ((Gfc2QuotaDetail*)m_pEntity)->setUnit(nValue);
+    ((Gfc2QuotaDetail*)m_pEntity)->setUnit(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2QuotaDetail::getUnit()
+NGfc2String NGfc2QuotaDetail::getUnit()
 {
-    return ((Gfc2QuotaDetail*)m_pEntity)->getUnit();
+    return marshal_as<String^>(((Gfc2QuotaDetail*)m_pEntity)->getUnit());
 }
 
 bool NGfc2QuotaDetail::hasUnit()
@@ -56,19 +56,14 @@ bool NGfc2QuotaDetail::hasUnit()
     return ((Gfc2QuotaDetail*)m_pEntity)->hasUnit();
 }
 
-NGfc2String^ NGfc2QuotaDetail::getUnitPtr()
+void NGfc2QuotaDetail::setExpress(NGfc2String sValue)
 {
-    return gcnew NGfc2String(((Gfc2QuotaDetail*)m_pEntity)->getUnitPtr(), false);
+    ((Gfc2QuotaDetail*)m_pEntity)->setExpress(marshal_as<std::string>(sValue));
 }
 
-void NGfc2QuotaDetail::setExpress(gfc::engine::EntityRef nValue)
+NGfc2String NGfc2QuotaDetail::getExpress()
 {
-    ((Gfc2QuotaDetail*)m_pEntity)->setExpress(nValue);
-}
-
-gfc::engine::EntityRef NGfc2QuotaDetail::getExpress()
-{
-    return ((Gfc2QuotaDetail*)m_pEntity)->getExpress();
+    return marshal_as<String^>(((Gfc2QuotaDetail*)m_pEntity)->getExpress());
 }
 
 bool NGfc2QuotaDetail::hasExpress()
@@ -76,19 +71,14 @@ bool NGfc2QuotaDetail::hasExpress()
     return ((Gfc2QuotaDetail*)m_pEntity)->hasExpress();
 }
 
-NGfc2String^ NGfc2QuotaDetail::getExpressPtr()
+void NGfc2QuotaDetail::setQuantity(NGfc2String sValue)
 {
-    return gcnew NGfc2String(((Gfc2QuotaDetail*)m_pEntity)->getExpressPtr(), false);
+    ((Gfc2QuotaDetail*)m_pEntity)->setQuantity(marshal_as<std::string>(sValue));
 }
 
-void NGfc2QuotaDetail::setQuantity(gfc::engine::EntityRef nValue)
+NGfc2String NGfc2QuotaDetail::getQuantity()
 {
-    ((Gfc2QuotaDetail*)m_pEntity)->setQuantity(nValue);
-}
-
-gfc::engine::EntityRef NGfc2QuotaDetail::getQuantity()
-{
-    return ((Gfc2QuotaDetail*)m_pEntity)->getQuantity();
+    return marshal_as<String^>(((Gfc2QuotaDetail*)m_pEntity)->getQuantity());
 }
 
 bool NGfc2QuotaDetail::hasQuantity()
@@ -96,28 +86,18 @@ bool NGfc2QuotaDetail::hasQuantity()
     return ((Gfc2QuotaDetail*)m_pEntity)->hasQuantity();
 }
 
-NGfc2String^ NGfc2QuotaDetail::getQuantityPtr()
+void NGfc2QuotaDetail::setMemo(NGfc2String sValue)
 {
-    return gcnew NGfc2String(((Gfc2QuotaDetail*)m_pEntity)->getQuantityPtr(), false);
+    ((Gfc2QuotaDetail*)m_pEntity)->setMemo(marshal_as<std::string>(sValue));
 }
 
-void NGfc2QuotaDetail::setMemo(gfc::engine::EntityRef nValue)
+NGfc2String NGfc2QuotaDetail::getMemo()
 {
-    ((Gfc2QuotaDetail*)m_pEntity)->setMemo(nValue);
-}
-
-gfc::engine::EntityRef NGfc2QuotaDetail::getMemo()
-{
-    return ((Gfc2QuotaDetail*)m_pEntity)->getMemo();
+    return marshal_as<String^>(((Gfc2QuotaDetail*)m_pEntity)->getMemo());
 }
 
 bool NGfc2QuotaDetail::hasMemo()
 {
     return ((Gfc2QuotaDetail*)m_pEntity)->hasMemo();
-}
-
-NGfc2String^ NGfc2QuotaDetail::getMemoPtr()
-{
-    return gcnew NGfc2String(((Gfc2QuotaDetail*)m_pEntity)->getMemoPtr(), false);
 }
 

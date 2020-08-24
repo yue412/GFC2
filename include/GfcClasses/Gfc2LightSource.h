@@ -13,10 +13,9 @@ GFCENGINE_DEC_OBJECT(Gfc2LightSource, gfc::engine::CEntity)
 public:
     Gfc2LightSource();
     Gfc2LightSource(bool bSetSchema);
-    void setName(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getName() const;
+    void setName(const Gfc2Label& sValue);
+    Gfc2Label getName() const;
     bool hasName() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Label> getNamePtr();
     void setLightColour(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getLightColour() const;
     bool hasLightColour() const;

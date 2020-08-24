@@ -123,6 +123,7 @@ TEST(TestDocument, Document_getIterator)
     EXPECT_EQ(true, itr->isDone());
 }
 
+/*
 TEST(TestDocument, Document_ref)
 {
     gfc::schema::CModel oModel;
@@ -140,3 +141,4 @@ TEST(TestDocument, Document_ref)
     EXPECT_EQ(true, pStr != nullptr);
     EXPECT_STREQ(L"hehe", pStr->asString(L"Value").c_str());
 }
+*/

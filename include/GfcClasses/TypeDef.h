@@ -2,7 +2,7 @@
 #define TYPEDEF_H
 
 #include <string>
-#include "Gfc2String.h"
+#include <assert.h>
 
 typedef bool Gfc2Boolean;
 
@@ -11,6 +11,8 @@ typedef double Gfc2Date;
 typedef double Gfc2DateTime;
 
 typedef double Gfc2Double;
+
+typedef std::wstring Gfc2String;
 
 typedef Gfc2String Gfc2Elev;
 

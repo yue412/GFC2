@@ -2,7 +2,6 @@
 #define GFC2SURFACETEXTURE_H
 
 #include "GfcClasses.h"
-#include "Gfc2String.h"
 #include "Gfc2Matrix.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
@@ -19,19 +18,17 @@ public:
     void setRepeatT(const Gfc2Boolean& bValue);
     Gfc2Boolean getRepeatT() const;
     bool hasRepeatT() const;
-    void setImageFileName(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getImageFileName() const;
+    void setImageFileName(const Gfc2String& sValue);
+    Gfc2String getImageFileName() const;
     bool hasImageFileName() const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getImageFileNamePtr();
     void setTranfromsMatirx(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getTranfromsMatirx() const;
     bool hasTranfromsMatirx() const;
     gfc::engine::CEntityWrapPtr<Gfc2Matrix> getTranfromsMatirxPtr();
     int getParameterCount() const;
     void clearParameter();
-    void addParameter(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getParameter(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getParameterPtr(int nIndex);
+    void addParameter(const Gfc2String& sValue);
+    Gfc2String getParameter(int nIndex) const;
 
 };
 #endif

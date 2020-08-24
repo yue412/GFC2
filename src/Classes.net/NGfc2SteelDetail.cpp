@@ -26,14 +26,14 @@ bool NGfc2SteelDetail::hasEntityID()
     return ((Gfc2SteelDetail*)m_pEntity)->hasEntityID();
 }
 
-void NGfc2SteelDetail::setName(gfc::engine::EntityRef nValue)
+void NGfc2SteelDetail::setName(NGfc2String sValue)
 {
-    ((Gfc2SteelDetail*)m_pEntity)->setName(nValue);
+    ((Gfc2SteelDetail*)m_pEntity)->setName(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2SteelDetail::getName()
+NGfc2String NGfc2SteelDetail::getName()
 {
-    return ((Gfc2SteelDetail*)m_pEntity)->getName();
+    return marshal_as<String^>(((Gfc2SteelDetail*)m_pEntity)->getName());
 }
 
 bool NGfc2SteelDetail::hasName()
@@ -41,19 +41,14 @@ bool NGfc2SteelDetail::hasName()
     return ((Gfc2SteelDetail*)m_pEntity)->hasName();
 }
 
-NGfc2String^ NGfc2SteelDetail::getNamePtr()
+void NGfc2SteelDetail::setDesc(NGfc2String sValue)
 {
-    return gcnew NGfc2String(((Gfc2SteelDetail*)m_pEntity)->getNamePtr(), false);
+    ((Gfc2SteelDetail*)m_pEntity)->setDesc(marshal_as<std::string>(sValue));
 }
 
-void NGfc2SteelDetail::setDesc(gfc::engine::EntityRef nValue)
+NGfc2String NGfc2SteelDetail::getDesc()
 {
-    ((Gfc2SteelDetail*)m_pEntity)->setDesc(nValue);
-}
-
-gfc::engine::EntityRef NGfc2SteelDetail::getDesc()
-{
-    return ((Gfc2SteelDetail*)m_pEntity)->getDesc();
+    return marshal_as<String^>(((Gfc2SteelDetail*)m_pEntity)->getDesc());
 }
 
 bool NGfc2SteelDetail::hasDesc()
@@ -61,29 +56,19 @@ bool NGfc2SteelDetail::hasDesc()
     return ((Gfc2SteelDetail*)m_pEntity)->hasDesc();
 }
 
-NGfc2String^ NGfc2SteelDetail::getDescPtr()
+void NGfc2SteelDetail::setLevel(NGfc2String sValue)
 {
-    return gcnew NGfc2String(((Gfc2SteelDetail*)m_pEntity)->getDescPtr(), false);
+    ((Gfc2SteelDetail*)m_pEntity)->setLevel(marshal_as<std::string>(sValue));
 }
 
-void NGfc2SteelDetail::setLevel(gfc::engine::EntityRef nValue)
+NGfc2String NGfc2SteelDetail::getLevel()
 {
-    ((Gfc2SteelDetail*)m_pEntity)->setLevel(nValue);
-}
-
-gfc::engine::EntityRef NGfc2SteelDetail::getLevel()
-{
-    return ((Gfc2SteelDetail*)m_pEntity)->getLevel();
+    return marshal_as<String^>(((Gfc2SteelDetail*)m_pEntity)->getLevel());
 }
 
 bool NGfc2SteelDetail::hasLevel()
 {
     return ((Gfc2SteelDetail*)m_pEntity)->hasLevel();
-}
-
-NGfc2String^ NGfc2SteelDetail::getLevelPtr()
-{
-    return gcnew NGfc2String(((Gfc2SteelDetail*)m_pEntity)->getLevelPtr(), false);
 }
 
 void NGfc2SteelDetail::setDia(NGfc2Integer nValue)
@@ -116,19 +101,19 @@ bool NGfc2SteelDetail::hasNum()
     return ((Gfc2SteelDetail*)m_pEntity)->hasNum();
 }
 
-void NGfc2SteelDetail::setLength(NGfc2Integer nValue)
+void NGfc2SteelDetail::setBarLength(NGfc2Integer nValue)
 {
-    ((Gfc2SteelDetail*)m_pEntity)->setLength(nValue);
+    ((Gfc2SteelDetail*)m_pEntity)->setBarLength(nValue);
 }
 
-NGfc2Integer NGfc2SteelDetail::getLength()
+NGfc2Integer NGfc2SteelDetail::getBarLength()
 {
-    return ((Gfc2SteelDetail*)m_pEntity)->getLength();
+    return ((Gfc2SteelDetail*)m_pEntity)->getBarLength();
 }
 
-bool NGfc2SteelDetail::hasLength()
+bool NGfc2SteelDetail::hasBarLength()
 {
-    return ((Gfc2SteelDetail*)m_pEntity)->hasLength();
+    return ((Gfc2SteelDetail*)m_pEntity)->hasBarLength();
 }
 
 void NGfc2SteelDetail::setSingleWeight(NGfc2Double dValue)
@@ -176,23 +161,18 @@ bool NGfc2SteelDetail::hasTieinNum()
     return ((Gfc2SteelDetail*)m_pEntity)->hasTieinNum();
 }
 
-void NGfc2SteelDetail::setTieinType(gfc::engine::EntityRef nValue)
+void NGfc2SteelDetail::setTieinType(NGfc2String sValue)
 {
-    ((Gfc2SteelDetail*)m_pEntity)->setTieinType(nValue);
+    ((Gfc2SteelDetail*)m_pEntity)->setTieinType(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2SteelDetail::getTieinType()
+NGfc2String NGfc2SteelDetail::getTieinType()
 {
-    return ((Gfc2SteelDetail*)m_pEntity)->getTieinType();
+    return marshal_as<String^>(((Gfc2SteelDetail*)m_pEntity)->getTieinType());
 }
 
 bool NGfc2SteelDetail::hasTieinType()
 {
     return ((Gfc2SteelDetail*)m_pEntity)->hasTieinType();
-}
-
-NGfc2String^ NGfc2SteelDetail::getTieinTypePtr()
-{
-    return gcnew NGfc2String(((Gfc2SteelDetail*)m_pEntity)->getTieinTypePtr(), false);
 }
 

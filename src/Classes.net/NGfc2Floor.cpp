@@ -71,23 +71,18 @@ bool NGfc2Floor::hasStartFloorNo()
     return ((Gfc2Floor*)m_pEntity)->hasStartFloorNo();
 }
 
-void NGfc2Floor::setRemark(gfc::engine::EntityRef nValue)
+void NGfc2Floor::setRemark(NGfc2Text sValue)
 {
-    ((Gfc2Floor*)m_pEntity)->setRemark(nValue);
+    ((Gfc2Floor*)m_pEntity)->setRemark(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2Floor::getRemark()
+NGfc2Text NGfc2Floor::getRemark()
 {
-    return ((Gfc2Floor*)m_pEntity)->getRemark();
+    return marshal_as<String^>(((Gfc2Floor*)m_pEntity)->getRemark());
 }
 
 bool NGfc2Floor::hasRemark()
 {
     return ((Gfc2Floor*)m_pEntity)->hasRemark();
-}
-
-NGfc2Text^ NGfc2Floor::getRemarkPtr()
-{
-    return gcnew NGfc2Text(((Gfc2Floor*)m_pEntity)->getRemarkPtr(), false);
 }
 

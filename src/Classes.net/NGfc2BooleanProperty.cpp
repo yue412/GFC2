@@ -11,18 +11,18 @@ NGfc2BooleanProperty::NGfc2BooleanProperty(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2BooleanProperty::setValue(NGfc2Boolean bValue)
+void NGfc2BooleanProperty::setVal(NGfc2Boolean bValue)
 {
-    ((Gfc2BooleanProperty*)m_pEntity)->setValue(bValue);
+    ((Gfc2BooleanProperty*)m_pEntity)->setVal(bValue);
 }
 
-NGfc2Boolean NGfc2BooleanProperty::getValue()
+NGfc2Boolean NGfc2BooleanProperty::getVal()
 {
-    return ((Gfc2BooleanProperty*)m_pEntity)->getValue();
+    return ((Gfc2BooleanProperty*)m_pEntity)->getVal();
 }
 
-bool NGfc2BooleanProperty::hasValue()
+bool NGfc2BooleanProperty::hasVal()
 {
-    return ((Gfc2BooleanProperty*)m_pEntity)->hasValue();
+    return ((Gfc2BooleanProperty*)m_pEntity)->hasVal();
 }
 

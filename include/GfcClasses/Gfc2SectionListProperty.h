@@ -12,11 +12,11 @@ GFCENGINE_DEC_OBJECT(Gfc2SectionListProperty, gfc::engine::CEntity)
 public:
     Gfc2SectionListProperty();
     Gfc2SectionListProperty(bool bSetSchema);
-    int getValueCount() const;
-    void clearValue();
-    void addValue(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getValue(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Section> getValuePtr(int nIndex);
+    int getValuesCount() const;
+    void clearValues();
+    void addValues(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getValues(int nIndex) const;
+    gfc::engine::CEntityWrapPtr<Gfc2Section> getValuesPtr(int nIndex);
 
 };
 #endif

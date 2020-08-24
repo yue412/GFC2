@@ -11,24 +11,19 @@ NGfc2LightSource::NGfc2LightSource(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2LightSource::setName(gfc::engine::EntityRef nValue)
+void NGfc2LightSource::setName(NGfc2Label sValue)
 {
-    ((Gfc2LightSource*)m_pEntity)->setName(nValue);
+    ((Gfc2LightSource*)m_pEntity)->setName(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2LightSource::getName()
+NGfc2Label NGfc2LightSource::getName()
 {
-    return ((Gfc2LightSource*)m_pEntity)->getName();
+    return marshal_as<String^>(((Gfc2LightSource*)m_pEntity)->getName());
 }
 
 bool NGfc2LightSource::hasName()
 {
     return ((Gfc2LightSource*)m_pEntity)->hasName();
-}
-
-NGfc2Label^ NGfc2LightSource::getNamePtr()
-{
-    return gcnew NGfc2Label(((Gfc2LightSource*)m_pEntity)->getNamePtr(), false);
 }
 
 void NGfc2LightSource::setLightColour(gfc::engine::EntityRef nValue)

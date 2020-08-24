@@ -11,23 +11,18 @@ NGfc2ElementType::NGfc2ElementType(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2ElementType::setType(gfc::engine::EntityRef nValue)
+void NGfc2ElementType::setEType(NGfc2Label sValue)
 {
-    ((Gfc2ElementType*)m_pEntity)->setType(nValue);
+    ((Gfc2ElementType*)m_pEntity)->setEType(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2ElementType::getType()
+NGfc2Label NGfc2ElementType::getEType()
 {
-    return ((Gfc2ElementType*)m_pEntity)->getType();
+    return marshal_as<String^>(((Gfc2ElementType*)m_pEntity)->getEType());
 }
 
-bool NGfc2ElementType::hasType()
+bool NGfc2ElementType::hasEType()
 {
-    return ((Gfc2ElementType*)m_pEntity)->hasType();
-}
-
-NGfc2Label^ NGfc2ElementType::getTypePtr()
-{
-    return gcnew NGfc2Label(((Gfc2ElementType*)m_pEntity)->getTypePtr(), false);
+    return ((Gfc2ElementType*)m_pEntity)->hasEType();
 }
 

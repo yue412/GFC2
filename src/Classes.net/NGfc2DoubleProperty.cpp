@@ -11,18 +11,18 @@ NGfc2DoubleProperty::NGfc2DoubleProperty(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2DoubleProperty::setValue(NGfc2Double dValue)
+void NGfc2DoubleProperty::setVal(NGfc2Double dValue)
 {
-    ((Gfc2DoubleProperty*)m_pEntity)->setValue(dValue);
+    ((Gfc2DoubleProperty*)m_pEntity)->setVal(dValue);
 }
 
-NGfc2Double NGfc2DoubleProperty::getValue()
+NGfc2Double NGfc2DoubleProperty::getVal()
 {
-    return ((Gfc2DoubleProperty*)m_pEntity)->getValue();
+    return ((Gfc2DoubleProperty*)m_pEntity)->getVal();
 }
 
-bool NGfc2DoubleProperty::hasValue()
+bool NGfc2DoubleProperty::hasVal()
 {
-    return ((Gfc2DoubleProperty*)m_pEntity)->hasValue();
+    return ((Gfc2DoubleProperty*)m_pEntity)->hasVal();
 }
 

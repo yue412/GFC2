@@ -14,10 +14,9 @@ GFCENGINE_DEC_OBJECT(Gfc2Element, gfc::engine::CEntity)
 public:
     Gfc2Element();
     Gfc2Element(bool bSetSchema);
-    void setType(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getType() const;
-    bool hasType() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Label> getTypePtr();
+    void setEType(const Gfc2Label& sValue);
+    Gfc2Label getEType() const;
+    bool hasEType() const;
     int getRepresentationsCount() const;
     void clearRepresentations();
     void addRepresentations(const gfc::engine::EntityRef& nValue);

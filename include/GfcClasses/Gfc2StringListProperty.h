@@ -3,7 +3,7 @@
 
 #include "GfcClasses.h"
 #include "Gfc2ListProperty.h"
-#include "Gfc2String.h"
+#include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 class GFCCLASSES_API Gfc2StringListProperty: public Gfc2ListProperty
@@ -14,9 +14,8 @@ public:
     Gfc2StringListProperty(bool bSetSchema);
     int getValuesCount() const;
     void clearValues();
-    void addValues(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getValues(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getValuesPtr(int nIndex);
+    void addValues(const Gfc2String& sValue);
+    Gfc2String getValues(int nIndex) const;
 
 };
 #endif

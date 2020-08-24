@@ -16,9 +16,9 @@ public:
     gfc::engine::EntityRef getExtrudedDirection();
     bool hasExtrudedDirection();
     NGfc2Vector3d^ getExtrudedDirectionPtr();
-    void setLength(NGfc2Double dValue);
-    NGfc2Double getLength();
-    bool hasLength();
+    void setLen(NGfc2Double dValue);
+    NGfc2Double getLen();
+    bool hasLen();
 
 };
 #endif

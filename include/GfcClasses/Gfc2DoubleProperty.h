@@ -12,9 +12,9 @@ GFCENGINE_DEC_OBJECT(Gfc2DoubleProperty, gfc::engine::CEntity)
 public:
     Gfc2DoubleProperty();
     Gfc2DoubleProperty(bool bSetSchema);
-    void setValue(const Gfc2Double& dValue);
-    Gfc2Double getValue() const;
-    bool hasValue() const;
+    void setVal(const Gfc2Double& dValue);
+    Gfc2Double getVal() const;
+    bool hasVal() const;
 
 };
 #endif

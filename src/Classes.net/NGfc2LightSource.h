@@ -6,16 +6,19 @@
 #include "NGfc2Color.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2LightSource: public NGfc2RepresentationItem
 {
 public:
     NGfc2LightSource();
     NGfc2LightSource(void* pEntity, bool bOwner);
-    void setName(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getName();
+    void setName(NGfc2Label sValue);
+    NGfc2Label getName();
     bool hasName();
-    NGfc2Label^ getNamePtr();
     void setLightColour(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getLightColour();
     bool hasLightColour();

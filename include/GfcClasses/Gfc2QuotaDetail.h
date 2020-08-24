@@ -2,7 +2,6 @@
 #define GFC2QUOTADETAIL_H
 
 #include "GfcClasses.h"
-#include "Gfc2String.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
@@ -18,22 +17,18 @@ public:
     void setEntityID(const Gfc2Integer& nValue);
     Gfc2Integer getEntityID() const;
     bool hasEntityID() const;
-    void setUnit(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getUnit() const;
+    void setUnit(const Gfc2String& sValue);
+    Gfc2String getUnit() const;
     bool hasUnit() const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getUnitPtr();
-    void setExpress(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getExpress() const;
+    void setExpress(const Gfc2String& sValue);
+    Gfc2String getExpress() const;
     bool hasExpress() const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getExpressPtr();
-    void setQuantity(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getQuantity() const;
+    void setQuantity(const Gfc2String& sValue);
+    Gfc2String getQuantity() const;
     bool hasQuantity() const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getQuantityPtr();
-    void setMemo(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getMemo() const;
+    void setMemo(const Gfc2String& sValue);
+    Gfc2String getMemo() const;
     bool hasMemo() const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getMemoPtr();
 
 };
 #endif

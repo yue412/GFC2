@@ -11,6 +11,21 @@ NGfc2PropertySet::NGfc2PropertySet(void* pEntity, bool bOwner):
 {
 }
 
+void NGfc2PropertySet::setName(NGfc2Label sValue)
+{
+    ((Gfc2PropertySet*)m_pEntity)->setName(marshal_as<std::string>(sValue));
+}
+
+NGfc2Label NGfc2PropertySet::getName()
+{
+    return marshal_as<String^>(((Gfc2PropertySet*)m_pEntity)->getName());
+}
+
+bool NGfc2PropertySet::hasName()
+{
+    return ((Gfc2PropertySet*)m_pEntity)->hasName();
+}
+
 int NGfc2PropertySet::getHasPropertiesCount()
 {
     return ((Gfc2PropertySet*)m_pEntity)->getHasPropertiesCount();

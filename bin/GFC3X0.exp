@@ -24,6 +24,9 @@ END_TYPE;
 TYPE Gfc2Label = Gfc2String;
 END_TYPE;
 
+TYPE Gfc2String = STRING;
+END_TYPE;
+
 TYPE Gfc2Text = Gfc2String;
 END_TYPE;
 
@@ -175,7 +178,7 @@ END_ENTITY;
 
 ENTITY Gfc2BooleanProperty
  SUBTYPE OF (Gfc2SingleProperty);
-	Value : Gfc2Boolean;
+	Val : Gfc2Boolean;
 END_ENTITY;
 
 ENTITY Gfc2BooleanResult
@@ -377,7 +380,7 @@ END_ENTITY;
 
 ENTITY Gfc2DoubleProperty
  SUBTYPE OF (Gfc2SingleProperty);
-	Value : Gfc2Double;
+	Val : Gfc2Double;
 END_ENTITY;
 
 ENTITY Gfc2Edge
@@ -393,7 +396,7 @@ END_ENTITY;
 
 ENTITY Gfc2Element
  SUBTYPE OF (Gfc2Object);
-	Type : Gfc2Label;
+	EType : Gfc2Label;
 	Representations : LIST [0:?] OF Gfc2Representation;
 	Shapes : LIST [0:?] OF Gfc2ElementShape;
 END_ENTITY;
@@ -405,7 +408,7 @@ END_ENTITY;
 
 ENTITY Gfc2ElementType
  SUBTYPE OF (Gfc2Object);
-	Type : Gfc2Label;
+	EType : Gfc2Label;
 END_ENTITY;
 
 ENTITY Gfc2Ellipse2d
@@ -433,7 +436,7 @@ ENTITY Gfc2ExtrudedAreaSolidShape
 	(Gfc2ExtrudedAreaSolidTaperedShape))
  SUBTYPE OF (Gfc2SweptAreaSolidShape);
 	ExtrudedDirection : Gfc2Vector3d;
-	Length : Gfc2Double;
+	Len : Gfc2Double;
 END_ENTITY;
 
 ENTITY Gfc2ExtrudedAreaSolidTaperedShape
@@ -444,7 +447,7 @@ END_ENTITY;
 ENTITY Gfc2ExtrudedBody
  SUBTYPE OF (Gfc2PrimitiveBody);
 	Coordinate : Gfc2Coordinates3d;
-	Length : Gfc2Double;
+	Len : Gfc2Double;
 	Section : Gfc2Polygon;
 END_ENTITY;
 
@@ -467,7 +470,7 @@ END_ENTITY;
 
 ENTITY Gfc2GeoListProperty
  SUBTYPE OF (Gfc2ListProperty);
-	Value : LIST [0:?] OF Gfc2Geometry;
+	Values : LIST [0:?] OF Gfc2Geometry;
 END_ENTITY;
 
 ENTITY Gfc2GeoProperty
@@ -540,7 +543,7 @@ END_ENTITY;
 
 ENTITY Gfc2IntegerProperty
  SUBTYPE OF (Gfc2SingleProperty);
-	Value : Gfc2Integer;
+	Val : Gfc2Integer;
 END_ENTITY;
 
 ENTITY Gfc2InternalChart;
@@ -823,6 +826,7 @@ ENTITY Gfc2Property
 END_ENTITY;
 
 ENTITY Gfc2PropertySet;
+	Name : OPTIONAL Gfc2Label;
 	HasProperties : LIST [0:?] OF Gfc2Property;
 END_ENTITY;
 
@@ -979,7 +983,7 @@ END_ENTITY;
 
 ENTITY Gfc2SectionListProperty
  SUBTYPE OF (Gfc2ListProperty);
-	Value : LIST [0:?] OF Gfc2Section;
+	Values : LIST [0:?] OF Gfc2Section;
 END_ENTITY;
 
 ENTITY Gfc2SectionProperty
@@ -1102,7 +1106,7 @@ ENTITY Gfc2SteelDetail;
 	Level : Gfc2String;
 	Dia : Gfc2Integer;
 	Num : Gfc2Integer;
-	Length : Gfc2Integer;
+	BarLength : Gfc2Integer;
 	SingleWeight : Gfc2Double;
 	TotalWeight : Gfc2Double;
 	TieinNum : Gfc2Integer;
@@ -1117,10 +1121,6 @@ ENTITY Gfc2SteelTotal;
 	Unit : Gfc2String;
 END_ENTITY;
 
-ENTITY Gfc2String;
-	Value : STRING;
-END_ENTITY;
-
 ENTITY Gfc2StringListProperty
  SUBTYPE OF (Gfc2ListProperty);
 	Values : LIST [0:?] OF Gfc2String;
@@ -1128,7 +1128,7 @@ END_ENTITY;
 
 ENTITY Gfc2StringProperty
  SUBTYPE OF (Gfc2SingleProperty);
-	Value : Gfc2String;
+	Val : Gfc2String;
 END_ENTITY;
 
 ENTITY Gfc2Surface
@@ -1235,6 +1235,10 @@ ENTITY Gfc2Vector3d
 	X : Gfc2Double;
 	Y : Gfc2Double;
 	Z : Gfc2Double;
+END_ENTITY;
+
+ENTITY GfcRefString;
+	Val : STRING;
 END_ENTITY;
 
 END_SCHEMA;

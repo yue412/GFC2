@@ -63,7 +63,7 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
             wchar_t buffer[256];
             oFile.getline(buffer, 255);
             std::wstring sTemp = std::wstring(buffer);
-            int nPos = sTemp.find(L'=');
+            int nPos = (int)sTemp.find(L'=');
             if (nPos != std::wstring::npos)
             {
                 std::wstring sName = sTemp.substr(0, nPos);
@@ -86,7 +86,7 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
 
     //bool bOutputText = !m_sTextPath.empty();
     //bool bOutputBin = !m_sBinPath.empty();
-    int nCount = oObjectList.size();
+    int nCount = (int)oObjectList.size();
     for(int i = 0; i < nCount; ++i)
     {
         CClass* pTypeObj = dynamic_cast<CClass*>(oObjectList[i]);
@@ -581,14 +581,16 @@ void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
     std::set<std::wstring> oTypeDefIncludes;
     CppHeadFile oTypeDefHeadFile(L"TypeDef");
     oTypeDefHeadFile.addInclude(L"string", true);
+    oTypeDefHeadFile.addInclude(L"assert.h", true);
     CppCode* pEnumGroup = NULL;
     CppCode* pEnumFuncGroup = NULL;
-    int nCount = oObjectList.size();
+    std::set<std::wstring> oTypeSet;
+    int nCount = (int)oObjectList.size();
     for(int i = 0; i < nCount; ++i)
     {
         CTypeObject* pTypeObj = oObjectList[i];
         switch (pTypeObj->getType()) {
-        case TOE_TYPE:
+            case TOE_TYPE:
             {
                 CTypeDef* pTypeObject = dynamic_cast<CTypeDef*>(pTypeObj);
                 if (!pTypeObject)
@@ -601,16 +603,10 @@ void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
                     ));
                     oTypeDefIncludes.insert(pType->getName());
                 }
-
-                std::wstring sRefTypeName = getTypeCode(pTypeObject->getRefType());
-                oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef %s %s;", 
-                    sRefTypeName.c_str(), 
-                    pTypeObject->getName().c_str()
-                ));
-                oTypeDefHeadFile.body()->addLine(L"");
+                writeTypeObject(oTypeDefHeadFile, pTypeObj, oTypeSet);
             }
             break;
-        case TOE_ENUM:
+            case TOE_ENUM:
             {
                 CEnumType* pTypeObject = dynamic_cast<CEnumType*>(pTypeObj);
                 if (!pTypeObject)
@@ -640,42 +636,42 @@ void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
                 ));
                 CppCode* pTemp = new CBlock(false);
                 CppCode::createBlock(pEnumFuncGroup)
-                        ->addLine(L"switch(nValue)")
-                        ->add(pTemp);
+                    ->addLine(L"switch(nValue)")
+                    ->add(pTemp);
                 for (int i = 0; i < nCount; ++i)
                 {
-                    pTemp->addLine(FormatWstring(L"case %s::%s:", 
+                    pTemp->addLine(FormatWstring(L"case %s::%s:",
                         pTypeObject->getName().c_str(),
                         pTypeObject->getEnum(i).c_str()
                     ));
                     pTemp->add((new CIndent)
-                                   ->addLine(FormatWstring(L"return \".%s.\";",
-                                       pTypeObject->getEnum(i).c_str()
-                                   ))
-                                   ->addLine(L"break;"));
+                        ->addLine(FormatWstring(L"return \".%s.\";",
+                            pTypeObject->getEnum(i).c_str()
+                        ))
+                        ->addLine(L"break;"));
                 }
                 pTemp->addLine(L"default:");
                 pTemp->add((new CIndent)
-                      ->addLine(L"assert(false);")
-                      ->addLine(L"return \"\";"));
+                    ->addLine(L"assert(false);")
+                    ->addLine(L"return \"\";"));
                 pEnumFuncGroup->addLine(L"");
                 pEnumFuncGroup->addLine(FormatWstring(L"inline bool StringTo%s(const std::string& sValue, %s& nType)",
                     pTypeObject->getName().c_str(),
                     pTypeObject->getName().c_str()
-                    ));
+                ));
                 CppCode* pBlock2 = CppCode::createBlock(pEnumFuncGroup);
                 for (int i = 0; i < nCount; ++i)
                 {
-					pBlock2->addLine(FormatWstring(L"if(sValue.compare(\".%s.\") == 0)", 
+                    pBlock2->addLine(FormatWstring(L"if(sValue.compare(\".%s.\") == 0)",
                         pTypeObject->getEnum(i).c_str()
                     ));
-					pBlock2->add((new CBlock(false))
-                                 ->add((new CIndent())
-                                    ->addLine(FormatWstring(L"nType = %s::%s;", 
-                                        pTypeObject->getName().c_str(),
-                                        pTypeObject->getEnum(i).c_str()
-                                    ))
-                                    ->addLine(L"return true;")));
+                    pBlock2->add((new CBlock(false))
+                        ->add((new CIndent())
+                            ->addLine(FormatWstring(L"nType = %s::%s;",
+                                pTypeObject->getName().c_str(),
+                                pTypeObject->getEnum(i).c_str()
+                            ))
+                            ->addLine(L"return true;")));
                 }
                 pBlock2->addLine(L"return false;");
                 pEnumFuncGroup->addLine(L"");
@@ -687,13 +683,35 @@ void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
     updateProgressBar();
 }
 
+void CCodeWriter::writeTypeObject(CppHeadFile & oTypeDefHeadFile, CTypeObject * pTypeObj, std::set<std::wstring>& oTypeSet)
+{
+    if (oTypeSet.count(pTypeObj->getName()) > 0)
+        return;
+    CTypeDef* pTypeObject = dynamic_cast<CTypeDef*>(pTypeObj);
+    if (!pTypeObject)
+        return;
+    CTypeObject* pType = pTypeObject->getRefType();
+    if (pType && pType->getType() == TOE_TYPE)
+    {
+        writeTypeObject(oTypeDefHeadFile, pType, oTypeSet);
+    }
+
+    std::wstring sRefTypeName = getTypeCode(pTypeObject->getRefType());
+    oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef %s %s;",
+        sRefTypeName.c_str(),
+        pTypeObject->getName().c_str()
+    ));
+    oTypeDefHeadFile.body()->addLine(L"");
+    oTypeSet.insert(pTypeObj->getName());
+}
+
 void CCodeWriter::writeCliTypedefFile(std::vector<CTypeObject *> &oObjectList)
 {
     std::set<std::wstring> oTypeDefIncludes;
     CppHeadFile oTypeDefHeadFile(L"NTypeDef");
 //    oTypeDefHeadFile.addInclude("TypeDef.h");
     CppCode* pEnumGroup = NULL;
-    int nCount = oObjectList.size();
+    int nCount = (int)oObjectList.size();
     for(int i = 0; i < nCount; ++i)
     {
         CTypeObject* pTypeObj = oObjectList[i];

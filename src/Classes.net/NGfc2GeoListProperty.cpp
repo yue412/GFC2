@@ -11,28 +11,28 @@ NGfc2GeoListProperty::NGfc2GeoListProperty(void* pEntity, bool bOwner):
 {
 }
 
-int NGfc2GeoListProperty::getValueCount()
+int NGfc2GeoListProperty::getValuesCount()
 {
-    return ((Gfc2GeoListProperty*)m_pEntity)->getValueCount();
+    return ((Gfc2GeoListProperty*)m_pEntity)->getValuesCount();
 }
 
-void NGfc2GeoListProperty::clearValue()
+void NGfc2GeoListProperty::clearValues()
 {
-    ((Gfc2GeoListProperty*)m_pEntity)->clearValue();
+    ((Gfc2GeoListProperty*)m_pEntity)->clearValues();
 }
 
-void NGfc2GeoListProperty::addValue(gfc::engine::EntityRef nValue)
+void NGfc2GeoListProperty::addValues(gfc::engine::EntityRef nValue)
 {
-    ((Gfc2GeoListProperty*)m_pEntity)->addValue(nValue);
+    ((Gfc2GeoListProperty*)m_pEntity)->addValues(nValue);
 }
 
-gfc::engine::EntityRef NGfc2GeoListProperty::getValue(int nIndex)
+gfc::engine::EntityRef NGfc2GeoListProperty::getValues(int nIndex)
 {
-    return ((Gfc2GeoListProperty*)m_pEntity)->getValue(nIndex);
+    return ((Gfc2GeoListProperty*)m_pEntity)->getValues(nIndex);
 }
 
-NGfc2Geometry^ NGfc2GeoListProperty::getValuePtr(int nIndex)
+NGfc2Geometry^ NGfc2GeoListProperty::getValuesPtr(int nIndex)
 {
-    return gcnew NGfc2Geometry(((Gfc2GeoListProperty*)m_pEntity)->getValuePtr(nIndex), false);
+    return gcnew NGfc2Geometry(((Gfc2GeoListProperty*)m_pEntity)->getValuesPtr(nIndex), false);
 }
 

@@ -12,9 +12,9 @@ GFCENGINE_DEC_OBJECT(Gfc2IntegerProperty, gfc::engine::CEntity)
 public:
     Gfc2IntegerProperty();
     Gfc2IntegerProperty(bool bSetSchema);
-    void setValue(const Gfc2Integer& nValue);
-    Gfc2Integer getValue() const;
-    bool hasValue() const;
+    void setVal(const Gfc2Integer& nValue);
+    Gfc2Integer getVal() const;
+    bool hasVal() const;
 
 };
 #endif

@@ -31,18 +31,18 @@ NGfc2Vector3d^ NGfc2ExtrudedAreaSolidShape::getExtrudedDirectionPtr()
     return gcnew NGfc2Vector3d(((Gfc2ExtrudedAreaSolidShape*)m_pEntity)->getExtrudedDirectionPtr(), false);
 }
 
-void NGfc2ExtrudedAreaSolidShape::setLength(NGfc2Double dValue)
+void NGfc2ExtrudedAreaSolidShape::setLen(NGfc2Double dValue)
 {
-    ((Gfc2ExtrudedAreaSolidShape*)m_pEntity)->setLength(dValue);
+    ((Gfc2ExtrudedAreaSolidShape*)m_pEntity)->setLen(dValue);
 }
 
-NGfc2Double NGfc2ExtrudedAreaSolidShape::getLength()
+NGfc2Double NGfc2ExtrudedAreaSolidShape::getLen()
 {
-    return ((Gfc2ExtrudedAreaSolidShape*)m_pEntity)->getLength();
+    return ((Gfc2ExtrudedAreaSolidShape*)m_pEntity)->getLen();
 }
 
-bool NGfc2ExtrudedAreaSolidShape::hasLength()
+bool NGfc2ExtrudedAreaSolidShape::hasLen()
 {
-    return ((Gfc2ExtrudedAreaSolidShape*)m_pEntity)->hasLength();
+    return ((Gfc2ExtrudedAreaSolidShape*)m_pEntity)->hasLen();
 }
 

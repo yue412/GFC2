@@ -12,11 +12,11 @@ GFCENGINE_DEC_OBJECT(Gfc2GeoListProperty, gfc::engine::CEntity)
 public:
     Gfc2GeoListProperty();
     Gfc2GeoListProperty(bool bSetSchema);
-    int getValueCount() const;
-    void clearValue();
-    void addValue(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getValue(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Geometry> getValuePtr(int nIndex);
+    int getValuesCount() const;
+    void clearValues();
+    void addValues(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getValues(int nIndex) const;
+    gfc::engine::CEntityWrapPtr<Gfc2Geometry> getValuesPtr(int nIndex);
 
 };
 #endif

@@ -354,6 +354,7 @@ protected:
     }
 };
 
+/*
 TEST(TestWriteTextImp, CWriter_addIgnoreDuplicates)
 {
     CMockWriterImp oWriter;
@@ -377,7 +378,9 @@ TEST(TestWriteTextImp, CWriter_addIgnoreDuplicates)
     EXPECT_NE(nRef, nRef4);
     EXPECT_NE(nRef3, nRef4);
 }
+*/
 
+/*
 TEST(TestWriteTextImp, CWriter_2)
 {
     gfc::schema::CModel oModel;
@@ -394,3 +397,4 @@ TEST(TestWriteTextImp, CWriter_2)
         oWriter.close();
     }
 }
+*/

@@ -2,42 +2,39 @@
 #define NGFC2BILLTOTAL_H
 
 #include "Gfc2BillTotal.h"
-#include "NGfc2String.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2BillTotal: public glodon::objectbufnet::Entity
 {
 public:
     NGfc2BillTotal();
     NGfc2BillTotal(void* pEntity, bool bOwner);
-    void setCode(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getCode();
+    void setCode(NGfc2String sValue);
+    NGfc2String getCode();
     bool hasCode();
-    NGfc2String^ getCodePtr();
-    void setName(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getName();
+    void setName(NGfc2String sValue);
+    NGfc2String getName();
     bool hasName();
-    NGfc2String^ getNamePtr();
-    void setAttr(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getAttr();
+    void setAttr(NGfc2String sValue);
+    NGfc2String getAttr();
     bool hasAttr();
-    NGfc2String^ getAttrPtr();
     void setQuantityType(NGfc2Integer nValue);
     NGfc2Integer getQuantityType();
     bool hasQuantityType();
-    void setUnit(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getUnit();
+    void setUnit(NGfc2String sValue);
+    NGfc2String getUnit();
     bool hasUnit();
-    NGfc2String^ getUnitPtr();
-    void setQuantity(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getQuantity();
+    void setQuantity(NGfc2String sValue);
+    NGfc2String getQuantity();
     bool hasQuantity();
-    NGfc2String^ getQuantityPtr();
-    void setMemo(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getMemo();
+    void setMemo(NGfc2String sValue);
+    NGfc2String getMemo();
     bool hasMemo();
-    NGfc2String^ getMemoPtr();
 
 };
 #endif

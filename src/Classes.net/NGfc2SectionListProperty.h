@@ -11,11 +11,11 @@ public ref class NGfc2SectionListProperty: public NGfc2ListProperty
 public:
     NGfc2SectionListProperty();
     NGfc2SectionListProperty(void* pEntity, bool bOwner);
-    int getValueCount();
-    void clearValue();
-    void addValue(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getValue(int nIndex);
-    NGfc2Section^ getValuePtr(int nIndex);
+    int getValuesCount();
+    void clearValues();
+    void addValues(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getValues(int nIndex);
+    NGfc2Section^ getValuesPtr(int nIndex);
 
 };
 #endif

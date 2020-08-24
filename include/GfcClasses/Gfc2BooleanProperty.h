@@ -12,9 +12,9 @@ GFCENGINE_DEC_OBJECT(Gfc2BooleanProperty, gfc::engine::CEntity)
 public:
     Gfc2BooleanProperty();
     Gfc2BooleanProperty(bool bSetSchema);
-    void setValue(const Gfc2Boolean& bValue);
-    Gfc2Boolean getValue() const;
-    bool hasValue() const;
+    void setVal(const Gfc2Boolean& bValue);
+    Gfc2Boolean getVal() const;
+    bool hasVal() const;
 
 };
 #endif

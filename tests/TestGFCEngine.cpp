@@ -180,7 +180,7 @@ TEST(TestGFCEngine, Read_getEntities)
                 EXPECT_STREQ(L"Gfc2Element", pEntity->entityName().c_str());
                 EXPECT_STREQ(L"4", pEntity->asString(L"ID").c_str());
                 EXPECT_EQ(true, pEntity->isNull(L"Name"));
-                EXPECT_EQ(true, pEntity->isNull(L"Type"));
+                EXPECT_EQ(true, pEntity->isNull(L"EType"));
                 EXPECT_EQ(true, pEntity->isNull(L"Representations"));
                 EXPECT_EQ(true, pEntity->isNull(L"Shapes"));
             }
@@ -247,7 +247,7 @@ TEST(TestGFCEngine, Read_getIterator)
                 EXPECT_STREQ(L"Gfc2Element", pEntity->entityName().c_str());
                 EXPECT_STREQ(L"4", pEntity->asString(L"ID").c_str());
                 EXPECT_EQ(true, pEntity->isNull(L"Name"));
-                EXPECT_EQ(true, pEntity->isNull(L"Type"));
+                EXPECT_EQ(true, pEntity->isNull(L"EType"));
                 EXPECT_EQ(true, pEntity->isNull(L"Representations"));
                 EXPECT_EQ(true, pEntity->isNull(L"Shapes"));
             }
@@ -277,28 +277,28 @@ TEST(TestGFCEngine, WriteRefFile)
     auto result = writer.open(getFullPath(L"ref.gfc"), L"express");
     gfc::schema::CModel oModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
-    gfc::engine::EntityRef nRef1, nRef2, nRef3, nRef4;
-    {
-        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String");
-        pEntity->setAsString(L"Value", L"中国");
-        nRef1 = writer.writeEntity(pEntity);
-        EXPECT_EQ(true, result);
-    }
+    gfc::engine::EntityRef /*nRef1,*/ nRef2, /*nRef3, */nRef4;
+    //{
+    //    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String");
+    //    pEntity->setAsString(L"Value", L"中国");
+    //    nRef1 = writer.writeEntity(pEntity);
+    //    EXPECT_EQ(true, result);
+    //}
     {
         auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2ElementShape");
-        pEntity->setAsEntityRef(L"Identifier", nRef1);
+        pEntity->setAsString(L"Identifier", L"中国");
         nRef2 = writer.writeEntity(pEntity);
         EXPECT_EQ(true, result);
     }
-    {
-        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String");
-        pEntity->setAsString(L"Value", L"人民");
-        nRef3 = writer.writeEntity(pEntity);
-        EXPECT_EQ(true, result);
-    }
+    //{
+    //    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String");
+    //    pEntity->setAsString(L"Value", L"人民");
+    //    nRef3 = writer.writeEntity(pEntity);
+    //    EXPECT_EQ(true, result);
+    //}
     {
         auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2ElementShape");
-        pEntity->setAsEntityRef(L"Identifier", nRef3);
+        pEntity->setAsString(L"Identifier", L"人民");
         nRef4 = writer.writeEntity(pEntity);
         EXPECT_EQ(true, result);
     }
@@ -335,17 +335,13 @@ TEST(TestGFCEngine, Read_getRef)
                 auto pShape1 = pElement->getEntity(L"Shapes", 0);
                 EXPECT_EQ(true, pShape1 != nullptr);
                 EXPECT_EQ(true, pShape1->isNull(L"Shape"));
-                auto pStr1 = pShape1->asEntity(L"Identifier");
-                EXPECT_EQ(true, pStr1 != nullptr);
-                EXPECT_STREQ(L"中国", pStr1->asString(L"Value").c_str());
+                EXPECT_STREQ(L"中国", pShape1->asString(L"Identifier").c_str());
             }
             {
                 auto pShape1 = pElement->getEntity(L"Shapes", 1);
                 EXPECT_EQ(true, pShape1 != nullptr);
                 EXPECT_EQ(true, pShape1->isNull(L"Shape"));
-                auto pStr1 = pShape1->asEntity(L"Identifier");
-                EXPECT_EQ(true, pStr1 != nullptr);
-                EXPECT_STREQ(L"人民", pStr1->asString(L"Value").c_str());
+                EXPECT_STREQ(L"人民", pShape1->asString(L"Identifier").c_str());
             }
 
             itr->next();

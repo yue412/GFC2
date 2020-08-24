@@ -17,9 +17,9 @@ public:
     gfc::engine::EntityRef getCoordinate();
     bool hasCoordinate();
     NGfc2Coordinates3d^ getCoordinatePtr();
-    void setLength(NGfc2Double dValue);
-    NGfc2Double getLength();
-    bool hasLength();
+    void setLen(NGfc2Double dValue);
+    NGfc2Double getLen();
+    bool hasLen();
     void setSection(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getSection();
     bool hasSection();

@@ -5,6 +5,10 @@
 #include "Gfc2Floor.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2Floor: public NGfc2SpatialStructureElement
 {
@@ -23,10 +27,9 @@ public:
     void setStartFloorNo(NGfc2Integer nValue);
     NGfc2Integer getStartFloorNo();
     bool hasStartFloorNo();
-    void setRemark(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getRemark();
+    void setRemark(NGfc2Text sValue);
+    NGfc2Text getRemark();
     bool hasRemark();
-    NGfc2Text^ getRemarkPtr();
 
 };
 #endif

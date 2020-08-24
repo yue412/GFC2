@@ -2,9 +2,12 @@
 #define NGFC2BILLDETAIL_H
 
 #include "Gfc2BillDetail.h"
-#include "NGfc2String.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2BillDetail: public glodon::objectbufnet::Entity
 {
@@ -17,22 +20,18 @@ public:
     void setEntityID(NGfc2Integer nValue);
     NGfc2Integer getEntityID();
     bool hasEntityID();
-    void setUnit(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getUnit();
+    void setUnit(NGfc2String sValue);
+    NGfc2String getUnit();
     bool hasUnit();
-    NGfc2String^ getUnitPtr();
-    void setExpress(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getExpress();
+    void setExpress(NGfc2String sValue);
+    NGfc2String getExpress();
     bool hasExpress();
-    NGfc2String^ getExpressPtr();
-    void setQuantity(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getQuantity();
+    void setQuantity(NGfc2String sValue);
+    NGfc2String getQuantity();
     bool hasQuantity();
-    NGfc2String^ getQuantityPtr();
-    void setMemo(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getMemo();
+    void setMemo(NGfc2String sValue);
+    NGfc2String getMemo();
     bool hasMemo();
-    NGfc2String^ getMemoPtr();
 
 };
 #endif

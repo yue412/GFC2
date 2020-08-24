@@ -41,24 +41,19 @@ bool NGfc2SurfaceTexture::hasRepeatT()
     return ((Gfc2SurfaceTexture*)m_pEntity)->hasRepeatT();
 }
 
-void NGfc2SurfaceTexture::setImageFileName(gfc::engine::EntityRef nValue)
+void NGfc2SurfaceTexture::setImageFileName(NGfc2String sValue)
 {
-    ((Gfc2SurfaceTexture*)m_pEntity)->setImageFileName(nValue);
+    ((Gfc2SurfaceTexture*)m_pEntity)->setImageFileName(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2SurfaceTexture::getImageFileName()
+NGfc2String NGfc2SurfaceTexture::getImageFileName()
 {
-    return ((Gfc2SurfaceTexture*)m_pEntity)->getImageFileName();
+    return marshal_as<String^>(((Gfc2SurfaceTexture*)m_pEntity)->getImageFileName());
 }
 
 bool NGfc2SurfaceTexture::hasImageFileName()
 {
     return ((Gfc2SurfaceTexture*)m_pEntity)->hasImageFileName();
-}
-
-NGfc2String^ NGfc2SurfaceTexture::getImageFileNamePtr()
-{
-    return gcnew NGfc2String(((Gfc2SurfaceTexture*)m_pEntity)->getImageFileNamePtr(), false);
 }
 
 void NGfc2SurfaceTexture::setTranfromsMatirx(gfc::engine::EntityRef nValue)
@@ -91,18 +86,13 @@ void NGfc2SurfaceTexture::clearParameter()
     ((Gfc2SurfaceTexture*)m_pEntity)->clearParameter();
 }
 
-void NGfc2SurfaceTexture::addParameter(gfc::engine::EntityRef nValue)
+void NGfc2SurfaceTexture::addParameter(NGfc2String sValue)
 {
-    ((Gfc2SurfaceTexture*)m_pEntity)->addParameter(nValue);
+    ((Gfc2SurfaceTexture*)m_pEntity)->addParameter(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2SurfaceTexture::getParameter(int nIndex)
+NGfc2String NGfc2SurfaceTexture::getParameter(int nIndex)
 {
-    return ((Gfc2SurfaceTexture*)m_pEntity)->getParameter(nIndex);
-}
-
-NGfc2String^ NGfc2SurfaceTexture::getParameterPtr(int nIndex)
-{
-    return gcnew NGfc2String(((Gfc2SurfaceTexture*)m_pEntity)->getParameterPtr(nIndex), false);
+    return marshal_as<String^>(((Gfc2SurfaceTexture*)m_pEntity)->getParameter(nIndex));
 }
 

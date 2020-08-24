@@ -3,8 +3,12 @@
 
 #include "NGfc2ListProperty.h"
 #include "Gfc2StringListProperty.h"
-#include "NGfc2String.h"
+#include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2StringListProperty: public NGfc2ListProperty
 {
@@ -13,9 +17,8 @@ public:
     NGfc2StringListProperty(void* pEntity, bool bOwner);
     int getValuesCount();
     void clearValues();
-    void addValues(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getValues(int nIndex);
-    NGfc2String^ getValuesPtr(int nIndex);
+    void addValues(NGfc2String sValue);
+    NGfc2String getValues(int nIndex);
 
 };
 #endif

@@ -3,18 +3,21 @@
 
 #include "NGfc2SingleProperty.h"
 #include "Gfc2StringProperty.h"
-#include "NGfc2String.h"
+#include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2StringProperty: public NGfc2SingleProperty
 {
 public:
     NGfc2StringProperty();
     NGfc2StringProperty(void* pEntity, bool bOwner);
-    void setValue(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getValue();
-    bool hasValue();
-    NGfc2String^ getValuePtr();
+    void setVal(NGfc2String sValue);
+    NGfc2String getVal();
+    bool hasVal();
 
 };
 #endif

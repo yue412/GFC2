@@ -2,7 +2,6 @@
 #define GFC2STEELDETAIL_H
 
 #include "GfcClasses.h"
-#include "Gfc2String.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
@@ -15,27 +14,24 @@ public:
     void setEntityID(const Gfc2Integer& nValue);
     Gfc2Integer getEntityID() const;
     bool hasEntityID() const;
-    void setName(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getName() const;
+    void setName(const Gfc2String& sValue);
+    Gfc2String getName() const;
     bool hasName() const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getNamePtr();
-    void setDesc(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getDesc() const;
+    void setDesc(const Gfc2String& sValue);
+    Gfc2String getDesc() const;
     bool hasDesc() const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getDescPtr();
-    void setLevel(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getLevel() const;
+    void setLevel(const Gfc2String& sValue);
+    Gfc2String getLevel() const;
     bool hasLevel() const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getLevelPtr();
     void setDia(const Gfc2Integer& nValue);
     Gfc2Integer getDia() const;
     bool hasDia() const;
     void setNum(const Gfc2Integer& nValue);
     Gfc2Integer getNum() const;
     bool hasNum() const;
-    void setLength(const Gfc2Integer& nValue);
-    Gfc2Integer getLength() const;
-    bool hasLength() const;
+    void setBarLength(const Gfc2Integer& nValue);
+    Gfc2Integer getBarLength() const;
+    bool hasBarLength() const;
     void setSingleWeight(const Gfc2Double& dValue);
     Gfc2Double getSingleWeight() const;
     bool hasSingleWeight() const;
@@ -45,10 +41,9 @@ public:
     void setTieinNum(const Gfc2Integer& nValue);
     Gfc2Integer getTieinNum() const;
     bool hasTieinNum() const;
-    void setTieinType(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getTieinType() const;
+    void setTieinType(const Gfc2String& sValue);
+    Gfc2String getTieinType() const;
     bool hasTieinType() const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getTieinTypePtr();
 
 };
 #endif

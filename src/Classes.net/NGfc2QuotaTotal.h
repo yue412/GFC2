@@ -2,42 +2,39 @@
 #define NGFC2QUOTATOTAL_H
 
 #include "Gfc2QuotaTotal.h"
-#include "NGfc2String.h"
+#include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2QuotaTotal: public glodon::objectbufnet::Entity
 {
 public:
     NGfc2QuotaTotal();
     NGfc2QuotaTotal(void* pEntity, bool bOwner);
-    void setCode(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getCode();
+    void setCode(NGfc2String sValue);
+    NGfc2String getCode();
     bool hasCode();
-    NGfc2String^ getCodePtr();
-    void setSubCode(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getSubCode();
+    void setSubCode(NGfc2String sValue);
+    NGfc2String getSubCode();
     bool hasSubCode();
-    NGfc2String^ getSubCodePtr();
-    void setName(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getName();
+    void setName(NGfc2String sValue);
+    NGfc2String getName();
     bool hasName();
-    NGfc2String^ getNamePtr();
-    void setContent(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getContent();
+    void setContent(NGfc2String sValue);
+    NGfc2String getContent();
     bool hasContent();
-    NGfc2String^ getContentPtr();
-    void setUnit(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getUnit();
+    void setUnit(NGfc2String sValue);
+    NGfc2String getUnit();
     bool hasUnit();
-    NGfc2String^ getUnitPtr();
-    void setQuantity(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getQuantity();
+    void setQuantity(NGfc2String sValue);
+    NGfc2String getQuantity();
     bool hasQuantity();
-    NGfc2String^ getQuantityPtr();
-    void setMemo(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getMemo();
+    void setMemo(NGfc2String sValue);
+    NGfc2String getMemo();
     bool hasMemo();
-    NGfc2String^ getMemoPtr();
 
 };
 #endif

@@ -2,9 +2,12 @@
 #define NGFC2STEELDETAIL_H
 
 #include "Gfc2SteelDetail.h"
-#include "NGfc2String.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2SteelDetail: public glodon::objectbufnet::Entity
 {
@@ -14,27 +17,24 @@ public:
     void setEntityID(NGfc2Integer nValue);
     NGfc2Integer getEntityID();
     bool hasEntityID();
-    void setName(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getName();
+    void setName(NGfc2String sValue);
+    NGfc2String getName();
     bool hasName();
-    NGfc2String^ getNamePtr();
-    void setDesc(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getDesc();
+    void setDesc(NGfc2String sValue);
+    NGfc2String getDesc();
     bool hasDesc();
-    NGfc2String^ getDescPtr();
-    void setLevel(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getLevel();
+    void setLevel(NGfc2String sValue);
+    NGfc2String getLevel();
     bool hasLevel();
-    NGfc2String^ getLevelPtr();
     void setDia(NGfc2Integer nValue);
     NGfc2Integer getDia();
     bool hasDia();
     void setNum(NGfc2Integer nValue);
     NGfc2Integer getNum();
     bool hasNum();
-    void setLength(NGfc2Integer nValue);
-    NGfc2Integer getLength();
-    bool hasLength();
+    void setBarLength(NGfc2Integer nValue);
+    NGfc2Integer getBarLength();
+    bool hasBarLength();
     void setSingleWeight(NGfc2Double dValue);
     NGfc2Double getSingleWeight();
     bool hasSingleWeight();
@@ -44,10 +44,9 @@ public:
     void setTieinNum(NGfc2Integer nValue);
     NGfc2Integer getTieinNum();
     bool hasTieinNum();
-    void setTieinType(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getTieinType();
+    void setTieinType(NGfc2String sValue);
+    NGfc2String getTieinType();
     bool hasTieinType();
-    NGfc2String^ getTieinTypePtr();
 
 };
 #endif

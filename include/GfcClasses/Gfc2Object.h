@@ -14,10 +14,9 @@ public:
     void setID(const Gfc2Identity& sValue);
     Gfc2Identity getID() const;
     bool hasID() const;
-    void setName(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getName() const;
+    void setName(const Gfc2Label& sValue);
+    Gfc2Label getName() const;
     bool hasName() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Label> getNamePtr();
 
 };
 #endif

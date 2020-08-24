@@ -11,9 +11,9 @@ public ref class NGfc2BooleanProperty: public NGfc2SingleProperty
 public:
     NGfc2BooleanProperty();
     NGfc2BooleanProperty(void* pEntity, bool bOwner);
-    void setValue(NGfc2Boolean bValue);
-    NGfc2Boolean getValue();
-    bool hasValue();
+    void setVal(NGfc2Boolean bValue);
+    NGfc2Boolean getVal();
+    bool hasVal();
 
 };
 #endif

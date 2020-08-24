@@ -17,10 +17,9 @@ public:
     void setID(NGfc2Identity sValue);
     NGfc2Identity getID();
     bool hasID();
-    void setName(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getName();
+    void setName(NGfc2Label sValue);
+    NGfc2Label getName();
     bool hasName();
-    NGfc2Label^ getNamePtr();
 
 };
 #endif

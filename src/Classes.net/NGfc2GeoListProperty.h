@@ -11,11 +11,11 @@ public ref class NGfc2GeoListProperty: public NGfc2ListProperty
 public:
     NGfc2GeoListProperty();
     NGfc2GeoListProperty(void* pEntity, bool bOwner);
-    int getValueCount();
-    void clearValue();
-    void addValue(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getValue(int nIndex);
-    NGfc2Geometry^ getValuePtr(int nIndex);
+    int getValuesCount();
+    void clearValues();
+    void addValues(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getValues(int nIndex);
+    NGfc2Geometry^ getValuesPtr(int nIndex);
 
 };
 #endif

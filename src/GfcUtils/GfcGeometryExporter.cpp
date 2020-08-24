@@ -615,7 +615,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportExtrudedBody( gfc::engine::CWr
     assert(pSrc);
     Gfc2ExtrudedBody oDest;
     oDest.setCoordinate(exportCoordinates3d(pWriter, const_cast<ggp::CCoordinates3d*>(&pSrc->GetCoordinate())));
-    oDest.setLength(pSrc->GetLength());
+    oDest.setLen(pSrc->GetLength());
     oDest.setSection(exportPolygon(pWriter, pSrc->Section()));
     return pWriter->writeEntity(&oDest);
 }

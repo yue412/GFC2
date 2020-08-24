@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <set>
 #include "GfcSchema/SchemaMacro.h"
 
 GFC_NAMESPACE_BEGIN
@@ -27,6 +28,7 @@ enum EnBaseType {
 class CppBaseFile;
 class CppClass;
 class CppCode;
+class CppHeadFile;
 
 using namespace gfc::schema;
 
@@ -51,6 +53,7 @@ private:
 //    void writeRegSchemaInfoHeadFile();
 //    void writeRegSchemaInfoImpFile();
     void writeTypedefFile(std::vector<CTypeObject*>& oObjectList);
+    void writeTypeObject(CppHeadFile& oTypeDefHeadFile, CTypeObject* pTypeObj, std::set<std::wstring>& oTypeSet);
     void writeCliTypedefFile(std::vector<CTypeObject*>& oObjectList);
     void writeClassFile(std::vector<CTypeObject*>& oObjectList);
     void writeClassHeadFile(CClass* pTypeObject, CppClass* pClass, CppClass* pFactoryClass, CppClass* pFieldCacheClass);

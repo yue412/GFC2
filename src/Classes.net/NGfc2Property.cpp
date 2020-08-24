@@ -11,14 +11,14 @@ NGfc2Property::NGfc2Property(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2Property::setName(gfc::engine::EntityRef nValue)
+void NGfc2Property::setName(NGfc2Label sValue)
 {
-    ((Gfc2Property*)m_pEntity)->setName(nValue);
+    ((Gfc2Property*)m_pEntity)->setName(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2Property::getName()
+NGfc2Label NGfc2Property::getName()
 {
-    return ((Gfc2Property*)m_pEntity)->getName();
+    return marshal_as<String^>(((Gfc2Property*)m_pEntity)->getName());
 }
 
 bool NGfc2Property::hasName()
@@ -26,28 +26,18 @@ bool NGfc2Property::hasName()
     return ((Gfc2Property*)m_pEntity)->hasName();
 }
 
-NGfc2Label^ NGfc2Property::getNamePtr()
+void NGfc2Property::setCode(NGfc2String sValue)
 {
-    return gcnew NGfc2Label(((Gfc2Property*)m_pEntity)->getNamePtr(), false);
+    ((Gfc2Property*)m_pEntity)->setCode(marshal_as<std::string>(sValue));
 }
 
-void NGfc2Property::setCode(gfc::engine::EntityRef nValue)
+NGfc2String NGfc2Property::getCode()
 {
-    ((Gfc2Property*)m_pEntity)->setCode(nValue);
-}
-
-gfc::engine::EntityRef NGfc2Property::getCode()
-{
-    return ((Gfc2Property*)m_pEntity)->getCode();
+    return marshal_as<String^>(((Gfc2Property*)m_pEntity)->getCode());
 }
 
 bool NGfc2Property::hasCode()
 {
     return ((Gfc2Property*)m_pEntity)->hasCode();
-}
-
-NGfc2String^ NGfc2Property::getCodePtr()
-{
-    return gcnew NGfc2String(((Gfc2Property*)m_pEntity)->getCodePtr(), false);
 }
 

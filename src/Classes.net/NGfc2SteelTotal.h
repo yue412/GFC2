@@ -2,33 +2,33 @@
 #define NGFC2STEELTOTAL_H
 
 #include "Gfc2SteelTotal.h"
-#include "NGfc2String.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2SteelTotal: public glodon::objectbufnet::Entity
 {
 public:
     NGfc2SteelTotal();
     NGfc2SteelTotal(void* pEntity, bool bOwner);
-    void setCompType(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getCompType();
+    void setCompType(NGfc2String sValue);
+    NGfc2String getCompType();
     bool hasCompType();
-    NGfc2String^ getCompTypePtr();
-    void setLevel(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getLevel();
+    void setLevel(NGfc2String sValue);
+    NGfc2String getLevel();
     bool hasLevel();
-    NGfc2String^ getLevelPtr();
     void setDia(NGfc2Integer nValue);
     NGfc2Integer getDia();
     bool hasDia();
     void setWeight(NGfc2Double dValue);
     NGfc2Double getWeight();
     bool hasWeight();
-    void setUnit(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getUnit();
+    void setUnit(NGfc2String sValue);
+    NGfc2String getUnit();
     bool hasUnit();
-    NGfc2String^ getUnitPtr();
 
 };
 #endif

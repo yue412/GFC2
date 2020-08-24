@@ -2,19 +2,22 @@
 #define NGFC2REPRESENTATION_H
 
 #include "Gfc2Representation.h"
-#include "NGfc2String.h"
 #include "NGfc2RepresentationItem.h"
+#include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2Representation: public glodon::objectbufnet::Entity
 {
 public:
     NGfc2Representation();
     NGfc2Representation(void* pEntity, bool bOwner);
-    void setIdentifier(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getIdentifier();
+    void setIdentifier(NGfc2String sValue);
+    NGfc2String getIdentifier();
     bool hasIdentifier();
-    NGfc2String^ getIdentifierPtr();
     int getitemsCount();
     void clearitems();
     void additems(gfc::engine::EntityRef nValue);

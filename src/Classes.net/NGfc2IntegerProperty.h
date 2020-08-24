@@ -11,9 +11,9 @@ public ref class NGfc2IntegerProperty: public NGfc2SingleProperty
 public:
     NGfc2IntegerProperty();
     NGfc2IntegerProperty(void* pEntity, bool bOwner);
-    void setValue(NGfc2Integer nValue);
-    NGfc2Integer getValue();
-    bool hasValue();
+    void setVal(NGfc2Integer nValue);
+    NGfc2Integer getVal();
+    bool hasVal();
 
 };
 #endif

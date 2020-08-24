@@ -7,16 +7,19 @@
 #include "NGfc2ElementShape.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2Element: public NGfc2Object
 {
 public:
     NGfc2Element();
     NGfc2Element(void* pEntity, bool bOwner);
-    void setType(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getType();
-    bool hasType();
-    NGfc2Label^ getTypePtr();
+    void setEType(NGfc2Label sValue);
+    NGfc2Label getEType();
+    bool hasEType();
     int getRepresentationsCount();
     void clearRepresentations();
     void addRepresentations(gfc::engine::EntityRef nValue);

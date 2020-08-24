@@ -2,7 +2,6 @@
 #define GFC2PROPERTY_H
 
 #include "GfcClasses.h"
-#include "Gfc2String.h"
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
@@ -12,14 +11,12 @@ GFCENGINE_DEC_OBJECT(Gfc2Property, gfc::engine::CEntity)
 public:
     Gfc2Property();
     Gfc2Property(bool bSetSchema);
-    void setName(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getName() const;
+    void setName(const Gfc2Label& sValue);
+    Gfc2Label getName() const;
     bool hasName() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Label> getNamePtr();
-    void setCode(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getCode() const;
+    void setCode(const Gfc2String& sValue);
+    Gfc2String getCode() const;
     bool hasCode() const;
-    gfc::engine::CEntityWrapPtr<Gfc2String> getCodePtr();
 
 };
 #endif

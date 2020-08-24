@@ -24,10 +24,9 @@ public:
     void setStartFloorNo(const Gfc2Integer& nValue);
     Gfc2Integer getStartFloorNo() const;
     bool hasStartFloorNo() const;
-    void setRemark(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getRemark() const;
+    void setRemark(const Gfc2Text& sValue);
+    Gfc2Text getRemark() const;
     bool hasRemark() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Text> getRemarkPtr();
 
 };
 #endif

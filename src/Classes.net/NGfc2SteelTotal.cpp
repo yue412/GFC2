@@ -11,14 +11,14 @@ NGfc2SteelTotal::NGfc2SteelTotal(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2SteelTotal::setCompType(gfc::engine::EntityRef nValue)
+void NGfc2SteelTotal::setCompType(NGfc2String sValue)
 {
-    ((Gfc2SteelTotal*)m_pEntity)->setCompType(nValue);
+    ((Gfc2SteelTotal*)m_pEntity)->setCompType(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2SteelTotal::getCompType()
+NGfc2String NGfc2SteelTotal::getCompType()
 {
-    return ((Gfc2SteelTotal*)m_pEntity)->getCompType();
+    return marshal_as<String^>(((Gfc2SteelTotal*)m_pEntity)->getCompType());
 }
 
 bool NGfc2SteelTotal::hasCompType()
@@ -26,29 +26,19 @@ bool NGfc2SteelTotal::hasCompType()
     return ((Gfc2SteelTotal*)m_pEntity)->hasCompType();
 }
 
-NGfc2String^ NGfc2SteelTotal::getCompTypePtr()
+void NGfc2SteelTotal::setLevel(NGfc2String sValue)
 {
-    return gcnew NGfc2String(((Gfc2SteelTotal*)m_pEntity)->getCompTypePtr(), false);
+    ((Gfc2SteelTotal*)m_pEntity)->setLevel(marshal_as<std::string>(sValue));
 }
 
-void NGfc2SteelTotal::setLevel(gfc::engine::EntityRef nValue)
+NGfc2String NGfc2SteelTotal::getLevel()
 {
-    ((Gfc2SteelTotal*)m_pEntity)->setLevel(nValue);
-}
-
-gfc::engine::EntityRef NGfc2SteelTotal::getLevel()
-{
-    return ((Gfc2SteelTotal*)m_pEntity)->getLevel();
+    return marshal_as<String^>(((Gfc2SteelTotal*)m_pEntity)->getLevel());
 }
 
 bool NGfc2SteelTotal::hasLevel()
 {
     return ((Gfc2SteelTotal*)m_pEntity)->hasLevel();
-}
-
-NGfc2String^ NGfc2SteelTotal::getLevelPtr()
-{
-    return gcnew NGfc2String(((Gfc2SteelTotal*)m_pEntity)->getLevelPtr(), false);
 }
 
 void NGfc2SteelTotal::setDia(NGfc2Integer nValue)
@@ -81,23 +71,18 @@ bool NGfc2SteelTotal::hasWeight()
     return ((Gfc2SteelTotal*)m_pEntity)->hasWeight();
 }
 
-void NGfc2SteelTotal::setUnit(gfc::engine::EntityRef nValue)
+void NGfc2SteelTotal::setUnit(NGfc2String sValue)
 {
-    ((Gfc2SteelTotal*)m_pEntity)->setUnit(nValue);
+    ((Gfc2SteelTotal*)m_pEntity)->setUnit(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2SteelTotal::getUnit()
+NGfc2String NGfc2SteelTotal::getUnit()
 {
-    return ((Gfc2SteelTotal*)m_pEntity)->getUnit();
+    return marshal_as<String^>(((Gfc2SteelTotal*)m_pEntity)->getUnit());
 }
 
 bool NGfc2SteelTotal::hasUnit()
 {
     return ((Gfc2SteelTotal*)m_pEntity)->hasUnit();
-}
-
-NGfc2String^ NGfc2SteelTotal::getUnitPtr()
-{
-    return gcnew NGfc2String(((Gfc2SteelTotal*)m_pEntity)->getUnitPtr(), false);
 }
 

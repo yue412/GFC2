@@ -41,14 +41,14 @@ bool NGfc2BillDetail::hasEntityID()
     return ((Gfc2BillDetail*)m_pEntity)->hasEntityID();
 }
 
-void NGfc2BillDetail::setUnit(gfc::engine::EntityRef nValue)
+void NGfc2BillDetail::setUnit(NGfc2String sValue)
 {
-    ((Gfc2BillDetail*)m_pEntity)->setUnit(nValue);
+    ((Gfc2BillDetail*)m_pEntity)->setUnit(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2BillDetail::getUnit()
+NGfc2String NGfc2BillDetail::getUnit()
 {
-    return ((Gfc2BillDetail*)m_pEntity)->getUnit();
+    return marshal_as<String^>(((Gfc2BillDetail*)m_pEntity)->getUnit());
 }
 
 bool NGfc2BillDetail::hasUnit()
@@ -56,19 +56,14 @@ bool NGfc2BillDetail::hasUnit()
     return ((Gfc2BillDetail*)m_pEntity)->hasUnit();
 }
 
-NGfc2String^ NGfc2BillDetail::getUnitPtr()
+void NGfc2BillDetail::setExpress(NGfc2String sValue)
 {
-    return gcnew NGfc2String(((Gfc2BillDetail*)m_pEntity)->getUnitPtr(), false);
+    ((Gfc2BillDetail*)m_pEntity)->setExpress(marshal_as<std::string>(sValue));
 }
 
-void NGfc2BillDetail::setExpress(gfc::engine::EntityRef nValue)
+NGfc2String NGfc2BillDetail::getExpress()
 {
-    ((Gfc2BillDetail*)m_pEntity)->setExpress(nValue);
-}
-
-gfc::engine::EntityRef NGfc2BillDetail::getExpress()
-{
-    return ((Gfc2BillDetail*)m_pEntity)->getExpress();
+    return marshal_as<String^>(((Gfc2BillDetail*)m_pEntity)->getExpress());
 }
 
 bool NGfc2BillDetail::hasExpress()
@@ -76,19 +71,14 @@ bool NGfc2BillDetail::hasExpress()
     return ((Gfc2BillDetail*)m_pEntity)->hasExpress();
 }
 
-NGfc2String^ NGfc2BillDetail::getExpressPtr()
+void NGfc2BillDetail::setQuantity(NGfc2String sValue)
 {
-    return gcnew NGfc2String(((Gfc2BillDetail*)m_pEntity)->getExpressPtr(), false);
+    ((Gfc2BillDetail*)m_pEntity)->setQuantity(marshal_as<std::string>(sValue));
 }
 
-void NGfc2BillDetail::setQuantity(gfc::engine::EntityRef nValue)
+NGfc2String NGfc2BillDetail::getQuantity()
 {
-    ((Gfc2BillDetail*)m_pEntity)->setQuantity(nValue);
-}
-
-gfc::engine::EntityRef NGfc2BillDetail::getQuantity()
-{
-    return ((Gfc2BillDetail*)m_pEntity)->getQuantity();
+    return marshal_as<String^>(((Gfc2BillDetail*)m_pEntity)->getQuantity());
 }
 
 bool NGfc2BillDetail::hasQuantity()
@@ -96,28 +86,18 @@ bool NGfc2BillDetail::hasQuantity()
     return ((Gfc2BillDetail*)m_pEntity)->hasQuantity();
 }
 
-NGfc2String^ NGfc2BillDetail::getQuantityPtr()
+void NGfc2BillDetail::setMemo(NGfc2String sValue)
 {
-    return gcnew NGfc2String(((Gfc2BillDetail*)m_pEntity)->getQuantityPtr(), false);
+    ((Gfc2BillDetail*)m_pEntity)->setMemo(marshal_as<std::string>(sValue));
 }
 
-void NGfc2BillDetail::setMemo(gfc::engine::EntityRef nValue)
+NGfc2String NGfc2BillDetail::getMemo()
 {
-    ((Gfc2BillDetail*)m_pEntity)->setMemo(nValue);
-}
-
-gfc::engine::EntityRef NGfc2BillDetail::getMemo()
-{
-    return ((Gfc2BillDetail*)m_pEntity)->getMemo();
+    return marshal_as<String^>(((Gfc2BillDetail*)m_pEntity)->getMemo());
 }
 
 bool NGfc2BillDetail::hasMemo()
 {
     return ((Gfc2BillDetail*)m_pEntity)->hasMemo();
-}
-
-NGfc2String^ NGfc2BillDetail::getMemoPtr()
-{
-    return gcnew NGfc2String(((Gfc2BillDetail*)m_pEntity)->getMemoPtr(), false);
 }
 

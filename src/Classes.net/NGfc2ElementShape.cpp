@@ -11,24 +11,19 @@ NGfc2ElementShape::NGfc2ElementShape(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2ElementShape::setIdentifier(gfc::engine::EntityRef nValue)
+void NGfc2ElementShape::setIdentifier(NGfc2String sValue)
 {
-    ((Gfc2ElementShape*)m_pEntity)->setIdentifier(nValue);
+    ((Gfc2ElementShape*)m_pEntity)->setIdentifier(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2ElementShape::getIdentifier()
+NGfc2String NGfc2ElementShape::getIdentifier()
 {
-    return ((Gfc2ElementShape*)m_pEntity)->getIdentifier();
+    return marshal_as<String^>(((Gfc2ElementShape*)m_pEntity)->getIdentifier());
 }
 
 bool NGfc2ElementShape::hasIdentifier()
 {
     return ((Gfc2ElementShape*)m_pEntity)->hasIdentifier();
-}
-
-NGfc2String^ NGfc2ElementShape::getIdentifierPtr()
-{
-    return gcnew NGfc2String(((Gfc2ElementShape*)m_pEntity)->getIdentifierPtr(), false);
 }
 
 void NGfc2ElementShape::setShape(gfc::engine::EntityRef nValue)

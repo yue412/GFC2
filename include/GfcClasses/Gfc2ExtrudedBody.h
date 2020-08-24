@@ -18,9 +18,9 @@ public:
     gfc::engine::EntityRef getCoordinate() const;
     bool hasCoordinate() const;
     gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getCoordinatePtr();
-    void setLength(const Gfc2Double& dValue);
-    Gfc2Double getLength() const;
-    bool hasLength() const;
+    void setLen(const Gfc2Double& dValue);
+    Gfc2Double getLen() const;
+    bool hasLen() const;
     void setSection(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSection() const;
     bool hasSection() const;

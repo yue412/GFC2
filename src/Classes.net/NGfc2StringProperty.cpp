@@ -11,23 +11,18 @@ NGfc2StringProperty::NGfc2StringProperty(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2StringProperty::setValue(gfc::engine::EntityRef nValue)
+void NGfc2StringProperty::setVal(NGfc2String sValue)
 {
-    ((Gfc2StringProperty*)m_pEntity)->setValue(nValue);
+    ((Gfc2StringProperty*)m_pEntity)->setVal(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2StringProperty::getValue()
+NGfc2String NGfc2StringProperty::getVal()
 {
-    return ((Gfc2StringProperty*)m_pEntity)->getValue();
+    return marshal_as<String^>(((Gfc2StringProperty*)m_pEntity)->getVal());
 }
 
-bool NGfc2StringProperty::hasValue()
+bool NGfc2StringProperty::hasVal()
 {
-    return ((Gfc2StringProperty*)m_pEntity)->hasValue();
-}
-
-NGfc2String^ NGfc2StringProperty::getValuePtr()
-{
-    return gcnew NGfc2String(((Gfc2StringProperty*)m_pEntity)->getValuePtr(), false);
+    return ((Gfc2StringProperty*)m_pEntity)->hasVal();
 }
 

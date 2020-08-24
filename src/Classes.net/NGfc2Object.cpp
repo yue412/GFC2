@@ -26,23 +26,18 @@ bool NGfc2Object::hasID()
     return ((Gfc2Object*)m_pEntity)->hasID();
 }
 
-void NGfc2Object::setName(gfc::engine::EntityRef nValue)
+void NGfc2Object::setName(NGfc2Label sValue)
 {
-    ((Gfc2Object*)m_pEntity)->setName(nValue);
+    ((Gfc2Object*)m_pEntity)->setName(marshal_as<std::string>(sValue));
 }
 
-gfc::engine::EntityRef NGfc2Object::getName()
+NGfc2Label NGfc2Object::getName()
 {
-    return ((Gfc2Object*)m_pEntity)->getName();
+    return marshal_as<String^>(((Gfc2Object*)m_pEntity)->getName());
 }
 
 bool NGfc2Object::hasName()
 {
     return ((Gfc2Object*)m_pEntity)->hasName();
-}
-
-NGfc2Label^ NGfc2Object::getNamePtr()
-{
-    return gcnew NGfc2Label(((Gfc2Object*)m_pEntity)->getNamePtr(), false);
 }
 
