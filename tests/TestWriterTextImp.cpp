@@ -220,7 +220,7 @@ TEST(TestWriteTextImp, CWriterTextUtils_writeEntity)
         gfc::engine::CEntity* pEntity = new gfc::engine::CEntity;
         pEntity->setSchema(&oClass);
         gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
-        EXPECT_STREQ("#101=Gfc2Test();", ss.str().c_str());
+        EXPECT_STREQ("#101=GFC2TEST();", ss.str().c_str());
     }
 }
 
@@ -238,7 +238,7 @@ TEST(TestWriteTextImp, CWriterTextUtils_writeEntity_one_attribute)
         gfc::engine::CEntity* pEntity = new gfc::engine::CEntity;
         pEntity->setSchema(&oClass);
         gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
-        EXPECT_STREQ("#101=Gfc2Test($);", ss.str().c_str());
+        EXPECT_STREQ("#101=GFC2TEST($);", ss.str().c_str());
     }
     {
         std::stringstream ss;
@@ -246,7 +246,7 @@ TEST(TestWriteTextImp, CWriterTextUtils_writeEntity_one_attribute)
         pEntity->setSchema(&oClass);
         pEntity->setAsInteger(L"ID", 123);
         gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
-        EXPECT_STREQ("#101=Gfc2Test(123);", ss.str().c_str());
+        EXPECT_STREQ("#101=GFC2TEST(123);", ss.str().c_str());
     }
 }
 
@@ -273,7 +273,7 @@ TEST(TestWriteTextImp, CWriterTextUtils_writeEntity_more_attribute)
         gfc::engine::CEntity* pEntity = new gfc::engine::CEntity;
         pEntity->setSchema(&oClass);
         gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
-        EXPECT_STREQ("#101=Gfc2Test($,$);", ss.str().c_str());
+        EXPECT_STREQ("#101=GFC2TEST($,$);", ss.str().c_str());
     }
     {
         std::stringstream ss;
@@ -282,7 +282,7 @@ TEST(TestWriteTextImp, CWriterTextUtils_writeEntity_more_attribute)
         pEntity->setAsInteger(L"ID", 123);
         pEntity->setAsInteger(L"Flag", true);
         gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
-        EXPECT_STREQ("#101=Gfc2Test(123,.T.);", ss.str().c_str());
+        EXPECT_STREQ("#101=GFC2TEST(123,.T.);", ss.str().c_str());
     }
 }
 
@@ -320,7 +320,7 @@ TEST(TestWriteTextImp, CWriterTextUtils_writeEntity_more_attribute2)
         gfc::engine::CEntity* pEntity = new gfc::engine::CEntity;
         pEntity->setSchema(&oClass);
         gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
-        EXPECT_STREQ("#101=Gfc2Test($,$,$);", ss.str().c_str());
+        EXPECT_STREQ("#101=GFC2TEST($,$,$);", ss.str().c_str());
     }
     {
         std::stringstream ss;
@@ -332,7 +332,7 @@ TEST(TestWriteTextImp, CWriterTextUtils_writeEntity_more_attribute2)
         pEntity->addInteger(L"List", 1);
         pEntity->addInteger(L"List", 2);
         gfc::engine::CWriterTextUtils::writeEntity(ss, pEntity, 101);
-        EXPECT_STREQ("#101=Gfc2Test(123,.T.,(.abc.,.kkk.,.dtdg.));", ss.str().c_str());
+        EXPECT_STREQ("#101=GFC2TEST(123,.T.,(.abc.,.kkk.,.dtdg.));", ss.str().c_str());
     }
 }
 

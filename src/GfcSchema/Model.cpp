@@ -1,5 +1,6 @@
 #include "GfcSchema\Model.h"
 #include "GfcSchema\BuildinType.h"
+#include "Common.h"
 
 GFC_NAMESPACE_BEGIN
 
@@ -26,12 +27,12 @@ void CModel::addTypeObject(CTypeObject *pTypeObject)
 {
     _ASSERT(pTypeObject);
     m_oTypeObjectList.push_back(pTypeObject);
-    m_oTypeIndex.insert(std::make_pair(pTypeObject->getName(), pTypeObject));
+    m_oTypeIndex.insert(std::make_pair(UpperString(pTypeObject->getName()), pTypeObject));
 }
 
 CTypeObject *CModel::findTypeObject(const std::wstring &sTypeName)
 {
-    CTypeMap::iterator itr = m_oTypeIndex.find(sTypeName);
+    CTypeMap::iterator itr = m_oTypeIndex.find(UpperString(sTypeName));
     if (itr == m_oTypeIndex.end())
     {
         return NULL;

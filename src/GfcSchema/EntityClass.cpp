@@ -89,7 +89,7 @@ int CClass::attributeIndexByName(const std::wstring & sName)
 {
     auto itr = m_oAttributeMap.find(sName);
     if (itr != m_oAttributeMap.end())
-        return itr->second;
+        return (int)itr->second;
     else
         return -1;
 }

@@ -11,18 +11,18 @@ NGfcRefString::NGfcRefString(void* pEntity, bool bOwner):
 {
 }
 
-void NGfcRefString::setSValue(String^ sValue)
+void NGfcRefString::setVal(String^ sValue)
 {
-    ((GfcRefString*)m_pEntity)->setSValue(marshal_as<std::string>(sValue));
+    ((GfcRefString*)m_pEntity)->setVal(marshal_as<std::string>(sValue));
 }
 
-String^ NGfcRefString::getSValue()
+String^ NGfcRefString::getVal()
 {
-    return marshal_as<String^>(((GfcRefString*)m_pEntity)->getSValue());
+    return marshal_as<String^>(((GfcRefString*)m_pEntity)->getVal());
 }
 
-bool NGfcRefString::hasSValue()
+bool NGfcRefString::hasVal()
 {
-    return ((GfcRefString*)m_pEntity)->hasSValue();
+    return ((GfcRefString*)m_pEntity)->hasVal();
 }
 

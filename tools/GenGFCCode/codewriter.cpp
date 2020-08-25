@@ -278,7 +278,7 @@ void CCodeWriter::writeClassImpFile(CClass* pTypeObject, CppClass *pClass, CppCl
         oFile.addInclude(L"GfcEngine/Container.h");
     oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%s,L\"%s\",0)", 
         pClass->name().c_str(),
-        pClass->name().c_str()
+        UpperString(pClass->name()).c_str()
     ));
     oFile.body()->addLine(L"");
     if(pFieldCacheClass)

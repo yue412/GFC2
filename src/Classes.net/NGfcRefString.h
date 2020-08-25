@@ -13,9 +13,9 @@ public ref class NGfcRefString: public glodon::objectbufnet::Entity
 public:
     NGfcRefString();
     NGfcRefString(void* pEntity, bool bOwner);
-    void setSValue(String^ sValue);
-    String^ getSValue();
-    bool hasSValue();
+    void setVal(String^ sValue);
+    String^ getVal();
+    bool hasVal();
 
 };
 #endif

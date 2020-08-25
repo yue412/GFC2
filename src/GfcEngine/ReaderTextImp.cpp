@@ -49,8 +49,8 @@ std::wstring CReaderTextImp::readFileVersion()
             auto schema = sLine.substr(0, 11);
             if (_stricmp(schema.c_str(), "FILE_SCHEMA") == 0)
             {
-                int nStartPos = sLine.find_first_of('\'');
-                int nLastPos = sLine.find_last_of('\'');
+                int nStartPos = (int)sLine.find_first_of('\'');
+                int nLastPos = (int)sLine.find_last_of('\'');
                 sResult = sLine.substr(nStartPos + 1, nLastPos - nStartPos - 1);
                 break;
             }
@@ -162,7 +162,7 @@ CEntity * CReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
         std::wstring sError;
         if (CReaderTextUtils::parseLine(sLine, nId, sName, sContent))
         {
-            pEntity = m_bUseStaticClass ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(ACPToUnicode(sName)))
+            pEntity = m_bUseStaticClass ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(UpperString(ACPToUnicode(sName))))
                 : CEngineUtils::createEntity(schema(), Utf8ToUnicode(sName));
             if (pEntity)
             {

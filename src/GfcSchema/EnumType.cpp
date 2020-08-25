@@ -37,7 +37,7 @@ bool CEnumType::exists(const std::wstring & sEnum)
 int CEnumType::indexOf(const std::wstring & sEnum)
 {
     auto itr = std::find(m_oEnumList.begin(), m_oEnumList.end(), sEnum);
-    return itr == m_oEnumList.end() ? -1 : itr - m_oEnumList.begin();
+    return itr == m_oEnumList.end() ? -1 : (int)(itr - m_oEnumList.begin());
 }
 
 GFC_NAMESPACE_END

@@ -107,7 +107,7 @@ std::string CWriterTextImp::toString(const std::wstring & str)
 
 void CWriterTextUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef nRef, UINT nCodePage)
 {
-    std::string sName = WStringToMBString(pEntity->entityName(), nCodePage);
+    std::string sName = WStringToMBString(UpperString(pEntity->entityName()), nCodePage);
     out << "#" << nRef << "=" << sName << "(";
     if (pEntity->getPropCount() > 0)
     {
