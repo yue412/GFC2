@@ -40,6 +40,7 @@ public:
     void setWriter(gfc::engine::CWriter* pWriter);
     bool transform();
     gfc::engine::EntityRef transformEntity(gfc::engine::EntityRef nSrc);
+    gfc::engine::EntityRef transformString(const std::wstring& sValue);
     DestEntityPtr createEntity(const std::wstring& sEntityName);
     gfc::engine::CEntityUpgrader* upgrader() { return m_pEntityUpgrader; }
 protected:
@@ -67,6 +68,7 @@ private:
 private:
     void changeIDConverter(const std::wstring sEntityName);
     void changeEntityRefConverter();
+    void changeStringConverter();
     void addRelAggregates(gfc::engine::EntityRef nRelatingObject, gfc::engine::EntityRef nRelatedObject);
     void getPropertySetList(gfc::engine::EntityRef nRef, std::vector<SrcEntityPtr>& oList);
     std::shared_ptr<GfcShapeTransformer> getShapeTransformer(const std::wstring& sName);

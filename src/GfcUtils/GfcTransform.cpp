@@ -1,6 +1,7 @@
 #include "GfcUtils\GfcTransform.h"
 #include "GfcEngine\Writer.h"
 #include "GfcSchema\Model.h"
+#include "GfcSchema\EntityAttribute.h"
 #include "GfcEngine\GfcEngineUtils.h"
 #include "GfcEngine\PropValue.h"
 #include "GfcEngine\ModelCompatibility.h"
@@ -43,6 +44,25 @@ private:
     GfcTransform* m_pOwner;
 };
 
+// GFC3.0直接使用字符串，GFC2.0是字符串的引用
+class CStringConverter : public gfc::engine::CConverter
+{
+public:
+    CStringConverter(GfcTransform* pOwner) : m_pOwner(pOwner) {}
+    virtual void doTransform(gfc::engine::CPropValue* pFrom, gfc::engine::CPropValue* pTo)
+    {
+        auto s = pFrom->asString();
+        auto nStringRef = m_pOwner->transformString(s);
+        pTo->setAsEntityRef(nStringRef);
+    }
+    virtual CConverter* clone()
+    {
+        return new CStringConverter(*this);
+    }
+private:
+    GfcTransform* m_pOwner;
+};
+
 GfcTransform::GfcTransform(gfc::engine::IContainer * pContainer): m_pContainer(pContainer), m_pWriter(nullptr), m_pModel(nullptr), m_pObjectCompatibility(nullptr), m_pEntityUpgrader(nullptr)
 {
     m_pEntityUpgrader = new gfc::engine::CEntityUpgrader;
@@ -64,6 +84,7 @@ void GfcTransform::setSchema(gfc::schema::CModel* pSrcModel, gfc::schema::CModel
     changeIDConverter(L"Gfc2Floor");
     changeIDConverter(L"Gfc2Object");
     changeEntityRefConverter();
+    changeStringConverter();
     m_pObjectCompatibility = m_pEntityUpgrader->model()->find(L"Gfc2Object");
     m_pModel = pDestModel;
 }
@@ -105,6 +126,14 @@ gfc::engine::EntityRef GfcTransform::transformEntity(gfc::engine::EntityRef nSrc
     }
     else
         return itr->second;
+}
+
+gfc::engine::EntityRef GfcTransform::transformString(const std::wstring & sValue)
+{
+    auto pStr = createEntity(L"Gfc2String");
+    pStr->setAsString(L"Value", sValue);
+    auto nDestRef = m_pWriter->writeEntity(pStr.get());
+    return nDestRef;
 }
 
 GfcTransform::DestEntityPtr GfcTransform::doTransformProject(SrcEntityPtr & pSrcEntity)
@@ -163,7 +192,7 @@ GfcTransform::DestEntityPtr GfcTransform::doTransformShape(SrcEntityPtr & pSrcEn
         return nullptr;
     pShapeTransformer->setOwner(this);
 
-    auto sTypeName = pSrcEntity->asEntity(L"Type")->asString(L"Value");
+    auto sTypeName = pSrcEntity->asString(L"EType");
     auto pElementTransformer = getElementTransformer(sTypeName);
     assert(pElementTransformer);
     if (nullptr == pElementTransformer)
@@ -177,7 +206,7 @@ GfcTransform::DestEntityPtr GfcTransform::doTransformShape(SrcEntityPtr & pSrcEn
 
 GfcTransform::DestEntityPtr GfcTransform::doTransformElement(SrcEntityPtr & pSrcEntity)
 {
-    auto sTypeName = pSrcEntity->asEntity(L"Type")->asString(L"Value");
+    auto sTypeName = pSrcEntity->asString(L"EType");
     auto pElementTransformer = getElementTransformer(sTypeName);
     if (pElementTransformer)
     {
@@ -229,7 +258,8 @@ GfcTransform::DestEntityPtr GfcTransform::createEntity(const std::wstring & sEnt
 
 GfcTransform::DestEntityPtr GfcTransform::doTransformEntity(SrcEntityPtr& pSrcEntity)
 {
-    return DestEntityPtr(m_pEntityUpgrader->update(pSrcEntity.get()));
+    auto pDestEntity = DestEntityPtr(m_pEntityUpgrader->update(pSrcEntity.get()));
+    return pDestEntity;
 }
 
 gfc::engine::EntityRef GfcTransform::transformProject()
@@ -458,6 +488,30 @@ void GfcTransform::changeEntityRefConverter()
                 if (p)
                 {
                     pConverter->setNext(new CNewEntityRefConverter(this));
+                }
+            }
+        }
+    }
+}
+
+void GfcTransform::changeStringConverter()
+{
+    for (int i = 0; i < m_pEntityUpgrader->model()->getCount(); i++)
+    {
+        auto pClass = m_pEntityUpgrader->model()->getItems(i);
+        for (int j = 0; j < pClass->getCount(); j++)
+        {
+            auto pAttribte = pClass->getCompatibilityAttribute(j);
+            auto pFromAttrib = pAttribte->from();
+            auto pToAttrib = pAttribte->to();
+            if (pFromAttrib && pToAttrib && 
+                (pFromAttrib->getType()->getDataType() == gfc::schema::EDT_STRING) &&
+                (pToAttrib->getType()->getDataType() == gfc::schema::EDT_ENTITY))
+            {
+                auto pConverter = pAttribte->converter();
+                if (pConverter && pConverter->next())
+                {
+                    pConverter->setNext(new CStringConverter(this));
                 }
             }
         }

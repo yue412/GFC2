@@ -46,6 +46,8 @@ CAttributeCompatibility::~CAttributeCompatibility()
 
 void CAttributeCompatibility::init(gfc::schema::CAttribute * pFrom, gfc::schema::CAttribute * pTo, int nToIndex)
 {
+    m_pFrom = pFrom;
+    m_pTo = pTo;
     m_nToIndex = nToIndex;
     delete m_pConverter;
     m_pConverter = nullptr;

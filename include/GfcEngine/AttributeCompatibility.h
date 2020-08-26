@@ -28,7 +28,7 @@ struct GFCENGINE_API TypeCompatibility
 class GFCENGINE_API CAttributeCompatibility
 {
 public:
-    CAttributeCompatibility() : m_bIsCompatible(false), m_pConverter(nullptr), m_nToIndex(-1){};
+    CAttributeCompatibility() : m_bIsCompatible(false), m_pConverter(nullptr), m_nToIndex(-1), m_pFrom(nullptr), m_pTo(nullptr){};
     ~CAttributeCompatibility();
 public:
     void init(gfc::schema::CAttribute* pFrom, gfc::schema::CAttribute* pTo, int nToIndex);
@@ -37,6 +37,8 @@ public:
     CConverter* converter() { return m_pConverter; }
     void setConverter(CConverter* pConverter);
     int toIndex() { return m_nToIndex; }
+    gfc::schema::CAttribute* from() { return m_pFrom; }
+    gfc::schema::CAttribute* to() { return m_pTo; }
 public:
     static TypeCompatibility noCompatibility(gfc::schema::CTypeObject* pFrom, gfc::schema::CTypeObject* pTo);
     static TypeCompatibility buildinCompatibility(gfc::schema::CTypeObject* pFrom, gfc::schema::CTypeObject* pTo);
@@ -59,6 +61,8 @@ private:
     bool m_bIsCompatible;
     CConverter* m_pConverter;
     int m_nToIndex;
+    gfc::schema::CAttribute* m_pFrom;
+    gfc::schema::CAttribute* m_pTo;
 };
 
 GFCENGINE_NAMESPACE_END
