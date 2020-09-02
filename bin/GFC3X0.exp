@@ -823,6 +823,7 @@ ENTITY Gfc2Property
 	,Gfc2SimpleProperty));
 	Name : Gfc2Label;
 	Code : OPTIONAL Gfc2String;
+	Extension : OPTIONAL Gfc2String;
 END_ENTITY;
 
 ENTITY Gfc2PropertySet;

@@ -17,6 +17,9 @@ public:
     void setCode(const Gfc2String& sValue);
     Gfc2String getCode() const;
     bool hasCode() const;
+    void setExtension(const Gfc2String& sValue);
+    Gfc2String getExtension() const;
+    bool hasExtension() const;
 
 };
 #endif

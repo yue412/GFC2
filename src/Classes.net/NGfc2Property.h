@@ -20,6 +20,9 @@ public:
     void setCode(NGfc2String sValue);
     NGfc2String getCode();
     bool hasCode();
+    void setExtension(NGfc2String sValue);
+    NGfc2String getExtension();
+    bool hasExtension();
 
 };
 #endif

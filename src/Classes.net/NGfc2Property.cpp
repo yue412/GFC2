@@ -41,3 +41,18 @@ bool NGfc2Property::hasCode()
     return ((Gfc2Property*)m_pEntity)->hasCode();
 }
 
+void NGfc2Property::setExtension(NGfc2String sValue)
+{
+    ((Gfc2Property*)m_pEntity)->setExtension(marshal_as<std::string>(sValue));
+}
+
+NGfc2String NGfc2Property::getExtension()
+{
+    return marshal_as<String^>(((Gfc2Property*)m_pEntity)->getExtension());
+}
+
+bool NGfc2Property::hasExtension()
+{
+    return ((Gfc2Property*)m_pEntity)->hasExtension();
+}
+
