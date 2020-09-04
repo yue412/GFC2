@@ -1,0 +1,11 @@
+build/
+lib/
+bin/*.dll
+bin/*.ilk
+bin/*.pdb
+
+src/GfcClasses/Classes/*.cpp
+
+thirdparty/protobuf/
+thirdparty/tinyxml/
+thirdparty/googletest/

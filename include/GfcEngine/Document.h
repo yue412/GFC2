@@ -40,7 +40,8 @@ class GFCENGINE_API CDocument: public IContainer
 public:
     CDocument(gfc::schema::CModel* pModel, int nEntityInitCount = 1000000);
     ~CDocument(void);
-    void add(EntityRef nId, CEntity* pEntity);
+	EntityRef add(EntityRef nId, CEntity* pEntity);
+	EntityRef add(std::shared_ptr < CEntity> pEntity);
     gfc::schema::CModel* model() const;
 
     virtual EntityPtr getEntity(EntityRef nId);

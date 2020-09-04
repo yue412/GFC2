@@ -32,6 +32,9 @@ public:
     CEntity(void);
     virtual ~CEntity(void);
     void setContainer(IContainer* pContainer);
+	void setRefId(EntityRef refId);
+	EntityRef getRefId() const { return m_refId; }
+
     void setSchema(gfc::schema::CTypeObject* pType);
     gfc::schema::CTypeObject* getSchema() const { return m_pSchema; }
     gfc::schema::CClass* getClass() const;
@@ -79,14 +82,16 @@ public:
     bool isNull(CPropValue* pValue, int nIndex) const;
     // 
     std::wstring toString() const;
-protected:
+
     IContainer* getContainer() { return m_pContainer; }
+    IContainer* getContainer() const { return m_pContainer; }
 private:
     void init();
     void free();
     void initProps(gfc::schema::CClass* pClass);
 
     IContainer* m_pContainer;
+	EntityRef m_refId;
     gfc::schema::CTypeObject* m_pSchema;
     std::vector<CProperty*>* m_pProps;
 };

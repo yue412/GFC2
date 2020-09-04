@@ -167,7 +167,7 @@ EntityIteratorPtr CReaderImp::getIterator()
 void CReaderImp::addInfo(const EntityInfo & oInfo)
 {
     if (m_pContainer)
-        m_pContainer->add(oInfo.id, oInfo);
+        m_pContainer->add(oInfo);
 }
 
 bool CReaderImp::openFileModel(const std::wstring & sFileVer)

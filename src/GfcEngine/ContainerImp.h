@@ -27,12 +27,12 @@ template<class T>
 class CContainerImp
 {
 public:
-    CContainerImp(gfc::schema::CModel* pModel, int nInitSize = 10000): m_pModel(pModel) 
+    CContainerImp(gfc::schema::CModel* pModel, int nInitSize = 10000): m_pModel(pModel) , m_nMaxRefId(0)
     {
         m_oEntities.resize(nInitSize);
     }
     ~CContainerImp() {}
-    void add(EntityRef nId, const T& pEntity) 
+   /* void add(EntityRef nId, const T& pEntity) 
     {
         auto nSize = (EntityRef)m_oEntities.size();
         if (nId >= nSize)
@@ -52,7 +52,40 @@ public:
             m_oEntityTypeMap[sType] = new std::vector<EntityRef>();
         }
         m_oEntityTypeMap[sType]->push_back(nId);
-    }
+    }*/
+
+	EntityRef add( T pEntity)
+	{
+		if (pEntity.ref() == -1)
+		{
+			pEntity.ref(generateRefId());
+		}
+		else if(pEntity.ref() >= m_nMaxRefId){
+			m_nMaxRefId = pEntity.ref();
+		}
+
+		auto nId = pEntity.ref();
+		auto nSize = (EntityRef)m_oEntities.size();
+		if (nId >= nSize)
+		{
+			while (nId >= nSize)
+			{
+				nSize *= 2;
+			}
+			m_oEntities.resize(nSize);
+		}
+		assert(m_oEntities[nId].ref() == -1);
+		m_oEntities[nId] = pEntity;
+		gfc::schema::CClass* pSchema = pEntity.get()->getClass();
+		auto sType = pSchema->getName();
+		auto itr = m_oEntityTypeMap.find(sType);
+		if (itr == m_oEntityTypeMap.end())
+		{
+			m_oEntityTypeMap[sType] = new std::vector<EntityRef>();
+		}
+		m_oEntityTypeMap[sType]->push_back(nId);
+		return pEntity.ref();
+	}
 
     T getItem(EntityRef nId) 
     {
@@ -111,9 +144,15 @@ public:
     }
     gfc::schema::CModel* model() const { return m_pModel; }
 private:
+	EntityRef generateRefId() {
+		return m_nMaxRefId = m_nMaxRefId + 1;
+	}
+private:
     std::vector<T> m_oEntities;
     std::map<std::wstring, std::vector<EntityRef>*> m_oEntityTypeMap;
     gfc::schema::CModel* m_pModel;
+
+	EntityRef m_nMaxRefId;
 };
 
 template<class T>

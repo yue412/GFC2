@@ -7,6 +7,7 @@ include_directories(
 	${PROJECT_SOURCE_DIR}/../include 
 	${PROJECT_SOURCE_DIR}/GfcCommon
 	${PROJECT_SOURCE_DIR}/GfcSchema
+	${PROJECT_SOURCE_DIR}/../thirdparty/rapidjson 
 	${PROJECT_SOURCE_DIR}/${PROJECT_NAME}
 )
 link_directories(${PROJECT_SOURCE_DIR}/../lib)

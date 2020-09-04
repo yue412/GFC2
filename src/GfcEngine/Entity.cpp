@@ -14,7 +14,7 @@ GFCENGINE_NAMESPACE_BEGIN
 
 GFCENGINE_IMP_FACTORY(CEntity, 0)
 
-CEntity::CEntity(void): m_pContainer(nullptr), m_pSchema(nullptr), m_pProps(nullptr)
+CEntity::CEntity(void): m_pContainer(nullptr), m_pSchema(nullptr), m_pProps(nullptr), m_refId(-1)
 {
     m_pProps = new std::vector<CProperty*>();
 }
@@ -28,6 +28,10 @@ CEntity::~CEntity(void)
 void CEntity::setContainer( IContainer* pContainer )
 {
     m_pContainer = pContainer;
+}
+
+void CEntity::setRefId(EntityRef refId) {
+	m_refId = refId;
 }
 
 void CEntity::setSchema(gfc::schema::CTypeObject * pType)

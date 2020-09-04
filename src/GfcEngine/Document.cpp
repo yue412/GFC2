@@ -19,11 +19,22 @@ CDocument::~CDocument(void)
     delete m_pContainer;
 }
 
-void CDocument::add( EntityRef nId, CEntity* pEntity )
+EntityRef CDocument::add( EntityRef nId, CEntity* pEntity )
 {
     assert(pEntity);
     pEntity->setContainer(this);
-    m_pContainer->add(nId, EntityPtr(nId, pEntity));
+	auto refId = m_pContainer->add(EntityPtr(nId, pEntity));
+	pEntity->setRefId(refId);
+	return refId;
+}
+
+EntityRef CDocument::add(std::shared_ptr <CEntity> pEntity)
+{
+	assert(pEntity.get());
+	pEntity->setContainer(this);
+	auto refId = m_pContainer->add(EntityPtr(pEntity->getRefId(), pEntity));
+	pEntity->setRefId(refId);
+	return refId;
 }
 
 EntityPtr CDocument::getEntity( EntityRef nId )

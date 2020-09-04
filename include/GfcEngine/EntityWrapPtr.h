@@ -13,6 +13,9 @@ public:
     CEntityWrapPtr() : m_nRef(-1), m_pEntity(nullptr)
     {
     }
+	CEntityWrapPtr(std::shared_ptr<T> pEntity) : m_nRef(-1), m_pEntity(pEntity)
+	{
+	}
     CEntityWrapPtr(EntityRef nRef, T* pEntity) : m_nRef(nRef), m_pEntity(pEntity)
     {
     }
@@ -24,7 +27,8 @@ public:
     }
     T* get() const { return m_pEntity.get(); }
     std::shared_ptr<T> getPtr() const { return m_pEntity; }
-    EntityRef ref() const { return m_nRef; }
+	void ref(EntityRef nRef)  {  m_nRef = nRef; }
+	EntityRef ref() const { return m_nRef; }
     T* operator->()
     {	// return pointer to resource
         return get();
@@ -77,7 +81,7 @@ bool operator!=(nullptr_t _Left,
 template<class _Ty1,
     class _Ty2>
     CEntityWrapPtr<_Ty1>
-    dynamic_entity_cast(const CEntityWrapPtr<_Ty2>& _Other) _NOEXCEPT
+    dynamic_entity_cast(const CEntityWrapPtr<_Ty2>& _Other)
 {	// return shared_ptr object holding dynamic_cast<_Ty1 *>(_Other.get())
 //    typedef typename shared_ptr<_Ty1>::element_type _Elem1;
     std::shared_ptr<_Ty1> _Ptr = std::dynamic_pointer_cast<_Ty1>(_Other.getPtr());
