@@ -68,13 +68,13 @@ public enum class NGfc2GeometryDataType
 
 public enum class NGfc2PrimitiveType
 {
-    PT_POINTS,
-    PT_LINES,
-    PT_LINE_STRIP,
-    PT_TRIANGLES,
-    PT_TRIANGLE_STRIP,
-    PT_TRIANGLE_FAN,
-    PT_UNKNOWN
+    GPT_POINTS,
+    GPT_LINES,
+    GPT_LINE_STRIP,
+    GPT_TRIANGLES,
+    GPT_TRIANGLE_STRIP,
+    GPT_TRIANGLE_FAN,
+    GPT_UNKNOWN
 };
 
 public enum class NGfc2SceneBlendFactor

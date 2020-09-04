@@ -11289,8 +11289,8 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">1064</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">488</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">88</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">46</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">69</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">59</XPD:ATTR>
 <XPD:ATTR name="AutoResize" type="boolean">True</XPD:ATTR>
 <XPD:REF name="Model">zsvDgsGbGUi4Rw8tP2/tsAAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="pAOVW9I0RUOZCuLtxMlh6gAA">
@@ -11299,7 +11299,6 @@
 <XPD:ATTR name="Text" type="string">Gfc2String</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="jWIXFiKafkWRfxflC1CnmAAA">
-<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">&lt;&lt;type&gt;&gt;</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="LabelView" guid="Q+elf21Xs0yVXSSO60goDAAA">
@@ -11321,7 +11320,7 @@
 <XPD:OBJ name="OwnedViews[24]" type="UMLAssociationView" guid="bFGMQ6TPEECsirvRAE45NwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1107,488;1108,439</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1100,488;1104,439</XPD:ATTR>
 <XPD:REF name="Model">jN9i5ug+OEuz6w9CA/MDDwAA</XPD:REF>
 <XPD:REF name="Head">zViWsgbujUKIebh8ORmQRQAA</XPD:REF>
 <XPD:REF name="Tail">hbjXqQYLRk+lrC0ed1ueDwAA</XPD:REF>
@@ -13671,37 +13670,37 @@
 <XPD:REF name="TypedFeatures[0]">tfga9sCPjECQN93t4YHpdAAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">7</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="x/RvN+PFYUK2LNIaANEAdAAA">
-<XPD:ATTR name="Name" type="string">PT_POINTS</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">GPT_POINTS</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">点</XPD:ATTR>
 <XPD:REF name="Owner">HsX99EAj+Ue3Yld/qvRQhwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="u8QFhKJt00aJQ9JDHlRHcgAA">
-<XPD:ATTR name="Name" type="string">PT_LINES</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">GPT_LINES</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">直线段</XPD:ATTR>
 <XPD:REF name="Owner">HsX99EAj+Ue3Yld/qvRQhwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="yEeJmPXuUEq2bnhviLut2wAA">
-<XPD:ATTR name="Name" type="string">PT_LINE_STRIP</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">GPT_LINE_STRIP</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">首尾相连的直线段链</XPD:ATTR>
 <XPD:REF name="Owner">HsX99EAj+Ue3Yld/qvRQhwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="1jORCN8ZLkCMT2HLG5eKnwAA">
-<XPD:ATTR name="Name" type="string">PT_TRIANGLES</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">GPT_TRIANGLES</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三角形</XPD:ATTR>
 <XPD:REF name="Owner">HsX99EAj+Ue3Yld/qvRQhwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="PjvJ49nN6EaVIifdX+2GCgAA">
-<XPD:ATTR name="Name" type="string">PT_TRIANGLE_STRIP</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">GPT_TRIANGLE_STRIP</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三角形带</XPD:ATTR>
 <XPD:REF name="Owner">HsX99EAj+Ue3Yld/qvRQhwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="+nGLo3yZTket/19ORpYrDgAA">
-<XPD:ATTR name="Name" type="string">PT_TRIANGLE_FAN</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">GPT_TRIANGLE_FAN</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">三角形扇面</XPD:ATTR>
 <XPD:REF name="Owner">HsX99EAj+Ue3Yld/qvRQhwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="MAnAhO4sq06LMcRwaLdKKAAA">
-<XPD:ATTR name="Name" type="string">PT_UNKNOWN</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">GPT_UNKNOWN</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">未知</XPD:ATTR>
 <XPD:REF name="Owner">HsX99EAj+Ue3Yld/qvRQhwAA</XPD:REF>
 </XPD:OBJ>

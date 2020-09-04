@@ -71,13 +71,13 @@ enum Gfc2GeometryDataType
 
 enum Gfc2PrimitiveType
 {
-    PT_POINTS,
-    PT_LINES,
-    PT_LINE_STRIP,
-    PT_TRIANGLES,
-    PT_TRIANGLE_STRIP,
-    PT_TRIANGLE_FAN,
-    PT_UNKNOWN
+    GPT_POINTS,
+    GPT_LINES,
+    GPT_LINE_STRIP,
+    GPT_TRIANGLES,
+    GPT_TRIANGLE_STRIP,
+    GPT_TRIANGLE_FAN,
+    GPT_UNKNOWN
 };
 
 enum Gfc2SceneBlendFactor
@@ -369,26 +369,26 @@ inline std::string Gfc2PrimitiveTypeToString(Gfc2PrimitiveType nValue)
 {
     switch(nValue)
     {
-    case Gfc2PrimitiveType::PT_POINTS:
-        return ".PT_POINTS.";
+    case Gfc2PrimitiveType::GPT_POINTS:
+        return ".GPT_POINTS.";
         break;
-    case Gfc2PrimitiveType::PT_LINES:
-        return ".PT_LINES.";
+    case Gfc2PrimitiveType::GPT_LINES:
+        return ".GPT_LINES.";
         break;
-    case Gfc2PrimitiveType::PT_LINE_STRIP:
-        return ".PT_LINE_STRIP.";
+    case Gfc2PrimitiveType::GPT_LINE_STRIP:
+        return ".GPT_LINE_STRIP.";
         break;
-    case Gfc2PrimitiveType::PT_TRIANGLES:
-        return ".PT_TRIANGLES.";
+    case Gfc2PrimitiveType::GPT_TRIANGLES:
+        return ".GPT_TRIANGLES.";
         break;
-    case Gfc2PrimitiveType::PT_TRIANGLE_STRIP:
-        return ".PT_TRIANGLE_STRIP.";
+    case Gfc2PrimitiveType::GPT_TRIANGLE_STRIP:
+        return ".GPT_TRIANGLE_STRIP.";
         break;
-    case Gfc2PrimitiveType::PT_TRIANGLE_FAN:
-        return ".PT_TRIANGLE_FAN.";
+    case Gfc2PrimitiveType::GPT_TRIANGLE_FAN:
+        return ".GPT_TRIANGLE_FAN.";
         break;
-    case Gfc2PrimitiveType::PT_UNKNOWN:
-        return ".PT_UNKNOWN.";
+    case Gfc2PrimitiveType::GPT_UNKNOWN:
+        return ".GPT_UNKNOWN.";
         break;
     default:
         assert(false);
@@ -398,39 +398,39 @@ inline std::string Gfc2PrimitiveTypeToString(Gfc2PrimitiveType nValue)
 
 inline bool StringToGfc2PrimitiveType(const std::string& sValue, Gfc2PrimitiveType& nType)
 {
-    if(sValue.compare(".PT_POINTS.") == 0)
+    if(sValue.compare(".GPT_POINTS.") == 0)
     {
-        nType = Gfc2PrimitiveType::PT_POINTS;
+        nType = Gfc2PrimitiveType::GPT_POINTS;
         return true;
     }
-    if(sValue.compare(".PT_LINES.") == 0)
+    if(sValue.compare(".GPT_LINES.") == 0)
     {
-        nType = Gfc2PrimitiveType::PT_LINES;
+        nType = Gfc2PrimitiveType::GPT_LINES;
         return true;
     }
-    if(sValue.compare(".PT_LINE_STRIP.") == 0)
+    if(sValue.compare(".GPT_LINE_STRIP.") == 0)
     {
-        nType = Gfc2PrimitiveType::PT_LINE_STRIP;
+        nType = Gfc2PrimitiveType::GPT_LINE_STRIP;
         return true;
     }
-    if(sValue.compare(".PT_TRIANGLES.") == 0)
+    if(sValue.compare(".GPT_TRIANGLES.") == 0)
     {
-        nType = Gfc2PrimitiveType::PT_TRIANGLES;
+        nType = Gfc2PrimitiveType::GPT_TRIANGLES;
         return true;
     }
-    if(sValue.compare(".PT_TRIANGLE_STRIP.") == 0)
+    if(sValue.compare(".GPT_TRIANGLE_STRIP.") == 0)
     {
-        nType = Gfc2PrimitiveType::PT_TRIANGLE_STRIP;
+        nType = Gfc2PrimitiveType::GPT_TRIANGLE_STRIP;
         return true;
     }
-    if(sValue.compare(".PT_TRIANGLE_FAN.") == 0)
+    if(sValue.compare(".GPT_TRIANGLE_FAN.") == 0)
     {
-        nType = Gfc2PrimitiveType::PT_TRIANGLE_FAN;
+        nType = Gfc2PrimitiveType::GPT_TRIANGLE_FAN;
         return true;
     }
-    if(sValue.compare(".PT_UNKNOWN.") == 0)
+    if(sValue.compare(".GPT_UNKNOWN.") == 0)
     {
-        nType = Gfc2PrimitiveType::PT_UNKNOWN;
+        nType = Gfc2PrimitiveType::GPT_UNKNOWN;
         return true;
     }
     return false;
