@@ -15,28 +15,28 @@ BOOL WINAPI DllMain(
     switch (fdwReason)
     {
     case DLL_PROCESS_ATTACH:
-    case DLL_THREAD_ATTACH:
-    {
-        if (g_pModel == nullptr)
+    //case DLL_THREAD_ATTACH:
         {
-            // 加载资源
-            HINSTANCE hInst = hinstDLL;
-            HRSRC hRsrc = FindResource(hInst, MAKEINTRESOURCE(IDR_EXP1), L"EXP");
-            if (!hRsrc)
-                return FALSE;
-            DWORD dwSize = SizeofResource(hInst, hRsrc);
-            HGLOBAL hGlobal = LoadResource(hInst, hRsrc);
-            LPVOID pBuffer = LockResource(hGlobal);
-            BYTE* pByte = new BYTE[dwSize + 1];
-            memcpy(pByte, pBuffer, dwSize);
-            GlobalUnlock(hGlobal);
-            g_pModel = new gfc::schema::CModel;
-            // 解析
-            gfc::engine::CEngineUtils::loadSchema((char*)pByte, dwSize, g_pModel);
+            if (g_pModel == nullptr)
+            {
+                // 加载资源
+                HINSTANCE hInst = hinstDLL;
+                HRSRC hRsrc = FindResource(hInst, MAKEINTRESOURCE(IDR_EXP1), L"EXP");
+                if (!hRsrc)
+                    return FALSE;
+                DWORD dwSize = SizeofResource(hInst, hRsrc);
+                HGLOBAL hGlobal = LoadResource(hInst, hRsrc);
+                LPVOID pBuffer = LockResource(hGlobal);
+                BYTE* pByte = new BYTE[dwSize + 1];
+                memcpy(pByte, pBuffer, dwSize);
+                GlobalUnlock(hGlobal);
+                g_pModel = new gfc::schema::CModel;
+                // 解析
+                gfc::engine::CEngineUtils::loadSchema((char*)pByte, dwSize, g_pModel);
+            }
         }
-    }
         break;
-    default:
+    case DLL_PROCESS_DETACH:
         delete g_pModel;
         g_pModel = nullptr;
         break;
