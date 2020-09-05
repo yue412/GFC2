@@ -395,6 +395,8 @@ void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
                     if (nullptr == pNewShape)
                         continue;
                     auto pNewElement = doTransformElement(pEntity);
+                    if (nullptr == pNewElement)
+                        continue;
                     pNewElement->setAsEntityRef(L"Shape", m_pWriter->writeEntity(pNewShape.get()));
                     auto nElementRef = write(pEntity.ref(), pNewElement);
                     oElementRefMap.insert(std::make_pair(pEntity.ref(), nElementRef));
@@ -404,6 +406,8 @@ void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
                 {
                     // 构件类型
                     auto pNewElementType = doTransformElement(pEntity); // 暂时可以用构件的
+                    if (nullptr == pNewElementType)
+                        continue;
                     auto nElementTypeRef = write(pEntity.ref(), pNewElementType);
                     oElementTypeRefMap.insert(std::make_pair(pEntity.ref(), nElementTypeRef));
                     addRelAggregates(itr->second, nElementTypeRef);
