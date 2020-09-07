@@ -21,7 +21,7 @@ class GFCENGINE_API CJsonSerializerUtils
 {
 public:
     static void writeEntity(JsonWrapper& rootJson, const CEntity* pEntity, UINT nCodePage = CP_UTF8);
-    static CEntity* parseEntity(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson);
+    static std::shared_ptr<CEntity> parseEntity(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson);
 
 };
 

@@ -33,9 +33,9 @@ public:
 class CReaderJsonUtils
 {
 public:
-    static bool parseProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, CEntity* pEntity, CProperty* pProp);
-    static bool parseArrayProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, CEntity* pEntity, CProperty* pProp, int index);
-    static bool parseSingleProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, CEntity* pEntity, CProperty* pProp);
+    static bool parseProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, std::shared_ptr<CEntity> pEntity, CProperty* pProp);
+    static bool parseArrayProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, std::shared_ptr<CEntity> pEntity, CProperty* pProp, int index);
+    static bool parseSingleProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, std::shared_ptr<CEntity> pEntity, CProperty* pProp);
 };
 
 
@@ -43,7 +43,6 @@ void CJsonSerializerUtils::writeEntity(JsonWrapper& rootJson, const CEntity * pE
 {
     std::string sName = WStringToMBString(pEntity->entityName(), nCodePage);
 
-    rootJson.Add("$$id", pEntity->getRefId());
     rootJson.Add("$$typeName", sName);
     if (pEntity->getPropCount() > 0)
     {
@@ -189,7 +188,7 @@ void CWriterJsonUtils::writeProperty(JsonWrapper& rootJson, const CEntity* pEnti
 }
 
 
-CEntity* CJsonSerializerUtils::parseEntity(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson)
+std::shared_ptr<CEntity> CJsonSerializerUtils::parseEntity(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson)
 {
     std::string entityName;
     if(!rootJson.Get("$$typeName", entityName)){
@@ -211,14 +210,14 @@ CEntity* CJsonSerializerUtils::parseEntity(gfc::schema::CModel* pModel, CDocumen
         for (int i = 0; i < pEntity->getPropCount(); i++)
         {
             auto pProp = pEntity->getProps(i);
-			CReaderJsonUtils::parseProperty(pModel, pDoc, rootJson, pEntity.get(), pProp);
+			CReaderJsonUtils::parseProperty(pModel, pDoc, rootJson, pEntity, pProp);
         }
     }
 
-    return pEntity.get();
+    return pEntity;
 }
 
-bool CReaderJsonUtils::parseProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, CEntity* pEntity, CProperty* pProp){
+bool CReaderJsonUtils::parseProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, std::shared_ptr<CEntity> pEntity, CProperty* pProp){
     auto pSchema = pProp->schema();
     auto pType = pSchema->getType();
     std::string typeName = UnicodeToUtf8(pSchema->getName());
@@ -254,7 +253,7 @@ bool CReaderJsonUtils::parseProperty(gfc::schema::CModel* pModel, CDocument* pDo
 }
 
 
-bool CReaderJsonUtils::parseArrayProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, CEntity* pEntity, CProperty* pProp, int index)
+bool CReaderJsonUtils::parseArrayProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, std::shared_ptr<CEntity> pEntity, CProperty* pProp, int index)
 {
     auto pSchema = pProp->schema();
     auto pType = pSchema->getType();
@@ -306,8 +305,8 @@ bool CReaderJsonUtils::parseArrayProperty(gfc::schema::CModel* pModel, CDocument
         JsonWrapper childEntityJson(rootJson.GetAllocator());
         DO_(rootJson.Get(index, childEntityJson));
         
-        CEntity* pChild = CJsonSerializerUtils::parseEntity(pModel, pDoc, childEntityJson);
-        assert(pEntity);
+        std::shared_ptr<CEntity> pChild = CJsonSerializerUtils::parseEntity(pModel, pDoc, childEntityJson);
+        assert(pChild);
         if(!pChild) return false;
 
         pValue->setAsEntityRef(pChild->getRefId());
@@ -324,7 +323,7 @@ bool CReaderJsonUtils::parseArrayProperty(gfc::schema::CModel* pModel, CDocument
 }
 
 
-bool CReaderJsonUtils::parseSingleProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, CEntity* pEntity, CProperty* pProp)
+bool CReaderJsonUtils::parseSingleProperty(gfc::schema::CModel* pModel, CDocument* pDoc, JsonWrapper& rootJson, std::shared_ptr<CEntity> pEntity, CProperty* pProp)
 {
     auto pSchema = pProp->schema();
     auto pType = pSchema->getType();
@@ -376,8 +375,8 @@ bool CReaderJsonUtils::parseSingleProperty(gfc::schema::CModel* pModel, CDocumen
         JsonWrapper childEntityJson(rootJson.GetAllocator());
         DO_(rootJson.Get(typeName, childEntityJson));
         
-        CEntity* pChild = CJsonSerializerUtils::parseEntity(pModel, pDoc, childEntityJson);
-        assert(pEntity);
+        std::shared_ptr<CEntity> pChild = CJsonSerializerUtils::parseEntity(pModel, pDoc, childEntityJson);
+        assert(pChild);
         if(!pChild) return false;
 
         pValue->setAsEntityRef(pChild->getRefId());
