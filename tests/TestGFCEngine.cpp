@@ -56,6 +56,48 @@ TEST(TestGFCEngine, ReadFile)
     }
 }
 
+TEST(TestGFCEngine, WriteFile_old)
+{
+    gfc::engine::CWriter writer(L"GFC3X0", L"gfc2_unit_test", CP_UTF8, false);
+    auto result = writer.open(getFullPath(L"WriteFile_old.gfc"), L"express");
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Vector3d");
+    //Gfc2Vector3d oVector;
+    //oVector.setX(1.0);
+    //oVector.setY(2.0);
+    //oVector.setZ(3.0);
+    pEntity->setAsDouble(L"X", 1.0);
+    pEntity->setAsDouble(L"Y", 2.0);
+    pEntity->setAsDouble(L"Z", 3.0);
+    writer.writeEntity(pEntity);
+    EXPECT_EQ(true, result);
+}
+
+TEST(TestGFCEngine, ReadFile_old)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CReader reader(&oModel);
+    gfc::engine::CDocument document(&oModel);
+    auto result = reader.open(getFullPath(L"WriteFile_old.gfc"));
+    EXPECT_EQ(true, result);
+    if (result)
+    {
+        reader.read(&document);
+        reader.close();
+
+        auto itr = document.getIterator();
+        itr->first();
+        EXPECT_EQ(false, itr->isDone());
+        auto pEntity = itr->current();
+        EXPECT_EQ(true, pEntity != nullptr);
+        EXPECT_NEAR(1.0, pEntity->asDouble(L"X"), 1e-6);
+        EXPECT_NEAR(2.0, pEntity->asDouble(L"Y"), 1e-6);
+        EXPECT_NEAR(3.0, pEntity->asDouble(L"Z"), 1e-6);
+    }
+}
+
 TEST(TestGFCEngine, ReadEmptyFile)
 {
     gfc::schema::CModel oModel;
