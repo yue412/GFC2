@@ -24,10 +24,12 @@ public:
 public:
     void addIgnoreDuplicates(const std::wstring& sEntityName);
     void setCodePage(UINT nCodePage);
+    void setUppercase(bool bUppercase);
 protected:
     virtual EntityRef doWriteEntity(CEntity* pEntity) = 0;
     EntityRef m_nCount;
     UINT m_nCodePage;
+    bool m_bUppercase;
 private:
     bool inIgnoreDuplicatesEntitySet(const std::wstring& sEntityName);
     std::map<std::wstring, EntityRef> m_oDuplicatesMap;

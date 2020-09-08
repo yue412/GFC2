@@ -4,7 +4,7 @@ GFCENGINE_NAMESPACE_BEGIN
 
 GFCENGINE_IMP_FACTORY(CWriterImp, 0)
 
-CWriterImp::CWriterImp(void): m_nCount(0), m_nCodePage(CP_UTF8)
+CWriterImp::CWriterImp(void): m_nCount(0), m_nCodePage(CP_UTF8), m_bUppercase(true)
 {
 }
 
@@ -44,6 +44,11 @@ void CWriterImp::addIgnoreDuplicates(const std::wstring & sEntityName)
 void CWriterImp::setCodePage(UINT nCodePage)
 {
     m_nCodePage = nCodePage;
+}
+
+void CWriterImp::setUppercase(bool bUppercase)
+{
+    m_bUppercase = bUppercase;
 }
 
 bool CWriterImp::inIgnoreDuplicatesEntitySet(const std::wstring & sEntityName)

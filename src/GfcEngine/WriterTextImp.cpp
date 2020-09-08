@@ -77,7 +77,7 @@ EntityRef CWriterTextImp::doWriteEntity( CEntity* pEntity )
 {
     if (m_pTextStream)
     {
-        CWriterTextUtils::writeEntity(*m_pTextStream, pEntity, m_nCount, m_nCodePage);
+        CWriterTextUtils::writeEntity(*m_pTextStream, pEntity, m_nCount, m_nCodePage, m_bUppercase);
         *m_pTextStream << std::endl;
         return m_nCount++;
     }
@@ -105,9 +105,10 @@ std::string CWriterTextImp::toString(const std::wstring & str)
     return WStringToMBString(str, m_nCodePage);
 }
 
-void CWriterTextUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef nRef, UINT nCodePage)
+void CWriterTextUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef nRef, UINT nCodePage, bool bUppercase)
 {
-    std::string sName = WStringToMBString(UpperString(pEntity->entityName()), nCodePage);
+    auto sEntityName = bUppercase ? UpperString(pEntity->entityName()) : pEntity->entityName();
+    std::string sName = WStringToMBString(sEntityName, nCodePage);
     out << "#" << nRef << "=" << sName << "(";
     if (pEntity->getPropCount() > 0)
     {

@@ -29,7 +29,7 @@ private:
 class CWriterTextUtils
 {
 public:
-    static void writeEntity(std::iostream& out, CEntity* pEntity, EntityRef nRef, UINT nCodePage = CP_UTF8);
+    static void writeEntity(std::iostream& out, CEntity* pEntity, EntityRef nRef, UINT nCodePage = CP_UTF8, bool bUppercase = true);
     static void writeValue(std::iostream& out, gfc::schema::CTypeObject * pType, CPropValue* pValue, UINT nCodePage = CP_UTF8);
     static void writeProperty(std::iostream& out, CProperty* pProp, UINT nCodePage = CP_UTF8);
 };

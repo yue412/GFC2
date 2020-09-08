@@ -5,7 +5,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-CWriter::CWriter(const std::wstring& sVersion, const std::wstring& sProductCode, UINT nCodePage): m_pImp(NULL), m_sVersion(sVersion), m_sProductCode(sProductCode), m_nCodePage(nCodePage)
+CWriter::CWriter(const std::wstring& sVersion, const std::wstring& sProductCode, UINT nCodePage, bool bUppercase): m_pImp(NULL), m_sVersion(sVersion), m_sProductCode(sProductCode), m_nCodePage(nCodePage), m_bUppercase(bUppercase)
 {
 }
 
@@ -23,6 +23,7 @@ bool CWriter::open( const std::wstring& sFileName, const std::wstring& sFormatTy
     if (nullptr == m_pImp)
         return false;
     m_pImp->setCodePage(m_nCodePage);
+    m_pImp->setUppercase(m_bUppercase);
     auto bResult = m_pImp->open(sFileName, m_sProductCode, m_sVersion);
     if (!bResult)
     {
