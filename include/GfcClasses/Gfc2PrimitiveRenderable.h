@@ -19,6 +19,9 @@ public:
     void setGeometryDataType(const Gfc2GeometryDataType& nValue);
     Gfc2GeometryDataType getGeometryDataType() const;
     bool hasGeometryDataType() const;
+    void setExtension(const Gfc2String& sValue);
+    Gfc2String getExtension() const;
+    bool hasExtension() const;
     int getVertexesCount() const;
     void clearVertexes();
     void addVertexes(const gfc::engine::EntityRef& nValue);
