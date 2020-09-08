@@ -41,6 +41,21 @@ bool NGfc2PrimitiveRenderable::hasGeometryDataType()
     return ((Gfc2PrimitiveRenderable*)m_pEntity)->hasGeometryDataType();
 }
 
+void NGfc2PrimitiveRenderable::setExtension(NGfc2String sValue)
+{
+    ((Gfc2PrimitiveRenderable*)m_pEntity)->setExtension(marshal_as<std::string>(sValue));
+}
+
+NGfc2String NGfc2PrimitiveRenderable::getExtension()
+{
+    return marshal_as<String^>(((Gfc2PrimitiveRenderable*)m_pEntity)->getExtension());
+}
+
+bool NGfc2PrimitiveRenderable::hasExtension()
+{
+    return ((Gfc2PrimitiveRenderable*)m_pEntity)->hasExtension();
+}
+
 int NGfc2PrimitiveRenderable::getVertexesCount()
 {
     return ((Gfc2PrimitiveRenderable*)m_pEntity)->getVertexesCount();

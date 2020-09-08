@@ -6,6 +6,10 @@
 #include "NGfc2Vector3d.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
+#include <msclr/marshal_cppstd.h>
+
+using namespace System;
+using namespace msclr::interop;
 
 public ref class NGfc2PrimitiveRenderable: public NGfc2RepresentationItem
 {
@@ -18,6 +22,9 @@ public:
     void setGeometryDataType(NGfc2GeometryDataType nValue);
     NGfc2GeometryDataType getGeometryDataType();
     bool hasGeometryDataType();
+    void setExtension(NGfc2String sValue);
+    NGfc2String getExtension();
+    bool hasExtension();
     int getVertexesCount();
     void clearVertexes();
     void addVertexes(gfc::engine::EntityRef nValue);

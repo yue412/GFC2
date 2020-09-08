@@ -799,6 +799,7 @@ ENTITY Gfc2PrimitiveRenderable
  SUBTYPE OF (Gfc2RepresentationItem);
 	PrimitiveType : Gfc2PrimitiveType;
 	GeometryDataType : Gfc2GeometryDataType;
+	Extension : OPTIONAL Gfc2String;
 	Vertexes : LIST [0:?] OF Gfc2Vector3d;
 	Normals : LIST [0:?] OF Gfc2Vector3d;
 	Indexes : LIST [0:?] OF Gfc2Integer;
