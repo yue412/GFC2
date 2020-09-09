@@ -6,6 +6,8 @@
 #include "Gfc2Vector2d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Coordinates2d: public Gfc2Geometry
 {
 GFCENGINE_DEC_OBJECT(Gfc2Coordinates2d, gfc::engine::CEntity)
@@ -26,4 +28,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getYPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2RectangleSection: public Gfc2ParameterizedSection
 {
 GFCENGINE_DEC_OBJECT(Gfc2RectangleSection, gfc::engine::CEntity)
@@ -20,4 +22,7 @@ public:
     bool hasYLength() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

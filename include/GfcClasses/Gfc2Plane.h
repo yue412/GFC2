@@ -7,6 +7,8 @@
 #include "Gfc2Intervald.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Plane: public Gfc2Surface
 {
 GFCENGINE_DEC_OBJECT(Gfc2Plane, gfc::engine::CEntity)
@@ -35,4 +37,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeVPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

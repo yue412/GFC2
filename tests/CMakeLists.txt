@@ -55,7 +55,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
 
 target_link_libraries(${PROJECT_NAME} debug gtestd optimized gtest)
 target_link_libraries(${PROJECT_NAME} debug GfcEngined optimized GfcEngine)
-target_link_libraries(${PROJECT_NAME} debug GfcClassesd optimized GfcClasses)
+target_link_libraries(${PROJECT_NAME} debug GfcClasses3d optimized GfcClasses3)
 target_link_libraries(${PROJECT_NAME} debug GfcSchemad optimized GfcSchema)
 target_link_libraries(${PROJECT_NAME} debug GfcCommond optimized GfcCommon)
 target_link_libraries(${PROJECT_NAME} debug tinyxmld optimized tinyxml)

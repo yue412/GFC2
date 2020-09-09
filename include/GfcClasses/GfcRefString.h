@@ -4,6 +4,8 @@
 #include "GfcClasses.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API GfcRefString: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(GfcRefString, gfc::engine::CEntity)
@@ -15,4 +17,7 @@ public:
     bool hasVal() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

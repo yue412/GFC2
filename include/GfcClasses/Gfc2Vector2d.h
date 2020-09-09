@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Vector2d: public Gfc2Geometry
 {
 GFCENGINE_DEC_OBJECT(Gfc2Vector2d, gfc::engine::CEntity)
@@ -20,4 +22,7 @@ public:
     bool hasY() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

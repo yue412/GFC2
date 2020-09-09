@@ -8,6 +8,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2RuledSurface: public Gfc2Surface
 {
 GFCENGINE_DEC_OBJECT(Gfc2RuledSurface, gfc::engine::CEntity)
@@ -35,4 +37,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Curve3d> getDirectrix2Ptr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

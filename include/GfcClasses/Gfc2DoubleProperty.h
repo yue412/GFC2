@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2DoubleProperty: public Gfc2SingleProperty
 {
 GFCENGINE_DEC_OBJECT(Gfc2DoubleProperty, gfc::engine::CEntity)
@@ -17,4 +19,7 @@ public:
     bool hasVal() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

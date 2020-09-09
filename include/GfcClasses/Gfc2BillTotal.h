@@ -5,6 +5,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2BillTotal: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2BillTotal, gfc::engine::CEntity)
@@ -34,4 +36,7 @@ public:
     bool hasMemo() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

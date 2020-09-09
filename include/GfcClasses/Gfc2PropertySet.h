@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2PropertySet: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2PropertySet, gfc::engine::CEntity)
@@ -22,4 +24,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Property> getHasPropertiesPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

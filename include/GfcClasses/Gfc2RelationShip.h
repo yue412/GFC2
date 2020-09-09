@@ -5,6 +5,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2RelationShip: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2RelationShip, gfc::engine::CEntity)
@@ -16,4 +18,7 @@ public:
     bool hasName() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

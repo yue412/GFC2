@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2NurbsCtrlPt2d: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2NurbsCtrlPt2d, gfc::engine::CEntity)
@@ -21,4 +23,7 @@ public:
     bool hasWeight() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

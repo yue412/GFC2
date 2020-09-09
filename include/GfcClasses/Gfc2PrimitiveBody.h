@@ -5,6 +5,8 @@
 #include "Gfc2Body.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2PrimitiveBody: public Gfc2Body
 {
 GFCENGINE_DEC_OBJECT(Gfc2PrimitiveBody, gfc::engine::CEntity)
@@ -13,4 +15,7 @@ public:
     Gfc2PrimitiveBody(bool bSetSchema);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

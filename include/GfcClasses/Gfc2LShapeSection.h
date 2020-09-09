@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2LShapeSection: public Gfc2ParameterizedSection
 {
 GFCENGINE_DEC_OBJECT(Gfc2LShapeSection, gfc::engine::CEntity)
@@ -26,4 +28,7 @@ public:
     bool hasThickness2() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

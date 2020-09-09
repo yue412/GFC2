@@ -6,6 +6,8 @@
 #include "Gfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Box3d: public Gfc2Geometry
 {
 GFCENGINE_DEC_OBJECT(Gfc2Box3d, gfc::engine::CEntity)
@@ -22,4 +24,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getMaxPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

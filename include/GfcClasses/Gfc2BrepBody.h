@@ -7,6 +7,8 @@
 #include "Gfc2Edge.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2BrepBody: public Gfc2Body
 {
 GFCENGINE_DEC_OBJECT(Gfc2BrepBody, gfc::engine::CEntity)
@@ -25,4 +27,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Edge> getEdgesPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

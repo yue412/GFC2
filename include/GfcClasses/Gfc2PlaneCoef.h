@@ -5,6 +5,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2PlaneCoef: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2PlaneCoef, gfc::engine::CEntity)
@@ -25,4 +27,7 @@ public:
     bool hasD() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

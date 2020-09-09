@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2BooleanListProperty: public Gfc2ListProperty
 {
 GFCENGINE_DEC_OBJECT(Gfc2BooleanListProperty, gfc::engine::CEntity)
@@ -18,4 +20,7 @@ public:
     Gfc2Boolean getValues(int nIndex) const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

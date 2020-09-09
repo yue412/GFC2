@@ -18,6 +18,7 @@ source_group(TREE ${PROJECT_SOURCE_DIR}/${PROJECT_NAME} PREFIX "Source Files" FI
 link_directories(${PROJECT_SOURCE_DIR}/../lib)
 #编译选项
 add_compile_definitions(UNICODE GFCCLASSES_EXPORTS TIXML_USE_STL _CRT_SECURE_NO_WARNINGS)
-add_library(${PROJECT_NAME} SHARED ${SRC_FILES} ${HEAD_FILES} ${RESOURCE_FILE})
-target_link_libraries(${PROJECT_NAME} debug GfcSchemad optimized GfcSchema)
-target_link_libraries(${PROJECT_NAME} debug GfcEngined optimized GfcEngine)
+set(PROJECT_ALIAS_NAME ${PROJECT_NAME}3)
+add_library(${PROJECT_ALIAS_NAME} SHARED ${SRC_FILES} ${HEAD_FILES} ${RESOURCE_FILE})
+target_link_libraries(${PROJECT_ALIAS_NAME} debug GfcSchemad optimized GfcSchema)
+target_link_libraries(${PROJECT_ALIAS_NAME} debug GfcEngined optimized GfcEngine)

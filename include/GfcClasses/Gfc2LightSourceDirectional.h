@@ -6,6 +6,8 @@
 #include "Gfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2LightSourceDirectional: public Gfc2LightSource
 {
 GFCENGINE_DEC_OBJECT(Gfc2LightSourceDirectional, gfc::engine::CEntity)
@@ -18,4 +20,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getOrientationPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

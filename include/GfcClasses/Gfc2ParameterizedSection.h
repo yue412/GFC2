@@ -6,6 +6,8 @@
 #include "Gfc2Coordinates3d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2ParameterizedSection: public Gfc2Section
 {
 GFCENGINE_DEC_OBJECT(Gfc2ParameterizedSection, gfc::engine::CEntity)
@@ -18,4 +20,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getPositionPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

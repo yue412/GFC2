@@ -7,6 +7,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2HalfSpaceSolidShape: public Gfc2SolidShape
 {
 GFCENGINE_DEC_OBJECT(Gfc2HalfSpaceSolidShape, gfc::engine::CEntity)
@@ -22,4 +24,7 @@ public:
     bool hasAgreementFlag() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

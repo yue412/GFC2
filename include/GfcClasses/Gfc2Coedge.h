@@ -7,6 +7,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Coedge: public Gfc2Topology
 {
 GFCENGINE_DEC_OBJECT(Gfc2Coedge, gfc::engine::CEntity)
@@ -25,4 +27,7 @@ public:
     bool hasEdgeSameDir() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

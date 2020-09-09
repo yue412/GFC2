@@ -5,6 +5,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Property: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2Property, gfc::engine::CEntity)
@@ -22,4 +24,7 @@ public:
     bool hasExtension() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

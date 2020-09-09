@@ -6,6 +6,8 @@
 #include "Gfc2Section.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2RevolvedAreaSolidTaperedShape: public Gfc2RevolvedAreaSolidShape
 {
 GFCENGINE_DEC_OBJECT(Gfc2RevolvedAreaSolidTaperedShape, gfc::engine::CEntity)
@@ -18,4 +20,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Section> getEndSweptAreaPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

@@ -7,6 +7,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2IndexedColourMap: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2IndexedColourMap, gfc::engine::CEntity)
@@ -31,4 +33,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2PrimitiveRenderable> getMappedToPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

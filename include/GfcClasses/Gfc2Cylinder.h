@@ -8,6 +8,8 @@
 #include "Gfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Cylinder: public Gfc2Surface
 {
 GFCENGINE_DEC_OBJECT(Gfc2Cylinder, gfc::engine::CEntity)
@@ -40,4 +42,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getPosPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

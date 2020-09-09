@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2EllipseSection: public Gfc2ParameterizedSection
 {
 GFCENGINE_DEC_OBJECT(Gfc2EllipseSection, gfc::engine::CEntity)
@@ -20,4 +22,7 @@ public:
     bool hasSemiAxis2() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

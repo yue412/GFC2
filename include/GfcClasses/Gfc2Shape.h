@@ -6,6 +6,8 @@
 #include "Gfc2Box3d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Shape: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2Shape, gfc::engine::CEntity)
@@ -22,4 +24,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Box3d> getBoundingBoxPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

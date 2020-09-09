@@ -9,6 +9,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2PreimageCurve2d: public Gfc2Curve2d
 {
 GFCENGINE_DEC_OBJECT(Gfc2PreimageCurve2d, gfc::engine::CEntity)
@@ -35,4 +37,7 @@ public:
     bool hasTolerance() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

@@ -5,6 +5,8 @@
 #include "Gfc2Geometry.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Topology: public Gfc2Geometry
 {
 GFCENGINE_DEC_OBJECT(Gfc2Topology, gfc::engine::CEntity)
@@ -13,4 +15,7 @@ public:
     Gfc2Topology(bool bSetSchema);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

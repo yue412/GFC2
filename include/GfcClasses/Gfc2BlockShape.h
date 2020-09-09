@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2BlockShape: public Gfc2PrimitiveShape
 {
 GFCENGINE_DEC_OBJECT(Gfc2BlockShape, gfc::engine::CEntity)
@@ -23,4 +25,7 @@ public:
     bool hasZLength() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

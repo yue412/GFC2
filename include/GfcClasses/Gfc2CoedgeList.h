@@ -6,6 +6,8 @@
 #include "Gfc2Curve2d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2CoedgeList: public Gfc2Topology
 {
 GFCENGINE_DEC_OBJECT(Gfc2CoedgeList, gfc::engine::CEntity)
@@ -19,4 +21,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getCoedgesPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

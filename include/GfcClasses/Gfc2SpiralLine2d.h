@@ -8,6 +8,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2SpiralLine2d: public Gfc2Curve2d
 {
 GFCENGINE_DEC_OBJECT(Gfc2SpiralLine2d, gfc::engine::CEntity)
@@ -33,4 +35,7 @@ public:
     bool hasRadiusCoef() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

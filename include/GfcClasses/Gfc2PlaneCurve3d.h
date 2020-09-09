@@ -7,6 +7,8 @@
 #include "Gfc2PlaneInfo.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2PlaneCurve3d: public Gfc2Curve3d
 {
 GFCENGINE_DEC_OBJECT(Gfc2PlaneCurve3d, gfc::engine::CEntity)
@@ -23,4 +25,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2PlaneInfo> getPlanePtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

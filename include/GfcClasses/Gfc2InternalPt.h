@@ -7,6 +7,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2InternalPt: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2InternalPt, gfc::engine::CEntity)
@@ -42,4 +44,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getSTDirPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

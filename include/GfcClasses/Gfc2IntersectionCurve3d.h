@@ -8,6 +8,8 @@
 #include "Gfc2InternalChart.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2IntersectionCurve3d: public Gfc2Curve3d
 {
 GFCENGINE_DEC_OBJECT(Gfc2IntersectionCurve3d, gfc::engine::CEntity)
@@ -32,4 +34,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2InternalChart> getChartPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

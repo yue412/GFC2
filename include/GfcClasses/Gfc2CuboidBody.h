@@ -7,6 +7,8 @@
 #include "Gfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2CuboidBody: public Gfc2PrimitiveBody
 {
 GFCENGINE_DEC_OBJECT(Gfc2CuboidBody, gfc::engine::CEntity)
@@ -23,4 +25,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getDimensionPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

@@ -8,6 +8,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Sphere: public Gfc2Surface
 {
 GFCENGINE_DEC_OBJECT(Gfc2Sphere, gfc::engine::CEntity)
@@ -31,4 +33,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeVPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

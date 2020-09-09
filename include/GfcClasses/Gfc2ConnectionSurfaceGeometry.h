@@ -6,6 +6,8 @@
 #include "Gfc2Surface.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2ConnectionSurfaceGeometry: public Gfc2ConnectionGeometry
 {
 GFCENGINE_DEC_OBJECT(Gfc2ConnectionSurfaceGeometry, gfc::engine::CEntity)
@@ -22,4 +24,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Surface> getSurfaceOnRelatedElementPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif
