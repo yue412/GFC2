@@ -7,6 +7,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2NurbsSurface: public Gfc2Surface
 {
 GFCENGINE_DEC_OBJECT(Gfc2NurbsSurface, gfc::engine::CEntity)
@@ -40,4 +42,7 @@ public:
     Gfc2Double getKnotsV(int nIndex) const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

@@ -7,6 +7,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2ExtrudedAreaSolidShape: public Gfc2SweptAreaSolidShape
 {
 GFCENGINE_DEC_OBJECT(Gfc2ExtrudedAreaSolidShape, gfc::engine::CEntity)
@@ -22,4 +24,7 @@ public:
     bool hasLen() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

@@ -6,6 +6,8 @@
 #include "Gfc2BooleanResult.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2CsgSolidShape: public Gfc2SolidShape
 {
 GFCENGINE_DEC_OBJECT(Gfc2CsgSolidShape, gfc::engine::CEntity)
@@ -18,4 +20,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2BooleanResult> getTreeRootExpressionPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

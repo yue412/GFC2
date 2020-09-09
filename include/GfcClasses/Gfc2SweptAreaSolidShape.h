@@ -6,6 +6,8 @@
 #include "Gfc2Section.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2SweptAreaSolidShape: public Gfc2SolidShape
 {
 GFCENGINE_DEC_OBJECT(Gfc2SweptAreaSolidShape, gfc::engine::CEntity)
@@ -18,4 +20,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Section> getSweptAreaPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

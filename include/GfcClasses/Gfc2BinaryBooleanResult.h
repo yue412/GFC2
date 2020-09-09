@@ -6,6 +6,8 @@
 #include "Gfc2SolidShape.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2BinaryBooleanResult: public Gfc2BooleanResult
 {
 GFCENGINE_DEC_OBJECT(Gfc2BinaryBooleanResult, gfc::engine::CEntity)
@@ -25,4 +27,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2SolidShape> getSecondOperandPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

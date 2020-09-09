@@ -12,4 +12,7 @@
 #define GFCCLASSES_API __declspec(dllimport)
 #endif
 
+#define GFCCLASSES_NAMESPACE_BEGIN namespace gfc { namespace classes { namespace x3 {
+#define GFCCLASSES_NAMESPACE_END } } }
+
 #endif

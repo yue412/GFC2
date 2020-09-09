@@ -6,6 +6,8 @@
 #include "Gfc2PolyhedralEdge.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2PolyhedralLoop: public Gfc2Topology
 {
 GFCENGINE_DEC_OBJECT(Gfc2PolyhedralLoop, gfc::engine::CEntity)
@@ -19,4 +21,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2PolyhedralEdge> getEdgesPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

@@ -6,6 +6,8 @@
 #include "Gfc2SolidShape.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2UnaryBooleanResult: public Gfc2BooleanResult
 {
 GFCENGINE_DEC_OBJECT(Gfc2UnaryBooleanResult, gfc::engine::CEntity)
@@ -18,4 +20,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2SolidShape> getOperandPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

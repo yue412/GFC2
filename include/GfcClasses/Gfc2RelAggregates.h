@@ -6,6 +6,8 @@
 #include "Gfc2Object.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2RelAggregates: public Gfc2RelDecomposes
 {
 GFCENGINE_DEC_OBJECT(Gfc2RelAggregates, gfc::engine::CEntity)
@@ -23,4 +25,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Object> getRelatedObjectsPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

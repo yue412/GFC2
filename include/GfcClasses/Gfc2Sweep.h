@@ -8,6 +8,8 @@
 #include "Gfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Sweep: public Gfc2Surface
 {
 GFCENGINE_DEC_OBJECT(Gfc2Sweep, gfc::engine::CEntity)
@@ -31,4 +33,7 @@ public:
     bool hasSweepType() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

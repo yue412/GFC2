@@ -6,6 +6,8 @@
 #include "Gfc2CoedgeListEx.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2CommonPolygonEx: public Gfc2Polygon
 {
 GFCENGINE_DEC_OBJECT(Gfc2CommonPolygonEx, gfc::engine::CEntity)
@@ -19,4 +21,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2CoedgeListEx> getLoopExsPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

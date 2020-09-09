@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2ConeShape: public Gfc2PrimitiveShape
 {
 GFCENGINE_DEC_OBJECT(Gfc2ConeShape, gfc::engine::CEntity)
@@ -20,4 +22,7 @@ public:
     bool hasBottomRadius() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

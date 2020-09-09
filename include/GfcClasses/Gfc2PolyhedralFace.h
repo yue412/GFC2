@@ -7,6 +7,8 @@
 #include "Gfc2PlaneCoef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2PolyhedralFace: public Gfc2Topology
 {
 GFCENGINE_DEC_OBJECT(Gfc2PolyhedralFace, gfc::engine::CEntity)
@@ -24,4 +26,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2PlaneCoef> getPlanePtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

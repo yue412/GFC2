@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2PolyhedralEdge: public Gfc2Topology
 {
 GFCENGINE_DEC_OBJECT(Gfc2PolyhedralEdge, gfc::engine::CEntity)
@@ -20,4 +22,7 @@ public:
     bool hasEndVertexIndex() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

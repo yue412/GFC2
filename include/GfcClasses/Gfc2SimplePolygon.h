@@ -6,6 +6,8 @@
 #include "Gfc2SimpleLoop.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2SimplePolygon: public Gfc2Polygon
 {
 GFCENGINE_DEC_OBJECT(Gfc2SimplePolygon, gfc::engine::CEntity)
@@ -19,4 +21,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2SimpleLoop> getLoopsPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

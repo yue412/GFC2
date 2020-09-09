@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2CircleHollowSection: public Gfc2CircleSection
 {
 GFCENGINE_DEC_OBJECT(Gfc2CircleHollowSection, gfc::engine::CEntity)
@@ -17,4 +19,7 @@ public:
     bool hasThickness() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

@@ -5,6 +5,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2SteelTotal: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2SteelTotal, gfc::engine::CEntity)
@@ -28,4 +30,7 @@ public:
     bool hasUnit() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

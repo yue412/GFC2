@@ -2,6 +2,8 @@
 #include "GfcSchema.h"
 #include "GfcSchema\Model.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 GfcWriter::GfcWriter(const std::wstring& sProductCode): CWriter(g_pModel->version(), sProductCode)
 {
 }
@@ -10,3 +12,5 @@ GfcWriter::GfcWriter(const std::wstring& sProductCode): CWriter(g_pModel->versio
 GfcWriter::~GfcWriter()
 {
 }
+
+GFCCLASSES_NAMESPACE_END

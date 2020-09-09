@@ -7,6 +7,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2NurbsCurve3d: public Gfc2Curve3d
 {
 GFCENGINE_DEC_OBJECT(Gfc2NurbsCurve3d, gfc::engine::CEntity)
@@ -27,4 +29,7 @@ public:
     Gfc2Double getKnots(int nIndex) const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

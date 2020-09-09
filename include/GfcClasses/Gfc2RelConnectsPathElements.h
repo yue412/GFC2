@@ -5,6 +5,8 @@
 #include "Gfc2RelConnectsElements.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2RelConnectsPathElements: public Gfc2RelConnectsElements
 {
 GFCENGINE_DEC_OBJECT(Gfc2RelConnectsPathElements, gfc::engine::CEntity)
@@ -19,4 +21,7 @@ public:
     bool hasRelatingConnectionType() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

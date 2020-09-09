@@ -7,6 +7,8 @@
 #include "Gfc2ConnectionGeometry.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2RelConnectsElements: public Gfc2RelConnects
 {
 GFCENGINE_DEC_OBJECT(Gfc2RelConnectsElements, gfc::engine::CEntity)
@@ -27,4 +29,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2ConnectionGeometry> getConnectionGeometryPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

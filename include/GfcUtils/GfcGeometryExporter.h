@@ -54,12 +54,15 @@ namespace gfc {
     namespace engine {
         class CWriter;
     }
+    namespace classes {
+        namespace x3 {
+            class Gfc2Polygon;
+            class Gfc2CommonPolygon;
+            class Gfc2Vector2d;
+            class Gfc2CommonPolygonEx;
+        }
+    }
 }
-
-class Gfc2Polygon;
-class Gfc2CommonPolygon;
-class Gfc2Vector2d;
-class Gfc2CommonPolygonEx;
 
 class GfcGeometryExporter
 {
@@ -131,8 +134,8 @@ private:
     static gfc::engine::EntityRef exportPlaneCoef(gfc::engine::CWriter* pWriter, ggp::CPlaneCoef* pSrc);
     static gfc::engine::EntityRef exportPolyhedralLoop(gfc::engine::CWriter* pWriter, ggp::CPolyhedralLoop* pSrc);
     static gfc::engine::EntityRef exportPolyhedralEdge(gfc::engine::CWriter* pWriter, ggp::CPolyhedralEdge* pSrc);
-    static void innerExportPolygon(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, Gfc2CommonPolygon* pDest);
-	static void innerExportPolygonEx(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, Gfc2CommonPolygonEx* oDest);
+    static void innerExportPolygon(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, gfc::classes::x3::Gfc2CommonPolygon* pDest);
+	static void innerExportPolygonEx(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, gfc::classes::x3::Gfc2CommonPolygonEx* oDest);
     static gfc::engine::EntityRef export100Vector3d(gfc::engine::CWriter* pWriter);
     static gfc::engine::EntityRef export010Vector3d(gfc::engine::CWriter* pWriter);
     static gfc::engine::EntityRef export001Vector3d(gfc::engine::CWriter* pWriter);

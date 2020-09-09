@@ -8,6 +8,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Ellipse2d: public Gfc2Curve2d
 {
 GFCENGINE_DEC_OBJECT(Gfc2Ellipse2d, gfc::engine::CEntity)
@@ -37,4 +39,7 @@ public:
     bool hasClockSign() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

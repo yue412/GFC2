@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2InternalChart: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2InternalChart, gfc::engine::CEntity)
@@ -28,4 +30,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2InternalPt> getIPSPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

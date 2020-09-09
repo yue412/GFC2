@@ -6,6 +6,8 @@
 #include "Gfc2Body.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2ManifoldSolidShape: public Gfc2SolidShape
 {
 GFCENGINE_DEC_OBJECT(Gfc2ManifoldSolidShape, gfc::engine::CEntity)
@@ -18,4 +20,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Body> getBodyPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

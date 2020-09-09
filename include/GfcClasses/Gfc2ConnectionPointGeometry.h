@@ -6,6 +6,8 @@
 #include "Gfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2ConnectionPointGeometry: public Gfc2ConnectionGeometry
 {
 GFCENGINE_DEC_OBJECT(Gfc2ConnectionPointGeometry, gfc::engine::CEntity)
@@ -22,4 +24,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getPointOnRelatedElementPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

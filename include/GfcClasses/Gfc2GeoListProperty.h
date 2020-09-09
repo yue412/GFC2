@@ -6,6 +6,8 @@
 #include "Gfc2Geometry.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2GeoListProperty: public Gfc2ListProperty
 {
 GFCENGINE_DEC_OBJECT(Gfc2GeoListProperty, gfc::engine::CEntity)
@@ -19,4 +21,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Geometry> getValuesPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

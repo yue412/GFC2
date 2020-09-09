@@ -5,6 +5,8 @@
 #include "Gfc2SpatialStructureElement.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Building: public Gfc2SpatialStructureElement
 {
 GFCENGINE_DEC_OBJECT(Gfc2Building, gfc::engine::CEntity)
@@ -13,4 +15,7 @@ public:
     Gfc2Building(bool bSetSchema);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

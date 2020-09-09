@@ -238,6 +238,9 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
     oFile.addInclude(L"GfcEngine/Entity.h");
     //oFile.addInclude("GfcEngine/EntityFactory.h");
     
+    oFile.body()->addLine(L"GFCCLASSES_NAMESPACE_BEGIN");
+    oFile.body()->addLine(L"");
+
     oFile.body()->add(pClass->createDeclareCode());
     if (pFactoryClass)
     {
@@ -249,6 +252,9 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
         oFile.body()->addLine(L"");
         oFile.body()->add(pFieldCacheClass->createDeclareCode());
     }
+    oFile.body()->addLine(L"");
+    oFile.body()->addLine(L"GFCCLASSES_NAMESPACE_END");
+    oFile.body()->addLine(L"");
     oFile.saveTo(m_sPath);
     updateProgressBar();
 }
@@ -276,6 +282,10 @@ void CCodeWriter::writeClassImpFile(CClass* pTypeObject, CppClass *pClass, CppCl
     }
     if (bFlag)
         oFile.addInclude(L"GfcEngine/Container.h");
+
+    oFile.body()->addLine(L"GFCCLASSES_NAMESPACE_BEGIN");
+    oFile.body()->addLine(L"");
+
     oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%s,L\"%s\",0)", 
         pClass->name().c_str(),
         UpperString(pClass->name()).c_str()
@@ -294,6 +304,8 @@ void CCodeWriter::writeClassImpFile(CClass* pTypeObject, CppClass *pClass, CppCl
         oFile.body()->add(pFactoryClass->createImpCode());
     if(pFieldCacheClass)
         oFile.body()->add(pFieldCacheClass->createImpCode());
+
+    oFile.body()->addLine(L"GFCCLASSES_NAMESPACE_END");
 
     oFile.saveTo(m_sCPPPath);
     updateProgressBar();

@@ -56,6 +56,8 @@
 #include "Gfc2CommonPolygonEx.h"
 #include "Gfc2CommonPolygon.h"
 
+using namespace gfc::classes::x3;
+
 ggp::CArc2d::ArcType _getArcType( double dBulge )
 {
     if (dBulge > 1)

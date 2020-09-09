@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2SurfaceTexture: public gfc::engine::CEntity
 {
 GFCENGINE_DEC_OBJECT(Gfc2SurfaceTexture, gfc::engine::CEntity)
@@ -31,4 +33,7 @@ public:
     Gfc2String getParameter(int nIndex) const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

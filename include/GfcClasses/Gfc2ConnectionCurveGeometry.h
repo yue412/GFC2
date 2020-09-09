@@ -6,6 +6,8 @@
 #include "Gfc2Curve3d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2ConnectionCurveGeometry: public Gfc2ConnectionGeometry
 {
 GFCENGINE_DEC_OBJECT(Gfc2ConnectionCurveGeometry, gfc::engine::CEntity)
@@ -22,4 +24,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Curve3d> getCurveOnRelatedElementPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

@@ -15,6 +15,8 @@
 #include "Gfc2SphereShape.h"
 #include "GfcEngine\GfcEngineUtils.h"
 
+using namespace gfc::classes::x3;
+
 TEST(TestGfcClasses, Entity_create)
 {
     Gfc2Vector2d vec;

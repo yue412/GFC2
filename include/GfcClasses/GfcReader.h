@@ -4,6 +4,8 @@
 #include "GfcEngine\Reader.h"
 #include "GfcClasses.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API GfcReader: public gfc::engine::CReader
 {
 public:
@@ -11,5 +13,7 @@ public:
 protected:
     virtual bool useStaticClass();
 };
+
+GFCCLASSES_NAMESPACE_END
 
 #endif // !GFCREADER_H

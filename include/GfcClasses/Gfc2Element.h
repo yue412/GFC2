@@ -8,6 +8,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Element: public Gfc2Object
 {
 GFCENGINE_DEC_OBJECT(Gfc2Element, gfc::engine::CEntity)
@@ -29,4 +31,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2ElementShape> getShapesPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

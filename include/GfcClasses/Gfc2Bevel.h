@@ -9,6 +9,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2Bevel: public Gfc2Surface
 {
 GFCENGINE_DEC_OBJECT(Gfc2Bevel, gfc::engine::CEntity)
@@ -32,4 +34,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getCurvePtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

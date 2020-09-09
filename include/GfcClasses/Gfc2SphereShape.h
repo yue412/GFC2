@@ -6,6 +6,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2SphereShape: public Gfc2PrimitiveShape
 {
 GFCENGINE_DEC_OBJECT(Gfc2SphereShape, gfc::engine::CEntity)
@@ -17,4 +19,7 @@ public:
     bool hasRadius() const;
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

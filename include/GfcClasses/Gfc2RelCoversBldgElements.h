@@ -6,6 +6,8 @@
 #include "Gfc2Element.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2RelCoversBldgElements: public Gfc2RelConnects
 {
 GFCENGINE_DEC_OBJECT(Gfc2RelCoversBldgElements, gfc::engine::CEntity)
@@ -23,4 +25,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Element> getRelatedCoveringsPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

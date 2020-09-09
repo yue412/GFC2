@@ -6,6 +6,8 @@
 #include "Gfc2Curve2d.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2CompositeCurve2dSweptSolidShape: public Gfc2SweptAreaSolidShape
 {
 GFCENGINE_DEC_OBJECT(Gfc2CompositeCurve2dSweptSolidShape, gfc::engine::CEntity)
@@ -19,4 +21,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getSegmentsPtr(int nIndex);
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif

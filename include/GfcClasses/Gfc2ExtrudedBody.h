@@ -8,6 +8,8 @@
 #include "TypeDef.h"
 #include "GfcEngine/Entity.h"
 
+GFCCLASSES_NAMESPACE_BEGIN
+
 class GFCCLASSES_API Gfc2ExtrudedBody: public Gfc2PrimitiveBody
 {
 GFCENGINE_DEC_OBJECT(Gfc2ExtrudedBody, gfc::engine::CEntity)
@@ -27,4 +29,7 @@ public:
     gfc::engine::CEntityWrapPtr<Gfc2Polygon> getSectionPtr();
 
 };
+
+GFCCLASSES_NAMESPACE_END
+
 #endif
