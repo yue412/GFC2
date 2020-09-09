@@ -19,5 +19,5 @@ copy .\GFC3X0.exp ..\src\GfcClasses\GFC3X0.exp /y
 cmake %2 -B ..\build -S ..\src
 cmake --build ..\build --config %1
 
-cmake %2  -B ..\build\tests -S ..\tests\
-cmake --build ..\build\tests --config %1
+REM cmake %2  -B ..\build\tests -S ..\tests\
+REM cmake --build ..\build\tests --config %1

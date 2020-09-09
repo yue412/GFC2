@@ -3,6 +3,7 @@ lib/
 bin/*.dll
 bin/*.ilk
 bin/*.pdb
+.vscode/
 
 src/GfcClasses/Classes/*.cpp
 

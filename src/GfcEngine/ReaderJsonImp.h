@@ -26,13 +26,13 @@ public:
     CReaderJsonImp();
     virtual ~CReaderJsonImp(void);
 
-    virtual bool preRead(const std::wstring& sFileName); // 判断是否是可以读的格式
+    virtual bool preRead(const std::wstring& sFileName);
     virtual bool open(const std::wstring& sFileName);
     virtual std::wstring readFileVersion();
     virtual void read(CDocument* pDoc);
 
 protected:
-    virtual bool getIndex(EntityInfo& oInfo);//顺序读取index
+    virtual bool getIndex(EntityInfo& oInfo);
     virtual CEntity* createEntity(__int64 nPos, EntityRef& nId);
 
 private:

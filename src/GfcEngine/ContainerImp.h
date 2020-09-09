@@ -6,9 +6,11 @@
 #include <string>
 #include <map>
 #include <memory>
+#include <mutex>
 #include <functional>
 #include <assert.h>
 #include "GfcEngine\GfcEngine.h"
+#include "MutexGuard.h"
 #include "GfcEngine\Iterator.h"
 #include "GfcSchema\Model.h"
 
@@ -27,11 +29,27 @@ template<class T>
 class CContainerImp
 {
 public:
-    CContainerImp(gfc::schema::CModel* pModel, int nInitSize = 10000): m_pModel(pModel) , m_nMaxRefId(0)
+    CContainerImp(gfc::schema::CModel* pModel, int nInitSize = 10000): m_pModel(pModel) , m_nMaxRefId(0), m_mutex(nullptr)
     {
         m_oEntities.resize(nInitSize);
     }
-    ~CContainerImp() {}
+    ~CContainerImp() {
+    }
+
+    bool threadsafe() const{
+        return m_mutex != nullptr;
+    }
+    void threadsafe(bool b){
+        if(b){
+            if(!m_mutex){
+                m_mutex = std::make_shared<std::mutex>();
+            }
+        }
+        else{
+            m_mutex.reset();
+        }
+        
+    }
    /* void add(EntityRef nId, const T& pEntity) 
     {
         auto nSize = (EntityRef)m_oEntities.size();
@@ -56,39 +74,45 @@ public:
 
 	EntityRef add( T pEntity)
 	{
-		if (pEntity.ref() == -1)
-		{
-			pEntity.ref(generateRefId());
-		}
-		else if(pEntity.ref() >= m_nMaxRefId){
-			m_nMaxRefId = pEntity.ref();
-		}
-
-		auto nId = pEntity.ref();
-		auto nSize = (EntityRef)m_oEntities.size();
-		if (nId >= nSize)
-		{
-			while (nId >= nSize)
-			{
-				nSize *= 2;
-			}
-			m_oEntities.resize(nSize);
-		}
-		assert(m_oEntities[nId].ref() == -1);
-		m_oEntities[nId] = pEntity;
 		gfc::schema::CClass* pSchema = pEntity.get()->getClass();
 		auto sType = pSchema->getName();
-		auto itr = m_oEntityTypeMap.find(sType);
-		if (itr == m_oEntityTypeMap.end())
-		{
-			m_oEntityTypeMap[sType] = new std::vector<EntityRef>();
-		}
-		m_oEntityTypeMap[sType]->push_back(nId);
+
+        {
+            MutexGuard guard(m_mutex);
+            if (pEntity.ref() == -1)
+            {
+                pEntity.ref(generateRefId());
+            }
+            else if(pEntity.ref() >= m_nMaxRefId){
+                m_nMaxRefId = pEntity.ref();
+            }
+
+            auto nId = pEntity.ref();
+            auto nSize = (EntityRef)m_oEntities.size();
+            if (nId >= nSize)
+            {
+                while (nId >= nSize)
+                {
+                    nSize *= 2;
+                }
+                m_oEntities.resize(nSize);
+            }
+            assert(m_oEntities[nId].ref() == -1);
+            m_oEntities[nId] = pEntity;
+            auto itr = m_oEntityTypeMap.find(sType);
+            if (itr == m_oEntityTypeMap.end())
+            {
+                m_oEntityTypeMap[sType] = new std::vector<EntityRef>();
+            }
+            m_oEntityTypeMap[sType]->push_back(nId);
+        }
+		
 		return pEntity.ref();
 	}
 
     T getItem(EntityRef nId) 
     {
+        MutexGuard guard(m_mutex);
         if (nId >= 0 && nId < (EntityRef)m_oEntities.size())
         {
             return m_oEntities[nId];
@@ -98,6 +122,7 @@ public:
 
     std::shared_ptr<CIterator<T>> getItems(const std::wstring& sType, bool bIncludeSubType = false)
     {
+        MutexGuard guard(m_mutex);
         EntityRefListlist oList;
         if (!bIncludeSubType)
         {
@@ -135,6 +160,7 @@ public:
     }
     std::shared_ptr<CIterator<T>> iterator()
     {
+        MutexGuard guard(m_mutex);
         EntityRefListlist oList;
         for each (auto oPair in m_oEntityTypeMap)
         {
@@ -153,6 +179,8 @@ private:
     gfc::schema::CModel* m_pModel;
 
 	EntityRef m_nMaxRefId;
+    bool m_threadsafe;
+    std::shared_ptr<std::mutex> m_mutex;
 };
 
 template<class T>

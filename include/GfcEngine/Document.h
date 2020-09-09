@@ -39,7 +39,7 @@ class GFCENGINE_API CDocument: public IContainer
 {
 public:
     CDocument(gfc::schema::CModel* pModel, int nEntityInitCount = 1000000);
-    ~CDocument(void);
+    virtual ~CDocument(void);
 	EntityRef add(EntityRef nId, CEntity* pEntity);
 	EntityRef add(std::shared_ptr < CEntity> pEntity);
     gfc::schema::CModel* model() const;
@@ -47,6 +47,9 @@ public:
     virtual EntityPtr getEntity(EntityRef nId);
     virtual EntityIteratorPtr getEntities(const std::wstring& nType, bool bIncludeSubType = false);
     virtual EntityIteratorPtr getIterator();
+
+    bool threadsafe() const;
+    void threadsafe(bool b);
 
     //void linkSchemaByParent();
     //bool schemaFilter(gfc::schema::CClass* pSchema, const std::string& nFilterType, bool bIncludeSubType);

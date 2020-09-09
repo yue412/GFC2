@@ -57,6 +57,13 @@ EntityIteratorPtr CDocument::getEntities(const std::wstring& sType, bool bInclud
     return m_pContainer->getItems(sType, bIncludeSubType);
 }
 
+bool CDocument::threadsafe() const{
+    return m_pContainer->threadsafe();
+}
+
+void CDocument::threadsafe(bool b){
+    m_pContainer->threadsafe(b);
+}
 /*
 void Document::linkSchemaByParent()
 {
