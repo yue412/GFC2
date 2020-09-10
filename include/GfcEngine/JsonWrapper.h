@@ -70,12 +70,12 @@ public:  // method of ordinary json object or json array
 
     bool HasParseError() const;
 
-    bool HasMember(const std::string& strKey)
+    bool HasMember(const std::string& strKey) const
     {
         return m_pValue->IsObject() && m_pValue->HasMember(strKey.c_str());
     }
 
-    bool HasError() { return m_bParseError; }
+    bool HasError() const { return m_bParseError; }
 
     rapidjson::Document::AllocatorType* GetAllocator() const{ return m_pAllocator; }
 
