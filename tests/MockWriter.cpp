@@ -2,7 +2,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-CMockWriter::CMockWriter() : CWriter(L"test"), m_nCount(0)
+CMockWriter::CMockWriter() : CWriter(nullptr), m_nCount(0)
 {
 }
 
