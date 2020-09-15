@@ -9,17 +9,19 @@
 
 TEST(TestGFCEngine, WriteEmptyFile)
 {
-    gfc::engine::CWriter writer(L"GFC3X0", L"gfc2_unit_test");
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CWriter writer(&oModel, L"gfc2_unit_test");
     auto result = writer.open(getFullPath(L"empty.gfc"), L"express");
     EXPECT_EQ(true, result);
 }
 
 TEST(TestGFCEngine, WriteFile)
 {
-    gfc::engine::CWriter writer(L"GFC3X0", L"gfc2_unit_test");
-    auto result = writer.open(getFullPath(L"one.gfc"), L"express");
     gfc::schema::CModel oModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CWriter writer(&oModel, L"gfc2_unit_test");
+    auto result = writer.open(getFullPath(L"one.gfc"), L"express");
     auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Vector3d");
     //Gfc2Vector3d oVector;
     //oVector.setX(1.0);
@@ -58,10 +60,10 @@ TEST(TestGFCEngine, ReadFile)
 
 TEST(TestGFCEngine, WriteFile_old)
 {
-    gfc::engine::CWriter writer(L"GFC3X0", L"gfc2_unit_test", CP_UTF8, false);
-    auto result = writer.open(getFullPath(L"WriteFile_old.gfc"), L"express");
     gfc::schema::CModel oModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CWriter writer(&oModel, L"gfc2_unit_test", CP_UTF8, false);
+    auto result = writer.open(getFullPath(L"WriteFile_old.gfc"), L"express");
     auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Vector3d");
     //Gfc2Vector3d oVector;
     //oVector.setX(1.0);
@@ -117,10 +119,10 @@ TEST(TestGFCEngine, ReadEmptyFile)
 
 TEST(TestGFCEngine, WriteFile2)
 {
-    gfc::engine::CWriter writer(L"GFC3X0", L"gfc2_unit_test");
-    auto result = writer.open(getFullPath(L"two.gfc"), L"express");
     gfc::schema::CModel oModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CWriter writer(&oModel, L"gfc2_unit_test");
+    auto result = writer.open(getFullPath(L"two.gfc"), L"express");
     {
         auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Vector3d");
         pEntity->setAsDouble(L"X", 1.0);
@@ -174,10 +176,10 @@ TEST(TestGFCEngine, Read_getEntity)
 
 TEST(TestGFCEngine, WriteFile3)
 {
-    gfc::engine::CWriter writer(L"GFC3X0", L"gfc2_unit_test");
-    auto result = writer.open(getFullPath(L"three.gfc"), L"express");
     gfc::schema::CModel oModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CWriter writer(&oModel, L"gfc2_unit_test");
+    auto result = writer.open(getFullPath(L"three.gfc"), L"express");
     {
         auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Floor");
         pEntity->setAsDouble(L"Height", 1.0);
@@ -315,10 +317,10 @@ TEST(TestGFCEngine, Read_getIterator)
 
 TEST(TestGFCEngine, WriteRefFile)
 {
-    gfc::engine::CWriter writer(L"GFC3X0", L"gfc2_unit_test");
-    auto result = writer.open(getFullPath(L"ref.gfc"), L"express");
     gfc::schema::CModel oModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CWriter writer(&oModel, L"gfc2_unit_test");
+    auto result = writer.open(getFullPath(L"ref.gfc"), L"express");
     gfc::engine::EntityRef /*nRef1,*/ nRef2, /*nRef3, */nRef4;
     //{
     //    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String");

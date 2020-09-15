@@ -7,6 +7,12 @@
 #include "GfcEngine\Entity.h"
 #include "GfcEngine\Document.h"
 
+namespace gfc {
+    namespace schema {
+        class CModel;
+    }
+}
+
 GFCENGINE_NAMESPACE_BEGIN
 
 class CWriterImp;
@@ -16,7 +22,7 @@ class GFCENGINE_API CWriter
 public:
     // 一般情况下，CodePage不用设置。只有生成老版本GFC时有用
     // 生成老版本时，为兼容以前代码，需要将bUppercase设为false
-    CWriter(const std::wstring& sVersion, const std::wstring& sProductCode = L"", UINT nCodePage = CP_UTF8, bool bUppercase = true);
+    CWriter(gfc::schema::CModel* pSchema, const std::wstring& sProductCode = L"", UINT nCodePage = CP_UTF8, bool bUppercase = true);
     virtual ~CWriter(void);
     virtual bool open(const std::wstring& sFileName, const std::wstring& sFormatType);
     virtual void close();
