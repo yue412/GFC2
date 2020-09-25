@@ -103,7 +103,7 @@ CppCode *CppHeadFile::body()
     return m_pIntfCode;
 }
 
-
+/*
 CppFile::CppFile(const std::wstring &sFileNameOnly, CppHeadFile *pHeadFile, bool bHasPreCompleHead): CppBaseFile(sFileNameOnly)
 {
     setFileExt(L"cpp");
@@ -116,13 +116,14 @@ CppFile::CppFile(const std::wstring &sFileNameOnly, CppHeadFile *pHeadFile, bool
         ));
     }
 }
+*/
 
-CppFile::CppFile(const std::wstring &sFileNameOnly, bool bHasPreCompleHead): CppBaseFile(sFileNameOnly)
+CppFile::CppFile(const std::wstring &sFileNameOnly, const std::wstring& sHeadRelativePath, bool bHasPreCompleHead): CppBaseFile(sFileNameOnly)
 {
     setFileExt(L"cpp");
     if (bHasPreCompleHead)
         m_pBody->addLine(L"#include \"StdAfx.h\"");
     m_pBody->addLine(FormatWstring(L"#include \"%s.h\"", 
-        sFileNameOnly.c_str()
+        (sHeadRelativePath + sFileNameOnly).c_str()
     ));
 }

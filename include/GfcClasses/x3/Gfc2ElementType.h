@@ -1,0 +1,25 @@
+#ifndef GFC2ELEMENTTYPE_H
+#define GFC2ELEMENTTYPE_H
+
+#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/Gfc2Object.h"
+#include "GfcClasses/x3/TypeDef.h"
+#include "GfcEngine/Entity.h"
+
+GFCCLASSES_NAMESPACE_BEGIN
+
+class GFCCLASSES_API Gfc2ElementType: public Gfc2Object
+{
+GFCENGINE_DEC_OBJECT(Gfc2ElementType, gfc::engine::CEntity)
+public:
+    Gfc2ElementType();
+    Gfc2ElementType(bool bSetSchema);
+    void setEType(const Gfc2Label& sValue);
+    Gfc2Label getEType() const;
+    bool hasEType() const;
+
+};
+
+GFCCLASSES_NAMESPACE_END
+
+#endif

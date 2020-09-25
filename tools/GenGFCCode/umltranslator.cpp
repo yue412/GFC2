@@ -48,7 +48,7 @@ void CUMLTranslator::done(CTranslateInfo & oInfo)
     if (!(oInfo.sCPPPath.empty() && /*oInfo.sTextPath.empty() && oInfo.sBinPath.empty() &&*/ oInfo.sHeadPath.empty() && oInfo.sNETPath.empty()))
     {
         CCodeWriter oCodeWriter(&oModel);
-        oCodeWriter.write(oInfo.sHeadPath, 
+        oCodeWriter.write(oInfo.sHeadPath, oInfo.sHeadRelativePath,
             oInfo.sCPPPath, 
             //oInfo.sTextPath,
             //oInfo.sBinPath,

@@ -1,4 +1,4 @@
-#include "GfcWriter.h"
+#include "GfcClasses\x3\GfcWriter.h"
 #include "GfcSchema.h"
 #include "GfcSchema\Model.h"
 

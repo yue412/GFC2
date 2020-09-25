@@ -38,7 +38,7 @@ public:
     CCodeWriter(CModel* pModel);
     ~CCodeWriter();
 	// 扩展接口，只生成指定的gfc文件,xuxp,2017-6-19
-    void write(const std::wstring& sPathName, const std::wstring &sCPPPath, /*const std::wstring &sTextPath, const std::wstring &sBinPath, */
+    void write(const std::wstring& sPathName, const std::wstring& sRelativePath, const std::wstring &sCPPPath, /*const std::wstring &sTextPath, const std::wstring &sBinPath, */
         const std::wstring& sNETPath);
 //signals:
 //    void reset();
@@ -119,6 +119,7 @@ private:
     void getRequireFlag(CClass* pClass, std::vector<int>& oFlagList);
 
     std::wstring m_sPath;
+    std::wstring m_sRelativePath;
     std::wstring m_sCPPPath;
     //std::wstring m_sTextPath;
     //std::wstring m_sBinPath;

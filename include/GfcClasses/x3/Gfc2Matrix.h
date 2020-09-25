@@ -1,0 +1,29 @@
+#ifndef GFC2MATRIX_H
+#define GFC2MATRIX_H
+
+#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/Gfc2Geometry.h"
+#include "GfcClasses/x3/TypeDef.h"
+#include "GfcEngine/Entity.h"
+
+GFCCLASSES_NAMESPACE_BEGIN
+
+class GFCCLASSES_API Gfc2Matrix: public Gfc2Geometry
+{
+GFCENGINE_DEC_OBJECT(Gfc2Matrix, gfc::engine::CEntity)
+public:
+    Gfc2Matrix();
+    Gfc2Matrix(bool bSetSchema);
+    void setDim(const Gfc2Integer& nValue);
+    Gfc2Integer getDim() const;
+    bool hasDim() const;
+    int getDataCount() const;
+    void clearData();
+    void addData(const Gfc2Double& dValue);
+    Gfc2Double getData(int nIndex) const;
+
+};
+
+GFCCLASSES_NAMESPACE_END
+
+#endif

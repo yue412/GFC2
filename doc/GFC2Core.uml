@@ -9907,14 +9907,14 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">1008</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">15</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">81</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">88</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">46</XPD:ATTR>
 <XPD:ATTR name="AutoResize" type="boolean">True</XPD:ATTR>
 <XPD:REF name="Model">Tqsy5vV7P0CgLXiXWqq15QAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="EwKRMGAX+0+96vn7Fq2FhQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="Jv39i7FBjU6TRNpA97xaJwAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">GfcRefString</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Gfc2RefString</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="McpJNERq3kGllJ16GQqVQwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -15215,7 +15215,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[109]" type="UMLClass" guid="Tqsy5vV7P0CgLXiXWqq15QAA">
-<XPD:ATTR name="Name" type="string">GfcRefString</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Gfc2RefString</XPD:ATTR>
 <XPD:REF name="Namespace">0j0rhwB3O065hJ0miDJmQQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">tGfECx+Ag0i+ec5a+nDeMAAA</XPD:REF>
@@ -19674,7 +19674,7 @@
 <XPD:OBJ name="OwnedViews[6]" type="UMLGeneralizationView" guid="JgXsgBaKEEuf47/nRZyYugAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">130,226;317,143</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">131,226;317,143</XPD:ATTR>
 <XPD:REF name="Model">9keUHx7/YEaHguoionVInQAA</XPD:REF>
 <XPD:REF name="Head">zaHj1xPBTkOS1GhwC1+hFAAA</XPD:REF>
 <XPD:REF name="Tail">YtWeSzS+u0+QR9cgvBTzbAAA</XPD:REF>

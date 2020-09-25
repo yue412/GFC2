@@ -35,8 +35,8 @@ private:
 class CppFile: public CppBaseFile
 {
 public:
-    CppFile(const std::wstring& sFileNameOnly, CppHeadFile* pHeadFile, bool bHasPreCompleHead);
-    CppFile(const std::wstring& sFileNameOnly, bool bHasPreCompleHead);
+    //CppFile(const std::wstring& sFileNameOnly, CppHeadFile* pHeadFile, bool bHasPreCompleHead);
+    CppFile(const std::wstring& sFileNameOnly, const std::wstring& sHeadRelativePath, bool bHasPreCompleHead);
 };
 
 #endif // CPPFILE_H

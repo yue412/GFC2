@@ -197,7 +197,7 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
     CppHeadFile oFile(pTypeObject->getName());
     std::set<std::wstring> oIncludeSet;
     int nCount = pTypeObject->getAttributeCount();
-    oFile.addInclude(L"GfcClasses.h");
+    oFile.addInclude(m_sRelativePath + L"GfcClasses.h");
     //oFile.addInclude(L"GfcEngine/EntityFactory.h");
 //    if (nCount > 0)
 //        oFile.addInclude(L"vector", true);
@@ -205,7 +205,7 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
     // include parent file
     if (pTypeObject->getParent())
     {
-        oFile.addInclude(pTypeObject->getParent()->getName() + L".h");
+        oFile.addInclude(m_sRelativePath + pTypeObject->getParent()->getName() + L".h");
         oIncludeSet.insert(pTypeObject->getParent()->getName());
     }
     // include attribute file
@@ -224,7 +224,7 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
             {
                 if (oIncludeSet.find(pAttribute->getType()->getName()) == oIncludeSet.end())
                 {
-                    oFile.addInclude(pAttribute->getType()->getName() + L".h");
+                    oFile.addInclude(m_sRelativePath + pAttribute->getType()->getName() + L".h");
                     oIncludeSet.insert(pAttribute->getType()->getName());
                 }
             }
@@ -232,7 +232,7 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
         }
     }
     if (bTypeDef)
-        oFile.addInclude(L"TypeDef.h");
+        oFile.addInclude(m_sRelativePath + L"TypeDef.h");
 //    if (bFlag)
 //        oFile.addInclude(L"GfcEngine/Document.h");
     oFile.addInclude(L"GfcEngine/Entity.h");
@@ -261,7 +261,7 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
 
 void CCodeWriter::writeClassImpFile(CClass* pTypeObject, CppClass *pClass, CppClass *pFactoryClass, CppClass *pFieldCacheClass)
 {
-    CppFile oFile(pClass->name(), false);
+    CppFile oFile(pClass->name(), m_sRelativePath, false);
     /*
     oFile.addInclude(pClass->name() + L"BinarySerializer.h", false);
     oFile.addInclude(pClass->name() + L"TextSerializer.h", false);
@@ -375,7 +375,7 @@ void CCodeWriter::writeCliClassHeadFile(CClass *pTypeObject, CppClass *pClass)
 
 void CCodeWriter::writeCliClassImpFile(CppClass *pClass)
 {
-    CppFile oFile(pClass->name(), true);
+    CppFile oFile(pClass->name(), L"", true);
 //    oFile.addInclude("google/protobuf/wire_format_lite.h", true);
 //    oFile.addInclude("google/protobuf/wire_format_lite_inl.h", true);
     //oFile.addInclude("msclr/marshal_cppstd.h", true);
@@ -465,13 +465,17 @@ void CCodeWriter::writeTextSerializerClassFile(CClass *pTypeObject, CppClass *pC
     //}
 }
 
-void CCodeWriter::write(const std::wstring& sPathName, const std::wstring &sCPPPath, /*const std::wstring &sTextPath, const std::wstring &sBinPath,*/
+void CCodeWriter::write(const std::wstring& sPathName, const std::wstring& sRelativePath, const std::wstring &sCPPPath, /*const std::wstring &sTextPath, const std::wstring &sBinPath,*/
     const std::wstring& sNETPath)
 {
     assert(m_pModel);
     if (!m_pModel)
         return;
     m_sPath = sPathName;
+    
+    m_sRelativePath = sRelativePath;
+    if (!sRelativePath.empty() && (sRelativePath.back() != L'\\' && sRelativePath.back() != L'/'))
+        m_sRelativePath += L"/";
     m_sCPPPath = sCPPPath;
     //m_sTextPath = sTextPath;
     //m_sBinPath = sBinPath;
@@ -610,7 +614,7 @@ void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
                 CTypeObject* pType = pTypeObject->getRefType();
                 if (pType && pType->getType() == TOE_CLASS && oTypeDefIncludes.find(pType->getName()) == oTypeDefIncludes.end())
                 {
-                    oTypeDefHeadFile.addInclude(FormatWstring(L"%s.h",
+                    oTypeDefHeadFile.addInclude(m_sRelativePath + FormatWstring(L"%s.h",
                         pType->getName().c_str()
                     ));
                     oTypeDefIncludes.insert(pType->getName());

@@ -1,0 +1,34 @@
+#ifndef GFC2LSHAPESECTION_H
+#define GFC2LSHAPESECTION_H
+
+#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/Gfc2ParameterizedSection.h"
+#include "GfcClasses/x3/TypeDef.h"
+#include "GfcEngine/Entity.h"
+
+GFCCLASSES_NAMESPACE_BEGIN
+
+class GFCCLASSES_API Gfc2LShapeSection: public Gfc2ParameterizedSection
+{
+GFCENGINE_DEC_OBJECT(Gfc2LShapeSection, gfc::engine::CEntity)
+public:
+    Gfc2LShapeSection();
+    Gfc2LShapeSection(bool bSetSchema);
+    void setWidth(const Gfc2Double& dValue);
+    Gfc2Double getWidth() const;
+    bool hasWidth() const;
+    void setHeight(const Gfc2Double& dValue);
+    Gfc2Double getHeight() const;
+    bool hasHeight() const;
+    void setThickness1(const Gfc2Double& dValue);
+    Gfc2Double getThickness1() const;
+    bool hasThickness1() const;
+    void setThickness2(const Gfc2Double& dValue);
+    Gfc2Double getThickness2() const;
+    bool hasThickness2() const;
+
+};
+
+GFCCLASSES_NAMESPACE_END
+
+#endif

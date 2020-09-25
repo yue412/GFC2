@@ -9,10 +9,10 @@
 #include "GfcSchema/EntityAttribute.h"
 #include "GfcSchema/BuildinType.h"
 #include "GfcSchema/TypeDefine.h"
-#include "Gfc2Vector2d.h"
-#include "Gfc2Floor.h"
-#include "Gfc2Element.h"
-#include "Gfc2SphereShape.h"
+#include "GfcClasses\x3\Gfc2Vector2d.h"
+#include "GfcClasses\x3\Gfc2Floor.h"
+#include "GfcClasses\x3\Gfc2Element.h"
+#include "GfcClasses\x3\Gfc2SphereShape.h"
 #include "GfcEngine\GfcEngineUtils.h"
 
 using namespace gfc::classes::x3;
@@ -68,9 +68,9 @@ TEST(TestGfcClasses, Element_add)
     EXPECT_EQ(1000, obj.getShapes(0));
 }
 
-#include "Gfc2ElementShape.h"
-#include "GfcReader.h"
-#include "GfcWriter.h"
+#include "GfcClasses\x3\Gfc2ElementShape.h"
+#include "GfcClasses\x3\GfcReader.h"
+#include "GfcClasses\x3\GfcWriter.h"
 
 TEST(TestGfcClasses, write_document)
 {
