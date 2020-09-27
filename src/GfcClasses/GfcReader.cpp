@@ -1,4 +1,4 @@
-#include "GfcReader.h"
+#include "GfcClasses\x3\GfcReader.h"
 #include "GfcSchema.h"
 
 GFCCLASSES_NAMESPACE_BEGIN

@@ -3,13 +3,12 @@
 set(PROJECT_NAME GfcClasses)
 include_directories(
 	${PROJECT_SOURCE_DIR}/../include 
-	${PROJECT_SOURCE_DIR}/../include/${PROJECT_NAME}
 	${PROJECT_SOURCE_DIR}/GfcEngine
 	${PROJECT_SOURCE_DIR}/GfcSchema
 	${PROJECT_SOURCE_DIR}/${PROJECT_NAME}
 )
 
-file(GLOB HEAD_FILES "${PROJECT_SOURCE_DIR}/../include/GfcClasses/*.h") 
+file(GLOB HEAD_FILES "${PROJECT_SOURCE_DIR}/../include/GfcClasses/x3/*.h") 
 file(GLOB_RECURSE SRC_FILES  ${PROJECT_SOURCE_DIR}/${PROJECT_NAME} *.cpp *.h *.rc)
 source_group(TREE ${PROJECT_SOURCE_DIR}/${PROJECT_NAME} PREFIX "Source Files" FILES ${SRC_FILES})
 

@@ -864,6 +864,10 @@ ENTITY Gfc2RectangleSection
 	YLength : Gfc2Double;
 END_ENTITY;
 
+ENTITY Gfc2RefString;
+	Val : STRING;
+END_ENTITY;
+
 ENTITY Gfc2RelAggregates
  SUBTYPE OF (Gfc2RelDecomposes);
 	RelatingObject : Gfc2Object;
@@ -1237,10 +1241,6 @@ ENTITY Gfc2Vector3d
 	X : Gfc2Double;
 	Y : Gfc2Double;
 	Z : Gfc2Double;
-END_ENTITY;
-
-ENTITY GfcRefString;
-	Val : STRING;
 END_ENTITY;
 
 END_SCHEMA;

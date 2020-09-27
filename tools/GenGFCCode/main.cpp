@@ -33,12 +33,15 @@ std::wstring charToWString(char* str)
 void parseTranslateInfo(int argc, char *argv[], CTranslateInfo& oInfo)
 {
     char opt;
-    while ((opt = getopt(argc, argv, "h:c:t:b:n:e:d:v:")) != -1)
+    while ((opt = getopt(argc, argv, "h:r:c:t:b:n:e:d:v:")) != -1)
     {
         switch (opt)
         {
         case 'h':
             oInfo.sHeadPath = getFullPath(charToWString(optarg));
+            break;
+        case 'r':
+            oInfo.sHeadRelativePath = charToWString(optarg);
             break;
         case 'c':
             oInfo.sCPPPath = getFullPath(charToWString(optarg));

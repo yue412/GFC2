@@ -13,7 +13,8 @@ cmake --build ..\build --config %1
 cmake %2 -B ..\build\GenGFCCode -S ..\tools\GenGFCCode\
 cmake --build ..\build\GenGFCCode  --config %1
 
-GenGFCCode.exe -h ..\include\GfcClasses -c ..\src\GfcClasses\Classes -n ..\src\Classes.net -e .\GFC3X0.exp ..\doc\GFC2Core.uml
+cd bin
+GenGFCCode.exe -h ..\include\GfcClasses\x3 -r GfcClasses/x3 -c ..\src\GfcClasses\Classes -n ..\src\Classes.net -e .\GFC3X0.exp ..\doc\GFC2Core.uml
 copy .\GFC3X0.exp ..\src\GfcClasses\GFC3X0.exp /y
 
 cmake %2 -B ..\build -S ..\src
