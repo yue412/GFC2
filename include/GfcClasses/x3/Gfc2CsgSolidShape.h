@@ -17,7 +17,7 @@ public:
     void setTreeRootExpression(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getTreeRootExpression() const;
     bool hasTreeRootExpression() const;
-    gfc::engine::CEntityWrapPtr<Gfc2BooleanResult> getTreeRootExpressionPtr();
+    std::shared_ptr<Gfc2BooleanResult> getTreeRootExpressionPtr();
 
 };
 

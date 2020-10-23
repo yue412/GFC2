@@ -20,7 +20,7 @@ public:
     void setShape(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getShape() const;
     bool hasShape() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Shape> getShapePtr();
+    std::shared_ptr<Gfc2Shape> getShapePtr();
 
 };
 

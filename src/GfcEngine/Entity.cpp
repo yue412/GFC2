@@ -30,7 +30,7 @@ void CEntity::setContainer( IContainer* pContainer )
     m_pContainer = pContainer;
 }
 
-void CEntity::setRefId(EntityRef refId) {
+void CEntity::setRef(EntityRef refId) {
 	m_refId = refId;
 }
 

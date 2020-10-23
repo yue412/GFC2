@@ -18,11 +18,11 @@ public:
     void setCoordinate(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCoordinate() const;
     bool hasCoordinate() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getCoordinatePtr();
+    std::shared_ptr<Gfc2Coordinates3d> getCoordinatePtr();
     void setDimension(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getDimension() const;
     bool hasDimension() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getDimensionPtr();
+    std::shared_ptr<Gfc2Vector3d> getDimensionPtr();
 
 };
 

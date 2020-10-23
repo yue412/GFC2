@@ -73,15 +73,13 @@ void CWriterTextImp::close()
     m_nCount = 0;
 }
 
-EntityRef CWriterTextImp::doWriteEntity( CEntity* pEntity )
+void CWriterTextImp::doWriteEntity(EntityRef nId, CEntity * pEntity)
 {
     if (m_pTextStream)
     {
-        CWriterTextUtils::writeEntity(*m_pTextStream, pEntity, m_nCount, m_nCodePage, m_bUppercase);
+        CWriterTextUtils::writeEntity(*m_pTextStream, pEntity, nId, m_nCodePage, m_bUppercase);
         *m_pTextStream << std::endl;
-        return m_nCount++;
     }
-    return -1;
 }
 
 void CWriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion)

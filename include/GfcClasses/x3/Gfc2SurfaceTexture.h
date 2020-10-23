@@ -26,7 +26,7 @@ public:
     void setTranfromsMatirx(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getTranfromsMatirx() const;
     bool hasTranfromsMatirx() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Matrix> getTranfromsMatirxPtr();
+    std::shared_ptr<Gfc2Matrix> getTranfromsMatirxPtr();
     int getParameterCount() const;
     void clearParameter();
     void addParameter(const Gfc2String& sValue);

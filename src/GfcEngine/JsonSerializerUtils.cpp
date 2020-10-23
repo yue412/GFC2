@@ -309,7 +309,7 @@ bool CReaderJsonUtils::parseArrayProperty(gfc::schema::CModel* pModel, CDocument
         assert(pChild);
         if(!pChild) return false;
 
-        pValue->setAsEntityRef(pChild->getRefId());
+        pValue->setAsEntityRef(pChild->ref());
     }
         break;
     default:
@@ -379,7 +379,7 @@ bool CReaderJsonUtils::parseSingleProperty(gfc::schema::CModel* pModel, CDocumen
         assert(pChild);
         if(!pChild) return false;
 
-        pValue->setAsEntityRef(pChild->getRefId());
+        pValue->setAsEntityRef(pChild->ref());
     }
         break;
     default:

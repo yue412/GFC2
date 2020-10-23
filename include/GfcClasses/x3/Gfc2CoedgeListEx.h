@@ -18,7 +18,7 @@ public:
     void clearCoedgeExs();
     void addCoedgeExs(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCoedgeExs(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Coedge> getCoedgeExsPtr(int nIndex);
+    std::shared_ptr<Gfc2Coedge> getCoedgeExsPtr(int nIndex);
 
 };
 

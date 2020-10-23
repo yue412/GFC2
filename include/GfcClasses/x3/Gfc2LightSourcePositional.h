@@ -18,7 +18,7 @@ public:
     void setPosition(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPosition() const;
     bool hasPosition() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getPositionPtr();
+    std::shared_ptr<Gfc2Vector3d> getPositionPtr();
     void setRadius(const Gfc2Double& dValue);
     Gfc2Double getRadius() const;
     bool hasRadius() const;

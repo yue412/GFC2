@@ -19,19 +19,19 @@ public:
     void setBases1(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getBases1() const;
     bool hasBases1() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Surface> getBases1Ptr();
+    std::shared_ptr<Gfc2Surface> getBases1Ptr();
     void setBases2(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getBases2() const;
     bool hasBases2() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Surface> getBases2Ptr();
+    std::shared_ptr<Gfc2Surface> getBases2Ptr();
     void setRange(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRange() const;
     bool hasRange() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangePtr();
+    std::shared_ptr<Gfc2Intervald> getRangePtr();
     void setChart(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getChart() const;
     bool hasChart() const;
-    gfc::engine::CEntityWrapPtr<Gfc2InternalChart> getChartPtr();
+    std::shared_ptr<Gfc2InternalChart> getChartPtr();
 
 };
 

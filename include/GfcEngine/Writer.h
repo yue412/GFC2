@@ -28,6 +28,7 @@ public:
     virtual void close();
     virtual bool isOpen();
     virtual EntityRef writeEntity(CEntity* pEntity);
+    void writeDoc(CDocument* pDoc);
     void addIgnoreDuplicates(const std::wstring& sEntityName);
 private:
     CWriterImp* m_pImp;

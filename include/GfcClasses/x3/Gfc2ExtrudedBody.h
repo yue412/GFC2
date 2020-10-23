@@ -19,14 +19,14 @@ public:
     void setCoordinate(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCoordinate() const;
     bool hasCoordinate() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getCoordinatePtr();
+    std::shared_ptr<Gfc2Coordinates3d> getCoordinatePtr();
     void setLen(const Gfc2Double& dValue);
     Gfc2Double getLen() const;
     bool hasLen() const;
     void setSection(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSection() const;
     bool hasSection() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Polygon> getSectionPtr();
+    std::shared_ptr<Gfc2Polygon> getSectionPtr();
 
 };
 

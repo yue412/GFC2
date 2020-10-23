@@ -19,27 +19,27 @@ public:
     void setRangeV(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRangeV() const;
     bool hasRangeV() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeVPtr();
+    std::shared_ptr<Gfc2Intervald> getRangeVPtr();
     void setCurve(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCurve() const;
     bool hasCurve() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getCurvePtr();
+    std::shared_ptr<Gfc2Curve2d> getCurvePtr();
     void setDirX(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getDirX() const;
     bool hasDirX() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getDirXPtr();
+    std::shared_ptr<Gfc2Vector3d> getDirXPtr();
     void setDirY(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getDirY() const;
     bool hasDirY() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getDirYPtr();
+    std::shared_ptr<Gfc2Vector3d> getDirYPtr();
     void setDirZ(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getDirZ() const;
     bool hasDirZ() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getDirZPtr();
+    std::shared_ptr<Gfc2Vector3d> getDirZPtr();
     void setPos(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPos() const;
     bool hasPos() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getPosPtr();
+    std::shared_ptr<Gfc2Vector3d> getPosPtr();
 
 };
 

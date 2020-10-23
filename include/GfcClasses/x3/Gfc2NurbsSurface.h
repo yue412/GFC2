@@ -31,7 +31,7 @@ public:
     void clearCtrlPts();
     void addCtrlPts(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCtrlPts(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2NurbsCtrlPt3d> getCtrlPtsPtr(int nIndex);
+    std::shared_ptr<Gfc2NurbsCtrlPt3d> getCtrlPtsPtr(int nIndex);
     int getKnotsUCount() const;
     void clearKnotsU();
     void addKnotsU(const Gfc2Double& dValue);

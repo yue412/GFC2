@@ -21,7 +21,7 @@ public:
     void setLightColour(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getLightColour() const;
     bool hasLightColour() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Color> getLightColourPtr();
+    std::shared_ptr<Gfc2Color> getLightColourPtr();
     void setAmbientIntensity(const Gfc2Double& dValue);
     Gfc2Double getAmbientIntensity() const;
     bool hasAmbientIntensity() const;

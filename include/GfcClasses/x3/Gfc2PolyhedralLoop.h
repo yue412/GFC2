@@ -18,7 +18,7 @@ public:
     void clearEdges();
     void addEdges(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getEdges(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2PolyhedralEdge> getEdgesPtr(int nIndex);
+    std::shared_ptr<Gfc2PolyhedralEdge> getEdgesPtr(int nIndex);
 
 };
 

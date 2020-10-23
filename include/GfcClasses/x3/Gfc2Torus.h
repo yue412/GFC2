@@ -20,7 +20,7 @@ public:
     void setCoord(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCoord() const;
     bool hasCoord() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getCoordPtr();
+    std::shared_ptr<Gfc2Coordinates3d> getCoordPtr();
     void setRadius(const Gfc2Double& dValue);
     Gfc2Double getRadius() const;
     bool hasRadius() const;
@@ -30,11 +30,11 @@ public:
     void setRangeV(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRangeV() const;
     bool hasRangeV() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeVPtr();
+    std::shared_ptr<Gfc2Intervald> getRangeVPtr();
     void setCurve(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCurve() const;
     bool hasCurve() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getCurvePtr();
+    std::shared_ptr<Gfc2Curve2d> getCurvePtr();
 
 };
 

@@ -10,7 +10,7 @@
 #include <functional>
 #include <assert.h>
 #include "GfcEngine\GfcEngine.h"
-#include "MutexGuard.h"
+#include "GfcEngine\MutexGuard.h"
 #include "GfcEngine\Iterator.h"
 #include "GfcSchema\Model.h"
 
@@ -79,15 +79,15 @@ public:
 
         {
             MutexGuard guard(m_mutex);
-            if (pEntity.ref() == -1)
+            if (pEntity->ref() == -1)
             {
-                pEntity.ref(generateRefId());
+                pEntity->setRef(generateRefId());
             }
-            else if(pEntity.ref() >= m_nMaxRefId){
-                m_nMaxRefId = pEntity.ref();
+            else if(pEntity->ref() >= m_nMaxRefId){
+                m_nMaxRefId = pEntity->ref();
             }
 
-            auto nId = pEntity.ref();
+            auto nId = pEntity->ref();
             auto nSize = (EntityRef)m_oEntities.size();
             if (nId >= nSize)
             {
@@ -97,7 +97,7 @@ public:
                 }
                 m_oEntities.resize(nSize);
             }
-            assert(m_oEntities[nId].ref() == -1);
+            //assert(m_oEntities[nId]->ref() == -1);
             m_oEntities[nId] = pEntity;
             auto itr = m_oEntityTypeMap.find(sType);
             if (itr == m_oEntityTypeMap.end())
@@ -107,7 +107,7 @@ public:
             m_oEntityTypeMap[sType]->push_back(nId);
         }
 		
-		return pEntity.ref();
+		return pEntity->ref();
 	}
 
     T getItem(EntityRef nId) 

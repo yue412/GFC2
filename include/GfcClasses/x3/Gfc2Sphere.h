@@ -22,15 +22,15 @@ public:
     void setCoords(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCoords() const;
     bool hasCoords() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getCoordsPtr();
+    std::shared_ptr<Gfc2Coordinates3d> getCoordsPtr();
     void setRangeU(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRangeU() const;
     bool hasRangeU() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeUPtr();
+    std::shared_ptr<Gfc2Intervald> getRangeUPtr();
     void setRangeV(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRangeV() const;
     bool hasRangeV() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeVPtr();
+    std::shared_ptr<Gfc2Intervald> getRangeVPtr();
 
 };
 

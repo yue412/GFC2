@@ -833,10 +833,12 @@ TEST(TestEntity, Entity_asEntity)
     auto pEntity = new gfc::engine::CEntity();
     pEntity->setSchema(pClass);
     pEntity->setAsEntityRef(L"factory", 125);
-    oDoc.add(123, pEntity);
+    pEntity->setRef(123);
+    oDoc.add(pEntity);
     auto pEntity2 = new gfc::engine::CEntity();
     pEntity2->setSchema(pClass2);
-    oDoc.add(125, pEntity2);
+    pEntity2->setRef(125);
+    oDoc.add(pEntity2);
 
     auto n = pEntity->asEntity(L"factory");
     EXPECT_EQ(pEntity2, n.get());
@@ -866,10 +868,12 @@ TEST(TestEntity, Entity_getEntity)
     auto pEntity = new gfc::engine::CEntity();
     pEntity->setSchema(pClass);
     pEntity->addEntityRef(L"factory", 125);
-    oDoc.add(123, pEntity);
+    pEntity->setRef(123);
+    oDoc.add(pEntity);
     auto pEntity2 = new gfc::engine::CEntity();
     pEntity2->setSchema(pClass2);
-    oDoc.add(125, pEntity2);
+    pEntity2->setRef(125);
+    oDoc.add(pEntity2);
 
     auto n = pEntity->getEntity(L"factory", 0);
     EXPECT_EQ(pEntity2, n.get());

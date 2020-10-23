@@ -76,20 +76,19 @@ void CWriterJsonImp::close()
     }
 }
 
-EntityRef CWriterJsonImp::doWriteEntity( CEntity* pEntity )
+void CWriterJsonImp::doWriteEntity(EntityRef nId, CEntity * pEntity)
 {
     if (m_pJsonStream)
     {
-		assert(pEntity->getRefId() != -1);
+        assert(pEntity->ref() != -1);
         JsonWrapper data = (*m_pRootDocument)["data"];
         JsonWrapper obj(data.GetAllocator());
 
         CJsonSerializerUtils::writeEntity(obj, pEntity, m_nCodePage);
 
         data.Add(obj);
-        return pEntity->getRefId();
+//        return pEntity->ref();
     }
-    return -1;
 }
 
 void CWriterJsonImp::writeHead(JsonWrapper& rootJson, const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion)

@@ -17,7 +17,7 @@ public:
     void setOrientation(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getOrientation() const;
     bool hasOrientation() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getOrientationPtr();
+    std::shared_ptr<Gfc2Vector3d> getOrientationPtr();
 
 };
 

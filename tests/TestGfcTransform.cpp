@@ -50,7 +50,8 @@ TEST(TestGFCTransform, doTransformEntity_id)
     gfc::schema::CModel oDestModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC2X0.exp"), &oDestModel);
     oTransform.setSchema(&oSrcModel, &oDestModel);
-    auto pDestEntity = oTransform.doTransformEntity(gfc::engine::EntityPtr(2, pSrcEntity));
+    pSrcEntity->setRef(2);
+    auto pDestEntity = oTransform.doTransformEntity(gfc::engine::EntityPtr(pSrcEntity));
     EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
 //    delete pSrcEntity;
 }
@@ -66,7 +67,8 @@ TEST(TestGFCTransform, doTransformEntity_string)
     auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Project");
     pSrcEntity->setAsString(L"ID", L"12");
     pSrcEntity->setAsString(L"Name", L"中国");
-    Doc.add(3, pSrcEntity);
+    pSrcEntity->setRef(3);
+    Doc.add(pSrcEntity);
 
     GfcTransform30to20_Test oTransform(&Doc);
     gfc::schema::CModel oDestModel;
@@ -92,13 +94,15 @@ TEST(TestGFCTransform, doTransformEntity_entityref)
     //Doc.add(23, pIdentity);
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Coordinates3d");
-        Doc.add(3, pSrcEntity);
+        pSrcEntity->setRef(3);
+        Doc.add(pSrcEntity);
     }
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Shape");
         //pSrcEntity->setAsString(L"Identifier", L"Solid");
         pSrcEntity->setAsEntityRef(L"LocalCoordinate", 3);
-        Doc.add(5, pSrcEntity);
+        pSrcEntity->setRef(5);
+        Doc.add(pSrcEntity);
     }
 
     GfcTransform30to20_Test oTransform(&Doc);
@@ -125,7 +129,8 @@ TEST(TestGFCTransform, doTransformProject)
     auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Project");
     pSrcEntity->setAsString(L"ID", L"12");
     pSrcEntity->setAsString(L"Name", L"中国");
-    Doc.add(3, pSrcEntity);
+    pSrcEntity->setRef(3);
+    Doc.add(pSrcEntity);
 
     GfcTransform30to20_Test oTransform(&Doc);
     gfc::schema::CModel oDestModel;
@@ -169,7 +174,8 @@ TEST(TestGFCTransform, doTransformBuilding)
     auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Building");
     pSrcEntity->setAsString(L"ID", L"12");
     pSrcEntity->setAsString(L"Name", L"中国");
-    Doc.add(3, pSrcEntity);
+    pSrcEntity->setRef(3);
+    Doc.add(pSrcEntity);
 
     GfcTransform30to20_Test oTransform(&Doc);
     gfc::schema::CModel oDestModel;
@@ -200,7 +206,8 @@ TEST(TestGFCTransform, doTransformFloor)
     pSrcEntity->setAsDouble(L"StructuralElevation", 11.5);
     pSrcEntity->setAsInteger(L"StdFloorCount", 1);
     pSrcEntity->setAsInteger(L"StartFloorNo", -1);
-    Doc.add(3, pSrcEntity);
+    pSrcEntity->setRef(3);
+    Doc.add(pSrcEntity);
 
     GfcTransform30to20_Test oTransform(&Doc);
     gfc::schema::CModel oDestModel;
@@ -239,13 +246,15 @@ TEST(TestGFCTransform, transformBuilding)
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Building");
         pSrcEntity->setAsString(L"ID", L"12");
         //pSrcEntity->setAsString(L"Name", L"中国");
-        Doc.add(3, pSrcEntity);
+        pSrcEntity->setRef(3);
+        Doc.add(pSrcEntity);
     }
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Building");
         pSrcEntity->setAsString(L"ID", L"34");
         //pSrcEntity->setAsString(L"Name", L"中国");
-        Doc.add(45, pSrcEntity);
+        pSrcEntity->setRef(45);
+        Doc.add(pSrcEntity);
     }
 
 
@@ -279,13 +288,15 @@ TEST(TestGFCTransform, transformFloor)
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Building");
         pSrcEntity->setAsString(L"ID", L"12");
         //pSrcEntity->setAsString(L"Name", L"中国");
-        Doc.add(10, pSrcEntity);
+        pSrcEntity->setRef(10);
+        Doc.add(pSrcEntity);
     }
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Building");
         pSrcEntity->setAsString(L"ID", L"34");
         //pSrcEntity->setAsString(L"Name", L"中国");
-        Doc.add(11, pSrcEntity);
+        pSrcEntity->setRef(11);
+        Doc.add(pSrcEntity);
     }
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Floor");
@@ -295,7 +306,8 @@ TEST(TestGFCTransform, transformFloor)
         pSrcEntity->setAsDouble(L"StructuralElevation", 11.5);
         pSrcEntity->setAsInteger(L"StdFloorCount", 1);
         pSrcEntity->setAsInteger(L"StartFloorNo", -1);
-        Doc.add(101, pSrcEntity);
+        pSrcEntity->setRef(101);
+        Doc.add(pSrcEntity);
     }
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Floor");
@@ -305,7 +317,8 @@ TEST(TestGFCTransform, transformFloor)
         pSrcEntity->setAsDouble(L"StructuralElevation", 11.5);
         pSrcEntity->setAsInteger(L"StdFloorCount", 1);
         pSrcEntity->setAsInteger(L"StartFloorNo", -1);
-        Doc.add(102, pSrcEntity);
+        pSrcEntity->setRef(102);
+        Doc.add(pSrcEntity);
     }
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Floor");
@@ -315,20 +328,23 @@ TEST(TestGFCTransform, transformFloor)
         pSrcEntity->setAsDouble(L"StructuralElevation", 11.5);
         pSrcEntity->setAsInteger(L"StdFloorCount", 1);
         pSrcEntity->setAsInteger(L"StartFloorNo", -1);
-        Doc.add(103, pSrcEntity);
+        pSrcEntity->setRef(103);
+        Doc.add(pSrcEntity);
     }
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2RelAggregates");
         pSrcEntity->setAsEntityRef(L"RelatingObject", 10);
         pSrcEntity->addEntityRef(L"RelatedObjects", 101);
         pSrcEntity->addEntityRef(L"RelatedObjects", 102);
-        Doc.add(201, pSrcEntity);
+        pSrcEntity->setRef(201);
+        Doc.add(pSrcEntity);
     }
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2RelAggregates");
         pSrcEntity->setAsEntityRef(L"RelatingObject", 11);
         pSrcEntity->addEntityRef(L"RelatedObjects", 103);
-        Doc.add(202, pSrcEntity);
+        pSrcEntity->setRef(202);
+        Doc.add(pSrcEntity);
     }
 
     GfcTransform30to20_Test oTransform(&Doc);

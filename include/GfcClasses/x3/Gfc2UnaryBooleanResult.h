@@ -17,7 +17,7 @@ public:
     void setOperand(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getOperand() const;
     bool hasOperand() const;
-    gfc::engine::CEntityWrapPtr<Gfc2SolidShape> getOperandPtr();
+    std::shared_ptr<Gfc2SolidShape> getOperandPtr();
 
 };
 

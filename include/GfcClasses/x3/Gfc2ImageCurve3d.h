@@ -18,11 +18,11 @@ public:
     void setCurve(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getCurve() const;
     bool hasCurve() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Curve2d> getCurvePtr();
+    std::shared_ptr<Gfc2Curve2d> getCurvePtr();
     void setSurface(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSurface() const;
     bool hasSurface() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Surface> getSurfacePtr();
+    std::shared_ptr<Gfc2Surface> getSurfacePtr();
 
 };
 

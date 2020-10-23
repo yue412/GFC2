@@ -19,11 +19,11 @@ public:
     void setSurface(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSurface() const;
     bool hasSurface() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Surface> getSurfacePtr();
+    std::shared_ptr<Gfc2Surface> getSurfacePtr();
     void setBox(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getBox() const;
     bool hasBox() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Box3d> getBoxPtr();
+    std::shared_ptr<Gfc2Box3d> getBoxPtr();
     void setSameDir(const Gfc2Boolean& bValue);
     Gfc2Boolean getSameDir() const;
     bool hasSameDir() const;

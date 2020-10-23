@@ -19,12 +19,12 @@ public:
     void clearSegments();
     void addSegments(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getSegments(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Curve3d> getSegmentsPtr(int nIndex);
+    std::shared_ptr<Gfc2Curve3d> getSegmentsPtr(int nIndex);
     int getReferencesCount() const;
     void clearReferences();
     void addReferences(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getReferences(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Surface> getReferencesPtr(int nIndex);
+    std::shared_ptr<Gfc2Surface> getReferencesPtr(int nIndex);
 
 };
 

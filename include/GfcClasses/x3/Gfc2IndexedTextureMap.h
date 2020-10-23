@@ -19,12 +19,12 @@ public:
     void setMappedTo(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getMappedTo() const;
     bool hasMappedTo() const;
-    gfc::engine::CEntityWrapPtr<Gfc2PrimitiveRenderable> getMappedToPtr();
+    std::shared_ptr<Gfc2PrimitiveRenderable> getMappedToPtr();
     int getTexCoordsCount() const;
     void clearTexCoords();
     void addTexCoords(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getTexCoords(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Vector2d> getTexCoordsPtr(int nIndex);
+    std::shared_ptr<Gfc2Vector2d> getTexCoordsPtr(int nIndex);
     int getTexCoordIndexCount() const;
     void clearTexCoordIndex();
     void addTexCoordIndex(const Gfc2Integer& nValue);
@@ -33,7 +33,7 @@ public:
     void clearMaps();
     void addMaps(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getMaps(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2SurfaceTexture> getMapsPtr(int nIndex);
+    std::shared_ptr<Gfc2SurfaceTexture> getMapsPtr(int nIndex);
 
 };
 

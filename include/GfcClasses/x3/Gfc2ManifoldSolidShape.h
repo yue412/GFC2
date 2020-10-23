@@ -17,7 +17,7 @@ public:
     void setBody(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getBody() const;
     bool hasBody() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Body> getBodyPtr();
+    std::shared_ptr<Gfc2Body> getBodyPtr();
 
 };
 

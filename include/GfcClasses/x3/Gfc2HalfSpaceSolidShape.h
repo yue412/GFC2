@@ -18,7 +18,7 @@ public:
     void setBaseSurface(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getBaseSurface() const;
     bool hasBaseSurface() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Surface> getBaseSurfacePtr();
+    std::shared_ptr<Gfc2Surface> getBaseSurfacePtr();
     void setAgreementFlag(const Gfc2Boolean& bValue);
     Gfc2Boolean getAgreementFlag() const;
     bool hasAgreementFlag() const;

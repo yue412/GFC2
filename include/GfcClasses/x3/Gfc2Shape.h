@@ -17,11 +17,11 @@ public:
     void setLocalCoordinate(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getLocalCoordinate() const;
     bool hasLocalCoordinate() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Coordinates3d> getLocalCoordinatePtr();
+    std::shared_ptr<Gfc2Coordinates3d> getLocalCoordinatePtr();
     void setBoundingBox(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getBoundingBox() const;
     bool hasBoundingBox() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Box3d> getBoundingBoxPtr();
+    std::shared_ptr<Gfc2Box3d> getBoundingBoxPtr();
 
 };
 

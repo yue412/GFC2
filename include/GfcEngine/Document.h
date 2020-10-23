@@ -21,7 +21,7 @@ GFCENGINE_NAMESPACE_BEGIN
 
 class DocumentIterator;
 
-typedef std::function<bool (CDocument*, EntityRef, CEntity*)> needAddEntityFunc;
+typedef std::function<bool (CDocument*, /*EntityRef,*/ CEntity*)> needAddEntityFunc;
 typedef std::function<void (CDocument*)> afterReadDocFunc;
 
 template<class T> class CContainerImp;
@@ -40,8 +40,9 @@ class GFCENGINE_API CDocument: public IContainer
 public:
     CDocument(gfc::schema::CModel* pModel, int nEntityInitCount = 1000000);
     virtual ~CDocument(void);
-	EntityRef add(EntityRef nId, CEntity* pEntity);
-	EntityRef add(std::shared_ptr < CEntity> pEntity);
+	//EntityRef add(EntityRef nId, CEntity* pEntity);
+    EntityRef add(CEntity* pEntity);
+    EntityRef add(std::shared_ptr < CEntity> pEntity);
     gfc::schema::CModel* model() const;
 
     virtual EntityPtr getEntity(EntityRef nId);

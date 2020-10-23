@@ -97,12 +97,12 @@ TEST(TestGfcClasses, read_document)
     auto itr = oReader.getEntities(L"Gfc2Element");
     itr->first();
     EXPECT_EQ(false, itr->isDone());
-    auto pElement = gfc::engine::dynamic_entity_cast<Gfc2Element>(itr->current());
+    auto pElement = std::dynamic_pointer_cast<Gfc2Element>(itr->current());
     EXPECT_EQ(true, pElement != nullptr);
     EXPECT_EQ(1, pElement->getShapesCount());
     auto pElementShape = pElement->getShapesPtr(0);
     EXPECT_EQ(true, pElementShape != nullptr);
-    auto pShape = gfc::engine::dynamic_entity_cast<Gfc2SphereShape>(pElementShape->getShapePtr());
+    auto pShape = std::dynamic_pointer_cast<Gfc2SphereShape>(pElementShape->getShapePtr());
     EXPECT_EQ(true, pShape != nullptr);
     EXPECT_NEAR(101, pShape->getRadius(), 1e-7);
     itr->next();

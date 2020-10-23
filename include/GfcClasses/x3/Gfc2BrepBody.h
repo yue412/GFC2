@@ -19,12 +19,12 @@ public:
     void clearFaces();
     void addFaces(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getFaces(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Face> getFacesPtr(int nIndex);
+    std::shared_ptr<Gfc2Face> getFacesPtr(int nIndex);
     int getEdgesCount() const;
     void clearEdges();
     void addEdges(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getEdges(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Edge> getEdgesPtr(int nIndex);
+    std::shared_ptr<Gfc2Edge> getEdgesPtr(int nIndex);
 
 };
 

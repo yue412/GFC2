@@ -121,16 +121,4 @@ void CReaderJsonImp::read(CDocument* pDoc){
     }
 }
 
-bool CReaderJsonImp::getIndex(EntityInfo & oInfo)
-{
-    assert(false);
-    return false;
-}
-
-CEntity * CReaderJsonImp::createEntity(__int64 nPos, EntityRef& nId)
-{
-    assert(false);    
-    return nullptr;
-}
-
 GFCENGINE_NAMESPACE_END

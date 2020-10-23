@@ -31,10 +31,6 @@ public:
     virtual std::wstring readFileVersion();
     virtual void read(CDocument* pDoc);
 
-protected:
-    virtual bool getIndex(EntityInfo& oInfo);
-    virtual CEntity* createEntity(__int64 nPos, EntityRef& nId);
-
 private:
     JsonWrapper* getRootDocument();
     bool initRootDocument(const std::wstring& sFileName);

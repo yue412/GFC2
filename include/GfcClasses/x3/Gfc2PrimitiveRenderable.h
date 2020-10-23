@@ -28,12 +28,12 @@ public:
     void clearVertexes();
     void addVertexes(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getVertexes(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getVertexesPtr(int nIndex);
+    std::shared_ptr<Gfc2Vector3d> getVertexesPtr(int nIndex);
     int getNormalsCount() const;
     void clearNormals();
     void addNormals(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getNormals(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Vector3d> getNormalsPtr(int nIndex);
+    std::shared_ptr<Gfc2Vector3d> getNormalsPtr(int nIndex);
     int getIndexesCount() const;
     void clearIndexes();
     void addIndexes(const Gfc2Integer& nValue);

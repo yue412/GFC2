@@ -1,4 +1,5 @@
 #include "WriterImp.h"
+#include "GfcEngine\Document.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 
@@ -17,7 +18,7 @@ EntityRef CWriterImp::writeEntity(CEntity * pEntity)
 {
     if (!inIgnoreDuplicatesEntitySet(pEntity->entityName()))
     {
-        return doWriteEntity(pEntity);
+        return innerWriteEntity(pEntity);
     }
     else
     {
@@ -29,10 +30,22 @@ EntityRef CWriterImp::writeEntity(CEntity * pEntity)
         }
         else
         {
-            auto nRef = doWriteEntity(pEntity);
+            auto nRef = innerWriteEntity(pEntity);
             m_oDuplicatesMap.insert(std::make_pair(sKey, nRef));
             return nRef;
         }
+    }
+}
+
+void CWriterImp::writeDoc(CDocument * pDoc)
+{
+    auto itr = pDoc->getIterator();
+    itr->first();
+    while (itr->isDone())
+    {
+        auto pEntity = itr->current();
+        writeEntity(pEntity.get());
+        itr->next();
     }
 }
 
@@ -49,6 +62,20 @@ void CWriterImp::setCodePage(UINT nCodePage)
 void CWriterImp::setUppercase(bool bUppercase)
 {
     m_bUppercase = bUppercase;
+}
+
+EntityRef CWriterImp::innerWriteEntity(CEntity * pEntity)
+{
+    if (pEntity->ref() == -1)
+    {
+        doWriteEntity(m_nCount, pEntity);
+        return m_nCount++;
+    }
+    else
+    {
+        doWriteEntity(pEntity->ref(), pEntity);
+        return pEntity->ref();
+    }
 }
 
 bool CWriterImp::inIgnoreDuplicatesEntitySet(const std::wstring & sEntityName)

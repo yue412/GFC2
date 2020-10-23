@@ -18,15 +18,15 @@ public:
     void setRelatingElement(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRelatingElement() const;
     bool hasRelatingElement() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Element> getRelatingElementPtr();
+    std::shared_ptr<Gfc2Element> getRelatingElementPtr();
     void setRelatedElement(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRelatedElement() const;
     bool hasRelatedElement() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Element> getRelatedElementPtr();
+    std::shared_ptr<Gfc2Element> getRelatedElementPtr();
     void setConnectionGeometry(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getConnectionGeometry() const;
     bool hasConnectionGeometry() const;
-    gfc::engine::CEntityWrapPtr<Gfc2ConnectionGeometry> getConnectionGeometryPtr();
+    std::shared_ptr<Gfc2ConnectionGeometry> getConnectionGeometryPtr();
 
 };
 

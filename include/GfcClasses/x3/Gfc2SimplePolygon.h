@@ -18,7 +18,7 @@ public:
     void clearLoops();
     void addLoops(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getLoops(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2SimpleLoop> getLoopsPtr(int nIndex);
+    std::shared_ptr<Gfc2SimpleLoop> getLoopsPtr(int nIndex);
 
 };
 

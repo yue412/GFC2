@@ -2,7 +2,7 @@
 #define READERTEXTIMP_H
 
 #include <map>
-#include "ReaderImp.h"
+#include "ReaderFileMapImp.h"
 #include "GfcEngine\GfcEngine.h"
 
 namespace gfc {
@@ -17,7 +17,7 @@ GFCENGINE_NAMESPACE_BEGIN
 class CEntity;
 class CPropValue;
 
-class CReaderTextImp : public CReaderImp
+class CReaderTextImp : public CReaderFileMapImp
 {
     GFCENGINE_DEC_OBJECT(CReaderTextImp, CReaderImp)
 public:
@@ -28,7 +28,7 @@ public:
     virtual std::wstring readFileVersion();
 protected:
     virtual bool getIndex(EntityInfo& oInfo);//À≥–Ú∂¡»°index
-    virtual CEntity* createEntity(__int64 nPos, EntityRef& nId);
+    virtual CEntity* createEntity(__int64 nPos);
 };
 
 // ±„”⁄≤‚ ‘

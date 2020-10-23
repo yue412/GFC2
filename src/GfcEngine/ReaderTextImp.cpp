@@ -151,7 +151,7 @@ bool CReaderTextImp::getIndex(EntityInfo & oInfo)
     return false;
 }
 
-CEntity * CReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
+CEntity * CReaderTextImp::createEntity(__int64 nPos)
 {
     CEntity* pEntity = nullptr;
     if (m_pFileMap)
@@ -160,6 +160,7 @@ CEntity * CReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
         std::string sLine = m_pFileMap->getLine();
         std::string sName, sContent;
         std::wstring sError;
+        EntityRef nId;
         if (CReaderTextUtils::parseLine(sLine, nId, sName, sContent))
         {
             pEntity = m_bUseStaticClass ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(UpperString(ACPToUnicode(sName))))
@@ -173,6 +174,7 @@ CEntity * CReaderTextImp::createEntity(__int64 nPos, EntityRef& nId)
                     // Ìí¼ÓlogÈÕÖ¾
                     log(Utf8ToUnicode(sLine) + L" {" + sError + L"}");
                 }
+                pEntity->setRef(nId);
             }
 
         }

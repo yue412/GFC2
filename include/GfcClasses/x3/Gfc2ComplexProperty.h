@@ -17,7 +17,7 @@ public:
     void clearHasProperties();
     void addHasProperties(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getHasProperties(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Property> getHasPropertiesPtr(int nIndex);
+    std::shared_ptr<Gfc2Property> getHasPropertiesPtr(int nIndex);
 
 };
 

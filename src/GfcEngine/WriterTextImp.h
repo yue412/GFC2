@@ -19,7 +19,7 @@ public:
     virtual bool open(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
     virtual void close();
 protected:
-    virtual EntityRef doWriteEntity(CEntity* pEntity);
+    virtual void doWriteEntity(EntityRef nId, CEntity* pEntity);
 private:
     void writeHead(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
     std::string toString(const std::wstring& str);

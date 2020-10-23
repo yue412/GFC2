@@ -22,19 +22,19 @@ public:
     void setRangeV(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRangeV() const;
     bool hasRangeV() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeVPtr();
+    std::shared_ptr<Gfc2Intervald> getRangeVPtr();
     void setRangeU(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRangeU() const;
     bool hasRangeU() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Intervald> getRangeUPtr();
+    std::shared_ptr<Gfc2Intervald> getRangeUPtr();
     void setDirectrix1(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getDirectrix1() const;
     bool hasDirectrix1() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Curve3d> getDirectrix1Ptr();
+    std::shared_ptr<Gfc2Curve3d> getDirectrix1Ptr();
     void setDirectrix2(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getDirectrix2() const;
     bool hasDirectrix2() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Curve3d> getDirectrix2Ptr();
+    std::shared_ptr<Gfc2Curve3d> getDirectrix2Ptr();
 
 };
 

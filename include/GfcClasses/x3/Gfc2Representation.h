@@ -21,7 +21,7 @@ public:
     void clearitems();
     void additems(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getitems(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2RepresentationItem> getitemsPtr(int nIndex);
+    std::shared_ptr<Gfc2RepresentationItem> getitemsPtr(int nIndex);
 
 };
 

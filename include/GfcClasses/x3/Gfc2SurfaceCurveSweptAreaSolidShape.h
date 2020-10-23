@@ -18,11 +18,11 @@ public:
     void setDirectrix(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getDirectrix() const;
     bool hasDirectrix() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Curve3d> getDirectrixPtr();
+    std::shared_ptr<Gfc2Curve3d> getDirectrixPtr();
     void setReferenceSurface(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getReferenceSurface() const;
     bool hasReferenceSurface() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Surface> getReferenceSurfacePtr();
+    std::shared_ptr<Gfc2Surface> getReferenceSurfacePtr();
 
 };
 

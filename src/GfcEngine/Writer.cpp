@@ -60,6 +60,15 @@ EntityRef CWriter::writeEntity( CEntity* pEntity )
     return -1;
 }
 
+void CWriter::writeDoc(CDocument * pDoc)
+{
+    if (m_pImp)
+    {
+        //pEntity->setDocument(&m_oDoc);
+        return m_pImp->writeDoc(pDoc);
+    }
+}
+
 void CWriter::addIgnoreDuplicates(const std::wstring & sEntityName)
 {
     if (m_pImp)

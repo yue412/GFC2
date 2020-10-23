@@ -17,12 +17,12 @@ public:
     void setRelatingObject(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRelatingObject() const;
     bool hasRelatingObject() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Object> getRelatingObjectPtr();
+    std::shared_ptr<Gfc2Object> getRelatingObjectPtr();
     int getRelatedObjectsCount() const;
     void clearRelatedObjects();
     void addRelatedObjects(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRelatedObjects(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Object> getRelatedObjectsPtr(int nIndex);
+    std::shared_ptr<Gfc2Object> getRelatedObjectsPtr(int nIndex);
 
 };
 

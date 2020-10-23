@@ -21,12 +21,14 @@ public:
     virtual bool open(const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion) = 0;
     virtual void close() = 0;
     EntityRef writeEntity(CEntity* pEntity); 
+    void writeDoc(CDocument* pDoc);
 public:
     void addIgnoreDuplicates(const std::wstring& sEntityName);
     void setCodePage(UINT nCodePage);
     void setUppercase(bool bUppercase);
 protected:
-    virtual EntityRef doWriteEntity(CEntity* pEntity) = 0;
+    virtual void doWriteEntity(EntityRef nId, CEntity* pEntity) = 0;
+    EntityRef innerWriteEntity(CEntity* pEntity);
     EntityRef m_nCount;
     UINT m_nCodePage;
     bool m_bUppercase;

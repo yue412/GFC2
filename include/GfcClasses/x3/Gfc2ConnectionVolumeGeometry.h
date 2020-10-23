@@ -17,11 +17,11 @@ public:
     void setVolumeOnRelatingElement(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getVolumeOnRelatingElement() const;
     bool hasVolumeOnRelatingElement() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Body> getVolumeOnRelatingElementPtr();
+    std::shared_ptr<Gfc2Body> getVolumeOnRelatingElementPtr();
     void setVolumeOnRelatedElement(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getVolumeOnRelatedElement() const;
     bool hasVolumeOnRelatedElement() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Body> getVolumeOnRelatedElementPtr();
+    std::shared_ptr<Gfc2Body> getVolumeOnRelatedElementPtr();
 
 };
 

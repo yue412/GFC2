@@ -22,7 +22,7 @@ public:
     void clearColours();
     void addColours(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getColours(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Color> getColoursPtr(int nIndex);
+    std::shared_ptr<Gfc2Color> getColoursPtr(int nIndex);
     int getColourIndexCount() const;
     void clearColourIndex();
     void addColourIndex(const Gfc2Integer& nValue);
@@ -30,7 +30,7 @@ public:
     void setMappedTo(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getMappedTo() const;
     bool hasMappedTo() const;
-    gfc::engine::CEntityWrapPtr<Gfc2PrimitiveRenderable> getMappedToPtr();
+    std::shared_ptr<Gfc2PrimitiveRenderable> getMappedToPtr();
 
 };
 

@@ -17,7 +17,7 @@ public:
     void setPoly(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPoly() const;
     bool hasPoly() const;
-    gfc::engine::CEntityWrapPtr<Gfc2Polygon> getPolyPtr();
+    std::shared_ptr<Gfc2Polygon> getPolyPtr();
 
 };
 

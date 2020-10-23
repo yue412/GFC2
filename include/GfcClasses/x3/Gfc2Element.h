@@ -23,12 +23,12 @@ public:
     void clearRepresentations();
     void addRepresentations(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getRepresentations(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2Representation> getRepresentationsPtr(int nIndex);
+    std::shared_ptr<Gfc2Representation> getRepresentationsPtr(int nIndex);
     int getShapesCount() const;
     void clearShapes();
     void addShapes(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getShapes(int nIndex) const;
-    gfc::engine::CEntityWrapPtr<Gfc2ElementShape> getShapesPtr(int nIndex);
+    std::shared_ptr<Gfc2ElementShape> getShapesPtr(int nIndex);
 
 };
 
