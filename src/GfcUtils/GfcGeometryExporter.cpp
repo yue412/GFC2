@@ -462,11 +462,11 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCylinder( gfc::engine::CWriter
 {
     assert(pSrc);
     Gfc2Cylinder oDest;
-    Gfc2Coordinates3d oCoord;
-    oCoord.setX(exportVector3d(pWriter, &pSrc->DirX()));
-    oCoord.setY(exportVector3d(pWriter, &pSrc->DirY()));
-    oCoord.setZ(exportVector3d(pWriter, &pSrc->DirZ()));
-    oCoord.setOrigin(exportVector3d(pWriter, &pSrc->Pos()));
+    //Gfc2Coordinates3d oCoord;
+    oDest.setDirX(exportVector3d(pWriter, &pSrc->DirX()));
+    oDest.setDirY(exportVector3d(pWriter, &pSrc->DirY()));
+    oDest.setDirZ(exportVector3d(pWriter, &pSrc->DirZ()));
+    oDest.setPos(exportVector3d(pWriter, &pSrc->Pos()));
     //oDest.setCoord(pWriter->writeEntity(&oCoord));
     oDest.setRangeV(exportIntervald(pWriter, &pSrc->RangeV()));
     oDest.setCurve(exportCurve2d(pWriter, pSrc->Curve2d()));
