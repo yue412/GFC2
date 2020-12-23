@@ -25,7 +25,11 @@
 <div align="center"><img src="img/usage_project_building.png"/></div>
 <p>4.3 建筑（<a href="schema\Gfc2Building.html">Gfc2Building</a>）实例应聚合多个楼层（<a href="schema\Gfc2Floor.html">Gfc2Floor</a>）实例。</p>
 <div align="center"><img src="img/usage_building_floor.png"/></div>
-<p>4.4 楼层（<a href="schema\Gfc2Floor.html">Gfc2Floor</a>）实例应聚合多个构件或图元（<a href="schema\Gfc2Entity.html">Gfc2Entity</a>）实例。</p>
+<p>4.4 楼层（<a href="schema\Gfc2Floor.html">Gfc2Floor</a>）实例应聚合多个构件（<a href="schema\Gfc2Element.html">Gfc2Element</a>）实例；同时可聚合多个构件类型（<a href="schema\Gfc2ElementType.html">Gfc2ElementType</a>）实例。</p>
 <div align="center"><img src="img/usage_floor_entity.png"/></div>
+<p>4.5 构件（<a href="schema\Gfc2Element.html">Gfc2Element</a>）实例、构件类型（<a href="schema\Gfc2ElementType.html">Gfc2ElementType</a>）实例可关联多个属性集（<a href="schema\Gfc2PropertySet.html">Gfc2PropertySet</a>）实例。</p>
+<div align="center"><img src="img/usage_entity_propertyset.png"/></div>
+<p>4.6 构件类型（<a href="schema\Gfc2ElementType.html">Gfc2ElementType</a>）可定义多个同类型构件（<a href="schema\Gfc2Element.html">Gfc2Element</a>）实例。</p>
+<div align="center"><img src="img/usage_elementtype_element.png"/></div>
  </body>
 </html>
