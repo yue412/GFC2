@@ -82,7 +82,7 @@ EntityRef CWriterJsonImp::doWriteEntity( CEntity* pEntity )
     {
 		assert(pEntity->getRefId() != -1);
         JsonWrapper data = (*m_pRootDocument)["data"];
-        JsonWrapper obj(data.GetAllocator());
+        JsonWrapper obj(data.GetAllocator(), rapidjson::kObjectType);
 
         CJsonSerializerUtils::writeEntity(obj, pEntity, m_nCodePage);
 

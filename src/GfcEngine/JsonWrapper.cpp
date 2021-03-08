@@ -21,6 +21,40 @@ bool JsonWrapper::Parse(rapidjson::FileReadStream& fileStream)
     return !m_bParseError;
 }
 
+bool JsonWrapper::GetValueAsString(const std::string& strKey, std::string& strValue) const
+{
+    assert(IsObject());
+    rapidjson::Value::MemberIterator iterMember = m_pValue->FindMember(strKey.c_str());
+    if (iterMember == m_pValue->MemberEnd())
+    {
+        return false;
+    }
+
+    const auto& value = iterMember->value;
+    if (value.IsString())
+    {
+        strValue = value.GetString();
+    }
+    else if (value.IsInt64())
+    {
+        strValue = std::to_string(value.GetInt64());
+    }
+    else if (value.IsInt())
+    {
+        strValue = std::to_string(value.GetInt());
+    }
+    else if (value.IsNumber())
+    {
+        strValue = std::to_string(value.GetDouble());
+    }
+    else
+    {
+        return false;
+    }
+
+    return true;
+}
+
 bool JsonWrapper::Get(const std::string& strKey, std::string& strValue) const
 {
     assert(IsObject());
@@ -30,7 +64,7 @@ bool JsonWrapper::Get(const std::string& strKey, std::string& strValue) const
         return false;
     }
 
-    auto& value = iterMember->value;
+    const auto& value = iterMember->value;
     if (!value.IsString())
     {
         return false;
@@ -50,7 +84,7 @@ bool JsonWrapper::Get(const std::string& strKey, int& iValue) const
         return false;
     }
 
-    auto& value = iterMember->value;
+    const auto& value = iterMember->value;
     if (!value.IsInt())
     {
         return false;
@@ -69,7 +103,7 @@ bool JsonWrapper::Get(const std::string& strKey, int64_t& llValue) const
         return false;
     }
 
-    auto& value = iterMember->value;
+    const auto& value = iterMember->value;
     if (!value.IsInt64())
     {
         return false;
@@ -93,7 +127,7 @@ bool JsonWrapper::Get(const std::string& strKey, JsonWrapper& oJsonObject) const
     {
         return false;
     }
-    oJsonObject.m_pValue = &value;
+    oJsonObject.SetValue(&value);
     oJsonObject.m_pAllocator = m_pAllocator;
     oJsonObject.m_bParseError = m_bParseError;
 
@@ -109,7 +143,7 @@ bool JsonWrapper::Get(const std::string& strKey, double& dValue) const
         return false;
     }
 
-    auto& value = iterMember->value;
+    const auto& value = iterMember->value;
     if (value.IsNumber())
     {
         dValue = value.GetDouble();
@@ -133,7 +167,7 @@ bool JsonWrapper::GetBool(const std::string& strKey, bool& bValue) const
         return false;
     }
 
-    auto& value = iterMember->value;
+    const auto& value = iterMember->value;
     if (value.IsBool())
     {
         bValue = value.GetBool();
@@ -155,7 +189,7 @@ bool JsonWrapper::Get(int iWhich, int& iValue) const
         return false;
     }
 
-    auto& value = (*m_pValue)[iWhich];
+    const auto& value = (*m_pValue)[iWhich];
     iValue = value.GetInt();
 
     return value.IsInt();
@@ -169,7 +203,7 @@ bool JsonWrapper::Get(int iWhich, int64_t& llValue) const
         return false;
     }
 
-    auto& value = (*m_pValue)[iWhich];
+    const auto& value = (*m_pValue)[iWhich];
     llValue = value.GetInt64();
 
     return value.IsInt64();
@@ -183,7 +217,7 @@ bool JsonWrapper::Get(int iWhich, double& dValue) const
         return false;
     }
 
-    auto& value = (*m_pValue)[iWhich];
+    const auto& value = (*m_pValue)[iWhich];
     dValue = value.GetDouble();
 
     return value.IsDouble();
@@ -196,8 +230,7 @@ bool JsonWrapper::Get(int iWhich, std::string& strValue) const
     {
         return false;
     }
-    auto type = m_pValue->GetType();
-    auto& value = (*m_pValue)[iWhich];
+    const auto& value = (*m_pValue)[iWhich];
     if (!value.IsString())
     {
         return false;
@@ -228,7 +261,7 @@ bool JsonWrapper::Get(int iWhich, JsonWrapper& oJsonObject) const
         return false;
     }
 
-    oJsonObject.m_pValue = &((*m_pValue)[iWhich]);
+    oJsonObject.SetValue(&((*m_pValue)[iWhich]));
     oJsonObject.m_pAllocator = m_pAllocator;
     oJsonObject.m_bParseError = m_bParseError;
 
@@ -247,7 +280,7 @@ bool JsonWrapper::IsObject() const
     return result;
 }
 
-int JsonWrapper::GetArraySize()
+int JsonWrapper::GetArraySize() const
 {
     assert(IsArray());
     return m_pValue->Size();
@@ -256,17 +289,17 @@ int JsonWrapper::GetArraySize()
 JsonWrapper JsonWrapper::operator[](unsigned int index)
 {
     assert(IsArray());
-    JsonWrapper jsWrapper(m_pAllocator);
-    jsWrapper.m_pValue = &((*m_pValue)[index]);
+    JsonWrapper jsWrapper;
+    jsWrapper.SetValue(&((*m_pValue)[index]));
     jsWrapper.m_pAllocator = m_pAllocator;
     jsWrapper.m_bParseError = m_bParseError;
     return jsWrapper;
 }
 
-JsonWrapper JsonWrapper::operator[](const std::string& strKey)
+JsonWrapper JsonWrapper::operator[](const std::string& strKey) const
 {
     assert(IsObject());
-    JsonWrapper jsWrapper(m_pAllocator);
+    JsonWrapper jsWrapper;
     Get(strKey, jsWrapper);
     return jsWrapper;
 }
@@ -282,13 +315,6 @@ std::string JsonWrapper::operator()(const std::string& strKey) const
 
     return strValue;
 }
-
-//bool JsonWrapper::Add(const std::string& strKey, bool bValue)
-//{
-//    rapidjson::Value memberKey(strKey.c_str(), *m_pAllocator);
-//    m_pValue->AddMember(memberKey, rapidjson::Value(bValue).Move(), *m_pAllocator);
-//    return true;
-//}
 
 bool JsonWrapper::Add(const std::string& strKey, int iValue)
 {
@@ -346,7 +372,6 @@ bool JsonWrapper::Add(const JsonWrapper& oJsonObject)
 {
     assert(IsArray());
     rapidjson::Value memberValue(*oJsonObject.m_pValue, *m_pAllocator);
-    auto type = m_pValue->GetType();
     m_pValue->PushBack(memberValue, *m_pAllocator);
 
     return true;
@@ -472,7 +497,7 @@ bool JsonWrapper::GetKey(std::string& strKey)
 }
 bool JsonWrapper::GetValue(std::string& strValue) const
 {
-    auto& value = m_iterMember->value;
+    const auto& value = m_iterMember->value;
     if (!value.IsString())
     {
         return false;
@@ -483,7 +508,7 @@ bool JsonWrapper::GetValue(std::string& strValue) const
 }
 bool JsonWrapper::GetValue(int& iValue) const
 {
-    auto& value = m_iterMember->value;
+    const auto& value = m_iterMember->value;
     if (!value.IsInt())
     {
         return false;
@@ -494,7 +519,7 @@ bool JsonWrapper::GetValue(int& iValue) const
 }
 bool JsonWrapper::GetValue(int64_t& llValue) const
 {
-    auto& value = m_iterMember->value;
+    const auto& value = m_iterMember->value;
     if (!value.IsInt64())
     {
         return false;
@@ -510,7 +535,7 @@ bool JsonWrapper::GetValue(JsonWrapper& oJsonObject) const
     {
         return false;
     }
-    oJsonObject.m_pValue = &(value);
+    oJsonObject.SetValue(&(value));
     oJsonObject.m_pAllocator = m_pAllocator;
 
     return true;
@@ -560,11 +585,6 @@ bool JsonWrapper::Replace(const std::string& strKey, const std::string& strValue
     return true;
 }
 
-//bool JsonWrapper::Delete(const std::string& strKey)
-//{
-//    return m_pValue->EraseMember(strKey.c_str());
-//}
-
 bool JsonWrapper::Clear()
 {
     assert(IsArray());
@@ -577,44 +597,27 @@ bool JsonWrapper::Clear()
     return true;
 }
 
-//JsonWrapper::JsonWrapper()
-//{
-//    rapidjson::Document* pDocument = new rapidjson::Document();
-//    pDocument->SetObject();
-//    m_pValue = pDocument;
-//    m_pAllocator = &pDocument->GetAllocator();
-//    m_bParseError = false;
-//}
-
-//JsonWrapper::JsonWrapper(const std::string& strJson)
-//{
-//    rapidjson::Document* pDocument = new rapidjson::Document();
-//    pDocument->SetObject();
-//    m_isRoot = true;
-//    m_pValue = pDocument;
-//    m_pAllocator = &pDocument->GetAllocator();
-//    Parse(strJson);
-//}
-
 JsonWrapper::JsonWrapper(const JsonWrapper* pJsonObject)
 {
-    m_pValue = pJsonObject->m_pValue;
+    SetValue(*pJsonObject);
     m_pAllocator = pJsonObject->m_pAllocator;
     m_bParseError = pJsonObject->m_bParseError;
 }
 JsonWrapper::JsonWrapper(const JsonWrapper& oJsonObject)
 {
-    m_pValue = oJsonObject.m_pValue;
+    SetValue(oJsonObject);
     m_pAllocator = oJsonObject.m_pAllocator;
     m_bParseError = oJsonObject.m_bParseError;
 }
 
-JsonWrapper::JsonWrapper(rapidjson::Document::AllocatorType* pAllocator)
+JsonWrapper::JsonWrapper(rapidjson::Document::AllocatorType* pAllocator, rapidjson::Type type)
 {
-    assert(pAllocator);
-    rapidjson::Document* pDoc = new rapidjson::Document(pAllocator);
-    pDoc->SetObject();
-    m_pValue = pDoc;
+    if (type != rapidjson::kNullType)
+    {
+        m_pValue = new rapidjson::Value(type);
+        m_bRef = false;
+    }
+
     m_pAllocator = pAllocator;
     m_bParseError = false;
 }
@@ -628,8 +631,16 @@ JsonWrapper::JsonWrapper(rapidjson::Document* pDoc)
     m_bParseError = false;
 }
 
+JsonWrapper::JsonWrapper()
+{
+    m_pValue = nullptr;
+    m_pAllocator = nullptr;
+    m_bParseError = false;
+}
+
 JsonWrapper::~JsonWrapper()
 {
+    SetValue(nullptr);
 }
 
 bool JsonWrapper::HasParseError() const
@@ -637,4 +648,22 @@ bool JsonWrapper::HasParseError() const
     return m_bParseError;
 }
 
+void JsonWrapper::SetValue(rapidjson::Value* pValue)
+{
+    if (!m_bRef && m_pValue)
+        delete m_pValue;
+    m_pValue = pValue;
+    m_bRef = true;
+}
+
+void JsonWrapper::SetValue(const JsonWrapper& oJsonObject)
+{
+    if (oJsonObject.m_bRef)
+        SetValue(oJsonObject.m_pValue);
+    else
+    {
+        assert(false);
+        SetValue(nullptr);
+    }
+}
 GFCENGINE_NAMESPACE_END

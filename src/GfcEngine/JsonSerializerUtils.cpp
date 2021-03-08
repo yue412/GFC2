@@ -136,7 +136,7 @@ void CWriterJsonUtils::writeValueToArray(JsonWrapper& rootJson, const CEntity* p
     break;
     case gfc::schema::EDT_ENTITY:
     {
-        JsonWrapper json(rootJson.GetAllocator());
+        JsonWrapper json(rootJson.GetAllocator(), rapidjson::kObjectType);
 
         auto refId = pValue->asEntityRef();
         IContainer* pContainer = pEntity->getContainer();
@@ -149,10 +149,6 @@ void CWriterJsonUtils::writeValueToArray(JsonWrapper& rootJson, const CEntity* p
 
         CJsonSerializerUtils::writeEntity(json, pChildEntity, nCodePage);
 		rootJson.Add(json);
-
-
-		auto test = json.ToString();
-		auto test2 = rootJson.ToString();
     }
         break;
     default:
