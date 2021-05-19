@@ -7,7 +7,7 @@ NGfc2SurfaceTexture::NGfc2SurfaceTexture()
 }
 
 NGfc2SurfaceTexture::NGfc2SurfaceTexture(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

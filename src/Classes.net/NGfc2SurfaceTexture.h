@@ -1,6 +1,7 @@
 #ifndef NGFC2SURFACETEXTURE_H
 #define NGFC2SURFACETEXTURE_H
 
+#include "NGfc2Root.h"
 #include "Gfc2SurfaceTexture.h"
 #include "NGfc2Matrix.h"
 #include "NTypeDef.h"
@@ -10,7 +11,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfc2SurfaceTexture: public glodon::objectbufnet::Entity
+public ref class NGfc2SurfaceTexture: public NGfc2Root
 {
 public:
     NGfc2SurfaceTexture();

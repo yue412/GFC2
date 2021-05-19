@@ -1,12 +1,13 @@
 #ifndef NGFC2NURBSCTRLPT2D_H
 #define NGFC2NURBSCTRLPT2D_H
 
+#include "NGfc2Root.h"
 #include "Gfc2NurbsCtrlPt2d.h"
 #include "NGfc2Vector2d.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
 
-public ref class NGfc2NurbsCtrlPt2d: public glodon::objectbufnet::Entity
+public ref class NGfc2NurbsCtrlPt2d: public NGfc2Root
 {
 public:
     NGfc2NurbsCtrlPt2d();

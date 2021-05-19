@@ -2,12 +2,13 @@
 #define GFC2QUOTADETAIL_H
 
 #include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/Gfc2Root.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API Gfc2QuotaDetail: public gfc::engine::CEntity
+class GFCCLASSES_API Gfc2QuotaDetail: public Gfc2Root
 {
 GFCENGINE_DEC_OBJECT(Gfc2QuotaDetail, gfc::engine::CEntity)
 public:

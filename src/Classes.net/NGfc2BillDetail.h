@@ -1,6 +1,7 @@
 #ifndef NGFC2BILLDETAIL_H
 #define NGFC2BILLDETAIL_H
 
+#include "NGfc2Root.h"
 #include "Gfc2BillDetail.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
@@ -9,7 +10,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfc2BillDetail: public glodon::objectbufnet::Entity
+public ref class NGfc2BillDetail: public NGfc2Root
 {
 public:
     NGfc2BillDetail();

@@ -7,7 +7,7 @@ NGfc2Representation::NGfc2Representation()
 }
 
 NGfc2Representation::NGfc2Representation(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

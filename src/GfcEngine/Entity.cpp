@@ -121,6 +121,16 @@ bool CEntity::isNull(const std::wstring& sPropName) const
     return true;
 }
 
+void CEntity::assignValue(const std::wstring sPropName, CPropValue * pValue)
+{
+    assert(pValue);
+    auto pProperty = propByName(sPropName);
+    if (pProperty)
+    {
+        pProperty->value()->assign(pValue);
+    }
+}
+
 CPropValue * CEntity::valueByName(const std::wstring sPropName) const
 {
     auto pProperty = propByName(sPropName);

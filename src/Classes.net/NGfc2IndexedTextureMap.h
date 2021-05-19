@@ -1,6 +1,7 @@
 #ifndef NGFC2INDEXEDTEXTUREMAP_H
 #define NGFC2INDEXEDTEXTUREMAP_H
 
+#include "NGfc2Root.h"
 #include "Gfc2IndexedTextureMap.h"
 #include "NGfc2PrimitiveRenderable.h"
 #include "NGfc2Vector2d.h"
@@ -8,7 +9,7 @@
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
 
-public ref class NGfc2IndexedTextureMap: public glodon::objectbufnet::Entity
+public ref class NGfc2IndexedTextureMap: public NGfc2Root
 {
 public:
     NGfc2IndexedTextureMap();

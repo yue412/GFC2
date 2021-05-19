@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <assert.h>
 #include "GfcEngine\GfcEngine.h"
 
 GFCENGINE_NAMESPACE_BEGIN
@@ -21,6 +22,8 @@ public:
     virtual ~CPropValue();
 public:
     virtual bool isNull() const = 0;
+    virtual CPropValue* clone() const = 0;
+    virtual void assign(CPropValue* pValue) = 0;
 
     virtual std::wstring asString() const;
     virtual int asInteger() const;
@@ -67,6 +70,8 @@ public:
     virtual CPropValue* getItems(int nIndex) const;
     virtual void setItems(int nIndex, CPropValue* pValue);
     virtual void clear();
+    virtual CPropValue* clone() const;
+    virtual void assign(CPropValue* pValue);
 protected:
     virtual std::wstring innerToString() const;
 private:
@@ -88,6 +93,8 @@ public:
     //virtual void setAsString(const std::string& sValue);
     virtual void setAsInteger(const int& nValue);
     virtual void setAsBoolean(const bool& bValue);
+    virtual CPropValue* clone() const { return new CBooleanValue(m_bValue); }
+    virtual void assign(CPropValue* pValue) {assert(pValue); setAsInteger(pValue->asInteger()); }
 protected:
     virtual std::wstring innerToString() const;
 private:
@@ -108,6 +115,8 @@ public:
     //virtual void setAsString(const std::string& sValue);
     virtual void setAsInteger(const int& nValue);
     virtual void setAsBoolean(const bool& bValue);
+    virtual CPropValue* clone() const { return new CIntegerValue(m_nValue); }
+    virtual void assign(CPropValue* pValue) { assert(pValue); setAsInteger(pValue->asInteger()); }
 protected:
     virtual std::wstring innerToString() const;
 private:
@@ -127,6 +136,8 @@ public:
     virtual void setAsInteger(const int& nValue);
     virtual void setAsDouble(const double& dValue);
     virtual void setAsBoolean(const bool& bValue);
+    virtual CPropValue* clone() const { return new CDoubleValue(m_dValue); }
+    virtual void assign(CPropValue* pValue) { assert(pValue); setAsDouble(pValue->asDouble()); }
 protected:
     virtual std::wstring innerToString() const;
 private:
@@ -145,6 +156,8 @@ public:
     //virtual void setAsInteger(const int& nValue);
     //virtual void setAsDouble(const double& dValue);
     //virtual void setAsBoolean(const bool& bValue);
+    virtual CPropValue* clone() const { return new CStringValue(m_sValue); }
+    virtual void assign(CPropValue* pValue) { assert(pValue); setAsString(pValue->asString()); }
 protected:
     virtual std::wstring innerToString() const;
 private:
@@ -160,6 +173,8 @@ public:
     virtual EntityRef asEntityRef() const;
 
     virtual void setAsEntityRef(const EntityRef& nValue);
+    virtual CPropValue* clone() const { return new CEntityRefValue(m_nValue); }
+    virtual void assign(CPropValue* pValue) { assert(pValue); setAsEntityRef(pValue->asEntityRef()); }
 protected:
     virtual std::wstring innerToString() const;
 private:

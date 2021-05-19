@@ -1,12 +1,13 @@
 #ifndef NGFC2SHAPE_H
 #define NGFC2SHAPE_H
 
+#include "NGfc2Root.h"
 #include "Gfc2Shape.h"
 #include "NGfc2Coordinates3d.h"
 #include "NGfc2Box3d.h"
 #include "GfcEngine/Entity.h"
 
-public ref class NGfc2Shape: public glodon::objectbufnet::Entity
+public ref class NGfc2Shape: public NGfc2Root
 {
 public:
     NGfc2Shape();

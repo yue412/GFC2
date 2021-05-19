@@ -111,6 +111,26 @@ void CCompositePropValue::clear()
     m_oList.clear();
 }
 
+CPropValue * CCompositePropValue::clone() const
+{
+    CCompositePropValue* pCompositeValue = new CCompositePropValue();
+    for each (auto pValue in m_oList)
+    {
+        pCompositeValue->add(pValue->clone());
+    }
+    return pCompositeValue;
+}
+
+void CCompositePropValue::assign(CPropValue * pValue)
+{
+    assert(pValue);
+    clear();
+    for (int i = 0; i < pValue->getCount(); i++)
+    {
+        add(pValue->getItems(i)->clone());
+    }
+}
+
 std::wstring CCompositePropValue::innerToString() const
 {
     std::wstring sResult = L"(";

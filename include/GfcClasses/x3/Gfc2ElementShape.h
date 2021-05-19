@@ -2,13 +2,14 @@
 #define GFC2ELEMENTSHAPE_H
 
 #include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/Gfc2Root.h"
 #include "GfcClasses/x3/Gfc2Shape.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API Gfc2ElementShape: public gfc::engine::CEntity
+class GFCCLASSES_API Gfc2ElementShape: public Gfc2Root
 {
 GFCENGINE_DEC_OBJECT(Gfc2ElementShape, gfc::engine::CEntity)
 public:

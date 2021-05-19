@@ -1,13 +1,14 @@
 #ifndef NGFC2INTERNALPT_H
 #define NGFC2INTERNALPT_H
 
+#include "NGfc2Root.h"
 #include "Gfc2InternalPt.h"
 #include "NGfc2Vector3d.h"
 #include "NGfc2Vector2d.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
 
-public ref class NGfc2InternalPt: public glodon::objectbufnet::Entity
+public ref class NGfc2InternalPt: public NGfc2Root
 {
 public:
     NGfc2InternalPt();

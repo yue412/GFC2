@@ -1,6 +1,7 @@
 #ifndef NGFC2QUOTADETAIL_H
 #define NGFC2QUOTADETAIL_H
 
+#include "NGfc2Root.h"
 #include "Gfc2QuotaDetail.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
@@ -9,7 +10,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfc2QuotaDetail: public glodon::objectbufnet::Entity
+public ref class NGfc2QuotaDetail: public NGfc2Root
 {
 public:
     NGfc2QuotaDetail();

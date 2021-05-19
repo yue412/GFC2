@@ -7,7 +7,7 @@ NGfc2ElementShape::NGfc2ElementShape()
 }
 
 NGfc2ElementShape::NGfc2ElementShape(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

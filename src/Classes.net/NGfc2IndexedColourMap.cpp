@@ -7,7 +7,7 @@ NGfc2IndexedColourMap::NGfc2IndexedColourMap()
 }
 
 NGfc2IndexedColourMap::NGfc2IndexedColourMap(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

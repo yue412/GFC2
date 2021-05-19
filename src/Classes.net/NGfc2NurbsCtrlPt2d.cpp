@@ -7,7 +7,7 @@ NGfc2NurbsCtrlPt2d::NGfc2NurbsCtrlPt2d()
 }
 
 NGfc2NurbsCtrlPt2d::NGfc2NurbsCtrlPt2d(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

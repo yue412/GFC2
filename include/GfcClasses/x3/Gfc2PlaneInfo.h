@@ -2,12 +2,13 @@
 #define GFC2PLANEINFO_H
 
 #include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/Gfc2Root.h"
 #include "GfcClasses/x3/Gfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API Gfc2PlaneInfo: public gfc::engine::CEntity
+class GFCCLASSES_API Gfc2PlaneInfo: public Gfc2Root
 {
 GFCENGINE_DEC_OBJECT(Gfc2PlaneInfo, gfc::engine::CEntity)
 public:

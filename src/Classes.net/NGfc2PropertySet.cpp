@@ -7,7 +7,7 @@ NGfc2PropertySet::NGfc2PropertySet()
 }
 
 NGfc2PropertySet::NGfc2PropertySet(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

@@ -1,6 +1,7 @@
 #ifndef NGFC2RELATIONSHIP_H
 #define NGFC2RELATIONSHIP_H
 
+#include "NGfc2Root.h"
 #include "Gfc2RelationShip.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
@@ -9,7 +10,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfc2RelationShip: public glodon::objectbufnet::Entity
+public ref class NGfc2RelationShip: public NGfc2Root
 {
 public:
     NGfc2RelationShip();

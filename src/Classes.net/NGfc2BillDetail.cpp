@@ -7,7 +7,7 @@ NGfc2BillDetail::NGfc2BillDetail()
 }
 
 NGfc2BillDetail::NGfc2BillDetail(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

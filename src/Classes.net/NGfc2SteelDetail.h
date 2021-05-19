@@ -1,6 +1,7 @@
 #ifndef NGFC2STEELDETAIL_H
 #define NGFC2STEELDETAIL_H
 
+#include "NGfc2Root.h"
 #include "Gfc2SteelDetail.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
@@ -9,7 +10,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfc2SteelDetail: public glodon::objectbufnet::Entity
+public ref class NGfc2SteelDetail: public NGfc2Root
 {
 public:
     NGfc2SteelDetail();

@@ -2,12 +2,13 @@
 #define GFC2QUOTATOTAL_H
 
 #include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/Gfc2Root.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API Gfc2QuotaTotal: public gfc::engine::CEntity
+class GFCCLASSES_API Gfc2QuotaTotal: public Gfc2Root
 {
 GFCENGINE_DEC_OBJECT(Gfc2QuotaTotal, gfc::engine::CEntity)
 public:

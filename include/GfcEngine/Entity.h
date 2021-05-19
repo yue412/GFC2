@@ -46,6 +46,7 @@ public:
     CProperty* propByName(const std::wstring sPropName) const;
     CPropValue* valueByName(const std::wstring sPropName) const;
     bool isNull(const std::wstring& sPropName) const;
+    void assignValue(const std::wstring sPropName, CPropValue* pValue);
 
     std::wstring asString(const std::wstring& sPropName) const;
     int asInteger(const std::wstring& sPropName) const;

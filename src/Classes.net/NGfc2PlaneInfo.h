@@ -1,11 +1,12 @@
 #ifndef NGFC2PLANEINFO_H
 #define NGFC2PLANEINFO_H
 
+#include "NGfc2Root.h"
 #include "Gfc2PlaneInfo.h"
 #include "NGfc2Vector3d.h"
 #include "GfcEngine/Entity.h"
 
-public ref class NGfc2PlaneInfo: public glodon::objectbufnet::Entity
+public ref class NGfc2PlaneInfo: public NGfc2Root
 {
 public:
     NGfc2PlaneInfo();

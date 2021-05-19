@@ -1,12 +1,13 @@
 #ifndef NGFC2INTERNALCHART_H
 #define NGFC2INTERNALCHART_H
 
+#include "NGfc2Root.h"
 #include "Gfc2InternalChart.h"
 #include "NGfc2InternalPt.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
 
-public ref class NGfc2InternalChart: public glodon::objectbufnet::Entity
+public ref class NGfc2InternalChart: public NGfc2Root
 {
 public:
     NGfc2InternalChart();

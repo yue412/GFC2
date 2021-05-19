@@ -2,12 +2,13 @@
 #define GFC2STEELDETAIL_H
 
 #include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/Gfc2Root.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API Gfc2SteelDetail: public gfc::engine::CEntity
+class GFCCLASSES_API Gfc2SteelDetail: public Gfc2Root
 {
 GFCENGINE_DEC_OBJECT(Gfc2SteelDetail, gfc::engine::CEntity)
 public:

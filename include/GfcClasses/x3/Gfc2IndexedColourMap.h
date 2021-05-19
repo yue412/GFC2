@@ -2,6 +2,7 @@
 #define GFC2INDEXEDCOLOURMAP_H
 
 #include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/Gfc2Root.h"
 #include "GfcClasses/x3/Gfc2Color.h"
 #include "GfcClasses/x3/Gfc2PrimitiveRenderable.h"
 #include "GfcClasses/x3/TypeDef.h"
@@ -9,7 +10,7 @@
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API Gfc2IndexedColourMap: public gfc::engine::CEntity
+class GFCCLASSES_API Gfc2IndexedColourMap: public Gfc2Root
 {
 GFCENGINE_DEC_OBJECT(Gfc2IndexedColourMap, gfc::engine::CEntity)
 public:

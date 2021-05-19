@@ -7,7 +7,7 @@ NGfc2Color::NGfc2Color()
 }
 
 NGfc2Color::NGfc2Color(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

@@ -7,7 +7,7 @@ NGfc2InternalPt::NGfc2InternalPt()
 }
 
 NGfc2InternalPt::NGfc2InternalPt(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

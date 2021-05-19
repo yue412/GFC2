@@ -28,7 +28,7 @@ CPropValue * CProperty::value() const
 
 CPropValue * CProperty::createValue(gfc::schema::CTypeObject * pType)
 {
-    CPropValue* pResult;
+    CPropValue* pResult = nullptr;
     switch (pType->getDataType())
     {
     case gfc::schema::EDT_BOOLEAN:
@@ -51,7 +51,7 @@ CPropValue * CProperty::createValue(gfc::schema::CTypeObject * pType)
         break;
     default:
         assert(false);
-        pResult = new CLeafPropValue;
+        //pResult = new CLeafPropValue;
         break;
     }
     return pResult;

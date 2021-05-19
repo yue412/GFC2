@@ -2,13 +2,14 @@
 #define GFC2INTERNALCHART_H
 
 #include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/Gfc2Root.h"
 #include "GfcClasses/x3/Gfc2InternalPt.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API Gfc2InternalChart: public gfc::engine::CEntity
+class GFCCLASSES_API Gfc2InternalChart: public Gfc2Root
 {
 GFCENGINE_DEC_OBJECT(Gfc2InternalChart, gfc::engine::CEntity)
 public:

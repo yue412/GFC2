@@ -7,7 +7,7 @@ NGfc2SteelTotal::NGfc2SteelTotal()
 }
 
 NGfc2SteelTotal::NGfc2SteelTotal(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

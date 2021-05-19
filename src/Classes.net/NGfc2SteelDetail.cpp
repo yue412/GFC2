@@ -7,7 +7,7 @@ NGfc2SteelDetail::NGfc2SteelDetail()
 }
 
 NGfc2SteelDetail::NGfc2SteelDetail(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

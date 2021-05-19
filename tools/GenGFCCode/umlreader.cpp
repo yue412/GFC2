@@ -127,6 +127,21 @@ void CUMLReader::finalize()
             _ASSERT(false);
         }
     }
+    // 默认添加Gfc2Root基类
+    auto pRootClass = dynamic_cast<gfc::schema::CClass*>(m_pModel->findTypeObject(L"Gfc2Root"));
+    if (pRootClass)
+    {
+        for (int i = 0; i < m_pModel->getTypeObjectCount(); i++)
+        {
+            auto pType = m_pModel->getTypeObject(i);
+            auto pClass = dynamic_cast<gfc::schema::CClass*>(pType);
+            if (pClass && (pClass->getParent() == nullptr) && pClass != pRootClass)
+            {
+                pClass->setParent(pRootClass);
+                pRootClass->addChild(pClass);
+            }
+        }
+    }
 }
 
 void CUMLReader::loadBody(TiXmlElement * pBody)

@@ -1,6 +1,7 @@
 #ifndef NGFC2STEELTOTAL_H
 #define NGFC2STEELTOTAL_H
 
+#include "NGfc2Root.h"
 #include "Gfc2SteelTotal.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
@@ -9,7 +10,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfc2SteelTotal: public glodon::objectbufnet::Entity
+public ref class NGfc2SteelTotal: public NGfc2Root
 {
 public:
     NGfc2SteelTotal();

@@ -1,6 +1,7 @@
 #ifndef NGFC2REPRESENTATION_H
 #define NGFC2REPRESENTATION_H
 
+#include "NGfc2Root.h"
 #include "Gfc2Representation.h"
 #include "NGfc2RepresentationItem.h"
 #include "NTypeDef.h"
@@ -10,7 +11,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfc2Representation: public glodon::objectbufnet::Entity
+public ref class NGfc2Representation: public NGfc2Root
 {
 public:
     NGfc2Representation();

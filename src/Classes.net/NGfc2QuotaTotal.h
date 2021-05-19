@@ -1,6 +1,7 @@
 #ifndef NGFC2QUOTATOTAL_H
 #define NGFC2QUOTATOTAL_H
 
+#include "NGfc2Root.h"
 #include "Gfc2QuotaTotal.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
@@ -9,7 +10,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfc2QuotaTotal: public glodon::objectbufnet::Entity
+public ref class NGfc2QuotaTotal: public NGfc2Root
 {
 public:
     NGfc2QuotaTotal();

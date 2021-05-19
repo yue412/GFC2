@@ -7,7 +7,7 @@ NGfc2QuotaTotal::NGfc2QuotaTotal()
 }
 
 NGfc2QuotaTotal::NGfc2QuotaTotal(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

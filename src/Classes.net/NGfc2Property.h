@@ -1,6 +1,7 @@
 #ifndef NGFC2PROPERTY_H
 #define NGFC2PROPERTY_H
 
+#include "NGfc2Root.h"
 #include "Gfc2Property.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
@@ -9,7 +10,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfc2Property: public glodon::objectbufnet::Entity
+public ref class NGfc2Property: public NGfc2Root
 {
 public:
     NGfc2Property();

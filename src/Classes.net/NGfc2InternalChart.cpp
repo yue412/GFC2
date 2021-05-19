@@ -7,7 +7,7 @@ NGfc2InternalChart::NGfc2InternalChart()
 }
 
 NGfc2InternalChart::NGfc2InternalChart(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

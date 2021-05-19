@@ -2,13 +2,14 @@
 #define GFC2SURFACETEXTURE_H
 
 #include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/Gfc2Root.h"
 #include "GfcClasses/x3/Gfc2Matrix.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API Gfc2SurfaceTexture: public gfc::engine::CEntity
+class GFCCLASSES_API Gfc2SurfaceTexture: public Gfc2Root
 {
 GFCENGINE_DEC_OBJECT(Gfc2SurfaceTexture, gfc::engine::CEntity)
 public:

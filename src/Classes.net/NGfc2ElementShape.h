@@ -1,6 +1,7 @@
 #ifndef NGFC2ELEMENTSHAPE_H
 #define NGFC2ELEMENTSHAPE_H
 
+#include "NGfc2Root.h"
 #include "Gfc2ElementShape.h"
 #include "NGfc2Shape.h"
 #include "NTypeDef.h"
@@ -10,7 +11,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfc2ElementShape: public glodon::objectbufnet::Entity
+public ref class NGfc2ElementShape: public NGfc2Root
 {
 public:
     NGfc2ElementShape();

@@ -1,13 +1,14 @@
 #ifndef NGFC2INDEXEDCOLOURMAP_H
 #define NGFC2INDEXEDCOLOURMAP_H
 
+#include "NGfc2Root.h"
 #include "Gfc2IndexedColourMap.h"
 #include "NGfc2Color.h"
 #include "NGfc2PrimitiveRenderable.h"
 #include "NTypeDef.h"
 #include "GfcEngine/Entity.h"
 
-public ref class NGfc2IndexedColourMap: public glodon::objectbufnet::Entity
+public ref class NGfc2IndexedColourMap: public NGfc2Root
 {
 public:
     NGfc2IndexedColourMap();

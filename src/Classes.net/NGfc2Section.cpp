@@ -7,7 +7,7 @@ NGfc2Section::NGfc2Section()
 }
 
 NGfc2Section::NGfc2Section(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 

@@ -7,7 +7,7 @@ NGfc2PlaneInfo::NGfc2PlaneInfo()
 }
 
 NGfc2PlaneInfo::NGfc2PlaneInfo(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+    NGfc2Root(pEntity, bOwner)
 {
 }
 
