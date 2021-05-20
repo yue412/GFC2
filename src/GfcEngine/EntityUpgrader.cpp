@@ -43,7 +43,8 @@ CEntity* CEntityUpgrader::update(CEntity* pEntity)
             return nullptr;
     }
     auto pNewEntity = CEngineUtils::createEntity(m_pDestModel, pEntity->entityName());
-    transform(pClassCompatibility, pEntity, pNewEntity);
+    if (pNewEntity)
+        transform(pClassCompatibility, pEntity, pNewEntity);
     return pNewEntity;
 }
 

@@ -59,7 +59,7 @@ std::shared_ptr<gfc::engine::CEntity> Gfc2ManifoldSolidShapeTransformer::toSolid
     assert(pSolidShape);
     assignShapeData(pShape, pSolidShape);
     auto nBodyRef = pShape->asEntityRef(L"Body");
-    auto nNewBodyRef = m_pOwner->transformEntity(nBodyRef);
+    auto nNewBodyRef = m_pOwner->getEntityRef(nBodyRef);
     pSolidShape->setAsEntityRef(L"Body", nNewBodyRef);
     return pSolidShape;
 }
