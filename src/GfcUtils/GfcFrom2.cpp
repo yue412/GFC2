@@ -8,6 +8,7 @@
 #include "GfcEngine\PropValue.h"
 #include "GfcSchema\EntityClass.h"
 #include "GfcSchema\EntityAttribute.h"
+#include "Common.h"
 
 GfcFrom2::GfcFrom2(gfc::engine::IContainer * pContainer): GfcTransform(pContainer)
 {
@@ -159,7 +160,8 @@ gfc::engine::EntityRef GfcFrom2::entityToObject(SrcEntityPtr pSrc)
     // object
     auto pNewObject = createEntity(L"Gfc2Object");
     pNewObject->setAsString(L"Name", pSrc->getSchema()->getName());
-    pNewObject->setAsString(L"ID", L"guid");
+    auto sGuid = generateGuid();
+    pNewObject->setAsString(L"ID", sGuid);
     auto nNewObjectRef = writer()->writeEntity(pNewObject.get()); //不用另一个write方法，不记录和原始ref的关系，相当于每次都新建一个，避免语义上错误
     // propertyset
     auto pNewPropertySet = createEntity(L"Gfc2PropertySet");

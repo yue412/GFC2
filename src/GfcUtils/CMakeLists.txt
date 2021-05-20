@@ -9,6 +9,7 @@ endif()
 include_directories(
     ${PROJECT_SOURCE_DIR}/../include 
     ${PROJECT_SOURCE_DIR}/../include/GfcClasses
+	${PROJECT_SOURCE_DIR}/GfcCommon
 	$ENV{GGPDIR}/include
 )
 

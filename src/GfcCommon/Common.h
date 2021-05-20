@@ -41,6 +41,7 @@ std::string trim_copy(std::string s);
 std::string transString(const std::string& sStr);
 std::wstring transString(const std::wstring& sStr);
 
+std::wstring generateGuid();
 
 #endif // !COMMON_H
 

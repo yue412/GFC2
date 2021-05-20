@@ -6,6 +6,7 @@
 #include <Windows.h>
 #include <fstream>
 #include <ctype.h>
+#include <objbase.h>
 
 std::wstring _FormatWstring(const wchar_t * lpcwszFormat, va_list _list)
 {
@@ -239,3 +240,20 @@ std::wstring transString(const std::wstring & sStr)
 {
     return Utf8ToUnicode(transString(UnicodeToUtf8(sStr)));
 }
+
+std::wstring generateGuid()
+{
+    GUID guid;
+    CoCreateGuid(&guid);
+    wchar_t cBuffer[64] = { 0 };
+    swprintf_s(cBuffer, sizeof(cBuffer),
+        L"%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X",
+        guid.Data1, guid.Data2,
+        guid.Data3, guid.Data4[0],
+        guid.Data4[1], guid.Data4[2],
+        guid.Data4[3], guid.Data4[4],
+        guid.Data4[5], guid.Data4[6],
+        guid.Data4[7]);
+    return std::wstring(cBuffer);
+}
+
