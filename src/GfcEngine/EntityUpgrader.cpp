@@ -48,21 +48,45 @@ CEntity* CEntityUpgrader::update(CEntity* pEntity)
     return pNewEntity;
 }
 
+//void CEntityUpgrader::transform(CEntity* pSrcEntity, CEntity* pDestEntity, const std::vector<std::wstring>& oAttribtueNameList)
+//{
+//    this->transform(pSrcEntity)
+//}
+
+
 void CEntityUpgrader::transform(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity)
 {
     if (nullptr == pClassCompatibility)
         return;
     for (int i = 0; i < pClassCompatibility->getCount(); i++)
     {
-        auto pAttributeCompatibility = pClassCompatibility->getCompatibilityAttribute(i);
-        int  nIndex = pAttributeCompatibility->toIndex();
-        auto pConverter = pAttributeCompatibility->converter();
-        if (nIndex != -1 && pConverter && i < (int)pSrcEntity->getPropCount())
-        {
-            auto pSrcValue = pSrcEntity->getProps(i)->value();
-            auto pDestValue = pDestEntity->getProps(nIndex)->value();
-            pConverter->transform(pSrcValue, pDestValue);
-        }
+        transformAttribute(pClassCompatibility, pSrcEntity, pDestEntity, i);
+    }
+}
+
+void CEntityUpgrader::transform(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity, const std::vector<std::wstring>& oAttribtueNameList)
+{
+    if (nullptr == pClassCompatibility)
+        return;
+    for (int i = 0; i < pClassCompatibility->getCount(); i++)
+    {
+        auto itr = std::find(oAttribtueNameList.begin(), oAttribtueNameList.end(), pClassCompatibility->getCompatibilityAttribute(i)->getName());
+        if (itr == oAttribtueNameList.end())
+            return;
+        transformAttribute(pClassCompatibility, pSrcEntity, pDestEntity, i);
+    }
+}
+
+void CEntityUpgrader::transformAttribute(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity, int nAttributeIndex)
+{
+    auto pAttributeCompatibility = pClassCompatibility->getCompatibilityAttribute(nAttributeIndex);
+    int  nIndex = pAttributeCompatibility->toIndex();
+    auto pConverter = pAttributeCompatibility->converter();
+    if (nIndex != -1 && pConverter && nAttributeIndex < (int)pSrcEntity->getPropCount())
+    {
+        auto pSrcValue = pSrcEntity->getProps(nAttributeIndex)->value();
+        auto pDestValue = pDestEntity->getProps(nIndex)->value();
+        pConverter->transform(pSrcValue, pDestValue);
     }
 }
 

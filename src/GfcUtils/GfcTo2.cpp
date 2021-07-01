@@ -117,6 +117,11 @@ GfcTo2::DestEntityPtr GfcTo2::doTransformElement(SrcEntityPtr & pSrcEntity)
         return nullptr;
 }
 
+GfcTo2::DestEntityPtr GfcTo2::doTransformElementType(SrcEntityPtr & pSrcEntity)
+{
+    return doTransformElement(pSrcEntity);
+}
+
 void GfcTo2::transformProjectPropertySet(SrcEntityPtr & pSrcEntity, DestEntityPtr & pDestEntity)
 {
     std::vector<SrcEntityPtr> oPropertySetList;
@@ -124,12 +129,18 @@ void GfcTo2::transformProjectPropertySet(SrcEntityPtr & pSrcEntity, DestEntityPt
     //todo
 }
 
-void GfcTo2::transformBuildingPropertySet(SrcEntityPtr & pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr & pDestEntity)
+void GfcTo2::transformBuildingPropertySet(SrcEntityPtr & pSrcEntity, DestEntityPtr & pDestEntity)
 {
+    std::vector<SrcEntityPtr> oPropertySetList;
+    getPropertySetList(pSrcEntity->ref(), oPropertySetList);
+    //todo
 }
 
-void GfcTo2::transformFloorPropertySet(SrcEntityPtr & pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr & pDestEntity)
+void GfcTo2::transformFloorPropertySet(SrcEntityPtr & pSrcEntity, DestEntityPtr & pDestEntity)
 {
+    std::vector<SrcEntityPtr> oPropertySetList;
+    getPropertySetList(pSrcEntity->ref(), oPropertySetList);
+    //todo
 }
 
 GfcRelDefinesByTypeSchema GfcTo2::getSrcRelDefinesByTypeSchema()

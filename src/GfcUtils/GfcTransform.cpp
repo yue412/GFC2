@@ -97,39 +97,15 @@ gfc::engine::EntityRef GfcTransform::getEntityRef(gfc::engine::EntityRef nSrc)
         return itr->second;
 }
 
-GfcTransform::DestEntityPtr GfcTransform::doTransformBuilding(SrcEntityPtr & pSrcEntity)
-{
-    auto pNewBuilding = transformEntity(pSrcEntity);
-    if (pNewBuilding)
-    {
-        std::vector<SrcEntityPtr> oPropertySetList;
-        getPropertySetList(pSrcEntity->ref(), oPropertySetList);
-        transformBuildingPropertySet(pSrcEntity, oPropertySetList, pNewBuilding);
-    }
-    return pNewBuilding;
-}
-
-GfcTransform::DestEntityPtr GfcTransform::doTransformFloor(SrcEntityPtr & pSrcEntity)
-{
-    auto pNewFloor = transformEntity(pSrcEntity);
-    if (pNewFloor)
-    {
-        std::vector<SrcEntityPtr> oPropertySetList;
-        getPropertySetList(pSrcEntity->ref(), oPropertySetList);
-        transformFloorPropertySet(pSrcEntity, oPropertySetList, pNewFloor);
-    }
-    return pNewFloor;
-}
-
 void GfcTransform::transformProjectPropertySet(SrcEntityPtr & pSrcEntity, DestEntityPtr & pDestEntity)
 {
 }
 
-void GfcTransform::transformBuildingPropertySet(SrcEntityPtr & pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr & pDestEntity)
+void GfcTransform::transformBuildingPropertySet(SrcEntityPtr & pSrcEntity, DestEntityPtr & pDestEntity)
 {
 }
 
-void GfcTransform::transformFloorPropertySet(SrcEntityPtr & pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr & pDestEntity)
+void GfcTransform::transformFloorPropertySet(SrcEntityPtr & pSrcEntity, DestEntityPtr & pDestEntity)
 {
 }
 
@@ -224,10 +200,13 @@ GfcTransform::GfcEntityRefMap GfcTransform::transformBuilding(gfc::engine::Entit
     while (!pItr->isDone())
     {
         auto pBuilding = pItr->current();
-        auto pNewBuilding = doTransformBuilding(pBuilding);
+        auto pNewBuilding = transformEntity(pBuilding);
         if (pNewBuilding)
         {
+//            std::vector<SrcEntityPtr> oPropertySetList;
+//            getPropertySetList(pSrcEntity->ref(), oPropertySetList);
             auto nBuildingRef = write(pBuilding->ref(), pNewBuilding);
+            transformBuildingPropertySet(pBuilding, pNewBuilding);
             oResult.insert(std::make_pair(pBuilding->ref(), nBuildingRef));
             addRelAggregates(nProjectRef, nBuildingRef);
         }
@@ -256,10 +235,11 @@ GfcTransform::GfcEntityRefMap GfcTransform::transformFloor(const GfcEntityRefMap
                 auto pFloor = pAggregate->getEntity(pValue, i);
                 if (pFloor->entityName() != L"Gfc2Floor")
                     continue;
-                auto pNewFloor = doTransformFloor(pFloor);
+                auto pNewFloor = transformEntity(pFloor);
                 if (pNewFloor)
                 {
                     auto nFloorRef = write(pFloor->ref(), pNewFloor);
+                    transformFloorPropertySet(pFloor, pNewFloor);
                     oResult.insert(std::make_pair(pFloor->ref(), nFloorRef));
                     addRelAggregates(itr->second, nFloorRef);
                 }
@@ -306,7 +286,7 @@ void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
                 else if (isElementType(pEntity))//(pEntity->entityName() == L"Gfc2ElementType")
                 {
                     // 构件类型
-                    auto pNewElementType = doTransformElement(pEntity); // 暂时可以用构件的
+                    auto pNewElementType = doTransformElementType(pEntity); // 暂时可以用构件的
                     if (nullptr == pNewElementType)
                         continue;
                     auto nElementTypeRef = write(pEntity->ref(), pNewElementType);

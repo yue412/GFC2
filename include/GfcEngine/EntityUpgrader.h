@@ -25,8 +25,11 @@ public:
     ~CEntityUpgrader();
     void init(gfc::schema::CModel* pDest, gfc::schema::CModel* pSrc);
     CEntity* update(CEntity* pEntity);
+    //void transform(CEntity* pSrcEntity, CEntity* pDestEntity, const std::vector<std::wstring>& oAttribtueNameList);
     // for test
+    void transform(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity, const std::vector<std::wstring>& oAttribtueNameList);
     void transform(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity);
+    void transformAttribute(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity, int nAttributeIndex);
     CModelCompatibility* model() { return m_pModelCompatibility; }
 private:
     void clear();

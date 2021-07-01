@@ -72,7 +72,7 @@ std::wstring getExePath()
     char exeFullPath[MAX_PATH]; // MAX_PATH在WINDEF.h中定义了，等于260
     memset(exeFullPath, 0, MAX_PATH);
 
-    GetModuleFileName(NULL, exeFullPath, MAX_PATH);
+    GetModuleFileNameA(NULL, exeFullPath, MAX_PATH);
     char *p = /*wcsrchr*/strrchr(exeFullPath, '\\');
     *p = 0x00;
     return  ACPToUnicode(exeFullPath);
@@ -245,8 +245,9 @@ std::wstring generateGuid()
 {
     GUID guid;
     CoCreateGuid(&guid);
-    wchar_t cBuffer[64] = { 0 };
-    swprintf_s(cBuffer, sizeof(cBuffer),
+    const int nLen = 64;
+    wchar_t cBuffer[nLen] = { 0 };
+    swprintf_s(cBuffer, nLen,
         L"%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X",
         guid.Data1, guid.Data2,
         guid.Data3, guid.Data4[0],

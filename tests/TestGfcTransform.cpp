@@ -7,25 +7,17 @@
 #include "Common.h"
 #include "GfcSchema/Model.h"
 #include "GfcUtils\GfcTransform.h"
+#include "GfcUtils\GfcTo2.h"
 #include "GfcEngine\Container.h"
 #include "MockWriter.h"
 
-class GfcTransform30to20_Test : public GfcTransform
+class GfcTransform30to20_Test : public GfcTo2
 {
 public:
-    GfcTransform30to20_Test() : GfcTransform(nullptr) {}
-    GfcTransform30to20_Test(gfc::engine::IContainer* pContainer) : GfcTransform(pContainer) {}
-    DestEntityPtr doTransformEntity(SrcEntityPtr& pSrcEntity) {
-        return GfcTransform::doTransformEntity(pSrcEntity);
-    }
-    virtual DestEntityPtr doTransformProject(SrcEntityPtr& pSrcEntity) {
-        return GfcTransform::doTransformProject(pSrcEntity);
-    }
-    virtual DestEntityPtr doTransformBuilding(SrcEntityPtr& pSrcEntity) {
-        return GfcTransform::doTransformBuilding(pSrcEntity);
-    }
-    virtual DestEntityPtr doTransformFloor(SrcEntityPtr& pSrcEntity) {
-        return GfcTransform::doTransformFloor(pSrcEntity);
+    GfcTransform30to20_Test() : GfcTo2(nullptr) {}
+    GfcTransform30to20_Test(gfc::engine::IContainer* pContainer) : GfcTo2(pContainer) {}
+    DestEntityPtr transformEntity(SrcEntityPtr& pSrcEntity) {
+        return GfcTransform::transformEntity(pSrcEntity);
     }
     GfcEntityRefMap transformBuilding(gfc::engine::EntityRef nProjectRef)
     {
@@ -51,7 +43,7 @@ TEST(TestGFCTransform, doTransformEntity_id)
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC2X0.exp"), &oDestModel);
     oTransform.setSchema(&oSrcModel, &oDestModel);
     pSrcEntity->setRef(2);
-    auto pDestEntity = oTransform.doTransformEntity(gfc::engine::EntityPtr(pSrcEntity));
+    auto pDestEntity = oTransform.transformEntity(gfc::engine::EntityPtr(pSrcEntity));
     EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
 //    delete pSrcEntity;
 }
@@ -78,7 +70,7 @@ TEST(TestGFCTransform, doTransformEntity_string)
     oWriter.open(L"test", L"mock");
     oTransform.setWriter(&oWriter);
     //auto result = oTransform.transform();
-    auto pDestEntity = oTransform.doTransformEntity(Doc.getEntity(3));
+    auto pDestEntity = oTransform.transformEntity(Doc.getEntity(3));
     EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
     EXPECT_EQ(1, pDestEntity->asEntityRef(L"Name"));
 }
@@ -113,7 +105,7 @@ TEST(TestGFCTransform, doTransformEntity_entityref)
     oWriter.open(L"test", L"mock");
     oTransform.setWriter(&oWriter);
     //auto result = oTransform.transform();
-    auto pDestEntity = oTransform.doTransformEntity(Doc.getEntity(5));
+    auto pDestEntity = oTransform.transformEntity(Doc.getEntity(5));
     //EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
     EXPECT_EQ(1, pDestEntity->asEntityRef(L"LocalCoordinate"));
 }
@@ -140,7 +132,7 @@ TEST(TestGFCTransform, doTransformProject)
     oWriter.open(L"test", L"mock");
     oTransform.setWriter(&oWriter);
     //auto result = oTransform.transform();
-    auto pDestEntity = oTransform.doTransformProject(Doc.getEntity(3));
+    auto pDestEntity = oTransform.transformEntity(Doc.getEntity(3));
     EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
     EXPECT_EQ(1, pDestEntity->asEntityRef(L"Name"));
     EXPECT_EQ(true, pDestEntity->isNull(L"OwnerID"));
@@ -185,7 +177,7 @@ TEST(TestGFCTransform, doTransformBuilding)
     oWriter.open(L"test", L"mock");
     oTransform.setWriter(&oWriter);
     //auto result = oTransform.transform();
-    auto pDestEntity = oTransform.doTransformBuilding(Doc.getEntity(3));
+    auto pDestEntity = oTransform.transformEntity(Doc.getEntity(3));
     EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
     EXPECT_EQ(1, pDestEntity->asEntityRef(L"Name"));
     EXPECT_EQ(true, pDestEntity->isNull(L"OwnerID"));
@@ -217,7 +209,7 @@ TEST(TestGFCTransform, doTransformFloor)
     oWriter.open(L"test", L"mock");
     oTransform.setWriter(&oWriter);
     //auto result = oTransform.transform();
-    auto pDestEntity = oTransform.doTransformFloor(Doc.getEntity(3));
+    auto pDestEntity = oTransform.transformEntity(Doc.getEntity(3));
     EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
     EXPECT_EQ(1, pDestEntity->asEntityRef(L"Name"));
     EXPECT_EQ(true, pDestEntity->isNull(L"OwnerID"));

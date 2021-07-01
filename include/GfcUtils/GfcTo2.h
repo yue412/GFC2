@@ -23,10 +23,11 @@ protected:
     // 转换单个实体
     virtual DestEntityPtr doTransformShape(SrcEntityPtr& pSrcEntity);
     virtual DestEntityPtr doTransformElement(SrcEntityPtr& pSrcEntity);
+    virtual DestEntityPtr doTransformElementType(SrcEntityPtr& pSrcEntity);
     // 处理属性集
     virtual void transformProjectPropertySet(SrcEntityPtr& pSrcEntity, DestEntityPtr& pDestEntity);
-    virtual void transformBuildingPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity);
-    virtual void transformFloorPropertySet(SrcEntityPtr& pSrcEntity, std::vector<SrcEntityPtr>& oPropertySetList, DestEntityPtr& pDestEntity);
+    virtual void transformBuildingPropertySet(SrcEntityPtr& pSrcEntity, DestEntityPtr& pDestEntity);
+    virtual void transformFloorPropertySet(SrcEntityPtr& pSrcEntity, DestEntityPtr& pDestEntity);
     //
     virtual GfcRelDefinesByTypeSchema getSrcRelDefinesByTypeSchema();
     virtual GfcRelDefinesByTypeSchema getDestRelDefinesByTypeSchema();

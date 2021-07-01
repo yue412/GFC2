@@ -4,6 +4,7 @@
 #include "GfcEngine\PropValue.h"
 #include "Common.h"
 
+/*
 TEST(TestPropValue, CLeafPropValue_create)
 {
     gfc::engine::CLeafPropValue* pValue = new gfc::engine::CLeafPropValue;
@@ -16,6 +17,8 @@ TEST(TestPropValue, CLeafPropValue_isNull_default)
     gfc::engine::CLeafPropValue oValue;
     EXPECT_EQ(true, oValue.isNull());
 }
+
+*/
 
 TEST(TestPropValue, CCompositePropValue_isNull)
 {

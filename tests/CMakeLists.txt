@@ -48,7 +48,7 @@ FILE(GLOB HEAD_FILES "./*.h"
 	"../src/GfcEngine/FileMap.h"
 	) 
 
-add_compile_definitions(TIXML_USE_STL _CRT_SECURE_NO_DEPRECATE UNICODE)
+add_compile_definitions(TIXML_USE_STL _CRT_SECURE_NO_WARNINGS UNICODE)
 
 #创建工程文件
 add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEAD_FILES})
