@@ -1,5 +1,5 @@
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef GFC_COMMON_H
+#define GFC_COMMON_H
 
 #include <string>
 #include <fstream>
@@ -43,5 +43,5 @@ std::wstring transString(const std::wstring& sStr);
 
 std::wstring generateGuid();
 
-#endif // !COMMON_H
+#endif // !GFC_COMMON_H
 
