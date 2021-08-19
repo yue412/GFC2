@@ -3,7 +3,7 @@
 
 #include "NGfc2Section.h"
 #include "Gfc2ParameterizedSection.h"
-#include "NGfc2Coordinates3d.h"
+#include "NGfc2Coordinates2d.h"
 #include "GfcEngine/Entity.h"
 
 public ref class NGfc2ParameterizedSection: public NGfc2Section
@@ -14,7 +14,7 @@ public:
     void setPosition(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPosition();
     bool hasPosition();
-    NGfc2Coordinates3d^ getPositionPtr();
+    NGfc2Coordinates2d^ getPositionPtr();
 
 };
 #endif

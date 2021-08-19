@@ -3,7 +3,7 @@
 
 #include "GfcClasses/x3/GfcClasses.h"
 #include "GfcClasses/x3/Gfc2Section.h"
-#include "GfcClasses/x3/Gfc2Coordinates3d.h"
+#include "GfcClasses/x3/Gfc2Coordinates2d.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
@@ -17,7 +17,7 @@ public:
     void setPosition(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getPosition() const;
     bool hasPosition() const;
-    std::shared_ptr<Gfc2Coordinates3d> getPositionPtr();
+    std::shared_ptr<Gfc2Coordinates2d> getPositionPtr();
 
 };
 

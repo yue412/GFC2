@@ -15,6 +15,10 @@ GFCENGINE_DEC_OBJECT(Gfc2RevolvedAreaSolidShape, gfc::engine::CEntity)
 public:
     Gfc2RevolvedAreaSolidShape();
     Gfc2RevolvedAreaSolidShape(bool bSetSchema);
+    void setLocation(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getLocation() const;
+    bool hasLocation() const;
+    std::shared_ptr<Gfc2Vector2d> getLocationPtr();
     void setAxis(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getAxis() const;
     bool hasAxis() const;

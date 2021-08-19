@@ -26,8 +26,8 @@ bool NGfc2ParameterizedSection::hasPosition()
     return ((Gfc2ParameterizedSection*)m_pEntity)->hasPosition();
 }
 
-NGfc2Coordinates3d^ NGfc2ParameterizedSection::getPositionPtr()
+NGfc2Coordinates2d^ NGfc2ParameterizedSection::getPositionPtr()
 {
-    return gcnew NGfc2Coordinates3d(((Gfc2ParameterizedSection*)m_pEntity)->getPositionPtr(), false);
+    return gcnew NGfc2Coordinates2d(((Gfc2ParameterizedSection*)m_pEntity)->getPositionPtr(), false);
 }
 

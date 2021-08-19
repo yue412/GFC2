@@ -12097,8 +12097,9 @@
 <XPD:REF name="Views[3]">qk/c6yNByUK0NFc7eoB7MwAA</XPD:REF>
 <XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">bi4NbY5BJk+iwX+9NUlJsAAA</XPD:REF>
-<XPD:ATTR name="#TypedFeatures" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="#TypedFeatures" type="integer">2</XPD:ATTR>
 <XPD:REF name="TypedFeatures[0]">P6484zSC5EO/aS6AkYAkIwAA</XPD:REF>
+<XPD:REF name="TypedFeatures[1]">SxuNvaaRlUWm2xb/4HKL2QAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">3</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="lI71q9yh90SUnpm2qnpN/wAA">
 <XPD:ATTR name="Name" type="string">Origin</XPD:ATTR>
@@ -12133,7 +12134,7 @@
 <XPD:REF name="Views[3]">L2ygTN8GfESGubUHgOR5hAAA</XPD:REF>
 <XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">1TXr4N2pZ0mwwqJWr1V5hgAA</XPD:REF>
-<XPD:ATTR name="#TypedFeatures" type="integer">9</XPD:ATTR>
+<XPD:ATTR name="#TypedFeatures" type="integer">8</XPD:ATTR>
 <XPD:REF name="TypedFeatures[0]">aDweESDFb0yDrZK5Zd8SuAAA</XPD:REF>
 <XPD:REF name="TypedFeatures[1]">GFbyqQFcjkaE76vx9k59PwAA</XPD:REF>
 <XPD:REF name="TypedFeatures[2]">iurRQN9WKk+pycyOAotu+gAA</XPD:REF>
@@ -12142,7 +12143,6 @@
 <XPD:REF name="TypedFeatures[5]">1J8qdf1zukKGJWqzTaIJ1gAA</XPD:REF>
 <XPD:REF name="TypedFeatures[6]">njiZLMkMjUKHkTiBBjYwmwAA</XPD:REF>
 <XPD:REF name="TypedFeatures[7]">i0YPqFFmHEath0/zd3CbSgAA</XPD:REF>
-<XPD:REF name="TypedFeatures[8]">SxuNvaaRlUWm2xb/4HKL2QAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="SUR27+nTYE+4V99tXyyPRQAA">
 <XPD:ATTR name="Name" type="string">Origin</XPD:ATTR>
@@ -22805,8 +22805,8 @@
 <XPD:ATTR name="#Attributes" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="SxuNvaaRlUWm2xb/4HKL2QAA">
 <XPD:ATTR name="Name" type="string">Position</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">Gfc2Coordinates3d</XPD:ATTR>
-<XPD:REF name="Type_">hgJ9aVA9lkegp7C8QImQ3gAA</XPD:REF>
+<XPD:ATTR name="TypeExpression" type="string">Gfc2Coordinates2d</XPD:ATTR>
+<XPD:REF name="Type_">Gmr1E2kuG0Gc2HY1KEUP5wAA</XPD:REF>
 <XPD:REF name="Owner">gnf0VvzRRkuxGSN7S3DYIAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>

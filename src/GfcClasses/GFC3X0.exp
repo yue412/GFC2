@@ -732,7 +732,7 @@ ENTITY Gfc2ParameterizedSection
 	,Gfc2LShapeSection
 	,Gfc2TShapeSection))
  SUBTYPE OF (Gfc2Section);
-	Position : Gfc2Coordinates3d;
+	Position : Gfc2Coordinates2d;
 END_ENTITY;
 
 ENTITY Gfc2ParametricShape
@@ -997,6 +997,7 @@ ENTITY Gfc2RevolvedAreaSolidShape
  SUPERTYPE OF (ONEOF
 	(Gfc2RevolvedAreaSolidTaperedShape))
  SUBTYPE OF (Gfc2SweptAreaSolidShape);
+	Location : Gfc2Vector2d;
 	Axis : Gfc2Vector2d;
 	Angle : Gfc2Double;
 END_ENTITY;

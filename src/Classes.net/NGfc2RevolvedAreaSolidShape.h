@@ -12,6 +12,10 @@ public ref class NGfc2RevolvedAreaSolidShape: public NGfc2SweptAreaSolidShape
 public:
     NGfc2RevolvedAreaSolidShape();
     NGfc2RevolvedAreaSolidShape(void* pEntity, bool bOwner);
+    void setLocation(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getLocation();
+    bool hasLocation();
+    NGfc2Vector2d^ getLocationPtr();
     void setAxis(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getAxis();
     bool hasAxis();

@@ -11,6 +11,26 @@ NGfc2RevolvedAreaSolidShape::NGfc2RevolvedAreaSolidShape(void* pEntity, bool bOw
 {
 }
 
+void NGfc2RevolvedAreaSolidShape::setLocation(gfc::engine::EntityRef nValue)
+{
+    ((Gfc2RevolvedAreaSolidShape*)m_pEntity)->setLocation(nValue);
+}
+
+gfc::engine::EntityRef NGfc2RevolvedAreaSolidShape::getLocation()
+{
+    return ((Gfc2RevolvedAreaSolidShape*)m_pEntity)->getLocation();
+}
+
+bool NGfc2RevolvedAreaSolidShape::hasLocation()
+{
+    return ((Gfc2RevolvedAreaSolidShape*)m_pEntity)->hasLocation();
+}
+
+NGfc2Vector2d^ NGfc2RevolvedAreaSolidShape::getLocationPtr()
+{
+    return gcnew NGfc2Vector2d(((Gfc2RevolvedAreaSolidShape*)m_pEntity)->getLocationPtr(), false);
+}
+
 void NGfc2RevolvedAreaSolidShape::setAxis(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RevolvedAreaSolidShape*)m_pEntity)->setAxis(nValue);
