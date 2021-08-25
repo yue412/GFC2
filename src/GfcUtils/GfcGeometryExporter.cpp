@@ -259,21 +259,21 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCurve2d( gfc::engine::CWriter*
 	}
     switch (pSrc->Type())
     {
-    case Line2dType:
+    case ggp::Line2dType:
         return exportLine2d(pWriter, dynamic_cast<ggp::CLine2d*>(pSrc));
-    case Arc2dType:
+    case ggp::Arc2dType:
         return exportArc2d(pWriter, dynamic_cast<ggp::CArc2d*>(pSrc));
-    case NurbsCurve2dType:
+    case ggp::NurbsCurve2dType:
         return exportNurbsCurve2d(pWriter, dynamic_cast<ggp::CNurbsCurve2d*>(pSrc));
-    case Ellipse2dType:
+    case ggp::Ellipse2dType:
         return exportEllipse2d(pWriter, dynamic_cast<ggp::CEllipse2d*>(pSrc));
-    case SinCurve2dType:
+    case ggp::SinCurve2dType:
         return exportSinCurve2d(pWriter, dynamic_cast<ggp::CSinCurve2d*>(pSrc));
-    case SpiralLine2dType:
+    case ggp::SpiralLine2dType:
         return exportSpiralLine2d(pWriter, dynamic_cast<ggp::CSpiralLine2d*>(pSrc));
-    case PreimageCurve2dType:
+    case ggp::PreimageCurve2dType:
         return exportPreimageCurve2d(pWriter, dynamic_cast<ggp::CPreimageCurve2d*>(pSrc));
-    case OffsetCurve2dType:
+    case ggp::OffsetCurve2dType:
         return exportOffsetCurve2d(pWriter, dynamic_cast<ggp::COffsetCurve2d*>(pSrc));
     default:
         assert(false);
@@ -376,19 +376,19 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCurve3d( gfc::engine::CWriter*
 {
     switch (pSrc->Type())
     {
-    case Line3dType:
+    case ggp::Line3dType:
         return exportLine3d(pWriter, dynamic_cast<ggp::CLine3d*>(pSrc));
-    case NurbsCurve3dType:
+    case ggp::NurbsCurve3dType:
         return exportNurbsCurve3d(pWriter, dynamic_cast<ggp::CNurbsCurve3d*>(pSrc));
-    case PlaneCurve3dType:
+    case ggp::PlaneCurve3dType:
 		return exportPlaneCurve3d(pWriter, dynamic_cast<ggp::CPlaneCurve3d*>(pSrc));
-    case SpiralLineType:
+    case ggp::SpiralLineType:
         return exportSpiralLine3d(pWriter, dynamic_cast<ggp::CSpiralLine*>(pSrc));
-    case SweepCurve3dType:
+    case ggp::SweepCurve3dType:
         return exportSweepCurve3d(pWriter, dynamic_cast<ggp::CSweepCurve3d*>(pSrc));
-    case IntersectionCurve3dType:
+    case ggp::IntersectionCurve3dType:
         return exportIntersectionCurve3d(pWriter, dynamic_cast<ggp::CIntersectionCurve3d*>(pSrc));
-    case ImageCurve3dType:
+    case ggp::ImageCurve3dType:
         return exportImageCurve3d(pWriter, dynamic_cast<ggp::CImageCurve3d*>(pSrc));
     default:
         assert(false);
@@ -562,23 +562,23 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSurface( gfc::engine::CWriter*
 {
     switch (pSrc->Type())
     {
-    case PlaneType:
+    case ggp::PlaneType:
         return exportPlane(pWriter, dynamic_cast<ggp::CPlane*>(pSrc));
-    case CylinderType:
+    case ggp::CylinderType:
         return exportCylinder(pWriter, dynamic_cast<ggp::CCylinder*>(pSrc));
-    case NurbsSurfaceType:
+    case ggp::NurbsSurfaceType:
         return exportNurbsSurface(pWriter, dynamic_cast<ggp::CNurbsSurface*>(pSrc));
-    case BevelType:
+    case ggp::BevelType:
         return exportBevel(pWriter, dynamic_cast<ggp::CBevel*>(pSrc));
-    case TorusType:
+    case ggp::TorusType:
         return exportTorus(pWriter, dynamic_cast<ggp::CTorus*>(pSrc));
-    case SphereType:
+    case ggp::SphereType:
         return exportSphere(pWriter, dynamic_cast<ggp::CSphere*>(pSrc));
-    case HelicoidType:
+    case ggp::HelicoidType:
         return exportHelicoid(pWriter, dynamic_cast<ggp::CHelicoid*>(pSrc));
-    case SweepType:
+    case ggp::SweepType:
         return exportSweep(pWriter, dynamic_cast<ggp::CSweep*>(pSrc));
-    case RuledSurfaceType:
+    case ggp::RuledSurfaceType:
         return exportRuledSurface(pWriter, dynamic_cast<ggp::CRuledSurface*>(pSrc));
     default:
         assert(false);
@@ -643,13 +643,13 @@ gfc::engine::EntityRef GfcGeometryExporter::exportBody( gfc::engine::CWriter* pW
 {
     switch (pSrc->Type())
     {
-    case BrepBodyType:
+    case ggp::BrepBodyType:
         return exportBrepBody(pWriter, dynamic_cast<ggp::CBrepBody*>(pSrc));
-    case CuboidBodyType:
+    case ggp::CuboidBodyType:
         return exportCuboidBody(pWriter, dynamic_cast<ggp::CCuboidBody*>(pSrc));
-    case ExtrudedBodyType:
+    case ggp::ExtrudedBodyType:
         return exportExtrudedBody(pWriter, dynamic_cast<ggp::CExtrudedBody*>(pSrc));
-    case PolyhedronType:
+    case ggp::PolyhedronType:
         return exportPolyhedronBody(pWriter, dynamic_cast<ggp::CPolyhedronBody*>(pSrc));
 //     case TinyPolyhedronType:
 //         return exportBrepBody(pWriter, dynamic_cast<ggp::CBrepBody*>(pSrc));
@@ -922,7 +922,7 @@ bool GfcGeometryExporter::isSimplePolygon( ggp::CPolygon* pSrc )
         for (int j = 0; j < nCoedgeCount; ++j)
         {
             int nType = pLoop->GetCoedge(j)->Curve()->Type();
-            if (!(nType == Line2dType || nType == Arc2dType) || (nCoedgeCount == 1 && nType == Arc2dType))
+            if (!(nType == ggp::Line2dType || nType == ggp::Arc2dType) || (nCoedgeCount == 1 && nType == ggp::Arc2dType))
             {
                 return false;
             }
@@ -940,7 +940,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSimpleLoop( gfc::engine::CWrit
         Gfc2SimpleVertex oVertex;
         ggp::CCurve2d* pCurve = pSrc->GetCurve(i);
         oVertex.setPoint(exportVector2d(pWriter, &pCurve->StartPoint()));
-        if (pCurve->Type() == Arc2dType)
+        if (pCurve->Type() == ggp::Arc2dType)
         {
             ggp::CArc2d* pArc = dynamic_cast<ggp::CArc2d*>(pCurve);
             oVertex.setRadius(pArc->Radius());

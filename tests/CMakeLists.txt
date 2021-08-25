@@ -77,3 +77,8 @@ target_link_libraries(${PROJECT_NAME} debug GfcUtilsd optimized GfcUtils)
 target_link_libraries(${PROJECT_NAME} debug GeometryD optimized Geometry)
 target_link_libraries(${PROJECT_NAME} debug Commond optimized Common)
 target_link_libraries(${PROJECT_NAME} debug GMathd optimized GMath)
+target_link_libraries(${PROJECT_NAME} debug AlgHealingd optimized AlgHealing)
+target_link_libraries(${PROJECT_NAME} debug TopologyD optimized Topology)
+target_link_libraries(${PROJECT_NAME} debug CGBaseD optimized CGBase)
+
+

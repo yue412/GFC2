@@ -2,6 +2,7 @@
 #include "Geometry/Surface.h"
 //#include "TypeConsts.h"
 #include "Algorithm/algpolygon.h"
+#include "Algorithm\algPolygonFix.h"
 #include "GfcEngine\Entity.h"
 
 using namespace ggp;

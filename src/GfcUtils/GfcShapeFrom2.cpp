@@ -215,13 +215,13 @@ gfc::engine::EntityPtr Gfc2LineShapeFrom2::createShape(gfc::engine::EntityPtr pS
         auto pLine = GfcGeometryImporter::importCurve2d(pSrcShape->asEntity(L"Line").get());
         switch (pLine->Type())
         {
-        case Line2dType:
+        case ggp::Line2dType:
             if (!ggp::sameValue(pSrcShape->asDouble(L"StartPtHeight"), pSrcShape->asDouble(L"EndPtHeight"), ggp::g_DoubleResolution))
                 pResult = owner()->createEntity(L"Gfc2ExtrudedAreaSolidTaperedShape");
             else
                 pResult = owner()->createEntity(L"Gfc2ExtrudedAreaSolidShape");
             break;
-        case Arc2dType:
+        case ggp::Arc2dType:
             if (ggp::isZero(pSrcShape->asDouble(L"E_S_Elevation"), ggp::g_DoubleResolution) &&
                 ggp::sameValue(pSrcShape->asDouble(L"StartPtHeight"), pSrcShape->asDouble(L"EndPtHeight"), ggp::g_DoubleResolution))
             {
@@ -272,10 +272,10 @@ gfc::engine::EntityPtr Gfc2SectionLineShapeFrom2::createShape(gfc::engine::Entit
         auto pLine = GfcGeometryImporter::importCurve2d(pSrcShape->asEntity(L"Line").get());
         switch (pLine->Type())
         {
-        case Line2dType:
+        case ggp::Line2dType:
             sName = L"Gfc2ExtrudedAreaSolidShape";
             break;
-        case Arc2dType:
+        case ggp::Arc2dType:
             if (ggp::isZero(pSrcShape->asDouble(L"E_S_Elevation"), ggp::g_DoubleResolution))
             {
                 sName = L"Gfc2RevolvedAreaSolidShape";
