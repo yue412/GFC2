@@ -28,10 +28,10 @@ public:
 };
 
 // GFC3.0直接使用字符串，GFC2.0是字符串的引用
-class CStringConverter : public gfc::engine::CConverter
+class CStringConverter32 : public gfc::engine::CConverter
 {
 public:
-    CStringConverter(GfcTo2* pOwner) : m_pOwner(pOwner) {}
+    CStringConverter32(GfcTo2* pOwner) : m_pOwner(pOwner) {}
     virtual void doTransform(gfc::engine::CPropValue* pFrom, gfc::engine::CPropValue* pTo)
     {
         auto s = pFrom->asString();
@@ -40,7 +40,7 @@ public:
     }
     virtual CConverter* clone()
     {
-        return new CStringConverter(*this);
+        return new CStringConverter32(*this);
     }
 private:
     GfcTo2* m_pOwner;
@@ -213,7 +213,9 @@ void GfcTo2::changeStringConverter()
                 auto pConverter = pAttribte->converter();
                 if (pConverter && pConverter->next())
                 {
-                    pConverter->setNext(new CStringConverter(this));
+                    auto pStringConverter = new CStringConverter32(this);
+                    pConverter->setNext(pStringConverter);
+                    //pStringConverter->doTransform(nullptr, nullptr);
                 }
             }
         }

@@ -41,7 +41,7 @@ void CWriterImp::writeDoc(CDocument * pDoc)
 {
     auto itr = pDoc->getIterator();
     itr->first();
-    while (itr->isDone())
+    while (!itr->isDone())
     {
         auto pEntity = itr->current();
         writeEntity(pEntity.get());
