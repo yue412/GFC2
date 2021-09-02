@@ -640,3 +640,25 @@ TEST(TestGFCEngine, WriteColumnDemoFile)
 //    EXPECT_NEAR(1.0, vec->getY(), 1e-6);
 //}
 
+/*
+TEST(TestGFCEngine, ReadFile_1)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CReader reader(&oModel);
+    gfc::engine::CDocument document(&oModel);
+    auto result = reader.open(getFullPath(L"GJ_Column.rvt.gfc"));
+    EXPECT_EQ(true, result);
+    if (result)
+    {
+        reader.read(&document);
+        reader.close();
+
+        auto itr = document.getEntities(L"Gfc2Project");
+        itr->first();
+        EXPECT_EQ(false, itr->isDone());
+        auto pEntity = itr->current();
+        EXPECT_EQ(true, pEntity != nullptr);
+    }
+}
+*/
