@@ -13,499 +13,996 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{e572fe6b-58de-47d5-837c-03add317c339}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="NGfc2ArbitrarySection.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Arc2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Arc3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Bevel.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2BillDetail.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2BillTotal.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2BinaryBooleanResult.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2BlockShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Body.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2BooleanListProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2BooleanProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2BooleanResult.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Box3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2BrepBody.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Building.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2CircleHollowSection.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2CircleSection.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Coedge.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2CoedgeList.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2CoedgeListEx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Color.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2CommonPolygon.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2CommonPolygonEx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ComplexProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2CompositeCurve2dSweptSolidShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2CompositeCurve3dSweptSolidShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ConeShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ConnectionCurveGeometry.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ConnectionGeometry.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ConnectionPointGeometry.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ConnectionSurfaceGeometry.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ConnectionVolumeGeometry.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Coordinates2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Coordinates3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2CsgSolidShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2CuboidBody.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Curve2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Curve3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Cylinder.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2CylinderShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2DoubleListProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2DoubleProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Edge.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Element.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ElementShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ElementType.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Ellipse2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Ellipse3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2EllipseSection.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2EntityListProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2EntityProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ExtrudedAreaSolidShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ExtrudedAreaSolidTaperedShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ExtrudedBody.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Face.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Floor.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2GeoListProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Geometry.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2GeometryShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2GeoProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2HalfSpaceSolidShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Helicoid.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ImageCurve3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2IndexedColourMap.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2IndexedTextureMap.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2IntegerListProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2IntegerProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2InternalChart.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2InternalPt.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2IntersectionCurve3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Intervald.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2LightSource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2LightSourceAmbient.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2LightSourceDirectional.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2LightSourcePositional.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Line2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Line3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ListProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2LShapeSection.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ManifoldSolidShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Matrix.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2NurbsCtrlPt2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2NurbsCtrlPt3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2NurbsCurve2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2NurbsCurve3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2NurbsSurface.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Object.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2OffsetCurve2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ParameterizedSection.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2ParametricShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Plane.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PlaneCoef.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PlaneCurve3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PlaneInfo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Polygon.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PolyhedralEdge.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PolyhedralFace.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PolyhedralLoop.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PolyhedronBody.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PreimageCurve2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PrimitiveBody.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PrimitiveRenderable.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PrimitiveShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Project.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Property.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2PropertySet.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2QuotaDetail.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2QuotaTotal.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RectangleHollowSection.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RectangleSection.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RefString.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelAggregates.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelationShip.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelConnects.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelConnectsElements.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelConnectsPathElements.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelConnectsWithRealizingElements.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelCoversBldgElements.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelDecomposes.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelDefines.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelDefinesByProperties.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelDefinesByType.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RelVoidsElement.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Representation.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RepresentationItem.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RevolvedAreaSolidShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RevolvedAreaSolidTaperedShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Root.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2RuledSurface.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Section.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SectionListProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SectionProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Shape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SimpleLoop.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SimplePolygon.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SimpleProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SimpleVertex.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SinCurve2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SingleProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Site.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SolidShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SpatialStructureElement.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Sphere.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SphereShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SpiralLine2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SpiralLine3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SteelDetail.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SteelTotal.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2StringListProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2StringProperty.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Surface.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SurfaceCurveSweptAreaSolidShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SurfaceTexture.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Sweep.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SweepCurve3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2SweptAreaSolidShape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Topology.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Torus.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2TShapeSection.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2UnaryBooleanResult.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Vector2d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfc2Vector3d.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NTypeDef.h">
-      <Filter>头文件</Filter>
+    <ClCompile Include="NGfcEntity.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NGfcWriter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ArbitrarySection.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Arc2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Arc3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Bevel.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2BillDetail.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2BillTotal.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2BinaryBooleanResult.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2BlockShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Body.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2BooleanListProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2BooleanProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2BooleanResult.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Box3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2BrepBody.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Building.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2CircleHollowSection.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2CircleSection.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Coedge.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2CoedgeList.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2CoedgeListEx.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Color.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2CommonPolygon.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2CommonPolygonEx.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ComplexProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2CompositeCurve2dSweptSolidShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2CompositeCurve3dSweptSolidShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ConeShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ConnectionCurveGeometry.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ConnectionGeometry.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ConnectionPointGeometry.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ConnectionSurfaceGeometry.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ConnectionVolumeGeometry.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Coordinates2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Coordinates3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2CsgSolidShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2CuboidBody.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Curve2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Curve3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Cylinder.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2CylinderShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2DoubleListProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2DoubleProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Edge.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Element.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ElementShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ElementType.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Ellipse2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Ellipse3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2EllipseSection.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2EntityListProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2EntityProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ExtrudedAreaSolidShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ExtrudedAreaSolidTaperedShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ExtrudedBody.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Face.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Floor.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2GeoListProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Geometry.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2GeometryShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2GeoProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2HalfSpaceSolidShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Helicoid.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ImageCurve3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2IndexedColourMap.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2IndexedTextureMap.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2IntegerListProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2IntegerProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2InternalChart.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2InternalPt.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2IntersectionCurve3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Intervald.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2LightSource.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2LightSourceAmbient.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2LightSourceDirectional.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2LightSourcePositional.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Line2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Line3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ListProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2LShapeSection.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ManifoldSolidShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Matrix.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2NurbsCtrlPt2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2NurbsCtrlPt3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2NurbsCurve2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2NurbsCurve3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2NurbsSurface.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Object.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2OffsetCurve2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ParameterizedSection.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2ParametricShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Plane.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PlaneCoef.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PlaneCurve3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PlaneInfo.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Polygon.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PolyhedralEdge.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PolyhedralFace.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PolyhedralLoop.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PolyhedronBody.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PreimageCurve2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PrimitiveBody.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PrimitiveRenderable.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PrimitiveShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Project.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Property.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2PropertySet.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2QuotaDetail.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2QuotaTotal.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RectangleHollowSection.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RectangleSection.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RefString.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelAggregates.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelationShip.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelConnects.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelConnectsElements.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelConnectsPathElements.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelConnectsWithRealizingElements.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelCoversBldgElements.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelDecomposes.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelDefines.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelDefinesByProperties.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelDefinesByType.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RelVoidsElement.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Representation.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RepresentationItem.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RevolvedAreaSolidShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RevolvedAreaSolidTaperedShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Root.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2RuledSurface.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Section.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SectionListProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SectionProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Shape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SimpleLoop.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SimplePolygon.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SimpleProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SimpleVertex.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SinCurve2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SingleProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Site.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SolidShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SpatialStructureElement.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Sphere.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SphereShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SpiralLine2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SpiralLine3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SteelDetail.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SteelTotal.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2StringListProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2StringProperty.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Surface.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SurfaceCurveSweptAreaSolidShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SurfaceTexture.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Sweep.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SweepCurve3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2SweptAreaSolidShape.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Topology.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Torus.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2TShapeSection.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2UnaryBooleanResult.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Vector2d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfc2Vector3d.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Classes\NGfc2ArbitrarySection.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Arc2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Arc3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Bevel.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2BillDetail.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2BillTotal.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2BinaryBooleanResult.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2BlockShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Body.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2BooleanListProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2BooleanProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2BooleanResult.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Box3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2BrepBody.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Building.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2CircleHollowSection.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2CircleSection.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Coedge.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2CoedgeList.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2CoedgeListEx.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Color.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2CommonPolygon.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2CommonPolygonEx.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ComplexProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2CompositeCurve2dSweptSolidShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2CompositeCurve3dSweptSolidShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ConeShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ConnectionCurveGeometry.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ConnectionGeometry.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ConnectionPointGeometry.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ConnectionSurfaceGeometry.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ConnectionVolumeGeometry.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Coordinates2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Coordinates3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2CsgSolidShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2CuboidBody.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Curve2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Curve3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Cylinder.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2CylinderShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2DoubleListProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2DoubleProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Edge.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Element.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ElementShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ElementType.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Ellipse2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Ellipse3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2EllipseSection.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2EntityListProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2EntityProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ExtrudedAreaSolidShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ExtrudedAreaSolidTaperedShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ExtrudedBody.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Face.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Floor.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2GeoListProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Geometry.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2GeometryShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2GeoProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2HalfSpaceSolidShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Helicoid.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ImageCurve3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2IndexedColourMap.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2IndexedTextureMap.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2IntegerListProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2IntegerProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2InternalChart.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2InternalPt.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2IntersectionCurve3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Intervald.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2LightSource.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2LightSourceAmbient.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2LightSourceDirectional.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2LightSourcePositional.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Line2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Line3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ListProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2LShapeSection.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ManifoldSolidShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Matrix.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2NurbsCtrlPt2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2NurbsCtrlPt3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2NurbsCurve2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2NurbsCurve3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2NurbsSurface.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Object.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2OffsetCurve2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ParameterizedSection.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2ParametricShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Plane.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PlaneCoef.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PlaneCurve3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PlaneInfo.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Polygon.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PolyhedralEdge.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PolyhedralFace.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PolyhedralLoop.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PolyhedronBody.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PreimageCurve2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PrimitiveBody.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PrimitiveRenderable.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PrimitiveShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Project.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Property.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2PropertySet.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2QuotaDetail.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2QuotaTotal.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RectangleHollowSection.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RectangleSection.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RefString.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelAggregates.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelationShip.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelConnects.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelConnectsElements.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelConnectsPathElements.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelConnectsWithRealizingElements.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelCoversBldgElements.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelDecomposes.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelDefines.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelDefinesByProperties.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelDefinesByType.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RelVoidsElement.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Representation.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RepresentationItem.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RevolvedAreaSolidShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RevolvedAreaSolidTaperedShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Root.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2RuledSurface.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Section.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SectionListProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SectionProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Shape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SimpleLoop.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SimplePolygon.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SimpleProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SimpleVertex.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SinCurve2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SingleProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Site.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SolidShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SpatialStructureElement.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Sphere.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SphereShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SpiralLine2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SpiralLine3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SteelDetail.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SteelTotal.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2StringListProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2StringProperty.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Surface.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SurfaceCurveSweptAreaSolidShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SurfaceTexture.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Sweep.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SweepCurve3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2SweptAreaSolidShape.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Topology.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Torus.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2TShapeSection.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2UnaryBooleanResult.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Vector2d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfc2Vector3d.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NTypeDef.h">
+      <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="NGfcEntity.h">
       <Filter>头文件</Filter>
@@ -513,499 +1010,5 @@
     <ClInclude Include="NGfcWriter.h">
       <Filter>头文件</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="NGfc2ArbitrarySection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Arc2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Arc3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Bevel.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2BillDetail.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2BillTotal.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2BinaryBooleanResult.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2BlockShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Body.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2BooleanListProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2BooleanProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2BooleanResult.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Box3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2BrepBody.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Building.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2CircleHollowSection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2CircleSection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Coedge.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2CoedgeList.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2CoedgeListEx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Color.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2CommonPolygon.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2CommonPolygonEx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ComplexProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2CompositeCurve2dSweptSolidShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2CompositeCurve3dSweptSolidShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ConeShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ConnectionCurveGeometry.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ConnectionGeometry.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ConnectionPointGeometry.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ConnectionSurfaceGeometry.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ConnectionVolumeGeometry.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Coordinates2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Coordinates3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2CsgSolidShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2CuboidBody.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Curve2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Curve3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Cylinder.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2CylinderShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2DoubleListProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2DoubleProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Edge.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Element.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ElementShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ElementType.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Ellipse2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Ellipse3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2EllipseSection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2EntityListProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2EntityProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ExtrudedAreaSolidShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ExtrudedAreaSolidTaperedShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ExtrudedBody.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Face.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Floor.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2GeoListProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Geometry.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2GeometryShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2GeoProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2HalfSpaceSolidShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Helicoid.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ImageCurve3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2IndexedColourMap.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2IndexedTextureMap.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2IntegerListProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2IntegerProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2InternalChart.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2InternalPt.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2IntersectionCurve3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Intervald.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2LightSource.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2LightSourceAmbient.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2LightSourceDirectional.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2LightSourcePositional.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Line2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Line3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ListProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2LShapeSection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ManifoldSolidShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Matrix.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2NurbsCtrlPt2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2NurbsCtrlPt3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2NurbsCurve2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2NurbsCurve3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2NurbsSurface.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Object.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2OffsetCurve2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ParameterizedSection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2ParametricShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Plane.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PlaneCoef.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PlaneCurve3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PlaneInfo.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Polygon.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PolyhedralEdge.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PolyhedralFace.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PolyhedralLoop.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PolyhedronBody.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PreimageCurve2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PrimitiveBody.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PrimitiveRenderable.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PrimitiveShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Project.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Property.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2PropertySet.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2QuotaDetail.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2QuotaTotal.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RectangleHollowSection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RectangleSection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RefString.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelAggregates.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelationShip.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelConnects.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelConnectsElements.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelConnectsPathElements.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelConnectsWithRealizingElements.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelCoversBldgElements.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelDecomposes.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelDefines.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelDefinesByProperties.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelDefinesByType.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RelVoidsElement.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Representation.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RepresentationItem.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RevolvedAreaSolidShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RevolvedAreaSolidTaperedShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Root.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2RuledSurface.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Section.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SectionListProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SectionProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Shape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SimpleLoop.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SimplePolygon.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SimpleProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SimpleVertex.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SinCurve2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SingleProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Site.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SolidShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SpatialStructureElement.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Sphere.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SphereShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SpiralLine2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SpiralLine3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SteelDetail.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SteelTotal.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2StringListProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2StringProperty.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Surface.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SurfaceCurveSweptAreaSolidShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SurfaceTexture.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Sweep.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SweepCurve3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2SweptAreaSolidShape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Topology.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Torus.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2TShapeSection.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2UnaryBooleanResult.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Vector2d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfc2Vector3d.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfcEntity.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfcWriter.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
