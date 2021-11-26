@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RelVoidsElement.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RelVoidsElement::NGfc2RelVoidsElement()
 {
     m_pEntity = new Gfc2RelVoidsElement;
@@ -26,11 +28,6 @@ bool NGfc2RelVoidsElement::hasRelatedOpeningElement()
     return ((Gfc2RelVoidsElement*)m_pEntity)->hasRelatedOpeningElement();
 }
 
-NGfc2Element^ NGfc2RelVoidsElement::getRelatedOpeningElementPtr()
-{
-    return gcnew NGfc2Element(((Gfc2RelVoidsElement*)m_pEntity)->getRelatedOpeningElementPtr(), false);
-}
-
 int NGfc2RelVoidsElement::getRelatingBuildingElementCount()
 {
     return ((Gfc2RelVoidsElement*)m_pEntity)->getRelatingBuildingElementCount();
@@ -49,10 +46,5 @@ void NGfc2RelVoidsElement::addRelatingBuildingElement(gfc::engine::EntityRef nVa
 gfc::engine::EntityRef NGfc2RelVoidsElement::getRelatingBuildingElement(int nIndex)
 {
     return ((Gfc2RelVoidsElement*)m_pEntity)->getRelatingBuildingElement(nIndex);
-}
-
-NGfc2Element^ NGfc2RelVoidsElement::getRelatingBuildingElementPtr(int nIndex)
-{
-    return gcnew NGfc2Element(((Gfc2RelVoidsElement*)m_pEntity)->getRelatingBuildingElementPtr(nIndex), false);
 }
 

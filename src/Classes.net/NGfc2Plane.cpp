@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Plane.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Plane::NGfc2Plane()
 {
     m_pEntity = new Gfc2Plane;
@@ -26,11 +28,6 @@ bool NGfc2Plane::hasPos()
     return ((Gfc2Plane*)m_pEntity)->hasPos();
 }
 
-NGfc2Vector3d^ NGfc2Plane::getPosPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2Plane*)m_pEntity)->getPosPtr(), false);
-}
-
 void NGfc2Plane::setDirU(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Plane*)m_pEntity)->setDirU(nValue);
@@ -44,11 +41,6 @@ gfc::engine::EntityRef NGfc2Plane::getDirU()
 bool NGfc2Plane::hasDirU()
 {
     return ((Gfc2Plane*)m_pEntity)->hasDirU();
-}
-
-NGfc2Vector3d^ NGfc2Plane::getDirUPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2Plane*)m_pEntity)->getDirUPtr(), false);
 }
 
 void NGfc2Plane::setDirV(gfc::engine::EntityRef nValue)
@@ -66,11 +58,6 @@ bool NGfc2Plane::hasDirV()
     return ((Gfc2Plane*)m_pEntity)->hasDirV();
 }
 
-NGfc2Vector3d^ NGfc2Plane::getDirVPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2Plane*)m_pEntity)->getDirVPtr(), false);
-}
-
 void NGfc2Plane::setRangeU(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Plane*)m_pEntity)->setRangeU(nValue);
@@ -86,11 +73,6 @@ bool NGfc2Plane::hasRangeU()
     return ((Gfc2Plane*)m_pEntity)->hasRangeU();
 }
 
-NGfc2Intervald^ NGfc2Plane::getRangeUPtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2Plane*)m_pEntity)->getRangeUPtr(), false);
-}
-
 void NGfc2Plane::setRangeV(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Plane*)m_pEntity)->setRangeV(nValue);
@@ -104,10 +86,5 @@ gfc::engine::EntityRef NGfc2Plane::getRangeV()
 bool NGfc2Plane::hasRangeV()
 {
     return ((Gfc2Plane*)m_pEntity)->hasRangeV();
-}
-
-NGfc2Intervald^ NGfc2Plane::getRangeVPtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2Plane*)m_pEntity)->getRangeVPtr(), false);
 }
 

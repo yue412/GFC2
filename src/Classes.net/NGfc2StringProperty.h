@@ -2,9 +2,8 @@
 #define NGFC2STRINGPROPERTY_H
 
 #include "NGfc2SingleProperty.h"
-#include "Gfc2StringProperty.h"
+#include "GfcClasses\x3\Gfc2StringProperty.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;

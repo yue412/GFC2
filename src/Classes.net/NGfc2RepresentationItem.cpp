@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RepresentationItem.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RepresentationItem::NGfc2RepresentationItem()
 {
     m_pEntity = new Gfc2RepresentationItem;

@@ -2,10 +2,9 @@
 #define NGFC2ELEMENTSHAPE_H
 
 #include "NGfc2Root.h"
-#include "Gfc2ElementShape.h"
+#include "GfcClasses\x3\Gfc2ElementShape.h"
 #include "NGfc2Shape.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;
@@ -22,7 +21,6 @@ public:
     void setShape(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getShape();
     bool hasShape();
-    NGfc2Shape^ getShapePtr();
 
 };
 #endif

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SweepCurve3d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SweepCurve3d::NGfc2SweepCurve3d()
 {
     m_pEntity = new Gfc2SweepCurve3d;
@@ -26,11 +28,6 @@ bool NGfc2SweepCurve3d::hasSpine3d()
     return ((Gfc2SweepCurve3d*)m_pEntity)->hasSpine3d();
 }
 
-NGfc2Curve3d^ NGfc2SweepCurve3d::getSpine3dPtr()
-{
-    return gcnew NGfc2Curve3d(((Gfc2SweepCurve3d*)m_pEntity)->getSpine3dPtr(), false);
-}
-
 void NGfc2SweepCurve3d::setReferenceVector(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SweepCurve3d*)m_pEntity)->setReferenceVector(nValue);
@@ -46,11 +43,6 @@ bool NGfc2SweepCurve3d::hasReferenceVector()
     return ((Gfc2SweepCurve3d*)m_pEntity)->hasReferenceVector();
 }
 
-NGfc2Vector3d^ NGfc2SweepCurve3d::getReferenceVectorPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2SweepCurve3d*)m_pEntity)->getReferenceVectorPtr(), false);
-}
-
 void NGfc2SweepCurve3d::setPoint(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SweepCurve3d*)m_pEntity)->setPoint(nValue);
@@ -64,11 +56,6 @@ gfc::engine::EntityRef NGfc2SweepCurve3d::getPoint()
 bool NGfc2SweepCurve3d::hasPoint()
 {
     return ((Gfc2SweepCurve3d*)m_pEntity)->hasPoint();
-}
-
-NGfc2Vector2d^ NGfc2SweepCurve3d::getPointPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2SweepCurve3d*)m_pEntity)->getPointPtr(), false);
 }
 
 void NGfc2SweepCurve3d::setSweepType(NGfc2SweepType nValue)

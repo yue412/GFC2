@@ -2,10 +2,9 @@
 #define NGFC2PLANECURVE3D_H
 
 #include "NGfc2Curve3d.h"
-#include "Gfc2PlaneCurve3d.h"
+#include "GfcClasses\x3\Gfc2PlaneCurve3d.h"
 #include "NGfc2Curve2d.h"
 #include "NGfc2PlaneInfo.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2PlaneCurve3d: public NGfc2Curve3d
 {
@@ -15,11 +14,9 @@ public:
     void setPlaneCurve(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPlaneCurve();
     bool hasPlaneCurve();
-    NGfc2Curve2d^ getPlaneCurvePtr();
     void setPlane(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPlane();
     bool hasPlane();
-    NGfc2PlaneInfo^ getPlanePtr();
 
 };
 #endif

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RelDefines.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RelDefines::NGfc2RelDefines()
 {
     m_pEntity = new Gfc2RelDefines;

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2GeometryShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2GeometryShape::NGfc2GeometryShape()
 {
     m_pEntity = new Gfc2GeometryShape;
@@ -29,10 +31,5 @@ void NGfc2GeometryShape::addGeos(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2GeometryShape::getGeos(int nIndex)
 {
     return ((Gfc2GeometryShape*)m_pEntity)->getGeos(nIndex);
-}
-
-NGfc2Geometry^ NGfc2GeometryShape::getGeosPtr(int nIndex)
-{
-    return gcnew NGfc2Geometry(((Gfc2GeometryShape*)m_pEntity)->getGeosPtr(nIndex), false);
 }
 

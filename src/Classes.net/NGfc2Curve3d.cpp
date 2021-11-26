@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Curve3d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Curve3d::NGfc2Curve3d()
 {
     m_pEntity = new Gfc2Curve3d;

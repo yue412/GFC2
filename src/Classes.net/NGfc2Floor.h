@@ -2,9 +2,8 @@
 #define NGFC2FLOOR_H
 
 #include "NGfc2SpatialStructureElement.h"
-#include "Gfc2Floor.h"
+#include "GfcClasses\x3\Gfc2Floor.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;

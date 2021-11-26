@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Representation.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Representation::NGfc2Representation()
 {
     m_pEntity = new Gfc2Representation;
@@ -13,7 +15,7 @@ NGfc2Representation::NGfc2Representation(void* pEntity, bool bOwner):
 
 void NGfc2Representation::setIdentifier(NGfc2String sValue)
 {
-    ((Gfc2Representation*)m_pEntity)->setIdentifier(marshal_as<std::string>(sValue));
+    ((Gfc2Representation*)m_pEntity)->setIdentifier(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2Representation::getIdentifier()
@@ -44,10 +46,5 @@ void NGfc2Representation::additems(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2Representation::getitems(int nIndex)
 {
     return ((Gfc2Representation*)m_pEntity)->getitems(nIndex);
-}
-
-NGfc2RepresentationItem^ NGfc2Representation::getitemsPtr(int nIndex)
-{
-    return gcnew NGfc2RepresentationItem(((Gfc2Representation*)m_pEntity)->getitemsPtr(nIndex), false);
 }
 

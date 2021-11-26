@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2InternalChart.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2InternalChart::NGfc2InternalChart()
 {
     m_pEntity = new Gfc2InternalChart;
@@ -74,10 +76,5 @@ void NGfc2InternalChart::addIPS(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2InternalChart::getIPS(int nIndex)
 {
     return ((Gfc2InternalChart*)m_pEntity)->getIPS(nIndex);
-}
-
-NGfc2InternalPt^ NGfc2InternalChart::getIPSPtr(int nIndex)
-{
-    return gcnew NGfc2InternalPt(((Gfc2InternalChart*)m_pEntity)->getIPSPtr(nIndex), false);
 }
 

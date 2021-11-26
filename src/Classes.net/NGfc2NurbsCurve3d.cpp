@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2NurbsCurve3d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2NurbsCurve3d::NGfc2NurbsCurve3d()
 {
     m_pEntity = new Gfc2NurbsCurve3d;
@@ -44,11 +46,6 @@ void NGfc2NurbsCurve3d::addCtrlPts(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2NurbsCurve3d::getCtrlPts(int nIndex)
 {
     return ((Gfc2NurbsCurve3d*)m_pEntity)->getCtrlPts(nIndex);
-}
-
-NGfc2NurbsCtrlPt3d^ NGfc2NurbsCurve3d::getCtrlPtsPtr(int nIndex)
-{
-    return gcnew NGfc2NurbsCtrlPt3d(((Gfc2NurbsCurve3d*)m_pEntity)->getCtrlPtsPtr(nIndex), false);
 }
 
 int NGfc2NurbsCurve3d::getKnotsCount()

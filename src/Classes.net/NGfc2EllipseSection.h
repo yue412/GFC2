@@ -2,9 +2,8 @@
 #define NGFC2ELLIPSESECTION_H
 
 #include "NGfc2ParameterizedSection.h"
-#include "Gfc2EllipseSection.h"
+#include "GfcClasses\x3\Gfc2EllipseSection.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2EllipseSection: public NGfc2ParameterizedSection
 {

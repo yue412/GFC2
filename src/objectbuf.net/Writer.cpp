@@ -1,14 +1,14 @@
 #include "Writer.h"
 #include <msclr\marshal_cppstd.h>
+#include "GfcClasses\x3\GfcWriter.h"
 
 using namespace msclr::interop;
 
-namespace glodon {
-namespace objectbufnet {
+namespace gfc { namespace engine { namespace net {
 
-Writer::Writer(void)
+Writer::Writer(String^ sProductCode)
 {
-    m_pWriter = new glodon::objectbuf::Writer();
+    m_pWriter = new gfc::classes::x3::GfcWriter(marshal_as<std::wstring>(sProductCode));
 }
 
 Writer::~Writer()
@@ -16,9 +16,9 @@ Writer::~Writer()
     delete m_pWriter;
 }
 
-bool Writer::open( String^ sFileName, bool bIsBinary /*= true*/, String^ sProductCode /*= ""*/ )
+bool Writer::open( String^ sFileName, String^ sFormatType /*= ""*/ )
 {
-    return m_pWriter->open(marshal_as<std::string>(sFileName), bIsBinary,  marshal_as<std::string>(sProductCode));
+    return m_pWriter->open(marshal_as<std::wstring>(sFileName), marshal_as<std::wstring>(sFormatType));
 }
 
 void Writer::close()
@@ -26,10 +26,9 @@ void Writer::close()
     m_pWriter->close();
 }
 
-glodon::objectbuf::EntityRef Writer::writeEntity( Entity^ pEntity )
+gfc::engine::EntityRef Writer::writeEntity( Entity^ pEntity )
 {
     return m_pWriter->writeEntity(pEntity->getEntity());
 }
 
-}
-}
+}}}

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ConnectionPointGeometry.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ConnectionPointGeometry::NGfc2ConnectionPointGeometry()
 {
     m_pEntity = new Gfc2ConnectionPointGeometry;
@@ -26,11 +28,6 @@ bool NGfc2ConnectionPointGeometry::hasPointOnRelatingElement()
     return ((Gfc2ConnectionPointGeometry*)m_pEntity)->hasPointOnRelatingElement();
 }
 
-NGfc2Vector3d^ NGfc2ConnectionPointGeometry::getPointOnRelatingElementPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2ConnectionPointGeometry*)m_pEntity)->getPointOnRelatingElementPtr(), false);
-}
-
 void NGfc2ConnectionPointGeometry::setPointOnRelatedElement(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionPointGeometry*)m_pEntity)->setPointOnRelatedElement(nValue);
@@ -44,10 +41,5 @@ gfc::engine::EntityRef NGfc2ConnectionPointGeometry::getPointOnRelatedElement()
 bool NGfc2ConnectionPointGeometry::hasPointOnRelatedElement()
 {
     return ((Gfc2ConnectionPointGeometry*)m_pEntity)->hasPointOnRelatedElement();
-}
-
-NGfc2Vector3d^ NGfc2ConnectionPointGeometry::getPointOnRelatedElementPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2ConnectionPointGeometry*)m_pEntity)->getPointOnRelatedElementPtr(), false);
 }
 

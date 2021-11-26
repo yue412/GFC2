@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SimpleProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SimpleProperty::NGfc2SimpleProperty()
 {
     m_pEntity = new Gfc2SimpleProperty;

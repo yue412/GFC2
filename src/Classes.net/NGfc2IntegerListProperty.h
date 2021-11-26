@@ -2,9 +2,8 @@
 #define NGFC2INTEGERLISTPROPERTY_H
 
 #include "NGfc2ListProperty.h"
-#include "Gfc2IntegerListProperty.h"
+#include "GfcClasses\x3\Gfc2IntegerListProperty.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2IntegerListProperty: public NGfc2ListProperty
 {

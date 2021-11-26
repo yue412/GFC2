@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Sphere.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Sphere::NGfc2Sphere()
 {
     m_pEntity = new Gfc2Sphere;
@@ -41,11 +43,6 @@ bool NGfc2Sphere::hasCoords()
     return ((Gfc2Sphere*)m_pEntity)->hasCoords();
 }
 
-NGfc2Coordinates3d^ NGfc2Sphere::getCoordsPtr()
-{
-    return gcnew NGfc2Coordinates3d(((Gfc2Sphere*)m_pEntity)->getCoordsPtr(), false);
-}
-
 void NGfc2Sphere::setRangeU(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Sphere*)m_pEntity)->setRangeU(nValue);
@@ -61,11 +58,6 @@ bool NGfc2Sphere::hasRangeU()
     return ((Gfc2Sphere*)m_pEntity)->hasRangeU();
 }
 
-NGfc2Intervald^ NGfc2Sphere::getRangeUPtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2Sphere*)m_pEntity)->getRangeUPtr(), false);
-}
-
 void NGfc2Sphere::setRangeV(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Sphere*)m_pEntity)->setRangeV(nValue);
@@ -79,10 +71,5 @@ gfc::engine::EntityRef NGfc2Sphere::getRangeV()
 bool NGfc2Sphere::hasRangeV()
 {
     return ((Gfc2Sphere*)m_pEntity)->hasRangeV();
-}
-
-NGfc2Intervald^ NGfc2Sphere::getRangeVPtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2Sphere*)m_pEntity)->getRangeVPtr(), false);
 }
 

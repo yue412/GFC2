@@ -2,9 +2,8 @@
 #define NGFC2OFFSETCURVE2D_H
 
 #include "NGfc2Curve2d.h"
-#include "Gfc2OffsetCurve2d.h"
+#include "GfcClasses\x3\Gfc2OffsetCurve2d.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2OffsetCurve2d: public NGfc2Curve2d
 {
@@ -17,7 +16,6 @@ public:
     void setInitCurve(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getInitCurve();
     bool hasInitCurve();
-    NGfc2Curve2d^ getInitCurvePtr();
 
 };
 #endif

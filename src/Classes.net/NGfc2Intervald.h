@@ -2,9 +2,8 @@
 #define NGFC2INTERVALD_H
 
 #include "NGfc2Geometry.h"
-#include "Gfc2Intervald.h"
+#include "GfcClasses\x3\Gfc2Intervald.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Intervald: public NGfc2Geometry
 {

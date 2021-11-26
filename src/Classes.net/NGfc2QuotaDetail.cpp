@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2QuotaDetail.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2QuotaDetail::NGfc2QuotaDetail()
 {
     m_pEntity = new Gfc2QuotaDetail;
@@ -43,7 +45,7 @@ bool NGfc2QuotaDetail::hasEntityID()
 
 void NGfc2QuotaDetail::setUnit(NGfc2String sValue)
 {
-    ((Gfc2QuotaDetail*)m_pEntity)->setUnit(marshal_as<std::string>(sValue));
+    ((Gfc2QuotaDetail*)m_pEntity)->setUnit(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2QuotaDetail::getUnit()
@@ -58,7 +60,7 @@ bool NGfc2QuotaDetail::hasUnit()
 
 void NGfc2QuotaDetail::setExpress(NGfc2String sValue)
 {
-    ((Gfc2QuotaDetail*)m_pEntity)->setExpress(marshal_as<std::string>(sValue));
+    ((Gfc2QuotaDetail*)m_pEntity)->setExpress(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2QuotaDetail::getExpress()
@@ -73,7 +75,7 @@ bool NGfc2QuotaDetail::hasExpress()
 
 void NGfc2QuotaDetail::setQuantity(NGfc2String sValue)
 {
-    ((Gfc2QuotaDetail*)m_pEntity)->setQuantity(marshal_as<std::string>(sValue));
+    ((Gfc2QuotaDetail*)m_pEntity)->setQuantity(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2QuotaDetail::getQuantity()
@@ -88,7 +90,7 @@ bool NGfc2QuotaDetail::hasQuantity()
 
 void NGfc2QuotaDetail::setMemo(NGfc2String sValue)
 {
-    ((Gfc2QuotaDetail*)m_pEntity)->setMemo(marshal_as<std::string>(sValue));
+    ((Gfc2QuotaDetail*)m_pEntity)->setMemo(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2QuotaDetail::getMemo()

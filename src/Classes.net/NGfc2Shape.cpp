@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Shape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Shape::NGfc2Shape()
 {
     m_pEntity = new Gfc2Shape;
@@ -26,11 +28,6 @@ bool NGfc2Shape::hasLocalCoordinate()
     return ((Gfc2Shape*)m_pEntity)->hasLocalCoordinate();
 }
 
-NGfc2Coordinates3d^ NGfc2Shape::getLocalCoordinatePtr()
-{
-    return gcnew NGfc2Coordinates3d(((Gfc2Shape*)m_pEntity)->getLocalCoordinatePtr(), false);
-}
-
 void NGfc2Shape::setBoundingBox(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Shape*)m_pEntity)->setBoundingBox(nValue);
@@ -44,10 +41,5 @@ gfc::engine::EntityRef NGfc2Shape::getBoundingBox()
 bool NGfc2Shape::hasBoundingBox()
 {
     return ((Gfc2Shape*)m_pEntity)->hasBoundingBox();
-}
-
-NGfc2Box3d^ NGfc2Shape::getBoundingBoxPtr()
-{
-    return gcnew NGfc2Box3d(((Gfc2Shape*)m_pEntity)->getBoundingBoxPtr(), false);
 }
 

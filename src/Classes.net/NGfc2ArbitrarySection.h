@@ -2,9 +2,8 @@
 #define NGFC2ARBITRARYSECTION_H
 
 #include "NGfc2Section.h"
-#include "Gfc2ArbitrarySection.h"
+#include "GfcClasses\x3\Gfc2ArbitrarySection.h"
 #include "NGfc2Polygon.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2ArbitrarySection: public NGfc2Section
 {
@@ -14,7 +13,6 @@ public:
     void setPoly(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPoly();
     bool hasPoly();
-    NGfc2Polygon^ getPolyPtr();
 
 };
 #endif

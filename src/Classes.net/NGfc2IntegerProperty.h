@@ -2,9 +2,8 @@
 #define NGFC2INTEGERPROPERTY_H
 
 #include "NGfc2SingleProperty.h"
-#include "Gfc2IntegerProperty.h"
+#include "GfcClasses\x3\Gfc2IntegerProperty.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2IntegerProperty: public NGfc2SingleProperty
 {

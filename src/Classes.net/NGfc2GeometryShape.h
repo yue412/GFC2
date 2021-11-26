@@ -2,9 +2,8 @@
 #define NGFC2GEOMETRYSHAPE_H
 
 #include "NGfc2Shape.h"
-#include "Gfc2GeometryShape.h"
+#include "GfcClasses\x3\Gfc2GeometryShape.h"
 #include "NGfc2Geometry.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2GeometryShape: public NGfc2Shape
 {
@@ -15,7 +14,6 @@ public:
     void clearGeos();
     void addGeos(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getGeos(int nIndex);
-    NGfc2Geometry^ getGeosPtr(int nIndex);
 
 };
 #endif

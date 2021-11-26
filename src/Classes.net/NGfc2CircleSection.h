@@ -2,9 +2,8 @@
 #define NGFC2CIRCLESECTION_H
 
 #include "NGfc2ParameterizedSection.h"
-#include "Gfc2CircleSection.h"
+#include "GfcClasses\x3\Gfc2CircleSection.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2CircleSection: public NGfc2ParameterizedSection
 {

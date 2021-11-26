@@ -2,9 +2,8 @@
 #define NGFC2BILLDETAIL_H
 
 #include "NGfc2Root.h"
-#include "Gfc2BillDetail.h"
+#include "GfcClasses\x3\Gfc2BillDetail.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;

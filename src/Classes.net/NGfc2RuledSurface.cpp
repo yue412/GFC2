@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RuledSurface.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RuledSurface::NGfc2RuledSurface()
 {
     m_pEntity = new Gfc2RuledSurface;
@@ -41,11 +43,6 @@ bool NGfc2RuledSurface::hasRangeV()
     return ((Gfc2RuledSurface*)m_pEntity)->hasRangeV();
 }
 
-NGfc2Intervald^ NGfc2RuledSurface::getRangeVPtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2RuledSurface*)m_pEntity)->getRangeVPtr(), false);
-}
-
 void NGfc2RuledSurface::setRangeU(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RuledSurface*)m_pEntity)->setRangeU(nValue);
@@ -59,11 +56,6 @@ gfc::engine::EntityRef NGfc2RuledSurface::getRangeU()
 bool NGfc2RuledSurface::hasRangeU()
 {
     return ((Gfc2RuledSurface*)m_pEntity)->hasRangeU();
-}
-
-NGfc2Intervald^ NGfc2RuledSurface::getRangeUPtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2RuledSurface*)m_pEntity)->getRangeUPtr(), false);
 }
 
 void NGfc2RuledSurface::setDirectrix1(gfc::engine::EntityRef nValue)
@@ -81,11 +73,6 @@ bool NGfc2RuledSurface::hasDirectrix1()
     return ((Gfc2RuledSurface*)m_pEntity)->hasDirectrix1();
 }
 
-NGfc2Curve3d^ NGfc2RuledSurface::getDirectrix1Ptr()
-{
-    return gcnew NGfc2Curve3d(((Gfc2RuledSurface*)m_pEntity)->getDirectrix1Ptr(), false);
-}
-
 void NGfc2RuledSurface::setDirectrix2(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RuledSurface*)m_pEntity)->setDirectrix2(nValue);
@@ -99,10 +86,5 @@ gfc::engine::EntityRef NGfc2RuledSurface::getDirectrix2()
 bool NGfc2RuledSurface::hasDirectrix2()
 {
     return ((Gfc2RuledSurface*)m_pEntity)->hasDirectrix2();
-}
-
-NGfc2Curve3d^ NGfc2RuledSurface::getDirectrix2Ptr()
-{
-    return gcnew NGfc2Curve3d(((Gfc2RuledSurface*)m_pEntity)->getDirectrix2Ptr(), false);
 }
 

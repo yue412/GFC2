@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RectangleSection.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RectangleSection::NGfc2RectangleSection()
 {
     m_pEntity = new Gfc2RectangleSection;

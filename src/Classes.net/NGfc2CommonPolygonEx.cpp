@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2CommonPolygonEx.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2CommonPolygonEx::NGfc2CommonPolygonEx()
 {
     m_pEntity = new Gfc2CommonPolygonEx;
@@ -29,10 +31,5 @@ void NGfc2CommonPolygonEx::addLoopExs(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2CommonPolygonEx::getLoopExs(int nIndex)
 {
     return ((Gfc2CommonPolygonEx*)m_pEntity)->getLoopExs(nIndex);
-}
-
-NGfc2CoedgeListEx^ NGfc2CommonPolygonEx::getLoopExsPtr(int nIndex)
-{
-    return gcnew NGfc2CoedgeListEx(((Gfc2CommonPolygonEx*)m_pEntity)->getLoopExsPtr(nIndex), false);
 }
 

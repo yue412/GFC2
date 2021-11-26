@@ -2,9 +2,8 @@
 #define NGFC2SIMPLEPOLYGON_H
 
 #include "NGfc2Polygon.h"
-#include "Gfc2SimplePolygon.h"
+#include "GfcClasses\x3\Gfc2SimplePolygon.h"
 #include "NGfc2SimpleLoop.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2SimplePolygon: public NGfc2Polygon
 {
@@ -15,7 +14,6 @@ public:
     void clearLoops();
     void addLoops(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getLoops(int nIndex);
-    NGfc2SimpleLoop^ getLoopsPtr(int nIndex);
 
 };
 #endif

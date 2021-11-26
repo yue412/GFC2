@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2UnaryBooleanResult.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2UnaryBooleanResult::NGfc2UnaryBooleanResult()
 {
     m_pEntity = new Gfc2UnaryBooleanResult;
@@ -24,10 +26,5 @@ gfc::engine::EntityRef NGfc2UnaryBooleanResult::getOperand()
 bool NGfc2UnaryBooleanResult::hasOperand()
 {
     return ((Gfc2UnaryBooleanResult*)m_pEntity)->hasOperand();
-}
-
-NGfc2SolidShape^ NGfc2UnaryBooleanResult::getOperandPtr()
-{
-    return gcnew NGfc2SolidShape(((Gfc2UnaryBooleanResult*)m_pEntity)->getOperandPtr(), false);
 }
 

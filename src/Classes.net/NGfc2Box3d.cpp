@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Box3d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Box3d::NGfc2Box3d()
 {
     m_pEntity = new Gfc2Box3d;
@@ -26,11 +28,6 @@ bool NGfc2Box3d::hasMin()
     return ((Gfc2Box3d*)m_pEntity)->hasMin();
 }
 
-NGfc2Vector3d^ NGfc2Box3d::getMinPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2Box3d*)m_pEntity)->getMinPtr(), false);
-}
-
 void NGfc2Box3d::setMax(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Box3d*)m_pEntity)->setMax(nValue);
@@ -44,10 +41,5 @@ gfc::engine::EntityRef NGfc2Box3d::getMax()
 bool NGfc2Box3d::hasMax()
 {
     return ((Gfc2Box3d*)m_pEntity)->hasMax();
-}
-
-NGfc2Vector3d^ NGfc2Box3d::getMaxPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2Box3d*)m_pEntity)->getMaxPtr(), false);
 }
 

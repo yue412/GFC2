@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2PreimageCurve2d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2PreimageCurve2d::NGfc2PreimageCurve2d()
 {
     m_pEntity = new Gfc2PreimageCurve2d;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2PreimageCurve2d::getRange()
 bool NGfc2PreimageCurve2d::hasRange()
 {
     return ((Gfc2PreimageCurve2d*)m_pEntity)->hasRange();
-}
-
-NGfc2Intervald^ NGfc2PreimageCurve2d::getRangePtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2PreimageCurve2d*)m_pEntity)->getRangePtr(), false);
 }
 
 void NGfc2PreimageCurve2d::setReversed(NGfc2Boolean bValue)
@@ -61,11 +58,6 @@ bool NGfc2PreimageCurve2d::hasBase()
     return ((Gfc2PreimageCurve2d*)m_pEntity)->hasBase();
 }
 
-NGfc2Surface^ NGfc2PreimageCurve2d::getBasePtr()
-{
-    return gcnew NGfc2Surface(((Gfc2PreimageCurve2d*)m_pEntity)->getBasePtr(), false);
-}
-
 void NGfc2PreimageCurve2d::setCurve(gfc::engine::EntityRef nValue)
 {
     ((Gfc2PreimageCurve2d*)m_pEntity)->setCurve(nValue);
@@ -79,11 +71,6 @@ gfc::engine::EntityRef NGfc2PreimageCurve2d::getCurve()
 bool NGfc2PreimageCurve2d::hasCurve()
 {
     return ((Gfc2PreimageCurve2d*)m_pEntity)->hasCurve();
-}
-
-NGfc2Curve3d^ NGfc2PreimageCurve2d::getCurvePtr()
-{
-    return gcnew NGfc2Curve3d(((Gfc2PreimageCurve2d*)m_pEntity)->getCurvePtr(), false);
 }
 
 void NGfc2PreimageCurve2d::setTolerance(NGfc2Double dValue)

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Line3d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Line3d::NGfc2Line3d()
 {
     m_pEntity = new Gfc2Line3d;
@@ -26,11 +28,6 @@ bool NGfc2Line3d::hasStartPt()
     return ((Gfc2Line3d*)m_pEntity)->hasStartPt();
 }
 
-NGfc2Vector3d^ NGfc2Line3d::getStartPtPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2Line3d*)m_pEntity)->getStartPtPtr(), false);
-}
-
 void NGfc2Line3d::setEndPt(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Line3d*)m_pEntity)->setEndPt(nValue);
@@ -44,10 +41,5 @@ gfc::engine::EntityRef NGfc2Line3d::getEndPt()
 bool NGfc2Line3d::hasEndPt()
 {
     return ((Gfc2Line3d*)m_pEntity)->hasEndPt();
-}
-
-NGfc2Vector3d^ NGfc2Line3d::getEndPtPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2Line3d*)m_pEntity)->getEndPtPtr(), false);
 }
 

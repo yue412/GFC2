@@ -2,8 +2,7 @@
 #define NGFC2SURFACE_H
 
 #include "NGfc2Geometry.h"
-#include "Gfc2Surface.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2Surface.h"
 
 public ref class NGfc2Surface: public NGfc2Geometry
 {

@@ -2,9 +2,8 @@
 #define NGFC2MATRIX_H
 
 #include "NGfc2Geometry.h"
-#include "Gfc2Matrix.h"
+#include "GfcClasses\x3\Gfc2Matrix.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Matrix: public NGfc2Geometry
 {

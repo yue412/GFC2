@@ -2,9 +2,8 @@
 #define NGFC2CONESHAPE_H
 
 #include "NGfc2PrimitiveShape.h"
-#include "Gfc2ConeShape.h"
+#include "GfcClasses\x3\Gfc2ConeShape.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2ConeShape: public NGfc2PrimitiveShape
 {

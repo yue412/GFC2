@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RelConnectsElements.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RelConnectsElements::NGfc2RelConnectsElements()
 {
     m_pEntity = new Gfc2RelConnectsElements;
@@ -26,11 +28,6 @@ bool NGfc2RelConnectsElements::hasRelatingElement()
     return ((Gfc2RelConnectsElements*)m_pEntity)->hasRelatingElement();
 }
 
-NGfc2Element^ NGfc2RelConnectsElements::getRelatingElementPtr()
-{
-    return gcnew NGfc2Element(((Gfc2RelConnectsElements*)m_pEntity)->getRelatingElementPtr(), false);
-}
-
 void NGfc2RelConnectsElements::setRelatedElement(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RelConnectsElements*)m_pEntity)->setRelatedElement(nValue);
@@ -46,11 +43,6 @@ bool NGfc2RelConnectsElements::hasRelatedElement()
     return ((Gfc2RelConnectsElements*)m_pEntity)->hasRelatedElement();
 }
 
-NGfc2Element^ NGfc2RelConnectsElements::getRelatedElementPtr()
-{
-    return gcnew NGfc2Element(((Gfc2RelConnectsElements*)m_pEntity)->getRelatedElementPtr(), false);
-}
-
 void NGfc2RelConnectsElements::setConnectionGeometry(gfc::engine::EntityRef nValue)
 {
     ((Gfc2RelConnectsElements*)m_pEntity)->setConnectionGeometry(nValue);
@@ -64,10 +56,5 @@ gfc::engine::EntityRef NGfc2RelConnectsElements::getConnectionGeometry()
 bool NGfc2RelConnectsElements::hasConnectionGeometry()
 {
     return ((Gfc2RelConnectsElements*)m_pEntity)->hasConnectionGeometry();
-}
-
-NGfc2ConnectionGeometry^ NGfc2RelConnectsElements::getConnectionGeometryPtr()
-{
-    return gcnew NGfc2ConnectionGeometry(((Gfc2RelConnectsElements*)m_pEntity)->getConnectionGeometryPtr(), false);
 }
 

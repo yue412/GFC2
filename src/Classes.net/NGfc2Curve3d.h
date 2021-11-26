@@ -2,8 +2,7 @@
 #define NGFC2CURVE3D_H
 
 #include "NGfc2Geometry.h"
-#include "Gfc2Curve3d.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2Curve3d.h"
 
 public ref class NGfc2Curve3d: public NGfc2Geometry
 {

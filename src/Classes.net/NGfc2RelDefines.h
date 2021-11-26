@@ -2,8 +2,7 @@
 #define NGFC2RELDEFINES_H
 
 #include "NGfc2RelationShip.h"
-#include "Gfc2RelDefines.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2RelDefines.h"
 
 public ref class NGfc2RelDefines: public NGfc2RelationShip
 {

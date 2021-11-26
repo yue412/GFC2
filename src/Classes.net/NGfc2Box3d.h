@@ -2,9 +2,8 @@
 #define NGFC2BOX3D_H
 
 #include "NGfc2Geometry.h"
-#include "Gfc2Box3d.h"
+#include "GfcClasses\x3\Gfc2Box3d.h"
 #include "NGfc2Vector3d.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Box3d: public NGfc2Geometry
 {
@@ -14,11 +13,9 @@ public:
     void setMin(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getMin();
     bool hasMin();
-    NGfc2Vector3d^ getMinPtr();
     void setMax(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getMax();
     bool hasMax();
-    NGfc2Vector3d^ getMaxPtr();
 
 };
 #endif

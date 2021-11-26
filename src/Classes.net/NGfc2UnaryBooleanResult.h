@@ -2,9 +2,8 @@
 #define NGFC2UNARYBOOLEANRESULT_H
 
 #include "NGfc2BooleanResult.h"
-#include "Gfc2UnaryBooleanResult.h"
+#include "GfcClasses\x3\Gfc2UnaryBooleanResult.h"
 #include "NGfc2SolidShape.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2UnaryBooleanResult: public NGfc2BooleanResult
 {
@@ -14,7 +13,6 @@ public:
     void setOperand(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getOperand();
     bool hasOperand();
-    NGfc2SolidShape^ getOperandPtr();
 
 };
 #endif

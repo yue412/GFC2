@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Matrix.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Matrix::NGfc2Matrix()
 {
     m_pEntity = new Gfc2Matrix;

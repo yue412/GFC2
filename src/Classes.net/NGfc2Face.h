@@ -2,11 +2,10 @@
 #define NGFC2FACE_H
 
 #include "NGfc2CommonPolygonEx.h"
-#include "Gfc2Face.h"
+#include "GfcClasses\x3\Gfc2Face.h"
 #include "NGfc2Surface.h"
 #include "NGfc2Box3d.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Face: public NGfc2CommonPolygonEx
 {
@@ -16,11 +15,9 @@ public:
     void setSurface(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getSurface();
     bool hasSurface();
-    NGfc2Surface^ getSurfacePtr();
     void setBox(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getBox();
     bool hasBox();
-    NGfc2Box3d^ getBoxPtr();
     void setSameDir(NGfc2Boolean bValue);
     NGfc2Boolean getSameDir();
     bool hasSameDir();

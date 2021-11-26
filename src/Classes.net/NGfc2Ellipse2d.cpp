@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Ellipse2d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Ellipse2d::NGfc2Ellipse2d()
 {
     m_pEntity = new Gfc2Ellipse2d;
@@ -26,11 +28,6 @@ bool NGfc2Ellipse2d::hasCenterPt()
     return ((Gfc2Ellipse2d*)m_pEntity)->hasCenterPt();
 }
 
-NGfc2Vector2d^ NGfc2Ellipse2d::getCenterPtPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2Ellipse2d*)m_pEntity)->getCenterPtPtr(), false);
-}
-
 void NGfc2Ellipse2d::setMajorAxis(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Ellipse2d*)m_pEntity)->setMajorAxis(nValue);
@@ -44,11 +41,6 @@ gfc::engine::EntityRef NGfc2Ellipse2d::getMajorAxis()
 bool NGfc2Ellipse2d::hasMajorAxis()
 {
     return ((Gfc2Ellipse2d*)m_pEntity)->hasMajorAxis();
-}
-
-NGfc2Vector2d^ NGfc2Ellipse2d::getMajorAxisPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2Ellipse2d*)m_pEntity)->getMajorAxisPtr(), false);
 }
 
 void NGfc2Ellipse2d::setdMajorRad(NGfc2Double dValue)
@@ -94,11 +86,6 @@ gfc::engine::EntityRef NGfc2Ellipse2d::getRange()
 bool NGfc2Ellipse2d::hasRange()
 {
     return ((Gfc2Ellipse2d*)m_pEntity)->hasRange();
-}
-
-NGfc2Intervald^ NGfc2Ellipse2d::getRangePtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2Ellipse2d*)m_pEntity)->getRangePtr(), false);
 }
 
 void NGfc2Ellipse2d::setClockSign(NGfc2Integer nValue)

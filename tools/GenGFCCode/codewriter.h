@@ -54,6 +54,7 @@ private:
 //    void writeRegSchemaInfoImpFile();
     void writeTypedefFile(std::vector<CTypeObject*>& oObjectList);
     void writeTypeObject(CppHeadFile& oTypeDefHeadFile, CTypeObject* pTypeObj, std::set<std::wstring>& oTypeSet);
+    void writeCliTypedef(CTypeDef* pTypeDef, CppHeadFile& oTypeDefHeadFile, std::set<std::wstring>& oTypeDefIncludes);
     void writeCliTypedefFile(std::vector<CTypeObject*>& oObjectList);
     void writeClassFile(std::vector<CTypeObject*>& oObjectList);
     void writeClassHeadFile(CClass* pTypeObject, CppClass* pClass, CppClass* pFactoryClass, CppClass* pFieldCacheClass);

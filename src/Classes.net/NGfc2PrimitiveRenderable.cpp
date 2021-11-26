@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2PrimitiveRenderable.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2PrimitiveRenderable::NGfc2PrimitiveRenderable()
 {
     m_pEntity = new Gfc2PrimitiveRenderable;
@@ -43,7 +45,7 @@ bool NGfc2PrimitiveRenderable::hasGeometryDataType()
 
 void NGfc2PrimitiveRenderable::setExtension(NGfc2String sValue)
 {
-    ((Gfc2PrimitiveRenderable*)m_pEntity)->setExtension(marshal_as<std::string>(sValue));
+    ((Gfc2PrimitiveRenderable*)m_pEntity)->setExtension(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2PrimitiveRenderable::getExtension()
@@ -76,11 +78,6 @@ gfc::engine::EntityRef NGfc2PrimitiveRenderable::getVertexes(int nIndex)
     return ((Gfc2PrimitiveRenderable*)m_pEntity)->getVertexes(nIndex);
 }
 
-NGfc2Vector3d^ NGfc2PrimitiveRenderable::getVertexesPtr(int nIndex)
-{
-    return gcnew NGfc2Vector3d(((Gfc2PrimitiveRenderable*)m_pEntity)->getVertexesPtr(nIndex), false);
-}
-
 int NGfc2PrimitiveRenderable::getNormalsCount()
 {
     return ((Gfc2PrimitiveRenderable*)m_pEntity)->getNormalsCount();
@@ -99,11 +96,6 @@ void NGfc2PrimitiveRenderable::addNormals(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2PrimitiveRenderable::getNormals(int nIndex)
 {
     return ((Gfc2PrimitiveRenderable*)m_pEntity)->getNormals(nIndex);
-}
-
-NGfc2Vector3d^ NGfc2PrimitiveRenderable::getNormalsPtr(int nIndex)
-{
-    return gcnew NGfc2Vector3d(((Gfc2PrimitiveRenderable*)m_pEntity)->getNormalsPtr(nIndex), false);
 }
 
 int NGfc2PrimitiveRenderable::getIndexesCount()

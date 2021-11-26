@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2LightSourceDirectional.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2LightSourceDirectional::NGfc2LightSourceDirectional()
 {
     m_pEntity = new Gfc2LightSourceDirectional;
@@ -24,10 +26,5 @@ gfc::engine::EntityRef NGfc2LightSourceDirectional::getOrientation()
 bool NGfc2LightSourceDirectional::hasOrientation()
 {
     return ((Gfc2LightSourceDirectional*)m_pEntity)->hasOrientation();
-}
-
-NGfc2Vector3d^ NGfc2LightSourceDirectional::getOrientationPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2LightSourceDirectional*)m_pEntity)->getOrientationPtr(), false);
 }
 

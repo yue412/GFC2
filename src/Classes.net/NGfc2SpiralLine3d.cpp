@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SpiralLine3d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SpiralLine3d::NGfc2SpiralLine3d()
 {
     m_pEntity = new Gfc2SpiralLine3d;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2SpiralLine3d::getCoord()
 bool NGfc2SpiralLine3d::hasCoord()
 {
     return ((Gfc2SpiralLine3d*)m_pEntity)->hasCoord();
-}
-
-NGfc2Coordinates3d^ NGfc2SpiralLine3d::getCoordPtr()
-{
-    return gcnew NGfc2Coordinates3d(((Gfc2SpiralLine3d*)m_pEntity)->getCoordPtr(), false);
 }
 
 void NGfc2SpiralLine3d::setRadius(NGfc2Double dValue)
@@ -59,11 +56,6 @@ gfc::engine::EntityRef NGfc2SpiralLine3d::getRange()
 bool NGfc2SpiralLine3d::hasRange()
 {
     return ((Gfc2SpiralLine3d*)m_pEntity)->hasRange();
-}
-
-NGfc2Intervald^ NGfc2SpiralLine3d::getRangePtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2SpiralLine3d*)m_pEntity)->getRangePtr(), false);
 }
 
 void NGfc2SpiralLine3d::setClockSign(NGfc2Integer nValue)

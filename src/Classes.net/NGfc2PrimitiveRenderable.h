@@ -2,10 +2,9 @@
 #define NGFC2PRIMITIVERENDERABLE_H
 
 #include "NGfc2RepresentationItem.h"
-#include "Gfc2PrimitiveRenderable.h"
+#include "GfcClasses\x3\Gfc2PrimitiveRenderable.h"
 #include "NGfc2Vector3d.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;
@@ -29,12 +28,10 @@ public:
     void clearVertexes();
     void addVertexes(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getVertexes(int nIndex);
-    NGfc2Vector3d^ getVertexesPtr(int nIndex);
     int getNormalsCount();
     void clearNormals();
     void addNormals(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getNormals(int nIndex);
-    NGfc2Vector3d^ getNormalsPtr(int nIndex);
     int getIndexesCount();
     void clearIndexes();
     void addIndexes(NGfc2Integer nValue);

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ExtrudedBody.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ExtrudedBody::NGfc2ExtrudedBody()
 {
     m_pEntity = new Gfc2ExtrudedBody;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2ExtrudedBody::getCoordinate()
 bool NGfc2ExtrudedBody::hasCoordinate()
 {
     return ((Gfc2ExtrudedBody*)m_pEntity)->hasCoordinate();
-}
-
-NGfc2Coordinates3d^ NGfc2ExtrudedBody::getCoordinatePtr()
-{
-    return gcnew NGfc2Coordinates3d(((Gfc2ExtrudedBody*)m_pEntity)->getCoordinatePtr(), false);
 }
 
 void NGfc2ExtrudedBody::setLen(NGfc2Double dValue)
@@ -59,10 +56,5 @@ gfc::engine::EntityRef NGfc2ExtrudedBody::getSection()
 bool NGfc2ExtrudedBody::hasSection()
 {
     return ((Gfc2ExtrudedBody*)m_pEntity)->hasSection();
-}
-
-NGfc2Polygon^ NGfc2ExtrudedBody::getSectionPtr()
-{
-    return gcnew NGfc2Polygon(((Gfc2ExtrudedBody*)m_pEntity)->getSectionPtr(), false);
 }
 

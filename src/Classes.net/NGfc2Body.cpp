@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Body.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Body::NGfc2Body()
 {
     m_pEntity = new Gfc2Body;

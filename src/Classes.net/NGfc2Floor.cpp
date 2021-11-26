@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Floor.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Floor::NGfc2Floor()
 {
     m_pEntity = new Gfc2Floor;
@@ -73,7 +75,7 @@ bool NGfc2Floor::hasStartFloorNo()
 
 void NGfc2Floor::setRemark(NGfc2Text sValue)
 {
-    ((Gfc2Floor*)m_pEntity)->setRemark(marshal_as<std::string>(sValue));
+    ((Gfc2Floor*)m_pEntity)->setRemark(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2Text NGfc2Floor::getRemark()

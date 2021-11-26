@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Object.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Object::NGfc2Object()
 {
     m_pEntity = new Gfc2Object;
@@ -13,7 +15,7 @@ NGfc2Object::NGfc2Object(void* pEntity, bool bOwner):
 
 void NGfc2Object::setID(NGfc2Identity sValue)
 {
-    ((Gfc2Object*)m_pEntity)->setID(marshal_as<std::string>(sValue));
+    ((Gfc2Object*)m_pEntity)->setID(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2Identity NGfc2Object::getID()
@@ -28,7 +30,7 @@ bool NGfc2Object::hasID()
 
 void NGfc2Object::setName(NGfc2Label sValue)
 {
-    ((Gfc2Object*)m_pEntity)->setName(marshal_as<std::string>(sValue));
+    ((Gfc2Object*)m_pEntity)->setName(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2Label NGfc2Object::getName()

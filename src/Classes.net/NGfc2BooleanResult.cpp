@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2BooleanResult.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2BooleanResult::NGfc2BooleanResult()
 {
     m_pEntity = new Gfc2BooleanResult;

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2GeoProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2GeoProperty::NGfc2GeoProperty()
 {
     m_pEntity = new Gfc2GeoProperty;
@@ -24,10 +26,5 @@ gfc::engine::EntityRef NGfc2GeoProperty::getGeo()
 bool NGfc2GeoProperty::hasGeo()
 {
     return ((Gfc2GeoProperty*)m_pEntity)->hasGeo();
-}
-
-NGfc2Geometry^ NGfc2GeoProperty::getGeoPtr()
-{
-    return gcnew NGfc2Geometry(((Gfc2GeoProperty*)m_pEntity)->getGeoPtr(), false);
 }
 

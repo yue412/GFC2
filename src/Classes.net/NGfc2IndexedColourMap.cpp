@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2IndexedColourMap.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2IndexedColourMap::NGfc2IndexedColourMap()
 {
     m_pEntity = new Gfc2IndexedColourMap;
@@ -46,11 +48,6 @@ gfc::engine::EntityRef NGfc2IndexedColourMap::getColours(int nIndex)
     return ((Gfc2IndexedColourMap*)m_pEntity)->getColours(nIndex);
 }
 
-NGfc2Color^ NGfc2IndexedColourMap::getColoursPtr(int nIndex)
-{
-    return gcnew NGfc2Color(((Gfc2IndexedColourMap*)m_pEntity)->getColoursPtr(nIndex), false);
-}
-
 int NGfc2IndexedColourMap::getColourIndexCount()
 {
     return ((Gfc2IndexedColourMap*)m_pEntity)->getColourIndexCount();
@@ -84,10 +81,5 @@ gfc::engine::EntityRef NGfc2IndexedColourMap::getMappedTo()
 bool NGfc2IndexedColourMap::hasMappedTo()
 {
     return ((Gfc2IndexedColourMap*)m_pEntity)->hasMappedTo();
-}
-
-NGfc2PrimitiveRenderable^ NGfc2IndexedColourMap::getMappedToPtr()
-{
-    return gcnew NGfc2PrimitiveRenderable(((Gfc2IndexedColourMap*)m_pEntity)->getMappedToPtr(), false);
 }
 

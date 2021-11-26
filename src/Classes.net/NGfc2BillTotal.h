@@ -2,9 +2,8 @@
 #define NGFC2BILLTOTAL_H
 
 #include "NGfc2Root.h"
-#include "Gfc2BillTotal.h"
+#include "GfcClasses\x3\Gfc2BillTotal.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;

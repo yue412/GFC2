@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SimplePolygon.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SimplePolygon::NGfc2SimplePolygon()
 {
     m_pEntity = new Gfc2SimplePolygon;
@@ -29,10 +31,5 @@ void NGfc2SimplePolygon::addLoops(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2SimplePolygon::getLoops(int nIndex)
 {
     return ((Gfc2SimplePolygon*)m_pEntity)->getLoops(nIndex);
-}
-
-NGfc2SimpleLoop^ NGfc2SimplePolygon::getLoopsPtr(int nIndex)
-{
-    return gcnew NGfc2SimpleLoop(((Gfc2SimplePolygon*)m_pEntity)->getLoopsPtr(nIndex), false);
 }
 

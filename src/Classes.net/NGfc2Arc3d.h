@@ -2,8 +2,7 @@
 #define NGFC2ARC3D_H
 
 #include "NGfc2PlaneCurve3d.h"
-#include "Gfc2Arc3d.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2Arc3d.h"
 
 public ref class NGfc2Arc3d: public NGfc2PlaneCurve3d
 {

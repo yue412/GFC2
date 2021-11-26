@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ConnectionVolumeGeometry.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ConnectionVolumeGeometry::NGfc2ConnectionVolumeGeometry()
 {
     m_pEntity = new Gfc2ConnectionVolumeGeometry;
@@ -26,11 +28,6 @@ bool NGfc2ConnectionVolumeGeometry::hasVolumeOnRelatingElement()
     return ((Gfc2ConnectionVolumeGeometry*)m_pEntity)->hasVolumeOnRelatingElement();
 }
 
-NGfc2Body^ NGfc2ConnectionVolumeGeometry::getVolumeOnRelatingElementPtr()
-{
-    return gcnew NGfc2Body(((Gfc2ConnectionVolumeGeometry*)m_pEntity)->getVolumeOnRelatingElementPtr(), false);
-}
-
 void NGfc2ConnectionVolumeGeometry::setVolumeOnRelatedElement(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionVolumeGeometry*)m_pEntity)->setVolumeOnRelatedElement(nValue);
@@ -44,10 +41,5 @@ gfc::engine::EntityRef NGfc2ConnectionVolumeGeometry::getVolumeOnRelatedElement(
 bool NGfc2ConnectionVolumeGeometry::hasVolumeOnRelatedElement()
 {
     return ((Gfc2ConnectionVolumeGeometry*)m_pEntity)->hasVolumeOnRelatedElement();
-}
-
-NGfc2Body^ NGfc2ConnectionVolumeGeometry::getVolumeOnRelatedElementPtr()
-{
-    return gcnew NGfc2Body(((Gfc2ConnectionVolumeGeometry*)m_pEntity)->getVolumeOnRelatedElementPtr(), false);
 }
 

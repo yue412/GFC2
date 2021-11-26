@@ -2,10 +2,9 @@
 #define NGFC2PROPERTYSET_H
 
 #include "NGfc2Root.h"
-#include "Gfc2PropertySet.h"
+#include "GfcClasses\x3\Gfc2PropertySet.h"
 #include "NGfc2Property.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;
@@ -23,7 +22,6 @@ public:
     void clearHasProperties();
     void addHasProperties(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getHasProperties(int nIndex);
-    NGfc2Property^ getHasPropertiesPtr(int nIndex);
 
 };
 #endif

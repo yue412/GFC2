@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2BlockShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2BlockShape::NGfc2BlockShape()
 {
     m_pEntity = new Gfc2BlockShape;

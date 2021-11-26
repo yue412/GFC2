@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2NurbsSurface.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2NurbsSurface::NGfc2NurbsSurface()
 {
     m_pEntity = new Gfc2NurbsSurface;
@@ -89,11 +91,6 @@ void NGfc2NurbsSurface::addCtrlPts(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2NurbsSurface::getCtrlPts(int nIndex)
 {
     return ((Gfc2NurbsSurface*)m_pEntity)->getCtrlPts(nIndex);
-}
-
-NGfc2NurbsCtrlPt3d^ NGfc2NurbsSurface::getCtrlPtsPtr(int nIndex)
-{
-    return gcnew NGfc2NurbsCtrlPt3d(((Gfc2NurbsSurface*)m_pEntity)->getCtrlPtsPtr(nIndex), false);
 }
 
 int NGfc2NurbsSurface::getKnotsUCount()

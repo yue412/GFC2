@@ -2,9 +2,8 @@
 #define NGFC2ENTITYPROPERTY_H
 
 #include "NGfc2SingleProperty.h"
-#include "Gfc2EntityProperty.h"
+#include "GfcClasses\x3\Gfc2EntityProperty.h"
 #include "NGfc2Root.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2EntityProperty: public NGfc2SingleProperty
 {
@@ -14,7 +13,6 @@ public:
     void setVal(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getVal();
     bool hasVal();
-    NGfc2Root^ getValPtr();
 
 };
 #endif

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RelConnects.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RelConnects::NGfc2RelConnects()
 {
     m_pEntity = new Gfc2RelConnects;

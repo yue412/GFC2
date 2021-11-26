@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2CylinderShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2CylinderShape::NGfc2CylinderShape()
 {
     m_pEntity = new Gfc2CylinderShape;

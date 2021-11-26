@@ -2,12 +2,11 @@
 #define NGFC2INDEXEDTEXTUREMAP_H
 
 #include "NGfc2Root.h"
-#include "Gfc2IndexedTextureMap.h"
+#include "GfcClasses\x3\Gfc2IndexedTextureMap.h"
 #include "NGfc2PrimitiveRenderable.h"
 #include "NGfc2Vector2d.h"
 #include "NGfc2SurfaceTexture.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2IndexedTextureMap: public NGfc2Root
 {
@@ -17,12 +16,10 @@ public:
     void setMappedTo(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getMappedTo();
     bool hasMappedTo();
-    NGfc2PrimitiveRenderable^ getMappedToPtr();
     int getTexCoordsCount();
     void clearTexCoords();
     void addTexCoords(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getTexCoords(int nIndex);
-    NGfc2Vector2d^ getTexCoordsPtr(int nIndex);
     int getTexCoordIndexCount();
     void clearTexCoordIndex();
     void addTexCoordIndex(NGfc2Integer nValue);
@@ -31,7 +28,6 @@ public:
     void clearMaps();
     void addMaps(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getMaps(int nIndex);
-    NGfc2SurfaceTexture^ getMapsPtr(int nIndex);
 
 };
 #endif

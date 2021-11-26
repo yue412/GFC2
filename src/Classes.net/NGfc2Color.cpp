@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Color.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Color::NGfc2Color()
 {
     m_pEntity = new Gfc2Color;

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ConeShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ConeShape::NGfc2ConeShape()
 {
     m_pEntity = new Gfc2ConeShape;

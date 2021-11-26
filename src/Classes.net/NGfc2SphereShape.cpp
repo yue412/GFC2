@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SphereShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SphereShape::NGfc2SphereShape()
 {
     m_pEntity = new Gfc2SphereShape;

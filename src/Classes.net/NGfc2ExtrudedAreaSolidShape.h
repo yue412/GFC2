@@ -2,10 +2,9 @@
 #define NGFC2EXTRUDEDAREASOLIDSHAPE_H
 
 #include "NGfc2SweptAreaSolidShape.h"
-#include "Gfc2ExtrudedAreaSolidShape.h"
+#include "GfcClasses\x3\Gfc2ExtrudedAreaSolidShape.h"
 #include "NGfc2Vector3d.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2ExtrudedAreaSolidShape: public NGfc2SweptAreaSolidShape
 {
@@ -15,7 +14,6 @@ public:
     void setExtrudedDirection(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getExtrudedDirection();
     bool hasExtrudedDirection();
-    NGfc2Vector3d^ getExtrudedDirectionPtr();
     void setLen(NGfc2Double dValue);
     NGfc2Double getLen();
     bool hasLen();

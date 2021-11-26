@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SimpleLoop.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SimpleLoop::NGfc2SimpleLoop()
 {
     m_pEntity = new Gfc2SimpleLoop;
@@ -29,10 +31,5 @@ void NGfc2SimpleLoop::addVertexes(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2SimpleLoop::getVertexes(int nIndex)
 {
     return ((Gfc2SimpleLoop*)m_pEntity)->getVertexes(nIndex);
-}
-
-NGfc2SimpleVertex^ NGfc2SimpleLoop::getVertexesPtr(int nIndex)
-{
-    return gcnew NGfc2SimpleVertex(((Gfc2SimpleLoop*)m_pEntity)->getVertexesPtr(nIndex), false);
 }
 

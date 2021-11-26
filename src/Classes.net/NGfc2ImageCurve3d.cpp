@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ImageCurve3d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ImageCurve3d::NGfc2ImageCurve3d()
 {
     m_pEntity = new Gfc2ImageCurve3d;
@@ -26,11 +28,6 @@ bool NGfc2ImageCurve3d::hasCurve()
     return ((Gfc2ImageCurve3d*)m_pEntity)->hasCurve();
 }
 
-NGfc2Curve2d^ NGfc2ImageCurve3d::getCurvePtr()
-{
-    return gcnew NGfc2Curve2d(((Gfc2ImageCurve3d*)m_pEntity)->getCurvePtr(), false);
-}
-
 void NGfc2ImageCurve3d::setSurface(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ImageCurve3d*)m_pEntity)->setSurface(nValue);
@@ -44,10 +41,5 @@ gfc::engine::EntityRef NGfc2ImageCurve3d::getSurface()
 bool NGfc2ImageCurve3d::hasSurface()
 {
     return ((Gfc2ImageCurve3d*)m_pEntity)->hasSurface();
-}
-
-NGfc2Surface^ NGfc2ImageCurve3d::getSurfacePtr()
-{
-    return gcnew NGfc2Surface(((Gfc2ImageCurve3d*)m_pEntity)->getSurfacePtr(), false);
 }
 

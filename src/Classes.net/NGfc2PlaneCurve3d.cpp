@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2PlaneCurve3d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2PlaneCurve3d::NGfc2PlaneCurve3d()
 {
     m_pEntity = new Gfc2PlaneCurve3d;
@@ -26,11 +28,6 @@ bool NGfc2PlaneCurve3d::hasPlaneCurve()
     return ((Gfc2PlaneCurve3d*)m_pEntity)->hasPlaneCurve();
 }
 
-NGfc2Curve2d^ NGfc2PlaneCurve3d::getPlaneCurvePtr()
-{
-    return gcnew NGfc2Curve2d(((Gfc2PlaneCurve3d*)m_pEntity)->getPlaneCurvePtr(), false);
-}
-
 void NGfc2PlaneCurve3d::setPlane(gfc::engine::EntityRef nValue)
 {
     ((Gfc2PlaneCurve3d*)m_pEntity)->setPlane(nValue);
@@ -44,10 +41,5 @@ gfc::engine::EntityRef NGfc2PlaneCurve3d::getPlane()
 bool NGfc2PlaneCurve3d::hasPlane()
 {
     return ((Gfc2PlaneCurve3d*)m_pEntity)->hasPlane();
-}
-
-NGfc2PlaneInfo^ NGfc2PlaneCurve3d::getPlanePtr()
-{
-    return gcnew NGfc2PlaneInfo(((Gfc2PlaneCurve3d*)m_pEntity)->getPlanePtr(), false);
 }
 

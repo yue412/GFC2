@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ConnectionSurfaceGeometry.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ConnectionSurfaceGeometry::NGfc2ConnectionSurfaceGeometry()
 {
     m_pEntity = new Gfc2ConnectionSurfaceGeometry;
@@ -26,11 +28,6 @@ bool NGfc2ConnectionSurfaceGeometry::hasSurfaceOnRelatingElement()
     return ((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->hasSurfaceOnRelatingElement();
 }
 
-NGfc2Surface^ NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatingElementPtr()
-{
-    return gcnew NGfc2Surface(((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->getSurfaceOnRelatingElementPtr(), false);
-}
-
 void NGfc2ConnectionSurfaceGeometry::setSurfaceOnRelatedElement(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->setSurfaceOnRelatedElement(nValue);
@@ -44,10 +41,5 @@ gfc::engine::EntityRef NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatedElemen
 bool NGfc2ConnectionSurfaceGeometry::hasSurfaceOnRelatedElement()
 {
     return ((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->hasSurfaceOnRelatedElement();
-}
-
-NGfc2Surface^ NGfc2ConnectionSurfaceGeometry::getSurfaceOnRelatedElementPtr()
-{
-    return gcnew NGfc2Surface(((Gfc2ConnectionSurfaceGeometry*)m_pEntity)->getSurfaceOnRelatedElementPtr(), false);
 }
 

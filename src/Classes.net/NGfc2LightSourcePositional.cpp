@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2LightSourcePositional.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2LightSourcePositional::NGfc2LightSourcePositional()
 {
     m_pEntity = new Gfc2LightSourcePositional;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2LightSourcePositional::getPosition()
 bool NGfc2LightSourcePositional::hasPosition()
 {
     return ((Gfc2LightSourcePositional*)m_pEntity)->hasPosition();
-}
-
-NGfc2Vector3d^ NGfc2LightSourcePositional::getPositionPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2LightSourcePositional*)m_pEntity)->getPositionPtr(), false);
 }
 
 void NGfc2LightSourcePositional::setRadius(NGfc2Double dValue)

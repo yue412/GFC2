@@ -2,8 +2,7 @@
 #define NGFC2PARAMETRICSHAPE_H
 
 #include "NGfc2Shape.h"
-#include "Gfc2ParametricShape.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2ParametricShape.h"
 
 public ref class NGfc2ParametricShape: public NGfc2Shape
 {

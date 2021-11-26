@@ -1,28 +1,26 @@
 #ifndef WRITER_NET_H
 #define WRITER_NET_H
 
-#include "glodon/objectbuf/Entity.h"
-#include "glodon/objectbuf/Writer.h"
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/Writer.h"
 #include "Entity.h"
 
-namespace glodon {
-namespace objectbufnet {
+namespace gfc { namespace engine { namespace net {
 
 using namespace System;
 
 public ref class Writer
 {
 public:
-    Writer(void);
+    Writer(String^ sProductCode);
     ~Writer();
-    bool open(String^ sFileName, bool bIsBinary, String^ sProductCode);
+    bool open(String^ sFileName, String^ sFormatType);
     void close();
-    glodon::objectbuf::EntityRef writeEntity(Entity^ pEntity); 
+    gfc::engine::EntityRef writeEntity(Entity^ pEntity); 
 private:
-    glodon::objectbuf::Writer* m_pWriter;
+    gfc::engine::CWriter* m_pWriter;
 };
 
-}
-}
+}}}
 
 #endif

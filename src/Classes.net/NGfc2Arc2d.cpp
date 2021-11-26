@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Arc2d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Arc2d::NGfc2Arc2d()
 {
     m_pEntity = new Gfc2Arc2d;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2Arc2d::getCenterPt()
 bool NGfc2Arc2d::hasCenterPt()
 {
     return ((Gfc2Arc2d*)m_pEntity)->hasCenterPt();
-}
-
-NGfc2Vector2d^ NGfc2Arc2d::getCenterPtPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2Arc2d*)m_pEntity)->getCenterPtPtr(), false);
 }
 
 void NGfc2Arc2d::setRadius(NGfc2Double dValue)
@@ -59,11 +56,6 @@ gfc::engine::EntityRef NGfc2Arc2d::getRange()
 bool NGfc2Arc2d::hasRange()
 {
     return ((Gfc2Arc2d*)m_pEntity)->hasRange();
-}
-
-NGfc2Intervald^ NGfc2Arc2d::getRangePtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2Arc2d*)m_pEntity)->getRangePtr(), false);
 }
 
 void NGfc2Arc2d::setClockSign(NGfc2Integer nValue)

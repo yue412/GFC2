@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2HalfSpaceSolidShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2HalfSpaceSolidShape::NGfc2HalfSpaceSolidShape()
 {
     m_pEntity = new Gfc2HalfSpaceSolidShape;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2HalfSpaceSolidShape::getBaseSurface()
 bool NGfc2HalfSpaceSolidShape::hasBaseSurface()
 {
     return ((Gfc2HalfSpaceSolidShape*)m_pEntity)->hasBaseSurface();
-}
-
-NGfc2Surface^ NGfc2HalfSpaceSolidShape::getBaseSurfacePtr()
-{
-    return gcnew NGfc2Surface(((Gfc2HalfSpaceSolidShape*)m_pEntity)->getBaseSurfacePtr(), false);
 }
 
 void NGfc2HalfSpaceSolidShape::setAgreementFlag(NGfc2Boolean bValue)

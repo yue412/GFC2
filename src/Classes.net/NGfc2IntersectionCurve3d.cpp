@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2IntersectionCurve3d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2IntersectionCurve3d::NGfc2IntersectionCurve3d()
 {
     m_pEntity = new Gfc2IntersectionCurve3d;
@@ -26,11 +28,6 @@ bool NGfc2IntersectionCurve3d::hasBases1()
     return ((Gfc2IntersectionCurve3d*)m_pEntity)->hasBases1();
 }
 
-NGfc2Surface^ NGfc2IntersectionCurve3d::getBases1Ptr()
-{
-    return gcnew NGfc2Surface(((Gfc2IntersectionCurve3d*)m_pEntity)->getBases1Ptr(), false);
-}
-
 void NGfc2IntersectionCurve3d::setBases2(gfc::engine::EntityRef nValue)
 {
     ((Gfc2IntersectionCurve3d*)m_pEntity)->setBases2(nValue);
@@ -44,11 +41,6 @@ gfc::engine::EntityRef NGfc2IntersectionCurve3d::getBases2()
 bool NGfc2IntersectionCurve3d::hasBases2()
 {
     return ((Gfc2IntersectionCurve3d*)m_pEntity)->hasBases2();
-}
-
-NGfc2Surface^ NGfc2IntersectionCurve3d::getBases2Ptr()
-{
-    return gcnew NGfc2Surface(((Gfc2IntersectionCurve3d*)m_pEntity)->getBases2Ptr(), false);
 }
 
 void NGfc2IntersectionCurve3d::setRange(gfc::engine::EntityRef nValue)
@@ -66,11 +58,6 @@ bool NGfc2IntersectionCurve3d::hasRange()
     return ((Gfc2IntersectionCurve3d*)m_pEntity)->hasRange();
 }
 
-NGfc2Intervald^ NGfc2IntersectionCurve3d::getRangePtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2IntersectionCurve3d*)m_pEntity)->getRangePtr(), false);
-}
-
 void NGfc2IntersectionCurve3d::setChart(gfc::engine::EntityRef nValue)
 {
     ((Gfc2IntersectionCurve3d*)m_pEntity)->setChart(nValue);
@@ -84,10 +71,5 @@ gfc::engine::EntityRef NGfc2IntersectionCurve3d::getChart()
 bool NGfc2IntersectionCurve3d::hasChart()
 {
     return ((Gfc2IntersectionCurve3d*)m_pEntity)->hasChart();
-}
-
-NGfc2InternalChart^ NGfc2IntersectionCurve3d::getChartPtr()
-{
-    return gcnew NGfc2InternalChart(((Gfc2IntersectionCurve3d*)m_pEntity)->getChartPtr(), false);
 }
 

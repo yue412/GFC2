@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RefString.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RefString::NGfc2RefString()
 {
     m_pEntity = new Gfc2RefString;
@@ -11,12 +13,12 @@ NGfc2RefString::NGfc2RefString(void* pEntity, bool bOwner):
 {
 }
 
-void NGfc2RefString::setVal(String^ sValue)
+void NGfc2RefString::setVal(System::String^ sValue)
 {
-    ((Gfc2RefString*)m_pEntity)->setVal(marshal_as<std::string>(sValue));
+    ((Gfc2RefString*)m_pEntity)->setVal(marshal_as<std::wstring>(sValue));
 }
 
-String^ NGfc2RefString::getVal()
+System::String^ NGfc2RefString::getVal()
 {
     return marshal_as<String^>(((Gfc2RefString*)m_pEntity)->getVal());
 }

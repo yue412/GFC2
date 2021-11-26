@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SpatialStructureElement.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SpatialStructureElement::NGfc2SpatialStructureElement()
 {
     m_pEntity = new Gfc2SpatialStructureElement;

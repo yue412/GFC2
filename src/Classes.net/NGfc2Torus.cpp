@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Torus.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Torus::NGfc2Torus()
 {
     m_pEntity = new Gfc2Torus;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2Torus::getCoord()
 bool NGfc2Torus::hasCoord()
 {
     return ((Gfc2Torus*)m_pEntity)->hasCoord();
-}
-
-NGfc2Coordinates3d^ NGfc2Torus::getCoordPtr()
-{
-    return gcnew NGfc2Coordinates3d(((Gfc2Torus*)m_pEntity)->getCoordPtr(), false);
 }
 
 void NGfc2Torus::setRadius(NGfc2Double dValue)
@@ -76,11 +73,6 @@ bool NGfc2Torus::hasRangeV()
     return ((Gfc2Torus*)m_pEntity)->hasRangeV();
 }
 
-NGfc2Intervald^ NGfc2Torus::getRangeVPtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2Torus*)m_pEntity)->getRangeVPtr(), false);
-}
-
 void NGfc2Torus::setCurve(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Torus*)m_pEntity)->setCurve(nValue);
@@ -94,10 +86,5 @@ gfc::engine::EntityRef NGfc2Torus::getCurve()
 bool NGfc2Torus::hasCurve()
 {
     return ((Gfc2Torus*)m_pEntity)->hasCurve();
-}
-
-NGfc2Curve2d^ NGfc2Torus::getCurvePtr()
-{
-    return gcnew NGfc2Curve2d(((Gfc2Torus*)m_pEntity)->getCurvePtr(), false);
 }
 

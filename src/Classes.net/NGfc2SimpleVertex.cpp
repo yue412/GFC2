@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SimpleVertex.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SimpleVertex::NGfc2SimpleVertex()
 {
     m_pEntity = new Gfc2SimpleVertex;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2SimpleVertex::getPoint()
 bool NGfc2SimpleVertex::hasPoint()
 {
     return ((Gfc2SimpleVertex*)m_pEntity)->hasPoint();
-}
-
-NGfc2Vector2d^ NGfc2SimpleVertex::getPointPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2SimpleVertex*)m_pEntity)->getPointPtr(), false);
 }
 
 void NGfc2SimpleVertex::setRadius(NGfc2Double dValue)

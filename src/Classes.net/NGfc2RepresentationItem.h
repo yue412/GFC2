@@ -2,8 +2,7 @@
 #define NGFC2REPRESENTATIONITEM_H
 
 #include "NGfc2Root.h"
-#include "Gfc2RepresentationItem.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2RepresentationItem.h"
 
 public ref class NGfc2RepresentationItem: public NGfc2Root
 {

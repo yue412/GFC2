@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2DoubleProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2DoubleProperty::NGfc2DoubleProperty()
 {
     m_pEntity = new Gfc2DoubleProperty;

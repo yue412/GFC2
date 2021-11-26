@@ -2,8 +2,7 @@
 #define NGFC2BUILDING_H
 
 #include "NGfc2SpatialStructureElement.h"
-#include "Gfc2Building.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2Building.h"
 
 public ref class NGfc2Building: public NGfc2SpatialStructureElement
 {

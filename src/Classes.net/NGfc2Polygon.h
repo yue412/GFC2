@@ -2,8 +2,7 @@
 #define NGFC2POLYGON_H
 
 #include "NGfc2Topology.h"
-#include "Gfc2Polygon.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2Polygon.h"
 
 public ref class NGfc2Polygon: public NGfc2Topology
 {

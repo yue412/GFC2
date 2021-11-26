@@ -2,9 +2,8 @@
 #define NGFC2DOUBLELISTPROPERTY_H
 
 #include "NGfc2ListProperty.h"
-#include "Gfc2DoubleListProperty.h"
+#include "GfcClasses\x3\Gfc2DoubleListProperty.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2DoubleListProperty: public NGfc2ListProperty
 {

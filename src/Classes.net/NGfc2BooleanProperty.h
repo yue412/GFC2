@@ -2,9 +2,8 @@
 #define NGFC2BOOLEANPROPERTY_H
 
 #include "NGfc2SingleProperty.h"
-#include "Gfc2BooleanProperty.h"
+#include "GfcClasses\x3\Gfc2BooleanProperty.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2BooleanProperty: public NGfc2SingleProperty
 {

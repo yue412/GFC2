@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Edge.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Edge::NGfc2Edge()
 {
     m_pEntity = new Gfc2Edge;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2Edge::getCurve()
 bool NGfc2Edge::hasCurve()
 {
     return ((Gfc2Edge*)m_pEntity)->hasCurve();
-}
-
-NGfc2Curve3d^ NGfc2Edge::getCurvePtr()
-{
-    return gcnew NGfc2Curve3d(((Gfc2Edge*)m_pEntity)->getCurvePtr(), false);
 }
 
 void NGfc2Edge::setFaceIndex1(NGfc2Integer nValue)

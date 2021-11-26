@@ -2,8 +2,7 @@
 #define NGFC2SOLIDSHAPE_H
 
 #include "NGfc2ParametricShape.h"
-#include "Gfc2SolidShape.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2SolidShape.h"
 
 public ref class NGfc2SolidShape: public NGfc2ParametricShape
 {

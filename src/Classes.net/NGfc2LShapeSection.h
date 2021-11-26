@@ -2,9 +2,8 @@
 #define NGFC2LSHAPESECTION_H
 
 #include "NGfc2ParameterizedSection.h"
-#include "Gfc2LShapeSection.h"
+#include "GfcClasses\x3\Gfc2LShapeSection.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2LShapeSection: public NGfc2ParameterizedSection
 {

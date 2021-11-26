@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2CoedgeListEx.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2CoedgeListEx::NGfc2CoedgeListEx()
 {
     m_pEntity = new Gfc2CoedgeListEx;
@@ -29,10 +31,5 @@ void NGfc2CoedgeListEx::addCoedgeExs(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2CoedgeListEx::getCoedgeExs(int nIndex)
 {
     return ((Gfc2CoedgeListEx*)m_pEntity)->getCoedgeExs(nIndex);
-}
-
-NGfc2Coedge^ NGfc2CoedgeListEx::getCoedgeExsPtr(int nIndex)
-{
-    return gcnew NGfc2Coedge(((Gfc2CoedgeListEx*)m_pEntity)->getCoedgeExsPtr(nIndex), false);
 }
 

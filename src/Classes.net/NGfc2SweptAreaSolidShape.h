@@ -2,9 +2,8 @@
 #define NGFC2SWEPTAREASOLIDSHAPE_H
 
 #include "NGfc2SolidShape.h"
-#include "Gfc2SweptAreaSolidShape.h"
+#include "GfcClasses\x3\Gfc2SweptAreaSolidShape.h"
 #include "NGfc2Section.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2SweptAreaSolidShape: public NGfc2SolidShape
 {
@@ -14,7 +13,6 @@ public:
     void setSweptArea(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getSweptArea();
     bool hasSweptArea();
-    NGfc2Section^ getSweptAreaPtr();
 
 };
 #endif

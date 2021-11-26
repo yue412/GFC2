@@ -2,10 +2,9 @@
 #define NGFC2EDGE_H
 
 #include "NGfc2Topology.h"
-#include "Gfc2Edge.h"
+#include "GfcClasses\x3\Gfc2Edge.h"
 #include "NGfc2Curve3d.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Edge: public NGfc2Topology
 {
@@ -15,7 +14,6 @@ public:
     void setCurve(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCurve();
     bool hasCurve();
-    NGfc2Curve3d^ getCurvePtr();
     void setFaceIndex1(NGfc2Integer nValue);
     NGfc2Integer getFaceIndex1();
     bool hasFaceIndex1();

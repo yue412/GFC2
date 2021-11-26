@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Helicoid.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Helicoid::NGfc2Helicoid()
 {
     m_pEntity = new Gfc2Helicoid;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2Helicoid::getCoord()
 bool NGfc2Helicoid::hasCoord()
 {
     return ((Gfc2Helicoid*)m_pEntity)->hasCoord();
-}
-
-NGfc2Coordinates3d^ NGfc2Helicoid::getCoordPtr()
-{
-    return gcnew NGfc2Coordinates3d(((Gfc2Helicoid*)m_pEntity)->getCoordPtr(), false);
 }
 
 void NGfc2Helicoid::setRadius(NGfc2Double dValue)
@@ -59,11 +56,6 @@ gfc::engine::EntityRef NGfc2Helicoid::getRangeV()
 bool NGfc2Helicoid::hasRangeV()
 {
     return ((Gfc2Helicoid*)m_pEntity)->hasRangeV();
-}
-
-NGfc2Intervald^ NGfc2Helicoid::getRangeVPtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2Helicoid*)m_pEntity)->getRangeVPtr(), false);
 }
 
 void NGfc2Helicoid::setClockSign(NGfc2Integer nValue)
@@ -124,10 +116,5 @@ gfc::engine::EntityRef NGfc2Helicoid::getCurve()
 bool NGfc2Helicoid::hasCurve()
 {
     return ((Gfc2Helicoid*)m_pEntity)->hasCurve();
-}
-
-NGfc2Curve2d^ NGfc2Helicoid::getCurvePtr()
-{
-    return gcnew NGfc2Curve2d(((Gfc2Helicoid*)m_pEntity)->getCurvePtr(), false);
 }
 

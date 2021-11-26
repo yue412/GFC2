@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SinCurve2d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SinCurve2d::NGfc2SinCurve2d()
 {
     m_pEntity = new Gfc2SinCurve2d;
@@ -26,11 +28,6 @@ bool NGfc2SinCurve2d::hasPos()
     return ((Gfc2SinCurve2d*)m_pEntity)->hasPos();
 }
 
-NGfc2Vector2d^ NGfc2SinCurve2d::getPosPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2SinCurve2d*)m_pEntity)->getPosPtr(), false);
-}
-
 void NGfc2SinCurve2d::setDirX(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SinCurve2d*)m_pEntity)->setDirX(nValue);
@@ -44,11 +41,6 @@ gfc::engine::EntityRef NGfc2SinCurve2d::getDirX()
 bool NGfc2SinCurve2d::hasDirX()
 {
     return ((Gfc2SinCurve2d*)m_pEntity)->hasDirX();
-}
-
-NGfc2Vector2d^ NGfc2SinCurve2d::getDirXPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2SinCurve2d*)m_pEntity)->getDirXPtr(), false);
 }
 
 void NGfc2SinCurve2d::setA(NGfc2Double dValue)
@@ -94,11 +86,6 @@ gfc::engine::EntityRef NGfc2SinCurve2d::getRange()
 bool NGfc2SinCurve2d::hasRange()
 {
     return ((Gfc2SinCurve2d*)m_pEntity)->hasRange();
-}
-
-NGfc2Intervald^ NGfc2SinCurve2d::getRangePtr()
-{
-    return gcnew NGfc2Intervald(((Gfc2SinCurve2d*)m_pEntity)->getRangePtr(), false);
 }
 
 void NGfc2SinCurve2d::setClockSign(NGfc2Integer nValue)

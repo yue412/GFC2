@@ -2,11 +2,10 @@
 #define NGFC2ELEMENT_H
 
 #include "NGfc2Object.h"
-#include "Gfc2Element.h"
+#include "GfcClasses\x3\Gfc2Element.h"
 #include "NGfc2Representation.h"
 #include "NGfc2ElementShape.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;
@@ -24,12 +23,10 @@ public:
     void clearRepresentations();
     void addRepresentations(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRepresentations(int nIndex);
-    NGfc2Representation^ getRepresentationsPtr(int nIndex);
     int getShapesCount();
     void clearShapes();
     void addShapes(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getShapes(int nIndex);
-    NGfc2ElementShape^ getShapesPtr(int nIndex);
 
 };
 #endif

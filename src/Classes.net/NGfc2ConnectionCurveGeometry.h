@@ -2,9 +2,8 @@
 #define NGFC2CONNECTIONCURVEGEOMETRY_H
 
 #include "NGfc2ConnectionGeometry.h"
-#include "Gfc2ConnectionCurveGeometry.h"
+#include "GfcClasses\x3\Gfc2ConnectionCurveGeometry.h"
 #include "NGfc2Curve3d.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2ConnectionCurveGeometry: public NGfc2ConnectionGeometry
 {
@@ -14,11 +13,9 @@ public:
     void setCurveOnRelatingElement(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCurveOnRelatingElement();
     bool hasCurveOnRelatingElement();
-    NGfc2Curve3d^ getCurveOnRelatingElementPtr();
     void setCurveOnRelatedElement(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCurveOnRelatedElement();
     bool hasCurveOnRelatedElement();
-    NGfc2Curve3d^ getCurveOnRelatedElementPtr();
 
 };
 #endif

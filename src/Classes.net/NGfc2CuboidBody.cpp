@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2CuboidBody.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2CuboidBody::NGfc2CuboidBody()
 {
     m_pEntity = new Gfc2CuboidBody;
@@ -26,11 +28,6 @@ bool NGfc2CuboidBody::hasCoordinate()
     return ((Gfc2CuboidBody*)m_pEntity)->hasCoordinate();
 }
 
-NGfc2Coordinates3d^ NGfc2CuboidBody::getCoordinatePtr()
-{
-    return gcnew NGfc2Coordinates3d(((Gfc2CuboidBody*)m_pEntity)->getCoordinatePtr(), false);
-}
-
 void NGfc2CuboidBody::setDimension(gfc::engine::EntityRef nValue)
 {
     ((Gfc2CuboidBody*)m_pEntity)->setDimension(nValue);
@@ -44,10 +41,5 @@ gfc::engine::EntityRef NGfc2CuboidBody::getDimension()
 bool NGfc2CuboidBody::hasDimension()
 {
     return ((Gfc2CuboidBody*)m_pEntity)->hasDimension();
-}
-
-NGfc2Vector3d^ NGfc2CuboidBody::getDimensionPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2CuboidBody*)m_pEntity)->getDimensionPtr(), false);
 }
 

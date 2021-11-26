@@ -2,9 +2,8 @@
 #define NGFC2CSGSOLIDSHAPE_H
 
 #include "NGfc2SolidShape.h"
-#include "Gfc2CsgSolidShape.h"
+#include "GfcClasses\x3\Gfc2CsgSolidShape.h"
 #include "NGfc2BooleanResult.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2CsgSolidShape: public NGfc2SolidShape
 {
@@ -14,7 +13,6 @@ public:
     void setTreeRootExpression(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getTreeRootExpression();
     bool hasTreeRootExpression();
-    NGfc2BooleanResult^ getTreeRootExpressionPtr();
 
 };
 #endif

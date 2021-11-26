@@ -2,9 +2,8 @@
 #define NGFC2SECTIONLISTPROPERTY_H
 
 #include "NGfc2ListProperty.h"
-#include "Gfc2SectionListProperty.h"
+#include "GfcClasses\x3\Gfc2SectionListProperty.h"
 #include "NGfc2Section.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2SectionListProperty: public NGfc2ListProperty
 {
@@ -15,7 +14,6 @@ public:
     void clearValues();
     void addValues(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getValues(int nIndex);
-    NGfc2Section^ getValuesPtr(int nIndex);
 
 };
 #endif

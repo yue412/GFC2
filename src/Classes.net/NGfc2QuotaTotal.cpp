@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2QuotaTotal.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2QuotaTotal::NGfc2QuotaTotal()
 {
     m_pEntity = new Gfc2QuotaTotal;
@@ -13,7 +15,7 @@ NGfc2QuotaTotal::NGfc2QuotaTotal(void* pEntity, bool bOwner):
 
 void NGfc2QuotaTotal::setCode(NGfc2String sValue)
 {
-    ((Gfc2QuotaTotal*)m_pEntity)->setCode(marshal_as<std::string>(sValue));
+    ((Gfc2QuotaTotal*)m_pEntity)->setCode(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2QuotaTotal::getCode()
@@ -28,7 +30,7 @@ bool NGfc2QuotaTotal::hasCode()
 
 void NGfc2QuotaTotal::setSubCode(NGfc2String sValue)
 {
-    ((Gfc2QuotaTotal*)m_pEntity)->setSubCode(marshal_as<std::string>(sValue));
+    ((Gfc2QuotaTotal*)m_pEntity)->setSubCode(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2QuotaTotal::getSubCode()
@@ -43,7 +45,7 @@ bool NGfc2QuotaTotal::hasSubCode()
 
 void NGfc2QuotaTotal::setName(NGfc2String sValue)
 {
-    ((Gfc2QuotaTotal*)m_pEntity)->setName(marshal_as<std::string>(sValue));
+    ((Gfc2QuotaTotal*)m_pEntity)->setName(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2QuotaTotal::getName()
@@ -58,7 +60,7 @@ bool NGfc2QuotaTotal::hasName()
 
 void NGfc2QuotaTotal::setContent(NGfc2String sValue)
 {
-    ((Gfc2QuotaTotal*)m_pEntity)->setContent(marshal_as<std::string>(sValue));
+    ((Gfc2QuotaTotal*)m_pEntity)->setContent(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2QuotaTotal::getContent()
@@ -73,7 +75,7 @@ bool NGfc2QuotaTotal::hasContent()
 
 void NGfc2QuotaTotal::setUnit(NGfc2String sValue)
 {
-    ((Gfc2QuotaTotal*)m_pEntity)->setUnit(marshal_as<std::string>(sValue));
+    ((Gfc2QuotaTotal*)m_pEntity)->setUnit(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2QuotaTotal::getUnit()
@@ -88,7 +90,7 @@ bool NGfc2QuotaTotal::hasUnit()
 
 void NGfc2QuotaTotal::setQuantity(NGfc2String sValue)
 {
-    ((Gfc2QuotaTotal*)m_pEntity)->setQuantity(marshal_as<std::string>(sValue));
+    ((Gfc2QuotaTotal*)m_pEntity)->setQuantity(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2QuotaTotal::getQuantity()
@@ -103,7 +105,7 @@ bool NGfc2QuotaTotal::hasQuantity()
 
 void NGfc2QuotaTotal::setMemo(NGfc2String sValue)
 {
-    ((Gfc2QuotaTotal*)m_pEntity)->setMemo(marshal_as<std::string>(sValue));
+    ((Gfc2QuotaTotal*)m_pEntity)->setMemo(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2QuotaTotal::getMemo()

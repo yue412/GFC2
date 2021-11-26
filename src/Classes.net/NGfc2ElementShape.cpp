@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ElementShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ElementShape::NGfc2ElementShape()
 {
     m_pEntity = new Gfc2ElementShape;
@@ -13,7 +15,7 @@ NGfc2ElementShape::NGfc2ElementShape(void* pEntity, bool bOwner):
 
 void NGfc2ElementShape::setIdentifier(NGfc2String sValue)
 {
-    ((Gfc2ElementShape*)m_pEntity)->setIdentifier(marshal_as<std::string>(sValue));
+    ((Gfc2ElementShape*)m_pEntity)->setIdentifier(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2ElementShape::getIdentifier()
@@ -39,10 +41,5 @@ gfc::engine::EntityRef NGfc2ElementShape::getShape()
 bool NGfc2ElementShape::hasShape()
 {
     return ((Gfc2ElementShape*)m_pEntity)->hasShape();
-}
-
-NGfc2Shape^ NGfc2ElementShape::getShapePtr()
-{
-    return gcnew NGfc2Shape(((Gfc2ElementShape*)m_pEntity)->getShapePtr(), false);
 }
 

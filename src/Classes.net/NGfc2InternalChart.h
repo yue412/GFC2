@@ -2,10 +2,9 @@
 #define NGFC2INTERNALCHART_H
 
 #include "NGfc2Root.h"
-#include "Gfc2InternalChart.h"
+#include "GfcClasses\x3\Gfc2InternalChart.h"
 #include "NGfc2InternalPt.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2InternalChart: public NGfc2Root
 {
@@ -25,7 +24,6 @@ public:
     void clearIPS();
     void addIPS(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getIPS(int nIndex);
-    NGfc2InternalPt^ getIPSPtr(int nIndex);
 
 };
 #endif

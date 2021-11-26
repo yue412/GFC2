@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2IntegerProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2IntegerProperty::NGfc2IntegerProperty()
 {
     m_pEntity = new Gfc2IntegerProperty;

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2CompositeCurve3dSweptSolidShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2CompositeCurve3dSweptSolidShape::NGfc2CompositeCurve3dSweptSolidShape()
 {
     m_pEntity = new Gfc2CompositeCurve3dSweptSolidShape;
@@ -31,11 +33,6 @@ gfc::engine::EntityRef NGfc2CompositeCurve3dSweptSolidShape::getSegments(int nIn
     return ((Gfc2CompositeCurve3dSweptSolidShape*)m_pEntity)->getSegments(nIndex);
 }
 
-NGfc2Curve3d^ NGfc2CompositeCurve3dSweptSolidShape::getSegmentsPtr(int nIndex)
-{
-    return gcnew NGfc2Curve3d(((Gfc2CompositeCurve3dSweptSolidShape*)m_pEntity)->getSegmentsPtr(nIndex), false);
-}
-
 int NGfc2CompositeCurve3dSweptSolidShape::getReferencesCount()
 {
     return ((Gfc2CompositeCurve3dSweptSolidShape*)m_pEntity)->getReferencesCount();
@@ -54,10 +51,5 @@ void NGfc2CompositeCurve3dSweptSolidShape::addReferences(gfc::engine::EntityRef 
 gfc::engine::EntityRef NGfc2CompositeCurve3dSweptSolidShape::getReferences(int nIndex)
 {
     return ((Gfc2CompositeCurve3dSweptSolidShape*)m_pEntity)->getReferences(nIndex);
-}
-
-NGfc2Surface^ NGfc2CompositeCurve3dSweptSolidShape::getReferencesPtr(int nIndex)
-{
-    return gcnew NGfc2Surface(((Gfc2CompositeCurve3dSweptSolidShape*)m_pEntity)->getReferencesPtr(nIndex), false);
 }
 

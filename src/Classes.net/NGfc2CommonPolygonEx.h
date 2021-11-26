@@ -2,9 +2,8 @@
 #define NGFC2COMMONPOLYGONEX_H
 
 #include "NGfc2Polygon.h"
-#include "Gfc2CommonPolygonEx.h"
+#include "GfcClasses\x3\Gfc2CommonPolygonEx.h"
 #include "NGfc2CoedgeListEx.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2CommonPolygonEx: public NGfc2Polygon
 {
@@ -15,7 +14,6 @@ public:
     void clearLoopExs();
     void addLoopExs(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getLoopExs(int nIndex);
-    NGfc2CoedgeListEx^ getLoopExsPtr(int nIndex);
 
 };
 #endif

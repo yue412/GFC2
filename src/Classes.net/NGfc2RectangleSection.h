@@ -2,9 +2,8 @@
 #define NGFC2RECTANGLESECTION_H
 
 #include "NGfc2ParameterizedSection.h"
-#include "Gfc2RectangleSection.h"
+#include "GfcClasses\x3\Gfc2RectangleSection.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2RectangleSection: public NGfc2ParameterizedSection
 {

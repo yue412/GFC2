@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Vector2d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Vector2d::NGfc2Vector2d()
 {
     m_pEntity = new Gfc2Vector2d;

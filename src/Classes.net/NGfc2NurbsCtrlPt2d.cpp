@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2NurbsCtrlPt2d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2NurbsCtrlPt2d::NGfc2NurbsCtrlPt2d()
 {
     m_pEntity = new Gfc2NurbsCtrlPt2d;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2NurbsCtrlPt2d::getPoint()
 bool NGfc2NurbsCtrlPt2d::hasPoint()
 {
     return ((Gfc2NurbsCtrlPt2d*)m_pEntity)->hasPoint();
-}
-
-NGfc2Vector2d^ NGfc2NurbsCtrlPt2d::getPointPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2NurbsCtrlPt2d*)m_pEntity)->getPointPtr(), false);
 }
 
 void NGfc2NurbsCtrlPt2d::setWeight(NGfc2Double dValue)

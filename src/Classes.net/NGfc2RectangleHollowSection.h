@@ -2,9 +2,8 @@
 #define NGFC2RECTANGLEHOLLOWSECTION_H
 
 #include "NGfc2RectangleSection.h"
-#include "Gfc2RectangleHollowSection.h"
+#include "GfcClasses\x3\Gfc2RectangleHollowSection.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2RectangleHollowSection: public NGfc2RectangleSection
 {

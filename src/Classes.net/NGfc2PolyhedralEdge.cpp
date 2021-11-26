@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2PolyhedralEdge.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2PolyhedralEdge::NGfc2PolyhedralEdge()
 {
     m_pEntity = new Gfc2PolyhedralEdge;

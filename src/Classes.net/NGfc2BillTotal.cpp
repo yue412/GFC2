@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2BillTotal.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2BillTotal::NGfc2BillTotal()
 {
     m_pEntity = new Gfc2BillTotal;
@@ -13,7 +15,7 @@ NGfc2BillTotal::NGfc2BillTotal(void* pEntity, bool bOwner):
 
 void NGfc2BillTotal::setCode(NGfc2String sValue)
 {
-    ((Gfc2BillTotal*)m_pEntity)->setCode(marshal_as<std::string>(sValue));
+    ((Gfc2BillTotal*)m_pEntity)->setCode(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2BillTotal::getCode()
@@ -28,7 +30,7 @@ bool NGfc2BillTotal::hasCode()
 
 void NGfc2BillTotal::setName(NGfc2String sValue)
 {
-    ((Gfc2BillTotal*)m_pEntity)->setName(marshal_as<std::string>(sValue));
+    ((Gfc2BillTotal*)m_pEntity)->setName(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2BillTotal::getName()
@@ -43,7 +45,7 @@ bool NGfc2BillTotal::hasName()
 
 void NGfc2BillTotal::setAttr(NGfc2String sValue)
 {
-    ((Gfc2BillTotal*)m_pEntity)->setAttr(marshal_as<std::string>(sValue));
+    ((Gfc2BillTotal*)m_pEntity)->setAttr(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2BillTotal::getAttr()
@@ -73,7 +75,7 @@ bool NGfc2BillTotal::hasQuantityType()
 
 void NGfc2BillTotal::setUnit(NGfc2String sValue)
 {
-    ((Gfc2BillTotal*)m_pEntity)->setUnit(marshal_as<std::string>(sValue));
+    ((Gfc2BillTotal*)m_pEntity)->setUnit(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2BillTotal::getUnit()
@@ -88,7 +90,7 @@ bool NGfc2BillTotal::hasUnit()
 
 void NGfc2BillTotal::setQuantity(NGfc2String sValue)
 {
-    ((Gfc2BillTotal*)m_pEntity)->setQuantity(marshal_as<std::string>(sValue));
+    ((Gfc2BillTotal*)m_pEntity)->setQuantity(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2BillTotal::getQuantity()
@@ -103,7 +105,7 @@ bool NGfc2BillTotal::hasQuantity()
 
 void NGfc2BillTotal::setMemo(NGfc2String sValue)
 {
-    ((Gfc2BillTotal*)m_pEntity)->setMemo(marshal_as<std::string>(sValue));
+    ((Gfc2BillTotal*)m_pEntity)->setMemo(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2BillTotal::getMemo()

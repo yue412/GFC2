@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Geometry.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Geometry::NGfc2Geometry()
 {
     m_pEntity = new Gfc2Geometry;

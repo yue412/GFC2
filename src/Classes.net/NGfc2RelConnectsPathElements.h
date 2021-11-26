@@ -2,9 +2,8 @@
 #define NGFC2RELCONNECTSPATHELEMENTS_H
 
 #include "NGfc2RelConnectsElements.h"
-#include "Gfc2RelConnectsPathElements.h"
+#include "GfcClasses\x3\Gfc2RelConnectsPathElements.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2RelConnectsPathElements: public NGfc2RelConnectsElements
 {

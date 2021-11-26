@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SurfaceCurveSweptAreaSolidShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SurfaceCurveSweptAreaSolidShape::NGfc2SurfaceCurveSweptAreaSolidShape()
 {
     m_pEntity = new Gfc2SurfaceCurveSweptAreaSolidShape;
@@ -26,11 +28,6 @@ bool NGfc2SurfaceCurveSweptAreaSolidShape::hasDirectrix()
     return ((Gfc2SurfaceCurveSweptAreaSolidShape*)m_pEntity)->hasDirectrix();
 }
 
-NGfc2Curve3d^ NGfc2SurfaceCurveSweptAreaSolidShape::getDirectrixPtr()
-{
-    return gcnew NGfc2Curve3d(((Gfc2SurfaceCurveSweptAreaSolidShape*)m_pEntity)->getDirectrixPtr(), false);
-}
-
 void NGfc2SurfaceCurveSweptAreaSolidShape::setReferenceSurface(gfc::engine::EntityRef nValue)
 {
     ((Gfc2SurfaceCurveSweptAreaSolidShape*)m_pEntity)->setReferenceSurface(nValue);
@@ -44,10 +41,5 @@ gfc::engine::EntityRef NGfc2SurfaceCurveSweptAreaSolidShape::getReferenceSurface
 bool NGfc2SurfaceCurveSweptAreaSolidShape::hasReferenceSurface()
 {
     return ((Gfc2SurfaceCurveSweptAreaSolidShape*)m_pEntity)->hasReferenceSurface();
-}
-
-NGfc2Surface^ NGfc2SurfaceCurveSweptAreaSolidShape::getReferenceSurfacePtr()
-{
-    return gcnew NGfc2Surface(((Gfc2SurfaceCurveSweptAreaSolidShape*)m_pEntity)->getReferenceSurfacePtr(), false);
 }
 

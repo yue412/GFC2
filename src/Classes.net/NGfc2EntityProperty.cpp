@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2EntityProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2EntityProperty::NGfc2EntityProperty()
 {
     m_pEntity = new Gfc2EntityProperty;
@@ -24,10 +26,5 @@ gfc::engine::EntityRef NGfc2EntityProperty::getVal()
 bool NGfc2EntityProperty::hasVal()
 {
     return ((Gfc2EntityProperty*)m_pEntity)->hasVal();
-}
-
-NGfc2Root^ NGfc2EntityProperty::getValPtr()
-{
-    return gcnew NGfc2Root(((Gfc2EntityProperty*)m_pEntity)->getValPtr(), false);
 }
 

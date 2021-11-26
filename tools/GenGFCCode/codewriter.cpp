@@ -322,10 +322,14 @@ void CCodeWriter::writeCliClassHeadFile(CClass *pTypeObject, CppClass *pClass)
         oFile.addInclude(L"N" + pTypeObject->getParent()->getName() + L".h");
         oIncludeSet.insert(L"N" + pTypeObject->getParent()->getName());
     }
+    else
+    {
+        oFile.addInclude(L"Entity.h");
+    }
     // include attribute file
     //if (nCount > 0)
     {
-        oFile.addInclude(pTypeObject->getName() + L".h");
+        oFile.addInclude(L"GfcClasses\\x3\\" + pTypeObject->getName() + L".h");
         oIncludeSet.insert(pTypeObject->getName());
     }
     bool bFlag = false;
@@ -358,7 +362,8 @@ void CCodeWriter::writeCliClassHeadFile(CClass *pTypeObject, CppClass *pClass)
         oFile.addInclude(L"NTypeDef.h");
 //    if (bFlag)
 //        oFile.addInclude("GfcEngine/Document.h");
-    oFile.addInclude(L"GfcEngine/Entity.h");
+     
+    //oFile.addInclude(L"GfcEngine/Entity.h");
     //oFile.addInclude("GfcEngine/EntityFactory.h");
     //oFile.addInclude("GfcEngine/FieldCacheInitializer.h");
     if(bStringFlag)
@@ -375,10 +380,13 @@ void CCodeWriter::writeCliClassHeadFile(CClass *pTypeObject, CppClass *pClass)
 
 void CCodeWriter::writeCliClassImpFile(CppClass *pClass)
 {
-    CppFile oFile(pClass->name(), L"", true);
+    CppFile oFile(pClass->name(), L"", false);
 //    oFile.addInclude("google/protobuf/wire_format_lite.h", true);
 //    oFile.addInclude("google/protobuf/wire_format_lite_inl.h", true);
     //oFile.addInclude("msclr/marshal_cppstd.h", true);
+    oFile.body()->addLine(L"");
+    oFile.body()->addLine(L"using namespace gfc::classes::x3;");
+    oFile.body()->addLine(L"");
     oFile.body()->add(pClass->createImpCode());
 
     oFile.saveTo(m_sNETPath);
@@ -721,6 +729,36 @@ void CCodeWriter::writeTypeObject(CppHeadFile & oTypeDefHeadFile, CTypeObject * 
     oTypeSet.insert(pTypeObj->getName());
 }
 
+void CCodeWriter::writeCliTypedef(CTypeDef * pTypeDef, CppHeadFile & oTypeDefHeadFile, std::set<std::wstring>& oTypeDefIncludes)
+{
+    CTypeObject* pType = pTypeDef->getRefType();
+    if (oTypeDefIncludes.find(pTypeDef->getName()) != oTypeDefIncludes.end())
+        return; // 已经写过了
+    CTypeDef* pRefTypeDef = dynamic_cast<CTypeDef*>(pType);
+    if (pRefTypeDef)
+        writeCliTypedef(pRefTypeDef, oTypeDefHeadFile, oTypeDefIncludes);
+    if (pType && pType->getType() == TOE_CLASS && oTypeDefIncludes.find(L"N" + pType->getName()) == oTypeDefIncludes.end())
+    {
+        oTypeDefHeadFile.addInclude(FormatWstring(L"N%s.h",
+            pType->getName().c_str()
+        ));
+        oTypeDefIncludes.insert(L"N" + pType->getName());
+    }
+    oTypeDefIncludes.insert(pTypeDef->getName());
+    std::wstring sRefTypeName = getTypeCode(pTypeDef->getRefType(), true);
+    if (pType && pType->getType() == TOE_CLASS)
+        oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef N%s N%s;",
+            sRefTypeName.c_str(),
+            pTypeDef->getName().c_str()
+        ));
+    else
+        oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef %s N%s;",
+            sRefTypeName.c_str(),
+            pTypeDef->getName().c_str()
+        ));
+    oTypeDefHeadFile.body()->addLine(L"");
+}
+
 void CCodeWriter::writeCliTypedefFile(std::vector<CTypeObject *> &oObjectList)
 {
     std::set<std::wstring> oTypeDefIncludes;
@@ -737,26 +775,7 @@ void CCodeWriter::writeCliTypedefFile(std::vector<CTypeObject *> &oObjectList)
                 CTypeDef* pTypeObject = dynamic_cast<CTypeDef*>(pTypeObj);
                 if (!pTypeObject)
                     continue;
-                CTypeObject* pType = pTypeObject->getRefType();
-                if (pType && pType->getType() == TOE_CLASS && oTypeDefIncludes.find(L"N" + pType->getName()) == oTypeDefIncludes.end())
-                {
-                    oTypeDefHeadFile.addInclude(FormatWstring(L"N%s.h", 
-                        pType->getName().c_str()
-                    ));
-                    oTypeDefIncludes.insert(L"N" + pType->getName());
-                }
-                std::wstring sRefTypeName = getTypeCode(pTypeObject->getRefType());
-                if (pType && pType->getType() == TOE_CLASS)
-                    oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef N%s N%s;", 
-                        sRefTypeName.c_str(), 
-                        pTypeObject->getName().c_str()
-                    ));
-                else
-                    oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef %s N%s;", 
-                        sRefTypeName.c_str(), 
-                        pTypeObject->getName().c_str()
-                    ));
-                oTypeDefHeadFile.body()->addLine(L"");
+                writeCliTypedef(pTypeObject, oTypeDefHeadFile, oTypeDefIncludes);
             }
             break;
         case TOE_ENUM:
@@ -1512,7 +1531,7 @@ std::wstring CCodeWriter::getBaseTypeCode(CTypeObject *pTypeObject, bool b4cli)
             return pTypeObject->getName();
         case EBT_STRING:
             if (b4cli )
-                return L"String^";
+                return L"System::String^";
             else
                 return L"std::wstring";
         case EBT_INT:
@@ -1762,7 +1781,7 @@ void CCodeWriter::initCliRepeatAttributeCode(CClass* pTypeObject, CAttribute *pA
     //pFunc->setIsInline(true);
     pFunc->addParam(sTypeName, sPrefix + L"Value");
     if(nType == EBT_STRING)
-        pFunc->body()->addLine(FormatWstring(L"((%s*)m_pEntity)->%s(marshal_as<std::string>(%s));", 
+        pFunc->body()->addLine(FormatWstring(L"((%s*)m_pEntity)->%s(marshal_as<std::wstring>(%s));", 
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str(),
             pFunc->params(0)->name().c_str()
@@ -1804,7 +1823,7 @@ void CCodeWriter::initCliRepeatAttributeCode(CClass* pTypeObject, CAttribute *pA
             pFunc->name().c_str(), 
             pFunc->params(0)->name().c_str()
         ));
-
+    /*
     if (nType == EBT_ENTITY)
     {
         std::wstring sType = pAttribute->getType()->getName();
@@ -1819,6 +1838,7 @@ void CCodeWriter::initCliRepeatAttributeCode(CClass* pTypeObject, CAttribute *pA
             pFunc->params(0)->name().c_str()
         ));
     }
+    */
 }
 
 void CCodeWriter::initAttributeCode(CClass *pTypeObject, int nAttributeIndex, CppClass *pClass)
@@ -1892,7 +1912,7 @@ void CCodeWriter::initCliAttributeCode(CClass *pTypeObject, int nAttributeIndex,
     //pFunc->setIsInline(true);
     pFunc->addParam(/*"const " + */sTypeName/* + "&"*/, sPrefix + L"Value");
     if (nType == EBT_STRING)
-        pFunc->body()->addLine(FormatWstring(L"((%s*)m_pEntity)->%s(marshal_as<std::string>(%s));",
+        pFunc->body()->addLine(FormatWstring(L"((%s*)m_pEntity)->%s(marshal_as<std::wstring>(%s));",
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str(), 
             pFunc->params(0)->name().c_str()
@@ -1945,7 +1965,7 @@ void CCodeWriter::initCliAttributeCode(CClass *pTypeObject, int nAttributeIndex,
 //                           .arg(pTypeObject->getName())
 //                           .arg(pFunc->name())
 //                           );
-
+    /*
     if (nType == EBT_ENTITY)
     {
         std::wstring sType = pAttribute->getType()->getName();
@@ -1958,6 +1978,7 @@ void CCodeWriter::initCliAttributeCode(CClass *pTypeObject, int nAttributeIndex,
             pFunc->name().c_str()
         ));
     }
+    */
 }
 
 std::wstring CCodeWriter::getClassFieldCode(CAttribute *pAttrib)

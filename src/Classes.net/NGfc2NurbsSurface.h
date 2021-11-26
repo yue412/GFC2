@@ -2,10 +2,9 @@
 #define NGFC2NURBSSURFACE_H
 
 #include "NGfc2Surface.h"
-#include "Gfc2NurbsSurface.h"
+#include "GfcClasses\x3\Gfc2NurbsSurface.h"
 #include "NGfc2NurbsCtrlPt3d.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2NurbsSurface: public NGfc2Surface
 {
@@ -28,7 +27,6 @@ public:
     void clearCtrlPts();
     void addCtrlPts(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCtrlPts(int nIndex);
-    NGfc2NurbsCtrlPt3d^ getCtrlPtsPtr(int nIndex);
     int getKnotsUCount();
     void clearKnotsU();
     void addKnotsU(NGfc2Double dValue);

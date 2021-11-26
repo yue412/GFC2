@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RelDecomposes.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RelDecomposes::NGfc2RelDecomposes()
 {
     m_pEntity = new Gfc2RelDecomposes;

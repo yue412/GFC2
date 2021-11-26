@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Coordinates3d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Coordinates3d::NGfc2Coordinates3d()
 {
     m_pEntity = new Gfc2Coordinates3d;
@@ -26,11 +28,6 @@ bool NGfc2Coordinates3d::hasOrigin()
     return ((Gfc2Coordinates3d*)m_pEntity)->hasOrigin();
 }
 
-NGfc2Vector3d^ NGfc2Coordinates3d::getOriginPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2Coordinates3d*)m_pEntity)->getOriginPtr(), false);
-}
-
 void NGfc2Coordinates3d::setX(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Coordinates3d*)m_pEntity)->setX(nValue);
@@ -44,11 +41,6 @@ gfc::engine::EntityRef NGfc2Coordinates3d::getX()
 bool NGfc2Coordinates3d::hasX()
 {
     return ((Gfc2Coordinates3d*)m_pEntity)->hasX();
-}
-
-NGfc2Vector3d^ NGfc2Coordinates3d::getXPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2Coordinates3d*)m_pEntity)->getXPtr(), false);
 }
 
 void NGfc2Coordinates3d::setY(gfc::engine::EntityRef nValue)
@@ -66,11 +58,6 @@ bool NGfc2Coordinates3d::hasY()
     return ((Gfc2Coordinates3d*)m_pEntity)->hasY();
 }
 
-NGfc2Vector3d^ NGfc2Coordinates3d::getYPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2Coordinates3d*)m_pEntity)->getYPtr(), false);
-}
-
 void NGfc2Coordinates3d::setZ(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Coordinates3d*)m_pEntity)->setZ(nValue);
@@ -84,10 +71,5 @@ gfc::engine::EntityRef NGfc2Coordinates3d::getZ()
 bool NGfc2Coordinates3d::hasZ()
 {
     return ((Gfc2Coordinates3d*)m_pEntity)->hasZ();
-}
-
-NGfc2Vector3d^ NGfc2Coordinates3d::getZPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2Coordinates3d*)m_pEntity)->getZPtr(), false);
 }
 

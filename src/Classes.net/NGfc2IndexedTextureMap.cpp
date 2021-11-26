@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2IndexedTextureMap.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2IndexedTextureMap::NGfc2IndexedTextureMap()
 {
     m_pEntity = new Gfc2IndexedTextureMap;
@@ -26,11 +28,6 @@ bool NGfc2IndexedTextureMap::hasMappedTo()
     return ((Gfc2IndexedTextureMap*)m_pEntity)->hasMappedTo();
 }
 
-NGfc2PrimitiveRenderable^ NGfc2IndexedTextureMap::getMappedToPtr()
-{
-    return gcnew NGfc2PrimitiveRenderable(((Gfc2IndexedTextureMap*)m_pEntity)->getMappedToPtr(), false);
-}
-
 int NGfc2IndexedTextureMap::getTexCoordsCount()
 {
     return ((Gfc2IndexedTextureMap*)m_pEntity)->getTexCoordsCount();
@@ -49,11 +46,6 @@ void NGfc2IndexedTextureMap::addTexCoords(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2IndexedTextureMap::getTexCoords(int nIndex)
 {
     return ((Gfc2IndexedTextureMap*)m_pEntity)->getTexCoords(nIndex);
-}
-
-NGfc2Vector2d^ NGfc2IndexedTextureMap::getTexCoordsPtr(int nIndex)
-{
-    return gcnew NGfc2Vector2d(((Gfc2IndexedTextureMap*)m_pEntity)->getTexCoordsPtr(nIndex), false);
 }
 
 int NGfc2IndexedTextureMap::getTexCoordIndexCount()
@@ -94,10 +86,5 @@ void NGfc2IndexedTextureMap::addMaps(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2IndexedTextureMap::getMaps(int nIndex)
 {
     return ((Gfc2IndexedTextureMap*)m_pEntity)->getMaps(nIndex);
-}
-
-NGfc2SurfaceTexture^ NGfc2IndexedTextureMap::getMapsPtr(int nIndex)
-{
-    return gcnew NGfc2SurfaceTexture(((Gfc2IndexedTextureMap*)m_pEntity)->getMapsPtr(nIndex), false);
 }
 

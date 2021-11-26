@@ -2,9 +2,8 @@
 #define NGFC2PLANECOEF_H
 
 #include "NGfc2Root.h"
-#include "Gfc2PlaneCoef.h"
+#include "GfcClasses\x3\Gfc2PlaneCoef.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2PlaneCoef: public NGfc2Root
 {

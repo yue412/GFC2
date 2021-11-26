@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2PolyhedralFace.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2PolyhedralFace::NGfc2PolyhedralFace()
 {
     m_pEntity = new Gfc2PolyhedralFace;
@@ -31,11 +33,6 @@ gfc::engine::EntityRef NGfc2PolyhedralFace::getLoops(int nIndex)
     return ((Gfc2PolyhedralFace*)m_pEntity)->getLoops(nIndex);
 }
 
-NGfc2PolyhedralLoop^ NGfc2PolyhedralFace::getLoopsPtr(int nIndex)
-{
-    return gcnew NGfc2PolyhedralLoop(((Gfc2PolyhedralFace*)m_pEntity)->getLoopsPtr(nIndex), false);
-}
-
 void NGfc2PolyhedralFace::setPlane(gfc::engine::EntityRef nValue)
 {
     ((Gfc2PolyhedralFace*)m_pEntity)->setPlane(nValue);
@@ -49,10 +46,5 @@ gfc::engine::EntityRef NGfc2PolyhedralFace::getPlane()
 bool NGfc2PolyhedralFace::hasPlane()
 {
     return ((Gfc2PolyhedralFace*)m_pEntity)->hasPlane();
-}
-
-NGfc2PlaneCoef^ NGfc2PolyhedralFace::getPlanePtr()
-{
-    return gcnew NGfc2PlaneCoef(((Gfc2PolyhedralFace*)m_pEntity)->getPlanePtr(), false);
 }
 

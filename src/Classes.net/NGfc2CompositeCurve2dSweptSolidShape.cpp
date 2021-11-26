@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2CompositeCurve2dSweptSolidShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2CompositeCurve2dSweptSolidShape::NGfc2CompositeCurve2dSweptSolidShape()
 {
     m_pEntity = new Gfc2CompositeCurve2dSweptSolidShape;
@@ -29,10 +31,5 @@ void NGfc2CompositeCurve2dSweptSolidShape::addSegments(gfc::engine::EntityRef nV
 gfc::engine::EntityRef NGfc2CompositeCurve2dSweptSolidShape::getSegments(int nIndex)
 {
     return ((Gfc2CompositeCurve2dSweptSolidShape*)m_pEntity)->getSegments(nIndex);
-}
-
-NGfc2Curve2d^ NGfc2CompositeCurve2dSweptSolidShape::getSegmentsPtr(int nIndex)
-{
-    return gcnew NGfc2Curve2d(((Gfc2CompositeCurve2dSweptSolidShape*)m_pEntity)->getSegmentsPtr(nIndex), false);
 }
 

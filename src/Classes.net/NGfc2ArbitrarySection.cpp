@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ArbitrarySection.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ArbitrarySection::NGfc2ArbitrarySection()
 {
     m_pEntity = new Gfc2ArbitrarySection;
@@ -24,10 +26,5 @@ gfc::engine::EntityRef NGfc2ArbitrarySection::getPoly()
 bool NGfc2ArbitrarySection::hasPoly()
 {
     return ((Gfc2ArbitrarySection*)m_pEntity)->hasPoly();
-}
-
-NGfc2Polygon^ NGfc2ArbitrarySection::getPolyPtr()
-{
-    return gcnew NGfc2Polygon(((Gfc2ArbitrarySection*)m_pEntity)->getPolyPtr(), false);
 }
 

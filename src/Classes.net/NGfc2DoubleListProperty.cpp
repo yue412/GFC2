@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2DoubleListProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2DoubleListProperty::NGfc2DoubleListProperty()
 {
     m_pEntity = new Gfc2DoubleListProperty;

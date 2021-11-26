@@ -2,9 +2,8 @@
 #define NGFC2COEDGELISTEX_H
 
 #include "NGfc2Topology.h"
-#include "Gfc2CoedgeListEx.h"
+#include "GfcClasses\x3\Gfc2CoedgeListEx.h"
 #include "NGfc2Coedge.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2CoedgeListEx: public NGfc2Topology
 {
@@ -15,7 +14,6 @@ public:
     void clearCoedgeExs();
     void addCoedgeExs(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCoedgeExs(int nIndex);
-    NGfc2Coedge^ getCoedgeExsPtr(int nIndex);
 
 };
 #endif

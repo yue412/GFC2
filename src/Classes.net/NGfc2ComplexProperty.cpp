@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ComplexProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ComplexProperty::NGfc2ComplexProperty()
 {
     m_pEntity = new Gfc2ComplexProperty;
@@ -29,10 +31,5 @@ void NGfc2ComplexProperty::addHasProperties(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2ComplexProperty::getHasProperties(int nIndex)
 {
     return ((Gfc2ComplexProperty*)m_pEntity)->getHasProperties(nIndex);
-}
-
-NGfc2Property^ NGfc2ComplexProperty::getHasPropertiesPtr(int nIndex)
-{
-    return gcnew NGfc2Property(((Gfc2ComplexProperty*)m_pEntity)->getHasPropertiesPtr(nIndex), false);
 }
 

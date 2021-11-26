@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SectionProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SectionProperty::NGfc2SectionProperty()
 {
     m_pEntity = new Gfc2SectionProperty;
@@ -24,10 +26,5 @@ gfc::engine::EntityRef NGfc2SectionProperty::getSection()
 bool NGfc2SectionProperty::hasSection()
 {
     return ((Gfc2SectionProperty*)m_pEntity)->hasSection();
-}
-
-NGfc2Section^ NGfc2SectionProperty::getSectionPtr()
-{
-    return gcnew NGfc2Section(((Gfc2SectionProperty*)m_pEntity)->getSectionPtr(), false);
 }
 

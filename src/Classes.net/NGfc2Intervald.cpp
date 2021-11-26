@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Intervald.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Intervald::NGfc2Intervald()
 {
     m_pEntity = new Gfc2Intervald;

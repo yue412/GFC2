@@ -2,9 +2,8 @@
 #define NGFC2EXTRUDEDAREASOLIDTAPEREDSHAPE_H
 
 #include "NGfc2ExtrudedAreaSolidShape.h"
-#include "Gfc2ExtrudedAreaSolidTaperedShape.h"
+#include "GfcClasses\x3\Gfc2ExtrudedAreaSolidTaperedShape.h"
 #include "NGfc2Section.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2ExtrudedAreaSolidTaperedShape: public NGfc2ExtrudedAreaSolidShape
 {
@@ -14,7 +13,6 @@ public:
     void setEndSweptArea(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getEndSweptArea();
     bool hasEndSweptArea();
-    NGfc2Section^ getEndSweptAreaPtr();
 
 };
 #endif

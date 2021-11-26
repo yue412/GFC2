@@ -639,7 +639,6 @@ TEST(TestGFCEngine, WriteColumnDemoFile)
 //    EXPECT_NEAR(2.0, vec->getX(), 1e-6);
 //    EXPECT_NEAR(1.0, vec->getY(), 1e-6);
 //}
-
 /*
 TEST(TestGFCEngine, ReadFile_1)
 {
@@ -647,7 +646,7 @@ TEST(TestGFCEngine, ReadFile_1)
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
     gfc::engine::CReader reader(&oModel);
     gfc::engine::CDocument document(&oModel);
-    auto result = reader.open(getFullPath(L"GJ_Column.rvt.gfc"));
+    auto result = reader.open(getFullPath(L"±ßÔµÌî³ä-°µÖù.rvt.gfc"));
     EXPECT_EQ(true, result);
     if (result)
     {

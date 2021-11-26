@@ -2,9 +2,8 @@
 #define NGFC2STEELTOTAL_H
 
 #include "NGfc2Root.h"
-#include "Gfc2SteelTotal.h"
+#include "GfcClasses\x3\Gfc2SteelTotal.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;

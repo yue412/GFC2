@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2PolyhedralLoop.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2PolyhedralLoop::NGfc2PolyhedralLoop()
 {
     m_pEntity = new Gfc2PolyhedralLoop;
@@ -29,10 +31,5 @@ void NGfc2PolyhedralLoop::addEdges(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2PolyhedralLoop::getEdges(int nIndex)
 {
     return ((Gfc2PolyhedralLoop*)m_pEntity)->getEdges(nIndex);
-}
-
-NGfc2PolyhedralEdge^ NGfc2PolyhedralLoop::getEdgesPtr(int nIndex)
-{
-    return gcnew NGfc2PolyhedralEdge(((Gfc2PolyhedralLoop*)m_pEntity)->getEdgesPtr(nIndex), false);
 }
 

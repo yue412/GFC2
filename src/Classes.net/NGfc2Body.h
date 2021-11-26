@@ -2,8 +2,7 @@
 #define NGFC2BODY_H
 
 #include "NGfc2Geometry.h"
-#include "Gfc2Body.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2Body.h"
 
 public ref class NGfc2Body: public NGfc2Geometry
 {

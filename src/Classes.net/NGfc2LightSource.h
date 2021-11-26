@@ -2,10 +2,9 @@
 #define NGFC2LIGHTSOURCE_H
 
 #include "NGfc2RepresentationItem.h"
-#include "Gfc2LightSource.h"
+#include "GfcClasses\x3\Gfc2LightSource.h"
 #include "NGfc2Color.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;
@@ -22,7 +21,6 @@ public:
     void setLightColour(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getLightColour();
     bool hasLightColour();
-    NGfc2Color^ getLightColourPtr();
     void setAmbientIntensity(NGfc2Double dValue);
     NGfc2Double getAmbientIntensity();
     bool hasAmbientIntensity();

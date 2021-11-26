@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SurfaceTexture.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SurfaceTexture::NGfc2SurfaceTexture()
 {
     m_pEntity = new Gfc2SurfaceTexture;
@@ -43,7 +45,7 @@ bool NGfc2SurfaceTexture::hasRepeatT()
 
 void NGfc2SurfaceTexture::setImageFileName(NGfc2String sValue)
 {
-    ((Gfc2SurfaceTexture*)m_pEntity)->setImageFileName(marshal_as<std::string>(sValue));
+    ((Gfc2SurfaceTexture*)m_pEntity)->setImageFileName(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2SurfaceTexture::getImageFileName()
@@ -71,11 +73,6 @@ bool NGfc2SurfaceTexture::hasTranfromsMatirx()
     return ((Gfc2SurfaceTexture*)m_pEntity)->hasTranfromsMatirx();
 }
 
-NGfc2Matrix^ NGfc2SurfaceTexture::getTranfromsMatirxPtr()
-{
-    return gcnew NGfc2Matrix(((Gfc2SurfaceTexture*)m_pEntity)->getTranfromsMatirxPtr(), false);
-}
-
 int NGfc2SurfaceTexture::getParameterCount()
 {
     return ((Gfc2SurfaceTexture*)m_pEntity)->getParameterCount();
@@ -88,7 +85,7 @@ void NGfc2SurfaceTexture::clearParameter()
 
 void NGfc2SurfaceTexture::addParameter(NGfc2String sValue)
 {
-    ((Gfc2SurfaceTexture*)m_pEntity)->addParameter(marshal_as<std::string>(sValue));
+    ((Gfc2SurfaceTexture*)m_pEntity)->addParameter(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2SurfaceTexture::getParameter(int nIndex)

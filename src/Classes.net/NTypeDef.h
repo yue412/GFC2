@@ -9,17 +9,17 @@ typedef double NGfc2DateTime;
 
 typedef double NGfc2Double;
 
-typedef Gfc2String NGfc2Elev;
+typedef System::String^ NGfc2String;
 
-typedef std::wstring NGfc2Identity;
+typedef NGfc2String NGfc2Elev;
+
+typedef System::String^ NGfc2Identity;
 
 typedef int NGfc2Integer;
 
-typedef Gfc2String NGfc2Label;
+typedef NGfc2String NGfc2Label;
 
-typedef std::wstring NGfc2String;
-
-typedef Gfc2String NGfc2Text;
+typedef NGfc2String NGfc2Text;
 
 typedef double NGfc2Time;
 

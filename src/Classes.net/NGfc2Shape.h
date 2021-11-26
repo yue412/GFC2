@@ -2,10 +2,9 @@
 #define NGFC2SHAPE_H
 
 #include "NGfc2Root.h"
-#include "Gfc2Shape.h"
+#include "GfcClasses\x3\Gfc2Shape.h"
 #include "NGfc2Coordinates3d.h"
 #include "NGfc2Box3d.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Shape: public NGfc2Root
 {
@@ -15,11 +14,9 @@ public:
     void setLocalCoordinate(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getLocalCoordinate();
     bool hasLocalCoordinate();
-    NGfc2Coordinates3d^ getLocalCoordinatePtr();
     void setBoundingBox(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getBoundingBox();
     bool hasBoundingBox();
-    NGfc2Box3d^ getBoundingBoxPtr();
 
 };
 #endif

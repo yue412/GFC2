@@ -2,8 +2,7 @@
 #define NGFC2ELLIPSE3D_H
 
 #include "NGfc2PlaneCurve3d.h"
-#include "Gfc2Ellipse3d.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2Ellipse3d.h"
 
 public ref class NGfc2Ellipse3d: public NGfc2PlaneCurve3d
 {

@@ -2,9 +2,8 @@
 #define NGFC2POLYHEDRALEDGE_H
 
 #include "NGfc2Topology.h"
-#include "Gfc2PolyhedralEdge.h"
+#include "GfcClasses\x3\Gfc2PolyhedralEdge.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2PolyhedralEdge: public NGfc2Topology
 {

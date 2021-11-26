@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ParameterizedSection.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ParameterizedSection::NGfc2ParameterizedSection()
 {
     m_pEntity = new Gfc2ParameterizedSection;
@@ -24,10 +26,5 @@ gfc::engine::EntityRef NGfc2ParameterizedSection::getPosition()
 bool NGfc2ParameterizedSection::hasPosition()
 {
     return ((Gfc2ParameterizedSection*)m_pEntity)->hasPosition();
-}
-
-NGfc2Coordinates2d^ NGfc2ParameterizedSection::getPositionPtr()
-{
-    return gcnew NGfc2Coordinates2d(((Gfc2ParameterizedSection*)m_pEntity)->getPositionPtr(), false);
 }
 

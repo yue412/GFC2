@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RelAggregates.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RelAggregates::NGfc2RelAggregates()
 {
     m_pEntity = new Gfc2RelAggregates;
@@ -26,11 +28,6 @@ bool NGfc2RelAggregates::hasRelatingObject()
     return ((Gfc2RelAggregates*)m_pEntity)->hasRelatingObject();
 }
 
-NGfc2Object^ NGfc2RelAggregates::getRelatingObjectPtr()
-{
-    return gcnew NGfc2Object(((Gfc2RelAggregates*)m_pEntity)->getRelatingObjectPtr(), false);
-}
-
 int NGfc2RelAggregates::getRelatedObjectsCount()
 {
     return ((Gfc2RelAggregates*)m_pEntity)->getRelatedObjectsCount();
@@ -49,10 +46,5 @@ void NGfc2RelAggregates::addRelatedObjects(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2RelAggregates::getRelatedObjects(int nIndex)
 {
     return ((Gfc2RelAggregates*)m_pEntity)->getRelatedObjects(nIndex);
-}
-
-NGfc2Object^ NGfc2RelAggregates::getRelatedObjectsPtr(int nIndex)
-{
-    return gcnew NGfc2Object(((Gfc2RelAggregates*)m_pEntity)->getRelatedObjectsPtr(nIndex), false);
 }
 

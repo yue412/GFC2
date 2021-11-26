@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2EllipseSection.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2EllipseSection::NGfc2EllipseSection()
 {
     m_pEntity = new Gfc2EllipseSection;

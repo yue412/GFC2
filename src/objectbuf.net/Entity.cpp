@@ -1,10 +1,9 @@
 #include "Entity.h"
 #include <msclr\marshal_cppstd.h>  
 #include <string>
-#include "glodon/objectbuf/Entity.h"
+#include "GfcEngine\Entity.h"
 
-namespace glodon {
-namespace objectbufnet {
+namespace gfc { namespace engine { namespace net {
 
 using namespace msclr::interop;
 
@@ -17,7 +16,6 @@ Entity::Entity(): m_pEntity(0), m_bOwner(false)
 
 }
 
-
 Entity::~Entity(void)
 {
     if (m_bOwner)
@@ -26,19 +24,9 @@ Entity::~Entity(void)
     }
 }
 
-bool Entity::isInherited( int nTypeId )
-{
-    return getEntity()->isInherited(nTypeId);
-}
-
 String^ Entity::entityName()
 {
     return marshal_as<String^>(getEntity()->entityName());
-}
-
-int Entity::typeId()
-{
-    return getEntity()->typeId();
 }
 
 bool Entity::isInitialized()
@@ -46,10 +34,9 @@ bool Entity::isInitialized()
     return getEntity()->isInitialized();
 }
 
-glodon::objectbuf::Entity* Entity::getEntity()
+gfc::engine::CEntity* Entity::getEntity()
 {
-    return (glodon::objectbuf::Entity*)m_pEntity;
+    return (gfc::engine::CEntity*)m_pEntity;
 }
 
-}
-}
+}}}

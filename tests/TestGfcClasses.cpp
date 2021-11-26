@@ -71,6 +71,7 @@ TEST(TestGfcClasses, Element_add)
 #include "GfcClasses\x3\Gfc2ElementShape.h"
 #include "GfcClasses\x3\GfcReader.h"
 #include "GfcClasses\x3\GfcWriter.h"
+#include "GfcClasses\x3\Gfc2SimpleLoop.h"
 
 TEST(TestGfcClasses, write_document)
 {
@@ -108,3 +109,21 @@ TEST(TestGfcClasses, read_document)
     itr->next();
     EXPECT_EQ(true, itr->isDone());
 }
+
+/*
+#include "GfcClasses\x3\Gfc2ArbitrarySection.h"
+#include "GfcUtils\GfcGeometryImporter.h"
+#include "GfcGeometryImporterOld.h"
+
+TEST(TestGfcClasses, ReadFile_1)
+{
+    GfcReader oReader;
+    oReader.open(getFullPath(L"±ßÔµÌî³ä-°µÖù.rvt.gfc"));
+    auto itr = oReader.getEntities(L"Gfc2ArbitrarySection");
+    itr->first();
+    EXPECT_EQ(false, itr->isDone());
+    auto pAbnormitySection = std::dynamic_pointer_cast<Gfc2ArbitrarySection>(itr->current());
+    ggp::CPolygonPtr pPoly = GfcGeometryImporterOld::importPolygon(pAbnormitySection->getPolyPtr().get());
+    EXPECT_EQ(true, pPoly != nullptr);
+}
+*/

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2BillDetail.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2BillDetail::NGfc2BillDetail()
 {
     m_pEntity = new Gfc2BillDetail;
@@ -43,7 +45,7 @@ bool NGfc2BillDetail::hasEntityID()
 
 void NGfc2BillDetail::setUnit(NGfc2String sValue)
 {
-    ((Gfc2BillDetail*)m_pEntity)->setUnit(marshal_as<std::string>(sValue));
+    ((Gfc2BillDetail*)m_pEntity)->setUnit(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2BillDetail::getUnit()
@@ -58,7 +60,7 @@ bool NGfc2BillDetail::hasUnit()
 
 void NGfc2BillDetail::setExpress(NGfc2String sValue)
 {
-    ((Gfc2BillDetail*)m_pEntity)->setExpress(marshal_as<std::string>(sValue));
+    ((Gfc2BillDetail*)m_pEntity)->setExpress(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2BillDetail::getExpress()
@@ -73,7 +75,7 @@ bool NGfc2BillDetail::hasExpress()
 
 void NGfc2BillDetail::setQuantity(NGfc2String sValue)
 {
-    ((Gfc2BillDetail*)m_pEntity)->setQuantity(marshal_as<std::string>(sValue));
+    ((Gfc2BillDetail*)m_pEntity)->setQuantity(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2BillDetail::getQuantity()
@@ -88,7 +90,7 @@ bool NGfc2BillDetail::hasQuantity()
 
 void NGfc2BillDetail::setMemo(NGfc2String sValue)
 {
-    ((Gfc2BillDetail*)m_pEntity)->setMemo(marshal_as<std::string>(sValue));
+    ((Gfc2BillDetail*)m_pEntity)->setMemo(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2BillDetail::getMemo()

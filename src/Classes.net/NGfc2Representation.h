@@ -2,10 +2,9 @@
 #define NGFC2REPRESENTATION_H
 
 #include "NGfc2Root.h"
-#include "Gfc2Representation.h"
+#include "GfcClasses\x3\Gfc2Representation.h"
 #include "NGfc2RepresentationItem.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;
@@ -23,7 +22,6 @@ public:
     void clearitems();
     void additems(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getitems(int nIndex);
-    NGfc2RepresentationItem^ getitemsPtr(int nIndex);
 
 };
 #endif

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2GeoListProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2GeoListProperty::NGfc2GeoListProperty()
 {
     m_pEntity = new Gfc2GeoListProperty;
@@ -29,10 +31,5 @@ void NGfc2GeoListProperty::addValues(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2GeoListProperty::getValues(int nIndex)
 {
     return ((Gfc2GeoListProperty*)m_pEntity)->getValues(nIndex);
-}
-
-NGfc2Geometry^ NGfc2GeoListProperty::getValuesPtr(int nIndex)
-{
-    return gcnew NGfc2Geometry(((Gfc2GeoListProperty*)m_pEntity)->getValuesPtr(nIndex), false);
 }
 

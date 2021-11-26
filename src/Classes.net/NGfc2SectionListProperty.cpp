@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SectionListProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SectionListProperty::NGfc2SectionListProperty()
 {
     m_pEntity = new Gfc2SectionListProperty;
@@ -29,10 +31,5 @@ void NGfc2SectionListProperty::addValues(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2SectionListProperty::getValues(int nIndex)
 {
     return ((Gfc2SectionListProperty*)m_pEntity)->getValues(nIndex);
-}
-
-NGfc2Section^ NGfc2SectionListProperty::getValuesPtr(int nIndex)
-{
-    return gcnew NGfc2Section(((Gfc2SectionListProperty*)m_pEntity)->getValuesPtr(nIndex), false);
 }
 

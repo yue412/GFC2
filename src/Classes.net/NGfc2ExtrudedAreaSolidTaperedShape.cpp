@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ExtrudedAreaSolidTaperedShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ExtrudedAreaSolidTaperedShape::NGfc2ExtrudedAreaSolidTaperedShape()
 {
     m_pEntity = new Gfc2ExtrudedAreaSolidTaperedShape;
@@ -24,10 +26,5 @@ gfc::engine::EntityRef NGfc2ExtrudedAreaSolidTaperedShape::getEndSweptArea()
 bool NGfc2ExtrudedAreaSolidTaperedShape::hasEndSweptArea()
 {
     return ((Gfc2ExtrudedAreaSolidTaperedShape*)m_pEntity)->hasEndSweptArea();
-}
-
-NGfc2Section^ NGfc2ExtrudedAreaSolidTaperedShape::getEndSweptAreaPtr()
-{
-    return gcnew NGfc2Section(((Gfc2ExtrudedAreaSolidTaperedShape*)m_pEntity)->getEndSweptAreaPtr(), false);
 }
 

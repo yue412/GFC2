@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2OffsetCurve2d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2OffsetCurve2d::NGfc2OffsetCurve2d()
 {
     m_pEntity = new Gfc2OffsetCurve2d;
@@ -39,10 +41,5 @@ gfc::engine::EntityRef NGfc2OffsetCurve2d::getInitCurve()
 bool NGfc2OffsetCurve2d::hasInitCurve()
 {
     return ((Gfc2OffsetCurve2d*)m_pEntity)->hasInitCurve();
-}
-
-NGfc2Curve2d^ NGfc2OffsetCurve2d::getInitCurvePtr()
-{
-    return gcnew NGfc2Curve2d(((Gfc2OffsetCurve2d*)m_pEntity)->getInitCurvePtr(), false);
 }
 

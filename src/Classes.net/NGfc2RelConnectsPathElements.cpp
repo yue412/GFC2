@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RelConnectsPathElements.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RelConnectsPathElements::NGfc2RelConnectsPathElements()
 {
     m_pEntity = new Gfc2RelConnectsPathElements;

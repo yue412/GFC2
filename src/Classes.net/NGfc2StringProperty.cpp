@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2StringProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2StringProperty::NGfc2StringProperty()
 {
     m_pEntity = new Gfc2StringProperty;
@@ -13,7 +15,7 @@ NGfc2StringProperty::NGfc2StringProperty(void* pEntity, bool bOwner):
 
 void NGfc2StringProperty::setVal(NGfc2String sValue)
 {
-    ((Gfc2StringProperty*)m_pEntity)->setVal(marshal_as<std::string>(sValue));
+    ((Gfc2StringProperty*)m_pEntity)->setVal(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2StringProperty::getVal()

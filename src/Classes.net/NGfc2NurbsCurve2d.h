@@ -2,10 +2,9 @@
 #define NGFC2NURBSCURVE2D_H
 
 #include "NGfc2Curve2d.h"
-#include "Gfc2NurbsCurve2d.h"
+#include "GfcClasses\x3\Gfc2NurbsCurve2d.h"
 #include "NGfc2NurbsCtrlPt2d.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2NurbsCurve2d: public NGfc2Curve2d
 {
@@ -19,7 +18,6 @@ public:
     void clearCtrlPts();
     void addCtrlPts(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCtrlPts(int nIndex);
-    NGfc2NurbsCtrlPt2d^ getCtrlPtsPtr(int nIndex);
     int getKnotsCount();
     void clearKnots();
     void addKnots(NGfc2Double dValue);

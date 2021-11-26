@@ -2,8 +2,7 @@
 #define NGFC2COMPLEXPROPERTY_H
 
 #include "NGfc2Property.h"
-#include "Gfc2ComplexProperty.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2ComplexProperty.h"
 
 public ref class NGfc2ComplexProperty: public NGfc2Property
 {
@@ -14,7 +13,6 @@ public:
     void clearHasProperties();
     void addHasProperties(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getHasProperties(int nIndex);
-    NGfc2Property^ getHasPropertiesPtr(int nIndex);
 
 };
 #endif

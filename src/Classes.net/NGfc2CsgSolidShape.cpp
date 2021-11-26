@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2CsgSolidShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2CsgSolidShape::NGfc2CsgSolidShape()
 {
     m_pEntity = new Gfc2CsgSolidShape;
@@ -24,10 +26,5 @@ gfc::engine::EntityRef NGfc2CsgSolidShape::getTreeRootExpression()
 bool NGfc2CsgSolidShape::hasTreeRootExpression()
 {
     return ((Gfc2CsgSolidShape*)m_pEntity)->hasTreeRootExpression();
-}
-
-NGfc2BooleanResult^ NGfc2CsgSolidShape::getTreeRootExpressionPtr()
-{
-    return gcnew NGfc2BooleanResult(((Gfc2CsgSolidShape*)m_pEntity)->getTreeRootExpressionPtr(), false);
 }
 

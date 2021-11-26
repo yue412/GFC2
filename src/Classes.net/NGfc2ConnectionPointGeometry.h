@@ -2,9 +2,8 @@
 #define NGFC2CONNECTIONPOINTGEOMETRY_H
 
 #include "NGfc2ConnectionGeometry.h"
-#include "Gfc2ConnectionPointGeometry.h"
+#include "GfcClasses\x3\Gfc2ConnectionPointGeometry.h"
 #include "NGfc2Vector3d.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2ConnectionPointGeometry: public NGfc2ConnectionGeometry
 {
@@ -14,11 +13,9 @@ public:
     void setPointOnRelatingElement(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPointOnRelatingElement();
     bool hasPointOnRelatingElement();
-    NGfc2Vector3d^ getPointOnRelatingElementPtr();
     void setPointOnRelatedElement(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPointOnRelatedElement();
     bool hasPointOnRelatedElement();
-    NGfc2Vector3d^ getPointOnRelatedElementPtr();
 
 };
 #endif

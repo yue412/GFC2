@@ -2,9 +2,8 @@
 #define NGFC2VECTOR3D_H
 
 #include "NGfc2Geometry.h"
-#include "Gfc2Vector3d.h"
+#include "GfcClasses\x3\Gfc2Vector3d.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Vector3d: public NGfc2Geometry
 {

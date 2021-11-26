@@ -2,9 +2,8 @@
 #define NGFC2CYLINDERSHAPE_H
 
 #include "NGfc2PrimitiveShape.h"
-#include "Gfc2CylinderShape.h"
+#include "GfcClasses\x3\Gfc2CylinderShape.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2CylinderShape: public NGfc2PrimitiveShape
 {

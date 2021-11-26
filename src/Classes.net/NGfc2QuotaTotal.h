@@ -2,9 +2,8 @@
 #define NGFC2QUOTATOTAL_H
 
 #include "NGfc2Root.h"
-#include "Gfc2QuotaTotal.h"
+#include "GfcClasses\x3\Gfc2QuotaTotal.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;

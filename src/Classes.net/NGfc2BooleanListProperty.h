@@ -2,9 +2,8 @@
 #define NGFC2BOOLEANLISTPROPERTY_H
 
 #include "NGfc2ListProperty.h"
-#include "Gfc2BooleanListProperty.h"
+#include "GfcClasses\x3\Gfc2BooleanListProperty.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2BooleanListProperty: public NGfc2ListProperty
 {

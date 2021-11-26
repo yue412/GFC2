@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2PrimitiveShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2PrimitiveShape::NGfc2PrimitiveShape()
 {
     m_pEntity = new Gfc2PrimitiveShape;

@@ -2,8 +2,7 @@
 #define NGFC2REFSTRING_H
 
 #include "NGfc2Root.h"
-#include "Gfc2RefString.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2RefString.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;
@@ -14,8 +13,8 @@ public ref class NGfc2RefString: public NGfc2Root
 public:
     NGfc2RefString();
     NGfc2RefString(void* pEntity, bool bOwner);
-    void setVal(String^ sValue);
-    String^ getVal();
+    void setVal(System::String^ sValue);
+    System::String^ getVal();
     bool hasVal();
 
 };

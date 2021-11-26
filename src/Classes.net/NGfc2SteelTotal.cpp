@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SteelTotal.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SteelTotal::NGfc2SteelTotal()
 {
     m_pEntity = new Gfc2SteelTotal;
@@ -13,7 +15,7 @@ NGfc2SteelTotal::NGfc2SteelTotal(void* pEntity, bool bOwner):
 
 void NGfc2SteelTotal::setCompType(NGfc2String sValue)
 {
-    ((Gfc2SteelTotal*)m_pEntity)->setCompType(marshal_as<std::string>(sValue));
+    ((Gfc2SteelTotal*)m_pEntity)->setCompType(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2SteelTotal::getCompType()
@@ -28,7 +30,7 @@ bool NGfc2SteelTotal::hasCompType()
 
 void NGfc2SteelTotal::setLevel(NGfc2String sValue)
 {
-    ((Gfc2SteelTotal*)m_pEntity)->setLevel(marshal_as<std::string>(sValue));
+    ((Gfc2SteelTotal*)m_pEntity)->setLevel(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2SteelTotal::getLevel()
@@ -73,7 +75,7 @@ bool NGfc2SteelTotal::hasWeight()
 
 void NGfc2SteelTotal::setUnit(NGfc2String sValue)
 {
-    ((Gfc2SteelTotal*)m_pEntity)->setUnit(marshal_as<std::string>(sValue));
+    ((Gfc2SteelTotal*)m_pEntity)->setUnit(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2SteelTotal::getUnit()

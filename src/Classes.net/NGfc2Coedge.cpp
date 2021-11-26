@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Coedge.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Coedge::NGfc2Coedge()
 {
     m_pEntity = new Gfc2Coedge;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2Coedge::getCurve()
 bool NGfc2Coedge::hasCurve()
 {
     return ((Gfc2Coedge*)m_pEntity)->hasCurve();
-}
-
-NGfc2Curve2d^ NGfc2Coedge::getCurvePtr()
-{
-    return gcnew NGfc2Curve2d(((Gfc2Coedge*)m_pEntity)->getCurvePtr(), false);
 }
 
 void NGfc2Coedge::setEdgeIndex(NGfc2Integer nValue)

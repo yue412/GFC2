@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Property.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Property::NGfc2Property()
 {
     m_pEntity = new Gfc2Property;
@@ -13,7 +15,7 @@ NGfc2Property::NGfc2Property(void* pEntity, bool bOwner):
 
 void NGfc2Property::setName(NGfc2Label sValue)
 {
-    ((Gfc2Property*)m_pEntity)->setName(marshal_as<std::string>(sValue));
+    ((Gfc2Property*)m_pEntity)->setName(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2Label NGfc2Property::getName()
@@ -28,7 +30,7 @@ bool NGfc2Property::hasName()
 
 void NGfc2Property::setCode(NGfc2String sValue)
 {
-    ((Gfc2Property*)m_pEntity)->setCode(marshal_as<std::string>(sValue));
+    ((Gfc2Property*)m_pEntity)->setCode(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2Property::getCode()
@@ -43,7 +45,7 @@ bool NGfc2Property::hasCode()
 
 void NGfc2Property::setExtension(NGfc2String sValue)
 {
-    ((Gfc2Property*)m_pEntity)->setExtension(marshal_as<std::string>(sValue));
+    ((Gfc2Property*)m_pEntity)->setExtension(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2Property::getExtension()

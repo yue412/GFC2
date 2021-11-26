@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2TShapeSection.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2TShapeSection::NGfc2TShapeSection()
 {
     m_pEntity = new Gfc2TShapeSection;

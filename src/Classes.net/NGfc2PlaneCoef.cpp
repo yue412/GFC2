@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2PlaneCoef.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2PlaneCoef::NGfc2PlaneCoef()
 {
     m_pEntity = new Gfc2PlaneCoef;

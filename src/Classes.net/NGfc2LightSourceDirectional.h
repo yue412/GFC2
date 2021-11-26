@@ -2,9 +2,8 @@
 #define NGFC2LIGHTSOURCEDIRECTIONAL_H
 
 #include "NGfc2LightSource.h"
-#include "Gfc2LightSourceDirectional.h"
+#include "GfcClasses\x3\Gfc2LightSourceDirectional.h"
 #include "NGfc2Vector3d.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2LightSourceDirectional: public NGfc2LightSource
 {
@@ -14,7 +13,6 @@ public:
     void setOrientation(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getOrientation();
     bool hasOrientation();
-    NGfc2Vector3d^ getOrientationPtr();
 
 };
 #endif

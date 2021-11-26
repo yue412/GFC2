@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ConnectionCurveGeometry.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ConnectionCurveGeometry::NGfc2ConnectionCurveGeometry()
 {
     m_pEntity = new Gfc2ConnectionCurveGeometry;
@@ -26,11 +28,6 @@ bool NGfc2ConnectionCurveGeometry::hasCurveOnRelatingElement()
     return ((Gfc2ConnectionCurveGeometry*)m_pEntity)->hasCurveOnRelatingElement();
 }
 
-NGfc2Curve3d^ NGfc2ConnectionCurveGeometry::getCurveOnRelatingElementPtr()
-{
-    return gcnew NGfc2Curve3d(((Gfc2ConnectionCurveGeometry*)m_pEntity)->getCurveOnRelatingElementPtr(), false);
-}
-
 void NGfc2ConnectionCurveGeometry::setCurveOnRelatedElement(gfc::engine::EntityRef nValue)
 {
     ((Gfc2ConnectionCurveGeometry*)m_pEntity)->setCurveOnRelatedElement(nValue);
@@ -44,10 +41,5 @@ gfc::engine::EntityRef NGfc2ConnectionCurveGeometry::getCurveOnRelatedElement()
 bool NGfc2ConnectionCurveGeometry::hasCurveOnRelatedElement()
 {
     return ((Gfc2ConnectionCurveGeometry*)m_pEntity)->hasCurveOnRelatedElement();
-}
-
-NGfc2Curve3d^ NGfc2ConnectionCurveGeometry::getCurveOnRelatedElementPtr()
-{
-    return gcnew NGfc2Curve3d(((Gfc2ConnectionCurveGeometry*)m_pEntity)->getCurveOnRelatedElementPtr(), false);
 }
 

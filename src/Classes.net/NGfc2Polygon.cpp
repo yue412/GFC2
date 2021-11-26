@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Polygon.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Polygon::NGfc2Polygon()
 {
     m_pEntity = new Gfc2Polygon;

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2LightSourceAmbient.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2LightSourceAmbient::NGfc2LightSourceAmbient()
 {
     m_pEntity = new Gfc2LightSourceAmbient;

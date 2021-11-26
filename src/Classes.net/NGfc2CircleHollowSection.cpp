@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2CircleHollowSection.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2CircleHollowSection::NGfc2CircleHollowSection()
 {
     m_pEntity = new Gfc2CircleHollowSection;

@@ -2,11 +2,10 @@
 #define NGFC2INDEXEDCOLOURMAP_H
 
 #include "NGfc2Root.h"
-#include "Gfc2IndexedColourMap.h"
+#include "GfcClasses\x3\Gfc2IndexedColourMap.h"
 #include "NGfc2Color.h"
 #include "NGfc2PrimitiveRenderable.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2IndexedColourMap: public NGfc2Root
 {
@@ -20,7 +19,6 @@ public:
     void clearColours();
     void addColours(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getColours(int nIndex);
-    NGfc2Color^ getColoursPtr(int nIndex);
     int getColourIndexCount();
     void clearColourIndex();
     void addColourIndex(NGfc2Integer nValue);
@@ -28,7 +26,6 @@ public:
     void setMappedTo(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getMappedTo();
     bool hasMappedTo();
-    NGfc2PrimitiveRenderable^ getMappedToPtr();
 
 };
 #endif

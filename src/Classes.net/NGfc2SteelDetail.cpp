@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SteelDetail.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SteelDetail::NGfc2SteelDetail()
 {
     m_pEntity = new Gfc2SteelDetail;
@@ -28,7 +30,7 @@ bool NGfc2SteelDetail::hasEntityID()
 
 void NGfc2SteelDetail::setName(NGfc2String sValue)
 {
-    ((Gfc2SteelDetail*)m_pEntity)->setName(marshal_as<std::string>(sValue));
+    ((Gfc2SteelDetail*)m_pEntity)->setName(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2SteelDetail::getName()
@@ -43,7 +45,7 @@ bool NGfc2SteelDetail::hasName()
 
 void NGfc2SteelDetail::setDesc(NGfc2String sValue)
 {
-    ((Gfc2SteelDetail*)m_pEntity)->setDesc(marshal_as<std::string>(sValue));
+    ((Gfc2SteelDetail*)m_pEntity)->setDesc(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2SteelDetail::getDesc()
@@ -58,7 +60,7 @@ bool NGfc2SteelDetail::hasDesc()
 
 void NGfc2SteelDetail::setLevel(NGfc2String sValue)
 {
-    ((Gfc2SteelDetail*)m_pEntity)->setLevel(marshal_as<std::string>(sValue));
+    ((Gfc2SteelDetail*)m_pEntity)->setLevel(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2SteelDetail::getLevel()
@@ -163,7 +165,7 @@ bool NGfc2SteelDetail::hasTieinNum()
 
 void NGfc2SteelDetail::setTieinType(NGfc2String sValue)
 {
-    ((Gfc2SteelDetail*)m_pEntity)->setTieinType(marshal_as<std::string>(sValue));
+    ((Gfc2SteelDetail*)m_pEntity)->setTieinType(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2String NGfc2SteelDetail::getTieinType()

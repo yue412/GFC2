@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ElementType.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ElementType::NGfc2ElementType()
 {
     m_pEntity = new Gfc2ElementType;
@@ -13,7 +15,7 @@ NGfc2ElementType::NGfc2ElementType(void* pEntity, bool bOwner):
 
 void NGfc2ElementType::setEType(NGfc2Label sValue)
 {
-    ((Gfc2ElementType*)m_pEntity)->setEType(marshal_as<std::string>(sValue));
+    ((Gfc2ElementType*)m_pEntity)->setEType(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2Label NGfc2ElementType::getEType()

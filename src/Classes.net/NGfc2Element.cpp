@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Element.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Element::NGfc2Element()
 {
     m_pEntity = new Gfc2Element;
@@ -13,7 +15,7 @@ NGfc2Element::NGfc2Element(void* pEntity, bool bOwner):
 
 void NGfc2Element::setEType(NGfc2Label sValue)
 {
-    ((Gfc2Element*)m_pEntity)->setEType(marshal_as<std::string>(sValue));
+    ((Gfc2Element*)m_pEntity)->setEType(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2Label NGfc2Element::getEType()
@@ -46,11 +48,6 @@ gfc::engine::EntityRef NGfc2Element::getRepresentations(int nIndex)
     return ((Gfc2Element*)m_pEntity)->getRepresentations(nIndex);
 }
 
-NGfc2Representation^ NGfc2Element::getRepresentationsPtr(int nIndex)
-{
-    return gcnew NGfc2Representation(((Gfc2Element*)m_pEntity)->getRepresentationsPtr(nIndex), false);
-}
-
 int NGfc2Element::getShapesCount()
 {
     return ((Gfc2Element*)m_pEntity)->getShapesCount();
@@ -69,10 +66,5 @@ void NGfc2Element::addShapes(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2Element::getShapes(int nIndex)
 {
     return ((Gfc2Element*)m_pEntity)->getShapes(nIndex);
-}
-
-NGfc2ElementShape^ NGfc2Element::getShapesPtr(int nIndex)
-{
-    return gcnew NGfc2ElementShape(((Gfc2Element*)m_pEntity)->getShapesPtr(nIndex), false);
 }
 

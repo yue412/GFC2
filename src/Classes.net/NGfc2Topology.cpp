@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Topology.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Topology::NGfc2Topology()
 {
     m_pEntity = new Gfc2Topology;

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2RelConnectsWithRealizingElements.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2RelConnectsWithRealizingElements::NGfc2RelConnectsWithRealizingElements()
 {
     m_pEntity = new Gfc2RelConnectsWithRealizingElements;
@@ -24,10 +26,5 @@ gfc::engine::EntityRef NGfc2RelConnectsWithRealizingElements::getRealizingElemen
 bool NGfc2RelConnectsWithRealizingElements::hasRealizingElements()
 {
     return ((Gfc2RelConnectsWithRealizingElements*)m_pEntity)->hasRealizingElements();
-}
-
-NGfc2Element^ NGfc2RelConnectsWithRealizingElements::getRealizingElementsPtr()
-{
-    return gcnew NGfc2Element(((Gfc2RelConnectsWithRealizingElements*)m_pEntity)->getRealizingElementsPtr(), false);
 }
 

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ParametricShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ParametricShape::NGfc2ParametricShape()
 {
     m_pEntity = new Gfc2ParametricShape;

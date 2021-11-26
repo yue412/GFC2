@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2ExtrudedAreaSolidShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2ExtrudedAreaSolidShape::NGfc2ExtrudedAreaSolidShape()
 {
     m_pEntity = new Gfc2ExtrudedAreaSolidShape;
@@ -24,11 +26,6 @@ gfc::engine::EntityRef NGfc2ExtrudedAreaSolidShape::getExtrudedDirection()
 bool NGfc2ExtrudedAreaSolidShape::hasExtrudedDirection()
 {
     return ((Gfc2ExtrudedAreaSolidShape*)m_pEntity)->hasExtrudedDirection();
-}
-
-NGfc2Vector3d^ NGfc2ExtrudedAreaSolidShape::getExtrudedDirectionPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2ExtrudedAreaSolidShape*)m_pEntity)->getExtrudedDirectionPtr(), false);
 }
 
 void NGfc2ExtrudedAreaSolidShape::setLen(NGfc2Double dValue)

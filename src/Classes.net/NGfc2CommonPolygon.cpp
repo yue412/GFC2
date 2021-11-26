@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2CommonPolygon.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2CommonPolygon::NGfc2CommonPolygon()
 {
     m_pEntity = new Gfc2CommonPolygon;
@@ -29,10 +31,5 @@ void NGfc2CommonPolygon::addLoops(gfc::engine::EntityRef nValue)
 gfc::engine::EntityRef NGfc2CommonPolygon::getLoops(int nIndex)
 {
     return ((Gfc2CommonPolygon*)m_pEntity)->getLoops(nIndex);
-}
-
-NGfc2CoedgeList^ NGfc2CommonPolygon::getLoopsPtr(int nIndex)
-{
-    return gcnew NGfc2CoedgeList(((Gfc2CommonPolygon*)m_pEntity)->getLoopsPtr(nIndex), false);
 }
 

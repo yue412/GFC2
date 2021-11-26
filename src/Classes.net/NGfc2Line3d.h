@@ -2,9 +2,8 @@
 #define NGFC2LINE3D_H
 
 #include "NGfc2Curve3d.h"
-#include "Gfc2Line3d.h"
+#include "GfcClasses\x3\Gfc2Line3d.h"
 #include "NGfc2Vector3d.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Line3d: public NGfc2Curve3d
 {
@@ -14,11 +13,9 @@ public:
     void setStartPt(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getStartPt();
     bool hasStartPt();
-    NGfc2Vector3d^ getStartPtPtr();
     void setEndPt(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getEndPt();
     bool hasEndPt();
-    NGfc2Vector3d^ getEndPtPtr();
 
 };
 #endif

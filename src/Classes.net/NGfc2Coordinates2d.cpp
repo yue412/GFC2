@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Coordinates2d.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Coordinates2d::NGfc2Coordinates2d()
 {
     m_pEntity = new Gfc2Coordinates2d;
@@ -26,11 +28,6 @@ bool NGfc2Coordinates2d::hasOrigin()
     return ((Gfc2Coordinates2d*)m_pEntity)->hasOrigin();
 }
 
-NGfc2Vector2d^ NGfc2Coordinates2d::getOriginPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2Coordinates2d*)m_pEntity)->getOriginPtr(), false);
-}
-
 void NGfc2Coordinates2d::setX(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Coordinates2d*)m_pEntity)->setX(nValue);
@@ -46,11 +43,6 @@ bool NGfc2Coordinates2d::hasX()
     return ((Gfc2Coordinates2d*)m_pEntity)->hasX();
 }
 
-NGfc2Vector2d^ NGfc2Coordinates2d::getXPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2Coordinates2d*)m_pEntity)->getXPtr(), false);
-}
-
 void NGfc2Coordinates2d::setY(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Coordinates2d*)m_pEntity)->setY(nValue);
@@ -64,10 +56,5 @@ gfc::engine::EntityRef NGfc2Coordinates2d::getY()
 bool NGfc2Coordinates2d::hasY()
 {
     return ((Gfc2Coordinates2d*)m_pEntity)->hasY();
-}
-
-NGfc2Vector2d^ NGfc2Coordinates2d::getYPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2Coordinates2d*)m_pEntity)->getYPtr(), false);
 }
 

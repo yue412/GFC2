@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2InternalPt.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2InternalPt::NGfc2InternalPt()
 {
     m_pEntity = new Gfc2InternalPt;
@@ -26,11 +28,6 @@ bool NGfc2InternalPt::hasP()
     return ((Gfc2InternalPt*)m_pEntity)->hasP();
 }
 
-NGfc2Vector3d^ NGfc2InternalPt::getPPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2InternalPt*)m_pEntity)->getPPtr(), false);
-}
-
 void NGfc2InternalPt::setTVec(gfc::engine::EntityRef nValue)
 {
     ((Gfc2InternalPt*)m_pEntity)->setTVec(nValue);
@@ -44,11 +41,6 @@ gfc::engine::EntityRef NGfc2InternalPt::getTVec()
 bool NGfc2InternalPt::hasTVec()
 {
     return ((Gfc2InternalPt*)m_pEntity)->hasTVec();
-}
-
-NGfc2Vector3d^ NGfc2InternalPt::getTVecPtr()
-{
-    return gcnew NGfc2Vector3d(((Gfc2InternalPt*)m_pEntity)->getTVecPtr(), false);
 }
 
 void NGfc2InternalPt::setT(NGfc2Double dValue)
@@ -81,11 +73,6 @@ bool NGfc2InternalPt::hasUV()
     return ((Gfc2InternalPt*)m_pEntity)->hasUV();
 }
 
-NGfc2Vector2d^ NGfc2InternalPt::getUVPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2InternalPt*)m_pEntity)->getUVPtr(), false);
-}
-
 void NGfc2InternalPt::setST(gfc::engine::EntityRef nValue)
 {
     ((Gfc2InternalPt*)m_pEntity)->setST(nValue);
@@ -99,11 +86,6 @@ gfc::engine::EntityRef NGfc2InternalPt::getST()
 bool NGfc2InternalPt::hasST()
 {
     return ((Gfc2InternalPt*)m_pEntity)->hasST();
-}
-
-NGfc2Vector2d^ NGfc2InternalPt::getSTPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2InternalPt*)m_pEntity)->getSTPtr(), false);
 }
 
 void NGfc2InternalPt::setUVDir(gfc::engine::EntityRef nValue)
@@ -121,11 +103,6 @@ bool NGfc2InternalPt::hasUVDir()
     return ((Gfc2InternalPt*)m_pEntity)->hasUVDir();
 }
 
-NGfc2Vector2d^ NGfc2InternalPt::getUVDirPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2InternalPt*)m_pEntity)->getUVDirPtr(), false);
-}
-
 void NGfc2InternalPt::setSTDir(gfc::engine::EntityRef nValue)
 {
     ((Gfc2InternalPt*)m_pEntity)->setSTDir(nValue);
@@ -139,10 +116,5 @@ gfc::engine::EntityRef NGfc2InternalPt::getSTDir()
 bool NGfc2InternalPt::hasSTDir()
 {
     return ((Gfc2InternalPt*)m_pEntity)->hasSTDir();
-}
-
-NGfc2Vector2d^ NGfc2InternalPt::getSTDirPtr()
-{
-    return gcnew NGfc2Vector2d(((Gfc2InternalPt*)m_pEntity)->getSTDirPtr(), false);
 }
 

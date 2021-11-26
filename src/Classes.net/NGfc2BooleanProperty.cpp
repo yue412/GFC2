@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2BooleanProperty.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2BooleanProperty::NGfc2BooleanProperty()
 {
     m_pEntity = new Gfc2BooleanProperty;

@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2LightSource.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2LightSource::NGfc2LightSource()
 {
     m_pEntity = new Gfc2LightSource;
@@ -13,7 +15,7 @@ NGfc2LightSource::NGfc2LightSource(void* pEntity, bool bOwner):
 
 void NGfc2LightSource::setName(NGfc2Label sValue)
 {
-    ((Gfc2LightSource*)m_pEntity)->setName(marshal_as<std::string>(sValue));
+    ((Gfc2LightSource*)m_pEntity)->setName(marshal_as<std::wstring>(sValue));
 }
 
 NGfc2Label NGfc2LightSource::getName()
@@ -39,11 +41,6 @@ gfc::engine::EntityRef NGfc2LightSource::getLightColour()
 bool NGfc2LightSource::hasLightColour()
 {
     return ((Gfc2LightSource*)m_pEntity)->hasLightColour();
-}
-
-NGfc2Color^ NGfc2LightSource::getLightColourPtr()
-{
-    return gcnew NGfc2Color(((Gfc2LightSource*)m_pEntity)->getLightColourPtr(), false);
 }
 
 void NGfc2LightSource::setAmbientIntensity(NGfc2Double dValue)

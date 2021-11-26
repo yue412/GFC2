@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Face.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Face::NGfc2Face()
 {
     m_pEntity = new Gfc2Face;
@@ -26,11 +28,6 @@ bool NGfc2Face::hasSurface()
     return ((Gfc2Face*)m_pEntity)->hasSurface();
 }
 
-NGfc2Surface^ NGfc2Face::getSurfacePtr()
-{
-    return gcnew NGfc2Surface(((Gfc2Face*)m_pEntity)->getSurfacePtr(), false);
-}
-
 void NGfc2Face::setBox(gfc::engine::EntityRef nValue)
 {
     ((Gfc2Face*)m_pEntity)->setBox(nValue);
@@ -44,11 +41,6 @@ gfc::engine::EntityRef NGfc2Face::getBox()
 bool NGfc2Face::hasBox()
 {
     return ((Gfc2Face*)m_pEntity)->hasBox();
-}
-
-NGfc2Box3d^ NGfc2Face::getBoxPtr()
-{
-    return gcnew NGfc2Box3d(((Gfc2Face*)m_pEntity)->getBoxPtr(), false);
 }
 
 void NGfc2Face::setSameDir(NGfc2Boolean bValue)

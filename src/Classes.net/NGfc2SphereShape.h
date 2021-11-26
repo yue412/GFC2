@@ -2,9 +2,8 @@
 #define NGFC2SPHERESHAPE_H
 
 #include "NGfc2PrimitiveShape.h"
-#include "Gfc2SphereShape.h"
+#include "GfcClasses\x3\Gfc2SphereShape.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2SphereShape: public NGfc2PrimitiveShape
 {

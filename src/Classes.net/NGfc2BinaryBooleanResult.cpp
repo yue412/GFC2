@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2BinaryBooleanResult.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2BinaryBooleanResult::NGfc2BinaryBooleanResult()
 {
     m_pEntity = new Gfc2BinaryBooleanResult;
@@ -41,11 +43,6 @@ bool NGfc2BinaryBooleanResult::hasFirstOperand()
     return ((Gfc2BinaryBooleanResult*)m_pEntity)->hasFirstOperand();
 }
 
-NGfc2SolidShape^ NGfc2BinaryBooleanResult::getFirstOperandPtr()
-{
-    return gcnew NGfc2SolidShape(((Gfc2BinaryBooleanResult*)m_pEntity)->getFirstOperandPtr(), false);
-}
-
 void NGfc2BinaryBooleanResult::setSecondOperand(gfc::engine::EntityRef nValue)
 {
     ((Gfc2BinaryBooleanResult*)m_pEntity)->setSecondOperand(nValue);
@@ -59,10 +56,5 @@ gfc::engine::EntityRef NGfc2BinaryBooleanResult::getSecondOperand()
 bool NGfc2BinaryBooleanResult::hasSecondOperand()
 {
     return ((Gfc2BinaryBooleanResult*)m_pEntity)->hasSecondOperand();
-}
-
-NGfc2SolidShape^ NGfc2BinaryBooleanResult::getSecondOperandPtr()
-{
-    return gcnew NGfc2SolidShape(((Gfc2BinaryBooleanResult*)m_pEntity)->getSecondOperandPtr(), false);
 }
 

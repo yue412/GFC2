@@ -2,9 +2,8 @@
 #define NGFC2ELEMENTTYPE_H
 
 #include "NGfc2Object.h"
-#include "Gfc2ElementType.h"
+#include "GfcClasses\x3\Gfc2ElementType.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;

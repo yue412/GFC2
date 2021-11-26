@@ -2,9 +2,8 @@
 #define NGFC2RELAGGREGATES_H
 
 #include "NGfc2RelDecomposes.h"
-#include "Gfc2RelAggregates.h"
+#include "GfcClasses\x3\Gfc2RelAggregates.h"
 #include "NGfc2Object.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2RelAggregates: public NGfc2RelDecomposes
 {
@@ -14,12 +13,10 @@ public:
     void setRelatingObject(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRelatingObject();
     bool hasRelatingObject();
-    NGfc2Object^ getRelatingObjectPtr();
     int getRelatedObjectsCount();
     void clearRelatedObjects();
     void addRelatedObjects(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRelatedObjects(int nIndex);
-    NGfc2Object^ getRelatedObjectsPtr(int nIndex);
 
 };
 #endif

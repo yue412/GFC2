@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SweptAreaSolidShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SweptAreaSolidShape::NGfc2SweptAreaSolidShape()
 {
     m_pEntity = new Gfc2SweptAreaSolidShape;
@@ -24,10 +26,5 @@ gfc::engine::EntityRef NGfc2SweptAreaSolidShape::getSweptArea()
 bool NGfc2SweptAreaSolidShape::hasSweptArea()
 {
     return ((Gfc2SweptAreaSolidShape*)m_pEntity)->hasSweptArea();
-}
-
-NGfc2Section^ NGfc2SweptAreaSolidShape::getSweptAreaPtr()
-{
-    return gcnew NGfc2Section(((Gfc2SweptAreaSolidShape*)m_pEntity)->getSweptAreaPtr(), false);
 }
 

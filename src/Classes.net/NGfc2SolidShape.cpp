@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2SolidShape.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2SolidShape::NGfc2SolidShape()
 {
     m_pEntity = new Gfc2SolidShape;

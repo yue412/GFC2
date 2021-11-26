@@ -2,8 +2,7 @@
 #define NGFC2TOPOLOGY_H
 
 #include "NGfc2Geometry.h"
-#include "Gfc2Topology.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2Topology.h"
 
 public ref class NGfc2Topology: public NGfc2Geometry
 {

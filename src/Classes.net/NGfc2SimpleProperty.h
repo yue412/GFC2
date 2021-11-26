@@ -2,8 +2,7 @@
 #define NGFC2SIMPLEPROPERTY_H
 
 #include "NGfc2Property.h"
-#include "Gfc2SimpleProperty.h"
-#include "GfcEngine/Entity.h"
+#include "GfcClasses\x3\Gfc2SimpleProperty.h"
 
 public ref class NGfc2SimpleProperty: public NGfc2Property
 {

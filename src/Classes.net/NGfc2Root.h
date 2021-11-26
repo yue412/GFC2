@@ -1,8 +1,8 @@
 #ifndef NGFC2ROOT_H
 #define NGFC2ROOT_H
 
-#include "Gfc2Root.h"
-#include "GfcEngine/Entity.h"
+#include "Entity.h"
+#include "GfcClasses\x3\Gfc2Root.h"
 
 public ref class NGfc2Root: public glodon::objectbufnet::Entity
 {

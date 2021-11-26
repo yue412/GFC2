@@ -2,9 +2,8 @@
 #define NGFC2COLOR_H
 
 #include "NGfc2Root.h"
-#include "Gfc2Color.h"
+#include "GfcClasses\x3\Gfc2Color.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2Color: public NGfc2Root
 {

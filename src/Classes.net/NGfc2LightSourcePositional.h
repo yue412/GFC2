@@ -2,10 +2,9 @@
 #define NGFC2LIGHTSOURCEPOSITIONAL_H
 
 #include "NGfc2LightSource.h"
-#include "Gfc2LightSourcePositional.h"
+#include "GfcClasses\x3\Gfc2LightSourcePositional.h"
 #include "NGfc2Vector3d.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 
 public ref class NGfc2LightSourcePositional: public NGfc2LightSource
 {
@@ -15,7 +14,6 @@ public:
     void setPosition(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPosition();
     bool hasPosition();
-    NGfc2Vector3d^ getPositionPtr();
     void setRadius(NGfc2Double dValue);
     NGfc2Double getRadius();
     bool hasRadius();

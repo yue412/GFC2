@@ -2,9 +2,8 @@
 #define NGFC2PROPERTY_H
 
 #include "NGfc2Root.h"
-#include "Gfc2Property.h"
+#include "GfcClasses\x3\Gfc2Property.h"
 #include "NTypeDef.h"
-#include "GfcEngine/Entity.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;

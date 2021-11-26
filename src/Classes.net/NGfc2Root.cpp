@@ -1,5 +1,7 @@
-#include "StdAfx.h"
 #include "NGfc2Root.h"
+
+using namespace gfc::classes::x3;
+
 NGfc2Root::NGfc2Root()
 {
     m_pEntity = new Gfc2Root;
