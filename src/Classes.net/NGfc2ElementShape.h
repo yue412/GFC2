@@ -14,7 +14,7 @@ public ref class NGfc2ElementShape: public NGfc2Root
 {
 public:
     NGfc2ElementShape();
-    NGfc2ElementShape(void* pEntity, bool bOwner);
+    NGfc2ElementShape(gfc::engine::CEntity* pEntity, bool bOwner);
     void setIdentifier(NGfc2String sValue);
     NGfc2String getIdentifier();
     bool hasIdentifier();

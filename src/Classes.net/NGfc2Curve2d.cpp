@@ -8,7 +8,7 @@ NGfc2Curve2d::NGfc2Curve2d()
     m_bOwner = true;
 }
 
-NGfc2Curve2d::NGfc2Curve2d(void* pEntity, bool bOwner):
+NGfc2Curve2d::NGfc2Curve2d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Geometry(pEntity, bOwner)
 {
 }

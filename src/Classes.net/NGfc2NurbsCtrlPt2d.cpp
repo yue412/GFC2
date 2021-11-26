@@ -8,7 +8,7 @@ NGfc2NurbsCtrlPt2d::NGfc2NurbsCtrlPt2d()
     m_bOwner = true;
 }
 
-NGfc2NurbsCtrlPt2d::NGfc2NurbsCtrlPt2d(void* pEntity, bool bOwner):
+NGfc2NurbsCtrlPt2d::NGfc2NurbsCtrlPt2d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

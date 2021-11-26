@@ -8,7 +8,7 @@ NGfc2Color::NGfc2Color()
     m_bOwner = true;
 }
 
-NGfc2Color::NGfc2Color(void* pEntity, bool bOwner):
+NGfc2Color::NGfc2Color(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

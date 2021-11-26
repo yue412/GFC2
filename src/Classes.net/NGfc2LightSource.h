@@ -14,7 +14,7 @@ public ref class NGfc2LightSource: public NGfc2RepresentationItem
 {
 public:
     NGfc2LightSource();
-    NGfc2LightSource(void* pEntity, bool bOwner);
+    NGfc2LightSource(gfc::engine::CEntity* pEntity, bool bOwner);
     void setName(NGfc2Label sValue);
     NGfc2Label getName();
     bool hasName();

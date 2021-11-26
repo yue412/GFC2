@@ -13,7 +13,7 @@ public ref class NGfc2SteelDetail: public NGfc2Root
 {
 public:
     NGfc2SteelDetail();
-    NGfc2SteelDetail(void* pEntity, bool bOwner);
+    NGfc2SteelDetail(gfc::engine::CEntity* pEntity, bool bOwner);
     void setEntityID(NGfc2Integer nValue);
     NGfc2Integer getEntityID();
     bool hasEntityID();

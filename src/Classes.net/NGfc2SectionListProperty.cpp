@@ -8,7 +8,7 @@ NGfc2SectionListProperty::NGfc2SectionListProperty()
     m_bOwner = true;
 }
 
-NGfc2SectionListProperty::NGfc2SectionListProperty(void* pEntity, bool bOwner):
+NGfc2SectionListProperty::NGfc2SectionListProperty(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2ListProperty(pEntity, bOwner)
 {
 }

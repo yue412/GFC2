@@ -9,7 +9,7 @@ public ref class NGfc2GeoListProperty: public NGfc2ListProperty
 {
 public:
     NGfc2GeoListProperty();
-    NGfc2GeoListProperty(void* pEntity, bool bOwner);
+    NGfc2GeoListProperty(gfc::engine::CEntity* pEntity, bool bOwner);
     int getValuesCount();
     void clearValues();
     void addValues(gfc::engine::EntityRef nValue);

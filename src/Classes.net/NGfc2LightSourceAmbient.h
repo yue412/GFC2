@@ -8,7 +8,7 @@ public ref class NGfc2LightSourceAmbient: public NGfc2LightSource
 {
 public:
     NGfc2LightSourceAmbient();
-    NGfc2LightSourceAmbient(void* pEntity, bool bOwner);
+    NGfc2LightSourceAmbient(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

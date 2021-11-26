@@ -10,7 +10,7 @@ public ref class NGfc2NurbsCurve2d: public NGfc2Curve2d
 {
 public:
     NGfc2NurbsCurve2d();
-    NGfc2NurbsCurve2d(void* pEntity, bool bOwner);
+    NGfc2NurbsCurve2d(gfc::engine::CEntity* pEntity, bool bOwner);
     void setDegree(NGfc2Integer nValue);
     NGfc2Integer getDegree();
     bool hasDegree();

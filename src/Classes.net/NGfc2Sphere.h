@@ -11,7 +11,7 @@ public ref class NGfc2Sphere: public NGfc2Surface
 {
 public:
     NGfc2Sphere();
-    NGfc2Sphere(void* pEntity, bool bOwner);
+    NGfc2Sphere(gfc::engine::CEntity* pEntity, bool bOwner);
     void setRadius(NGfc2Double dValue);
     NGfc2Double getRadius();
     bool hasRadius();

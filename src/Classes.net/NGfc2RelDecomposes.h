@@ -8,7 +8,7 @@ public ref class NGfc2RelDecomposes: public NGfc2RelationShip
 {
 public:
     NGfc2RelDecomposes();
-    NGfc2RelDecomposes(void* pEntity, bool bOwner);
+    NGfc2RelDecomposes(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

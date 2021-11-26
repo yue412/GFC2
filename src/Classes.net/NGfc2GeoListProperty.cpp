@@ -8,7 +8,7 @@ NGfc2GeoListProperty::NGfc2GeoListProperty()
     m_bOwner = true;
 }
 
-NGfc2GeoListProperty::NGfc2GeoListProperty(void* pEntity, bool bOwner):
+NGfc2GeoListProperty::NGfc2GeoListProperty(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2ListProperty(pEntity, bOwner)
 {
 }

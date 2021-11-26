@@ -9,7 +9,7 @@ public ref class NGfc2CoedgeList: public NGfc2Topology
 {
 public:
     NGfc2CoedgeList();
-    NGfc2CoedgeList(void* pEntity, bool bOwner);
+    NGfc2CoedgeList(gfc::engine::CEntity* pEntity, bool bOwner);
     int getCoedgesCount();
     void clearCoedges();
     void addCoedges(gfc::engine::EntityRef nValue);

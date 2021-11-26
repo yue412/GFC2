@@ -9,7 +9,7 @@ public ref class NGfc2RevolvedAreaSolidTaperedShape: public NGfc2RevolvedAreaSol
 {
 public:
     NGfc2RevolvedAreaSolidTaperedShape();
-    NGfc2RevolvedAreaSolidTaperedShape(void* pEntity, bool bOwner);
+    NGfc2RevolvedAreaSolidTaperedShape(gfc::engine::CEntity* pEntity, bool bOwner);
     void setEndSweptArea(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getEndSweptArea();
     bool hasEndSweptArea();

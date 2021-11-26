@@ -8,7 +8,7 @@ NGfc2RepresentationItem::NGfc2RepresentationItem()
     m_bOwner = true;
 }
 
-NGfc2RepresentationItem::NGfc2RepresentationItem(void* pEntity, bool bOwner):
+NGfc2RepresentationItem::NGfc2RepresentationItem(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

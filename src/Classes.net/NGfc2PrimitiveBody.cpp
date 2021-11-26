@@ -8,7 +8,7 @@ NGfc2PrimitiveBody::NGfc2PrimitiveBody()
     m_bOwner = true;
 }
 
-NGfc2PrimitiveBody::NGfc2PrimitiveBody(void* pEntity, bool bOwner):
+NGfc2PrimitiveBody::NGfc2PrimitiveBody(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Body(pEntity, bOwner)
 {
 }

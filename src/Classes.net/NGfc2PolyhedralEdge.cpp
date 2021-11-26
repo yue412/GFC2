@@ -8,7 +8,7 @@ NGfc2PolyhedralEdge::NGfc2PolyhedralEdge()
     m_bOwner = true;
 }
 
-NGfc2PolyhedralEdge::NGfc2PolyhedralEdge(void* pEntity, bool bOwner):
+NGfc2PolyhedralEdge::NGfc2PolyhedralEdge(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Topology(pEntity, bOwner)
 {
 }

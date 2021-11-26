@@ -8,7 +8,7 @@ public ref class NGfc2RepresentationItem: public NGfc2Root
 {
 public:
     NGfc2RepresentationItem();
-    NGfc2RepresentationItem(void* pEntity, bool bOwner);
+    NGfc2RepresentationItem(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

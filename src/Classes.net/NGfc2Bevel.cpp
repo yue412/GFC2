@@ -8,7 +8,7 @@ NGfc2Bevel::NGfc2Bevel()
     m_bOwner = true;
 }
 
-NGfc2Bevel::NGfc2Bevel(void* pEntity, bool bOwner):
+NGfc2Bevel::NGfc2Bevel(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Surface(pEntity, bOwner)
 {
 }

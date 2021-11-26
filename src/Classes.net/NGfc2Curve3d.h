@@ -8,7 +8,7 @@ public ref class NGfc2Curve3d: public NGfc2Geometry
 {
 public:
     NGfc2Curve3d();
-    NGfc2Curve3d(void* pEntity, bool bOwner);
+    NGfc2Curve3d(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

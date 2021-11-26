@@ -8,7 +8,7 @@ public ref class NGfc2Building: public NGfc2SpatialStructureElement
 {
 public:
     NGfc2Building();
-    NGfc2Building(void* pEntity, bool bOwner);
+    NGfc2Building(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

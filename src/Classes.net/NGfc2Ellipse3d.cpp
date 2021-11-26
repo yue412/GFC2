@@ -8,7 +8,7 @@ NGfc2Ellipse3d::NGfc2Ellipse3d()
     m_bOwner = true;
 }
 
-NGfc2Ellipse3d::NGfc2Ellipse3d(void* pEntity, bool bOwner):
+NGfc2Ellipse3d::NGfc2Ellipse3d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2PlaneCurve3d(pEntity, bOwner)
 {
 }

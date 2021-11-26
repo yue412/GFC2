@@ -9,7 +9,7 @@ public ref class NGfc2OffsetCurve2d: public NGfc2Curve2d
 {
 public:
     NGfc2OffsetCurve2d();
-    NGfc2OffsetCurve2d(void* pEntity, bool bOwner);
+    NGfc2OffsetCurve2d(gfc::engine::CEntity* pEntity, bool bOwner);
     void setOffDist(NGfc2Double dValue);
     NGfc2Double getOffDist();
     bool hasOffDist();

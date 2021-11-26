@@ -10,7 +10,7 @@ public ref class NGfc2Shape: public NGfc2Root
 {
 public:
     NGfc2Shape();
-    NGfc2Shape(void* pEntity, bool bOwner);
+    NGfc2Shape(gfc::engine::CEntity* pEntity, bool bOwner);
     void setLocalCoordinate(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getLocalCoordinate();
     bool hasLocalCoordinate();

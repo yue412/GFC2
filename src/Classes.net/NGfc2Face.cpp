@@ -8,7 +8,7 @@ NGfc2Face::NGfc2Face()
     m_bOwner = true;
 }
 
-NGfc2Face::NGfc2Face(void* pEntity, bool bOwner):
+NGfc2Face::NGfc2Face(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2CommonPolygonEx(pEntity, bOwner)
 {
 }

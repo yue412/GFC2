@@ -8,7 +8,7 @@ NGfc2LightSourcePositional::NGfc2LightSourcePositional()
     m_bOwner = true;
 }
 
-NGfc2LightSourcePositional::NGfc2LightSourcePositional(void* pEntity, bool bOwner):
+NGfc2LightSourcePositional::NGfc2LightSourcePositional(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2LightSource(pEntity, bOwner)
 {
 }

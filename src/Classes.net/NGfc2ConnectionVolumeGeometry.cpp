@@ -8,7 +8,7 @@ NGfc2ConnectionVolumeGeometry::NGfc2ConnectionVolumeGeometry()
     m_bOwner = true;
 }
 
-NGfc2ConnectionVolumeGeometry::NGfc2ConnectionVolumeGeometry(void* pEntity, bool bOwner):
+NGfc2ConnectionVolumeGeometry::NGfc2ConnectionVolumeGeometry(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2ConnectionGeometry(pEntity, bOwner)
 {
 }

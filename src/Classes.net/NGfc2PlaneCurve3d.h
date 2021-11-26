@@ -10,7 +10,7 @@ public ref class NGfc2PlaneCurve3d: public NGfc2Curve3d
 {
 public:
     NGfc2PlaneCurve3d();
-    NGfc2PlaneCurve3d(void* pEntity, bool bOwner);
+    NGfc2PlaneCurve3d(gfc::engine::CEntity* pEntity, bool bOwner);
     void setPlaneCurve(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPlaneCurve();
     bool hasPlaneCurve();

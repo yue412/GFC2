@@ -14,7 +14,7 @@ public ref class NGfc2Representation: public NGfc2Root
 {
 public:
     NGfc2Representation();
-    NGfc2Representation(void* pEntity, bool bOwner);
+    NGfc2Representation(gfc::engine::CEntity* pEntity, bool bOwner);
     void setIdentifier(NGfc2String sValue);
     NGfc2String getIdentifier();
     bool hasIdentifier();

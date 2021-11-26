@@ -8,7 +8,7 @@ NGfc2PrimitiveRenderable::NGfc2PrimitiveRenderable()
     m_bOwner = true;
 }
 
-NGfc2PrimitiveRenderable::NGfc2PrimitiveRenderable(void* pEntity, bool bOwner):
+NGfc2PrimitiveRenderable::NGfc2PrimitiveRenderable(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2RepresentationItem(pEntity, bOwner)
 {
 }

@@ -8,7 +8,7 @@ NGfc2Ellipse2d::NGfc2Ellipse2d()
     m_bOwner = true;
 }
 
-NGfc2Ellipse2d::NGfc2Ellipse2d(void* pEntity, bool bOwner):
+NGfc2Ellipse2d::NGfc2Ellipse2d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Curve2d(pEntity, bOwner)
 {
 }

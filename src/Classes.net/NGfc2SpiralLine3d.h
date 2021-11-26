@@ -11,7 +11,7 @@ public ref class NGfc2SpiralLine3d: public NGfc2Curve3d
 {
 public:
     NGfc2SpiralLine3d();
-    NGfc2SpiralLine3d(void* pEntity, bool bOwner);
+    NGfc2SpiralLine3d(gfc::engine::CEntity* pEntity, bool bOwner);
     void setCoord(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCoord();
     bool hasCoord();

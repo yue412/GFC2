@@ -9,7 +9,7 @@ public ref class NGfc2ConnectionVolumeGeometry: public NGfc2ConnectionGeometry
 {
 public:
     NGfc2ConnectionVolumeGeometry();
-    NGfc2ConnectionVolumeGeometry(void* pEntity, bool bOwner);
+    NGfc2ConnectionVolumeGeometry(gfc::engine::CEntity* pEntity, bool bOwner);
     void setVolumeOnRelatingElement(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getVolumeOnRelatingElement();
     bool hasVolumeOnRelatingElement();

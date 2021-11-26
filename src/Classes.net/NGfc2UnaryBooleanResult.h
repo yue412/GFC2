@@ -9,7 +9,7 @@ public ref class NGfc2UnaryBooleanResult: public NGfc2BooleanResult
 {
 public:
     NGfc2UnaryBooleanResult();
-    NGfc2UnaryBooleanResult(void* pEntity, bool bOwner);
+    NGfc2UnaryBooleanResult(gfc::engine::CEntity* pEntity, bool bOwner);
     void setOperand(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getOperand();
     bool hasOperand();

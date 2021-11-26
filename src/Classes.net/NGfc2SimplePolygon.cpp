@@ -8,7 +8,7 @@ NGfc2SimplePolygon::NGfc2SimplePolygon()
     m_bOwner = true;
 }
 
-NGfc2SimplePolygon::NGfc2SimplePolygon(void* pEntity, bool bOwner):
+NGfc2SimplePolygon::NGfc2SimplePolygon(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Polygon(pEntity, bOwner)
 {
 }

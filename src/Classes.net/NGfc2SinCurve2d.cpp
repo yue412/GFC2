@@ -8,7 +8,7 @@ NGfc2SinCurve2d::NGfc2SinCurve2d()
     m_bOwner = true;
 }
 
-NGfc2SinCurve2d::NGfc2SinCurve2d(void* pEntity, bool bOwner):
+NGfc2SinCurve2d::NGfc2SinCurve2d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Curve2d(pEntity, bOwner)
 {
 }

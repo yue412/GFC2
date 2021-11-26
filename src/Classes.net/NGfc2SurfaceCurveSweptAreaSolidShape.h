@@ -10,7 +10,7 @@ public ref class NGfc2SurfaceCurveSweptAreaSolidShape: public NGfc2SweptAreaSoli
 {
 public:
     NGfc2SurfaceCurveSweptAreaSolidShape();
-    NGfc2SurfaceCurveSweptAreaSolidShape(void* pEntity, bool bOwner);
+    NGfc2SurfaceCurveSweptAreaSolidShape(gfc::engine::CEntity* pEntity, bool bOwner);
     void setDirectrix(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getDirectrix();
     bool hasDirectrix();

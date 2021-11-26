@@ -9,7 +9,7 @@ public ref class NGfc2Vector2d: public NGfc2Geometry
 {
 public:
     NGfc2Vector2d();
-    NGfc2Vector2d(void* pEntity, bool bOwner);
+    NGfc2Vector2d(gfc::engine::CEntity* pEntity, bool bOwner);
     void setX(NGfc2Double dValue);
     NGfc2Double getX();
     bool hasX();

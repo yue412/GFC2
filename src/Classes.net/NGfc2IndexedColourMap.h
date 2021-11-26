@@ -11,7 +11,7 @@ public ref class NGfc2IndexedColourMap: public NGfc2Root
 {
 public:
     NGfc2IndexedColourMap();
-    NGfc2IndexedColourMap(void* pEntity, bool bOwner);
+    NGfc2IndexedColourMap(gfc::engine::CEntity* pEntity, bool bOwner);
     void setTransparency(NGfc2Double dValue);
     NGfc2Double getTransparency();
     bool hasTransparency();

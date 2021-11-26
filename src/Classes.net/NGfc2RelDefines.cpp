@@ -8,7 +8,7 @@ NGfc2RelDefines::NGfc2RelDefines()
     m_bOwner = true;
 }
 
-NGfc2RelDefines::NGfc2RelDefines(void* pEntity, bool bOwner):
+NGfc2RelDefines::NGfc2RelDefines(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2RelationShip(pEntity, bOwner)
 {
 }

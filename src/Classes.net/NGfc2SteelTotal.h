@@ -13,7 +13,7 @@ public ref class NGfc2SteelTotal: public NGfc2Root
 {
 public:
     NGfc2SteelTotal();
-    NGfc2SteelTotal(void* pEntity, bool bOwner);
+    NGfc2SteelTotal(gfc::engine::CEntity* pEntity, bool bOwner);
     void setCompType(NGfc2String sValue);
     NGfc2String getCompType();
     bool hasCompType();

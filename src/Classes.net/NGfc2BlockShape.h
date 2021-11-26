@@ -9,7 +9,7 @@ public ref class NGfc2BlockShape: public NGfc2PrimitiveShape
 {
 public:
     NGfc2BlockShape();
-    NGfc2BlockShape(void* pEntity, bool bOwner);
+    NGfc2BlockShape(gfc::engine::CEntity* pEntity, bool bOwner);
     void setXLength(NGfc2Double dValue);
     NGfc2Double getXLength();
     bool hasXLength();

@@ -8,7 +8,7 @@ NGfc2Floor::NGfc2Floor()
     m_bOwner = true;
 }
 
-NGfc2Floor::NGfc2Floor(void* pEntity, bool bOwner):
+NGfc2Floor::NGfc2Floor(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2SpatialStructureElement(pEntity, bOwner)
 {
 }

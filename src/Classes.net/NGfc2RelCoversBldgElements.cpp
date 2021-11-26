@@ -8,7 +8,7 @@ NGfc2RelCoversBldgElements::NGfc2RelCoversBldgElements()
     m_bOwner = true;
 }
 
-NGfc2RelCoversBldgElements::NGfc2RelCoversBldgElements(void* pEntity, bool bOwner):
+NGfc2RelCoversBldgElements::NGfc2RelCoversBldgElements(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2RelConnects(pEntity, bOwner)
 {
 }

@@ -10,7 +10,7 @@ public ref class NGfc2RelDefinesByProperties: public NGfc2RelDefines
 {
 public:
     NGfc2RelDefinesByProperties();
-    NGfc2RelDefinesByProperties(void* pEntity, bool bOwner);
+    NGfc2RelDefinesByProperties(gfc::engine::CEntity* pEntity, bool bOwner);
     void setRelatingPropertySet(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRelatingPropertySet();
     bool hasRelatingPropertySet();

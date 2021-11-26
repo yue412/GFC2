@@ -8,7 +8,7 @@ NGfc2PlaneInfo::NGfc2PlaneInfo()
     m_bOwner = true;
 }
 
-NGfc2PlaneInfo::NGfc2PlaneInfo(void* pEntity, bool bOwner):
+NGfc2PlaneInfo::NGfc2PlaneInfo(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

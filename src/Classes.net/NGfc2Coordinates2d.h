@@ -9,7 +9,7 @@ public ref class NGfc2Coordinates2d: public NGfc2Geometry
 {
 public:
     NGfc2Coordinates2d();
-    NGfc2Coordinates2d(void* pEntity, bool bOwner);
+    NGfc2Coordinates2d(gfc::engine::CEntity* pEntity, bool bOwner);
     void setOrigin(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getOrigin();
     bool hasOrigin();

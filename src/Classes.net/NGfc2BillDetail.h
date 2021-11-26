@@ -13,7 +13,7 @@ public ref class NGfc2BillDetail: public NGfc2Root
 {
 public:
     NGfc2BillDetail();
-    NGfc2BillDetail(void* pEntity, bool bOwner);
+    NGfc2BillDetail(gfc::engine::CEntity* pEntity, bool bOwner);
     void setFloorNum(NGfc2Integer nValue);
     NGfc2Integer getFloorNum();
     bool hasFloorNum();

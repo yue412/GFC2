@@ -14,7 +14,7 @@ public ref class NGfc2PropertySet: public NGfc2Root
 {
 public:
     NGfc2PropertySet();
-    NGfc2PropertySet(void* pEntity, bool bOwner);
+    NGfc2PropertySet(gfc::engine::CEntity* pEntity, bool bOwner);
     void setName(NGfc2Label sValue);
     NGfc2Label getName();
     bool hasName();

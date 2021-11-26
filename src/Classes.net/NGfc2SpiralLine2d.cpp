@@ -8,7 +8,7 @@ NGfc2SpiralLine2d::NGfc2SpiralLine2d()
     m_bOwner = true;
 }
 
-NGfc2SpiralLine2d::NGfc2SpiralLine2d(void* pEntity, bool bOwner):
+NGfc2SpiralLine2d::NGfc2SpiralLine2d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Curve2d(pEntity, bOwner)
 {
 }

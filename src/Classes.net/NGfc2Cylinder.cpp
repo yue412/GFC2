@@ -8,7 +8,7 @@ NGfc2Cylinder::NGfc2Cylinder()
     m_bOwner = true;
 }
 
-NGfc2Cylinder::NGfc2Cylinder(void* pEntity, bool bOwner):
+NGfc2Cylinder::NGfc2Cylinder(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Surface(pEntity, bOwner)
 {
 }

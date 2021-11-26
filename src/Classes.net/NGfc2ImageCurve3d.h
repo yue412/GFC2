@@ -10,7 +10,7 @@ public ref class NGfc2ImageCurve3d: public NGfc2Curve3d
 {
 public:
     NGfc2ImageCurve3d();
-    NGfc2ImageCurve3d(void* pEntity, bool bOwner);
+    NGfc2ImageCurve3d(gfc::engine::CEntity* pEntity, bool bOwner);
     void setCurve(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCurve();
     bool hasCurve();

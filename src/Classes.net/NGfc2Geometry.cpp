@@ -8,7 +8,7 @@ NGfc2Geometry::NGfc2Geometry()
     m_bOwner = true;
 }
 
-NGfc2Geometry::NGfc2Geometry(void* pEntity, bool bOwner):
+NGfc2Geometry::NGfc2Geometry(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

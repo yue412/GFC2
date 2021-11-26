@@ -8,7 +8,7 @@ NGfc2ArbitrarySection::NGfc2ArbitrarySection()
     m_bOwner = true;
 }
 
-NGfc2ArbitrarySection::NGfc2ArbitrarySection(void* pEntity, bool bOwner):
+NGfc2ArbitrarySection::NGfc2ArbitrarySection(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Section(pEntity, bOwner)
 {
 }

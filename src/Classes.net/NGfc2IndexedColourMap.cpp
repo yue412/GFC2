@@ -8,7 +8,7 @@ NGfc2IndexedColourMap::NGfc2IndexedColourMap()
     m_bOwner = true;
 }
 
-NGfc2IndexedColourMap::NGfc2IndexedColourMap(void* pEntity, bool bOwner):
+NGfc2IndexedColourMap::NGfc2IndexedColourMap(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

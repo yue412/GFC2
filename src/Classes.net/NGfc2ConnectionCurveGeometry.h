@@ -9,7 +9,7 @@ public ref class NGfc2ConnectionCurveGeometry: public NGfc2ConnectionGeometry
 {
 public:
     NGfc2ConnectionCurveGeometry();
-    NGfc2ConnectionCurveGeometry(void* pEntity, bool bOwner);
+    NGfc2ConnectionCurveGeometry(gfc::engine::CEntity* pEntity, bool bOwner);
     void setCurveOnRelatingElement(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCurveOnRelatingElement();
     bool hasCurveOnRelatingElement();

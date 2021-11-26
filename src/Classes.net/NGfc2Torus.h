@@ -12,7 +12,7 @@ public ref class NGfc2Torus: public NGfc2Surface
 {
 public:
     NGfc2Torus();
-    NGfc2Torus(void* pEntity, bool bOwner);
+    NGfc2Torus(gfc::engine::CEntity* pEntity, bool bOwner);
     void setCoord(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCoord();
     bool hasCoord();

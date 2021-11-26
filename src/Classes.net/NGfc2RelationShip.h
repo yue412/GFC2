@@ -13,7 +13,7 @@ public ref class NGfc2RelationShip: public NGfc2Root
 {
 public:
     NGfc2RelationShip();
-    NGfc2RelationShip(void* pEntity, bool bOwner);
+    NGfc2RelationShip(gfc::engine::CEntity* pEntity, bool bOwner);
     void setName(NGfc2Label sValue);
     NGfc2Label getName();
     bool hasName();

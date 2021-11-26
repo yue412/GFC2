@@ -8,7 +8,7 @@ NGfc2ManifoldSolidShape::NGfc2ManifoldSolidShape()
     m_bOwner = true;
 }
 
-NGfc2ManifoldSolidShape::NGfc2ManifoldSolidShape(void* pEntity, bool bOwner):
+NGfc2ManifoldSolidShape::NGfc2ManifoldSolidShape(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2SolidShape(pEntity, bOwner)
 {
 }

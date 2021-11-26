@@ -9,7 +9,7 @@ public ref class NGfc2ConnectionPointGeometry: public NGfc2ConnectionGeometry
 {
 public:
     NGfc2ConnectionPointGeometry();
-    NGfc2ConnectionPointGeometry(void* pEntity, bool bOwner);
+    NGfc2ConnectionPointGeometry(gfc::engine::CEntity* pEntity, bool bOwner);
     void setPointOnRelatingElement(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPointOnRelatingElement();
     bool hasPointOnRelatingElement();

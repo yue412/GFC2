@@ -8,7 +8,7 @@ NGfc2EllipseSection::NGfc2EllipseSection()
     m_bOwner = true;
 }
 
-NGfc2EllipseSection::NGfc2EllipseSection(void* pEntity, bool bOwner):
+NGfc2EllipseSection::NGfc2EllipseSection(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2ParameterizedSection(pEntity, bOwner)
 {
 }

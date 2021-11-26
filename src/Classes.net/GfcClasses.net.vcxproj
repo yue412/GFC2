@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C99E1453-062F-4BD3-B2C5-ADBF20FA227F}</ProjectGuid>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>GfcClassesnet</RootNamespace>
+    <ProjectName>GfcClasses.net</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories>..\..\Include\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>GfcClasses3d.lib;GfcEngined.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories>..\..\Include\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>GfcClasses3d.lib;GfcEngined.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories>..\..\Include\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>GfcClasses3d.lib;GfcEngined.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories>..\..\Include\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>GfcClasses3d.lib;GfcEngined.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NGfc2ArbitrarySection.h" />
+    <ClInclude Include="NGfc2Arc2d.h" />
+    <ClInclude Include="NGfc2Arc3d.h" />
+    <ClInclude Include="NGfc2Bevel.h" />
+    <ClInclude Include="NGfc2BillDetail.h" />
+    <ClInclude Include="NGfc2BillTotal.h" />
+    <ClInclude Include="NGfc2BinaryBooleanResult.h" />
+    <ClInclude Include="NGfc2BlockShape.h" />
+    <ClInclude Include="NGfc2Body.h" />
+    <ClInclude Include="NGfc2BooleanListProperty.h" />
+    <ClInclude Include="NGfc2BooleanProperty.h" />
+    <ClInclude Include="NGfc2BooleanResult.h" />
+    <ClInclude Include="NGfc2Box3d.h" />
+    <ClInclude Include="NGfc2BrepBody.h" />
+    <ClInclude Include="NGfc2Building.h" />
+    <ClInclude Include="NGfc2CircleHollowSection.h" />
+    <ClInclude Include="NGfc2CircleSection.h" />
+    <ClInclude Include="NGfc2Coedge.h" />
+    <ClInclude Include="NGfc2CoedgeList.h" />
+    <ClInclude Include="NGfc2CoedgeListEx.h" />
+    <ClInclude Include="NGfc2Color.h" />
+    <ClInclude Include="NGfc2CommonPolygon.h" />
+    <ClInclude Include="NGfc2CommonPolygonEx.h" />
+    <ClInclude Include="NGfc2ComplexProperty.h" />
+    <ClInclude Include="NGfc2CompositeCurve2dSweptSolidShape.h" />
+    <ClInclude Include="NGfc2CompositeCurve3dSweptSolidShape.h" />
+    <ClInclude Include="NGfc2ConeShape.h" />
+    <ClInclude Include="NGfc2ConnectionCurveGeometry.h" />
+    <ClInclude Include="NGfc2ConnectionGeometry.h" />
+    <ClInclude Include="NGfc2ConnectionPointGeometry.h" />
+    <ClInclude Include="NGfc2ConnectionSurfaceGeometry.h" />
+    <ClInclude Include="NGfc2ConnectionVolumeGeometry.h" />
+    <ClInclude Include="NGfc2Coordinates2d.h" />
+    <ClInclude Include="NGfc2Coordinates3d.h" />
+    <ClInclude Include="NGfc2CsgSolidShape.h" />
+    <ClInclude Include="NGfc2CuboidBody.h" />
+    <ClInclude Include="NGfc2Curve2d.h" />
+    <ClInclude Include="NGfc2Curve3d.h" />
+    <ClInclude Include="NGfc2Cylinder.h" />
+    <ClInclude Include="NGfc2CylinderShape.h" />
+    <ClInclude Include="NGfc2DoubleListProperty.h" />
+    <ClInclude Include="NGfc2DoubleProperty.h" />
+    <ClInclude Include="NGfc2Edge.h" />
+    <ClInclude Include="NGfc2Element.h" />
+    <ClInclude Include="NGfc2ElementShape.h" />
+    <ClInclude Include="NGfc2ElementType.h" />
+    <ClInclude Include="NGfc2Ellipse2d.h" />
+    <ClInclude Include="NGfc2Ellipse3d.h" />
+    <ClInclude Include="NGfc2EllipseSection.h" />
+    <ClInclude Include="NGfc2EntityListProperty.h" />
+    <ClInclude Include="NGfc2EntityProperty.h" />
+    <ClInclude Include="NGfc2ExtrudedAreaSolidShape.h" />
+    <ClInclude Include="NGfc2ExtrudedAreaSolidTaperedShape.h" />
+    <ClInclude Include="NGfc2ExtrudedBody.h" />
+    <ClInclude Include="NGfc2Face.h" />
+    <ClInclude Include="NGfc2Floor.h" />
+    <ClInclude Include="NGfc2GeoListProperty.h" />
+    <ClInclude Include="NGfc2Geometry.h" />
+    <ClInclude Include="NGfc2GeometryShape.h" />
+    <ClInclude Include="NGfc2GeoProperty.h" />
+    <ClInclude Include="NGfc2HalfSpaceSolidShape.h" />
+    <ClInclude Include="NGfc2Helicoid.h" />
+    <ClInclude Include="NGfc2ImageCurve3d.h" />
+    <ClInclude Include="NGfc2IndexedColourMap.h" />
+    <ClInclude Include="NGfc2IndexedTextureMap.h" />
+    <ClInclude Include="NGfc2IntegerListProperty.h" />
+    <ClInclude Include="NGfc2IntegerProperty.h" />
+    <ClInclude Include="NGfc2InternalChart.h" />
+    <ClInclude Include="NGfc2InternalPt.h" />
+    <ClInclude Include="NGfc2IntersectionCurve3d.h" />
+    <ClInclude Include="NGfc2Intervald.h" />
+    <ClInclude Include="NGfc2LightSource.h" />
+    <ClInclude Include="NGfc2LightSourceAmbient.h" />
+    <ClInclude Include="NGfc2LightSourceDirectional.h" />
+    <ClInclude Include="NGfc2LightSourcePositional.h" />
+    <ClInclude Include="NGfc2Line2d.h" />
+    <ClInclude Include="NGfc2Line3d.h" />
+    <ClInclude Include="NGfc2ListProperty.h" />
+    <ClInclude Include="NGfc2LShapeSection.h" />
+    <ClInclude Include="NGfc2ManifoldSolidShape.h" />
+    <ClInclude Include="NGfc2Matrix.h" />
+    <ClInclude Include="NGfc2NurbsCtrlPt2d.h" />
+    <ClInclude Include="NGfc2NurbsCtrlPt3d.h" />
+    <ClInclude Include="NGfc2NurbsCurve2d.h" />
+    <ClInclude Include="NGfc2NurbsCurve3d.h" />
+    <ClInclude Include="NGfc2NurbsSurface.h" />
+    <ClInclude Include="NGfc2Object.h" />
+    <ClInclude Include="NGfc2OffsetCurve2d.h" />
+    <ClInclude Include="NGfc2ParameterizedSection.h" />
+    <ClInclude Include="NGfc2ParametricShape.h" />
+    <ClInclude Include="NGfc2Plane.h" />
+    <ClInclude Include="NGfc2PlaneCoef.h" />
+    <ClInclude Include="NGfc2PlaneCurve3d.h" />
+    <ClInclude Include="NGfc2PlaneInfo.h" />
+    <ClInclude Include="NGfc2Polygon.h" />
+    <ClInclude Include="NGfc2PolyhedralEdge.h" />
+    <ClInclude Include="NGfc2PolyhedralFace.h" />
+    <ClInclude Include="NGfc2PolyhedralLoop.h" />
+    <ClInclude Include="NGfc2PolyhedronBody.h" />
+    <ClInclude Include="NGfc2PreimageCurve2d.h" />
+    <ClInclude Include="NGfc2PrimitiveBody.h" />
+    <ClInclude Include="NGfc2PrimitiveRenderable.h" />
+    <ClInclude Include="NGfc2PrimitiveShape.h" />
+    <ClInclude Include="NGfc2Project.h" />
+    <ClInclude Include="NGfc2Property.h" />
+    <ClInclude Include="NGfc2PropertySet.h" />
+    <ClInclude Include="NGfc2QuotaDetail.h" />
+    <ClInclude Include="NGfc2QuotaTotal.h" />
+    <ClInclude Include="NGfc2RectangleHollowSection.h" />
+    <ClInclude Include="NGfc2RectangleSection.h" />
+    <ClInclude Include="NGfc2RefString.h" />
+    <ClInclude Include="NGfc2RelAggregates.h" />
+    <ClInclude Include="NGfc2RelationShip.h" />
+    <ClInclude Include="NGfc2RelConnects.h" />
+    <ClInclude Include="NGfc2RelConnectsElements.h" />
+    <ClInclude Include="NGfc2RelConnectsPathElements.h" />
+    <ClInclude Include="NGfc2RelConnectsWithRealizingElements.h" />
+    <ClInclude Include="NGfc2RelCoversBldgElements.h" />
+    <ClInclude Include="NGfc2RelDecomposes.h" />
+    <ClInclude Include="NGfc2RelDefines.h" />
+    <ClInclude Include="NGfc2RelDefinesByProperties.h" />
+    <ClInclude Include="NGfc2RelDefinesByType.h" />
+    <ClInclude Include="NGfc2RelVoidsElement.h" />
+    <ClInclude Include="NGfc2Representation.h" />
+    <ClInclude Include="NGfc2RepresentationItem.h" />
+    <ClInclude Include="NGfc2RevolvedAreaSolidShape.h" />
+    <ClInclude Include="NGfc2RevolvedAreaSolidTaperedShape.h" />
+    <ClInclude Include="NGfc2Root.h" />
+    <ClInclude Include="NGfc2RuledSurface.h" />
+    <ClInclude Include="NGfc2Section.h" />
+    <ClInclude Include="NGfc2SectionListProperty.h" />
+    <ClInclude Include="NGfc2SectionProperty.h" />
+    <ClInclude Include="NGfc2Shape.h" />
+    <ClInclude Include="NGfc2SimpleLoop.h" />
+    <ClInclude Include="NGfc2SimplePolygon.h" />
+    <ClInclude Include="NGfc2SimpleProperty.h" />
+    <ClInclude Include="NGfc2SimpleVertex.h" />
+    <ClInclude Include="NGfc2SinCurve2d.h" />
+    <ClInclude Include="NGfc2SingleProperty.h" />
+    <ClInclude Include="NGfc2Site.h" />
+    <ClInclude Include="NGfc2SolidShape.h" />
+    <ClInclude Include="NGfc2SpatialStructureElement.h" />
+    <ClInclude Include="NGfc2Sphere.h" />
+    <ClInclude Include="NGfc2SphereShape.h" />
+    <ClInclude Include="NGfc2SpiralLine2d.h" />
+    <ClInclude Include="NGfc2SpiralLine3d.h" />
+    <ClInclude Include="NGfc2SteelDetail.h" />
+    <ClInclude Include="NGfc2SteelTotal.h" />
+    <ClInclude Include="NGfc2StringListProperty.h" />
+    <ClInclude Include="NGfc2StringProperty.h" />
+    <ClInclude Include="NGfc2Surface.h" />
+    <ClInclude Include="NGfc2SurfaceCurveSweptAreaSolidShape.h" />
+    <ClInclude Include="NGfc2SurfaceTexture.h" />
+    <ClInclude Include="NGfc2Sweep.h" />
+    <ClInclude Include="NGfc2SweepCurve3d.h" />
+    <ClInclude Include="NGfc2SweptAreaSolidShape.h" />
+    <ClInclude Include="NGfc2Topology.h" />
+    <ClInclude Include="NGfc2Torus.h" />
+    <ClInclude Include="NGfc2TShapeSection.h" />
+    <ClInclude Include="NGfc2UnaryBooleanResult.h" />
+    <ClInclude Include="NGfc2Vector2d.h" />
+    <ClInclude Include="NGfc2Vector3d.h" />
+    <ClInclude Include="NGfcEntity.h" />
+    <ClInclude Include="NGfcWriter.h" />
+    <ClInclude Include="NTypeDef.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="NGfc2ArbitrarySection.cpp" />
+    <ClCompile Include="NGfc2Arc2d.cpp" />
+    <ClCompile Include="NGfc2Arc3d.cpp" />
+    <ClCompile Include="NGfc2Bevel.cpp" />
+    <ClCompile Include="NGfc2BillDetail.cpp" />
+    <ClCompile Include="NGfc2BillTotal.cpp" />
+    <ClCompile Include="NGfc2BinaryBooleanResult.cpp" />
+    <ClCompile Include="NGfc2BlockShape.cpp" />
+    <ClCompile Include="NGfc2Body.cpp" />
+    <ClCompile Include="NGfc2BooleanListProperty.cpp" />
+    <ClCompile Include="NGfc2BooleanProperty.cpp" />
+    <ClCompile Include="NGfc2BooleanResult.cpp" />
+    <ClCompile Include="NGfc2Box3d.cpp" />
+    <ClCompile Include="NGfc2BrepBody.cpp" />
+    <ClCompile Include="NGfc2Building.cpp" />
+    <ClCompile Include="NGfc2CircleHollowSection.cpp" />
+    <ClCompile Include="NGfc2CircleSection.cpp" />
+    <ClCompile Include="NGfc2Coedge.cpp" />
+    <ClCompile Include="NGfc2CoedgeList.cpp" />
+    <ClCompile Include="NGfc2CoedgeListEx.cpp" />
+    <ClCompile Include="NGfc2Color.cpp" />
+    <ClCompile Include="NGfc2CommonPolygon.cpp" />
+    <ClCompile Include="NGfc2CommonPolygonEx.cpp" />
+    <ClCompile Include="NGfc2ComplexProperty.cpp" />
+    <ClCompile Include="NGfc2CompositeCurve2dSweptSolidShape.cpp" />
+    <ClCompile Include="NGfc2CompositeCurve3dSweptSolidShape.cpp" />
+    <ClCompile Include="NGfc2ConeShape.cpp" />
+    <ClCompile Include="NGfc2ConnectionCurveGeometry.cpp" />
+    <ClCompile Include="NGfc2ConnectionGeometry.cpp" />
+    <ClCompile Include="NGfc2ConnectionPointGeometry.cpp" />
+    <ClCompile Include="NGfc2ConnectionSurfaceGeometry.cpp" />
+    <ClCompile Include="NGfc2ConnectionVolumeGeometry.cpp" />
+    <ClCompile Include="NGfc2Coordinates2d.cpp" />
+    <ClCompile Include="NGfc2Coordinates3d.cpp" />
+    <ClCompile Include="NGfc2CsgSolidShape.cpp" />
+    <ClCompile Include="NGfc2CuboidBody.cpp" />
+    <ClCompile Include="NGfc2Curve2d.cpp" />
+    <ClCompile Include="NGfc2Curve3d.cpp" />
+    <ClCompile Include="NGfc2Cylinder.cpp" />
+    <ClCompile Include="NGfc2CylinderShape.cpp" />
+    <ClCompile Include="NGfc2DoubleListProperty.cpp" />
+    <ClCompile Include="NGfc2DoubleProperty.cpp" />
+    <ClCompile Include="NGfc2Edge.cpp" />
+    <ClCompile Include="NGfc2Element.cpp" />
+    <ClCompile Include="NGfc2ElementShape.cpp" />
+    <ClCompile Include="NGfc2ElementType.cpp" />
+    <ClCompile Include="NGfc2Ellipse2d.cpp" />
+    <ClCompile Include="NGfc2Ellipse3d.cpp" />
+    <ClCompile Include="NGfc2EllipseSection.cpp" />
+    <ClCompile Include="NGfc2EntityListProperty.cpp" />
+    <ClCompile Include="NGfc2EntityProperty.cpp" />
+    <ClCompile Include="NGfc2ExtrudedAreaSolidShape.cpp" />
+    <ClCompile Include="NGfc2ExtrudedAreaSolidTaperedShape.cpp" />
+    <ClCompile Include="NGfc2ExtrudedBody.cpp" />
+    <ClCompile Include="NGfc2Face.cpp" />
+    <ClCompile Include="NGfc2Floor.cpp" />
+    <ClCompile Include="NGfc2GeoListProperty.cpp" />
+    <ClCompile Include="NGfc2Geometry.cpp" />
+    <ClCompile Include="NGfc2GeometryShape.cpp" />
+    <ClCompile Include="NGfc2GeoProperty.cpp" />
+    <ClCompile Include="NGfc2HalfSpaceSolidShape.cpp" />
+    <ClCompile Include="NGfc2Helicoid.cpp" />
+    <ClCompile Include="NGfc2ImageCurve3d.cpp" />
+    <ClCompile Include="NGfc2IndexedColourMap.cpp" />
+    <ClCompile Include="NGfc2IndexedTextureMap.cpp" />
+    <ClCompile Include="NGfc2IntegerListProperty.cpp" />
+    <ClCompile Include="NGfc2IntegerProperty.cpp" />
+    <ClCompile Include="NGfc2InternalChart.cpp" />
+    <ClCompile Include="NGfc2InternalPt.cpp" />
+    <ClCompile Include="NGfc2IntersectionCurve3d.cpp" />
+    <ClCompile Include="NGfc2Intervald.cpp" />
+    <ClCompile Include="NGfc2LightSource.cpp" />
+    <ClCompile Include="NGfc2LightSourceAmbient.cpp" />
+    <ClCompile Include="NGfc2LightSourceDirectional.cpp" />
+    <ClCompile Include="NGfc2LightSourcePositional.cpp" />
+    <ClCompile Include="NGfc2Line2d.cpp" />
+    <ClCompile Include="NGfc2Line3d.cpp" />
+    <ClCompile Include="NGfc2ListProperty.cpp" />
+    <ClCompile Include="NGfc2LShapeSection.cpp" />
+    <ClCompile Include="NGfc2ManifoldSolidShape.cpp" />
+    <ClCompile Include="NGfc2Matrix.cpp" />
+    <ClCompile Include="NGfc2NurbsCtrlPt2d.cpp" />
+    <ClCompile Include="NGfc2NurbsCtrlPt3d.cpp" />
+    <ClCompile Include="NGfc2NurbsCurve2d.cpp" />
+    <ClCompile Include="NGfc2NurbsCurve3d.cpp" />
+    <ClCompile Include="NGfc2NurbsSurface.cpp" />
+    <ClCompile Include="NGfc2Object.cpp" />
+    <ClCompile Include="NGfc2OffsetCurve2d.cpp" />
+    <ClCompile Include="NGfc2ParameterizedSection.cpp" />
+    <ClCompile Include="NGfc2ParametricShape.cpp" />
+    <ClCompile Include="NGfc2Plane.cpp" />
+    <ClCompile Include="NGfc2PlaneCoef.cpp" />
+    <ClCompile Include="NGfc2PlaneCurve3d.cpp" />
+    <ClCompile Include="NGfc2PlaneInfo.cpp" />
+    <ClCompile Include="NGfc2Polygon.cpp" />
+    <ClCompile Include="NGfc2PolyhedralEdge.cpp" />
+    <ClCompile Include="NGfc2PolyhedralFace.cpp" />
+    <ClCompile Include="NGfc2PolyhedralLoop.cpp" />
+    <ClCompile Include="NGfc2PolyhedronBody.cpp" />
+    <ClCompile Include="NGfc2PreimageCurve2d.cpp" />
+    <ClCompile Include="NGfc2PrimitiveBody.cpp" />
+    <ClCompile Include="NGfc2PrimitiveRenderable.cpp" />
+    <ClCompile Include="NGfc2PrimitiveShape.cpp" />
+    <ClCompile Include="NGfc2Project.cpp" />
+    <ClCompile Include="NGfc2Property.cpp" />
+    <ClCompile Include="NGfc2PropertySet.cpp" />
+    <ClCompile Include="NGfc2QuotaDetail.cpp" />
+    <ClCompile Include="NGfc2QuotaTotal.cpp" />
+    <ClCompile Include="NGfc2RectangleHollowSection.cpp" />
+    <ClCompile Include="NGfc2RectangleSection.cpp" />
+    <ClCompile Include="NGfc2RefString.cpp" />
+    <ClCompile Include="NGfc2RelAggregates.cpp" />
+    <ClCompile Include="NGfc2RelationShip.cpp" />
+    <ClCompile Include="NGfc2RelConnects.cpp" />
+    <ClCompile Include="NGfc2RelConnectsElements.cpp" />
+    <ClCompile Include="NGfc2RelConnectsPathElements.cpp" />
+    <ClCompile Include="NGfc2RelConnectsWithRealizingElements.cpp" />
+    <ClCompile Include="NGfc2RelCoversBldgElements.cpp" />
+    <ClCompile Include="NGfc2RelDecomposes.cpp" />
+    <ClCompile Include="NGfc2RelDefines.cpp" />
+    <ClCompile Include="NGfc2RelDefinesByProperties.cpp" />
+    <ClCompile Include="NGfc2RelDefinesByType.cpp" />
+    <ClCompile Include="NGfc2RelVoidsElement.cpp" />
+    <ClCompile Include="NGfc2Representation.cpp" />
+    <ClCompile Include="NGfc2RepresentationItem.cpp" />
+    <ClCompile Include="NGfc2RevolvedAreaSolidShape.cpp" />
+    <ClCompile Include="NGfc2RevolvedAreaSolidTaperedShape.cpp" />
+    <ClCompile Include="NGfc2Root.cpp" />
+    <ClCompile Include="NGfc2RuledSurface.cpp" />
+    <ClCompile Include="NGfc2Section.cpp" />
+    <ClCompile Include="NGfc2SectionListProperty.cpp" />
+    <ClCompile Include="NGfc2SectionProperty.cpp" />
+    <ClCompile Include="NGfc2Shape.cpp" />
+    <ClCompile Include="NGfc2SimpleLoop.cpp" />
+    <ClCompile Include="NGfc2SimplePolygon.cpp" />
+    <ClCompile Include="NGfc2SimpleProperty.cpp" />
+    <ClCompile Include="NGfc2SimpleVertex.cpp" />
+    <ClCompile Include="NGfc2SinCurve2d.cpp" />
+    <ClCompile Include="NGfc2SingleProperty.cpp" />
+    <ClCompile Include="NGfc2Site.cpp" />
+    <ClCompile Include="NGfc2SolidShape.cpp" />
+    <ClCompile Include="NGfc2SpatialStructureElement.cpp" />
+    <ClCompile Include="NGfc2Sphere.cpp" />
+    <ClCompile Include="NGfc2SphereShape.cpp" />
+    <ClCompile Include="NGfc2SpiralLine2d.cpp" />
+    <ClCompile Include="NGfc2SpiralLine3d.cpp" />
+    <ClCompile Include="NGfc2SteelDetail.cpp" />
+    <ClCompile Include="NGfc2SteelTotal.cpp" />
+    <ClCompile Include="NGfc2StringListProperty.cpp" />
+    <ClCompile Include="NGfc2StringProperty.cpp" />
+    <ClCompile Include="NGfc2Surface.cpp" />
+    <ClCompile Include="NGfc2SurfaceCurveSweptAreaSolidShape.cpp" />
+    <ClCompile Include="NGfc2SurfaceTexture.cpp" />
+    <ClCompile Include="NGfc2Sweep.cpp" />
+    <ClCompile Include="NGfc2SweepCurve3d.cpp" />
+    <ClCompile Include="NGfc2SweptAreaSolidShape.cpp" />
+    <ClCompile Include="NGfc2Topology.cpp" />
+    <ClCompile Include="NGfc2Torus.cpp" />
+    <ClCompile Include="NGfc2TShapeSection.cpp" />
+    <ClCompile Include="NGfc2UnaryBooleanResult.cpp" />
+    <ClCompile Include="NGfc2Vector2d.cpp" />
+    <ClCompile Include="NGfc2Vector3d.cpp" />
+    <ClCompile Include="NGfcEntity.cpp" />
+    <ClCompile Include="NGfcWriter.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

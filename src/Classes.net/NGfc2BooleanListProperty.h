@@ -9,7 +9,7 @@ public ref class NGfc2BooleanListProperty: public NGfc2ListProperty
 {
 public:
     NGfc2BooleanListProperty();
-    NGfc2BooleanListProperty(void* pEntity, bool bOwner);
+    NGfc2BooleanListProperty(gfc::engine::CEntity* pEntity, bool bOwner);
     int getValuesCount();
     void clearValues();
     void addValues(NGfc2Boolean bValue);

@@ -8,7 +8,7 @@ NGfc2BrepBody::NGfc2BrepBody()
     m_bOwner = true;
 }
 
-NGfc2BrepBody::NGfc2BrepBody(void* pEntity, bool bOwner):
+NGfc2BrepBody::NGfc2BrepBody(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Body(pEntity, bOwner)
 {
 }

@@ -8,7 +8,7 @@ NGfc2BinaryBooleanResult::NGfc2BinaryBooleanResult()
     m_bOwner = true;
 }
 
-NGfc2BinaryBooleanResult::NGfc2BinaryBooleanResult(void* pEntity, bool bOwner):
+NGfc2BinaryBooleanResult::NGfc2BinaryBooleanResult(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2BooleanResult(pEntity, bOwner)
 {
 }

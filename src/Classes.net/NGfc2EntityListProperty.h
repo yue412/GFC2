@@ -9,7 +9,7 @@ public ref class NGfc2EntityListProperty: public NGfc2ListProperty
 {
 public:
     NGfc2EntityListProperty();
-    NGfc2EntityListProperty(void* pEntity, bool bOwner);
+    NGfc2EntityListProperty(gfc::engine::CEntity* pEntity, bool bOwner);
     int getValuesCount();
     void clearValues();
     void addValues(gfc::engine::EntityRef nValue);

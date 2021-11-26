@@ -12,7 +12,7 @@ public ref class NGfc2RefString: public NGfc2Root
 {
 public:
     NGfc2RefString();
-    NGfc2RefString(void* pEntity, bool bOwner);
+    NGfc2RefString(gfc::engine::CEntity* pEntity, bool bOwner);
     void setVal(System::String^ sValue);
     System::String^ getVal();
     bool hasVal();

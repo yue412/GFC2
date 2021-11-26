@@ -8,7 +8,7 @@ NGfc2Polygon::NGfc2Polygon()
     m_bOwner = true;
 }
 
-NGfc2Polygon::NGfc2Polygon(void* pEntity, bool bOwner):
+NGfc2Polygon::NGfc2Polygon(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Topology(pEntity, bOwner)
 {
 }

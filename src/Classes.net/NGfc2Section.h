@@ -8,7 +8,7 @@ public ref class NGfc2Section: public NGfc2Root
 {
 public:
     NGfc2Section();
-    NGfc2Section(void* pEntity, bool bOwner);
+    NGfc2Section(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

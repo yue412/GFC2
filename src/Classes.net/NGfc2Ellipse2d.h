@@ -11,7 +11,7 @@ public ref class NGfc2Ellipse2d: public NGfc2Curve2d
 {
 public:
     NGfc2Ellipse2d();
-    NGfc2Ellipse2d(void* pEntity, bool bOwner);
+    NGfc2Ellipse2d(gfc::engine::CEntity* pEntity, bool bOwner);
     void setCenterPt(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCenterPt();
     bool hasCenterPt();

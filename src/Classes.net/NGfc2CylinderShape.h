@@ -9,7 +9,7 @@ public ref class NGfc2CylinderShape: public NGfc2PrimitiveShape
 {
 public:
     NGfc2CylinderShape();
-    NGfc2CylinderShape(void* pEntity, bool bOwner);
+    NGfc2CylinderShape(gfc::engine::CEntity* pEntity, bool bOwner);
     void setHeight(NGfc2Double dValue);
     NGfc2Double getHeight();
     bool hasHeight();

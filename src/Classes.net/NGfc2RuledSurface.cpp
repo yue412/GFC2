@@ -8,7 +8,7 @@ NGfc2RuledSurface::NGfc2RuledSurface()
     m_bOwner = true;
 }
 
-NGfc2RuledSurface::NGfc2RuledSurface(void* pEntity, bool bOwner):
+NGfc2RuledSurface::NGfc2RuledSurface(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Surface(pEntity, bOwner)
 {
 }

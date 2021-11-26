@@ -8,7 +8,7 @@ NGfc2CylinderShape::NGfc2CylinderShape()
     m_bOwner = true;
 }
 
-NGfc2CylinderShape::NGfc2CylinderShape(void* pEntity, bool bOwner):
+NGfc2CylinderShape::NGfc2CylinderShape(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2PrimitiveShape(pEntity, bOwner)
 {
 }

@@ -8,7 +8,7 @@ NGfc2PropertySet::NGfc2PropertySet()
     m_bOwner = true;
 }
 
-NGfc2PropertySet::NGfc2PropertySet(void* pEntity, bool bOwner):
+NGfc2PropertySet::NGfc2PropertySet(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

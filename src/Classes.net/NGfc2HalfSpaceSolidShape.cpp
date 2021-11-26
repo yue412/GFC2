@@ -8,7 +8,7 @@ NGfc2HalfSpaceSolidShape::NGfc2HalfSpaceSolidShape()
     m_bOwner = true;
 }
 
-NGfc2HalfSpaceSolidShape::NGfc2HalfSpaceSolidShape(void* pEntity, bool bOwner):
+NGfc2HalfSpaceSolidShape::NGfc2HalfSpaceSolidShape(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2SolidShape(pEntity, bOwner)
 {
 }

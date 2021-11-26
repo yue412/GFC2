@@ -8,7 +8,7 @@ NGfc2SurfaceTexture::NGfc2SurfaceTexture()
     m_bOwner = true;
 }
 
-NGfc2SurfaceTexture::NGfc2SurfaceTexture(void* pEntity, bool bOwner):
+NGfc2SurfaceTexture::NGfc2SurfaceTexture(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

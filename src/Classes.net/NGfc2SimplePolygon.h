@@ -9,7 +9,7 @@ public ref class NGfc2SimplePolygon: public NGfc2Polygon
 {
 public:
     NGfc2SimplePolygon();
-    NGfc2SimplePolygon(void* pEntity, bool bOwner);
+    NGfc2SimplePolygon(gfc::engine::CEntity* pEntity, bool bOwner);
     int getLoopsCount();
     void clearLoops();
     void addLoops(gfc::engine::EntityRef nValue);

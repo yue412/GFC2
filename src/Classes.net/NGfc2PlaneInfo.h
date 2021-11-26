@@ -9,7 +9,7 @@ public ref class NGfc2PlaneInfo: public NGfc2Root
 {
 public:
     NGfc2PlaneInfo();
-    NGfc2PlaneInfo(void* pEntity, bool bOwner);
+    NGfc2PlaneInfo(gfc::engine::CEntity* pEntity, bool bOwner);
     void setDirX(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getDirX();
     bool hasDirX();

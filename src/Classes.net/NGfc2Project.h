@@ -8,7 +8,7 @@ public ref class NGfc2Project: public NGfc2Object
 {
 public:
     NGfc2Project();
-    NGfc2Project(void* pEntity, bool bOwner);
+    NGfc2Project(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

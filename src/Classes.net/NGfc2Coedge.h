@@ -10,7 +10,7 @@ public ref class NGfc2Coedge: public NGfc2Topology
 {
 public:
     NGfc2Coedge();
-    NGfc2Coedge(void* pEntity, bool bOwner);
+    NGfc2Coedge(gfc::engine::CEntity* pEntity, bool bOwner);
     void setCurve(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCurve();
     bool hasCurve();

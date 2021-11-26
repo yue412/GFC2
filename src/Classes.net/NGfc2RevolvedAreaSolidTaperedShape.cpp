@@ -8,7 +8,7 @@ NGfc2RevolvedAreaSolidTaperedShape::NGfc2RevolvedAreaSolidTaperedShape()
     m_bOwner = true;
 }
 
-NGfc2RevolvedAreaSolidTaperedShape::NGfc2RevolvedAreaSolidTaperedShape(void* pEntity, bool bOwner):
+NGfc2RevolvedAreaSolidTaperedShape::NGfc2RevolvedAreaSolidTaperedShape(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2RevolvedAreaSolidShape(pEntity, bOwner)
 {
 }

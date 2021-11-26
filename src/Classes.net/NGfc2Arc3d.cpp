@@ -8,7 +8,7 @@ NGfc2Arc3d::NGfc2Arc3d()
     m_bOwner = true;
 }
 
-NGfc2Arc3d::NGfc2Arc3d(void* pEntity, bool bOwner):
+NGfc2Arc3d::NGfc2Arc3d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2PlaneCurve3d(pEntity, bOwner)
 {
 }

@@ -8,7 +8,7 @@ NGfc2QuotaTotal::NGfc2QuotaTotal()
     m_bOwner = true;
 }
 
-NGfc2QuotaTotal::NGfc2QuotaTotal(void* pEntity, bool bOwner):
+NGfc2QuotaTotal::NGfc2QuotaTotal(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

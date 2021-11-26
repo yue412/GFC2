@@ -9,7 +9,7 @@ public ref class NGfc2PolyhedralLoop: public NGfc2Topology
 {
 public:
     NGfc2PolyhedralLoop();
-    NGfc2PolyhedralLoop(void* pEntity, bool bOwner);
+    NGfc2PolyhedralLoop(gfc::engine::CEntity* pEntity, bool bOwner);
     int getEdgesCount();
     void clearEdges();
     void addEdges(gfc::engine::EntityRef nValue);

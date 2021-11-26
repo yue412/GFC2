@@ -8,7 +8,7 @@ NGfc2BillTotal::NGfc2BillTotal()
     m_bOwner = true;
 }
 
-NGfc2BillTotal::NGfc2BillTotal(void* pEntity, bool bOwner):
+NGfc2BillTotal::NGfc2BillTotal(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

@@ -8,7 +8,7 @@ NGfc2SimpleVertex::NGfc2SimpleVertex()
     m_bOwner = true;
 }
 
-NGfc2SimpleVertex::NGfc2SimpleVertex(void* pEntity, bool bOwner):
+NGfc2SimpleVertex::NGfc2SimpleVertex(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Topology(pEntity, bOwner)
 {
 }

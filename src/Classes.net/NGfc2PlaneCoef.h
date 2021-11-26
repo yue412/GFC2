@@ -9,7 +9,7 @@ public ref class NGfc2PlaneCoef: public NGfc2Root
 {
 public:
     NGfc2PlaneCoef();
-    NGfc2PlaneCoef(void* pEntity, bool bOwner);
+    NGfc2PlaneCoef(gfc::engine::CEntity* pEntity, bool bOwner);
     void setA(NGfc2Double dValue);
     NGfc2Double getA();
     bool hasA();

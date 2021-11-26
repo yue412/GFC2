@@ -15,7 +15,7 @@ public ref class NGfc2Element: public NGfc2Object
 {
 public:
     NGfc2Element();
-    NGfc2Element(void* pEntity, bool bOwner);
+    NGfc2Element(gfc::engine::CEntity* pEntity, bool bOwner);
     void setEType(NGfc2Label sValue);
     NGfc2Label getEType();
     bool hasEType();

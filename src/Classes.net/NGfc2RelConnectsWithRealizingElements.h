@@ -9,7 +9,7 @@ public ref class NGfc2RelConnectsWithRealizingElements: public NGfc2RelConnectsE
 {
 public:
     NGfc2RelConnectsWithRealizingElements();
-    NGfc2RelConnectsWithRealizingElements(void* pEntity, bool bOwner);
+    NGfc2RelConnectsWithRealizingElements(gfc::engine::CEntity* pEntity, bool bOwner);
     void setRealizingElements(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRealizingElements();
     bool hasRealizingElements();

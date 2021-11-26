@@ -11,7 +11,7 @@ public ref class NGfc2Cylinder: public NGfc2Surface
 {
 public:
     NGfc2Cylinder();
-    NGfc2Cylinder(void* pEntity, bool bOwner);
+    NGfc2Cylinder(gfc::engine::CEntity* pEntity, bool bOwner);
     void setRangeV(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRangeV();
     bool hasRangeV();

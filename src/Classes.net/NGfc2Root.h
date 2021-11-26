@@ -1,14 +1,14 @@
 #ifndef NGFC2ROOT_H
 #define NGFC2ROOT_H
 
-#include "Entity.h"
+#include "NGfcEntity.h"
 #include "GfcClasses\x3\Gfc2Root.h"
 
-public ref class NGfc2Root: public glodon::objectbufnet::Entity
+public ref class NGfc2Root: public NGfcEntity
 {
 public:
     NGfc2Root();
-    NGfc2Root(void* pEntity, bool bOwner);
+    NGfc2Root(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

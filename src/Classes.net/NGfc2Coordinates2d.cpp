@@ -8,7 +8,7 @@ NGfc2Coordinates2d::NGfc2Coordinates2d()
     m_bOwner = true;
 }
 
-NGfc2Coordinates2d::NGfc2Coordinates2d(void* pEntity, bool bOwner):
+NGfc2Coordinates2d::NGfc2Coordinates2d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Geometry(pEntity, bOwner)
 {
 }

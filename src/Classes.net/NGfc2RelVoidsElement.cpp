@@ -8,7 +8,7 @@ NGfc2RelVoidsElement::NGfc2RelVoidsElement()
     m_bOwner = true;
 }
 
-NGfc2RelVoidsElement::NGfc2RelVoidsElement(void* pEntity, bool bOwner):
+NGfc2RelVoidsElement::NGfc2RelVoidsElement(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2RelDecomposes(pEntity, bOwner)
 {
 }

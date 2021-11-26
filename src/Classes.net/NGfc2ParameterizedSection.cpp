@@ -8,7 +8,7 @@ NGfc2ParameterizedSection::NGfc2ParameterizedSection()
     m_bOwner = true;
 }
 
-NGfc2ParameterizedSection::NGfc2ParameterizedSection(void* pEntity, bool bOwner):
+NGfc2ParameterizedSection::NGfc2ParameterizedSection(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Section(pEntity, bOwner)
 {
 }

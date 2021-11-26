@@ -12,7 +12,7 @@ public ref class NGfc2Sweep: public NGfc2Surface
 {
 public:
     NGfc2Sweep();
-    NGfc2Sweep(void* pEntity, bool bOwner);
+    NGfc2Sweep(gfc::engine::CEntity* pEntity, bool bOwner);
     void setProfile(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getProfile();
     bool hasProfile();

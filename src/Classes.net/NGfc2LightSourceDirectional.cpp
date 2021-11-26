@@ -8,7 +8,7 @@ NGfc2LightSourceDirectional::NGfc2LightSourceDirectional()
     m_bOwner = true;
 }
 
-NGfc2LightSourceDirectional::NGfc2LightSourceDirectional(void* pEntity, bool bOwner):
+NGfc2LightSourceDirectional::NGfc2LightSourceDirectional(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2LightSource(pEntity, bOwner)
 {
 }

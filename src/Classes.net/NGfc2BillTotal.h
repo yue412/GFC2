@@ -13,7 +13,7 @@ public ref class NGfc2BillTotal: public NGfc2Root
 {
 public:
     NGfc2BillTotal();
-    NGfc2BillTotal(void* pEntity, bool bOwner);
+    NGfc2BillTotal(gfc::engine::CEntity* pEntity, bool bOwner);
     void setCode(NGfc2String sValue);
     NGfc2String getCode();
     bool hasCode();

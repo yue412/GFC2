@@ -9,7 +9,7 @@ public ref class NGfc2ConeShape: public NGfc2PrimitiveShape
 {
 public:
     NGfc2ConeShape();
-    NGfc2ConeShape(void* pEntity, bool bOwner);
+    NGfc2ConeShape(gfc::engine::CEntity* pEntity, bool bOwner);
     void setHeight(NGfc2Double dValue);
     NGfc2Double getHeight();
     bool hasHeight();

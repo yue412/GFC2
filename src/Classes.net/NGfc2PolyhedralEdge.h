@@ -9,7 +9,7 @@ public ref class NGfc2PolyhedralEdge: public NGfc2Topology
 {
 public:
     NGfc2PolyhedralEdge();
-    NGfc2PolyhedralEdge(void* pEntity, bool bOwner);
+    NGfc2PolyhedralEdge(gfc::engine::CEntity* pEntity, bool bOwner);
     void setStartVertexIndex(NGfc2Integer nValue);
     NGfc2Integer getStartVertexIndex();
     bool hasStartVertexIndex();

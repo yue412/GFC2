@@ -8,7 +8,7 @@ public ref class NGfc2Surface: public NGfc2Geometry
 {
 public:
     NGfc2Surface();
-    NGfc2Surface(void* pEntity, bool bOwner);
+    NGfc2Surface(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

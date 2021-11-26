@@ -13,7 +13,7 @@ public ref class NGfc2QuotaDetail: public NGfc2Root
 {
 public:
     NGfc2QuotaDetail();
-    NGfc2QuotaDetail(void* pEntity, bool bOwner);
+    NGfc2QuotaDetail(gfc::engine::CEntity* pEntity, bool bOwner);
     void setFloorNum(NGfc2Integer nValue);
     NGfc2Integer getFloorNum();
     bool hasFloorNum();

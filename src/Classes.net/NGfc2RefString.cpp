@@ -8,7 +8,7 @@ NGfc2RefString::NGfc2RefString()
     m_bOwner = true;
 }
 
-NGfc2RefString::NGfc2RefString(void* pEntity, bool bOwner):
+NGfc2RefString::NGfc2RefString(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

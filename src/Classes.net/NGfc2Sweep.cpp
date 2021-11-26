@@ -8,7 +8,7 @@ NGfc2Sweep::NGfc2Sweep()
     m_bOwner = true;
 }
 
-NGfc2Sweep::NGfc2Sweep(void* pEntity, bool bOwner):
+NGfc2Sweep::NGfc2Sweep(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Surface(pEntity, bOwner)
 {
 }

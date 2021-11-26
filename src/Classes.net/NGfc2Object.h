@@ -13,7 +13,7 @@ public ref class NGfc2Object: public NGfc2Root
 {
 public:
     NGfc2Object();
-    NGfc2Object(void* pEntity, bool bOwner);
+    NGfc2Object(gfc::engine::CEntity* pEntity, bool bOwner);
     void setID(NGfc2Identity sValue);
     NGfc2Identity getID();
     bool hasID();

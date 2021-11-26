@@ -9,7 +9,7 @@ public ref class NGfc2LShapeSection: public NGfc2ParameterizedSection
 {
 public:
     NGfc2LShapeSection();
-    NGfc2LShapeSection(void* pEntity, bool bOwner);
+    NGfc2LShapeSection(gfc::engine::CEntity* pEntity, bool bOwner);
     void setWidth(NGfc2Double dValue);
     NGfc2Double getWidth();
     bool hasWidth();

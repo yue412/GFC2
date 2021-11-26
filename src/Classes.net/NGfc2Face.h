@@ -11,7 +11,7 @@ public ref class NGfc2Face: public NGfc2CommonPolygonEx
 {
 public:
     NGfc2Face();
-    NGfc2Face(void* pEntity, bool bOwner);
+    NGfc2Face(gfc::engine::CEntity* pEntity, bool bOwner);
     void setSurface(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getSurface();
     bool hasSurface();

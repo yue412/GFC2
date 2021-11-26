@@ -11,7 +11,7 @@ public ref class NGfc2InternalPt: public NGfc2Root
 {
 public:
     NGfc2InternalPt();
-    NGfc2InternalPt(void* pEntity, bool bOwner);
+    NGfc2InternalPt(gfc::engine::CEntity* pEntity, bool bOwner);
     void setP(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getP();
     bool hasP();

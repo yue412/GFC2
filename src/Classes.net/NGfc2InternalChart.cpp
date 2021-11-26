@@ -8,7 +8,7 @@ NGfc2InternalChart::NGfc2InternalChart()
     m_bOwner = true;
 }
 
-NGfc2InternalChart::NGfc2InternalChart(void* pEntity, bool bOwner):
+NGfc2InternalChart::NGfc2InternalChart(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

@@ -8,7 +8,7 @@ NGfc2Intervald::NGfc2Intervald()
     m_bOwner = true;
 }
 
-NGfc2Intervald::NGfc2Intervald(void* pEntity, bool bOwner):
+NGfc2Intervald::NGfc2Intervald(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Geometry(pEntity, bOwner)
 {
 }

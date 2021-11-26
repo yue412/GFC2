@@ -8,7 +8,7 @@ NGfc2PreimageCurve2d::NGfc2PreimageCurve2d()
     m_bOwner = true;
 }
 
-NGfc2PreimageCurve2d::NGfc2PreimageCurve2d(void* pEntity, bool bOwner):
+NGfc2PreimageCurve2d::NGfc2PreimageCurve2d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Curve2d(pEntity, bOwner)
 {
 }

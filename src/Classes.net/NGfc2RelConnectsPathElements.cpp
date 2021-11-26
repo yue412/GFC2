@@ -8,7 +8,7 @@ NGfc2RelConnectsPathElements::NGfc2RelConnectsPathElements()
     m_bOwner = true;
 }
 
-NGfc2RelConnectsPathElements::NGfc2RelConnectsPathElements(void* pEntity, bool bOwner):
+NGfc2RelConnectsPathElements::NGfc2RelConnectsPathElements(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2RelConnectsElements(pEntity, bOwner)
 {
 }

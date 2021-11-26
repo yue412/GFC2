@@ -8,7 +8,7 @@ NGfc2CoedgeList::NGfc2CoedgeList()
     m_bOwner = true;
 }
 
-NGfc2CoedgeList::NGfc2CoedgeList(void* pEntity, bool bOwner):
+NGfc2CoedgeList::NGfc2CoedgeList(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Topology(pEntity, bOwner)
 {
 }

@@ -8,7 +8,7 @@ NGfc2RectangleSection::NGfc2RectangleSection()
     m_bOwner = true;
 }
 
-NGfc2RectangleSection::NGfc2RectangleSection(void* pEntity, bool bOwner):
+NGfc2RectangleSection::NGfc2RectangleSection(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2ParameterizedSection(pEntity, bOwner)
 {
 }

@@ -12,7 +12,7 @@ public ref class NGfc2IndexedTextureMap: public NGfc2Root
 {
 public:
     NGfc2IndexedTextureMap();
-    NGfc2IndexedTextureMap(void* pEntity, bool bOwner);
+    NGfc2IndexedTextureMap(gfc::engine::CEntity* pEntity, bool bOwner);
     void setMappedTo(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getMappedTo();
     bool hasMappedTo();

@@ -9,7 +9,7 @@ public ref class NGfc2ConnectionSurfaceGeometry: public NGfc2ConnectionGeometry
 {
 public:
     NGfc2ConnectionSurfaceGeometry();
-    NGfc2ConnectionSurfaceGeometry(void* pEntity, bool bOwner);
+    NGfc2ConnectionSurfaceGeometry(gfc::engine::CEntity* pEntity, bool bOwner);
     void setSurfaceOnRelatingElement(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getSurfaceOnRelatingElement();
     bool hasSurfaceOnRelatingElement();

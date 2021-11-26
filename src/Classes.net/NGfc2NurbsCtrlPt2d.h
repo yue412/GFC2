@@ -10,7 +10,7 @@ public ref class NGfc2NurbsCtrlPt2d: public NGfc2Root
 {
 public:
     NGfc2NurbsCtrlPt2d();
-    NGfc2NurbsCtrlPt2d(void* pEntity, bool bOwner);
+    NGfc2NurbsCtrlPt2d(gfc::engine::CEntity* pEntity, bool bOwner);
     void setPoint(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPoint();
     bool hasPoint();

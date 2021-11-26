@@ -8,8 +8,8 @@ NGfc2Root::NGfc2Root()
     m_bOwner = true;
 }
 
-NGfc2Root::NGfc2Root(void* pEntity, bool bOwner):
-    glodon::objectbufnet::Entity(pEntity, bOwner)
+NGfc2Root::NGfc2Root(gfc::engine::CEntity* pEntity, bool bOwner):
+    NGfcEntity(pEntity, bOwner)
 {
 }
 

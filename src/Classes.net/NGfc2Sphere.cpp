@@ -8,7 +8,7 @@ NGfc2Sphere::NGfc2Sphere()
     m_bOwner = true;
 }
 
-NGfc2Sphere::NGfc2Sphere(void* pEntity, bool bOwner):
+NGfc2Sphere::NGfc2Sphere(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Surface(pEntity, bOwner)
 {
 }

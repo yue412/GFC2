@@ -10,7 +10,7 @@ public ref class NGfc2CuboidBody: public NGfc2PrimitiveBody
 {
 public:
     NGfc2CuboidBody();
-    NGfc2CuboidBody(void* pEntity, bool bOwner);
+    NGfc2CuboidBody(gfc::engine::CEntity* pEntity, bool bOwner);
     void setCoordinate(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCoordinate();
     bool hasCoordinate();

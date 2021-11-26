@@ -8,7 +8,7 @@ public ref class NGfc2ConnectionGeometry: public NGfc2Root
 {
 public:
     NGfc2ConnectionGeometry();
-    NGfc2ConnectionGeometry(void* pEntity, bool bOwner);
+    NGfc2ConnectionGeometry(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

@@ -9,7 +9,7 @@ public ref class NGfc2Color: public NGfc2Root
 {
 public:
     NGfc2Color();
-    NGfc2Color(void* pEntity, bool bOwner);
+    NGfc2Color(gfc::engine::CEntity* pEntity, bool bOwner);
     void setRed(NGfc2Integer nValue);
     NGfc2Integer getRed();
     bool hasRed();

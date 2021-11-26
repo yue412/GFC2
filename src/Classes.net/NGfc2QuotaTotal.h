@@ -13,7 +13,7 @@ public ref class NGfc2QuotaTotal: public NGfc2Root
 {
 public:
     NGfc2QuotaTotal();
-    NGfc2QuotaTotal(void* pEntity, bool bOwner);
+    NGfc2QuotaTotal(gfc::engine::CEntity* pEntity, bool bOwner);
     void setCode(NGfc2String sValue);
     NGfc2String getCode();
     bool hasCode();

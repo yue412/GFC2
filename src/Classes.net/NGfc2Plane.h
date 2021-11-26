@@ -10,7 +10,7 @@ public ref class NGfc2Plane: public NGfc2Surface
 {
 public:
     NGfc2Plane();
-    NGfc2Plane(void* pEntity, bool bOwner);
+    NGfc2Plane(gfc::engine::CEntity* pEntity, bool bOwner);
     void setPos(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPos();
     bool hasPos();

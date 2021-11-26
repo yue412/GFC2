@@ -8,7 +8,7 @@ NGfc2SpatialStructureElement::NGfc2SpatialStructureElement()
     m_bOwner = true;
 }
 
-NGfc2SpatialStructureElement::NGfc2SpatialStructureElement(void* pEntity, bool bOwner):
+NGfc2SpatialStructureElement::NGfc2SpatialStructureElement(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Object(pEntity, bOwner)
 {
 }

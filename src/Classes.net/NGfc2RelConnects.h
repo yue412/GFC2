@@ -8,7 +8,7 @@ public ref class NGfc2RelConnects: public NGfc2RelationShip
 {
 public:
     NGfc2RelConnects();
-    NGfc2RelConnects(void* pEntity, bool bOwner);
+    NGfc2RelConnects(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

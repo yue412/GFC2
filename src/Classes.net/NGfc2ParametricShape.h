@@ -8,7 +8,7 @@ public ref class NGfc2ParametricShape: public NGfc2Shape
 {
 public:
     NGfc2ParametricShape();
-    NGfc2ParametricShape(void* pEntity, bool bOwner);
+    NGfc2ParametricShape(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

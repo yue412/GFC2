@@ -8,7 +8,7 @@ NGfc2SimpleLoop::NGfc2SimpleLoop()
     m_bOwner = true;
 }
 
-NGfc2SimpleLoop::NGfc2SimpleLoop(void* pEntity, bool bOwner):
+NGfc2SimpleLoop::NGfc2SimpleLoop(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Topology(pEntity, bOwner)
 {
 }

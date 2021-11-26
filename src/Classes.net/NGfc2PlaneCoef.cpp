@@ -8,7 +8,7 @@ NGfc2PlaneCoef::NGfc2PlaneCoef()
     m_bOwner = true;
 }
 
-NGfc2PlaneCoef::NGfc2PlaneCoef(void* pEntity, bool bOwner):
+NGfc2PlaneCoef::NGfc2PlaneCoef(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

@@ -8,7 +8,7 @@ NGfc2Helicoid::NGfc2Helicoid()
     m_bOwner = true;
 }
 
-NGfc2Helicoid::NGfc2Helicoid(void* pEntity, bool bOwner):
+NGfc2Helicoid::NGfc2Helicoid(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Surface(pEntity, bOwner)
 {
 }

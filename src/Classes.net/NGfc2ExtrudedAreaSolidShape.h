@@ -10,7 +10,7 @@ public ref class NGfc2ExtrudedAreaSolidShape: public NGfc2SweptAreaSolidShape
 {
 public:
     NGfc2ExtrudedAreaSolidShape();
-    NGfc2ExtrudedAreaSolidShape(void* pEntity, bool bOwner);
+    NGfc2ExtrudedAreaSolidShape(gfc::engine::CEntity* pEntity, bool bOwner);
     void setExtrudedDirection(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getExtrudedDirection();
     bool hasExtrudedDirection();

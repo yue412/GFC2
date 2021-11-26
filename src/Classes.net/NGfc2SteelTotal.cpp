@@ -8,7 +8,7 @@ NGfc2SteelTotal::NGfc2SteelTotal()
     m_bOwner = true;
 }
 
-NGfc2SteelTotal::NGfc2SteelTotal(void* pEntity, bool bOwner):
+NGfc2SteelTotal::NGfc2SteelTotal(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

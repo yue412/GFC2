@@ -8,7 +8,7 @@ NGfc2SweepCurve3d::NGfc2SweepCurve3d()
     m_bOwner = true;
 }
 
-NGfc2SweepCurve3d::NGfc2SweepCurve3d(void* pEntity, bool bOwner):
+NGfc2SweepCurve3d::NGfc2SweepCurve3d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Curve3d(pEntity, bOwner)
 {
 }

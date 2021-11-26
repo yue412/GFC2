@@ -8,7 +8,7 @@ NGfc2RectangleHollowSection::NGfc2RectangleHollowSection()
     m_bOwner = true;
 }
 
-NGfc2RectangleHollowSection::NGfc2RectangleHollowSection(void* pEntity, bool bOwner):
+NGfc2RectangleHollowSection::NGfc2RectangleHollowSection(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2RectangleSection(pEntity, bOwner)
 {
 }

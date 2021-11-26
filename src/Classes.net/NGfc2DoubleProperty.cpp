@@ -8,7 +8,7 @@ NGfc2DoubleProperty::NGfc2DoubleProperty()
     m_bOwner = true;
 }
 
-NGfc2DoubleProperty::NGfc2DoubleProperty(void* pEntity, bool bOwner):
+NGfc2DoubleProperty::NGfc2DoubleProperty(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2SingleProperty(pEntity, bOwner)
 {
 }

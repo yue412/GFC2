@@ -14,7 +14,7 @@ public ref class NGfc2SurfaceTexture: public NGfc2Root
 {
 public:
     NGfc2SurfaceTexture();
-    NGfc2SurfaceTexture(void* pEntity, bool bOwner);
+    NGfc2SurfaceTexture(gfc::engine::CEntity* pEntity, bool bOwner);
     void setRepeatS(NGfc2Boolean bValue);
     NGfc2Boolean getRepeatS();
     bool hasRepeatS();

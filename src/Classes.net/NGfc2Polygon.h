@@ -8,7 +8,7 @@ public ref class NGfc2Polygon: public NGfc2Topology
 {
 public:
     NGfc2Polygon();
-    NGfc2Polygon(void* pEntity, bool bOwner);
+    NGfc2Polygon(gfc::engine::CEntity* pEntity, bool bOwner);
 
 };
 #endif

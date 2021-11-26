@@ -8,7 +8,7 @@ NGfc2IndexedTextureMap::NGfc2IndexedTextureMap()
     m_bOwner = true;
 }
 
-NGfc2IndexedTextureMap::NGfc2IndexedTextureMap(void* pEntity, bool bOwner):
+NGfc2IndexedTextureMap::NGfc2IndexedTextureMap(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }

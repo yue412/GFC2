@@ -10,7 +10,7 @@ public ref class NGfc2InternalChart: public NGfc2Root
 {
 public:
     NGfc2InternalChart();
-    NGfc2InternalChart(void* pEntity, bool bOwner);
+    NGfc2InternalChart(gfc::engine::CEntity* pEntity, bool bOwner);
     void setTra1(NGfc2Double dValue);
     NGfc2Double getTra1();
     bool hasTra1();

@@ -8,7 +8,7 @@ NGfc2Matrix::NGfc2Matrix()
     m_bOwner = true;
 }
 
-NGfc2Matrix::NGfc2Matrix(void* pEntity, bool bOwner):
+NGfc2Matrix::NGfc2Matrix(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Geometry(pEntity, bOwner)
 {
 }

@@ -10,7 +10,7 @@ public ref class NGfc2LightSourcePositional: public NGfc2LightSource
 {
 public:
     NGfc2LightSourcePositional();
-    NGfc2LightSourcePositional(void* pEntity, bool bOwner);
+    NGfc2LightSourcePositional(gfc::engine::CEntity* pEntity, bool bOwner);
     void setPosition(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPosition();
     bool hasPosition();

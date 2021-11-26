@@ -8,7 +8,7 @@ NGfc2OffsetCurve2d::NGfc2OffsetCurve2d()
     m_bOwner = true;
 }
 
-NGfc2OffsetCurve2d::NGfc2OffsetCurve2d(void* pEntity, bool bOwner):
+NGfc2OffsetCurve2d::NGfc2OffsetCurve2d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Curve2d(pEntity, bOwner)
 {
 }

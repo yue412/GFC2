@@ -8,7 +8,7 @@ NGfc2IntersectionCurve3d::NGfc2IntersectionCurve3d()
     m_bOwner = true;
 }
 
-NGfc2IntersectionCurve3d::NGfc2IntersectionCurve3d(void* pEntity, bool bOwner):
+NGfc2IntersectionCurve3d::NGfc2IntersectionCurve3d(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Curve3d(pEntity, bOwner)
 {
 }

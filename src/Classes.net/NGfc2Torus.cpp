@@ -8,7 +8,7 @@ NGfc2Torus::NGfc2Torus()
     m_bOwner = true;
 }
 
-NGfc2Torus::NGfc2Torus(void* pEntity, bool bOwner):
+NGfc2Torus::NGfc2Torus(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Surface(pEntity, bOwner)
 {
 }

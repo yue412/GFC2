@@ -10,7 +10,7 @@ public ref class NGfc2NurbsSurface: public NGfc2Surface
 {
 public:
     NGfc2NurbsSurface();
-    NGfc2NurbsSurface(void* pEntity, bool bOwner);
+    NGfc2NurbsSurface(gfc::engine::CEntity* pEntity, bool bOwner);
     void setDegreeU(NGfc2Integer nValue);
     NGfc2Integer getDegreeU();
     bool hasDegreeU();

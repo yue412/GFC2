@@ -9,7 +9,7 @@ public ref class NGfc2RectangleHollowSection: public NGfc2RectangleSection
 {
 public:
     NGfc2RectangleHollowSection();
-    NGfc2RectangleHollowSection(void* pEntity, bool bOwner);
+    NGfc2RectangleHollowSection(gfc::engine::CEntity* pEntity, bool bOwner);
     void setThickness(NGfc2Double dValue);
     NGfc2Double getThickness();
     bool hasThickness();

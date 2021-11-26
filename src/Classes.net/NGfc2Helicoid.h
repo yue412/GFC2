@@ -12,7 +12,7 @@ public ref class NGfc2Helicoid: public NGfc2Surface
 {
 public:
     NGfc2Helicoid();
-    NGfc2Helicoid(void* pEntity, bool bOwner);
+    NGfc2Helicoid(gfc::engine::CEntity* pEntity, bool bOwner);
     void setCoord(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCoord();
     bool hasCoord();

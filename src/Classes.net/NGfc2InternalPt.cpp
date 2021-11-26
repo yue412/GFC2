@@ -8,7 +8,7 @@ NGfc2InternalPt::NGfc2InternalPt()
     m_bOwner = true;
 }
 
-NGfc2InternalPt::NGfc2InternalPt(void* pEntity, bool bOwner):
+NGfc2InternalPt::NGfc2InternalPt(gfc::engine::CEntity* pEntity, bool bOwner):
     NGfc2Root(pEntity, bOwner)
 {
 }
