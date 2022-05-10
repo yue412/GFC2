@@ -6,11 +6,11 @@
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcWriter: public gfc::engine::CWriter
+class GFCCLASSES_API CWriter: public gfc::engine::CWriter
 {
 public:
-    GfcWriter(const std::wstring& sProductCode = L"");
-    ~GfcWriter();
+    CWriter(const std::wstring& sProductCode = L"");
+    ~CWriter();
 };
 
 GFCCLASSES_NAMESPACE_END

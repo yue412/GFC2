@@ -56,10 +56,10 @@ namespace gfc {
     }
     namespace classes {
         namespace x3 {
-            class Gfc2Polygon;
-            class Gfc2CommonPolygon;
-            class Gfc2Vector2d;
-            class Gfc2CommonPolygonEx;
+            class GfcPolygon;
+            class GfcCommonPolygon;
+            class GfcVector2d;
+            class GfcCommonPolygonEx;
         }
     }
 }
@@ -69,7 +69,7 @@ class GfcGeometryExporter
 public:
     static void clean();
     static gfc::engine::EntityRef exportVector2d(gfc::engine::CWriter* pWriter, ggp::CVector2d* pSrc);
-    //static void exportVector2d(ggp::CVector2d* pSrc, Gfc2Vector2d* pDest);
+    //static void exportVector2d(ggp::CVector2d* pSrc, GfcVector2d* pDest);
     static gfc::engine::EntityRef exportVector3d(gfc::engine::CWriter* pWriter, ggp::CVector3d* pSrc);
     static gfc::engine::EntityRef exportVector3dCompact(gfc::engine::CWriter* pWriter, ggp::CVector3d* pSrc);
     static gfc::engine::EntityRef exportIntervald(gfc::engine::CWriter* pWriter, ggp::CIntervald* pSrc);
@@ -134,8 +134,8 @@ private:
     static gfc::engine::EntityRef exportPlaneCoef(gfc::engine::CWriter* pWriter, ggp::CPlaneCoef* pSrc);
     static gfc::engine::EntityRef exportPolyhedralLoop(gfc::engine::CWriter* pWriter, ggp::CPolyhedralLoop* pSrc);
     static gfc::engine::EntityRef exportPolyhedralEdge(gfc::engine::CWriter* pWriter, ggp::CPolyhedralEdge* pSrc);
-    static void innerExportPolygon(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, gfc::classes::x3::Gfc2CommonPolygon* pDest);
-	static void innerExportPolygonEx(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, gfc::classes::x3::Gfc2CommonPolygonEx* oDest);
+    static void innerExportPolygon(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, gfc::classes::x3::GfcCommonPolygon* pDest);
+	static void innerExportPolygonEx(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, gfc::classes::x3::GfcCommonPolygonEx* oDest);
     static gfc::engine::EntityRef export100Vector3d(gfc::engine::CWriter* pWriter);
     static gfc::engine::EntityRef export010Vector3d(gfc::engine::CWriter* pWriter);
     static gfc::engine::EntityRef export001Vector3d(gfc::engine::CWriter* pWriter);

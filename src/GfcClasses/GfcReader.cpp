@@ -3,11 +3,11 @@
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-GfcReader::GfcReader(): CReader(g_pModel)
+CReader::CReader(): gfc::engine::CReader(g_pModel)
 {
 }
 
-bool GfcReader::useStaticClass()
+bool CReader::useStaticClass()
 {
     return true;
 }

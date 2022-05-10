@@ -9,17 +9,17 @@
 #include "GfcSchema/EntityAttribute.h"
 #include "GfcSchema/BuildinType.h"
 #include "GfcSchema/TypeDefine.h"
-#include "GfcClasses\x3\Gfc2Vector2d.h"
-#include "GfcClasses\x3\Gfc2Floor.h"
-#include "GfcClasses\x3\Gfc2Element.h"
-#include "GfcClasses\x3\Gfc2SphereShape.h"
+#include "GfcClasses\x3\GfcVector2d.h"
+#include "GfcClasses\x3\GfcFloor.h"
+#include "GfcClasses\x3\GfcElement.h"
+#include "GfcClasses\x3\GfcSphereShape.h"
 #include "GfcEngine\GfcEngineUtils.h"
 
 using namespace gfc::classes::x3;
 
 TEST(TestGfcClasses, Entity_create)
 {
-    Gfc2Vector2d vec;
+    GfcVector2d vec;
     EXPECT_NEAR(0.0, vec.getX(), 1e-7);
     EXPECT_NEAR(0.0, vec.getY(), 1e-7);
     EXPECT_EQ(false, vec.hasX());
@@ -28,7 +28,7 @@ TEST(TestGfcClasses, Entity_create)
 
 TEST(TestGfcClasses, Entity_set_double)
 {
-    Gfc2Vector2d vec;
+    GfcVector2d vec;
     vec.setX(25);
     vec.setY(2.5);
     EXPECT_NEAR(25, vec.getX(), 1e-7);
@@ -40,14 +40,14 @@ TEST(TestGfcClasses, Entity_set_double)
 
 TEST(TestGfcClasses, Floor_create)
 {
-    Gfc2Floor obj;
+    GfcFloor obj;
     EXPECT_STREQ(L"", obj.getID().c_str());
     EXPECT_EQ(0, obj.getStdFloorCount());
 }
 
 TEST(TestGfcClasses, Floor_set_get)
 {
-    Gfc2Floor obj;
+    GfcFloor obj;
     obj.setID(L"中华人民共和国");
     EXPECT_STREQ(L"中华人民共和国", obj.getID().c_str());
     obj.setStdFloorCount(12);
@@ -56,35 +56,35 @@ TEST(TestGfcClasses, Floor_set_get)
 
 TEST(TestGfcClasses, Element_get)
 {
-    Gfc2Element obj;
+    GfcElement obj;
     EXPECT_EQ(0, obj.getShapesCount());
 }
 
 TEST(TestGfcClasses, Element_add)
 {
-    Gfc2Element obj;
+    GfcElement obj;
     obj.addShapes(1000);
     EXPECT_EQ(1, obj.getShapesCount());
     EXPECT_EQ(1000, obj.getShapes(0));
 }
 
-#include "GfcClasses\x3\Gfc2ElementShape.h"
+#include "GfcClasses\x3\GfcElementShape.h"
 #include "GfcClasses\x3\GfcReader.h"
 #include "GfcClasses\x3\GfcWriter.h"
-#include "GfcClasses\x3\Gfc2SimpleLoop.h"
+#include "GfcClasses\x3\GfcSimpleLoop.h"
 
 TEST(TestGfcClasses, write_document)
 {
     //auto pFactory = gfc::engine::CEngineUtils::createFactory(getFullPath(L"GFC3X0.exp"));
-    GfcWriter oWriter;
+    CWriter oWriter;
     auto result = oWriter.open(getFullPath(L"test.gfc"), L"express");
-    Gfc2SphereShape oShape;
+    GfcSphereShape oShape;
     oShape.setRadius(101.0);
     auto nShapeRef = oWriter.writeEntity(&oShape);
-    Gfc2ElementShape oElementShape;
+    GfcElementShape oElementShape;
     oElementShape.setShape(nShapeRef);
     auto nElementShapeRef = oWriter.writeEntity(&oElementShape);
-    Gfc2Element oElement;
+    GfcElement oElement;
     oElement.addShapes(nElementShapeRef);
     oWriter.writeEntity(&oElement);
     oWriter.close();
@@ -93,17 +93,17 @@ TEST(TestGfcClasses, write_document)
 
 TEST(TestGfcClasses, read_document)
 {
-    GfcReader oReader;
+    CReader oReader;
     oReader.open(getFullPath(L"test.gfc"));
-    auto itr = oReader.getEntities(L"Gfc2Element");
+    auto itr = oReader.getEntities(L"GfcElement");
     itr->first();
     EXPECT_EQ(false, itr->isDone());
-    auto pElement = std::dynamic_pointer_cast<Gfc2Element>(itr->current());
+    auto pElement = std::dynamic_pointer_cast<GfcElement>(itr->current());
     EXPECT_EQ(true, pElement != nullptr);
     EXPECT_EQ(1, pElement->getShapesCount());
     auto pElementShape = pElement->getShapesPtr(0);
     EXPECT_EQ(true, pElementShape != nullptr);
-    auto pShape = std::dynamic_pointer_cast<Gfc2SphereShape>(pElementShape->getShapePtr());
+    auto pShape = std::dynamic_pointer_cast<GfcSphereShape>(pElementShape->getShapePtr());
     EXPECT_EQ(true, pShape != nullptr);
     EXPECT_NEAR(101, pShape->getRadius(), 1e-7);
     itr->next();

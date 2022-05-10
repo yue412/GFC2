@@ -4,12 +4,12 @@
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-GfcWriter::GfcWriter(const std::wstring& sProductCode): CWriter(g_pModel, sProductCode)
+CWriter::CWriter(const std::wstring& sProductCode): gfc::engine::CWriter(g_pModel, sProductCode)
 {
 }
 
 
-GfcWriter::~GfcWriter()
+CWriter::~CWriter()
 {
 }
 

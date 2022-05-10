@@ -6,10 +6,10 @@
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcDocument: public gfc::engine::CDocument
+class GFCCLASSES_API CDocument: public gfc::engine::CDocument
 {
 public:
-    GfcDocument();
+    CDocument();
 };
 
 GFCCLASSES_NAMESPACE_END

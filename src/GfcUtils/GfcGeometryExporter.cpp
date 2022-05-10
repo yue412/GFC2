@@ -3,58 +3,58 @@
 #include "Geometry/Loop.h"
 #include "Geometry/Coedge.h"
 #include "Geometry/CoedgeEx.h"
-#include "GfcClasses\x3\Gfc2Vector2d.h"
-#include "GfcClasses\x3\Gfc2Vector3d.h"
-#include "GfcClasses\x3\Gfc2Intervald.h"
-#include "GfcClasses\x3\Gfc2Coordinates3d.h"
-#include "GfcClasses\x3\Gfc2Coordinates2d.h"
-#include "GfcClasses\x3\Gfc2Box3d.h"
-#include "GfcClasses\x3\Gfc2Line2d.h"
-#include "GfcClasses\x3\Gfc2Arc2d.h"
-#include "GfcClasses\x3\Gfc2NurbsCurve2d.h"
-#include "GfcClasses\x3\Gfc2NurbsCtrlPt2d.h"
-#include "GfcClasses\x3\Gfc2Ellipse2d.h"
-#include "GfcClasses\x3\Gfc2PreimageCurve2d.h"
-#include "GfcClasses\x3\Gfc2SinCurve2d.h"
-#include "GfcClasses\x3\Gfc2SpiralLine2d.h"
-#include "GfcClasses\x3\Gfc2Line3d.h"
-#include "GfcClasses\x3\Gfc2Arc3d.h"
-#include "GfcClasses\x3\Gfc2Ellipse3d.h"
-#include "GfcClasses\x3\Gfc2NurbsCtrlPt3d.h"
-#include "GfcClasses\x3\Gfc2NurbsCurve3d.h"
-#include "GfcClasses\x3\Gfc2IntersectionCurve3d.h"
-#include "GfcClasses\x3\Gfc2SpiralLine3d.h"
-#include "GfcClasses\x3\Gfc2SweepCurve3d.h"
-#include "GfcClasses\x3\Gfc2Bevel.h"
-#include "GfcClasses\x3\Gfc2Cylinder.h"
-#include "GfcClasses\x3\Gfc2Helicoid.h"
-#include "GfcClasses\x3\Gfc2NurbsSurface.h"
-#include "GfcClasses\x3\Gfc2Plane.h"
-#include "GfcClasses\x3\Gfc2Sphere.h"
-#include "GfcClasses\x3\Gfc2Sweep.h"
-#include "GfcClasses\x3\Gfc2Torus.h"
-#include "GfcClasses\x3\Gfc2BrepBody.h"
-#include "GfcClasses\x3\Gfc2CuboidBody.h"
-#include "GfcClasses\x3\Gfc2ExtrudedBody.h"
-#include "GfcClasses\x3\Gfc2PolyhedronBody.h"
-#include "GfcClasses\x3\Gfc2Face.h"
-#include "GfcClasses\x3\Gfc2Edge.h"
-#include "GfcClasses\x3\Gfc2Polygon.h"
-#include "GfcClasses\x3\Gfc2CoedgeList.h"
-#include "GfcClasses\x3\Gfc2PolyhedralFace.h"
-#include "GfcClasses\x3\Gfc2PlaneCoef.h"
-#include "GfcClasses\x3\Gfc2PolyhedralLoop.h"
-#include "GfcClasses\x3\Gfc2PolyhedralEdge.h"
-#include "GfcClasses\x3\Gfc2OffsetCurve2d.h"
-#include "GfcClasses\x3\Gfc2ImageCurve3d.h"
-#include "GfcClasses\x3\Gfc2RuledSurface.h"
-#include "GfcClasses\x3\Gfc2SimplePolygon.h"
-#include "GfcClasses\x3\Gfc2PlaneCurve3d.h"
-#include "GfcClasses\x3\Gfc2CoedgeListEx.h"
-#include "GfcClasses\x3\Gfc2Coedge.h"
+#include "GfcClasses\x3\GfcVector2d.h"
+#include "GfcClasses\x3\GfcVector3d.h"
+#include "GfcClasses\x3\GfcIntervald.h"
+#include "GfcClasses\x3\GfcCoordinates3d.h"
+#include "GfcClasses\x3\GfcCoordinates2d.h"
+#include "GfcClasses\x3\GfcBox3d.h"
+#include "GfcClasses\x3\GfcLine2d.h"
+#include "GfcClasses\x3\GfcArc2d.h"
+#include "GfcClasses\x3\GfcNurbsCurve2d.h"
+#include "GfcClasses\x3\GfcNurbsCtrlPt2d.h"
+#include "GfcClasses\x3\GfcEllipse2d.h"
+#include "GfcClasses\x3\GfcPreimageCurve2d.h"
+#include "GfcClasses\x3\GfcSinCurve2d.h"
+#include "GfcClasses\x3\GfcSpiralLine2d.h"
+#include "GfcClasses\x3\GfcLine3d.h"
+#include "GfcClasses\x3\GfcArc3d.h"
+#include "GfcClasses\x3\GfcEllipse3d.h"
+#include "GfcClasses\x3\GfcNurbsCtrlPt3d.h"
+#include "GfcClasses\x3\GfcNurbsCurve3d.h"
+#include "GfcClasses\x3\GfcIntersectionCurve3d.h"
+#include "GfcClasses\x3\GfcSpiralLine3d.h"
+#include "GfcClasses\x3\GfcSweepCurve3d.h"
+#include "GfcClasses\x3\GfcBevel.h"
+#include "GfcClasses\x3\GfcCylinder.h"
+#include "GfcClasses\x3\GfcHelicoid.h"
+#include "GfcClasses\x3\GfcNurbsSurface.h"
+#include "GfcClasses\x3\GfcPlane.h"
+#include "GfcClasses\x3\GfcSphere.h"
+#include "GfcClasses\x3\GfcSweep.h"
+#include "GfcClasses\x3\GfcTorus.h"
+#include "GfcClasses\x3\GfcBrepBody.h"
+#include "GfcClasses\x3\GfcCuboidBody.h"
+#include "GfcClasses\x3\GfcExtrudedBody.h"
+#include "GfcClasses\x3\GfcPolyhedronBody.h"
+#include "GfcClasses\x3\GfcFace.h"
+#include "GfcClasses\x3\GfcEdge.h"
+#include "GfcClasses\x3\GfcPolygon.h"
+#include "GfcClasses\x3\GfcCoedgeList.h"
+#include "GfcClasses\x3\GfcPolyhedralFace.h"
+#include "GfcClasses\x3\GfcPlaneCoef.h"
+#include "GfcClasses\x3\GfcPolyhedralLoop.h"
+#include "GfcClasses\x3\GfcPolyhedralEdge.h"
+#include "GfcClasses\x3\GfcOffsetCurve2d.h"
+#include "GfcClasses\x3\GfcImageCurve3d.h"
+#include "GfcClasses\x3\GfcRuledSurface.h"
+#include "GfcClasses\x3\GfcSimplePolygon.h"
+#include "GfcClasses\x3\GfcPlaneCurve3d.h"
+#include "GfcClasses\x3\GfcCoedgeListEx.h"
+#include "GfcClasses\x3\GfcCoedge.h"
 #include "GfcEngine\Writer.h"
-#include "GfcClasses\x3\Gfc2CommonPolygonEx.h"
-#include "GfcClasses\x3\Gfc2CommonPolygon.h"
+#include "GfcClasses\x3\GfcCommonPolygonEx.h"
+#include "GfcClasses\x3\GfcCommonPolygon.h"
 
 using namespace gfc::classes::x3;
 
@@ -91,13 +91,13 @@ gfc::engine::EntityRef GfcGeometryExporter::m_nVec3d000 = -1;
 gfc::engine::EntityRef GfcGeometryExporter::exportVector2d( gfc::engine::CWriter* pWriter, ggp::CVector2d* pSrc )
 {
     assert(pSrc);
-    Gfc2Vector2d oVector2d;
+    GfcVector2d oVector2d;
     oVector2d.setX(pSrc->X);
     oVector2d.setY(pSrc->Y);
     return pWriter->writeEntity(&oVector2d);
 }
 
-// void GfcGeometryExporter::exportVector2d( ggp::CVector2d* pSrc, Gfc2Vector2d* pDest )
+// void GfcGeometryExporter::exportVector2d( ggp::CVector2d* pSrc, GfcVector2d* pDest )
 // {
 //     pDest->setX(pSrc->X);
 //     pDest->setY(pSrc->Y);
@@ -106,7 +106,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportVector2d( gfc::engine::CWriter
 gfc::engine::EntityRef GfcGeometryExporter::exportVector3d( gfc::engine::CWriter* pWriter, ggp::CVector3d* pSrc )
 {
     assert(pSrc);
-    Gfc2Vector3d oVector;
+    GfcVector3d oVector;
     oVector.setX(pSrc->X);
     oVector.setY(pSrc->Y);
     oVector.setZ(pSrc->Z);
@@ -116,7 +116,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportVector3d( gfc::engine::CWriter
 gfc::engine::EntityRef GfcGeometryExporter::exportIntervald( gfc::engine::CWriter* pWriter, ggp::CIntervald* pSrc )
 {
     assert(pSrc);
-    Gfc2Intervald oDest;
+    GfcIntervald oDest;
     oDest.setMin(pSrc->Min);
     oDest.setMax(pSrc->Max);
     return pWriter->writeEntity(&oDest);
@@ -125,7 +125,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportIntervald( gfc::engine::CWrite
 gfc::engine::EntityRef GfcGeometryExporter::exportCoordinates3d( gfc::engine::CWriter* pWriter, ggp::CCoordinates3d* pSrc )
 {
     assert(pSrc);
-    Gfc2Coordinates3d oDest;
+    GfcCoordinates3d oDest;
     oDest.setOrigin(exportVector3dCompact(pWriter, &pSrc->Origin));
     oDest.setX(exportVector3dCompact(pWriter, &pSrc->X));
     oDest.setY(exportVector3dCompact(pWriter, &pSrc->Y));
@@ -136,7 +136,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCoordinates3d( gfc::engine::CW
 gfc::engine::EntityRef GfcGeometryExporter::exportCoordinates2d( gfc::engine::CWriter* pWriter, ggp::CCoordinates2d* pSrc )
 {
     assert(pSrc);
-    Gfc2Coordinates2d oDest;
+    GfcCoordinates2d oDest;
     oDest.setOrigin(exportVector2d(pWriter, &pSrc->Origin));
     oDest.setX(exportVector2d(pWriter, &pSrc->X));
     oDest.setY(exportVector2d(pWriter, &pSrc->Y));
@@ -146,7 +146,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCoordinates2d( gfc::engine::CW
 gfc::engine::EntityRef GfcGeometryExporter::exportBox3d( gfc::engine::CWriter* pWriter, ggp::CBox3d* pSrc )
 {
     assert(pSrc);
-    Gfc2Box3d oDest;
+    GfcBox3d oDest;
     oDest.setMin(exportVector3d(pWriter, &pSrc->MinPt()));
     oDest.setMax(exportVector3d(pWriter, &pSrc->MaxPt()));
     return pWriter->writeEntity(&oDest);
@@ -155,7 +155,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportBox3d( gfc::engine::CWriter* p
 gfc::engine::EntityRef GfcGeometryExporter::exportLine2d( gfc::engine::CWriter* pWriter, ggp::CLine2d* pSrc )
 {
     assert(pSrc);
-    Gfc2Line2d oDest;
+    GfcLine2d oDest;
     oDest.setStartPt(exportVector2d(pWriter, &pSrc->StartPoint()));
     oDest.setEndPt(exportVector2d(pWriter, &pSrc->EndPoint()));
 //    oDest.setRange(exportIntervald(pWriter, &pSrc->Range()));
@@ -165,7 +165,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportLine2d( gfc::engine::CWriter* 
 gfc::engine::EntityRef GfcGeometryExporter::exportArc2d( gfc::engine::CWriter* pWriter, ggp::CArc2d* pSrc )
 {
     assert(pSrc);
-    Gfc2Arc2d oDest;
+    GfcArc2d oDest;
     oDest.setCenterPt(exportVector2d(pWriter, &pSrc->CenterPt()));
     oDest.setRadius(pSrc->Radius());
     oDest.setRange(exportIntervald(pWriter, &pSrc->Range()));
@@ -176,7 +176,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportArc2d( gfc::engine::CWriter* p
 gfc::engine::EntityRef GfcGeometryExporter::exportEllipse2d( gfc::engine::CWriter* pWriter, ggp::CEllipse2d* pSrc )
 {
     assert(pSrc);
-    Gfc2Ellipse2d oDest;
+    GfcEllipse2d oDest;
     oDest.setCenterPt(exportVector2d(pWriter, &pSrc->CenterPt()));
     oDest.setMajorAxis(exportVector2d(pWriter, &pSrc->MajorAxis()));
     oDest.setdMajorRad(pSrc->MajorRadius());
@@ -189,7 +189,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportEllipse2d( gfc::engine::CWrite
 gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCurve2d( gfc::engine::CWriter* pWriter, ggp::CNurbsCurve2d* pSrc )
 {
     assert(pSrc);
-    Gfc2NurbsCurve2d oDest;
+    GfcNurbsCurve2d oDest;
     oDest.setDegree(pSrc->Degree());
     int nCount = pSrc->CtrlPtCount();
     for (int i = 0; i < nCount; ++i)
@@ -207,7 +207,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCurve2d( gfc::engine::CWr
 gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCtrlPt2d( gfc::engine::CWriter* pWriter, ggp::NurbsCtrlPt2d* pSrc )
 {
     assert(pSrc);
-    Gfc2NurbsCtrlPt2d oDest;
+    GfcNurbsCtrlPt2d oDest;
     oDest.setPoint(exportVector2d(pWriter, &pSrc->Point));
     oDest.setWeight(pSrc->Weight);
     return pWriter->writeEntity(&oDest);
@@ -216,7 +216,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCtrlPt2d( gfc::engine::CW
 gfc::engine::EntityRef GfcGeometryExporter::exportPreimageCurve2d( gfc::engine::CWriter* pWriter, ggp::CPreimageCurve2d* pSrc )
 {
     assert(pSrc);
-    Gfc2PreimageCurve2d oDest;
+    GfcPreimageCurve2d oDest;
     oDest.setRange(exportIntervald(pWriter, const_cast<ggp::CIntervald*>(&pSrc->Range())));
     oDest.setReversed(pSrc->Reversed());
     oDest.setBase(exportSurface(pWriter, pSrc->GetBaseSurface().get()));
@@ -228,7 +228,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPreimageCurve2d( gfc::engine::
 gfc::engine::EntityRef GfcGeometryExporter::exportSinCurve2d( gfc::engine::CWriter* pWriter, ggp::CSinCurve2d* pSrc )
 {
     assert(pSrc);
-    Gfc2SinCurve2d oDest;
+    GfcSinCurve2d oDest;
     oDest.setPos(exportVector2d(pWriter, &pSrc->Pos()));
     oDest.setDirX(exportVector2d(pWriter, &pSrc->DirX()));
     oDest.setA(pSrc->A());
@@ -241,7 +241,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSinCurve2d( gfc::engine::CWrit
 gfc::engine::EntityRef GfcGeometryExporter::exportSpiralLine2d( gfc::engine::CWriter* pWriter, ggp::CSpiralLine2d* pSrc )
 {
     assert(pSrc);
-    Gfc2SpiralLine2d oDest;
+    GfcSpiralLine2d oDest;
     oDest.setCoord(exportCoordinates2d(pWriter, &pSrc->Coord()));
     oDest.setRadius(pSrc->Radius());
     oDest.setRange(exportIntervald(pWriter, &pSrc->Range()));
@@ -284,7 +284,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCurve2d( gfc::engine::CWriter*
 gfc::engine::EntityRef GfcGeometryExporter::exportLine3d( gfc::engine::CWriter* pWriter, ggp::CLine3d* pSrc )
 {
     assert(pSrc);
-    Gfc2Line3d oDest;
+    GfcLine3d oDest;
     oDest.setStartPt(exportVector3d(pWriter, &pSrc->StartPoint()));
     oDest.setEndPt(exportVector3d(pWriter, &pSrc->EndPoint()));
     //oDest.setRange(exportIntervald(pWriter, &pSrc->Range()));
@@ -294,7 +294,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportLine3d( gfc::engine::CWriter* 
 //gfc::engine::EntityRef GfcGeometryExporter::exportArc3d( gfc::engine::Writer* pWriter, ggp::CArc3d* pSrc )
 //{
 //	assert(pSrc);
-//	Gfc2Arc3d oDest;
+//	GfcArc3d oDest;
 //	oDest.setArc(exportCurve2d(pWriter, pSrc->Curve2d()));    
 //	oDest.setPlane(exportPlaneInfo(pWriter, &pSrc->DirX(), &pSrc->DirY(), &pSrc->Pos()));
 //	return pWriter->writeEntity(&oDest);
@@ -303,7 +303,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportLine3d( gfc::engine::CWriter* 
 //gfc::engine::EntityRef GfcGeometryExporter::exportEllipse3d( gfc::engine::Writer* pWriter, ggp::CEllipse3d* pSrc )
 //{
 //	assert(pSrc);
-//	Gfc2Ellipse3d oDest;
+//	GfcEllipse3d oDest;
 //	oDest.setEllipse(exportCurve2d(pWriter, pSrc->Curve2d()));    
 //	oDest.setPlane(exportPlaneInfo(pWriter, &pSrc->DirX(), &pSrc->DirY(), &pSrc->Pos()));
 //	return pWriter->writeEntity(&oDest);
@@ -312,7 +312,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportLine3d( gfc::engine::CWriter* 
 gfc::engine::EntityRef GfcGeometryExporter::exportPlaneCurve3d( gfc::engine::CWriter* pWriter, ggp::CPlaneCurve3d* pSrc )
 {
 	assert(pSrc);
-	Gfc2PlaneCurve3d oDest;
+	GfcPlaneCurve3d oDest;
 	oDest.setPlaneCurve(exportCurve2d(pWriter, pSrc->Curve2d()));    
 	oDest.setPlane(exportPlaneInfo(pWriter, (ggp::CVector3d*)&pSrc->DirX(), (ggp::CVector3d*)&pSrc->DirY(), (ggp::CVector3d*)&pSrc->Pos()));
 	return pWriter->writeEntity(&oDest);
@@ -321,7 +321,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPlaneCurve3d( gfc::engine::CWr
 gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCurve3d( gfc::engine::CWriter* pWriter, ggp::CNurbsCurve3d* pSrc )
 {
     assert(pSrc);
-    Gfc2NurbsCurve3d oDest;
+    GfcNurbsCurve3d oDest;
     oDest.setDegree(pSrc->Degree());
     int nCount = pSrc->CtrlPtCount();
     for (int i = 0; i < nCount; ++i)
@@ -339,7 +339,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCurve3d( gfc::engine::CWr
 gfc::engine::EntityRef GfcGeometryExporter::exportIntersectionCurve3d( gfc::engine::CWriter* pWriter, ggp::CIntersectionCurve3d* pSrc )
 {
     assert(pSrc);
-    Gfc2IntersectionCurve3d oDest;
+    GfcIntersectionCurve3d oDest;
     ggp::CSurfacePtr pBases[2];
     pSrc->GetBaseSurfaces(pBases);
     oDest.setBases1(exportSurface(pWriter, pBases[0].get()));
@@ -352,7 +352,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportIntersectionCurve3d( gfc::engi
 gfc::engine::EntityRef GfcGeometryExporter::exportSpiralLine3d( gfc::engine::CWriter* pWriter, ggp::CSpiralLine* pSrc )
 {
     assert(pSrc);
-    Gfc2SpiralLine3d oDest;
+    GfcSpiralLine3d oDest;
     oDest.setCoord(exportCoordinates3d(pWriter, &pSrc->Coord()));
     oDest.setRadius(pSrc->Radius());
     oDest.setRange(exportIntervald(pWriter, &pSrc->Range()));
@@ -365,7 +365,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSpiralLine3d( gfc::engine::CWr
 gfc::engine::EntityRef GfcGeometryExporter::exportSweepCurve3d( gfc::engine::CWriter* pWriter, ggp::CSweepCurve3d* pSrc )
 {
     assert(pSrc);
-    Gfc2SweepCurve3d oDest;
+    GfcSweepCurve3d oDest;
     oDest.setSpine3d(exportCurve3d(pWriter, pSrc->Spine()));
     oDest.setReferenceVector(exportVector3d(pWriter, const_cast<ggp::CVector3d*>(&pSrc->GetReferenceVector())));
     oDest.setPoint(exportVector2d(pWriter, const_cast<ggp::CVector2d*>(&pSrc->Profile())));
@@ -399,7 +399,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCurve3d( gfc::engine::CWriter*
 gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCtrlPt3d( gfc::engine::CWriter* pWriter, ggp::NurbsCtrlPt3d* pSrc )
 {
     assert(pSrc);
-    Gfc2NurbsCtrlPt3d oDest;
+    GfcNurbsCtrlPt3d oDest;
     oDest.setPoint(exportVector3d(pWriter, &pSrc->Point));
     oDest.setWeight(pSrc->Weight);
     return pWriter->writeEntity(&oDest);
@@ -408,7 +408,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportNurbsCtrlPt3d( gfc::engine::CW
 gfc::engine::EntityRef GfcGeometryExporter::exportInternalChart( gfc::engine::CWriter* pWriter, ggp::CInternalChart* pSrc )
 {
     assert(pSrc);
-    Gfc2InternalChart oDest;
+    GfcInternalChart oDest;
     oDest.setTra1(pSrc->tra[0]);
     oDest.setTra2(pSrc->tra[1]);
     oDest.setTra3(pSrc->tra[2]);
@@ -423,7 +423,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportInternalChart( gfc::engine::CW
 gfc::engine::EntityRef GfcGeometryExporter::exportInternalPt( gfc::engine::CWriter* pWriter, ggp::CInternalPt* pSrc )
 {
     assert(pSrc);
-    Gfc2InternalPt oDest;
+    GfcInternalPt oDest;
     oDest.setP(exportVector3d(pWriter, &pSrc->p));
     oDest.setTVec(exportVector3d(pWriter, &pSrc->tvec));
     oDest.setT(pSrc->t);
@@ -439,7 +439,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPlaneInfo( gfc::engine::CWrite
     assert(pDirX);
     assert(pDirY);
     assert(pPos);
-    Gfc2PlaneInfo oDest;
+    GfcPlaneInfo oDest;
     oDest.setDirX(exportVector3d(pWriter, pDirX));
     oDest.setDirY(exportVector3d(pWriter, pDirY));
     oDest.setPos(exportVector3d(pWriter, pPos));
@@ -449,7 +449,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPlaneInfo( gfc::engine::CWrite
 gfc::engine::EntityRef GfcGeometryExporter::exportBevel( gfc::engine::CWriter* pWriter, ggp::CBevel* pSrc )
 {
     assert(pSrc);
-    Gfc2Bevel oDest;
+    GfcBevel oDest;
     ggp::CCoordinates3d pSrc1 = pSrc->Coord();
     oDest.setCoord(exportCoordinates3d(pWriter, &pSrc1));
     oDest.setHeight(pSrc->Height());
@@ -461,8 +461,8 @@ gfc::engine::EntityRef GfcGeometryExporter::exportBevel( gfc::engine::CWriter* p
 gfc::engine::EntityRef GfcGeometryExporter::exportCylinder( gfc::engine::CWriter* pWriter, ggp::CCylinder* pSrc )
 {
     assert(pSrc);
-    Gfc2Cylinder oDest;
-    //Gfc2Coordinates3d oCoord;
+    GfcCylinder oDest;
+    //GfcCoordinates3d oCoord;
     oDest.setDirX(exportVector3d(pWriter, &pSrc->DirX()));
     oDest.setDirY(exportVector3d(pWriter, &pSrc->DirY()));
     oDest.setDirZ(exportVector3d(pWriter, &pSrc->DirZ()));
@@ -476,7 +476,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCylinder( gfc::engine::CWriter
 gfc::engine::EntityRef GfcGeometryExporter::exportHelicoid( gfc::engine::CWriter* pWriter, ggp::CHelicoid* pSrc )
 {
     assert(pSrc);
-    Gfc2Helicoid oDest;
+    GfcHelicoid oDest;
     oDest.setCoord(exportCoordinates3d(pWriter, &pSrc->Coord()));
     oDest.setRadius(pSrc->Radius());
     oDest.setRangeV(exportIntervald(pWriter, &pSrc->RangeV()));
@@ -490,7 +490,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportHelicoid( gfc::engine::CWriter
 gfc::engine::EntityRef GfcGeometryExporter::exportNurbsSurface( gfc::engine::CWriter* pWriter, ggp::CNurbsSurface* pSrc )
 {
     assert(pSrc);
-    Gfc2NurbsSurface oDest;
+    GfcNurbsSurface oDest;
     oDest.setDegreeU(pSrc->DegreeU());
     oDest.setDegreeV(pSrc->DegreeV());
     oDest.setCtrlPtCountU(pSrc->CtrlPtCountU());
@@ -516,7 +516,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportNurbsSurface( gfc::engine::CWr
 gfc::engine::EntityRef GfcGeometryExporter::exportPlane( gfc::engine::CWriter* pWriter, ggp::CPlane* pSrc )
 {
     assert(pSrc);
-    Gfc2Plane oDest;
+    GfcPlane oDest;
     oDest.setDirU(exportVector3d(pWriter, &pSrc->DirU()));
     oDest.setDirV(exportVector3d(pWriter, &pSrc->DirV()));
     oDest.setPos(exportVector3d(pWriter, &pSrc->Pos()));
@@ -528,7 +528,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPlane( gfc::engine::CWriter* p
 gfc::engine::EntityRef GfcGeometryExporter::exportSphere( gfc::engine::CWriter* pWriter, ggp::CSphere* pSrc )
 {
     assert(pSrc);
-    Gfc2Sphere oDest;
+    GfcSphere oDest;
     oDest.setCoords(exportCoordinates3d(pWriter, const_cast<ggp::CCoordinates3d*>(&pSrc->Coord())));
     oDest.setRadius(pSrc->Radius());
     oDest.setRangeV(exportIntervald(pWriter, &pSrc->RangeV()));
@@ -539,7 +539,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSphere( gfc::engine::CWriter* 
 gfc::engine::EntityRef GfcGeometryExporter::exportSweep( gfc::engine::CWriter* pWriter, ggp::CSweep* pSrc )
 {
     assert(pSrc);
-    Gfc2Sweep oDest;
+    GfcSweep oDest;
     oDest.setProfile(exportCurve2d(pWriter, pSrc->Profile()));
     oDest.setSpine3d(exportCurve3d(pWriter, pSrc->Spine()));
     oDest.setReferenceVector(exportVector3d(pWriter, const_cast<ggp::CVector3d*>(&pSrc->GetReferenceVector())));
@@ -549,7 +549,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSweep( gfc::engine::CWriter* p
 gfc::engine::EntityRef GfcGeometryExporter::exportTorus( gfc::engine::CWriter* pWriter, ggp::CTorus* pSrc )
 {
     assert(pSrc);
-    Gfc2Torus oDest;
+    GfcTorus oDest;
     oDest.setCoord(exportCoordinates3d(pWriter, &pSrc->Coord()));
     oDest.setRadius(pSrc->Radius());
     oDest.setClockSign(pSrc->ClockSign());
@@ -589,7 +589,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSurface( gfc::engine::CWriter*
 gfc::engine::EntityRef GfcGeometryExporter::exportBrepBody( gfc::engine::CWriter* pWriter, ggp::CBrepBody* pSrc )
 {
     assert(pSrc);
-    Gfc2BrepBody oDest;
+    GfcBrepBody oDest;
     int nFaceCount = pSrc->FaceCount();
     for (int i = 0; i < nFaceCount; ++i)
     {
@@ -606,7 +606,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportBrepBody( gfc::engine::CWriter
 gfc::engine::EntityRef GfcGeometryExporter::exportCuboidBody( gfc::engine::CWriter* pWriter, ggp::CCuboidBody* pSrc )
 {
     assert(pSrc);
-    Gfc2CuboidBody oDest;
+    GfcCuboidBody oDest;
     oDest.setCoordinate(exportCoordinates3d(pWriter, const_cast<ggp::CCoordinates3d*>(&pSrc->GetCoordinate())));
     oDest.setDimension(exportVector3d(pWriter, const_cast<ggp::CVector3d*>(&pSrc->GetDimension())));
     return pWriter->writeEntity(&oDest);
@@ -615,7 +615,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCuboidBody( gfc::engine::CWrit
 gfc::engine::EntityRef GfcGeometryExporter::exportExtrudedBody( gfc::engine::CWriter* pWriter, ggp::CExtrudedBody* pSrc )
 {
     assert(pSrc);
-    Gfc2ExtrudedBody oDest;
+    GfcExtrudedBody oDest;
     oDest.setCoordinate(exportCoordinates3d(pWriter, const_cast<ggp::CCoordinates3d*>(&pSrc->GetCoordinate())));
     oDest.setLen(pSrc->GetLength());
     oDest.setSection(exportPolygon(pWriter, pSrc->Section()));
@@ -625,7 +625,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportExtrudedBody( gfc::engine::CWr
 gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedronBody( gfc::engine::CWriter* pWriter, ggp::CPolyhedronBody* pSrc )
 {
     assert(pSrc);
-    Gfc2PolyhedronBody oDest;
+    GfcPolyhedronBody oDest;
     int nFaceCount = pSrc->FaceCount();
     for (int i = 0; i < nFaceCount; ++i)
     {
@@ -662,7 +662,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportBody( gfc::engine::CWriter* pW
 gfc::engine::EntityRef GfcGeometryExporter::exportFace( gfc::engine::CWriter* pWriter, ggp::CFace* pSrc )
 {
     assert(pSrc);
-    Gfc2Face oDest;
+    GfcFace oDest;
     oDest.setSurface(exportSurface(pWriter, pSrc->Surface()));
     oDest.setBox(exportBox3d(pWriter, &pSrc->Box3d()));
     oDest.setIndex(pSrc->Index());
@@ -674,7 +674,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportFace( gfc::engine::CWriter* pW
 gfc::engine::EntityRef GfcGeometryExporter::exportEdge( gfc::engine::CWriter* pWriter, ggp::CEdge* pSrc )
 {
     assert(pSrc);
-    Gfc2Edge oDest;
+    GfcEdge oDest;
     oDest.setCurve(exportCurve3d(pWriter, pSrc->Curve()));
     oDest.setFaceIndex1(pSrc->FaceIndex(0));
     oDest.setFaceIndex2(pSrc->FaceIndex(1));
@@ -690,7 +690,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPolygon( gfc::engine::CWriter*
     assert(pSrc);
     if (isSimplePolygon(pSrc))
         return exportSimplePolygon(pWriter, pSrc);
-    Gfc2CommonPolygon oDest;
+    GfcCommonPolygon oDest;
     innerExportPolygon(pWriter, pSrc, &oDest);
     return pWriter->writeEntity(&oDest);
 }
@@ -698,7 +698,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPolygon( gfc::engine::CWriter*
 gfc::engine::EntityRef GfcGeometryExporter::exportCoedgeList( gfc::engine::CWriter* pWriter, ggp::CCoedgeList* pSrc )
 {
     assert(pSrc);
-    Gfc2CoedgeList oDest;
+    GfcCoedgeList oDest;
     int nCount = pSrc->CoedgeCount();
     for (int i = 0; i < nCount; ++i)
     {
@@ -710,11 +710,11 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCoedgeList( gfc::engine::CWrit
 gfc::engine::EntityRef GfcGeometryExporter::exportCoedgeListEx( gfc::engine::CWriter* pWriter, ggp::CCoedgeList* pSrc )
 {
 	assert(pSrc);
-	Gfc2CoedgeListEx oDest;
+	GfcCoedgeListEx oDest;
 	int nCount = pSrc->CoedgeCount();
 	for (int i = 0; i < nCount; ++i)
 	{
-		Gfc2Coedge oCoedge;
+		GfcCoedge oCoedge;
 		oCoedge.setCurve(exportCurve2d(pWriter, pSrc->GetCurve(i)));
 		ggp::CCoedgeEx* pCoedgeEx = (ggp::CCoedgeEx*)pSrc->GetCoedge(i);
 		if(pCoedgeEx)
@@ -730,7 +730,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportCoedgeListEx( gfc::engine::CWr
 gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralFace( gfc::engine::CWriter* pWriter, ggp::CPolyhedralFace* pSrc )
 {
     assert(pSrc);
-    Gfc2PolyhedralFace oDest;
+    GfcPolyhedralFace oDest;
     int nCount = pSrc->LoopCount();
     for (int i = 0; i < nCount; ++i)
     {
@@ -743,7 +743,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralFace( gfc::engine::C
 gfc::engine::EntityRef GfcGeometryExporter::exportPlaneCoef( gfc::engine::CWriter* pWriter, ggp::CPlaneCoef* pSrc )
 {
     assert(pSrc);
-    Gfc2PlaneCoef oDest;
+    GfcPlaneCoef oDest;
     oDest.setA(pSrc->A);
     oDest.setB(pSrc->B);
     oDest.setC(pSrc->C);
@@ -754,7 +754,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPlaneCoef( gfc::engine::CWrite
 gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralLoop( gfc::engine::CWriter* pWriter, ggp::CPolyhedralLoop* pSrc )
 {
     assert(pSrc);
-    Gfc2PolyhedralLoop oDest;
+    GfcPolyhedralLoop oDest;
     int nCount = pSrc->EdgeCount();
     for (int i = 0; i < nCount; ++i)
     {
@@ -765,13 +765,13 @@ gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralLoop( gfc::engine::C
 gfc::engine::EntityRef GfcGeometryExporter::exportPolyhedralEdge( gfc::engine::CWriter* pWriter, ggp::CPolyhedralEdge* pSrc )
 {
     assert(pSrc);
-    Gfc2PolyhedralEdge oDest;
+    GfcPolyhedralEdge oDest;
     oDest.setStartVertexIndex(pSrc->StartVertex()->GetIndex());
     oDest.setEndVertexIndex(pSrc->EndVertex()->GetIndex());
     return pWriter->writeEntity(&oDest);
 }
 
-void GfcGeometryExporter::innerExportPolygon( gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, Gfc2CommonPolygon* pDest )
+void GfcGeometryExporter::innerExportPolygon( gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, GfcCommonPolygon* pDest )
 {
     int nCount = pSrc->LoopCount();
     for (int i = 0; i < nCount; ++i)
@@ -780,7 +780,7 @@ void GfcGeometryExporter::innerExportPolygon( gfc::engine::CWriter* pWriter, ggp
     }
 }
 
-void GfcGeometryExporter::innerExportPolygonEx(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, Gfc2CommonPolygonEx* pDest)
+void GfcGeometryExporter::innerExportPolygonEx(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc, GfcCommonPolygonEx* pDest)
 {
 	int nCount = pSrc->LoopCount();
 	for (int i = 0; i < nCount; ++i)
@@ -792,7 +792,7 @@ void GfcGeometryExporter::innerExportPolygonEx(gfc::engine::CWriter* pWriter, gg
 gfc::engine::EntityRef GfcGeometryExporter::exportRuledSurface( gfc::engine::CWriter* pWriter, ggp::CRuledSurface* pSrc )
 {
     assert(pSrc);
-    Gfc2RuledSurface oDest;
+    GfcRuledSurface oDest;
     oDest.setApexIndex(pSrc->ApexIndex());
     oDest.setRangeV(exportIntervald(pWriter, &pSrc->GetRangeV()));
     oDest.setRangeU(exportIntervald(pWriter, &pSrc->GetRangeU()));
@@ -804,7 +804,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportRuledSurface( gfc::engine::CWr
 gfc::engine::EntityRef GfcGeometryExporter::exportImageCurve3d( gfc::engine::CWriter* pWriter, ggp::CImageCurve3d* pSrc )
 {
     assert(pSrc);
-    Gfc2ImageCurve3d oDest;
+    GfcImageCurve3d oDest;
     oDest.setCurve(exportCurve2d(pWriter, pSrc->Curve()));
     oDest.setSurface(exportSurface(pWriter, pSrc->Surface()));
     return pWriter->writeEntity(&oDest);
@@ -813,7 +813,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportImageCurve3d( gfc::engine::CWr
 gfc::engine::EntityRef GfcGeometryExporter::exportOffsetCurve2d( gfc::engine::CWriter* pWriter, ggp::COffsetCurve2d* pSrc )
 {
     assert(pSrc);
-    Gfc2OffsetCurve2d oDest;
+    GfcOffsetCurve2d oDest;
     oDest.setOffDist(pSrc->OffsetDistance());
     oDest.setInitCurve(exportCurve2d(pWriter, pSrc->InitialCurve()));
     return pWriter->writeEntity(&oDest);
@@ -822,7 +822,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportOffsetCurve2d( gfc::engine::CW
 gfc::engine::EntityRef GfcGeometryExporter::exportVector3dCompact( gfc::engine::CWriter* pWriter, ggp::CVector3d* pSrc )
 {
     assert(pSrc);
-//    Gfc2Vector3d oVector;
+//    GfcVector3d oVector;
     if (pSrc->IsEqual(ggp::CVector3d(1.0, 0.0, 0.0)))
         return export100Vector3d(pWriter);
     if (pSrc->IsEqual(ggp::CVector3d(0.0, 1.0, 0.0)))
@@ -850,7 +850,7 @@ gfc::engine::EntityRef GfcGeometryExporter::export100Vector3d( gfc::engine::CWri
 {
     if (m_nVec3d100 == -1)
     {
-        Gfc2Vector3d oVec;
+        GfcVector3d oVec;
         oVec.setX(1.0);
         oVec.setY(0.0);
         oVec.setZ(0.0);
@@ -863,7 +863,7 @@ gfc::engine::EntityRef GfcGeometryExporter::export010Vector3d( gfc::engine::CWri
 {
     if (m_nVec3d010 == -1)
     {
-        Gfc2Vector3d oVec;
+        GfcVector3d oVec;
         oVec.setX(0.0);
         oVec.setY(1.0);
         oVec.setZ(0.0);
@@ -876,7 +876,7 @@ gfc::engine::EntityRef GfcGeometryExporter::export001Vector3d( gfc::engine::CWri
 {
     if (m_nVec3d001 == -1)
     {
-        Gfc2Vector3d oVec;
+        GfcVector3d oVec;
         oVec.setX(0.0);
         oVec.setY(0.0);
         oVec.setZ(1.0);
@@ -890,7 +890,7 @@ gfc::engine::EntityRef GfcGeometryExporter::export000Vector3d( gfc::engine::CWri
 {
     if (m_nVec3d000 == -1)
     {
-        Gfc2Vector3d oVec;
+        GfcVector3d oVec;
         oVec.setX(0.0);
         oVec.setY(0.0);
         oVec.setZ(0.0);
@@ -903,7 +903,7 @@ gfc::engine::EntityRef GfcGeometryExporter::export000Vector3d( gfc::engine::CWri
 
 gfc::engine::EntityRef GfcGeometryExporter::exportSimplePolygon( gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc )
 {
-    Gfc2SimplePolygon oPolygon;
+    GfcSimplePolygon oPolygon;
     int nLoopCount = pSrc->LoopCount();
     for (int i = 0; i < nLoopCount; ++i)
     {
@@ -933,18 +933,18 @@ bool GfcGeometryExporter::isSimplePolygon( ggp::CPolygon* pSrc )
 
 gfc::engine::EntityRef GfcGeometryExporter::exportSimpleLoop( gfc::engine::CWriter* pWriter, ggp::CCoedgeList* pSrc )
 {
-    Gfc2SimpleLoop oDest;
+    GfcSimpleLoop oDest;
     int nCount = pSrc->CoedgeCount();
     for (int i = 0; i < nCount; ++i)
     {
-        Gfc2SimpleVertex oVertex;
+        GfcSimpleVertex oVertex;
         ggp::CCurve2d* pCurve = pSrc->GetCurve(i);
         oVertex.setPoint(exportVector2d(pWriter, &pCurve->StartPoint()));
         if (pCurve->Type() == ggp::Arc2dType)
         {
             ggp::CArc2d* pArc = dynamic_cast<ggp::CArc2d*>(pCurve);
             oVertex.setRadius(pArc->Radius());
-            oVertex.setArcType((Gfc2ArcType)_getArcType(pArc->GetBulge()));
+            oVertex.setArcType((GfcArcType)_getArcType(pArc->GetBulge()));
         }
         oDest.addVertexes(pWriter->writeEntity(&oVertex));//.addCoedges(exportCurve2d(pWriter, pSrc->GetCurve(i)));
     }

@@ -3,7 +3,7 @@
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-GfcDocument::GfcDocument(): CDocument(g_pModel)
+CDocument::CDocument(): gfc::engine::CDocument(g_pModel)
 {
 }
 

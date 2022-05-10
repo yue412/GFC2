@@ -6,10 +6,10 @@
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcReader: public gfc::engine::CReader
+class GFCCLASSES_API CReader: public gfc::engine::CReader
 {
 public:
-    GfcReader();
+    CReader();
 protected:
     virtual bool useStaticClass();
 };
