@@ -1,7 +1,7 @@
 #ifndef GFCVECTOR2D_H
 #define GFCVECTOR2D_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcGeometry.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"

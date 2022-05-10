@@ -1,7 +1,7 @@
 #ifndef GFCPOLYHEDRONBODY_H
 #define GFCPOLYHEDRONBODY_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcBody.h"
 #include "GfcClasses/x3/GfcPolyhedralFace.h"
 #include "GfcClasses/x3/GfcVector3d.h"

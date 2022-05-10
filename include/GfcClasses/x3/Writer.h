@@ -1,8 +1,8 @@
-#ifndef GFCWRITER_H
-#define GFCWRITER_H
+#ifndef _GFC_WRITER_H
+#define _GFC_WRITER_H
 
 #include "GfcEngine\Writer.h"
-#include "GfcClasses\x3\GfcClasses.h"
+#include "GfcClasses\x3\_Gfc_Classes.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 

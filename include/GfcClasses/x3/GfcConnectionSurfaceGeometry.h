@@ -1,7 +1,7 @@
 #ifndef GFCCONNECTIONSURFACEGEOMETRY_H
 #define GFCCONNECTIONSURFACEGEOMETRY_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcConnectionGeometry.h"
 #include "GfcClasses/x3/GfcSurface.h"
 #include "GfcEngine/Entity.h"

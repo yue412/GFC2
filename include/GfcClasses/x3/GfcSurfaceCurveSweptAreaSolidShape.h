@@ -1,7 +1,7 @@
 #ifndef GFCSURFACECURVESWEPTAREASOLIDSHAPE_H
 #define GFCSURFACECURVESWEPTAREASOLIDSHAPE_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcSweptAreaSolidShape.h"
 #include "GfcClasses/x3/GfcCurve3d.h"
 #include "GfcClasses/x3/GfcSurface.h"

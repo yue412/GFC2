@@ -1,7 +1,7 @@
 #ifndef GFCGEOPROPERTY_H
 #define GFCGEOPROPERTY_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcSingleProperty.h"
 #include "GfcClasses/x3/GfcGeometry.h"
 #include "GfcEngine/Entity.h"

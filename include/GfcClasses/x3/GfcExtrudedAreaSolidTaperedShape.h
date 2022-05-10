@@ -1,7 +1,7 @@
 #ifndef GFCEXTRUDEDAREASOLIDTAPEREDSHAPE_H
 #define GFCEXTRUDEDAREASOLIDTAPEREDSHAPE_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcExtrudedAreaSolidShape.h"
 #include "GfcClasses/x3/GfcSection.h"
 #include "GfcEngine/Entity.h"

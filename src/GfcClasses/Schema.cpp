@@ -1,4 +1,4 @@
-#include "GfcSchema.h"
+#include "Schema.h"
 #include <assert.h>
 #include "GfcSchema\Model.h"
 

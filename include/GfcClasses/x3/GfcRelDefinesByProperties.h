@@ -1,7 +1,7 @@
 #ifndef GFCRELDEFINESBYPROPERTIES_H
 #define GFCRELDEFINESBYPROPERTIES_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcRelDefines.h"
 #include "GfcClasses/x3/GfcPropertySet.h"
 #include "GfcClasses/x3/GfcObject.h"

@@ -1,7 +1,7 @@
 #ifndef GFCRELVOIDSELEMENT_H
 #define GFCRELVOIDSELEMENT_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcRelDecomposes.h"
 #include "GfcClasses/x3/GfcElement.h"
 #include "GfcEngine/Entity.h"

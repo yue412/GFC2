@@ -1,7 +1,7 @@
 #ifndef GFCSIMPLELOOP_H
 #define GFCSIMPLELOOP_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcTopology.h"
 #include "GfcClasses/x3/GfcSimpleVertex.h"
 #include "GfcEngine/Entity.h"

@@ -1,7 +1,7 @@
 #ifndef GFCSHAPE_H
 #define GFCSHAPE_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcCoordinates3d.h"
 #include "GfcClasses/x3/GfcBox3d.h"
 #include "GfcEngine/Entity.h"

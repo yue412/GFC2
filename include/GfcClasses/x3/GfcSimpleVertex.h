@@ -1,7 +1,7 @@
 #ifndef GFCSIMPLEVERTEX_H
 #define GFCSIMPLEVERTEX_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcTopology.h"
 #include "GfcClasses/x3/GfcVector2d.h"
 #include "GfcClasses/x3/TypeDef.h"

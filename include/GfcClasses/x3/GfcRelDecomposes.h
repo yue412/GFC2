@@ -1,7 +1,7 @@
 #ifndef GFCRELDECOMPOSES_H
 #define GFCRELDECOMPOSES_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcRelationShip.h"
 #include "GfcEngine/Entity.h"
 

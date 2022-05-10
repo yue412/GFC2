@@ -1,7 +1,7 @@
 #ifndef GFCPARAMETERIZEDSECTION_H
 #define GFCPARAMETERIZEDSECTION_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcSection.h"
 #include "GfcClasses/x3/GfcCoordinates2d.h"
 #include "GfcEngine/Entity.h"

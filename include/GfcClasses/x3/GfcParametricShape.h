@@ -1,7 +1,7 @@
 #ifndef GFCPARAMETRICSHAPE_H
 #define GFCPARAMETRICSHAPE_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcShape.h"
 #include "GfcEngine/Entity.h"
 

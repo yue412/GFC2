@@ -1,7 +1,7 @@
 #ifndef GFCHELICOID_H
 #define GFCHELICOID_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcSurface.h"
 #include "GfcClasses/x3/GfcCoordinates3d.h"
 #include "GfcClasses/x3/GfcIntervald.h"

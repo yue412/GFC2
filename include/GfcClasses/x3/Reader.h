@@ -1,8 +1,8 @@
-#ifndef GFCREADER_H
-#define GFCREADER_H
+#ifndef _GFC_READER_H
+#define _GFC_READER_H
 
 #include "GfcEngine\Reader.h"
-#include "GfcClasses\x3\GfcClasses.h"
+#include "GfcClasses\x3\_Gfc_Classes.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 

@@ -1,7 +1,7 @@
 #ifndef GFCBREPBODY_H
 #define GFCBREPBODY_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcBody.h"
 #include "GfcClasses/x3/GfcFace.h"
 #include "GfcClasses/x3/GfcEdge.h"

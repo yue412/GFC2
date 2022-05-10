@@ -69,8 +69,8 @@ TEST(TestGfcClasses, Element_add)
 }
 
 #include "GfcClasses\x3\GfcElementShape.h"
-#include "GfcClasses\x3\GfcReader.h"
-#include "GfcClasses\x3\GfcWriter.h"
+#include "GfcClasses\x3\Reader.h"
+#include "GfcClasses\x3\Writer.h"
 #include "GfcClasses\x3\GfcSimpleLoop.h"
 
 TEST(TestGfcClasses, write_document)

@@ -1,5 +1,5 @@
-#ifndef GFCSCHEMA_H
-#define GFCSCHEMA_H
+#ifndef _GFC_SCHEMA_H
+#define _GFC_SCHEMA_H
 
 #include <string>
 

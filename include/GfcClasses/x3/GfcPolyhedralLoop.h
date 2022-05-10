@@ -1,7 +1,7 @@
 #ifndef GFCPOLYHEDRALLOOP_H
 #define GFCPOLYHEDRALLOOP_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcTopology.h"
 #include "GfcClasses/x3/GfcPolyhedralEdge.h"
 #include "GfcEngine/Entity.h"

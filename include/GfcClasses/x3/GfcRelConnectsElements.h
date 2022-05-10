@@ -1,7 +1,7 @@
 #ifndef GFCRELCONNECTSELEMENTS_H
 #define GFCRELCONNECTSELEMENTS_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcRelConnects.h"
 #include "GfcClasses/x3/GfcElement.h"
 #include "GfcClasses/x3/GfcConnectionGeometry.h"

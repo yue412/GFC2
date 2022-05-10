@@ -1,7 +1,7 @@
 #ifndef GFCLIGHTSOURCEPOSITIONAL_H
 #define GFCLIGHTSOURCEPOSITIONAL_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcLightSource.h"
 #include "GfcClasses/x3/GfcVector3d.h"
 #include "GfcClasses/x3/TypeDef.h"

@@ -1,7 +1,7 @@
 #ifndef GFCLIGHTSOURCE_H
 #define GFCLIGHTSOURCE_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcRepresentationItem.h"
 #include "GfcClasses/x3/GfcColor.h"
 #include "GfcClasses/x3/TypeDef.h"

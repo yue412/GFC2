@@ -1,7 +1,7 @@
 #ifndef GFCREVOLVEDAREASOLIDSHAPE_H
 #define GFCREVOLVEDAREASOLIDSHAPE_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcSweptAreaSolidShape.h"
 #include "GfcClasses/x3/GfcVector2d.h"
 #include "GfcClasses/x3/TypeDef.h"

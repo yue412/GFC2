@@ -1,7 +1,7 @@
 #ifndef GFCNURBSSURFACE_H
 #define GFCNURBSSURFACE_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcSurface.h"
 #include "GfcClasses/x3/GfcNurbsCtrlPt3d.h"
 #include "GfcClasses/x3/TypeDef.h"

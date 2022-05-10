@@ -1,7 +1,7 @@
 #ifndef GFCELEMENT_H
 #define GFCELEMENT_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcObject.h"
 #include "GfcClasses/x3/GfcRepresentation.h"
 #include "GfcClasses/x3/GfcElementShape.h"

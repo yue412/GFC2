@@ -1,7 +1,7 @@
 #ifndef GFCBUILDING_H
 #define GFCBUILDING_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcSpatialStructureElement.h"
 #include "GfcEngine/Entity.h"
 

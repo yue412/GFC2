@@ -1,7 +1,7 @@
 #ifndef GFCINTERNALCHART_H
 #define GFCINTERNALCHART_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcInternalPt.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"

@@ -1,7 +1,7 @@
 #ifndef GFCENTITYPROPERTY_H
 #define GFCENTITYPROPERTY_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcSingleProperty.h"
 #include "GfcClasses/x3/GfcRoot.h"
 #include "GfcEngine/Entity.h"

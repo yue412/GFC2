@@ -1,7 +1,7 @@
 #ifndef GFCCOMPOSITECURVE2DSWEPTSOLIDSHAPE_H
 #define GFCCOMPOSITECURVE2DSWEPTSOLIDSHAPE_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcSweptAreaSolidShape.h"
 #include "GfcClasses/x3/GfcCurve2d.h"
 #include "GfcEngine/Entity.h"

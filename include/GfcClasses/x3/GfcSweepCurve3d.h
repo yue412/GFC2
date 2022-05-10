@@ -1,7 +1,7 @@
 #ifndef GFCSWEEPCURVE3D_H
 #define GFCSWEEPCURVE3D_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcCurve3d.h"
 #include "GfcClasses/x3/GfcVector3d.h"
 #include "GfcClasses/x3/GfcVector2d.h"

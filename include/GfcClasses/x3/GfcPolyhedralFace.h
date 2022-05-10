@@ -1,7 +1,7 @@
 #ifndef GFCPOLYHEDRALFACE_H
 #define GFCPOLYHEDRALFACE_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcTopology.h"
 #include "GfcClasses/x3/GfcPolyhedralLoop.h"
 #include "GfcClasses/x3/GfcPlaneCoef.h"

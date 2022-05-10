@@ -197,7 +197,7 @@ void CCodeWriter::writeClassHeadFile(CClass *pTypeObject, CppClass *pClass, CppC
     CppHeadFile oFile(pTypeObject->getName());
     std::set<std::wstring> oIncludeSet;
     int nCount = pTypeObject->getAttributeCount();
-    oFile.addInclude(m_sRelativePath + L"GfcClasses.h");
+    oFile.addInclude(m_sRelativePath + L"_Gfc_Classes.h");
     //oFile.addInclude(L"GfcEngine/EntityFactory.h");
 //    if (nCount > 0)
 //        oFile.addInclude(L"vector", true);
@@ -266,7 +266,7 @@ void CCodeWriter::writeClassImpFile(CClass* pTypeObject, CppClass *pClass, CppCl
     oFile.addInclude(pClass->name() + L"BinarySerializer.h", false);
     oFile.addInclude(pClass->name() + L"TextSerializer.h", false);
     */
-    oFile.addInclude(L"GfcSchema.h");
+    oFile.addInclude(L"Schema.h");
     oFile.addInclude(L"GfcEngine/PropValue.h");
     bool bFlag = false;
     bool bTypeDef = false;

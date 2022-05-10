@@ -1,7 +1,7 @@
 #ifndef GFCARBITRARYSECTION_H
 #define GFCARBITRARYSECTION_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcSection.h"
 #include "GfcClasses/x3/GfcPolygon.h"
 #include "GfcEngine/Entity.h"

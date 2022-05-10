@@ -1,7 +1,7 @@
 #ifndef GFCCONNECTIONGEOMETRY_H
 #define GFCCONNECTIONGEOMETRY_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN

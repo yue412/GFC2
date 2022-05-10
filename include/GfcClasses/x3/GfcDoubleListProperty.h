@@ -1,7 +1,7 @@
 #ifndef GFCDOUBLELISTPROPERTY_H
 #define GFCDOUBLELISTPROPERTY_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcListProperty.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"

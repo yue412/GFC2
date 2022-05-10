@@ -1,7 +1,7 @@
 #ifndef GFCSECTIONLISTPROPERTY_H
 #define GFCSECTIONLISTPROPERTY_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcListProperty.h"
 #include "GfcClasses/x3/GfcSection.h"
 #include "GfcEngine/Entity.h"

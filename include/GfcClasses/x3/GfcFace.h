@@ -1,7 +1,7 @@
 #ifndef GFCFACE_H
 #define GFCFACE_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcCommonPolygonEx.h"
 #include "GfcClasses/x3/GfcSurface.h"
 #include "GfcClasses/x3/GfcBox3d.h"

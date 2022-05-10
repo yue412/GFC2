@@ -1,7 +1,7 @@
 #ifndef GFCRELDEFINESBYTYPE_H
 #define GFCRELDEFINESBYTYPE_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcRelDefines.h"
 #include "GfcClasses/x3/GfcElementType.h"
 #include "GfcClasses/x3/GfcElement.h"

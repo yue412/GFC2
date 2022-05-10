@@ -1,7 +1,7 @@
 #ifndef GFCPLANEINFO_H
 #define GFCPLANEINFO_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcVector3d.h"
 #include "GfcEngine/Entity.h"
 

@@ -1,7 +1,7 @@
 #ifndef GFCCURVE2D_H
 #define GFCCURVE2D_H
 
-#include "GfcClasses/x3/GfcClasses.h"
+#include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcGeometry.h"
 #include "GfcEngine/Entity.h"
 
