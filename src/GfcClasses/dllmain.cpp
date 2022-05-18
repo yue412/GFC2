@@ -2,7 +2,6 @@
 #include "GfcSchema\Model.h"
 #include "GfcEngine\GfcEngineUtils.h"
 #include "resource.h"
-#include "GfcSchema.h"
 
 gfc::schema::CModel* g_pModel = nullptr;
 
