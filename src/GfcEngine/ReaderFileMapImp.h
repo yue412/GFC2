@@ -59,7 +59,7 @@ struct EntityInfo
     EntityInfo* get() const;
 	void setRef(EntityRef nRef) { id = nRef; }
 	EntityRef ref() const { return id; }
-    EntityInfo *operator->() const _NOEXCEPT
+    EntityInfo *operator->() const
     {	// return pointer to resource
         return (EntityInfo*)this;
     }
