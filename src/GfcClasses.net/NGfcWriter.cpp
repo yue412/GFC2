@@ -1,12 +1,12 @@
 #include "NGfcWriter.h"
 #include <msclr\marshal_cppstd.h>
-#include "GfcClasses\x3\GfcWriter.h"
+#include "GfcClasses\x3\Writer.h"
 
 using namespace msclr::interop;
 
 NGfcWriter::NGfcWriter(String^ sProductCode)
 {
-    m_pWriter = new gfc::classes::x3::GfcWriter(marshal_as<std::wstring>(sProductCode));
+    m_pWriter = new gfc::classes::x3::CWriter(marshal_as<std::wstring>(sProductCode));
 }
 
 NGfcWriter::~NGfcWriter()

@@ -1,29 +1,29 @@
 #ifndef NTYPEDEF_H
 #define NTYPEDEF_H
 
-typedef bool NGfc2Boolean;
+typedef bool NGfcBoolean;
 
-typedef double NGfc2Date;
+typedef double NGfcDate;
 
-typedef double NGfc2DateTime;
+typedef double NGfcDateTime;
 
-typedef double NGfc2Double;
+typedef double NGfcDouble;
 
-typedef System::String^ NGfc2String;
+typedef System::String^ NGfcString;
 
-typedef NGfc2String NGfc2Elev;
+typedef NGfcString NGfcElev;
 
-typedef System::String^ NGfc2Identity;
+typedef System::String^ NGfcIdentity;
 
-typedef int NGfc2Integer;
+typedef int NGfcInteger;
 
-typedef NGfc2String NGfc2Label;
+typedef NGfcString NGfcLabel;
 
-typedef NGfc2String NGfc2Text;
+typedef NGfcString NGfcText;
 
-typedef double NGfc2Time;
+typedef double NGfcTime;
 
-public enum class NGfc2ArcType
+public enum class NGfcArcType
 {
     AT_LINE,
     AT_ACS,
@@ -32,14 +32,14 @@ public enum class NGfc2ArcType
     AT_CL
 };
 
-public enum class NGfc2BooleanOperator
+public enum class NGfcBooleanOperator
 {
     BO_UNION,
     BO_INTERSECTION,
     BO_DIFFERENCE
 };
 
-public enum class NGfc2ConnectionType
+public enum class NGfcConnectionType
 {
     CT_ATPATH,
     CT_ATSTART,
@@ -47,7 +47,7 @@ public enum class NGfc2ConnectionType
     CT_NOTDEFINED
 };
 
-public enum class NGfc2FragTestFunc
+public enum class NGfcFragTestFunc
 {
     FTF_NEVER,
     FTF_LESS,
@@ -59,14 +59,14 @@ public enum class NGfc2FragTestFunc
     FTF_ALWAYS
 };
 
-public enum class NGfc2GeometryDataType
+public enum class NGfcGeometryDataType
 {
     GDT_UNCOMPRESS,
     GDT_COMPRESS,
     GDT_UNKNOWN
 };
 
-public enum class NGfc2PrimitiveType
+public enum class NGfcPrimitiveType
 {
     GPT_POINTS,
     GPT_LINES,
@@ -77,7 +77,7 @@ public enum class NGfc2PrimitiveType
     GPT_UNKNOWN
 };
 
-public enum class NGfc2SceneBlendFactor
+public enum class NGfcSceneBlendFactor
 {
     SBF_DST_ALPHA,
     SBF_DST_COLOR,
@@ -96,7 +96,7 @@ public enum class NGfc2SceneBlendFactor
     SBF_ONE_MINUS_CONSTANT_ALPHA
 };
 
-public enum class NGfc2SweepType
+public enum class NGfcSweepType
 {
     ST_Perpendicular,
     ST_Upright,
