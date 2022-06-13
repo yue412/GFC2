@@ -21,12 +21,6 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NGfcEntity.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="NGfcWriter.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\NGfcArbitrarySection.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
@@ -513,16 +507,22 @@
     <ClCompile Include="Classes\NGfcVector3d.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="NWriter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NReader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NEntity.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NDocument.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes\NTypeDef.h">
       <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfcEntity.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="NGfcWriter.h">
-      <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Classes\NGfcArbitrarySection.h">
       <Filter>Classes</Filter>
@@ -1009,6 +1009,18 @@
     </ClInclude>
     <ClInclude Include="Classes\NGfcVector3d.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="NWriter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NReader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NEntity.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NDocument.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@ public ref class NGfcLightSourceDirectional: public NGfcLightSource
 {
 public:
     NGfcLightSourceDirectional();
-    NGfcLightSourceDirectional(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcLightSourceDirectional(bool bNoCreate);
     void setOrientation(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getOrientation();
     bool hasOrientation();

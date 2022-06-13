@@ -1,16 +1,16 @@
 #ifndef NGFCNURBSCTRLPT3D_H
 #define NGFCNURBSCTRLPT3D_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcNurbsCtrlPt3d.h"
 #include "NGfcVector3d.h"
 #include "NTypeDef.h"
 
-public ref class NGfcNurbsCtrlPt3d: public NGfcEntity
+public ref class NGfcNurbsCtrlPt3d: public NEntity
 {
 public:
     NGfcNurbsCtrlPt3d();
-    NGfcNurbsCtrlPt3d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcNurbsCtrlPt3d(bool bNoCreate);
     void setPoint(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPoint();
     bool hasPoint();

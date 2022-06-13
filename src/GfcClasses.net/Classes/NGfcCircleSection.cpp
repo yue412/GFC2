@@ -8,8 +8,8 @@ NGfcCircleSection::NGfcCircleSection()
     m_bOwner = true;
 }
 
-NGfcCircleSection::NGfcCircleSection(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcParameterizedSection(pEntity, bOwner)
+NGfcCircleSection::NGfcCircleSection(bool bNoCreate):
+    NGfcParameterizedSection(bNoCreate)
 {
 }
 

@@ -542,6 +542,150 @@ TEST(TestGFCEngine, WriteColumnDemoFile)
     }
 }
 
+TEST(TestGFCEngine2, WriteColumnDemoFile)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CWriter writer(&oModel, L"demo");
+    auto result = writer.open(getFullPath(L"column.gfc"), L"express");
+    gfc::engine::EntityRef nProjectRef = -1;
+    gfc::engine::EntityRef nBuildingRef = -1;
+    std::vector<gfc::engine::EntityRef> oFloorRefList;
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Project");
+        pEntity->setAsString(L"ID", generateGuid());
+        pEntity->setAsString(L"Name", L"Demo");
+        nProjectRef = writer.writeEntity(pEntity);
+        EXPECT_EQ(true, result);
+    }
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Building");
+        pEntity->setAsString(L"ID", generateGuid());
+        pEntity->setAsString(L"Name", L"Building");
+        nBuildingRef = writer.writeEntity(pEntity);
+        EXPECT_EQ(true, result);
+    }
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2RelAggregates");
+        pEntity->setAsEntityRef(L"RelatingObject", nProjectRef);
+        pEntity->addEntityRef(L"RelatedObjects", nBuildingRef);
+        writer.writeEntity(pEntity);
+        EXPECT_EQ(true, result);
+    }
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Floor");
+        pEntity->setAsDouble(L"Height", 0);
+        pEntity->setAsInteger(L"StdFloorCount", 1);
+        pEntity->setAsDouble(L"StructuralElevation", 3.0);
+        pEntity->setAsInteger(L"StartFloorNo", 1);
+        pEntity->setAsString(L"Name", L"first floor");
+        pEntity->setAsString(L"ID", generateGuid());
+        oFloorRefList.push_back(writer.writeEntity(pEntity));
+        EXPECT_EQ(true, result);
+    }
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Floor");
+        pEntity->setAsDouble(L"Height", 3000);
+        pEntity->setAsInteger(L"StdFloorCount", 3);
+        pEntity->setAsDouble(L"StructuralElevation", 3.0);
+        pEntity->setAsInteger(L"StartFloorNo", 2);
+        pEntity->setAsString(L"Name", L"2~3 floor");
+        pEntity->setAsString(L"ID", generateGuid());
+        oFloorRefList.push_back(writer.writeEntity(pEntity));
+        EXPECT_EQ(true, result);
+    }
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2RelAggregates");
+        pEntity->setAsEntityRef(L"RelatingObject", nBuildingRef);
+        for each (auto nRef in oFloorRefList)
+        {
+            pEntity->addEntityRef(L"RelatedObjects", nRef);
+        }
+        writer.writeEntity(pEntity);
+        EXPECT_EQ(true, result);
+    }
+    auto nSectionRef = -1;
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2RectangleSection");
+        ggp::CCoordinates2d oCoord;
+        oCoord.Origin.Set(500, 100);
+        pEntity->setAsEntityRef(L"Position", GfcGeometryExporter::exportCoordinates2d(&writer, &oCoord));
+        pEntity->setAsDouble(L"XLength", 300);
+        pEntity->setAsDouble(L"YLength", 400);
+        nSectionRef = writer.writeEntity(pEntity);
+        EXPECT_EQ(true, result);
+    }
+    auto nShapeRef = -1;
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2ExtrudedAreaSolidShape");
+        ggp::CCoordinates3d oCoord;
+        pEntity->setAsEntityRef(L"LocalCoordinate", GfcGeometryExporter::exportCoordinates3d(&writer, &oCoord));
+        pEntity->setAsEntityRef(L"SweptArea", nSectionRef);
+        pEntity->setAsEntityRef(L"ExtrudedDirection", GfcGeometryExporter::exportVector3d(&writer, &ggp::CVector3d(0.0, 0.0, 1.0)));
+        pEntity->setAsDouble(L"Len", 3000);
+        nShapeRef = writer.writeEntity(pEntity);
+        EXPECT_EQ(true, result);
+    }
+    auto nElementShapeRef = -1;
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2ElementShape");
+        pEntity->setAsString(L"Identifier", L"body");
+        pEntity->setAsEntityRef(L"Shape", nShapeRef);
+        nElementShapeRef = writer.writeEntity(pEntity);
+        EXPECT_EQ(true, result);
+    }
+    gfc::engine::EntityRef nElementRef = -1;
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Element");
+        pEntity->setAsString(L"ID", generateGuid());
+        pEntity->setAsString(L"Name", L"KZ-1");
+        pEntity->setAsString(L"EType", L"14-07.35.07");
+        pEntity->addEntityRef(L"Shapes", nElementShapeRef);
+        nElementRef = writer.writeEntity(pEntity);
+        EXPECT_EQ(true, result);
+    }
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2RelAggregates");
+        pEntity->setAsEntityRef(L"RelatingObject", oFloorRefList[0]);
+        pEntity->addEntityRef(L"RelatedObjects", nElementRef);
+        writer.writeEntity(pEntity);
+        EXPECT_EQ(true, result);
+    }
+    std::vector<gfc::engine::EntityRef> oPropRefList;
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2StringProperty");
+        pEntity->setAsString(L"Name", L"Ãû³Æ");
+        pEntity->setAsString(L"Code", L"Description");
+        pEntity->setAsString(L"Val", L"KZ-1");
+        oPropRefList.push_back(writer.writeEntity(pEntity));
+        EXPECT_EQ(true, result);
+    }
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2StringProperty");
+        pEntity->setAsString(L"Name", L"Àà±ð");
+        pEntity->setAsString(L"Code", L"Type");
+        pEntity->setAsString(L"Val", L"¿ò¼ÜÖù");
+        oPropRefList.push_back(writer.writeEntity(pEntity));
+        EXPECT_EQ(true, result);
+    }
+    auto nPropertySetRef = -1;
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2PropertySet");
+        for each (auto nRef in oPropRefList)
+        {
+            pEntity->addEntityRef(L"HasProperties", nRef);
+        }
+        nPropertySetRef = writer.writeEntity(pEntity);
+        EXPECT_EQ(true, result);
+    }
+    {
+        auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2RelDefinesByProperties");
+        pEntity->setAsEntityRef(L"RelatingPropertySet", nPropertySetRef);
+        pEntity->addEntityRef(L"RelatedObjects", nElementRef);
+        writer.writeEntity(pEntity);
+        EXPECT_EQ(true, result);
+    }
+}
 
 //TEST(BinaryWriterTest, WriteEmptyFile)
 //{
@@ -661,3 +805,4 @@ TEST(TestGFCEngine, ReadFile_1)
     }
 }
 */
+

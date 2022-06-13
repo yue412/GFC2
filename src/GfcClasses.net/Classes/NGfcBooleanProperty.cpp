@@ -8,8 +8,8 @@ NGfcBooleanProperty::NGfcBooleanProperty()
     m_bOwner = true;
 }
 
-NGfcBooleanProperty::NGfcBooleanProperty(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSingleProperty(pEntity, bOwner)
+NGfcBooleanProperty::NGfcBooleanProperty(bool bNoCreate):
+    NGfcSingleProperty(bNoCreate)
 {
 }
 

@@ -1,7 +1,7 @@
 #ifndef NGFCELEMENTSHAPE_H
 #define NGFCELEMENTSHAPE_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcElementShape.h"
 #include "NGfcShape.h"
 #include "NTypeDef.h"
@@ -10,11 +10,11 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcElementShape: public NGfcEntity
+public ref class NGfcElementShape: public NEntity
 {
 public:
     NGfcElementShape();
-    NGfcElementShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcElementShape(bool bNoCreate);
     void setIdentifier(NGfcString sValue);
     NGfcString getIdentifier();
     bool hasIdentifier();

@@ -8,8 +8,8 @@ NGfcSteelDetail::NGfcSteelDetail()
     m_bOwner = true;
 }
 
-NGfcSteelDetail::NGfcSteelDetail(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcSteelDetail::NGfcSteelDetail(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

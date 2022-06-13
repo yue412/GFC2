@@ -1,7 +1,7 @@
 #ifndef NGFCPROPERTY_H
 #define NGFCPROPERTY_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcProperty.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,11 +9,11 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcProperty: public NGfcEntity
+public ref class NGfcProperty: public NEntity
 {
 public:
     NGfcProperty();
-    NGfcProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcProperty(bool bNoCreate);
     void setName(NGfcLabel sValue);
     NGfcLabel getName();
     bool hasName();

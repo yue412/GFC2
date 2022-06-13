@@ -13,7 +13,7 @@ public ref class NGfcStringListProperty: public NGfcListProperty
 {
 public:
     NGfcStringListProperty();
-    NGfcStringListProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcStringListProperty(bool bNoCreate);
     int getValuesCount();
     void clearValues();
     void addValues(NGfcString sValue);

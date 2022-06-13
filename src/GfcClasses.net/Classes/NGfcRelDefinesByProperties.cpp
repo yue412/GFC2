@@ -8,8 +8,8 @@ NGfcRelDefinesByProperties::NGfcRelDefinesByProperties()
     m_bOwner = true;
 }
 
-NGfcRelDefinesByProperties::NGfcRelDefinesByProperties(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcRelDefines(pEntity, bOwner)
+NGfcRelDefinesByProperties::NGfcRelDefinesByProperties(bool bNoCreate):
+    NGfcRelDefines(bNoCreate)
 {
 }
 

@@ -1,14 +1,14 @@
 #ifndef NGFCREPRESENTATIONITEM_H
 #define NGFCREPRESENTATIONITEM_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcRepresentationItem.h"
 
-public ref class NGfcRepresentationItem: public NGfcEntity
+public ref class NGfcRepresentationItem: public NEntity
 {
 public:
     NGfcRepresentationItem();
-    NGfcRepresentationItem(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRepresentationItem(bool bNoCreate);
 
 };
 #endif

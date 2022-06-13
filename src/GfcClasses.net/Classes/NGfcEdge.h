@@ -10,7 +10,7 @@ public ref class NGfcEdge: public NGfcTopology
 {
 public:
     NGfcEdge();
-    NGfcEdge(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcEdge(bool bNoCreate);
     void setCurve(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCurve();
     bool hasCurve();

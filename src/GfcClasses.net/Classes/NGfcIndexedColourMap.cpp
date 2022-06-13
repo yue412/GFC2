@@ -8,8 +8,8 @@ NGfcIndexedColourMap::NGfcIndexedColourMap()
     m_bOwner = true;
 }
 
-NGfcIndexedColourMap::NGfcIndexedColourMap(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcIndexedColourMap::NGfcIndexedColourMap(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

@@ -11,7 +11,7 @@ public ref class NGfcIntersectionCurve3d: public NGfcCurve3d
 {
 public:
     NGfcIntersectionCurve3d();
-    NGfcIntersectionCurve3d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcIntersectionCurve3d(bool bNoCreate);
     void setBases1(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getBases1();
     bool hasBases1();

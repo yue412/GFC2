@@ -8,8 +8,8 @@ NGfcVector2d::NGfcVector2d()
     m_bOwner = true;
 }
 
-NGfcVector2d::NGfcVector2d(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcGeometry(pEntity, bOwner)
+NGfcVector2d::NGfcVector2d(bool bNoCreate):
+    NGfcGeometry(bNoCreate)
 {
 }
 

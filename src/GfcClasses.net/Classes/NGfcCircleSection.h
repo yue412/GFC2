@@ -9,7 +9,7 @@ public ref class NGfcCircleSection: public NGfcParameterizedSection
 {
 public:
     NGfcCircleSection();
-    NGfcCircleSection(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcCircleSection(bool bNoCreate);
     void setRadius(NGfcDouble dValue);
     NGfcDouble getRadius();
     bool hasRadius();

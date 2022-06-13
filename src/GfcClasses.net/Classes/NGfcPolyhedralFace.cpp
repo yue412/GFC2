@@ -8,8 +8,8 @@ NGfcPolyhedralFace::NGfcPolyhedralFace()
     m_bOwner = true;
 }
 
-NGfcPolyhedralFace::NGfcPolyhedralFace(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcTopology(pEntity, bOwner)
+NGfcPolyhedralFace::NGfcPolyhedralFace(bool bNoCreate):
+    NGfcTopology(bNoCreate)
 {
 }
 

@@ -8,8 +8,8 @@ NGfcNurbsCtrlPt2d::NGfcNurbsCtrlPt2d()
     m_bOwner = true;
 }
 
-NGfcNurbsCtrlPt2d::NGfcNurbsCtrlPt2d(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcNurbsCtrlPt2d::NGfcNurbsCtrlPt2d(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

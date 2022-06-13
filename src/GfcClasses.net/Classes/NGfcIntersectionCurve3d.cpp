@@ -8,8 +8,8 @@ NGfcIntersectionCurve3d::NGfcIntersectionCurve3d()
     m_bOwner = true;
 }
 
-NGfcIntersectionCurve3d::NGfcIntersectionCurve3d(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcCurve3d(pEntity, bOwner)
+NGfcIntersectionCurve3d::NGfcIntersectionCurve3d(bool bNoCreate):
+    NGfcCurve3d(bNoCreate)
 {
 }
 

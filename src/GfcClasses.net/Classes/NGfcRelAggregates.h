@@ -9,7 +9,7 @@ public ref class NGfcRelAggregates: public NGfcRelDecomposes
 {
 public:
     NGfcRelAggregates();
-    NGfcRelAggregates(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRelAggregates(bool bNoCreate);
     void setRelatingObject(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRelatingObject();
     bool hasRelatingObject();

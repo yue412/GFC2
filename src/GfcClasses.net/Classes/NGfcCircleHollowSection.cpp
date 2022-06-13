@@ -8,8 +8,8 @@ NGfcCircleHollowSection::NGfcCircleHollowSection()
     m_bOwner = true;
 }
 
-NGfcCircleHollowSection::NGfcCircleHollowSection(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcCircleSection(pEntity, bOwner)
+NGfcCircleHollowSection::NGfcCircleHollowSection(bool bNoCreate):
+    NGfcCircleSection(bNoCreate)
 {
 }
 

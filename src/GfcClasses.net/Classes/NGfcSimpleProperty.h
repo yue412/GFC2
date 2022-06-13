@@ -8,7 +8,7 @@ public ref class NGfcSimpleProperty: public NGfcProperty
 {
 public:
     NGfcSimpleProperty();
-    NGfcSimpleProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSimpleProperty(bool bNoCreate);
 
 };
 #endif

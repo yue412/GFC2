@@ -1,7 +1,7 @@
 #ifndef NGFCOBJECT_H
 #define NGFCOBJECT_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcObject.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,11 +9,11 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcObject: public NGfcEntity
+public ref class NGfcObject: public NEntity
 {
 public:
     NGfcObject();
-    NGfcObject(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcObject(bool bNoCreate);
     void setID(NGfcIdentity sValue);
     NGfcIdentity getID();
     bool hasID();

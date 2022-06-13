@@ -1,15 +1,15 @@
 #ifndef NGFCPLANECOEF_H
 #define NGFCPLANECOEF_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcPlaneCoef.h"
 #include "NTypeDef.h"
 
-public ref class NGfcPlaneCoef: public NGfcEntity
+public ref class NGfcPlaneCoef: public NEntity
 {
 public:
     NGfcPlaneCoef();
-    NGfcPlaneCoef(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcPlaneCoef(bool bNoCreate);
     void setA(NGfcDouble dValue);
     NGfcDouble getA();
     bool hasA();

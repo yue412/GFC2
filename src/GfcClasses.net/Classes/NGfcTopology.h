@@ -8,7 +8,7 @@ public ref class NGfcTopology: public NGfcGeometry
 {
 public:
     NGfcTopology();
-    NGfcTopology(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcTopology(bool bNoCreate);
 
 };
 #endif

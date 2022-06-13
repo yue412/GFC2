@@ -9,7 +9,7 @@ public ref class NGfcSectionProperty: public NGfcSingleProperty
 {
 public:
     NGfcSectionProperty();
-    NGfcSectionProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSectionProperty(bool bNoCreate);
     void setSection(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getSection();
     bool hasSection();

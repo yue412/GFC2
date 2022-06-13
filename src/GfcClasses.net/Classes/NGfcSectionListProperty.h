@@ -9,7 +9,7 @@ public ref class NGfcSectionListProperty: public NGfcListProperty
 {
 public:
     NGfcSectionListProperty();
-    NGfcSectionListProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSectionListProperty(bool bNoCreate);
     int getValuesCount();
     void clearValues();
     void addValues(gfc::engine::EntityRef nValue);

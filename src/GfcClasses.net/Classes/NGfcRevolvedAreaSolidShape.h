@@ -10,7 +10,7 @@ public ref class NGfcRevolvedAreaSolidShape: public NGfcSweptAreaSolidShape
 {
 public:
     NGfcRevolvedAreaSolidShape();
-    NGfcRevolvedAreaSolidShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRevolvedAreaSolidShape(bool bNoCreate);
     void setLocation(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getLocation();
     bool hasLocation();

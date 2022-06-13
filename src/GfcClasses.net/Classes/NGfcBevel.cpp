@@ -8,8 +8,8 @@ NGfcBevel::NGfcBevel()
     m_bOwner = true;
 }
 
-NGfcBevel::NGfcBevel(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSurface(pEntity, bOwner)
+NGfcBevel::NGfcBevel(bool bNoCreate):
+    NGfcSurface(bNoCreate)
 {
 }
 

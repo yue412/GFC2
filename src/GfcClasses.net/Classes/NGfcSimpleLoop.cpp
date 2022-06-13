@@ -8,8 +8,8 @@ NGfcSimpleLoop::NGfcSimpleLoop()
     m_bOwner = true;
 }
 
-NGfcSimpleLoop::NGfcSimpleLoop(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcTopology(pEntity, bOwner)
+NGfcSimpleLoop::NGfcSimpleLoop(bool bNoCreate):
+    NGfcTopology(bNoCreate)
 {
 }
 

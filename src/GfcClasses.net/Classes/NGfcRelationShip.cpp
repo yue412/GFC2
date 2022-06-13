@@ -8,8 +8,8 @@ NGfcRelationShip::NGfcRelationShip()
     m_bOwner = true;
 }
 
-NGfcRelationShip::NGfcRelationShip(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcRelationShip::NGfcRelationShip(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

@@ -10,7 +10,7 @@ public ref class NGfcHalfSpaceSolidShape: public NGfcSolidShape
 {
 public:
     NGfcHalfSpaceSolidShape();
-    NGfcHalfSpaceSolidShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcHalfSpaceSolidShape(bool bNoCreate);
     void setBaseSurface(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getBaseSurface();
     bool hasBaseSurface();

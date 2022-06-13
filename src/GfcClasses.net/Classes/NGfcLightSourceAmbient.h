@@ -8,7 +8,7 @@ public ref class NGfcLightSourceAmbient: public NGfcLightSource
 {
 public:
     NGfcLightSourceAmbient();
-    NGfcLightSourceAmbient(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcLightSourceAmbient(bool bNoCreate);
 
 };
 #endif

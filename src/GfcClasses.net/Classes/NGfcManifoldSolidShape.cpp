@@ -8,8 +8,8 @@ NGfcManifoldSolidShape::NGfcManifoldSolidShape()
     m_bOwner = true;
 }
 
-NGfcManifoldSolidShape::NGfcManifoldSolidShape(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSolidShape(pEntity, bOwner)
+NGfcManifoldSolidShape::NGfcManifoldSolidShape(bool bNoCreate):
+    NGfcSolidShape(bNoCreate)
 {
 }
 

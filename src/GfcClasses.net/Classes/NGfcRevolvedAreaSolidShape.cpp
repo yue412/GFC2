@@ -8,8 +8,8 @@ NGfcRevolvedAreaSolidShape::NGfcRevolvedAreaSolidShape()
     m_bOwner = true;
 }
 
-NGfcRevolvedAreaSolidShape::NGfcRevolvedAreaSolidShape(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSweptAreaSolidShape(pEntity, bOwner)
+NGfcRevolvedAreaSolidShape::NGfcRevolvedAreaSolidShape(bool bNoCreate):
+    NGfcSweptAreaSolidShape(bNoCreate)
 {
 }
 

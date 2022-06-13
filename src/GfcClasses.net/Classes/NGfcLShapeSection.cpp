@@ -8,8 +8,8 @@ NGfcLShapeSection::NGfcLShapeSection()
     m_bOwner = true;
 }
 
-NGfcLShapeSection::NGfcLShapeSection(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcParameterizedSection(pEntity, bOwner)
+NGfcLShapeSection::NGfcLShapeSection(bool bNoCreate):
+    NGfcParameterizedSection(bNoCreate)
 {
 }
 

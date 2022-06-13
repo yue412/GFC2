@@ -8,8 +8,8 @@ NGfcRelDecomposes::NGfcRelDecomposes()
     m_bOwner = true;
 }
 
-NGfcRelDecomposes::NGfcRelDecomposes(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcRelationShip(pEntity, bOwner)
+NGfcRelDecomposes::NGfcRelDecomposes(bool bNoCreate):
+    NGfcRelationShip(bNoCreate)
 {
 }
 

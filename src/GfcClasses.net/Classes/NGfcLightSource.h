@@ -14,7 +14,7 @@ public ref class NGfcLightSource: public NGfcRepresentationItem
 {
 public:
     NGfcLightSource();
-    NGfcLightSource(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcLightSource(bool bNoCreate);
     void setName(NGfcLabel sValue);
     NGfcLabel getName();
     bool hasName();

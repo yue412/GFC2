@@ -8,8 +8,8 @@ NGfcBlockShape::NGfcBlockShape()
     m_bOwner = true;
 }
 
-NGfcBlockShape::NGfcBlockShape(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcPrimitiveShape(pEntity, bOwner)
+NGfcBlockShape::NGfcBlockShape(bool bNoCreate):
+    NGfcPrimitiveShape(bNoCreate)
 {
 }
 

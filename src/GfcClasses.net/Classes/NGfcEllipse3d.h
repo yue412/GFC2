@@ -8,7 +8,7 @@ public ref class NGfcEllipse3d: public NGfcPlaneCurve3d
 {
 public:
     NGfcEllipse3d();
-    NGfcEllipse3d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcEllipse3d(bool bNoCreate);
 
 };
 #endif

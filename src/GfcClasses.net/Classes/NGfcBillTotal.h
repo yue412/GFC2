@@ -1,7 +1,7 @@
 #ifndef NGFCBILLTOTAL_H
 #define NGFCBILLTOTAL_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcBillTotal.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,11 +9,11 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcBillTotal: public NGfcEntity
+public ref class NGfcBillTotal: public NEntity
 {
 public:
     NGfcBillTotal();
-    NGfcBillTotal(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcBillTotal(bool bNoCreate);
     void setCode(NGfcString sValue);
     NGfcString getCode();
     bool hasCode();

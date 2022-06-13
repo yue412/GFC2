@@ -8,7 +8,7 @@ public ref class NGfcArc3d: public NGfcPlaneCurve3d
 {
 public:
     NGfcArc3d();
-    NGfcArc3d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcArc3d(bool bNoCreate);
 
 };
 #endif

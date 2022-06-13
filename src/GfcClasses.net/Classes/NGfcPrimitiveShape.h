@@ -8,7 +8,7 @@ public ref class NGfcPrimitiveShape: public NGfcSolidShape
 {
 public:
     NGfcPrimitiveShape();
-    NGfcPrimitiveShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcPrimitiveShape(bool bNoCreate);
 
 };
 #endif

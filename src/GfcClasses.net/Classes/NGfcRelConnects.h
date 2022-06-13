@@ -8,7 +8,7 @@ public ref class NGfcRelConnects: public NGfcRelationShip
 {
 public:
     NGfcRelConnects();
-    NGfcRelConnects(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRelConnects(bool bNoCreate);
 
 };
 #endif

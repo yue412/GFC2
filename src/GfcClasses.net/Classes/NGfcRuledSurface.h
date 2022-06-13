@@ -11,7 +11,7 @@ public ref class NGfcRuledSurface: public NGfcSurface
 {
 public:
     NGfcRuledSurface();
-    NGfcRuledSurface(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRuledSurface(bool bNoCreate);
     void setApexIndex(NGfcInteger nValue);
     NGfcInteger getApexIndex();
     bool hasApexIndex();

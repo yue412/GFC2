@@ -10,7 +10,7 @@ public ref class NGfcPolyhedronBody: public NGfcBody
 {
 public:
     NGfcPolyhedronBody();
-    NGfcPolyhedronBody(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcPolyhedronBody(bool bNoCreate);
     int getFacesCount();
     void clearFaces();
     void addFaces(gfc::engine::EntityRef nValue);

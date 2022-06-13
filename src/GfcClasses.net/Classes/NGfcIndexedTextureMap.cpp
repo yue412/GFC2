@@ -8,8 +8,8 @@ NGfcIndexedTextureMap::NGfcIndexedTextureMap()
     m_bOwner = true;
 }
 
-NGfcIndexedTextureMap::NGfcIndexedTextureMap(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcIndexedTextureMap::NGfcIndexedTextureMap(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

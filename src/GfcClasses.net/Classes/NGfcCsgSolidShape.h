@@ -9,7 +9,7 @@ public ref class NGfcCsgSolidShape: public NGfcSolidShape
 {
 public:
     NGfcCsgSolidShape();
-    NGfcCsgSolidShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcCsgSolidShape(bool bNoCreate);
     void setTreeRootExpression(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getTreeRootExpression();
     bool hasTreeRootExpression();

@@ -10,7 +10,7 @@ public ref class NGfcPolyhedralFace: public NGfcTopology
 {
 public:
     NGfcPolyhedralFace();
-    NGfcPolyhedralFace(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcPolyhedralFace(bool bNoCreate);
     int getLoopsCount();
     void clearLoops();
     void addLoops(gfc::engine::EntityRef nValue);

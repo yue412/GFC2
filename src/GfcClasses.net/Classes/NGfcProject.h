@@ -8,7 +8,7 @@ public ref class NGfcProject: public NGfcObject
 {
 public:
     NGfcProject();
-    NGfcProject(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcProject(bool bNoCreate);
 
 };
 #endif

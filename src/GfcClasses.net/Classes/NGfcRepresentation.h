@@ -1,7 +1,7 @@
 #ifndef NGFCREPRESENTATION_H
 #define NGFCREPRESENTATION_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcRepresentation.h"
 #include "NGfcRepresentationItem.h"
 #include "NTypeDef.h"
@@ -10,11 +10,11 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcRepresentation: public NGfcEntity
+public ref class NGfcRepresentation: public NEntity
 {
 public:
     NGfcRepresentation();
-    NGfcRepresentation(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRepresentation(bool bNoCreate);
     void setIdentifier(NGfcString sValue);
     NGfcString getIdentifier();
     bool hasIdentifier();

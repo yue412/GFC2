@@ -8,8 +8,8 @@ NGfcRelConnectsElements::NGfcRelConnectsElements()
     m_bOwner = true;
 }
 
-NGfcRelConnectsElements::NGfcRelConnectsElements(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcRelConnects(pEntity, bOwner)
+NGfcRelConnectsElements::NGfcRelConnectsElements(bool bNoCreate):
+    NGfcRelConnects(bNoCreate)
 {
 }
 

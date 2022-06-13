@@ -10,7 +10,7 @@ public ref class NGfcRelDefinesByProperties: public NGfcRelDefines
 {
 public:
     NGfcRelDefinesByProperties();
-    NGfcRelDefinesByProperties(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRelDefinesByProperties(bool bNoCreate);
     void setRelatingPropertySet(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRelatingPropertySet();
     bool hasRelatingPropertySet();

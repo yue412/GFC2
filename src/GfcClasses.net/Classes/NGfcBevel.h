@@ -12,7 +12,7 @@ public ref class NGfcBevel: public NGfcSurface
 {
 public:
     NGfcBevel();
-    NGfcBevel(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcBevel(bool bNoCreate);
     void setCoord(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCoord();
     bool hasCoord();

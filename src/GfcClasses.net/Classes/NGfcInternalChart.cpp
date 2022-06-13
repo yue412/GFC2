@@ -8,8 +8,8 @@ NGfcInternalChart::NGfcInternalChart()
     m_bOwner = true;
 }
 
-NGfcInternalChart::NGfcInternalChart(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcInternalChart::NGfcInternalChart(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

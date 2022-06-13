@@ -9,7 +9,7 @@ public ref class NGfcCompositeCurve2dSweptSolidShape: public NGfcSweptAreaSolidS
 {
 public:
     NGfcCompositeCurve2dSweptSolidShape();
-    NGfcCompositeCurve2dSweptSolidShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcCompositeCurve2dSweptSolidShape(bool bNoCreate);
     int getSegmentsCount();
     void clearSegments();
     void addSegments(gfc::engine::EntityRef nValue);

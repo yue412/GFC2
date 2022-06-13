@@ -9,7 +9,7 @@ public ref class NGfcCircleHollowSection: public NGfcCircleSection
 {
 public:
     NGfcCircleHollowSection();
-    NGfcCircleHollowSection(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcCircleHollowSection(bool bNoCreate);
     void setThickness(NGfcDouble dValue);
     NGfcDouble getThickness();
     bool hasThickness();

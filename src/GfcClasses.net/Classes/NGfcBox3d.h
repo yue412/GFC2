@@ -9,7 +9,7 @@ public ref class NGfcBox3d: public NGfcGeometry
 {
 public:
     NGfcBox3d();
-    NGfcBox3d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcBox3d(bool bNoCreate);
     void setMin(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getMin();
     bool hasMin();

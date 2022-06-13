@@ -8,8 +8,8 @@ NGfcTopology::NGfcTopology()
     m_bOwner = true;
 }
 
-NGfcTopology::NGfcTopology(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcGeometry(pEntity, bOwner)
+NGfcTopology::NGfcTopology(bool bNoCreate):
+    NGfcGeometry(bNoCreate)
 {
 }
 

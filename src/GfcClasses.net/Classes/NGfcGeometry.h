@@ -1,14 +1,14 @@
 #ifndef NGFCGEOMETRY_H
 #define NGFCGEOMETRY_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcGeometry.h"
 
-public ref class NGfcGeometry: public NGfcEntity
+public ref class NGfcGeometry: public NEntity
 {
 public:
     NGfcGeometry();
-    NGfcGeometry(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcGeometry(bool bNoCreate);
 
 };
 #endif

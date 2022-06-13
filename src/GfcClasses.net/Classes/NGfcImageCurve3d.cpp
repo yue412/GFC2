@@ -8,8 +8,8 @@ NGfcImageCurve3d::NGfcImageCurve3d()
     m_bOwner = true;
 }
 
-NGfcImageCurve3d::NGfcImageCurve3d(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcCurve3d(pEntity, bOwner)
+NGfcImageCurve3d::NGfcImageCurve3d(bool bNoCreate):
+    NGfcCurve3d(bNoCreate)
 {
 }
 

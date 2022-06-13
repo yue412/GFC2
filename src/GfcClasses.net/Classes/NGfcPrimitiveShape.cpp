@@ -8,8 +8,8 @@ NGfcPrimitiveShape::NGfcPrimitiveShape()
     m_bOwner = true;
 }
 
-NGfcPrimitiveShape::NGfcPrimitiveShape(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSolidShape(pEntity, bOwner)
+NGfcPrimitiveShape::NGfcPrimitiveShape(bool bNoCreate):
+    NGfcSolidShape(bNoCreate)
 {
 }
 

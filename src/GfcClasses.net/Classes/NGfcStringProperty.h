@@ -13,7 +13,7 @@ public ref class NGfcStringProperty: public NGfcSingleProperty
 {
 public:
     NGfcStringProperty();
-    NGfcStringProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcStringProperty(bool bNoCreate);
     void setVal(NGfcString sValue);
     NGfcString getVal();
     bool hasVal();

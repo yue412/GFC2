@@ -8,8 +8,8 @@ NGfcMatrix::NGfcMatrix()
     m_bOwner = true;
 }
 
-NGfcMatrix::NGfcMatrix(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcGeometry(pEntity, bOwner)
+NGfcMatrix::NGfcMatrix(bool bNoCreate):
+    NGfcGeometry(bNoCreate)
 {
 }
 

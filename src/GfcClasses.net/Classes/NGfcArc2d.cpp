@@ -8,8 +8,8 @@ NGfcArc2d::NGfcArc2d()
     m_bOwner = true;
 }
 
-NGfcArc2d::NGfcArc2d(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcCurve2d(pEntity, bOwner)
+NGfcArc2d::NGfcArc2d(bool bNoCreate):
+    NGfcCurve2d(bNoCreate)
 {
 }
 

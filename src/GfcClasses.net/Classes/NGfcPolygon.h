@@ -8,7 +8,7 @@ public ref class NGfcPolygon: public NGfcTopology
 {
 public:
     NGfcPolygon();
-    NGfcPolygon(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcPolygon(bool bNoCreate);
 
 };
 #endif

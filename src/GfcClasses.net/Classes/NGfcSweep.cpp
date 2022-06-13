@@ -8,8 +8,8 @@ NGfcSweep::NGfcSweep()
     m_bOwner = true;
 }
 
-NGfcSweep::NGfcSweep(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSurface(pEntity, bOwner)
+NGfcSweep::NGfcSweep(bool bNoCreate):
+    NGfcSurface(bNoCreate)
 {
 }
 

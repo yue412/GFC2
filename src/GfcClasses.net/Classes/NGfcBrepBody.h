@@ -10,7 +10,7 @@ public ref class NGfcBrepBody: public NGfcBody
 {
 public:
     NGfcBrepBody();
-    NGfcBrepBody(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcBrepBody(bool bNoCreate);
     int getFacesCount();
     void clearFaces();
     void addFaces(gfc::engine::EntityRef nValue);

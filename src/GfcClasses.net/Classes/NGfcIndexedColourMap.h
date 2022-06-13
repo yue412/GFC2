@@ -1,17 +1,17 @@
 #ifndef NGFCINDEXEDCOLOURMAP_H
 #define NGFCINDEXEDCOLOURMAP_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcIndexedColourMap.h"
 #include "NGfcColor.h"
 #include "NGfcPrimitiveRenderable.h"
 #include "NTypeDef.h"
 
-public ref class NGfcIndexedColourMap: public NGfcEntity
+public ref class NGfcIndexedColourMap: public NEntity
 {
 public:
     NGfcIndexedColourMap();
-    NGfcIndexedColourMap(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcIndexedColourMap(bool bNoCreate);
     void setTransparency(NGfcDouble dValue);
     NGfcDouble getTransparency();
     bool hasTransparency();

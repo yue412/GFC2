@@ -8,8 +8,8 @@ NGfcArbitrarySection::NGfcArbitrarySection()
     m_bOwner = true;
 }
 
-NGfcArbitrarySection::NGfcArbitrarySection(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSection(pEntity, bOwner)
+NGfcArbitrarySection::NGfcArbitrarySection(bool bNoCreate):
+    NGfcSection(bNoCreate)
 {
 }
 

@@ -8,8 +8,8 @@ NGfcBrepBody::NGfcBrepBody()
     m_bOwner = true;
 }
 
-NGfcBrepBody::NGfcBrepBody(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcBody(pEntity, bOwner)
+NGfcBrepBody::NGfcBrepBody(bool bNoCreate):
+    NGfcBody(bNoCreate)
 {
 }
 

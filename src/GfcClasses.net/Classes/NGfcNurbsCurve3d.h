@@ -10,7 +10,7 @@ public ref class NGfcNurbsCurve3d: public NGfcCurve3d
 {
 public:
     NGfcNurbsCurve3d();
-    NGfcNurbsCurve3d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcNurbsCurve3d(bool bNoCreate);
     void setDegree(NGfcInteger nValue);
     NGfcInteger getDegree();
     bool hasDegree();

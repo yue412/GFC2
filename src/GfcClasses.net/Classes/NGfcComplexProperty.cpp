@@ -8,8 +8,8 @@ NGfcComplexProperty::NGfcComplexProperty()
     m_bOwner = true;
 }
 
-NGfcComplexProperty::NGfcComplexProperty(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcProperty(pEntity, bOwner)
+NGfcComplexProperty::NGfcComplexProperty(bool bNoCreate):
+    NGfcProperty(bNoCreate)
 {
 }
 

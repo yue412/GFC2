@@ -8,8 +8,8 @@ NGfcRelAggregates::NGfcRelAggregates()
     m_bOwner = true;
 }
 
-NGfcRelAggregates::NGfcRelAggregates(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcRelDecomposes(pEntity, bOwner)
+NGfcRelAggregates::NGfcRelAggregates(bool bNoCreate):
+    NGfcRelDecomposes(bNoCreate)
 {
 }
 

@@ -9,7 +9,7 @@ public ref class NGfcSimpleLoop: public NGfcTopology
 {
 public:
     NGfcSimpleLoop();
-    NGfcSimpleLoop(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSimpleLoop(bool bNoCreate);
     int getVertexesCount();
     void clearVertexes();
     void addVertexes(gfc::engine::EntityRef nValue);

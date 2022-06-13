@@ -1,15 +1,15 @@
 #ifndef NGFCPLANEINFO_H
 #define NGFCPLANEINFO_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcPlaneInfo.h"
 #include "NGfcVector3d.h"
 
-public ref class NGfcPlaneInfo: public NGfcEntity
+public ref class NGfcPlaneInfo: public NEntity
 {
 public:
     NGfcPlaneInfo();
-    NGfcPlaneInfo(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcPlaneInfo(bool bNoCreate);
     void setDirX(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getDirX();
     bool hasDirX();

@@ -9,7 +9,7 @@ public ref class NGfcGeometryShape: public NGfcShape
 {
 public:
     NGfcGeometryShape();
-    NGfcGeometryShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcGeometryShape(bool bNoCreate);
     int getGeosCount();
     void clearGeos();
     void addGeos(gfc::engine::EntityRef nValue);

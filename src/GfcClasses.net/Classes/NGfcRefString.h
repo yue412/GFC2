@@ -1,18 +1,18 @@
 #ifndef NGFCREFSTRING_H
 #define NGFCREFSTRING_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcRefString.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcRefString: public NGfcEntity
+public ref class NGfcRefString: public NEntity
 {
 public:
     NGfcRefString();
-    NGfcRefString(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRefString(bool bNoCreate);
     void setVal(System::String^ sValue);
     System::String^ getVal();
     bool hasVal();

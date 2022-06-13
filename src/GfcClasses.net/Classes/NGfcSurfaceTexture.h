@@ -1,7 +1,7 @@
 #ifndef NGFCSURFACETEXTURE_H
 #define NGFCSURFACETEXTURE_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcSurfaceTexture.h"
 #include "NGfcMatrix.h"
 #include "NTypeDef.h"
@@ -10,11 +10,11 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcSurfaceTexture: public NGfcEntity
+public ref class NGfcSurfaceTexture: public NEntity
 {
 public:
     NGfcSurfaceTexture();
-    NGfcSurfaceTexture(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSurfaceTexture(bool bNoCreate);
     void setRepeatS(NGfcBoolean bValue);
     NGfcBoolean getRepeatS();
     bool hasRepeatS();

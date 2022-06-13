@@ -12,7 +12,7 @@ public ref class NGfcPreimageCurve2d: public NGfcCurve2d
 {
 public:
     NGfcPreimageCurve2d();
-    NGfcPreimageCurve2d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcPreimageCurve2d(bool bNoCreate);
     void setRange(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRange();
     bool hasRange();

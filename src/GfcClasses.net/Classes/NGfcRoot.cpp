@@ -8,8 +8,8 @@ NGfcRoot::NGfcRoot()
     m_bOwner = true;
 }
 
-NGfcRoot::NGfcRoot(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcRoot::NGfcRoot(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

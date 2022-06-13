@@ -14,7 +14,7 @@ public ref class NGfcPrimitiveRenderable: public NGfcRepresentationItem
 {
 public:
     NGfcPrimitiveRenderable();
-    NGfcPrimitiveRenderable(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcPrimitiveRenderable(bool bNoCreate);
     void setPrimitiveType(NGfcPrimitiveType nValue);
     NGfcPrimitiveType getPrimitiveType();
     bool hasPrimitiveType();

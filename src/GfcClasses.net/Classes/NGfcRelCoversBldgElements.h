@@ -9,7 +9,7 @@ public ref class NGfcRelCoversBldgElements: public NGfcRelConnects
 {
 public:
     NGfcRelCoversBldgElements();
-    NGfcRelCoversBldgElements(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRelCoversBldgElements(bool bNoCreate);
     void setRelatingBuildingElement(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRelatingBuildingElement();
     bool hasRelatingBuildingElement();

@@ -9,7 +9,7 @@ public ref class NGfcRelVoidsElement: public NGfcRelDecomposes
 {
 public:
     NGfcRelVoidsElement();
-    NGfcRelVoidsElement(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRelVoidsElement(bool bNoCreate);
     void setRelatedOpeningElement(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRelatedOpeningElement();
     bool hasRelatedOpeningElement();

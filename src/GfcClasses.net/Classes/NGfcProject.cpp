@@ -8,8 +8,8 @@ NGfcProject::NGfcProject()
     m_bOwner = true;
 }
 
-NGfcProject::NGfcProject(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcObject(pEntity, bOwner)
+NGfcProject::NGfcProject(bool bNoCreate):
+    NGfcObject(bNoCreate)
 {
 }
 

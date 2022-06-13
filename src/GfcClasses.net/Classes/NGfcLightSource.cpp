@@ -8,8 +8,8 @@ NGfcLightSource::NGfcLightSource()
     m_bOwner = true;
 }
 
-NGfcLightSource::NGfcLightSource(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcRepresentationItem(pEntity, bOwner)
+NGfcLightSource::NGfcLightSource(bool bNoCreate):
+    NGfcRepresentationItem(bNoCreate)
 {
 }
 

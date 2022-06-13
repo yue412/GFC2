@@ -8,8 +8,8 @@ NGfcConnectionGeometry::NGfcConnectionGeometry()
     m_bOwner = true;
 }
 
-NGfcConnectionGeometry::NGfcConnectionGeometry(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcConnectionGeometry::NGfcConnectionGeometry(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

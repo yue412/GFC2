@@ -8,8 +8,8 @@ NGfcGeoProperty::NGfcGeoProperty()
     m_bOwner = true;
 }
 
-NGfcGeoProperty::NGfcGeoProperty(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSingleProperty(pEntity, bOwner)
+NGfcGeoProperty::NGfcGeoProperty(bool bNoCreate):
+    NGfcSingleProperty(bNoCreate)
 {
 }
 

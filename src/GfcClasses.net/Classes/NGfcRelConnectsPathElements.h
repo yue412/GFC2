@@ -9,7 +9,7 @@ public ref class NGfcRelConnectsPathElements: public NGfcRelConnectsElements
 {
 public:
     NGfcRelConnectsPathElements();
-    NGfcRelConnectsPathElements(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRelConnectsPathElements(bool bNoCreate);
     void setRelatedConnectionType(NGfcConnectionType nValue);
     NGfcConnectionType getRelatedConnectionType();
     bool hasRelatedConnectionType();

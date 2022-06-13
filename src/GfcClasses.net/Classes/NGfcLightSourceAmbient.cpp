@@ -8,8 +8,8 @@ NGfcLightSourceAmbient::NGfcLightSourceAmbient()
     m_bOwner = true;
 }
 
-NGfcLightSourceAmbient::NGfcLightSourceAmbient(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcLightSource(pEntity, bOwner)
+NGfcLightSourceAmbient::NGfcLightSourceAmbient(bool bNoCreate):
+    NGfcLightSource(bNoCreate)
 {
 }
 

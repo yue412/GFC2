@@ -9,7 +9,7 @@ public ref class NGfcSphereShape: public NGfcPrimitiveShape
 {
 public:
     NGfcSphereShape();
-    NGfcSphereShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSphereShape(bool bNoCreate);
     void setRadius(NGfcDouble dValue);
     NGfcDouble getRadius();
     bool hasRadius();

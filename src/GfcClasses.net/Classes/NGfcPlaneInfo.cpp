@@ -8,8 +8,8 @@ NGfcPlaneInfo::NGfcPlaneInfo()
     m_bOwner = true;
 }
 
-NGfcPlaneInfo::NGfcPlaneInfo(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcPlaneInfo::NGfcPlaneInfo(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

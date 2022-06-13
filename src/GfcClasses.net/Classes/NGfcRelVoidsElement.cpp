@@ -8,8 +8,8 @@ NGfcRelVoidsElement::NGfcRelVoidsElement()
     m_bOwner = true;
 }
 
-NGfcRelVoidsElement::NGfcRelVoidsElement(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcRelDecomposes(pEntity, bOwner)
+NGfcRelVoidsElement::NGfcRelVoidsElement(bool bNoCreate):
+    NGfcRelDecomposes(bNoCreate)
 {
 }
 

@@ -8,8 +8,8 @@ NGfcPolyhedronBody::NGfcPolyhedronBody()
     m_bOwner = true;
 }
 
-NGfcPolyhedronBody::NGfcPolyhedronBody(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcBody(pEntity, bOwner)
+NGfcPolyhedronBody::NGfcPolyhedronBody(bool bNoCreate):
+    NGfcBody(bNoCreate)
 {
 }
 

@@ -1,7 +1,7 @@
 #ifndef NGFCBILLDETAIL_H
 #define NGFCBILLDETAIL_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcBillDetail.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,11 +9,11 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcBillDetail: public NGfcEntity
+public ref class NGfcBillDetail: public NEntity
 {
 public:
     NGfcBillDetail();
-    NGfcBillDetail(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcBillDetail(bool bNoCreate);
     void setFloorNum(NGfcInteger nValue);
     NGfcInteger getFloorNum();
     bool hasFloorNum();

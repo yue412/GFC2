@@ -8,8 +8,8 @@ NGfcRepresentationItem::NGfcRepresentationItem()
     m_bOwner = true;
 }
 
-NGfcRepresentationItem::NGfcRepresentationItem(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcRepresentationItem::NGfcRepresentationItem(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

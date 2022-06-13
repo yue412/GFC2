@@ -9,7 +9,7 @@ public ref class NGfcDoubleProperty: public NGfcSingleProperty
 {
 public:
     NGfcDoubleProperty();
-    NGfcDoubleProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcDoubleProperty(bool bNoCreate);
     void setVal(NGfcDouble dValue);
     NGfcDouble getVal();
     bool hasVal();

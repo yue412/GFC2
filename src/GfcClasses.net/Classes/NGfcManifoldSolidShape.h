@@ -9,7 +9,7 @@ public ref class NGfcManifoldSolidShape: public NGfcSolidShape
 {
 public:
     NGfcManifoldSolidShape();
-    NGfcManifoldSolidShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcManifoldSolidShape(bool bNoCreate);
     void setBody(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getBody();
     bool hasBody();

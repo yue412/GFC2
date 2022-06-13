@@ -10,7 +10,7 @@ public ref class NGfcRelDefinesByType: public NGfcRelDefines
 {
 public:
     NGfcRelDefinesByType();
-    NGfcRelDefinesByType(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRelDefinesByType(bool bNoCreate);
     void setRelatingType(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRelatingType();
     bool hasRelatingType();

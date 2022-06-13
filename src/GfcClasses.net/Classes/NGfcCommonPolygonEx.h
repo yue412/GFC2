@@ -9,7 +9,7 @@ public ref class NGfcCommonPolygonEx: public NGfcPolygon
 {
 public:
     NGfcCommonPolygonEx();
-    NGfcCommonPolygonEx(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcCommonPolygonEx(bool bNoCreate);
     int getLoopExsCount();
     void clearLoopExs();
     void addLoopExs(gfc::engine::EntityRef nValue);

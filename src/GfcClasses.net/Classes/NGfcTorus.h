@@ -12,7 +12,7 @@ public ref class NGfcTorus: public NGfcSurface
 {
 public:
     NGfcTorus();
-    NGfcTorus(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcTorus(bool bNoCreate);
     void setCoord(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCoord();
     bool hasCoord();

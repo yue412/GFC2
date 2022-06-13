@@ -8,8 +8,8 @@ NGfcConnectionVolumeGeometry::NGfcConnectionVolumeGeometry()
     m_bOwner = true;
 }
 
-NGfcConnectionVolumeGeometry::NGfcConnectionVolumeGeometry(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcConnectionGeometry(pEntity, bOwner)
+NGfcConnectionVolumeGeometry::NGfcConnectionVolumeGeometry(bool bNoCreate):
+    NGfcConnectionGeometry(bNoCreate)
 {
 }
 

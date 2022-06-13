@@ -9,7 +9,7 @@ public ref class NGfcIntervald: public NGfcGeometry
 {
 public:
     NGfcIntervald();
-    NGfcIntervald(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcIntervald(bool bNoCreate);
     void setMin(NGfcDouble dValue);
     NGfcDouble getMin();
     bool hasMin();

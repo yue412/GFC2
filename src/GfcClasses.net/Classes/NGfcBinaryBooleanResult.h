@@ -10,7 +10,7 @@ public ref class NGfcBinaryBooleanResult: public NGfcBooleanResult
 {
 public:
     NGfcBinaryBooleanResult();
-    NGfcBinaryBooleanResult(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcBinaryBooleanResult(bool bNoCreate);
     void setOperator(NGfcBooleanOperator nValue);
     NGfcBooleanOperator getOperator();
     bool hasOperator();

@@ -8,8 +8,8 @@ NGfcNurbsCurve2d::NGfcNurbsCurve2d()
     m_bOwner = true;
 }
 
-NGfcNurbsCurve2d::NGfcNurbsCurve2d(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcCurve2d(pEntity, bOwner)
+NGfcNurbsCurve2d::NGfcNurbsCurve2d(bool bNoCreate):
+    NGfcCurve2d(bNoCreate)
 {
 }
 

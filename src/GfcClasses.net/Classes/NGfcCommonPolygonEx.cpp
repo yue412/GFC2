@@ -8,8 +8,8 @@ NGfcCommonPolygonEx::NGfcCommonPolygonEx()
     m_bOwner = true;
 }
 
-NGfcCommonPolygonEx::NGfcCommonPolygonEx(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcPolygon(pEntity, bOwner)
+NGfcCommonPolygonEx::NGfcCommonPolygonEx(bool bNoCreate):
+    NGfcPolygon(bNoCreate)
 {
 }
 

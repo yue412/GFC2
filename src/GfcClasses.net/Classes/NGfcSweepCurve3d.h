@@ -11,7 +11,7 @@ public ref class NGfcSweepCurve3d: public NGfcCurve3d
 {
 public:
     NGfcSweepCurve3d();
-    NGfcSweepCurve3d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSweepCurve3d(bool bNoCreate);
     void setSpine3d(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getSpine3d();
     bool hasSpine3d();

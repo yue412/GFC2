@@ -8,8 +8,8 @@ NGfcElementType::NGfcElementType()
     m_bOwner = true;
 }
 
-NGfcElementType::NGfcElementType(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcObject(pEntity, bOwner)
+NGfcElementType::NGfcElementType(bool bNoCreate):
+    NGfcObject(bNoCreate)
 {
 }
 

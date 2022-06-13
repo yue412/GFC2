@@ -9,7 +9,7 @@ public ref class NGfcLine3d: public NGfcCurve3d
 {
 public:
     NGfcLine3d();
-    NGfcLine3d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcLine3d(bool bNoCreate);
     void setStartPt(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getStartPt();
     bool hasStartPt();

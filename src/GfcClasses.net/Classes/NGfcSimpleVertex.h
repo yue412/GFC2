@@ -10,7 +10,7 @@ public ref class NGfcSimpleVertex: public NGfcTopology
 {
 public:
     NGfcSimpleVertex();
-    NGfcSimpleVertex(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSimpleVertex(bool bNoCreate);
     void setPoint(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPoint();
     bool hasPoint();

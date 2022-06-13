@@ -8,8 +8,8 @@ NGfcUnaryBooleanResult::NGfcUnaryBooleanResult()
     m_bOwner = true;
 }
 
-NGfcUnaryBooleanResult::NGfcUnaryBooleanResult(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcBooleanResult(pEntity, bOwner)
+NGfcUnaryBooleanResult::NGfcUnaryBooleanResult(bool bNoCreate):
+    NGfcBooleanResult(bNoCreate)
 {
 }
 

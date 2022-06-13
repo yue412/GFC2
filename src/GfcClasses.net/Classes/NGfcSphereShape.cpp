@@ -8,8 +8,8 @@ NGfcSphereShape::NGfcSphereShape()
     m_bOwner = true;
 }
 
-NGfcSphereShape::NGfcSphereShape(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcPrimitiveShape(pEntity, bOwner)
+NGfcSphereShape::NGfcSphereShape(bool bNoCreate):
+    NGfcPrimitiveShape(bNoCreate)
 {
 }
 

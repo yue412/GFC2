@@ -8,8 +8,8 @@ NGfcDoubleListProperty::NGfcDoubleListProperty()
     m_bOwner = true;
 }
 
-NGfcDoubleListProperty::NGfcDoubleListProperty(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcListProperty(pEntity, bOwner)
+NGfcDoubleListProperty::NGfcDoubleListProperty(bool bNoCreate):
+    NGfcListProperty(bNoCreate)
 {
 }
 

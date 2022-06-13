@@ -314,8 +314,10 @@
     <ClCompile Include="Classes\NGfcUnaryBooleanResult.cpp" />
     <ClCompile Include="Classes\NGfcVector2d.cpp" />
     <ClCompile Include="Classes\NGfcVector3d.cpp" />
-    <ClCompile Include="NGfcEntity.cpp" />
-    <ClCompile Include="NGfcWriter.cpp" />
+    <ClCompile Include="NDocument.cpp" />
+    <ClCompile Include="NEntity.cpp" />
+    <ClCompile Include="NReader.cpp" />
+    <ClCompile Include="NWriter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes\NGfcArbitrarySection.h" />
@@ -481,8 +483,10 @@
     <ClInclude Include="Classes\NGfcVector2d.h" />
     <ClInclude Include="Classes\NGfcVector3d.h" />
     <ClInclude Include="Classes\NTypeDef.h" />
-    <ClInclude Include="NGfcEntity.h" />
-    <ClInclude Include="NGfcWriter.h" />
+    <ClInclude Include="NDocument.h" />
+    <ClInclude Include="NEntity.h" />
+    <ClInclude Include="NReader.h" />
+    <ClInclude Include="NWriter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

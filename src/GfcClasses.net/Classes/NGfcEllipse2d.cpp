@@ -8,8 +8,8 @@ NGfcEllipse2d::NGfcEllipse2d()
     m_bOwner = true;
 }
 
-NGfcEllipse2d::NGfcEllipse2d(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcCurve2d(pEntity, bOwner)
+NGfcEllipse2d::NGfcEllipse2d(bool bNoCreate):
+    NGfcCurve2d(bNoCreate)
 {
 }
 

@@ -9,7 +9,7 @@ public ref class NGfcIntegerListProperty: public NGfcListProperty
 {
 public:
     NGfcIntegerListProperty();
-    NGfcIntegerListProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcIntegerListProperty(bool bNoCreate);
     int getValuesCount();
     void clearValues();
     void addValues(NGfcInteger nValue);

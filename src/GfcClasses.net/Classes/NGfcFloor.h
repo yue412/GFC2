@@ -13,7 +13,7 @@ public ref class NGfcFloor: public NGfcSpatialStructureElement
 {
 public:
     NGfcFloor();
-    NGfcFloor(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcFloor(bool bNoCreate);
     void setHeight(NGfcDouble dValue);
     NGfcDouble getHeight();
     bool hasHeight();

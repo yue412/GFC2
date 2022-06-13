@@ -8,8 +8,8 @@ NGfcNurbsSurface::NGfcNurbsSurface()
     m_bOwner = true;
 }
 
-NGfcNurbsSurface::NGfcNurbsSurface(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSurface(pEntity, bOwner)
+NGfcNurbsSurface::NGfcNurbsSurface(bool bNoCreate):
+    NGfcSurface(bNoCreate)
 {
 }
 

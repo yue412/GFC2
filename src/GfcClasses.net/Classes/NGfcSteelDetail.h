@@ -1,7 +1,7 @@
 #ifndef NGFCSTEELDETAIL_H
 #define NGFCSTEELDETAIL_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcSteelDetail.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,11 +9,11 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcSteelDetail: public NGfcEntity
+public ref class NGfcSteelDetail: public NEntity
 {
 public:
     NGfcSteelDetail();
-    NGfcSteelDetail(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSteelDetail(bool bNoCreate);
     void setEntityID(NGfcInteger nValue);
     NGfcInteger getEntityID();
     bool hasEntityID();

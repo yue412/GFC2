@@ -8,8 +8,8 @@ NGfcExtrudedAreaSolidTaperedShape::NGfcExtrudedAreaSolidTaperedShape()
     m_bOwner = true;
 }
 
-NGfcExtrudedAreaSolidTaperedShape::NGfcExtrudedAreaSolidTaperedShape(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcExtrudedAreaSolidShape(pEntity, bOwner)
+NGfcExtrudedAreaSolidTaperedShape::NGfcExtrudedAreaSolidTaperedShape(bool bNoCreate):
+    NGfcExtrudedAreaSolidShape(bNoCreate)
 {
 }
 

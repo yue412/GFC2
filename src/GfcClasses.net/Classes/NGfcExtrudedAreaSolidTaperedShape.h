@@ -9,7 +9,7 @@ public ref class NGfcExtrudedAreaSolidTaperedShape: public NGfcExtrudedAreaSolid
 {
 public:
     NGfcExtrudedAreaSolidTaperedShape();
-    NGfcExtrudedAreaSolidTaperedShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcExtrudedAreaSolidTaperedShape(bool bNoCreate);
     void setEndSweptArea(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getEndSweptArea();
     bool hasEndSweptArea();

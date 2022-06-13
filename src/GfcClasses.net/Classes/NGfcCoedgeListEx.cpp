@@ -8,8 +8,8 @@ NGfcCoedgeListEx::NGfcCoedgeListEx()
     m_bOwner = true;
 }
 
-NGfcCoedgeListEx::NGfcCoedgeListEx(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcTopology(pEntity, bOwner)
+NGfcCoedgeListEx::NGfcCoedgeListEx(bool bNoCreate):
+    NGfcTopology(bNoCreate)
 {
 }
 

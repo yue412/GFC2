@@ -9,7 +9,7 @@ public ref class NGfcGeoProperty: public NGfcSingleProperty
 {
 public:
     NGfcGeoProperty();
-    NGfcGeoProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcGeoProperty(bool bNoCreate);
     void setGeo(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getGeo();
     bool hasGeo();

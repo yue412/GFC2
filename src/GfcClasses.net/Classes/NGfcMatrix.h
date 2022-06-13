@@ -9,7 +9,7 @@ public ref class NGfcMatrix: public NGfcGeometry
 {
 public:
     NGfcMatrix();
-    NGfcMatrix(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcMatrix(bool bNoCreate);
     void setDim(NGfcInteger nValue);
     NGfcInteger getDim();
     bool hasDim();

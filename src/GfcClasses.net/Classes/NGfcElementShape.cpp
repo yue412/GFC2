@@ -8,8 +8,8 @@ NGfcElementShape::NGfcElementShape()
     m_bOwner = true;
 }
 
-NGfcElementShape::NGfcElementShape(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcElementShape::NGfcElementShape(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

@@ -8,8 +8,8 @@ NGfcArc3d::NGfcArc3d()
     m_bOwner = true;
 }
 
-NGfcArc3d::NGfcArc3d(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcPlaneCurve3d(pEntity, bOwner)
+NGfcArc3d::NGfcArc3d(bool bNoCreate):
+    NGfcPlaneCurve3d(bNoCreate)
 {
 }
 

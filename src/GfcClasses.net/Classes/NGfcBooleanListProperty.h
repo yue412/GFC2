@@ -9,7 +9,7 @@ public ref class NGfcBooleanListProperty: public NGfcListProperty
 {
 public:
     NGfcBooleanListProperty();
-    NGfcBooleanListProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcBooleanListProperty(bool bNoCreate);
     int getValuesCount();
     void clearValues();
     void addValues(NGfcBoolean bValue);

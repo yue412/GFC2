@@ -11,7 +11,7 @@ public ref class NGfcExtrudedBody: public NGfcPrimitiveBody
 {
 public:
     NGfcExtrudedBody();
-    NGfcExtrudedBody(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcExtrudedBody(bool bNoCreate);
     void setCoordinate(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCoordinate();
     bool hasCoordinate();

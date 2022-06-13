@@ -9,7 +9,7 @@ public ref class NGfcRectangleSection: public NGfcParameterizedSection
 {
 public:
     NGfcRectangleSection();
-    NGfcRectangleSection(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRectangleSection(bool bNoCreate);
     void setXLength(NGfcDouble dValue);
     NGfcDouble getXLength();
     bool hasXLength();

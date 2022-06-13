@@ -11,7 +11,7 @@ public ref class NGfcArc2d: public NGfcCurve2d
 {
 public:
     NGfcArc2d();
-    NGfcArc2d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcArc2d(bool bNoCreate);
     void setCenterPt(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getCenterPt();
     bool hasCenterPt();

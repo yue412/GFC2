@@ -9,7 +9,7 @@ public ref class NGfcSweptAreaSolidShape: public NGfcSolidShape
 {
 public:
     NGfcSweptAreaSolidShape();
-    NGfcSweptAreaSolidShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSweptAreaSolidShape(bool bNoCreate);
     void setSweptArea(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getSweptArea();
     bool hasSweptArea();

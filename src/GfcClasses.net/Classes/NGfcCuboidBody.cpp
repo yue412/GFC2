@@ -8,8 +8,8 @@ NGfcCuboidBody::NGfcCuboidBody()
     m_bOwner = true;
 }
 
-NGfcCuboidBody::NGfcCuboidBody(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcPrimitiveBody(pEntity, bOwner)
+NGfcCuboidBody::NGfcCuboidBody(bool bNoCreate):
+    NGfcPrimitiveBody(bNoCreate)
 {
 }
 

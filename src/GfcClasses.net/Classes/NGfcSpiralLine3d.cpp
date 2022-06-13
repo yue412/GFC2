@@ -8,8 +8,8 @@ NGfcSpiralLine3d::NGfcSpiralLine3d()
     m_bOwner = true;
 }
 
-NGfcSpiralLine3d::NGfcSpiralLine3d(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcCurve3d(pEntity, bOwner)
+NGfcSpiralLine3d::NGfcSpiralLine3d(bool bNoCreate):
+    NGfcCurve3d(bNoCreate)
 {
 }
 

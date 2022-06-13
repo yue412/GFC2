@@ -8,8 +8,8 @@ NGfcBillTotal::NGfcBillTotal()
     m_bOwner = true;
 }
 
-NGfcBillTotal::NGfcBillTotal(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcBillTotal::NGfcBillTotal(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

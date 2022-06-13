@@ -9,7 +9,7 @@ public ref class NGfcCommonPolygon: public NGfcPolygon
 {
 public:
     NGfcCommonPolygon();
-    NGfcCommonPolygon(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcCommonPolygon(bool bNoCreate);
     int getLoopsCount();
     void clearLoops();
     void addLoops(gfc::engine::EntityRef nValue);

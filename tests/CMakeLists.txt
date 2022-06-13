@@ -25,7 +25,6 @@ include_directories(
 	${PROJECT_SOURCE_DIR}/../include
 	${PROJECT_SOURCE_DIR}/../include/GfcClasses
 	${PROJECT_SOURCE_DIR}/../src/GfcSchema
-	${PROJECT_SOURCE_DIR}/../src/GfcTextSerializer
 	${PROJECT_SOURCE_DIR}/../src/GfcCommon
 	${PROJECT_SOURCE_DIR}/../src/GfcEngine
 	${PROJECT_SOURCE_DIR}/../thirdparty/tinyxml

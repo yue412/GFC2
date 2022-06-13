@@ -8,8 +8,8 @@ NGfcEntityListProperty::NGfcEntityListProperty()
     m_bOwner = true;
 }
 
-NGfcEntityListProperty::NGfcEntityListProperty(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcListProperty(pEntity, bOwner)
+NGfcEntityListProperty::NGfcEntityListProperty(bool bNoCreate):
+    NGfcListProperty(bNoCreate)
 {
 }
 

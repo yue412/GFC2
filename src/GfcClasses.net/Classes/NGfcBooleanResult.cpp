@@ -8,8 +8,8 @@ NGfcBooleanResult::NGfcBooleanResult()
     m_bOwner = true;
 }
 
-NGfcBooleanResult::NGfcBooleanResult(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSolidShape(pEntity, bOwner)
+NGfcBooleanResult::NGfcBooleanResult(bool bNoCreate):
+    NGfcSolidShape(bNoCreate)
 {
 }
 

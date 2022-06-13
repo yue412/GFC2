@@ -8,8 +8,8 @@ NGfcTorus::NGfcTorus()
     m_bOwner = true;
 }
 
-NGfcTorus::NGfcTorus(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSurface(pEntity, bOwner)
+NGfcTorus::NGfcTorus(bool bNoCreate):
+    NGfcSurface(bNoCreate)
 {
 }
 

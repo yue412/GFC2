@@ -11,7 +11,7 @@ public ref class NGfcSinCurve2d: public NGfcCurve2d
 {
 public:
     NGfcSinCurve2d();
-    NGfcSinCurve2d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSinCurve2d(bool bNoCreate);
     void setPos(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPos();
     bool hasPos();

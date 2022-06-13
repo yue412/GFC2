@@ -9,7 +9,7 @@ public ref class NGfcEntityProperty: public NGfcSingleProperty
 {
 public:
     NGfcEntityProperty();
-    NGfcEntityProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcEntityProperty(bool bNoCreate);
     void setVal(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getVal();
     bool hasVal();

@@ -9,7 +9,7 @@ public ref class NGfcUnaryBooleanResult: public NGfcBooleanResult
 {
 public:
     NGfcUnaryBooleanResult();
-    NGfcUnaryBooleanResult(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcUnaryBooleanResult(bool bNoCreate);
     void setOperand(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getOperand();
     bool hasOperand();

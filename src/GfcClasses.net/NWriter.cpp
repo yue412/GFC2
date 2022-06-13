@@ -1,30 +1,30 @@
-#include "NGfcWriter.h"
+#include "NWriter.h"
 #include <msclr\marshal_cppstd.h>
 #include "GfcClasses\x3\Writer.h"
 
 using namespace msclr::interop;
 
-NGfcWriter::NGfcWriter(String^ sProductCode)
+NWriter::NWriter(System::String^ sProductCode)
 {
     m_pWriter = new gfc::classes::x3::CWriter(marshal_as<std::wstring>(sProductCode));
 }
 
-NGfcWriter::~NGfcWriter()
+NWriter::~NWriter()
 {
     delete m_pWriter;
 }
 
-bool NGfcWriter::open( String^ sFileName, String^ sFormatType /*= ""*/ )
+bool NWriter::open(System::String^ sFileName, System::String^ sFormatType /*= ""*/ )
 {
     return m_pWriter->open(marshal_as<std::wstring>(sFileName), marshal_as<std::wstring>(sFormatType));
 }
 
-void NGfcWriter::close()
+void NWriter::close()
 {
     m_pWriter->close();
 }
 
-gfc::engine::EntityRef NGfcWriter::writeEntity( NGfcEntity^ pEntity )
+gfc::engine::EntityRef NWriter::writeEntity( NEntity^ pEntity )
 {
     return m_pWriter->writeEntity(pEntity->getEntity());
 }

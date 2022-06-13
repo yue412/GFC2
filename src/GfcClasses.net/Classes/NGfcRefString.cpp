@@ -8,8 +8,8 @@ NGfcRefString::NGfcRefString()
     m_bOwner = true;
 }
 
-NGfcRefString::NGfcRefString(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcRefString::NGfcRefString(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

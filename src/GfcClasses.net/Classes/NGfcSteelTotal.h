@@ -1,7 +1,7 @@
 #ifndef NGFCSTEELTOTAL_H
 #define NGFCSTEELTOTAL_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcSteelTotal.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,11 +9,11 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcSteelTotal: public NGfcEntity
+public ref class NGfcSteelTotal: public NEntity
 {
 public:
     NGfcSteelTotal();
-    NGfcSteelTotal(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSteelTotal(bool bNoCreate);
     void setCompType(NGfcString sValue);
     NGfcString getCompType();
     bool hasCompType();

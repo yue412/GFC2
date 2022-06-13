@@ -9,7 +9,7 @@ public ref class NGfcArbitrarySection: public NGfcSection
 {
 public:
     NGfcArbitrarySection();
-    NGfcArbitrarySection(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcArbitrarySection(bool bNoCreate);
     void setPoly(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPoly();
     bool hasPoly();

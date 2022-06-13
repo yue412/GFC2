@@ -9,7 +9,7 @@ public ref class NGfcVector3d: public NGfcGeometry
 {
 public:
     NGfcVector3d();
-    NGfcVector3d(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcVector3d(bool bNoCreate);
     void setX(NGfcDouble dValue);
     NGfcDouble getX();
     bool hasX();

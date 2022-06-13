@@ -9,7 +9,7 @@ public ref class NGfcParameterizedSection: public NGfcSection
 {
 public:
     NGfcParameterizedSection();
-    NGfcParameterizedSection(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcParameterizedSection(bool bNoCreate);
     void setPosition(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getPosition();
     bool hasPosition();

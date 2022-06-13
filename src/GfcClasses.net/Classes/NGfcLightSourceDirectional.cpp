@@ -8,8 +8,8 @@ NGfcLightSourceDirectional::NGfcLightSourceDirectional()
     m_bOwner = true;
 }
 
-NGfcLightSourceDirectional::NGfcLightSourceDirectional(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcLightSource(pEntity, bOwner)
+NGfcLightSourceDirectional::NGfcLightSourceDirectional(bool bNoCreate):
+    NGfcLightSource(bNoCreate)
 {
 }
 

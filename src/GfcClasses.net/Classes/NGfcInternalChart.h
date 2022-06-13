@@ -1,16 +1,16 @@
 #ifndef NGFCINTERNALCHART_H
 #define NGFCINTERNALCHART_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcInternalChart.h"
 #include "NGfcInternalPt.h"
 #include "NTypeDef.h"
 
-public ref class NGfcInternalChart: public NGfcEntity
+public ref class NGfcInternalChart: public NEntity
 {
 public:
     NGfcInternalChart();
-    NGfcInternalChart(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcInternalChart(bool bNoCreate);
     void setTra1(NGfcDouble dValue);
     NGfcDouble getTra1();
     bool hasTra1();

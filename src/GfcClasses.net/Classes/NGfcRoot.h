@@ -1,14 +1,14 @@
 #ifndef NGFCROOT_H
 #define NGFCROOT_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcRoot.h"
 
-public ref class NGfcRoot: public NGfcEntity
+public ref class NGfcRoot: public NEntity
 {
 public:
     NGfcRoot();
-    NGfcRoot(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRoot(bool bNoCreate);
 
 };
 #endif

@@ -9,7 +9,7 @@ public ref class NGfcDoubleListProperty: public NGfcListProperty
 {
 public:
     NGfcDoubleListProperty();
-    NGfcDoubleListProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcDoubleListProperty(bool bNoCreate);
     int getValuesCount();
     void clearValues();
     void addValues(NGfcDouble dValue);

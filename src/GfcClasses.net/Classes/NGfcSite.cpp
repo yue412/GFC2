@@ -8,8 +8,8 @@ NGfcSite::NGfcSite()
     m_bOwner = true;
 }
 
-NGfcSite::NGfcSite(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSpatialStructureElement(pEntity, bOwner)
+NGfcSite::NGfcSite(bool bNoCreate):
+    NGfcSpatialStructureElement(bNoCreate)
 {
 }
 

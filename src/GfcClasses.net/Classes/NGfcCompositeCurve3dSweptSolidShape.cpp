@@ -8,8 +8,8 @@ NGfcCompositeCurve3dSweptSolidShape::NGfcCompositeCurve3dSweptSolidShape()
     m_bOwner = true;
 }
 
-NGfcCompositeCurve3dSweptSolidShape::NGfcCompositeCurve3dSweptSolidShape(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSweptAreaSolidShape(pEntity, bOwner)
+NGfcCompositeCurve3dSweptSolidShape::NGfcCompositeCurve3dSweptSolidShape(bool bNoCreate):
+    NGfcSweptAreaSolidShape(bNoCreate)
 {
 }
 

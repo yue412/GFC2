@@ -8,8 +8,8 @@ NGfcColor::NGfcColor()
     m_bOwner = true;
 }
 
-NGfcColor::NGfcColor(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcColor::NGfcColor(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

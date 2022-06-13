@@ -8,7 +8,7 @@ public ref class NGfcComplexProperty: public NGfcProperty
 {
 public:
     NGfcComplexProperty();
-    NGfcComplexProperty(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcComplexProperty(bool bNoCreate);
     int getHasPropertiesCount();
     void clearHasProperties();
     void addHasProperties(gfc::engine::EntityRef nValue);

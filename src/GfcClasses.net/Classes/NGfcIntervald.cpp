@@ -8,8 +8,8 @@ NGfcIntervald::NGfcIntervald()
     m_bOwner = true;
 }
 
-NGfcIntervald::NGfcIntervald(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcGeometry(pEntity, bOwner)
+NGfcIntervald::NGfcIntervald(bool bNoCreate):
+    NGfcGeometry(bNoCreate)
 {
 }
 

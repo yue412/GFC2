@@ -1,7 +1,7 @@
 #ifndef NGFCQUOTADETAIL_H
 #define NGFCQUOTADETAIL_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcQuotaDetail.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,11 +9,11 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcQuotaDetail: public NGfcEntity
+public ref class NGfcQuotaDetail: public NEntity
 {
 public:
     NGfcQuotaDetail();
-    NGfcQuotaDetail(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcQuotaDetail(bool bNoCreate);
     void setFloorNum(NGfcInteger nValue);
     NGfcInteger getFloorNum();
     bool hasFloorNum();

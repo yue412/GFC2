@@ -8,7 +8,7 @@ public ref class NGfcBooleanResult: public NGfcSolidShape
 {
 public:
     NGfcBooleanResult();
-    NGfcBooleanResult(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcBooleanResult(bool bNoCreate);
 
 };
 #endif

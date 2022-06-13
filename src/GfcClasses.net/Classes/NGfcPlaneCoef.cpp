@@ -8,8 +8,8 @@ NGfcPlaneCoef::NGfcPlaneCoef()
     m_bOwner = true;
 }
 
-NGfcPlaneCoef::NGfcPlaneCoef(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcEntity(pEntity, bOwner)
+NGfcPlaneCoef::NGfcPlaneCoef(bool bNoCreate):
+    NEntity(bNoCreate)
 {
 }
 

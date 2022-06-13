@@ -8,8 +8,8 @@ NGfcBox3d::NGfcBox3d()
     m_bOwner = true;
 }
 
-NGfcBox3d::NGfcBox3d(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcGeometry(pEntity, bOwner)
+NGfcBox3d::NGfcBox3d(bool bNoCreate):
+    NGfcGeometry(bNoCreate)
 {
 }
 

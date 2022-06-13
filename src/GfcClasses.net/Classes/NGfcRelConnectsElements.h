@@ -10,7 +10,7 @@ public ref class NGfcRelConnectsElements: public NGfcRelConnects
 {
 public:
     NGfcRelConnectsElements();
-    NGfcRelConnectsElements(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcRelConnectsElements(bool bNoCreate);
     void setRelatingElement(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getRelatingElement();
     bool hasRelatingElement();

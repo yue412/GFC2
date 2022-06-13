@@ -8,8 +8,8 @@ NGfcSurface::NGfcSurface()
     m_bOwner = true;
 }
 
-NGfcSurface::NGfcSurface(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcGeometry(pEntity, bOwner)
+NGfcSurface::NGfcSurface(bool bNoCreate):
+    NGfcGeometry(bNoCreate)
 {
 }
 

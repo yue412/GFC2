@@ -5,19 +5,24 @@
 
 //using namespace System;
 
-public ref class NGfcEntity
+ref class NDocument;
+
+public ref class NEntity
 {
 public:
-    NGfcEntity();
-    NGfcEntity(gfc::engine::CEntity* pEntity, bool bOwner);
-    virtual ~NGfcEntity(void);
+    NEntity();
+    NEntity(bool bNoCreate);
+    void init(gfc::engine::CEntity* pEntity, bool bOwner);
+    virtual ~NEntity(void);
     System::String^ entityName();
     bool isInitialized();
     gfc::engine::CEntity* getEntity();
+    void setDocument(NDocument^ pDoc);
 protected:
     gfc::engine::CEntity* m_pEntity;
     //void* m_pEntity;
     bool m_bOwner;
+    NDocument^ m_pDoc;
 };
 
 #endif

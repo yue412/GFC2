@@ -8,8 +8,8 @@ NGfcExtrudedBody::NGfcExtrudedBody()
     m_bOwner = true;
 }
 
-NGfcExtrudedBody::NGfcExtrudedBody(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcPrimitiveBody(pEntity, bOwner)
+NGfcExtrudedBody::NGfcExtrudedBody(bool bNoCreate):
+    NGfcPrimitiveBody(bNoCreate)
 {
 }
 

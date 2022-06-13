@@ -9,7 +9,7 @@ public ref class NGfcEllipseSection: public NGfcParameterizedSection
 {
 public:
     NGfcEllipseSection();
-    NGfcEllipseSection(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcEllipseSection(bool bNoCreate);
     void setSemiAxis1(NGfcDouble dValue);
     NGfcDouble getSemiAxis1();
     bool hasSemiAxis1();

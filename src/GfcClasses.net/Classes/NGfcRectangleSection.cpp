@@ -8,8 +8,8 @@ NGfcRectangleSection::NGfcRectangleSection()
     m_bOwner = true;
 }
 
-NGfcRectangleSection::NGfcRectangleSection(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcParameterizedSection(pEntity, bOwner)
+NGfcRectangleSection::NGfcRectangleSection(bool bNoCreate):
+    NGfcParameterizedSection(bNoCreate)
 {
 }
 

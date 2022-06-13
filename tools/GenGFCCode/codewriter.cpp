@@ -324,7 +324,7 @@ void CCodeWriter::writeCliClassHeadFile(CClass *pTypeObject, CppClass *pClass)
     }
     else
     {
-        oFile.addInclude(L"NGfcEntity.h");
+        oFile.addInclude(L"NEntity.h");
     }
     // include attribute file
     //if (nCount > 0)
@@ -881,9 +881,9 @@ void CCodeWriter::addCliConstructor1(CClass *pTypeObject, CppClass *pClass)
 void CCodeWriter::addCliConstructor2(CClass *pTypeObject, CppClass *pClass)
 {
     CFunction* pFunc = pClass->addConstructor(AT_PUBLIC);
-    pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
-    pFunc->addParam(L"bool", L"bOwner");
-    pFunc->addInitListItem(FormatWstring(L"%s(pEntity, bOwner)", 
+    //pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
+    pFunc->addParam(L"bool", L"bNoCreate");
+    pFunc->addInitListItem(FormatWstring(L"%s(bNoCreate)", 
         getParentClassCode(pTypeObject, true).c_str()
     ));
 }
@@ -2307,7 +2307,7 @@ std::wstring CCodeWriter::getParentClassCode(CClass *pClass, bool b4cli)
             return pClass->getParent()->getName();
     else
         if (b4cli)
-            return L"NGfcEntity";
+            return L"NEntity";
         else
             return L"gfc::engine::CEntity";
 }

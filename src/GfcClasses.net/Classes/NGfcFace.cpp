@@ -8,8 +8,8 @@ NGfcFace::NGfcFace()
     m_bOwner = true;
 }
 
-NGfcFace::NGfcFace(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcCommonPolygonEx(pEntity, bOwner)
+NGfcFace::NGfcFace(bool bNoCreate):
+    NGfcCommonPolygonEx(bNoCreate)
 {
 }
 

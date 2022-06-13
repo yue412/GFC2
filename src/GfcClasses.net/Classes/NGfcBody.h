@@ -8,7 +8,7 @@ public ref class NGfcBody: public NGfcGeometry
 {
 public:
     NGfcBody();
-    NGfcBody(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcBody(bool bNoCreate);
 
 };
 #endif

@@ -8,8 +8,8 @@ NGfcPolyhedralLoop::NGfcPolyhedralLoop()
     m_bOwner = true;
 }
 
-NGfcPolyhedralLoop::NGfcPolyhedralLoop(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcTopology(pEntity, bOwner)
+NGfcPolyhedralLoop::NGfcPolyhedralLoop(bool bNoCreate):
+    NGfcTopology(bNoCreate)
 {
 }
 

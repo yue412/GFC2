@@ -8,8 +8,8 @@ NGfcPlane::NGfcPlane()
     m_bOwner = true;
 }
 
-NGfcPlane::NGfcPlane(gfc::engine::CEntity* pEntity, bool bOwner):
-    NGfcSurface(pEntity, bOwner)
+NGfcPlane::NGfcPlane(bool bNoCreate):
+    NGfcSurface(bNoCreate)
 {
 }
 

@@ -8,7 +8,7 @@ public ref class NGfcBuilding: public NGfcSpatialStructureElement
 {
 public:
     NGfcBuilding();
-    NGfcBuilding(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcBuilding(bool bNoCreate);
 
 };
 #endif

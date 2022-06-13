@@ -1,18 +1,18 @@
 #ifndef NGFCINDEXEDTEXTUREMAP_H
 #define NGFCINDEXEDTEXTUREMAP_H
 
-#include "NGfcEntity.h"
+#include "NEntity.h"
 #include "GfcClasses\x3\GfcIndexedTextureMap.h"
 #include "NGfcPrimitiveRenderable.h"
 #include "NGfcVector2d.h"
 #include "NGfcSurfaceTexture.h"
 #include "NTypeDef.h"
 
-public ref class NGfcIndexedTextureMap: public NGfcEntity
+public ref class NGfcIndexedTextureMap: public NEntity
 {
 public:
     NGfcIndexedTextureMap();
-    NGfcIndexedTextureMap(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcIndexedTextureMap(bool bNoCreate);
     void setMappedTo(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getMappedTo();
     bool hasMappedTo();

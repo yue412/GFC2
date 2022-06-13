@@ -8,7 +8,7 @@ public ref class NGfcSolidShape: public NGfcParametricShape
 {
 public:
     NGfcSolidShape();
-    NGfcSolidShape(gfc::engine::CEntity* pEntity, bool bOwner);
+    NGfcSolidShape(bool bNoCreate);
 
 };
 #endif
