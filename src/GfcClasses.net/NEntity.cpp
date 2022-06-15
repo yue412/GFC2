@@ -39,6 +39,11 @@ bool NEntity::isInitialized()
     return getEntity()->isInitialized();
 }
 
+gfc::engine::EntityRef NEntity::ref()
+{
+    return m_pEntity->ref();
+}
+
 gfc::engine::CEntity* NEntity::getEntity()
 {
     return (gfc::engine::CEntity*)m_pEntity;

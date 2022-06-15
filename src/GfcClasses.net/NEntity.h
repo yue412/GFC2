@@ -16,6 +16,7 @@ public:
     virtual ~NEntity(void);
     System::String^ entityName();
     bool isInitialized();
+    gfc::engine::EntityRef ref();
     gfc::engine::CEntity* getEntity();
     void setDocument(NDocument^ pDoc);
 protected:
