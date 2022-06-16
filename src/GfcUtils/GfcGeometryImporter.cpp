@@ -235,23 +235,23 @@ ggp::COffsetCurve2d* GfcGeometryImporter::importOffsetCurve2d(gfc::engine::CEnti
 
 ggp::CCurve2d* GfcGeometryImporter::importCurve2d(gfc::engine::CEntity* pSrc )
 {
-    if(pSrc->entityName() == L"Gfc2Line2d")
+    if(pSrc->entityName() == L"GfcLine2d")
         return importLine2d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2Arc2d")
+    else if (pSrc->entityName() == L"GfcArc2d")
         return importArc2d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2NurbsCurve2d")
+    else if (pSrc->entityName() == L"GfcNurbsCurve2d")
         return importNurbsCurve2d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2Ellipse2d")
+    else if (pSrc->entityName() == L"GfcEllipse2d")
         return importEllipse2d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2SinCurve2d")
+    else if (pSrc->entityName() == L"GfcSinCurve2d")
         return importSinCurve2d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2SpiralLine2d")
+    else if (pSrc->entityName() == L"GfcSpiralLine2d")
         return importSpiralLine2d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2PreimageCurve2d")
+    else if (pSrc->entityName() == L"GfcPreimageCurve2d")
         return importPreimageCurve2d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2OffsetCurve2d")
+    else if (pSrc->entityName() == L"GfcOffsetCurve2d")
         return importOffsetCurve2d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2HermiteCurve2d")
+    else if (pSrc->entityName() == L"GfcHermiteCurve2d")
 		return importHermiteCurve2d(pSrc);
     else
     {
@@ -439,19 +439,19 @@ ggp::CImageCurve3d* GfcGeometryImporter::importImageCurve3d(gfc::engine::CEntity
 
 ggp::CCurve3d* GfcGeometryImporter::importCurve3d(gfc::engine::CEntity* pSrc )
 {
-    if(pSrc->entityName() == L"Gfc2Line3d")
+    if(pSrc->entityName() == L"GfcLine3d")
         return importLine3d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2NurbsCurve3d")
+    else if (pSrc->entityName() == L"GfcNurbsCurve3d")
         return importNurbsCurve3d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2PlaneCurve3d")
+    else if (pSrc->entityName() == L"GfcPlaneCurve3d")
 		return importPlaneCurve3d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2SpiralLine3d")
+    else if (pSrc->entityName() == L"GfcSpiralLine3d")
         return importSpiralLine3d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2SweepCurve3d")
+    else if (pSrc->entityName() == L"GfcSweepCurve3d")
         return importSweepCurve3d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2IntersectionCurve3d")
+    else if (pSrc->entityName() == L"GfcIntersectionCurve3d")
         return importIntersectionCurve3d(pSrc);
-    else if (pSrc->entityName() == L"Gfc2ImageCurve3d")
+    else if (pSrc->entityName() == L"GfcImageCurve3d")
         return importImageCurve3d(pSrc);
     else
     {
@@ -484,13 +484,16 @@ ggp::CCylinder* GfcGeometryImporter::importCylinder(gfc::engine::CEntity* pSrc )
     ggp::CCylinder* pResult = NULL;
     if (pSrc)
     {
-        ggp::CCoordinates3d oCoord = importCoordinates3d(pSrc->asEntity(L"Coord").get());
+        //ggp::CCoordinates3d oCoord = importCoordinates3d(pSrc->asEntity(L"Coord").get());
+        auto oDirX = importVector3d(pSrc->asEntity(L"DirX").get());
+        auto oDirY = importVector3d(pSrc->asEntity(L"DirY").get());
+        auto oDirZ = importVector3d(pSrc->asEntity(L"DirZ").get());
+        auto oPos = importVector3d(pSrc->asEntity(L"Pos").get());
+        auto oRangeV = importIntervald(pSrc->asEntity(L"RangeV").get());
         ggp::CCurve2d* pCurve = importCurve2d(pSrc->asEntity(L"Curve").get());
         if (pCurve)
         {
-            pResult = new ggp::CCylinder(oCoord.X, oCoord.Y, oCoord.Z, oCoord.Origin,
-                importIntervald(pSrc->asEntity(L"RangeV").get()),
-                pCurve);
+            pResult = new ggp::CCylinder(oDirX, oDirY, oDirZ, oPos, oRangeV, pCurve);
             pCurve->Free();
         }
     }
@@ -648,23 +651,23 @@ ggp::CRuledSurface* GfcGeometryImporter::importRuledSurface(gfc::engine::CEntity
 
 ggp::CSurface* GfcGeometryImporter::importSurface(gfc::engine::CEntity* pSrc )
 {
-    if(pSrc->entityName() == L"Gfc2Plane")
+    if(pSrc->entityName() == L"GfcPlane")
         return importPlane(pSrc);
-    else if(pSrc->entityName() == L"Gfc2Cylinder")
+    else if(pSrc->entityName() == L"GfcCylinder")
         return importCylinder(pSrc);
-    else if (pSrc->entityName() == L"Gfc2NurbsSurface")
+    else if (pSrc->entityName() == L"GfcNurbsSurface")
         return importNurbsSurface(pSrc);
-    else if (pSrc->entityName() == L"Gfc2Bevel")
+    else if (pSrc->entityName() == L"GfcBevel")
         return importBevel(pSrc);
-    else if (pSrc->entityName() == L"Gfc2Torus")
+    else if (pSrc->entityName() == L"GfcTorus")
         return importTorus(pSrc);
-    else if (pSrc->entityName() == L"Gfc2Sphere")
+    else if (pSrc->entityName() == L"GfcSphere")
         return importSphere(pSrc);
-    else if (pSrc->entityName() == L"Gfc2Helicoid")
+    else if (pSrc->entityName() == L"GfcHelicoid")
         return importHelicoid(pSrc);
-    else if (pSrc->entityName() == L"Gfc2Sweep")
+    else if (pSrc->entityName() == L"GfcSweep")
         return importSweep(pSrc);
-    else if (pSrc->entityName() == L"Gfc2RuledSurface")
+    else if (pSrc->entityName() == L"GfcRuledSurface")
         return importRuledSurface(pSrc);
     else {
         assert(false);
@@ -751,13 +754,13 @@ ggp::CPolyhedronBody* GfcGeometryImporter::importPolyhedronBody(gfc::engine::CEn
 
 ggp::CBody* GfcGeometryImporter::importBody(gfc::engine::CEntity* pSrc )
 {
-    if (pSrc->entityName() == L"Gfc2BrepBody")
+    if (pSrc->entityName() == L"GfcBrepBody")
         return importBrepBody(pSrc);
-    else if (pSrc->entityName() == L"Gfc2CuboidBody")
+    else if (pSrc->entityName() == L"GfcCuboidBody")
         return importCuboidBody(pSrc);
-    else if (pSrc->entityName() == L"Gfc2ExtrudedBody")
+    else if (pSrc->entityName() == L"GfcExtrudedBody")
         return importExtrudedBody(pSrc);
-    else if (pSrc->entityName() == L"Gfc2PolyhedronBody")
+    else if (pSrc->entityName() == L"GfcPolyhedronBody")
         return importPolyhedronBody(pSrc);
         //     case TinyPolyhedronType:
         //         return exportBrepBody(pSrc);
@@ -963,9 +966,9 @@ ggp::CPolyhedralEdge* GfcGeometryImporter::importPolyhedralEdge(gfc::engine::CEn
 
 void GfcGeometryImporter::innerImportPolygon(gfc::engine::CEntity* pSrc, ggp::CPolygon* pDest )
 {
-    if(pSrc->entityName() == L"Gfc2SimplePolygon")
+    if(pSrc->entityName() == L"GfcSimplePolygon")
         innerImportSimplePolygon(pSrc, pDest);
-    else if(pSrc->entityName() == L"Gfc2CommonPolygon")
+    else if(pSrc->entityName() == L"GfcCommonPolygon")
         innerImportCommonPolygon(pSrc, pDest);
     else
         assert(false);
