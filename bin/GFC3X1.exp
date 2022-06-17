@@ -130,7 +130,8 @@ ENTITY GfcBevel
 	Curve : GfcCurve2d;
 END_ENTITY;
 
-ENTITY GfcBillDetail;
+ENTITY GfcBillDetail
+ SUBTYPE OF (GfcRoot);
 	FloorNum : GfcInteger;
 	EntityID : GfcInteger;
 	Unit : GfcString;
@@ -139,7 +140,8 @@ ENTITY GfcBillDetail;
 	Memo : GfcString;
 END_ENTITY;
 
-ENTITY GfcBillTotal;
+ENTITY GfcBillTotal
+ SUBTYPE OF (GfcRoot);
 	Code : GfcString;
 	Name : GfcString;
 	Attr : GfcString;
@@ -233,7 +235,8 @@ ENTITY GfcCoedgeListEx
 	CoedgeExs : LIST [0:?] OF GfcCoedge;
 END_ENTITY;
 
-ENTITY GfcColor;
+ENTITY GfcColor
+ SUBTYPE OF (GfcRoot);
 	Red : GfcInteger;
 	Green : GfcInteger;
 	Blue : GfcInteger;
@@ -285,7 +288,8 @@ ENTITY GfcConnectionGeometry
 	(GfcConnectionCurveGeometry
 	,GfcConnectionPointGeometry
 	,GfcConnectionSurfaceGeometry
-	,GfcConnectionVolumeGeometry));
+	,GfcConnectionVolumeGeometry))
+ SUBTYPE OF (GfcRoot);
 END_ENTITY;
 
 ENTITY GfcConnectionPointGeometry
@@ -401,7 +405,8 @@ ENTITY GfcElement
 	Shapes : LIST [0:?] OF GfcElementShape;
 END_ENTITY;
 
-ENTITY GfcElementShape;
+ENTITY GfcElementShape
+ SUBTYPE OF (GfcRoot);
 	Identifier : GfcString;
 	Shape : GfcShape;
 END_ENTITY;
@@ -501,7 +506,8 @@ ENTITY GfcGeometry
 	,GfcCurve3d
 	,GfcSurface
 	,GfcTopology
-	,GfcMatrix));
+	,GfcMatrix))
+ SUBTYPE OF (GfcRoot);
 END_ENTITY;
 
 ENTITY GfcGeometryShape
@@ -532,14 +538,16 @@ ENTITY GfcImageCurve3d
 	Surface : GfcSurface;
 END_ENTITY;
 
-ENTITY GfcIndexedColourMap;
+ENTITY GfcIndexedColourMap
+ SUBTYPE OF (GfcRoot);
 	Transparency : GfcDouble;
 	Colours : LIST [0:?] OF GfcColor;
 	ColourIndex : LIST [0:?] OF GfcInteger;
 	MappedTo : GfcPrimitiveRenderable;
 END_ENTITY;
 
-ENTITY GfcIndexedTextureMap;
+ENTITY GfcIndexedTextureMap
+ SUBTYPE OF (GfcRoot);
 	MappedTo : GfcPrimitiveRenderable;
 	TexCoords : LIST [0:?] OF GfcVector2d;
 	TexCoordIndex : LIST [0:?] OF GfcInteger;
@@ -556,14 +564,16 @@ ENTITY GfcIntegerProperty
 	Val : GfcInteger;
 END_ENTITY;
 
-ENTITY GfcInternalChart;
+ENTITY GfcInternalChart
+ SUBTYPE OF (GfcRoot);
 	Tra1 : GfcDouble;
 	Tra2 : GfcDouble;
 	Tra3 : GfcDouble;
 	IPS : LIST [0:?] OF GfcInternalPt;
 END_ENTITY;
 
-ENTITY GfcInternalPt;
+ENTITY GfcInternalPt
+ SUBTYPE OF (GfcRoot);
 	P : GfcVector3d;
 	TVec : GfcVector3d;
 	T : GfcDouble;
@@ -660,12 +670,14 @@ ENTITY GfcMatrix
 	Data : LIST [0:?] OF GfcDouble;
 END_ENTITY;
 
-ENTITY GfcNurbsCtrlPt2d;
+ENTITY GfcNurbsCtrlPt2d
+ SUBTYPE OF (GfcRoot);
 	Point : GfcVector2d;
 	Weight : GfcDouble;
 END_ENTITY;
 
-ENTITY GfcNurbsCtrlPt3d;
+ENTITY GfcNurbsCtrlPt3d
+ SUBTYPE OF (GfcRoot);
 	Point : GfcVector3d;
 	Weight : GfcDouble;
 END_ENTITY;
@@ -700,7 +712,8 @@ ENTITY GfcObject
 	(GfcProject
 	,GfcElement
 	,GfcSpatialStructureElement
-	,GfcElementType));
+	,GfcElementType))
+ SUBTYPE OF (GfcRoot);
 	ID : GfcIdentity;
 	Name : OPTIONAL GfcLabel;
 END_ENTITY;
@@ -737,7 +750,8 @@ ENTITY GfcPlane
 	RangeV : GfcIntervald;
 END_ENTITY;
 
-ENTITY GfcPlaneCoef;
+ENTITY GfcPlaneCoef
+ SUBTYPE OF (GfcRoot);
 	A : GfcDouble;
 	B : GfcDouble;
 	C : GfcDouble;
@@ -753,7 +767,8 @@ ENTITY GfcPlaneCurve3d
 	Plane : GfcPlaneInfo;
 END_ENTITY;
 
-ENTITY GfcPlaneInfo;
+ENTITY GfcPlaneInfo
+ SUBTYPE OF (GfcRoot);
 	DirX : GfcVector3d;
 	DirY : GfcVector3d;
 	Pos : GfcVector3d;
@@ -832,18 +847,21 @@ END_ENTITY;
 ENTITY GfcProperty
  SUPERTYPE OF (ONEOF
 	(GfcComplexProperty
-	,GfcSimpleProperty));
+	,GfcSimpleProperty))
+ SUBTYPE OF (GfcRoot);
 	Name : GfcLabel;
 	Code : OPTIONAL GfcString;
 	Extension : OPTIONAL GfcString;
 END_ENTITY;
 
-ENTITY GfcPropertySet;
+ENTITY GfcPropertySet
+ SUBTYPE OF (GfcRoot);
 	Name : OPTIONAL GfcLabel;
 	HasProperties : LIST [0:?] OF GfcProperty;
 END_ENTITY;
 
-ENTITY GfcQuotaDetail;
+ENTITY GfcQuotaDetail
+ SUBTYPE OF (GfcRoot);
 	FloorNum : GfcInteger;
 	EntityID : GfcInteger;
 	Unit : GfcString;
@@ -852,7 +870,8 @@ ENTITY GfcQuotaDetail;
 	Memo : GfcString;
 END_ENTITY;
 
-ENTITY GfcQuotaTotal;
+ENTITY GfcQuotaTotal
+ SUBTYPE OF (GfcRoot);
 	Code : GfcString;
 	SubCode : GfcString;
 	Name : GfcString;
@@ -875,7 +894,8 @@ ENTITY GfcRectangleSection
 	YLength : GfcDouble;
 END_ENTITY;
 
-ENTITY GfcRefString;
+ENTITY GfcRefString
+ SUBTYPE OF (GfcRoot);
 	Val : STRING;
 END_ENTITY;
 
@@ -955,11 +975,13 @@ ENTITY GfcRelationShip
  SUPERTYPE OF (ONEOF
 	(GfcRelDecomposes
 	,GfcRelDefines
-	,GfcRelConnects));
+	,GfcRelConnects))
+ SUBTYPE OF (GfcRoot);
 	Name : OPTIONAL GfcLabel;
 END_ENTITY;
 
-ENTITY GfcRepresentation;
+ENTITY GfcRepresentation
+ SUBTYPE OF (GfcRoot);
 	Identifier : GfcString;
 	items : LIST [0:?] OF GfcRepresentationItem;
 END_ENTITY;
@@ -967,7 +989,8 @@ END_ENTITY;
 ENTITY GfcRepresentationItem
  SUPERTYPE OF (ONEOF
 	(GfcPrimitiveRenderable
-	,GfcLightSource));
+	,GfcLightSource))
+ SUBTYPE OF (GfcRoot);
 END_ENTITY;
 
 ENTITY GfcRevolvedAreaSolidShape
@@ -984,7 +1007,36 @@ ENTITY GfcRevolvedAreaSolidTaperedShape
 	EndSweptArea : GfcSection;
 END_ENTITY;
 
-ENTITY GfcRoot;
+ENTITY GfcRoot
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(GfcGeometry
+	,GfcInternalChart
+	,GfcInternalPt
+	,GfcNurbsCtrlPt2d
+	,GfcNurbsCtrlPt3d
+	,GfcPlaneCoef
+	,GfcPlaneInfo
+	,GfcRepresentation
+	,GfcRepresentationItem
+	,GfcColor
+	,GfcIndexedColourMap
+	,GfcIndexedTextureMap
+	,GfcSurfaceTexture
+	,GfcRefString
+	,GfcElementShape
+	,GfcObject
+	,GfcProperty
+	,GfcPropertySet
+	,GfcRelationShip
+	,GfcSection
+	,GfcShape
+	,GfcConnectionGeometry
+	,GfcBillDetail
+	,GfcBillTotal
+	,GfcQuotaDetail
+	,GfcQuotaTotal
+	,GfcSteelDetail
+	,GfcSteelTotal));
 END_ENTITY;
 
 ENTITY GfcRuledSurface
@@ -999,7 +1051,8 @@ END_ENTITY;
 ENTITY GfcSection
  SUPERTYPE OF (ONEOF
 	(GfcArbitrarySection
-	,GfcParameterizedSection));
+	,GfcParameterizedSection))
+ SUBTYPE OF (GfcRoot);
 END_ENTITY;
 
 ENTITY GfcSectionListProperty
@@ -1015,7 +1068,8 @@ END_ENTITY;
 ENTITY GfcShape
  SUPERTYPE OF (ONEOF
 	(GfcGeometryShape
-	,GfcParametricShape));
+	,GfcParametricShape))
+ SUBTYPE OF (GfcRoot);
 	LocalCoordinate : GfcCoordinates3d;
 	BoundingBox : OPTIONAL GfcBox3d;
 END_ENTITY;
@@ -1121,7 +1175,8 @@ ENTITY GfcSpiralLine3d
 	RadiusCoef : GfcDouble;
 END_ENTITY;
 
-ENTITY GfcSteelDetail;
+ENTITY GfcSteelDetail
+ SUBTYPE OF (GfcRoot);
 	EntityID : GfcInteger;
 	Name : GfcString;
 	Desc : GfcString;
@@ -1135,7 +1190,8 @@ ENTITY GfcSteelDetail;
 	TieinType : GfcString;
 END_ENTITY;
 
-ENTITY GfcSteelTotal;
+ENTITY GfcSteelTotal
+ SUBTYPE OF (GfcRoot);
 	CompType : GfcString;
 	Level : GfcString;
 	Dia : GfcInteger;
@@ -1173,7 +1229,8 @@ ENTITY GfcSurfaceCurveSweptAreaSolidShape
 	ReferenceSurface : GfcSurface;
 END_ENTITY;
 
-ENTITY GfcSurfaceTexture;
+ENTITY GfcSurfaceTexture
+ SUBTYPE OF (GfcRoot);
 	RepeatS : GfcBoolean;
 	RepeatT : GfcBoolean;
 	ImageFileName : GfcString;
