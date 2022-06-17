@@ -235,23 +235,23 @@ ggp::COffsetCurve2d* GfcGeometryImporter::importOffsetCurve2d(gfc::engine::CEnti
 
 ggp::CCurve2d* GfcGeometryImporter::importCurve2d(gfc::engine::CEntity* pSrc )
 {
-    if(pSrc->entityName() == L"GfcLine2d")
+    if(pSrc->entityName().find(L"Line2d") != std::wstring::npos)
         return importLine2d(pSrc);
-    else if (pSrc->entityName() == L"GfcArc2d")
+    else if (pSrc->entityName().find(L"Arc2d") != std::wstring::npos)
         return importArc2d(pSrc);
-    else if (pSrc->entityName() == L"GfcNurbsCurve2d")
+    else if (pSrc->entityName().find(L"NurbsCurve2d") != std::wstring::npos)
         return importNurbsCurve2d(pSrc);
-    else if (pSrc->entityName() == L"GfcEllipse2d")
+    else if (pSrc->entityName().find(L"Ellipse2d") != std::wstring::npos)
         return importEllipse2d(pSrc);
-    else if (pSrc->entityName() == L"GfcSinCurve2d")
+    else if (pSrc->entityName().find(L"SinCurve2d") != std::wstring::npos)
         return importSinCurve2d(pSrc);
-    else if (pSrc->entityName() == L"GfcSpiralLine2d")
+    else if (pSrc->entityName().find(L"SpiralLine2d") != std::wstring::npos)
         return importSpiralLine2d(pSrc);
-    else if (pSrc->entityName() == L"GfcPreimageCurve2d")
+    else if (pSrc->entityName().find(L"PreimageCurve2d") != std::wstring::npos)
         return importPreimageCurve2d(pSrc);
-    else if (pSrc->entityName() == L"GfcOffsetCurve2d")
+    else if (pSrc->entityName().find(L"OffsetCurve2d") != std::wstring::npos)
         return importOffsetCurve2d(pSrc);
-    else if (pSrc->entityName() == L"GfcHermiteCurve2d")
+    else if (pSrc->entityName().find(L"HermiteCurve2d") != std::wstring::npos)
 		return importHermiteCurve2d(pSrc);
     else
     {
@@ -439,19 +439,19 @@ ggp::CImageCurve3d* GfcGeometryImporter::importImageCurve3d(gfc::engine::CEntity
 
 ggp::CCurve3d* GfcGeometryImporter::importCurve3d(gfc::engine::CEntity* pSrc )
 {
-    if(pSrc->entityName() == L"GfcLine3d")
+    if(pSrc->entityName().find(L"Line3d") != std::wstring::npos)
         return importLine3d(pSrc);
-    else if (pSrc->entityName() == L"GfcNurbsCurve3d")
+    else if (pSrc->entityName().find(L"NurbsCurve3d") != std::wstring::npos)
         return importNurbsCurve3d(pSrc);
-    else if (pSrc->entityName() == L"GfcPlaneCurve3d")
+    else if (pSrc->entityName().find(L"PlaneCurve3d") != std::wstring::npos)
 		return importPlaneCurve3d(pSrc);
-    else if (pSrc->entityName() == L"GfcSpiralLine3d")
+    else if (pSrc->entityName().find(L"SpiralLine3d") != std::wstring::npos)
         return importSpiralLine3d(pSrc);
-    else if (pSrc->entityName() == L"GfcSweepCurve3d")
+    else if (pSrc->entityName().find(L"SweepCurve3d") != std::wstring::npos)
         return importSweepCurve3d(pSrc);
-    else if (pSrc->entityName() == L"GfcIntersectionCurve3d")
+    else if (pSrc->entityName().find(L"IntersectionCurve3d") != std::wstring::npos)
         return importIntersectionCurve3d(pSrc);
-    else if (pSrc->entityName() == L"GfcImageCurve3d")
+    else if (pSrc->entityName().find(L"ImageCurve3d") != std::wstring::npos)
         return importImageCurve3d(pSrc);
     else
     {
@@ -651,23 +651,23 @@ ggp::CRuledSurface* GfcGeometryImporter::importRuledSurface(gfc::engine::CEntity
 
 ggp::CSurface* GfcGeometryImporter::importSurface(gfc::engine::CEntity* pSrc )
 {
-    if(pSrc->entityName() == L"GfcPlane")
+    if(pSrc->entityName().find(L"Plane") != std::wstring::npos)
         return importPlane(pSrc);
-    else if(pSrc->entityName() == L"GfcCylinder")
+    else if(pSrc->entityName().find(L"Cylinder") != std::wstring::npos)
         return importCylinder(pSrc);
-    else if (pSrc->entityName() == L"GfcNurbsSurface")
+    else if (pSrc->entityName().find(L"NurbsSurface") != std::wstring::npos)
         return importNurbsSurface(pSrc);
-    else if (pSrc->entityName() == L"GfcBevel")
+    else if (pSrc->entityName().find(L"Bevel") != std::wstring::npos)
         return importBevel(pSrc);
-    else if (pSrc->entityName() == L"GfcTorus")
+    else if (pSrc->entityName().find(L"Torus") != std::wstring::npos)
         return importTorus(pSrc);
-    else if (pSrc->entityName() == L"GfcSphere")
+    else if (pSrc->entityName().find(L"Sphere") != std::wstring::npos)
         return importSphere(pSrc);
-    else if (pSrc->entityName() == L"GfcHelicoid")
+    else if (pSrc->entityName().find(L"Helicoid") != std::wstring::npos)
         return importHelicoid(pSrc);
-    else if (pSrc->entityName() == L"GfcSweep")
+    else if (pSrc->entityName().find(L"Sweep") != std::wstring::npos)
         return importSweep(pSrc);
-    else if (pSrc->entityName() == L"GfcRuledSurface")
+    else if (pSrc->entityName().find(L"RuledSurface") != std::wstring::npos)
         return importRuledSurface(pSrc);
     else {
         assert(false);
@@ -754,13 +754,13 @@ ggp::CPolyhedronBody* GfcGeometryImporter::importPolyhedronBody(gfc::engine::CEn
 
 ggp::CBody* GfcGeometryImporter::importBody(gfc::engine::CEntity* pSrc )
 {
-    if (pSrc->entityName() == L"GfcBrepBody")
+    if (pSrc->entityName().find(L"BrepBody") != std::wstring::npos)
         return importBrepBody(pSrc);
-    else if (pSrc->entityName() == L"GfcCuboidBody")
+    else if (pSrc->entityName().find(L"CuboidBody") != std::wstring::npos)
         return importCuboidBody(pSrc);
-    else if (pSrc->entityName() == L"GfcExtrudedBody")
+    else if (pSrc->entityName().find(L"ExtrudedBody") != std::wstring::npos)
         return importExtrudedBody(pSrc);
-    else if (pSrc->entityName() == L"GfcPolyhedronBody")
+    else if (pSrc->entityName().find(L"PolyhedronBody") != std::wstring::npos)
         return importPolyhedronBody(pSrc);
         //     case TinyPolyhedronType:
         //         return exportBrepBody(pSrc);
@@ -966,9 +966,9 @@ ggp::CPolyhedralEdge* GfcGeometryImporter::importPolyhedralEdge(gfc::engine::CEn
 
 void GfcGeometryImporter::innerImportPolygon(gfc::engine::CEntity* pSrc, ggp::CPolygon* pDest )
 {
-    if(pSrc->entityName() == L"GfcSimplePolygon")
+    if(pSrc->entityName().find(L"SimplePolygon") != std::wstring::npos)
         innerImportSimplePolygon(pSrc, pDest);
-    else if(pSrc->entityName() == L"GfcCommonPolygon")
+    else if(pSrc->entityName().find(L"CommonPolygon") != std::wstring::npos)
         innerImportCommonPolygon(pSrc, pDest);
     else
         assert(false);
