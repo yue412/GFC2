@@ -19,6 +19,7 @@ public:  // method of ordinary json object or json array
     bool Parse(const std::string& strJson);
     bool Parse(rapidjson::FileReadStream& fileStream);
 
+    bool GetValueAsString(const std::string& strKey, std::string& strValue) const;
     bool Get(const std::string& strKey, std::string& strValue) const;
     bool Get(const std::string& strKey, int& iValue) const;
     bool Get(const std::string& strKey, int64_t& llValue) const;
@@ -33,9 +34,9 @@ public:  // method of ordinary json object or json array
     bool GetBool(int iWhich, bool& bValue) const;
     bool IsArray() const;
     bool IsObject() const;
-    int GetArraySize();
+    int GetArraySize() const;
     JsonWrapper operator[](unsigned int index);
-    JsonWrapper operator[](const std::string& strKey);
+    JsonWrapper operator[](const std::string& strKey) const;
     std::string operator()(const std::string& strKey) const;
 
     // bool Add(const std::string& strKey, bool bValue);
@@ -77,23 +78,26 @@ public:  // method of ordinary json object or json array
 
     bool HasError() const { return m_bParseError; }
 
-    rapidjson::Document::AllocatorType* GetAllocator() const{ return m_pAllocator; }
+    rapidjson::Document::AllocatorType* GetAllocator() const { return m_pAllocator; }
 
-public:
-    JsonWrapper(const JsonWrapper* pJsonObject);
+    explicit JsonWrapper(const JsonWrapper* pJsonObject);
     JsonWrapper(const JsonWrapper& oJsonObject);
     virtual ~JsonWrapper();
-    JsonWrapper(rapidjson::Document::AllocatorType* pAllocator);
-    JsonWrapper(rapidjson::Document* pDoc);
+    explicit JsonWrapper(rapidjson::Document::AllocatorType* pAllocator, rapidjson::Type type = rapidjson::kNullType);
+    explicit JsonWrapper(rapidjson::Document* pDoc);
 
 private:
     JsonWrapper();
+
+    void SetValue(rapidjson::Value* pValue);
+    void SetValue(const JsonWrapper& oJsonObject);
 
 private:
     rapidjson::Value* m_pValue;
     rapidjson::Document::AllocatorType* m_pAllocator;
     rapidjson::Value::MemberIterator m_iterMember;
     bool m_bParseError;
+    bool m_bRef = true;
 };
 
 GFCENGINE_NAMESPACE_END
