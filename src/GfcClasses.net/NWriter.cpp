@@ -28,3 +28,8 @@ gfc::engine::EntityRef NWriter::writeEntity( NEntity^ pEntity )
 {
     return m_pWriter->writeEntity(pEntity->getEntity());
 }
+
+gfc::engine::CWriter * NWriter::getWriter()
+{
+    return m_pWriter;
+}

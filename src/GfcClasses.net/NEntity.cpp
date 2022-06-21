@@ -39,7 +39,7 @@ bool NEntity::isInitialized()
     return getEntity()->isInitialized();
 }
 
-gfc::engine::EntityRef NEntity::ref()
+gfc::engine::EntityRef NEntity::getRef()
 {
     return m_pEntity->ref();
 }

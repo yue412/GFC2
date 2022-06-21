@@ -12,6 +12,7 @@ public:
     bool open(System::String^ sFileName, System::String^ sFormatType);
     void close();
     gfc::engine::EntityRef writeEntity(NEntity^ pEntity); 
+    gfc::engine::CWriter* getWriter();
 private:
     gfc::engine::CWriter* m_pWriter;
 };
