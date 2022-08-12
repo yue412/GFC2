@@ -271,49 +271,57 @@ ggp::CLine3d* GfcGeometryImporter::importLine3d(gfc::engine::CEntity* pSrc )
     return pResult;
 }
 
-//ggp::CArc3d* GfcGeometryImporter::importArc3d( Gfc2Arc3d* pSrc )
-//{
-//    ggp::CArc3d* pResult = NULL;
-//    if (pSrc)
-//    {
-//        Gfc2PlaneInfo* pPlaneInfo = pSrc->asEntity(L"Plane").get();
-//        if (pPlaneInfo)
-//        {
-//            ggp::CArc2d* pCurve = importArc2d(pSrc->asEntity(L"Arc").get());
-//            if (pCurve)
-//            {
-//                pResult = new ggp::CArc3d(importVector3d(pPlaneInfo->asEntity(L"Pos").get()), 
-//                    importVector3d(pPlaneInfo->asEntity(L"DirX").get()), 
-//                    importVector3d(pPlaneInfo->asEntity(L"DirY").get()), 
-//                    pCurve);
-//                pCurve->Free();
-//            }
-//        }
-//    }
-//    return pResult;
-//}
-//
-//ggp::CEllipse3d* GfcGeometryImporter::importEllipse3d( Gfc2Ellipse3d* pSrc )
-//{
-//    ggp::CEllipse3d* pResult = NULL;
-//    if (pSrc)
-//    {
-//        Gfc2PlaneInfo* pPlaneInfo = pSrc->asEntity(L"Plane").get();
-//        if (pPlaneInfo)
-//        {
-//            ggp::CEllipse2d* pCurve = importEllipse2d(pSrc->asEntity(L"Ellipse").get());
-//            if (pCurve)
-//            {
-//                pResult = new ggp::CEllipse3d(importVector3d(pPlaneInfo->asEntity(L"Pos").get()), 
-//                    importVector3d(pPlaneInfo->asEntity(L"DirX").get()), 
-//                    importVector3d(pPlaneInfo->asEntity(L"DirY").get()), 
-//                    pCurve);
-//                pCurve->Free();
-//            }
-//        }
-//    }
-//    return pResult;
-//}
+ggp::CArc3d* GfcGeometryImporter::importArc3d(gfc::engine::CEntity* pSrc)
+{
+    ggp::CArc3d* pResult = NULL;
+    if (pSrc)
+    {
+        auto pPlaneInfo = pSrc->asEntity(L"Plane");
+        if (pPlaneInfo)
+        {
+            auto pCurve = importCurve2d(pSrc->asEntity(L"PlaneCurve").get());
+            if (pCurve)
+            {
+                if (pCurve->Type() == ggp::Arc2dType)
+                {
+                    auto pArc2d = (ggp::CArc2d*)pCurve;
+                    pResult = new ggp::CArc3d(importVector3d(pPlaneInfo->asEntity(L"Pos").get()),
+                        importVector3d(pPlaneInfo->asEntity(L"DirX").get()),
+                        importVector3d(pPlaneInfo->asEntity(L"DirY").get()),
+                        pArc2d);
+                }
+                pCurve->Free();
+            }
+        }
+    }
+    return pResult;
+}
+
+ggp::CEllipse3d* GfcGeometryImporter::importEllipse3d(gfc::engine::CEntity* pSrc)
+{
+    ggp::CEllipse3d* pResult = NULL;
+    if (pSrc)
+    {
+        auto pPlaneInfo = pSrc->asEntity(L"Plane");
+        if (pPlaneInfo)
+        {
+            auto pCurve = importCurve2d(pSrc->asEntity(L"PlaneCurve").get());
+            if (pCurve)
+            {
+                if (pCurve->Type() == ggp::Ellipse2dType)
+                {
+                    auto pEllipse2d = (ggp::CEllipse2d*)pCurve;
+                    pResult = new ggp::CEllipse3d(importVector3d(pPlaneInfo->asEntity(L"Pos").get()),
+                        importVector3d(pPlaneInfo->asEntity(L"DirX").get()),
+                        importVector3d(pPlaneInfo->asEntity(L"DirY").get()),
+                        pEllipse2d);
+                }
+                pCurve->Free();
+            }
+        }
+    }
+    return pResult;
+}
 
 ggp::CPlaneCurve3d* GfcGeometryImporter::importPlaneCurve3d(gfc::engine::CEntity* pSrc )
 {
@@ -445,7 +453,11 @@ ggp::CCurve3d* GfcGeometryImporter::importCurve3d(gfc::engine::CEntity* pSrc )
         return importNurbsCurve3d(pSrc);
     else if (pSrc->entityName().find(L"PlaneCurve3d") != std::wstring::npos)
 		return importPlaneCurve3d(pSrc);
-    else if (pSrc->entityName().find(L"SpiralLine3d") != std::wstring::npos)
+    else if (pSrc->entityName().find(L"Arc3d") != std::wstring::npos)
+        return importArc3d(pSrc);
+    else if (pSrc->entityName().find(L"Ellipse3d") != std::wstring::npos)
+        return importEllipse3d(pSrc);
+    if (pSrc->entityName().find(L"SpiralLine3d") != std::wstring::npos)
         return importSpiralLine3d(pSrc);
     else if (pSrc->entityName().find(L"SweepCurve3d") != std::wstring::npos)
         return importSweepCurve3d(pSrc);

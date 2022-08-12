@@ -75,8 +75,8 @@ public:
     static ggp::CCurve2d* importCurve2d(gfc::engine::CEntity* pSrc);
 
     static ggp::CLine3d* importLine3d(gfc::engine::CEntity* pSrc);
-    //static ggp::CArc3d* importArc3d(Gfc2Arc3d* pSrc);
-    //static ggp::CEllipse3d* importEllipse3d(Gfc2Ellipse3d* pSrc);
+    static ggp::CArc3d* importArc3d(gfc::engine::CEntity* pSrc);
+    static ggp::CEllipse3d* importEllipse3d(gfc::engine::CEntity* pSrc);
 	static ggp::CPlaneCurve3d* importPlaneCurve3d(gfc::engine::CEntity* pSrc );
 	static ggp::CNurbsCurve3d* importNurbsCurve3d(gfc::engine::CEntity* pSrc);
     static ggp::CIntersectionCurve3d* importIntersectionCurve3d(gfc::engine::CEntity* pSrc);
