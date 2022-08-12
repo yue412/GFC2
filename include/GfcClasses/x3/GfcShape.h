@@ -2,13 +2,14 @@
 #define GFCSHAPE_H
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
+#include "GfcClasses/x3/GfcRoot.h"
 #include "GfcClasses/x3/GfcCoordinates3d.h"
 #include "GfcClasses/x3/GfcBox3d.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcShape: public gfc::engine::CEntity
+class GFCCLASSES_API GfcShape: public GfcRoot
 {
 GFCENGINE_DEC_OBJECT(GfcShape, gfc::engine::CEntity)
 public:

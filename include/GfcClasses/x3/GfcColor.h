@@ -2,12 +2,13 @@
 #define GFCCOLOR_H
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
+#include "GfcClasses/x3/GfcRoot.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcColor: public gfc::engine::CEntity
+class GFCCLASSES_API GfcColor: public GfcRoot
 {
 GFCENGINE_DEC_OBJECT(GfcColor, gfc::engine::CEntity)
 public:

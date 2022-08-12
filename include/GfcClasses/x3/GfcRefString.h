@@ -2,11 +2,12 @@
 #define GFCREFSTRING_H
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
+#include "GfcClasses/x3/GfcRoot.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcRefString: public gfc::engine::CEntity
+class GFCCLASSES_API GfcRefString: public GfcRoot
 {
 GFCENGINE_DEC_OBJECT(GfcRefString, gfc::engine::CEntity)
 public:

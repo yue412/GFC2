@@ -2,13 +2,14 @@
 #define GFCNURBSCTRLPT3D_H
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
+#include "GfcClasses/x3/GfcRoot.h"
 #include "GfcClasses/x3/GfcVector3d.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcNurbsCtrlPt3d: public gfc::engine::CEntity
+class GFCCLASSES_API GfcNurbsCtrlPt3d: public GfcRoot
 {
 GFCENGINE_DEC_OBJECT(GfcNurbsCtrlPt3d, gfc::engine::CEntity)
 public:

@@ -2,12 +2,13 @@
 #define GFCPLANECOEF_H
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
+#include "GfcClasses/x3/GfcRoot.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcPlaneCoef: public gfc::engine::CEntity
+class GFCCLASSES_API GfcPlaneCoef: public GfcRoot
 {
 GFCENGINE_DEC_OBJECT(GfcPlaneCoef, gfc::engine::CEntity)
 public:

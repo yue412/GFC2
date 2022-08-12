@@ -2,6 +2,7 @@
 #define GFCINDEXEDTEXTUREMAP_H
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
+#include "GfcClasses/x3/GfcRoot.h"
 #include "GfcClasses/x3/GfcPrimitiveRenderable.h"
 #include "GfcClasses/x3/GfcVector2d.h"
 #include "GfcClasses/x3/GfcSurfaceTexture.h"
@@ -10,7 +11,7 @@
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcIndexedTextureMap: public gfc::engine::CEntity
+class GFCCLASSES_API GfcIndexedTextureMap: public GfcRoot
 {
 GFCENGINE_DEC_OBJECT(GfcIndexedTextureMap, gfc::engine::CEntity)
 public:

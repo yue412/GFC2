@@ -2,6 +2,7 @@
 #define GFCINTERNALPT_H
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
+#include "GfcClasses/x3/GfcRoot.h"
 #include "GfcClasses/x3/GfcVector3d.h"
 #include "GfcClasses/x3/GfcVector2d.h"
 #include "GfcClasses/x3/TypeDef.h"
@@ -9,7 +10,7 @@
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcInternalPt: public gfc::engine::CEntity
+class GFCCLASSES_API GfcInternalPt: public GfcRoot
 {
 GFCENGINE_DEC_OBJECT(GfcInternalPt, gfc::engine::CEntity)
 public:

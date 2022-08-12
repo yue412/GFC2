@@ -2,13 +2,14 @@
 #define GFCPROPERTYSET_H
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
+#include "GfcClasses/x3/GfcRoot.h"
 #include "GfcClasses/x3/GfcProperty.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcPropertySet: public gfc::engine::CEntity
+class GFCCLASSES_API GfcPropertySet: public GfcRoot
 {
 GFCENGINE_DEC_OBJECT(GfcPropertySet, gfc::engine::CEntity)
 public:
