@@ -37,6 +37,7 @@ public:
     void setSchemaPath(const std::wstring& sSchemaPath) { m_sSchemaPath = sSchemaPath; }
     bool open(const std::wstring& sFileName);
     void close();
+    std::wstring readStandardVersion();
 
     void read(CDocument* pDoc);
 

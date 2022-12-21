@@ -30,7 +30,7 @@ CWriterJsonImp::~CWriterJsonImp(void)
     close();
 }
 
-bool CWriterJsonImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion)
+bool CWriterJsonImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion, const std::wstring& sStandardVersion)
 {
     std::string sFile = UnicodeToACP(sFileName);
 	if (-1 != _access(sFile.c_str(), 0))
@@ -44,7 +44,7 @@ bool CWriterJsonImp::open( const std::wstring& sFileName, const std::wstring& sP
 
     m_pRootDocument->AddEmptySubObject("header");
     JsonWrapper json = (*m_pRootDocument)["header"];
-    writeHead(json, sFileName, sProductCode, sVersion);
+    writeHead(json, sFileName, sProductCode, sVersion, sStandardVersion);
 
     std::string d = m_pRootDocument->ToString();
 
@@ -91,7 +91,7 @@ void CWriterJsonImp::doWriteEntity(EntityRef nId, CEntity * pEntity)
     }
 }
 
-void CWriterJsonImp::writeHead(JsonWrapper& rootJson, const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion)
+void CWriterJsonImp::writeHead(JsonWrapper& rootJson, const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion, const std::wstring& sStandardVersion)
 {
     rootJson.Add("FILE_SCHEMA", toString(sVersion));
 }

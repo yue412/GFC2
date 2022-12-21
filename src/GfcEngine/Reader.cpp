@@ -51,6 +51,15 @@ void CReader::close()
     }
 }
 
+std::wstring CReader::readStandardVersion()
+{
+    if (m_pImp)
+    {
+        return m_pImp->readStandardVersion();
+    }
+    return std::wstring();
+}
+
 void CReader::read(CDocument* pDoc)
 {
     //gfc::engine::Entity::setDocument(pDoc);

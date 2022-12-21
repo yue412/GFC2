@@ -26,6 +26,7 @@ public:
 
     virtual bool preRead(const std::wstring& sFileName); // 判断是否是可以读的格式
     virtual std::wstring readFileVersion();
+    virtual std::wstring readStandardVersion();
 protected:
     virtual bool getIndex(EntityInfo& oInfo);//顺序读取index
     virtual CEntity* createEntity(__int64 nPos);

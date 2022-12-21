@@ -29,6 +29,7 @@ public:
     virtual bool preRead(const std::wstring& sFileName);
     virtual bool open(const std::wstring& sFileName);
     virtual std::wstring readFileVersion();
+    virtual std::wstring readStandardVersion();
     virtual void read(CDocument* pDoc);
 
 private:

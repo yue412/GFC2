@@ -64,6 +64,34 @@ std::wstring CReaderTextImp::readFileVersion()
     return Utf8ToUnicode(sResult);
 }
 
+std::wstring CReaderTextImp::readStandardVersion()
+{
+    std::string sResult;
+    if (m_pFileMap)
+    {
+        m_pFileMap->setPos(0);
+        while (!m_pFileMap->eof())
+        {
+            auto sLine = m_pFileMap->getLine();
+
+            auto schema = sLine.substr(0, 16);
+            if (_stricmp(schema.c_str(), "FILE_DESCRIPTION") == 0)
+            {
+                int nStartPos = (int)sLine.find_first_of('\'');
+                int nLastPos = (int)sLine.find_first_of('\'', nStartPos + 1);
+                sResult = sLine.substr(nStartPos + 1, nLastPos - nStartPos - 1);
+                break;
+            }
+            else if (_stricmp(sLine.c_str(), "ENDSEC;") == 0)
+            {
+                break;
+            }
+        }
+    }
+    //std::replace(sResult.begin(), sResult.end(), L'.', L'X');
+    return Utf8ToUnicode(sResult);
+}
+
 //string ReaderTextImp::getFileSchema( fstream& in )
 //{
 //    string sResult;

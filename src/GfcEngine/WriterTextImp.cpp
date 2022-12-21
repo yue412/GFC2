@@ -45,7 +45,7 @@ CWriterTextImp::~CWriterTextImp(void)
     close();
 }
 
-bool CWriterTextImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion)
+bool CWriterTextImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion, const std::wstring& sStandardVersion)
 {
     std::string sFile = UnicodeToACP(sFileName);
 	if (-1 != _access(sFile.c_str(), 0))
@@ -55,7 +55,7 @@ bool CWriterTextImp::open( const std::wstring& sFileName, const std::wstring& sP
 	}
 
     m_pTextStream = new std::fstream(sFileName,std::ios::out | std::ios::app);
-    writeHead(sFileName, sProductCode, sVersion);
+    writeHead(sFileName, sProductCode, sVersion, sStandardVersion);
     *m_pTextStream << "DATA;" << std::endl;
     return true;
 }
@@ -82,7 +82,7 @@ void CWriterTextImp::doWriteEntity(EntityRef nId, CEntity * pEntity)
     }
 }
 
-void CWriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion)
+void CWriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion, const std::wstring& sStandardVersion)
 {
 	time_t current;
 	time(&current);
@@ -91,7 +91,7 @@ void CWriterTextImp::writeHead( const std::wstring& sFileName,const std::wstring
 
     std::stringstream stream;
 	stream<< "HEADER;" << std::endl;
-	stream<<"FILE_DESCRIPTION(('"<< toString(sVersion) <<"'),'" << m_nCodePage << "');"<< std::endl;
+	stream<<"FILE_DESCRIPTION(('"<< toString(sStandardVersion.empty() ? sVersion : sStandardVersion) <<"'),'" << m_nCodePage << "');"<< std::endl;
 	stream<<"FILE_NAME('"<< toString(sFileName)<<"','"<<charTime<<"',('"<<getUserName()<<"'),('Glodon'),'objectbuf','"<< toString(sProductCode)<<"','');"<< std::endl;
 	stream<<"FILE_SCHEMA(('"<< toString(sVersion) <<"'));"<< std::endl;
 	*m_pTextStream<<stream.str();

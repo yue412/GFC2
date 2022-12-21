@@ -18,12 +18,12 @@ class CWriterJsonImp: public CWriterImp
 public:
     CWriterJsonImp(void);
     virtual ~CWriterJsonImp(void);
-    virtual bool open(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
+    virtual bool open(const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion, const std::wstring& sStandardVersion);
     virtual void close();
 protected:
     virtual void doWriteEntity(EntityRef nId, CEntity* pEntity);
 private:
-    void writeHead(JsonWrapper& rootJson, const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion);
+    void writeHead(JsonWrapper& rootJson, const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion, const std::wstring& sStandardVersion);
     std::string toString(const std::wstring& str);
     std::fstream* m_pJsonStream;
     rapidjson::Document* m_pDocument;

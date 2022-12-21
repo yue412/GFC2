@@ -18,7 +18,7 @@ public:
     CWriterImp(void);
     virtual ~CWriterImp(void);
 
-    virtual bool open(const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion) = 0;
+    virtual bool open(const std::wstring& sFileName,const std::wstring& sProductCode, const std::wstring& sVersion, const std::wstring& sStandardVersion) = 0;
     virtual void close() = 0;
     EntityRef writeEntity(CEntity* pEntity); 
     void writeDoc(CDocument* pDoc);

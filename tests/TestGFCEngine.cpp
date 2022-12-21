@@ -8,6 +8,7 @@
 #include "GfcSchema/Model.h"
 #include "GMath\GCoordinates3.h"
 #include "GfcUtils\GfcGeometryExporter.h"
+#include "GfcUtils\GfcGeometryImporter.h"
 
 TEST(TestGFCEngine, WriteEmptyFile)
 {
@@ -787,22 +788,181 @@ TEST(TestGFCEngine2, WriteColumnDemoFile)
 TEST(TestGFCEngine, ReadFile_1)
 {
     gfc::schema::CModel oModel;
-    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X1.exp"), &oModel);
     gfc::engine::CReader reader(&oModel);
     gfc::engine::CDocument document(&oModel);
-    auto result = reader.open(getFullPath(L"边缘填充-暗柱.rvt.gfc"));
+    auto result = reader.open(L"D:\\Files\\test8.gfc");
     EXPECT_EQ(true, result);
     if (result)
     {
         reader.read(&document);
         reader.close();
 
-        auto itr = document.getEntities(L"Gfc2Project");
+        auto itr = document.getEntities(L"GfcBrepBody");
         itr->first();
         EXPECT_EQ(false, itr->isDone());
         auto pEntity = itr->current();
         EXPECT_EQ(true, pEntity != nullptr);
+        auto pBody = GfcGeometryImporter::importBrepBody(pEntity.get());
+        EXPECT_EQ(true, pBody != nullptr);
+    }
+}
+*/
+TEST(TestGFCEngine, WriteDemo)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X1.exp"), &oModel);
+    gfc::engine::CWriter writer(&oModel, L"gfc2_unit_test");
+    auto result = writer.open(getFullPath(L"demo.gfc"), L"express");
+
+    gfc::engine::EntityRef nVertex[4];
+    {
+        auto pVector = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcVector2d");
+        pVector->setAsDouble(L"X", 0.0);
+        pVector->setAsDouble(L"Y", 0.0);
+        auto nVector = writer.writeEntity(pVector);
+        auto pVertex = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcSimpleVertex");
+        pVertex->setAsEntityRef(L"Point", nVector);
+        nVertex[0] = writer.writeEntity(pVertex);
+    }
+    {
+        auto pVector = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcVector2d");
+        pVector->setAsDouble(L"X", 1000.0);
+        pVector->setAsDouble(L"Y", 0.0);
+        auto nVector = writer.writeEntity(pVector);
+        auto pVertex = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcSimpleVertex");
+        pVertex->setAsEntityRef(L"Point", nVector);
+        nVertex[1] = writer.writeEntity(pVertex);
+    }
+    {
+        auto pVector = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcVector2d");
+        pVector->setAsDouble(L"X", 1000.0);
+        pVector->setAsDouble(L"Y", 1000.0);
+        auto nVector = writer.writeEntity(pVector);
+        auto pVertex = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcSimpleVertex");
+        pVertex->setAsEntityRef(L"Point", nVector);
+        nVertex[2] = writer.writeEntity(pVertex);
+    }
+    {
+        auto pVector = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcVector2d");
+        pVector->setAsDouble(L"X", 0.0);
+        pVector->setAsDouble(L"Y", 1000.0);
+        auto nVector = writer.writeEntity(pVector);
+        auto pVertex = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcSimpleVertex");
+        pVertex->setAsEntityRef(L"Point", nVector);
+        nVertex[3] = writer.writeEntity(pVertex);
+    }
+
+    auto pGfcSimpleLoop = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcSimpleLoop");
+    pGfcSimpleLoop->addEntityRef(L"Vertexes", nVertex[0]);
+    pGfcSimpleLoop->addEntityRef(L"Vertexes", nVertex[1]);
+    pGfcSimpleLoop->addEntityRef(L"Vertexes", nVertex[2]);
+    pGfcSimpleLoop->addEntityRef(L"Vertexes", nVertex[3]);
+    auto nGfcSimpleLoop = writer.writeEntity(pGfcSimpleLoop);
+
+    auto pGfcSimplePolygon = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcSimplePolygon");
+    pGfcSimplePolygon->addEntityRef(L"Loops", nGfcSimpleLoop);
+    auto nGfcSimplePolygon = writer.writeEntity(pGfcSimplePolygon);
+
+    auto pGfcGeometryShape1 = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcGeometryShape");
+    pGfcGeometryShape1->addEntityRef(L"Geos", nGfcSimplePolygon);
+    auto nGfcGeometryShape1 = writer.writeEntity(pGfcGeometryShape1);
+
+    auto pElementShape1 = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcElementShape");
+    pElementShape1->setAsString(L"Identifier", L"Profile");
+    pElementShape1->setAsEntityRef(L"Shape", nGfcGeometryShape1);
+    auto nElementShape1 = writer.writeEntity(pElementShape1);
+
+    auto pGfcVector2d = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcVector2d");
+    pGfcVector2d->setAsDouble(L"X", 3000);
+    pGfcVector2d->setAsDouble(L"X", 4000);
+    auto nGfcVector2d = writer.writeEntity(pGfcVector2d);
+
+    auto pGfcGeometryShape2 = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcGeometryShape");
+    pGfcGeometryShape2->addEntityRef(L"Geos", nGfcVector2d);
+    auto nGfcGeometryShape2 = writer.writeEntity(pGfcGeometryShape2);
+
+    auto pElementShape2 = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcElementShape");
+    pElementShape2->setAsString(L"Identifier", L"Location");
+    pElementShape2->setAsEntityRef(L"Shape", nGfcGeometryShape2);
+    auto nElementShape2 = writer.writeEntity(pElementShape2);
+
+    auto pElement = gfc::engine::CEngineUtils::createEntity(&oModel, L"GfcElement");
+    pElement->setAsString(L"ID", L"1");
+    pElement->setAsString(L"Name", L"KZ-1");
+    pElement->setAsString(L"EType", L"14-07.35.00");
+    pElement->addEntityRef(L"Shapes", nElementShape1);
+    pElement->addEntityRef(L"Shapes", nElementShape2);
+    writer.writeEntity(pElement);
+    EXPECT_EQ(true, result);
+}
+
+/*
+TEST(TestGFCEngine, ReadFile1216)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X1.exp"), &oModel);
+    gfc::engine::CReader reader(&oModel);
+    gfc::engine::CDocument document(&oModel);
+    auto result = reader.open(getFullPath(L"D:\\Files\\正负零以上相同部分1-发甲方.rvt.gfc"));
+    EXPECT_EQ(true, result);
+    if (result)
+    {
+        reader.read(&document);
+        reader.close();
+
+        auto itr = document.getIterator();
+        itr->first();
+        while (!itr->isDone())
+        {
+            auto pEntity = itr->current();
+            if (pEntity->ref() == 2956)
+            {
+                auto g = GfcGeometryImporter::importBrepBody(pEntity.get());
+                g->Free();
+            }
+            itr->next();
+        }
     }
 }
 */
 
+TEST(TestGFCEngine, WriteStandardVersion)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CWriter writer(&oModel, L"gfc2_unit_test", CP_UTF8, true, L"3.2");
+    auto result = writer.open(getFullPath(L"empty_sv.gfc"), L"express");
+    EXPECT_EQ(true, result);
+}
+
+TEST(TestGFCEngine, ReadStandardVersion)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CReader reader(&oModel);
+    auto result = reader.open(getFullPath(L"empty_sv.gfc"));
+    EXPECT_EQ(true, result);
+    auto sv = reader.readStandardVersion();
+    EXPECT_EQ(true, sv == L"3.2");
+}
+
+TEST(TestGFCEngine, WriteStandardVersion2)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CWriter writer(&oModel, L"gfc2_unit_test");
+    auto result = writer.open(getFullPath(L"empty_sv2.gfc"), L"express");
+    EXPECT_EQ(true, result);
+}
+
+TEST(TestGFCEngine, ReadStandardVersion2)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CReader reader(&oModel);
+    auto result = reader.open(getFullPath(L"empty_sv2.gfc"));
+    EXPECT_EQ(true, result);
+    auto sv = reader.readStandardVersion();
+    EXPECT_EQ(true, sv == L"GFC3X0");
+}

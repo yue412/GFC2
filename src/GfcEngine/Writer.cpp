@@ -6,7 +6,7 @@
 
 GFCENGINE_NAMESPACE_BEGIN
 
-CWriter::CWriter(gfc::schema::CModel* pSchema, const std::wstring& sProductCode, UINT nCodePage, bool bUppercase): m_pImp(NULL), m_sProductCode(sProductCode), m_nCodePage(nCodePage), m_bUppercase(bUppercase)
+CWriter::CWriter(gfc::schema::CModel* pSchema, const std::wstring& sProductCode, UINT nCodePage, bool bUppercase, const std::wstring& sStandardVersion): m_pImp(NULL), m_sProductCode(sProductCode), m_nCodePage(nCodePage), m_bUppercase(bUppercase), m_sStandardVersion(sStandardVersion)
 {
     if (pSchema)
         m_sVersion = pSchema->version();
@@ -26,7 +26,7 @@ bool CWriter::open( const std::wstring& sFileName, const std::wstring& sFormatTy
         return false;
     m_pImp->setCodePage(m_nCodePage);
     m_pImp->setUppercase(m_bUppercase);
-    auto bResult = m_pImp->open(sFileName, m_sProductCode, m_sVersion);
+    auto bResult = m_pImp->open(sFileName, m_sProductCode, m_sVersion, m_sStandardVersion);
     if (!bResult)
     {
         delete m_pImp;
