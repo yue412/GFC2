@@ -116,6 +116,8 @@ public:
     static gfc::engine::EntityRef exportBody(gfc::engine::CWriter* pWriter, ggp::CBody* pSrc);
     static gfc::engine::EntityRef exportPolygon(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc);
     static gfc::engine::EntityRef exportSimplePolygon(gfc::engine::CWriter* pWriter, ggp::CPolygon* pSrc);
+
+    static void initGfcBody(gfc::engine::CWriter* pWriter, gfc::engine::CEntity* pEntity, ggp::CBody* pSrc);
 private:
     static bool isSimplePolygon(ggp::CPolygon* pSrc);
 

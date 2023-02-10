@@ -659,6 +659,37 @@ gfc::engine::EntityRef GfcGeometryExporter::exportBody( gfc::engine::CWriter* pW
     }
 }
 
+void GfcGeometryExporter::initGfcBody(gfc::engine::CWriter* pWriter, gfc::engine::CEntity* pEntity, ggp::CBody* pSrc)
+{
+    switch (pSrc->Type())
+    {
+    case ggp::BrepBodyType:
+    {
+        ggp::CBrepBody* pBrep = static_cast<ggp::CBrepBody*>(pSrc);
+        int nFaceCount = pBrep->FaceCount();
+        for (int i = 0; i < nFaceCount; ++i)
+        {
+            pEntity->addEntityRef(L"Faces", exportFace(pWriter, pBrep->GetFace(i)));
+        }
+        int nEdgeCount = pBrep->EdgeCount();
+        for (int i = 0; i < nEdgeCount; ++i)
+        {
+            pEntity->addEntityRef(L"Edges", exportEdge(pWriter, pBrep->GetEdge(i)));
+        }
+    }
+    //case ggp::CuboidBodyType:
+    //    return exportCuboidBody(pWriter, dynamic_cast<ggp::CCuboidBody*>(pSrc));
+    //case ggp::ExtrudedBodyType:
+    //    return exportExtrudedBody(pWriter, dynamic_cast<ggp::CExtrudedBody*>(pSrc));
+    //case ggp::PolyhedronType:
+    //    return exportPolyhedronBody(pWriter, dynamic_cast<ggp::CPolyhedronBody*>(pSrc));
+        //     case TinyPolyhedronType:
+        //         return exportBrepBody(pWriter, dynamic_cast<ggp::CBrepBody*>(pSrc));
+    default:
+        assert(false);
+    }
+}
+
 gfc::engine::EntityRef GfcGeometryExporter::exportFace( gfc::engine::CWriter* pWriter, ggp::CFace* pSrc )
 {
     assert(pSrc);

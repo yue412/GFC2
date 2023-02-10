@@ -171,6 +171,7 @@ ENTITY GfcBody
 	,GfcPolyhedronBody
 	,GfcPrimitiveBody))
  SUBTYPE OF (GfcGeometry);
+	CustomPropSet : GfcPropertySet;
 END_ENTITY;
 
 ENTITY GfcBooleanListProperty
