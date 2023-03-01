@@ -736,7 +736,7 @@ ggp::CExtrudedBody* GfcGeometryImporter::importExtrudedBody(gfc::engine::CEntity
         if (pPoly)
         {
             pResult = new ggp::CExtrudedBody(importCoordinates3d(pSrc->asEntity(L"Coordinate").get()), 
-                pSrc->asDouble(L"Length"), pPoly);
+                pSrc->asDouble(L"Len"), pPoly);
         }
     }
     return pResult;
