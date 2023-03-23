@@ -3,9 +3,8 @@
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcRoot.h"
-#include "GfcClasses/x3/GfcPrimitiveRenderable.h"
-#include "GfcClasses/x3/GfcVector2d.h"
-#include "GfcClasses/x3/GfcSurfaceTexture.h"
+#include "GfcClasses/x3/GfcTriangulatedFaceSet.h"
+#include "GfcClasses/x3/GfcMaterial.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
@@ -20,21 +19,20 @@ public:
     void setMappedTo(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getMappedTo() const;
     bool hasMappedTo() const;
-    std::shared_ptr<GfcPrimitiveRenderable> getMappedToPtr();
+    std::shared_ptr<GfcTriangulatedFaceSet> getMappedToPtr();
     int getTexCoordsCount() const;
     void clearTexCoords();
-    void addTexCoords(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getTexCoords(int nIndex) const;
-    std::shared_ptr<GfcVector2d> getTexCoordsPtr(int nIndex);
+    void addTexCoords(const GfcDouble& dValue);
+    GfcDouble getTexCoords(int nIndex) const;
     int getTexCoordIndexCount() const;
     void clearTexCoordIndex();
     void addTexCoordIndex(const GfcInteger& nValue);
     GfcInteger getTexCoordIndex(int nIndex) const;
-    int getMapsCount() const;
-    void clearMaps();
-    void addMaps(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getMaps(int nIndex) const;
-    std::shared_ptr<GfcSurfaceTexture> getMapsPtr(int nIndex);
+    int getMaterialsCount() const;
+    void clearMaterials();
+    void addMaterials(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getMaterials(int nIndex) const;
+    std::shared_ptr<GfcMaterial> getMaterialsPtr(int nIndex);
 
 };
 

@@ -21,17 +21,16 @@ public:
     void setRepeatT(const GfcBoolean& bValue);
     GfcBoolean getRepeatT() const;
     bool hasRepeatT() const;
-    void setImageFileName(const GfcString& sValue);
-    GfcString getImageFileName() const;
-    bool hasImageFileName() const;
+    void setImageURL(const GfcString& sValue);
+    GfcString getImageURL() const;
+    bool hasImageURL() const;
     void setTranfromsMatirx(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getTranfromsMatirx() const;
     bool hasTranfromsMatirx() const;
     std::shared_ptr<GfcMatrix> getTranfromsMatirxPtr();
-    int getParameterCount() const;
-    void clearParameter();
-    void addParameter(const GfcString& sValue);
-    GfcString getParameter(int nIndex) const;
+    void setTextureType(const GfcTextureType& nValue);
+    GfcTextureType getTextureType() const;
+    bool hasTextureType() const;
 
 };
 

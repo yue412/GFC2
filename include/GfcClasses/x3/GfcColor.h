@@ -23,9 +23,6 @@ public:
     void setBlue(const GfcInteger& nValue);
     GfcInteger getBlue() const;
     bool hasBlue() const;
-    void setAlpha(const GfcInteger& nValue);
-    GfcInteger getAlpha() const;
-    bool hasAlpha() const;
 
 };
 

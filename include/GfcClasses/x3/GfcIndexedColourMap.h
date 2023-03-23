@@ -4,7 +4,7 @@
 #include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcRoot.h"
 #include "GfcClasses/x3/GfcColor.h"
-#include "GfcClasses/x3/GfcPrimitiveRenderable.h"
+#include "GfcClasses/x3/GfcTriangulatedFaceSet.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
@@ -16,9 +16,9 @@ GFCENGINE_DEC_OBJECT(GfcIndexedColourMap, gfc::engine::CEntity)
 public:
     GfcIndexedColourMap();
     GfcIndexedColourMap(bool bSetSchema);
-    void setTransparency(const GfcDouble& dValue);
-    GfcDouble getTransparency() const;
-    bool hasTransparency() const;
+    void setOpacity(const GfcDouble& dValue);
+    GfcDouble getOpacity() const;
+    bool hasOpacity() const;
     int getColoursCount() const;
     void clearColours();
     void addColours(const gfc::engine::EntityRef& nValue);
@@ -31,7 +31,7 @@ public:
     void setMappedTo(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getMappedTo() const;
     bool hasMappedTo() const;
-    std::shared_ptr<GfcPrimitiveRenderable> getMappedToPtr();
+    std::shared_ptr<GfcTriangulatedFaceSet> getMappedToPtr();
 
 };
 

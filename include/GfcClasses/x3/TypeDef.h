@@ -62,24 +62,6 @@ enum GfcFragTestFunc
     FTF_ALWAYS
 };
 
-enum GfcGeometryDataType
-{
-    GDT_UNCOMPRESS,
-    GDT_COMPRESS,
-    GDT_UNKNOWN
-};
-
-enum GfcPrimitiveType
-{
-    GPT_POINTS,
-    GPT_LINES,
-    GPT_LINE_STRIP,
-    GPT_TRIANGLES,
-    GPT_TRIANGLE_STRIP,
-    GPT_TRIANGLE_FAN,
-    GPT_UNKNOWN
-};
-
 enum GfcSceneBlendFactor
 {
     SBF_DST_ALPHA,
@@ -104,6 +86,19 @@ enum GfcSweepType
     ST_Perpendicular,
     ST_Upright,
     ST_Facepoint
+};
+
+enum GfcTextureType
+{
+    TT_UNKNOW,
+    TT_DIFFUSE,
+    TT_BUMP,
+    TT_SPECULAR,
+    TT_ALPHA,
+    TT_EMISSIVE,
+    TT_RELIEF,
+    TT_ENVIRONMENT,
+    TT_LIGHT
 };
 
 inline std::string GfcArcTypeToString(GfcArcType nValue)
@@ -326,116 +321,6 @@ inline bool StringToGfcFragTestFunc(const std::string& sValue, GfcFragTestFunc& 
     return false;
 }
 
-inline std::string GfcGeometryDataTypeToString(GfcGeometryDataType nValue)
-{
-    switch(nValue)
-    {
-    case GfcGeometryDataType::GDT_UNCOMPRESS:
-        return ".GDT_UNCOMPRESS.";
-        break;
-    case GfcGeometryDataType::GDT_COMPRESS:
-        return ".GDT_COMPRESS.";
-        break;
-    case GfcGeometryDataType::GDT_UNKNOWN:
-        return ".GDT_UNKNOWN.";
-        break;
-    default:
-        assert(false);
-        return "";
-    }
-}
-
-inline bool StringToGfcGeometryDataType(const std::string& sValue, GfcGeometryDataType& nType)
-{
-    if(sValue.compare(".GDT_UNCOMPRESS.") == 0)
-    {
-        nType = GfcGeometryDataType::GDT_UNCOMPRESS;
-        return true;
-    }
-    if(sValue.compare(".GDT_COMPRESS.") == 0)
-    {
-        nType = GfcGeometryDataType::GDT_COMPRESS;
-        return true;
-    }
-    if(sValue.compare(".GDT_UNKNOWN.") == 0)
-    {
-        nType = GfcGeometryDataType::GDT_UNKNOWN;
-        return true;
-    }
-    return false;
-}
-
-inline std::string GfcPrimitiveTypeToString(GfcPrimitiveType nValue)
-{
-    switch(nValue)
-    {
-    case GfcPrimitiveType::GPT_POINTS:
-        return ".GPT_POINTS.";
-        break;
-    case GfcPrimitiveType::GPT_LINES:
-        return ".GPT_LINES.";
-        break;
-    case GfcPrimitiveType::GPT_LINE_STRIP:
-        return ".GPT_LINE_STRIP.";
-        break;
-    case GfcPrimitiveType::GPT_TRIANGLES:
-        return ".GPT_TRIANGLES.";
-        break;
-    case GfcPrimitiveType::GPT_TRIANGLE_STRIP:
-        return ".GPT_TRIANGLE_STRIP.";
-        break;
-    case GfcPrimitiveType::GPT_TRIANGLE_FAN:
-        return ".GPT_TRIANGLE_FAN.";
-        break;
-    case GfcPrimitiveType::GPT_UNKNOWN:
-        return ".GPT_UNKNOWN.";
-        break;
-    default:
-        assert(false);
-        return "";
-    }
-}
-
-inline bool StringToGfcPrimitiveType(const std::string& sValue, GfcPrimitiveType& nType)
-{
-    if(sValue.compare(".GPT_POINTS.") == 0)
-    {
-        nType = GfcPrimitiveType::GPT_POINTS;
-        return true;
-    }
-    if(sValue.compare(".GPT_LINES.") == 0)
-    {
-        nType = GfcPrimitiveType::GPT_LINES;
-        return true;
-    }
-    if(sValue.compare(".GPT_LINE_STRIP.") == 0)
-    {
-        nType = GfcPrimitiveType::GPT_LINE_STRIP;
-        return true;
-    }
-    if(sValue.compare(".GPT_TRIANGLES.") == 0)
-    {
-        nType = GfcPrimitiveType::GPT_TRIANGLES;
-        return true;
-    }
-    if(sValue.compare(".GPT_TRIANGLE_STRIP.") == 0)
-    {
-        nType = GfcPrimitiveType::GPT_TRIANGLE_STRIP;
-        return true;
-    }
-    if(sValue.compare(".GPT_TRIANGLE_FAN.") == 0)
-    {
-        nType = GfcPrimitiveType::GPT_TRIANGLE_FAN;
-        return true;
-    }
-    if(sValue.compare(".GPT_UNKNOWN.") == 0)
-    {
-        nType = GfcPrimitiveType::GPT_UNKNOWN;
-        return true;
-    }
-    return false;
-}
-
 inline std::string GfcSceneBlendFactorToString(GfcSceneBlendFactor nValue)
 {
     switch(nValue)
@@ -605,6 +490,93 @@ inline bool StringToGfcSweepType(const std::string& sValue, GfcSweepType& nType)
     if(sValue.compare(".ST_Facepoint.") == 0)
     {
         nType = GfcSweepType::ST_Facepoint;
+        return true;
+    }
+    return false;
+}
+
+inline std::string GfcTextureTypeToString(GfcTextureType nValue)
+{
+    switch(nValue)
+    {
+    case GfcTextureType::TT_UNKNOW:
+        return ".TT_UNKNOW.";
+        break;
+    case GfcTextureType::TT_DIFFUSE:
+        return ".TT_DIFFUSE.";
+        break;
+    case GfcTextureType::TT_BUMP:
+        return ".TT_BUMP.";
+        break;
+    case GfcTextureType::TT_SPECULAR:
+        return ".TT_SPECULAR.";
+        break;
+    case GfcTextureType::TT_ALPHA:
+        return ".TT_ALPHA.";
+        break;
+    case GfcTextureType::TT_EMISSIVE:
+        return ".TT_EMISSIVE.";
+        break;
+    case GfcTextureType::TT_RELIEF:
+        return ".TT_RELIEF.";
+        break;
+    case GfcTextureType::TT_ENVIRONMENT:
+        return ".TT_ENVIRONMENT.";
+        break;
+    case GfcTextureType::TT_LIGHT:
+        return ".TT_LIGHT.";
+        break;
+    default:
+        assert(false);
+        return "";
+    }
+}
+
+inline bool StringToGfcTextureType(const std::string& sValue, GfcTextureType& nType)
+{
+    if(sValue.compare(".TT_UNKNOW.") == 0)
+    {
+        nType = GfcTextureType::TT_UNKNOW;
+        return true;
+    }
+    if(sValue.compare(".TT_DIFFUSE.") == 0)
+    {
+        nType = GfcTextureType::TT_DIFFUSE;
+        return true;
+    }
+    if(sValue.compare(".TT_BUMP.") == 0)
+    {
+        nType = GfcTextureType::TT_BUMP;
+        return true;
+    }
+    if(sValue.compare(".TT_SPECULAR.") == 0)
+    {
+        nType = GfcTextureType::TT_SPECULAR;
+        return true;
+    }
+    if(sValue.compare(".TT_ALPHA.") == 0)
+    {
+        nType = GfcTextureType::TT_ALPHA;
+        return true;
+    }
+    if(sValue.compare(".TT_EMISSIVE.") == 0)
+    {
+        nType = GfcTextureType::TT_EMISSIVE;
+        return true;
+    }
+    if(sValue.compare(".TT_RELIEF.") == 0)
+    {
+        nType = GfcTextureType::TT_RELIEF;
+        return true;
+    }
+    if(sValue.compare(".TT_ENVIRONMENT.") == 0)
+    {
+        nType = GfcTextureType::TT_ENVIRONMENT;
+        return true;
+    }
+    if(sValue.compare(".TT_LIGHT.") == 0)
+    {
+        nType = GfcTextureType::TT_LIGHT;
         return true;
     }
     return false;
