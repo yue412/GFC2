@@ -1,10 +1,10 @@
 #ifndef NGFCREPRESENTATIONITEM_H
 #define NGFCREPRESENTATIONITEM_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcRepresentationItem.h"
 
-public ref class NGfcRepresentationItem: public NEntity
+public ref class NGfcRepresentationItem: public NGfcRoot
 {
 public:
     NGfcRepresentationItem();

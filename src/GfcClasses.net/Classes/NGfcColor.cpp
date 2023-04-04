@@ -9,7 +9,7 @@ NGfcColor::NGfcColor()
 }
 
 NGfcColor::NGfcColor(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 
@@ -56,20 +56,5 @@ NGfcInteger NGfcColor::getBlue()
 bool NGfcColor::hasBlue()
 {
     return ((GfcColor*)m_pEntity)->hasBlue();
-}
-
-void NGfcColor::setAlpha(NGfcInteger nValue)
-{
-    ((GfcColor*)m_pEntity)->setAlpha(nValue);
-}
-
-NGfcInteger NGfcColor::getAlpha()
-{
-    return ((GfcColor*)m_pEntity)->getAlpha();
-}
-
-bool NGfcColor::hasAlpha()
-{
-    return ((GfcColor*)m_pEntity)->hasAlpha();
 }
 

@@ -9,7 +9,7 @@ NGfcIndexedTextureMap::NGfcIndexedTextureMap()
 }
 
 NGfcIndexedTextureMap::NGfcIndexedTextureMap(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 
@@ -28,63 +28,38 @@ bool NGfcIndexedTextureMap::hasMappedTo()
     return ((GfcIndexedTextureMap*)m_pEntity)->hasMappedTo();
 }
 
-int NGfcIndexedTextureMap::getTexCoordsCount()
+void NGfcIndexedTextureMap::setMaterial(gfc::engine::EntityRef nValue)
 {
-    return ((GfcIndexedTextureMap*)m_pEntity)->getTexCoordsCount();
+    ((GfcIndexedTextureMap*)m_pEntity)->setMaterial(nValue);
 }
 
-void NGfcIndexedTextureMap::clearTexCoords()
+gfc::engine::EntityRef NGfcIndexedTextureMap::getMaterial()
 {
-    ((GfcIndexedTextureMap*)m_pEntity)->clearTexCoords();
+    return ((GfcIndexedTextureMap*)m_pEntity)->getMaterial();
 }
 
-void NGfcIndexedTextureMap::addTexCoords(gfc::engine::EntityRef nValue)
+bool NGfcIndexedTextureMap::hasMaterial()
 {
-    ((GfcIndexedTextureMap*)m_pEntity)->addTexCoords(nValue);
+    return ((GfcIndexedTextureMap*)m_pEntity)->hasMaterial();
 }
 
-gfc::engine::EntityRef NGfcIndexedTextureMap::getTexCoords(int nIndex)
+int NGfcIndexedTextureMap::getCoordListCount()
 {
-    return ((GfcIndexedTextureMap*)m_pEntity)->getTexCoords(nIndex);
+    return ((GfcIndexedTextureMap*)m_pEntity)->getCoordListCount();
 }
 
-int NGfcIndexedTextureMap::getTexCoordIndexCount()
+void NGfcIndexedTextureMap::clearCoordList()
 {
-    return ((GfcIndexedTextureMap*)m_pEntity)->getTexCoordIndexCount();
+    ((GfcIndexedTextureMap*)m_pEntity)->clearCoordList();
 }
 
-void NGfcIndexedTextureMap::clearTexCoordIndex()
+void NGfcIndexedTextureMap::addCoordList(gfc::engine::EntityRef nValue)
 {
-    ((GfcIndexedTextureMap*)m_pEntity)->clearTexCoordIndex();
+    ((GfcIndexedTextureMap*)m_pEntity)->addCoordList(nValue);
 }
 
-void NGfcIndexedTextureMap::addTexCoordIndex(NGfcInteger nValue)
+gfc::engine::EntityRef NGfcIndexedTextureMap::getCoordList(int nIndex)
 {
-    ((GfcIndexedTextureMap*)m_pEntity)->addTexCoordIndex(nValue);
-}
-
-NGfcInteger NGfcIndexedTextureMap::getTexCoordIndex(int nIndex)
-{
-    return ((GfcIndexedTextureMap*)m_pEntity)->getTexCoordIndex(nIndex);
-}
-
-int NGfcIndexedTextureMap::getMapsCount()
-{
-    return ((GfcIndexedTextureMap*)m_pEntity)->getMapsCount();
-}
-
-void NGfcIndexedTextureMap::clearMaps()
-{
-    ((GfcIndexedTextureMap*)m_pEntity)->clearMaps();
-}
-
-void NGfcIndexedTextureMap::addMaps(gfc::engine::EntityRef nValue)
-{
-    ((GfcIndexedTextureMap*)m_pEntity)->addMaps(nValue);
-}
-
-gfc::engine::EntityRef NGfcIndexedTextureMap::getMaps(int nIndex)
-{
-    return ((GfcIndexedTextureMap*)m_pEntity)->getMaps(nIndex);
+    return ((GfcIndexedTextureMap*)m_pEntity)->getCoordList(nIndex);
 }
 

@@ -9,7 +9,7 @@ NGfcPlaneCoef::NGfcPlaneCoef()
 }
 
 NGfcPlaneCoef::NGfcPlaneCoef(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

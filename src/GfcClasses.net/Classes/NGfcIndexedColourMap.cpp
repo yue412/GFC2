@@ -9,63 +9,38 @@ NGfcIndexedColourMap::NGfcIndexedColourMap()
 }
 
 NGfcIndexedColourMap::NGfcIndexedColourMap(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 
-void NGfcIndexedColourMap::setTransparency(NGfcDouble dValue)
+void NGfcIndexedColourMap::setOpacity(NGfcDouble dValue)
 {
-    ((GfcIndexedColourMap*)m_pEntity)->setTransparency(dValue);
+    ((GfcIndexedColourMap*)m_pEntity)->setOpacity(dValue);
 }
 
-NGfcDouble NGfcIndexedColourMap::getTransparency()
+NGfcDouble NGfcIndexedColourMap::getOpacity()
 {
-    return ((GfcIndexedColourMap*)m_pEntity)->getTransparency();
+    return ((GfcIndexedColourMap*)m_pEntity)->getOpacity();
 }
 
-bool NGfcIndexedColourMap::hasTransparency()
+bool NGfcIndexedColourMap::hasOpacity()
 {
-    return ((GfcIndexedColourMap*)m_pEntity)->hasTransparency();
+    return ((GfcIndexedColourMap*)m_pEntity)->hasOpacity();
 }
 
-int NGfcIndexedColourMap::getColoursCount()
+void NGfcIndexedColourMap::setColor(gfc::engine::EntityRef nValue)
 {
-    return ((GfcIndexedColourMap*)m_pEntity)->getColoursCount();
+    ((GfcIndexedColourMap*)m_pEntity)->setColor(nValue);
 }
 
-void NGfcIndexedColourMap::clearColours()
+gfc::engine::EntityRef NGfcIndexedColourMap::getColor()
 {
-    ((GfcIndexedColourMap*)m_pEntity)->clearColours();
+    return ((GfcIndexedColourMap*)m_pEntity)->getColor();
 }
 
-void NGfcIndexedColourMap::addColours(gfc::engine::EntityRef nValue)
+bool NGfcIndexedColourMap::hasColor()
 {
-    ((GfcIndexedColourMap*)m_pEntity)->addColours(nValue);
-}
-
-gfc::engine::EntityRef NGfcIndexedColourMap::getColours(int nIndex)
-{
-    return ((GfcIndexedColourMap*)m_pEntity)->getColours(nIndex);
-}
-
-int NGfcIndexedColourMap::getColourIndexCount()
-{
-    return ((GfcIndexedColourMap*)m_pEntity)->getColourIndexCount();
-}
-
-void NGfcIndexedColourMap::clearColourIndex()
-{
-    ((GfcIndexedColourMap*)m_pEntity)->clearColourIndex();
-}
-
-void NGfcIndexedColourMap::addColourIndex(NGfcInteger nValue)
-{
-    ((GfcIndexedColourMap*)m_pEntity)->addColourIndex(nValue);
-}
-
-NGfcInteger NGfcIndexedColourMap::getColourIndex(int nIndex)
-{
-    return ((GfcIndexedColourMap*)m_pEntity)->getColourIndex(nIndex);
+    return ((GfcIndexedColourMap*)m_pEntity)->hasColor();
 }
 
 void NGfcIndexedColourMap::setMappedTo(gfc::engine::EntityRef nValue)

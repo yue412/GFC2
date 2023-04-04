@@ -9,7 +9,7 @@ NGfcRepresentation::NGfcRepresentation()
 }
 
 NGfcRepresentation::NGfcRepresentation(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

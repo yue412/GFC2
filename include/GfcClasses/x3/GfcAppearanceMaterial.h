@@ -1,5 +1,5 @@
-#ifndef GFCMATERIAL_H
-#define GFCMATERIAL_H
+#ifndef GFCAPPEARANCEMATERIAL_H
+#define GFCAPPEARANCEMATERIAL_H
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcRoot.h"
@@ -10,12 +10,12 @@
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcMaterial: public GfcRoot
+class GFCCLASSES_API GfcAppearanceMaterial: public GfcRoot
 {
-GFCENGINE_DEC_OBJECT(GfcMaterial, gfc::engine::CEntity)
+GFCENGINE_DEC_OBJECT(GfcAppearanceMaterial, gfc::engine::CEntity)
 public:
-    GfcMaterial();
-    GfcMaterial(bool bSetSchema);
+    GfcAppearanceMaterial();
+    GfcAppearanceMaterial(bool bSetSchema);
     void setColor(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getColor() const;
     bool hasColor() const;

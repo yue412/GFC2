@@ -59,24 +59,6 @@ public enum class NGfcFragTestFunc
     FTF_ALWAYS
 };
 
-public enum class NGfcGeometryDataType
-{
-    GDT_UNCOMPRESS,
-    GDT_COMPRESS,
-    GDT_UNKNOWN
-};
-
-public enum class NGfcPrimitiveType
-{
-    GPT_POINTS,
-    GPT_LINES,
-    GPT_LINE_STRIP,
-    GPT_TRIANGLES,
-    GPT_TRIANGLE_STRIP,
-    GPT_TRIANGLE_FAN,
-    GPT_UNKNOWN
-};
-
 public enum class NGfcSceneBlendFactor
 {
     SBF_DST_ALPHA,
@@ -101,6 +83,19 @@ public enum class NGfcSweepType
     ST_Perpendicular,
     ST_Upright,
     ST_Facepoint
+};
+
+public enum class NGfcTextureType
+{
+    TT_UNKNOW,
+    TT_DIFFUSE,
+    TT_BUMP,
+    TT_SPECULAR,
+    TT_ALPHA,
+    TT_EMISSIVE,
+    TT_RELIEF,
+    TT_ENVIRONMENT,
+    TT_LIGHT
 };
 
 #endif

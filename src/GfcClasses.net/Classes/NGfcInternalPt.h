@@ -1,13 +1,13 @@
 #ifndef NGFCINTERNALPT_H
 #define NGFCINTERNALPT_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcInternalPt.h"
 #include "NGfcVector3d.h"
 #include "NGfcVector2d.h"
 #include "NTypeDef.h"
 
-public ref class NGfcInternalPt: public NEntity
+public ref class NGfcInternalPt: public NGfcRoot
 {
 public:
     NGfcInternalPt();

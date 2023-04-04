@@ -9,7 +9,7 @@ NGfcShape::NGfcShape()
 }
 
 NGfcShape::NGfcShape(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

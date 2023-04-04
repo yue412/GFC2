@@ -9,7 +9,7 @@ NGfcSteelDetail::NGfcSteelDetail()
 }
 
 NGfcSteelDetail::NGfcSteelDetail(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

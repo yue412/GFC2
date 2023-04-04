@@ -234,18 +234,6 @@
     <ClCompile Include="Classes\NGfcIntervald.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\NGfcLightSource.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\NGfcLightSourceAmbient.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\NGfcLightSourceDirectional.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\NGfcLightSourcePositional.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\NGfcLine2d.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
@@ -322,9 +310,6 @@
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="Classes\NGfcPrimitiveBody.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\NGfcPrimitiveRenderable.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="Classes\NGfcPrimitiveShape.cpp">
@@ -518,6 +503,21 @@
     </ClCompile>
     <ClCompile Include="NDocument.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfcAppearanceMaterial.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfcPBRAppearanceMaterial.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfcPHONGAppearanceMaterial.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfcTextureCoordList.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\NGfcTriangulatedFaceSet.cpp">
+      <Filter>Classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -737,18 +737,6 @@
     <ClInclude Include="Classes\NGfcIntervald.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\NGfcLightSource.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\NGfcLightSourceAmbient.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\NGfcLightSourceDirectional.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\NGfcLightSourcePositional.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\NGfcLine2d.h">
       <Filter>Classes</Filter>
     </ClInclude>
@@ -825,9 +813,6 @@
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="Classes\NGfcPrimitiveBody.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\NGfcPrimitiveRenderable.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="Classes\NGfcPrimitiveShape.h">
@@ -1021,6 +1006,21 @@
     </ClInclude>
     <ClInclude Include="NDocument.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfcAppearanceMaterial.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfcPBRAppearanceMaterial.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfcPHONGAppearanceMaterial.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfcTextureCoordList.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\NGfcTriangulatedFaceSet.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

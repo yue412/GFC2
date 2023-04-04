@@ -9,7 +9,7 @@ NGfcSection::NGfcSection()
 }
 
 NGfcSection::NGfcSection(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

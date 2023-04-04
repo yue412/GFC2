@@ -1,20 +1,20 @@
-#ifndef GFCPHONGMATERIAL_H
-#define GFCPHONGMATERIAL_H
+#ifndef GFCPHONGAPPEARANCEMATERIAL_H
+#define GFCPHONGAPPEARANCEMATERIAL_H
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
-#include "GfcClasses/x3/GfcMaterial.h"
+#include "GfcClasses/x3/GfcAppearanceMaterial.h"
 #include "GfcClasses/x3/GfcColor.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcPHONGMaterial: public GfcMaterial
+class GFCCLASSES_API GfcPHONGAppearanceMaterial: public GfcAppearanceMaterial
 {
-GFCENGINE_DEC_OBJECT(GfcPHONGMaterial, gfc::engine::CEntity)
+GFCENGINE_DEC_OBJECT(GfcPHONGAppearanceMaterial, gfc::engine::CEntity)
 public:
-    GfcPHONGMaterial();
-    GfcPHONGMaterial(bool bSetSchema);
+    GfcPHONGAppearanceMaterial();
+    GfcPHONGAppearanceMaterial(bool bSetSchema);
     void setAmbient(const gfc::engine::EntityRef& nValue);
     gfc::engine::EntityRef getAmbient() const;
     bool hasAmbient() const;

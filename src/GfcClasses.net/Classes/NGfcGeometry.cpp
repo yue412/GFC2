@@ -9,7 +9,7 @@ NGfcGeometry::NGfcGeometry()
 }
 
 NGfcGeometry::NGfcGeometry(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

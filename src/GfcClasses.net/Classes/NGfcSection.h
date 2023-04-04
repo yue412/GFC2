@@ -1,10 +1,10 @@
 #ifndef NGFCSECTION_H
 #define NGFCSECTION_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcSection.h"
 
-public ref class NGfcSection: public NEntity
+public ref class NGfcSection: public NGfcRoot
 {
 public:
     NGfcSection();

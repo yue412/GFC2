@@ -1,11 +1,11 @@
 #ifndef NGFCCOLOR_H
 #define NGFCCOLOR_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcColor.h"
 #include "NTypeDef.h"
 
-public ref class NGfcColor: public NEntity
+public ref class NGfcColor: public NGfcRoot
 {
 public:
     NGfcColor();
@@ -19,9 +19,6 @@ public:
     void setBlue(NGfcInteger nValue);
     NGfcInteger getBlue();
     bool hasBlue();
-    void setAlpha(NGfcInteger nValue);
-    NGfcInteger getAlpha();
-    bool hasAlpha();
 
 };
 #endif

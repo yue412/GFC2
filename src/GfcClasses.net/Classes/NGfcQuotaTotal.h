@@ -1,7 +1,7 @@
 #ifndef NGFCQUOTATOTAL_H
 #define NGFCQUOTATOTAL_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcQuotaTotal.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,7 +9,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcQuotaTotal: public NEntity
+public ref class NGfcQuotaTotal: public NGfcRoot
 {
 public:
     NGfcQuotaTotal();

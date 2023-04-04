@@ -1,14 +1,14 @@
 #ifndef NGFCREFSTRING_H
 #define NGFCREFSTRING_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcRefString.h"
 #include <msclr/marshal_cppstd.h>
 
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcRefString: public NEntity
+public ref class NGfcRefString: public NGfcRoot
 {
 public:
     NGfcRefString();

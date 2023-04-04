@@ -9,7 +9,7 @@ NGfcSteelTotal::NGfcSteelTotal()
 }
 
 NGfcSteelTotal::NGfcSteelTotal(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

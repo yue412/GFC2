@@ -9,7 +9,7 @@ NGfcPlaneInfo::NGfcPlaneInfo()
 }
 
 NGfcPlaneInfo::NGfcPlaneInfo(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

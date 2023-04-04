@@ -1,12 +1,12 @@
 #ifndef NGFCNURBSCTRLPT3D_H
 #define NGFCNURBSCTRLPT3D_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcNurbsCtrlPt3d.h"
 #include "NGfcVector3d.h"
 #include "NTypeDef.h"
 
-public ref class NGfcNurbsCtrlPt3d: public NEntity
+public ref class NGfcNurbsCtrlPt3d: public NGfcRoot
 {
 public:
     NGfcNurbsCtrlPt3d();

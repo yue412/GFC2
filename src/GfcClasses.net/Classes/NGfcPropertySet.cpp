@@ -9,7 +9,7 @@ NGfcPropertySet::NGfcPropertySet()
 }
 
 NGfcPropertySet::NGfcPropertySet(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

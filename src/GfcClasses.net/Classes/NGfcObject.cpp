@@ -9,7 +9,7 @@ NGfcObject::NGfcObject()
 }
 
 NGfcObject::NGfcObject(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

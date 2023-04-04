@@ -1,14 +1,13 @@
 #ifndef NGFCINDEXEDTEXTUREMAP_H
 #define NGFCINDEXEDTEXTUREMAP_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcIndexedTextureMap.h"
-#include "NGfcPrimitiveRenderable.h"
-#include "NGfcVector2d.h"
-#include "NGfcSurfaceTexture.h"
-#include "NTypeDef.h"
+#include "NGfcTriangulatedFaceSet.h"
+#include "NGfcAppearanceMaterial.h"
+#include "NGfcTextureCoordList.h"
 
-public ref class NGfcIndexedTextureMap: public NEntity
+public ref class NGfcIndexedTextureMap: public NGfcRoot
 {
 public:
     NGfcIndexedTextureMap();
@@ -16,18 +15,13 @@ public:
     void setMappedTo(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getMappedTo();
     bool hasMappedTo();
-    int getTexCoordsCount();
-    void clearTexCoords();
-    void addTexCoords(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getTexCoords(int nIndex);
-    int getTexCoordIndexCount();
-    void clearTexCoordIndex();
-    void addTexCoordIndex(NGfcInteger nValue);
-    NGfcInteger getTexCoordIndex(int nIndex);
-    int getMapsCount();
-    void clearMaps();
-    void addMaps(gfc::engine::EntityRef nValue);
-    gfc::engine::EntityRef getMaps(int nIndex);
+    void setMaterial(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getMaterial();
+    bool hasMaterial();
+    int getCoordListCount();
+    void clearCoordList();
+    void addCoordList(gfc::engine::EntityRef nValue);
+    gfc::engine::EntityRef getCoordList(int nIndex);
 
 };
 #endif

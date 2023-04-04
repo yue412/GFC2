@@ -1,7 +1,7 @@
 #ifndef NGFCELEMENTSHAPE_H
 #define NGFCELEMENTSHAPE_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcElementShape.h"
 #include "NGfcShape.h"
 #include "NTypeDef.h"
@@ -10,7 +10,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcElementShape: public NEntity
+public ref class NGfcElementShape: public NGfcRoot
 {
 public:
     NGfcElementShape();

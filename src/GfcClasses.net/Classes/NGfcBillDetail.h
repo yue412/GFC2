@@ -1,7 +1,7 @@
 #ifndef NGFCBILLDETAIL_H
 #define NGFCBILLDETAIL_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcBillDetail.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,7 +9,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcBillDetail: public NEntity
+public ref class NGfcBillDetail: public NGfcRoot
 {
 public:
     NGfcBillDetail();

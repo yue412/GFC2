@@ -1,10 +1,10 @@
 #ifndef NGFCCONNECTIONGEOMETRY_H
 #define NGFCCONNECTIONGEOMETRY_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcConnectionGeometry.h"
 
-public ref class NGfcConnectionGeometry: public NEntity
+public ref class NGfcConnectionGeometry: public NGfcRoot
 {
 public:
     NGfcConnectionGeometry();

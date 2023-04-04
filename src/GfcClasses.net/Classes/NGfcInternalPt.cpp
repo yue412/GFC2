@@ -9,7 +9,7 @@ NGfcInternalPt::NGfcInternalPt()
 }
 
 NGfcInternalPt::NGfcInternalPt(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

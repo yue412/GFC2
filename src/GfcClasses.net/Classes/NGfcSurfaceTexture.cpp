@@ -9,7 +9,7 @@ NGfcSurfaceTexture::NGfcSurfaceTexture()
 }
 
 NGfcSurfaceTexture::NGfcSurfaceTexture(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 
@@ -43,19 +43,19 @@ bool NGfcSurfaceTexture::hasRepeatT()
     return ((GfcSurfaceTexture*)m_pEntity)->hasRepeatT();
 }
 
-void NGfcSurfaceTexture::setImageFileName(NGfcString sValue)
+void NGfcSurfaceTexture::setImageURL(NGfcString sValue)
 {
-    ((GfcSurfaceTexture*)m_pEntity)->setImageFileName(marshal_as<std::wstring>(sValue));
+    ((GfcSurfaceTexture*)m_pEntity)->setImageURL(marshal_as<std::wstring>(sValue));
 }
 
-NGfcString NGfcSurfaceTexture::getImageFileName()
+NGfcString NGfcSurfaceTexture::getImageURL()
 {
-    return marshal_as<String^>(((GfcSurfaceTexture*)m_pEntity)->getImageFileName());
+    return marshal_as<String^>(((GfcSurfaceTexture*)m_pEntity)->getImageURL());
 }
 
-bool NGfcSurfaceTexture::hasImageFileName()
+bool NGfcSurfaceTexture::hasImageURL()
 {
-    return ((GfcSurfaceTexture*)m_pEntity)->hasImageFileName();
+    return ((GfcSurfaceTexture*)m_pEntity)->hasImageURL();
 }
 
 void NGfcSurfaceTexture::setTranfromsMatirx(gfc::engine::EntityRef nValue)
@@ -73,23 +73,18 @@ bool NGfcSurfaceTexture::hasTranfromsMatirx()
     return ((GfcSurfaceTexture*)m_pEntity)->hasTranfromsMatirx();
 }
 
-int NGfcSurfaceTexture::getParameterCount()
+void NGfcSurfaceTexture::setTextureType(NGfcTextureType nValue)
 {
-    return ((GfcSurfaceTexture*)m_pEntity)->getParameterCount();
+    ((GfcSurfaceTexture*)m_pEntity)->setTextureType((GfcTextureType)nValue);
 }
 
-void NGfcSurfaceTexture::clearParameter()
+NGfcTextureType NGfcSurfaceTexture::getTextureType()
 {
-    ((GfcSurfaceTexture*)m_pEntity)->clearParameter();
+    return (NGfcTextureType)((GfcSurfaceTexture*)m_pEntity)->getTextureType();
 }
 
-void NGfcSurfaceTexture::addParameter(NGfcString sValue)
+bool NGfcSurfaceTexture::hasTextureType()
 {
-    ((GfcSurfaceTexture*)m_pEntity)->addParameter(marshal_as<std::wstring>(sValue));
-}
-
-NGfcString NGfcSurfaceTexture::getParameter(int nIndex)
-{
-    return marshal_as<String^>(((GfcSurfaceTexture*)m_pEntity)->getParameter(nIndex));
+    return ((GfcSurfaceTexture*)m_pEntity)->hasTextureType();
 }
 

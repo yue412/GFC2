@@ -9,7 +9,7 @@ NGfcNurbsCtrlPt2d::NGfcNurbsCtrlPt2d()
 }
 
 NGfcNurbsCtrlPt2d::NGfcNurbsCtrlPt2d(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

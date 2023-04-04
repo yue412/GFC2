@@ -101,6 +101,17 @@ TYPE GfcTextureType = ENUMERATION OF
 	,TT_LIGHT);
 END_TYPE;
 
+ENTITY GfcAppearanceMaterial
+ ABSTRACT SUPERTYPE OF (ONEOF
+	(GfcPHONGAppearanceMaterial
+	,GfcPBRAppearanceMaterial))
+ SUBTYPE OF (GfcRoot);
+	Color : GfcColor;
+	DoubleSide : GfcBoolean;
+	Opacity : GfcDouble;
+	Textures : LIST [0:?] OF GfcSurfaceTexture;
+END_ENTITY;
+
 ENTITY GfcArbitrarySection
  SUBTYPE OF (GfcSection);
 	Poly : GfcPolygon;
@@ -536,17 +547,15 @@ END_ENTITY;
 ENTITY GfcIndexedColourMap
  SUBTYPE OF (GfcRoot);
 	Opacity : GfcDouble;
-	Colours : LIST [0:?] OF GfcColor;
-	ColourIndex : LIST [0:?] OF GfcInteger;
+	Color : GfcColor;
 	MappedTo : GfcTriangulatedFaceSet;
 END_ENTITY;
 
 ENTITY GfcIndexedTextureMap
  SUBTYPE OF (GfcRoot);
 	MappedTo : GfcTriangulatedFaceSet;
-	TexCoords : LIST [0:?] OF GfcDouble;
-	TexCoordIndex : LIST [0:?] OF GfcInteger;
-	Materials : LIST [0:?] OF GfcMaterial;
+	Material : GfcAppearanceMaterial;
+	CoordList : LIST [0:?] OF GfcTextureCoordList;
 END_ENTITY;
 
 ENTITY GfcIntegerListProperty
@@ -629,17 +638,6 @@ ENTITY GfcManifoldSolidShape
 	Body : GfcBody;
 END_ENTITY;
 
-ENTITY GfcMaterial
- ABSTRACT SUPERTYPE OF (ONEOF
-	(GfcPHONGMaterial
-	,GfcPBRMaterial))
- SUBTYPE OF (GfcRoot);
-	Color : GfcColor;
-	DoubleSide : GfcBoolean;
-	Opacity : GfcDouble;
-	Textures : LIST [0:?] OF GfcSurfaceTexture;
-END_ENTITY;
-
 ENTITY GfcMatrix
  SUBTYPE OF (GfcGeometry);
 	Dim : GfcInteger;
@@ -700,14 +698,14 @@ ENTITY GfcOffsetCurve2d
 	InitCurve : GfcCurve2d;
 END_ENTITY;
 
-ENTITY GfcPBRMaterial
- SUBTYPE OF (GfcMaterial);
+ENTITY GfcPBRAppearanceMaterial
+ SUBTYPE OF (GfcAppearanceMaterial);
 	Metalness : GfcDouble;
 	Roughness : GfcDouble;
 END_ENTITY;
 
-ENTITY GfcPHONGMaterial
- SUBTYPE OF (GfcMaterial);
+ENTITY GfcPHONGAppearanceMaterial
+ SUBTYPE OF (GfcAppearanceMaterial);
 	Ambient : GfcColor;
 	Emissive : GfcColor;
 	Specular : GfcColor;
@@ -1003,7 +1001,8 @@ ENTITY GfcRoot
 	,GfcIndexedTextureMap
 	,GfcSurfaceTexture
 	,GfcRefString
-	,GfcMaterial
+	,GfcAppearanceMaterial
+	,GfcTextureCoordList
 	,GfcElementShape
 	,GfcObject
 	,GfcProperty
@@ -1253,6 +1252,12 @@ ENTITY GfcTShapeSection
 	Thickness1 : GfcDouble;
 	Thickness2 : GfcDouble;
 	LeftWidth : GfcDouble;
+END_ENTITY;
+
+ENTITY GfcTextureCoordList
+ SUBTYPE OF (GfcRoot);
+	TexCoords : LIST [0:?] OF GfcDouble;
+	TexCoordIndex : LIST [0:?] OF GfcInteger;
 END_ENTITY;
 
 ENTITY GfcTopology

@@ -1,12 +1,12 @@
 #ifndef NGFCSHAPE_H
 #define NGFCSHAPE_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcShape.h"
 #include "NGfcCoordinates3d.h"
 #include "NGfcBox3d.h"
 
-public ref class NGfcShape: public NEntity
+public ref class NGfcShape: public NGfcRoot
 {
 public:
     NGfcShape();

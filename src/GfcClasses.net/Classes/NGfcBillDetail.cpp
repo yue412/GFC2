@@ -9,7 +9,7 @@ NGfcBillDetail::NGfcBillDetail()
 }
 
 NGfcBillDetail::NGfcBillDetail(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

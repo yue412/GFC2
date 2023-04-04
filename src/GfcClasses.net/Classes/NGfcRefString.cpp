@@ -9,7 +9,7 @@ NGfcRefString::NGfcRefString()
 }
 
 NGfcRefString::NGfcRefString(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

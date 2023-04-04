@@ -152,6 +152,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\NGfcAppearanceMaterial.cpp" />
     <ClCompile Include="Classes\NGfcArbitrarySection.cpp" />
     <ClCompile Include="Classes\NGfcArc2d.cpp" />
     <ClCompile Include="Classes\NGfcArc3d.cpp" />
@@ -223,10 +224,6 @@
     <ClCompile Include="Classes\NGfcInternalPt.cpp" />
     <ClCompile Include="Classes\NGfcIntersectionCurve3d.cpp" />
     <ClCompile Include="Classes\NGfcIntervald.cpp" />
-    <ClCompile Include="Classes\NGfcLightSource.cpp" />
-    <ClCompile Include="Classes\NGfcLightSourceAmbient.cpp" />
-    <ClCompile Include="Classes\NGfcLightSourceDirectional.cpp" />
-    <ClCompile Include="Classes\NGfcLightSourcePositional.cpp" />
     <ClCompile Include="Classes\NGfcLine2d.cpp" />
     <ClCompile Include="Classes\NGfcLine3d.cpp" />
     <ClCompile Include="Classes\NGfcListProperty.cpp" />
@@ -242,6 +239,8 @@
     <ClCompile Include="Classes\NGfcOffsetCurve2d.cpp" />
     <ClCompile Include="Classes\NGfcParameterizedSection.cpp" />
     <ClCompile Include="Classes\NGfcParametricShape.cpp" />
+    <ClCompile Include="Classes\NGfcPBRAppearanceMaterial.cpp" />
+    <ClCompile Include="Classes\NGfcPHONGAppearanceMaterial.cpp" />
     <ClCompile Include="Classes\NGfcPlane.cpp" />
     <ClCompile Include="Classes\NGfcPlaneCoef.cpp" />
     <ClCompile Include="Classes\NGfcPlaneCurve3d.cpp" />
@@ -253,7 +252,6 @@
     <ClCompile Include="Classes\NGfcPolyhedronBody.cpp" />
     <ClCompile Include="Classes\NGfcPreimageCurve2d.cpp" />
     <ClCompile Include="Classes\NGfcPrimitiveBody.cpp" />
-    <ClCompile Include="Classes\NGfcPrimitiveRenderable.cpp" />
     <ClCompile Include="Classes\NGfcPrimitiveShape.cpp" />
     <ClCompile Include="Classes\NGfcProject.cpp" />
     <ClCompile Include="Classes\NGfcProperty.cpp" />
@@ -308,8 +306,10 @@
     <ClCompile Include="Classes\NGfcSweep.cpp" />
     <ClCompile Include="Classes\NGfcSweepCurve3d.cpp" />
     <ClCompile Include="Classes\NGfcSweptAreaSolidShape.cpp" />
+    <ClCompile Include="Classes\NGfcTextureCoordList.cpp" />
     <ClCompile Include="Classes\NGfcTopology.cpp" />
     <ClCompile Include="Classes\NGfcTorus.cpp" />
+    <ClCompile Include="Classes\NGfcTriangulatedFaceSet.cpp" />
     <ClCompile Include="Classes\NGfcTShapeSection.cpp" />
     <ClCompile Include="Classes\NGfcUnaryBooleanResult.cpp" />
     <ClCompile Include="Classes\NGfcVector2d.cpp" />
@@ -320,6 +320,7 @@
     <ClCompile Include="NWriter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\NGfcAppearanceMaterial.h" />
     <ClInclude Include="Classes\NGfcArbitrarySection.h" />
     <ClInclude Include="Classes\NGfcArc2d.h" />
     <ClInclude Include="Classes\NGfcArc3d.h" />
@@ -391,10 +392,6 @@
     <ClInclude Include="Classes\NGfcInternalPt.h" />
     <ClInclude Include="Classes\NGfcIntersectionCurve3d.h" />
     <ClInclude Include="Classes\NGfcIntervald.h" />
-    <ClInclude Include="Classes\NGfcLightSource.h" />
-    <ClInclude Include="Classes\NGfcLightSourceAmbient.h" />
-    <ClInclude Include="Classes\NGfcLightSourceDirectional.h" />
-    <ClInclude Include="Classes\NGfcLightSourcePositional.h" />
     <ClInclude Include="Classes\NGfcLine2d.h" />
     <ClInclude Include="Classes\NGfcLine3d.h" />
     <ClInclude Include="Classes\NGfcListProperty.h" />
@@ -410,6 +407,8 @@
     <ClInclude Include="Classes\NGfcOffsetCurve2d.h" />
     <ClInclude Include="Classes\NGfcParameterizedSection.h" />
     <ClInclude Include="Classes\NGfcParametricShape.h" />
+    <ClInclude Include="Classes\NGfcPBRAppearanceMaterial.h" />
+    <ClInclude Include="Classes\NGfcPHONGAppearanceMaterial.h" />
     <ClInclude Include="Classes\NGfcPlane.h" />
     <ClInclude Include="Classes\NGfcPlaneCoef.h" />
     <ClInclude Include="Classes\NGfcPlaneCurve3d.h" />
@@ -421,7 +420,6 @@
     <ClInclude Include="Classes\NGfcPolyhedronBody.h" />
     <ClInclude Include="Classes\NGfcPreimageCurve2d.h" />
     <ClInclude Include="Classes\NGfcPrimitiveBody.h" />
-    <ClInclude Include="Classes\NGfcPrimitiveRenderable.h" />
     <ClInclude Include="Classes\NGfcPrimitiveShape.h" />
     <ClInclude Include="Classes\NGfcProject.h" />
     <ClInclude Include="Classes\NGfcProperty.h" />
@@ -476,8 +474,10 @@
     <ClInclude Include="Classes\NGfcSweep.h" />
     <ClInclude Include="Classes\NGfcSweepCurve3d.h" />
     <ClInclude Include="Classes\NGfcSweptAreaSolidShape.h" />
+    <ClInclude Include="Classes\NGfcTextureCoordList.h" />
     <ClInclude Include="Classes\NGfcTopology.h" />
     <ClInclude Include="Classes\NGfcTorus.h" />
+    <ClInclude Include="Classes\NGfcTriangulatedFaceSet.h" />
     <ClInclude Include="Classes\NGfcTShapeSection.h" />
     <ClInclude Include="Classes\NGfcUnaryBooleanResult.h" />
     <ClInclude Include="Classes\NGfcVector2d.h" />

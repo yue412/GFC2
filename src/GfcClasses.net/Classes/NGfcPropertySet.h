@@ -1,7 +1,7 @@
 #ifndef NGFCPROPERTYSET_H
 #define NGFCPROPERTYSET_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcPropertySet.h"
 #include "NGfcProperty.h"
 #include "NTypeDef.h"
@@ -10,7 +10,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcPropertySet: public NEntity
+public ref class NGfcPropertySet: public NGfcRoot
 {
 public:
     NGfcPropertySet();

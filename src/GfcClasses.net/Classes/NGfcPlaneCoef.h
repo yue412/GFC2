@@ -1,11 +1,11 @@
 #ifndef NGFCPLANECOEF_H
 #define NGFCPLANECOEF_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcPlaneCoef.h"
 #include "NTypeDef.h"
 
-public ref class NGfcPlaneCoef: public NEntity
+public ref class NGfcPlaneCoef: public NGfcRoot
 {
 public:
     NGfcPlaneCoef();

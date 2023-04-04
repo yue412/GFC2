@@ -1,7 +1,7 @@
 #ifndef NGFCSTEELTOTAL_H
 #define NGFCSTEELTOTAL_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcSteelTotal.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,7 +9,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcSteelTotal: public NEntity
+public ref class NGfcSteelTotal: public NGfcRoot
 {
 public:
     NGfcSteelTotal();

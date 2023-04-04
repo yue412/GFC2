@@ -1,19 +1,19 @@
-#ifndef GFCPBRMATERIAL_H
-#define GFCPBRMATERIAL_H
+#ifndef GFCPBRAPPEARANCEMATERIAL_H
+#define GFCPBRAPPEARANCEMATERIAL_H
 
 #include "GfcClasses/x3/_Gfc_Classes.h"
-#include "GfcClasses/x3/GfcMaterial.h"
+#include "GfcClasses/x3/GfcAppearanceMaterial.h"
 #include "GfcClasses/x3/TypeDef.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 
-class GFCCLASSES_API GfcPBRMaterial: public GfcMaterial
+class GFCCLASSES_API GfcPBRAppearanceMaterial: public GfcAppearanceMaterial
 {
-GFCENGINE_DEC_OBJECT(GfcPBRMaterial, gfc::engine::CEntity)
+GFCENGINE_DEC_OBJECT(GfcPBRAppearanceMaterial, gfc::engine::CEntity)
 public:
-    GfcPBRMaterial();
-    GfcPBRMaterial(bool bSetSchema);
+    GfcPBRAppearanceMaterial();
+    GfcPBRAppearanceMaterial(bool bSetSchema);
     void setMetalness(const GfcDouble& dValue);
     GfcDouble getMetalness() const;
     bool hasMetalness() const;

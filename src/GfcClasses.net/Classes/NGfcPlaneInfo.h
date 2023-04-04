@@ -1,11 +1,11 @@
 #ifndef NGFCPLANEINFO_H
 #define NGFCPLANEINFO_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcPlaneInfo.h"
 #include "NGfcVector3d.h"
 
-public ref class NGfcPlaneInfo: public NEntity
+public ref class NGfcPlaneInfo: public NGfcRoot
 {
 public:
     NGfcPlaneInfo();

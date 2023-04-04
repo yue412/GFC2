@@ -1,7 +1,7 @@
 #ifndef NGFCQUOTADETAIL_H
 #define NGFCQUOTADETAIL_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcQuotaDetail.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,7 +9,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcQuotaDetail: public NEntity
+public ref class NGfcQuotaDetail: public NGfcRoot
 {
 public:
     NGfcQuotaDetail();

@@ -1,7 +1,7 @@
 #ifndef NGFCSURFACETEXTURE_H
 #define NGFCSURFACETEXTURE_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcSurfaceTexture.h"
 #include "NGfcMatrix.h"
 #include "NTypeDef.h"
@@ -10,7 +10,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcSurfaceTexture: public NEntity
+public ref class NGfcSurfaceTexture: public NGfcRoot
 {
 public:
     NGfcSurfaceTexture();
@@ -21,16 +21,15 @@ public:
     void setRepeatT(NGfcBoolean bValue);
     NGfcBoolean getRepeatT();
     bool hasRepeatT();
-    void setImageFileName(NGfcString sValue);
-    NGfcString getImageFileName();
-    bool hasImageFileName();
+    void setImageURL(NGfcString sValue);
+    NGfcString getImageURL();
+    bool hasImageURL();
     void setTranfromsMatirx(gfc::engine::EntityRef nValue);
     gfc::engine::EntityRef getTranfromsMatirx();
     bool hasTranfromsMatirx();
-    int getParameterCount();
-    void clearParameter();
-    void addParameter(NGfcString sValue);
-    NGfcString getParameter(int nIndex);
+    void setTextureType(NGfcTextureType nValue);
+    NGfcTextureType getTextureType();
+    bool hasTextureType();
 
 };
 #endif

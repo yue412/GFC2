@@ -9,7 +9,7 @@ NGfcConnectionGeometry::NGfcConnectionGeometry()
 }
 
 NGfcConnectionGeometry::NGfcConnectionGeometry(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

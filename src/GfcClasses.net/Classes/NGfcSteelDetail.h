@@ -1,7 +1,7 @@
 #ifndef NGFCSTEELDETAIL_H
 #define NGFCSTEELDETAIL_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcSteelDetail.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,7 +9,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcSteelDetail: public NEntity
+public ref class NGfcSteelDetail: public NGfcRoot
 {
 public:
     NGfcSteelDetail();

@@ -1,12 +1,12 @@
 #ifndef NGFCINTERNALCHART_H
 #define NGFCINTERNALCHART_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcInternalChart.h"
 #include "NGfcInternalPt.h"
 #include "NTypeDef.h"
 
-public ref class NGfcInternalChart: public NEntity
+public ref class NGfcInternalChart: public NGfcRoot
 {
 public:
     NGfcInternalChart();

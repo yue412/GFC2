@@ -9,7 +9,7 @@ NGfcRelationShip::NGfcRelationShip()
 }
 
 NGfcRelationShip::NGfcRelationShip(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

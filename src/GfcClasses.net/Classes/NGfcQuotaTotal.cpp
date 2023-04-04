@@ -9,7 +9,7 @@ NGfcQuotaTotal::NGfcQuotaTotal()
 }
 
 NGfcQuotaTotal::NGfcQuotaTotal(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

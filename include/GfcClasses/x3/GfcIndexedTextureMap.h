@@ -4,8 +4,8 @@
 #include "GfcClasses/x3/_Gfc_Classes.h"
 #include "GfcClasses/x3/GfcRoot.h"
 #include "GfcClasses/x3/GfcTriangulatedFaceSet.h"
-#include "GfcClasses/x3/GfcMaterial.h"
-#include "GfcClasses/x3/TypeDef.h"
+#include "GfcClasses/x3/GfcAppearanceMaterial.h"
+#include "GfcClasses/x3/GfcTextureCoordList.h"
 #include "GfcEngine/Entity.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
@@ -20,19 +20,15 @@ public:
     gfc::engine::EntityRef getMappedTo() const;
     bool hasMappedTo() const;
     std::shared_ptr<GfcTriangulatedFaceSet> getMappedToPtr();
-    int getTexCoordsCount() const;
-    void clearTexCoords();
-    void addTexCoords(const GfcDouble& dValue);
-    GfcDouble getTexCoords(int nIndex) const;
-    int getTexCoordIndexCount() const;
-    void clearTexCoordIndex();
-    void addTexCoordIndex(const GfcInteger& nValue);
-    GfcInteger getTexCoordIndex(int nIndex) const;
-    int getMaterialsCount() const;
-    void clearMaterials();
-    void addMaterials(const gfc::engine::EntityRef& nValue);
-    gfc::engine::EntityRef getMaterials(int nIndex) const;
-    std::shared_ptr<GfcMaterial> getMaterialsPtr(int nIndex);
+    void setMaterial(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getMaterial() const;
+    bool hasMaterial() const;
+    std::shared_ptr<GfcAppearanceMaterial> getMaterialPtr();
+    int getCoordListCount() const;
+    void clearCoordList();
+    void addCoordList(const gfc::engine::EntityRef& nValue);
+    gfc::engine::EntityRef getCoordList(int nIndex) const;
+    std::shared_ptr<GfcTextureCoordList> getCoordListPtr(int nIndex);
 
 };
 

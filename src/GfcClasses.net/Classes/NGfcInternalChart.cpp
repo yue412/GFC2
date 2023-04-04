@@ -9,7 +9,7 @@ NGfcInternalChart::NGfcInternalChart()
 }
 
 NGfcInternalChart::NGfcInternalChart(bool bNoCreate):
-    NEntity(bNoCreate)
+    NGfcRoot(bNoCreate)
 {
 }
 

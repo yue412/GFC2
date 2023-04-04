@@ -1,7 +1,7 @@
 #ifndef NGFCBILLTOTAL_H
 #define NGFCBILLTOTAL_H
 
-#include "NEntity.h"
+#include "NGfcRoot.h"
 #include "GfcClasses\x3\GfcBillTotal.h"
 #include "NTypeDef.h"
 #include <msclr/marshal_cppstd.h>
@@ -9,7 +9,7 @@
 using namespace System;
 using namespace msclr::interop;
 
-public ref class NGfcBillTotal: public NEntity
+public ref class NGfcBillTotal: public NGfcRoot
 {
 public:
     NGfcBillTotal();
