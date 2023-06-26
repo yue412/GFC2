@@ -3,10 +3,10 @@
 
 #include <vector>
 #include <string>
-#include "GfcEngine\GfcEngine.h"
-#include "GfcEngine\Property.h"
-#include "GfcEngine\Object.h"
-#include "GfcEngine\SysMarco.h"
+#include "GfcEngine/GfcEngine.h"
+#include "GfcEngine/Property.h"
+#include "GfcEngine/Object.h"
+#include "GfcEngine/SysMarco.h"
 
 namespace gfc {
     namespace schema {
@@ -61,7 +61,7 @@ public:
     void setAsBoolean(const std::wstring& sPropName, const bool& bValue);
     void setAsEntityRef(const std::wstring& sPropName, const EntityRef& nValue);
 
-    // Êý×éÊôÐÔ¶ÁÐ´·½·¨
+    // æ•°ç»„å±žæ€§è¯»å†™æ–¹æ³•
     int getArrayCount(const std::wstring& sPropName) const;
 
     void addEntityRef(const std::wstring& sPropName, const EntityRef& nValue);

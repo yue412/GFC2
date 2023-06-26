@@ -1,7 +1,7 @@
 #include "ConverterImp.h"
-#include "GfcSchema\EnumType.h"
-#include "GfcEngine\PropValue.h"
-#include "GfcEngine\Property.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcEngine/Property.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 
@@ -138,7 +138,7 @@ void CIntConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
 
 void CFloatToStringConverter::doTransform(CPropValue * pFrom, CPropValue * pTo)
 {
-    //todo ¾«¶È
+    //todo ç²¾åº¦
     pTo->setAsString(std::to_wstring(pFrom->asDouble()));
 }
 

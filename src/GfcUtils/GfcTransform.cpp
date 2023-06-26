@@ -71,15 +71,15 @@ bool GfcTransform::transform()
     if (nullptr == m_pWriter || !m_pWriter->isOpen())
         return false;
     clear();
-    // ×ªProject
+    // è½¬Project
     auto nProjectRef = transformProject();
-    // ×ªBuilding
+    // è½¬Building
     auto oBuildingMap = transformBuilding(nProjectRef);
-    // ×ªFloor
+    // è½¬Floor
     auto oFloorMap = transformFloor(oBuildingMap);
-    // ×ªElement and ElementType
+    // è½¬Element and ElementType
     transformElement(oFloorMap);
-    // ¼ÇÂ¼¹ØÏµ
+    // è®°å½•å…³ç³»
     writeRelAggregates();
     return true;
 }
@@ -218,7 +218,7 @@ GfcTransform::GfcEntityRefMap GfcTransform::transformBuilding(gfc::engine::Entit
 GfcTransform::GfcEntityRefMap GfcTransform::transformFloor(const GfcEntityRefMap& oBuildingRefMap)
 {
     GfcEntityRefMap oResult;
-    // ×ªÂ¥²ã
+    // è½¬æ¥¼å±‚
     auto pItr = m_pContainer->getEntities(L"Gfc2RelAggregates");
     pItr->first();
     while (!pItr->isDone())
@@ -253,7 +253,7 @@ GfcTransform::GfcEntityRefMap GfcTransform::transformFloor(const GfcEntityRefMap
 void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
 {
     GfcEntityRefMap oElementRefMap, oElementTypeRefMap;
-    // ×ªÂ¥²ã
+    // è½¬æ¥¼å±‚
     auto pItr = m_pContainer->getEntities(L"Gfc2RelAggregates");
     pItr->first();
     while (!pItr->isDone())
@@ -270,7 +270,7 @@ void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
                 auto pEntity = pAggregate->getEntity(pValue, i);
                 if (isElement(pEntity))//pEntity->entityName() == L"Gfc2Element")
                 {
-                    // ¹¹¼þ
+                    // æž„ä»¶
                     auto pNewShape = doTransformShape(pEntity);
                     if (nullptr == pNewShape)
                         continue;
@@ -285,8 +285,8 @@ void GfcTransform::transformElement(const GfcEntityRefMap & oFloorRefMap)
                 }
                 else if (isElementType(pEntity))//(pEntity->entityName() == L"Gfc2ElementType")
                 {
-                    // ¹¹¼þÀàÐÍ
-                    auto pNewElementType = doTransformElementType(pEntity); // ÔÝÊ±¿ÉÒÔÓÃ¹¹¼þµÄ
+                    // æž„ä»¶ç±»åž‹
+                    auto pNewElementType = doTransformElementType(pEntity); // æš‚æ—¶å¯ä»¥ç”¨æž„ä»¶çš„
                     if (nullptr == pNewElementType)
                         continue;
                     auto nElementTypeRef = write(pEntity->ref(), pNewElementType);

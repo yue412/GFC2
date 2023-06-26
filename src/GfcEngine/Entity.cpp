@@ -1,13 +1,12 @@
-#include <Windows.h>
 #include <string>
 #include <assert.h>
 #include "GfcEngine/Entity.h"
 #include "GfcEngine/EngineException.h"
 #include "GfcEngine/Document.h"
 #include "GfcEngine/Property.h"
-#include "GfcEngine\PropValue.h"
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EntityAttribute.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
 #include "Common.h"
 
 GFCENGINE_NAMESPACE_BEGIN
@@ -173,7 +172,7 @@ void CEntity::initProps(gfc::schema::CClass* pClass)
 
 void CEntity::free()
 {
-    for each (auto pProp in *m_pProps)
+    for (auto pProp : *m_pProps)
     {
         delete pProp;
     }

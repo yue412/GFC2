@@ -13,25 +13,25 @@ ggp::CPolygon * TransPolygon(ggp::CPolygon * pPolygon, const ggp::CVector2d & rB
     if (pPolygon)
     {
         pPolygon = (ggp::CPolygon *)pPolygon->Clone();
-        //ÏÈ¾µÏñ
+        //å…ˆé•œåƒ
         if (bMirror)
         {
             ggp::CMatrix4d oMatrix4d;
             oMatrix4d.SetMirror(ggp::CVector3d(rBaseInsertPt, 0), ggp::CVector3d::UnitX);
             pPolygon->Transform(oMatrix4d);
         }
-        //ÔÙÐý×ª
+        //å†æ—‹è½¬
         if (!ggp::isZero(dAngle, ggp::g_DoubleResolution) && !ggp::is_nan(dAngle))
         {
             pPolygon->Rotate(rBaseInsertPt, dAngle);
         }
-        //×îºóÔÙÒÆ¶¯
+        //æœ€åŽå†ç§»åŠ¨
         pPolygon->Move(rInsertPt - rBaseInsertPt);
     }
     return pPolygon;
 }
 
-// ¼ÆËãÇ½ÆðÊ¼¶ËÃæ
+// è®¡ç®—å¢™èµ·å§‹ç«¯é¢
 ggp::CPolygon * calcWallPolygon(double dWidth, double dLeftWidth, double dAngle, double dHeight)
 {
     auto oPt1 = ggp::CVector2d(- dWidth + dLeftWidth, 0);
@@ -253,7 +253,7 @@ void Gfc2LineShapeFrom2::doTransformExtruded(ggp::CLine2d * pLine, gfc::engine::
 
     if (!ggp::sameValue(pSrcShape->asDouble(L"StartPtHeight"), pSrcShape->asDouble(L"EndPtHeight"), ggp::g_DoubleResolution))
     {
-        // ±ä½ØÃæÀ­Éì
+        // å˜æˆªé¢æ‹‰ä¼¸
         auto pEndPoly = calcWallPolygon(pSrcShape->asDouble(L"Width"), pSrcShape->asDouble(L"LeftWidth"), pSrcShape->asDouble(L"Tilt"), pSrcShape->asDouble(L"EndPtHeight"));
         auto pSection = owner()->createEntity(L"Gfc2ArbitrarySection");
         pSection->setAsEntityRef(L"Poly", GfcGeometryExporter::exportPolygon(owner()->writer(), pEndPoly));

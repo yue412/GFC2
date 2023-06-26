@@ -1,9 +1,9 @@
-#include "GfcEngine\ClassCompatibility.h"
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EntityAttribute.h"
+#include "GfcEngine/ClassCompatibility.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
 #include <algorithm>
 #include <assert.h>
-#include "GfcEngine\AttributeCompatibility.h"
+#include "GfcEngine/AttributeCompatibility.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 
@@ -20,7 +20,7 @@ void CClassCompatibility::init(gfc::schema::CTypeObject * pFrom, gfc::schema::CT
     std::vector<gfc::schema::CAttribute*> oToAttributeList;
     getAttributeList((gfc::schema::CClass*)pFrom->getBaseType(), oFromAttributeList);
     getAttributeList((gfc::schema::CClass*)pTo->getBaseType(), oToAttributeList);
-    for each (auto pFromAttrib in oFromAttributeList)
+    for (auto pFromAttrib : oFromAttributeList)
     {
         auto itr = std::find_if(oToAttributeList.begin(), oToAttributeList.end(),
             [pFromAttrib](gfc::schema::CAttribute* pAttrib) {return pFromAttrib->getName() == pAttrib->getName(); });
@@ -71,7 +71,7 @@ void CClassCompatibility::getAttributeList(gfc::schema::CClass * pClass, std::ve
 
 void CClassCompatibility::clear()
 {
-    for each (auto pItem in m_oList)
+    for (auto pItem : m_oList)
     {
         delete pItem;
     }

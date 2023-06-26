@@ -4,7 +4,7 @@
 #include <math.h>
 #include <map>
 #include <string>
-#include "GfcEngine\RegHelper.h"
+#include "GfcEngine/RegHelper.h"
 
 //namespace glodon
 //{

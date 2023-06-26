@@ -1,7 +1,7 @@
-#include "gtest\gtest.h"
-#include "GfcEngine\Entity.h"
-#include "GfcEngine\EngineException.h"
-#include "GfcEngine\PropValue.h"
+#include "gtest/gtest.h"
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/EngineException.h"
+#include "GfcEngine/PropValue.h"
 #include "Common.h"
 
 /*

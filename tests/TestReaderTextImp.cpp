@@ -1,14 +1,14 @@
-#include "gtest\gtest.h"
-#include "GfcEngine\Entity.h"
-#include "GfcEngine\EngineException.h"
-#include "GfcEngine\PropValue.h"
+#include "gtest/gtest.h"
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/EngineException.h"
+#include "GfcEngine/PropValue.h"
 #include "ReaderTextImp.h"
 #include "Common.h"
-#include "GfcSchema\BuildinType.h"
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EnumType.h"
-#include "GfcSchema\EntityAttribute.h"
-#include "GfcSchema\Model.h"
+#include "GfcSchema/BuildinType.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/Model.h"
 
 TEST(TestReaderTextImp, CReaderTextImp_preRead)
 {
@@ -136,10 +136,10 @@ TEST(TestReaderTextImp, CReaderTextUtils_parseString)
         EXPECT_STREQ("1234567890abcXYZ", value.c_str());
     }
     {
-        std::string input = "'ÖÐÎÄ'";
+        std::string input = "'ä¸­æ–‡'";
         auto result = gfc::engine::CReaderTextUtils::parseString(input, value);
         EXPECT_EQ(true, result);
-        EXPECT_STREQ("ÖÐÎÄ", value.c_str());
+        EXPECT_STREQ("ä¸­æ–‡", value.c_str());
     }
     {
         std::string input = "'\\''";
@@ -166,10 +166,10 @@ TEST(TestReaderTextImp, CReaderTextUtils_parseString)
         EXPECT_STREQ("\\", value.c_str());
     }
     {
-        std::string input = "'ÖÐÎÄ=\\'abc\\'\\n\\rÓ¢ÎÄ=\\\\'";
+        std::string input = "'ä¸­æ–‡=\\'abc\\'\\n\\rè‹±æ–‡=\\\\'";
         auto result = gfc::engine::CReaderTextUtils::parseString(input, value);
         EXPECT_EQ(true, result);
-        EXPECT_STREQ("ÖÐÎÄ='abc'\n\rÓ¢ÎÄ=\\", value.c_str());
+        EXPECT_STREQ("ä¸­æ–‡='abc'\n\rè‹±æ–‡=\\", value.c_str());
     }
     {
         std::string input = "''";
@@ -286,11 +286,11 @@ TEST(TestReaderTextImp, CReaderTextUtils_parseStringField)
 {
     {
         gfc::engine::CStringValue value;
-        std::string input = UnicodeToUtf8(L"'ÖÐ»ªÈËÃñ'");
+        std::string input = UnicodeToUtf8(L"'ä¸­åŽäººæ°‘'");
         auto result = gfc::engine::CReaderTextUtils::parseStringField(input, &value);
         EXPECT_EQ(true, result);
         EXPECT_EQ(false, value.isNull());
-        EXPECT_STREQ(L"ÖÐ»ªÈËÃñ", value.asString().c_str());
+        EXPECT_STREQ(L"ä¸­åŽäººæ°‘", value.asString().c_str());
     }
     {
         gfc::engine::CStringValue value;
@@ -402,11 +402,11 @@ TEST(TestReaderTextImp, CReaderTextUtils_parseField_string)
     gfc::schema::CStringType oType;
     gfc::engine::CStringValue value;
     {
-        std::string input = UnicodeToUtf8(L"'ÖÐÎÄ'");
+        std::string input = UnicodeToUtf8(L"'ä¸­æ–‡'");
         auto result = gfc::engine::CReaderTextUtils::parseField(input, &oType, &value);
         EXPECT_EQ(true, result);
         EXPECT_EQ(false, value.isNull());
-        EXPECT_STREQ(L"ÖÐÎÄ", value.asString().c_str());
+        EXPECT_STREQ(L"ä¸­æ–‡", value.asString().c_str());
     }
     {
         std::string input = "abc";
@@ -636,13 +636,13 @@ TEST(TestReaderTextImp, CReaderTextUtils_parse_two)
 
     gfc::engine::CEntity oEntity;
     oEntity.setSchema(&oClass);
-    std::string input = UnicodeToUtf8(L"123,'¹ãÁª´ï'");
+    std::string input = UnicodeToUtf8(L"123,'å¹¿è”è¾¾'");
     std::string value;
     {
         auto result = gfc::engine::CReaderTextUtils::parse(input, &oEntity, sError);
         EXPECT_EQ(true, result);
         EXPECT_EQ(123, oEntity.asInteger(L"ID"));
-        EXPECT_STREQ(L"¹ãÁª´ï", oEntity.asString(L"Name").c_str());
+        EXPECT_STREQ(L"å¹¿è”è¾¾", oEntity.asString(L"Name").c_str());
     }
 }
 
@@ -675,26 +675,26 @@ TEST(TestReaderTextImp, CReaderTextUtils_parse_empty)
     {
         gfc::engine::CEntity oEntity;
         oEntity.setSchema(&oClass);
-        std::string input = UnicodeToUtf8(L"123,'¹ãÁª´ï',$");
+        std::string input = UnicodeToUtf8(L"123,'å¹¿è”è¾¾',$");
         std::string value;
         {
             auto result = gfc::engine::CReaderTextUtils::parse(input, &oEntity, sError);
             EXPECT_EQ(true, result);
             EXPECT_EQ(123, oEntity.asInteger(L"ID"));
-            EXPECT_STREQ(L"¹ãÁª´ï", oEntity.asString(L"Name").c_str());
+            EXPECT_STREQ(L"å¹¿è”è¾¾", oEntity.asString(L"Name").c_str());
             EXPECT_EQ(true, oEntity.isNull(L"Width"));
         }
     }
     {
         gfc::engine::CEntity oEntity;
         oEntity.setSchema(&oClass);
-        std::string input = UnicodeToUtf8(L" 123 , '¹ãÁª´ï' , $ ");
+        std::string input = UnicodeToUtf8(L" 123 , 'å¹¿è”è¾¾' , $ ");
         std::string value;
         {
             auto result = gfc::engine::CReaderTextUtils::parse(input, &oEntity, sError);
             EXPECT_EQ(true, result);
             EXPECT_EQ(123, oEntity.asInteger(L"ID"));
-            EXPECT_STREQ(L"¹ãÁª´ï", oEntity.asString(L"Name").c_str());
+            EXPECT_STREQ(L"å¹¿è”è¾¾", oEntity.asString(L"Name").c_str());
             EXPECT_EQ(true, oEntity.isNull(L"Width"));
         }
     }
@@ -736,13 +736,13 @@ TEST(TestReaderTextImp, CReaderTextUtils_parse_repeat)
     {
         gfc::engine::CEntity oEntity;
         oEntity.setSchema(&oClass);
-        std::string input = UnicodeToUtf8(L"123,'¹ãÁª´ï',$,(1,2,3)");
+        std::string input = UnicodeToUtf8(L"123,'å¹¿è”è¾¾',$,(1,2,3)");
         std::string value;
         {
             auto result = gfc::engine::CReaderTextUtils::parse(input, &oEntity, sError);
             EXPECT_EQ(true, result);
             EXPECT_EQ(123, oEntity.asInteger(L"ID"));
-            EXPECT_STREQ(L"¹ãÁª´ï", oEntity.asString(L"Name").c_str());
+            EXPECT_STREQ(L"å¹¿è”è¾¾", oEntity.asString(L"Name").c_str());
             EXPECT_EQ(true, oEntity.isNull(L"Width"));
             auto pValue = oEntity.valueByName(L"List");
             EXPECT_EQ(3, pValue->getCount());
@@ -754,13 +754,13 @@ TEST(TestReaderTextImp, CReaderTextUtils_parse_repeat)
     {
         gfc::engine::CEntity oEntity;
         oEntity.setSchema(&oClass);
-        std::string input = UnicodeToUtf8(L" 123 , '¹ãÁª´ï' , $ , ( 12 , 32 , 45 )");
+        std::string input = UnicodeToUtf8(L" 123 , 'å¹¿è”è¾¾' , $ , ( 12 , 32 , 45 )");
         std::string value;
         {
             auto result = gfc::engine::CReaderTextUtils::parse(input, &oEntity, sError);
             EXPECT_EQ(true, result);
             EXPECT_EQ(123, oEntity.asInteger(L"ID"));
-            EXPECT_STREQ(L"¹ãÁª´ï", oEntity.asString(L"Name").c_str());
+            EXPECT_STREQ(L"å¹¿è”è¾¾", oEntity.asString(L"Name").c_str());
             EXPECT_EQ(true, oEntity.isNull(L"Width"));
             auto pValue = oEntity.valueByName(L"List");
             EXPECT_EQ(3, pValue->getCount());
@@ -772,13 +772,13 @@ TEST(TestReaderTextImp, CReaderTextUtils_parse_repeat)
     {
         gfc::engine::CEntity oEntity;
         oEntity.setSchema(&oClass);
-        std::string input = UnicodeToUtf8(L"123,'¹ãÁª´ï',$,()");
+        std::string input = UnicodeToUtf8(L"123,'å¹¿è”è¾¾',$,()");
         std::string value;
         {
             auto result = gfc::engine::CReaderTextUtils::parse(input, &oEntity, sError);
             EXPECT_EQ(true, result);
             EXPECT_EQ(123, oEntity.asInteger(L"ID"));
-            EXPECT_STREQ(L"¹ãÁª´ï", oEntity.asString(L"Name").c_str());
+            EXPECT_STREQ(L"å¹¿è”è¾¾", oEntity.asString(L"Name").c_str());
             EXPECT_EQ(true, oEntity.isNull(L"Width"));
             auto pValue = oEntity.valueByName(L"List");
             EXPECT_EQ(true, pValue->isNull());
@@ -787,13 +787,13 @@ TEST(TestReaderTextImp, CReaderTextUtils_parse_repeat)
     {
         gfc::engine::CEntity oEntity;
         oEntity.setSchema(&oClass);
-        std::string input = UnicodeToUtf8(L"123,'¹ãÁª´ï',$,$");
+        std::string input = UnicodeToUtf8(L"123,'å¹¿è”è¾¾',$,$");
         std::string value;
         {
             auto result = gfc::engine::CReaderTextUtils::parse(input, &oEntity, sError);
             EXPECT_EQ(true, result);
             EXPECT_EQ(123, oEntity.asInteger(L"ID"));
-            EXPECT_STREQ(L"¹ãÁª´ï", oEntity.asString(L"Name").c_str());
+            EXPECT_STREQ(L"å¹¿è”è¾¾", oEntity.asString(L"Name").c_str());
             EXPECT_EQ(true, oEntity.isNull(L"Width"));
             auto pValue = oEntity.valueByName(L"List");
             EXPECT_EQ(true, pValue->isNull());

@@ -252,7 +252,7 @@ gfc::engine::EntityRef GfcGeometryExporter::exportSpiralLine2d( gfc::engine::CWr
 
 gfc::engine::EntityRef GfcGeometryExporter::exportCurve2d( gfc::engine::CWriter* pWriter, ggp::CCurve2d* pSrc )
 {
-	//pSrcÓĞ¿ÉÄÜ´æÔÚÎªnullµÄÇé¿ö
+	//pSrcæœ‰å¯èƒ½å­˜åœ¨ä¸ºnullçš„æƒ…å†µ
 	if (nullptr == pSrc)
 	{
 		return -1;

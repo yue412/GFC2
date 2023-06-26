@@ -1,16 +1,16 @@
-#include "gtest\gtest.h"
-#include "GfcEngine\Entity.h"
-#include "GfcEngine\EngineException.h"
-#include "GfcEngine\PropValue.h"
-#include "GfcEngine\GfcEngineUtils.h"
-#include "GfcEngine\Writer.h"
+#include "gtest/gtest.h"
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/EngineException.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcEngine/GfcEngineUtils.h"
+#include "GfcEngine/Writer.h"
 #include "WriterTextImp.h"
 #include "Common.h"
-#include "GfcSchema\BuildinType.h"
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EnumType.h"
-#include "GfcSchema\EntityAttribute.h"
-#include "GfcSchema\Model.h"
+#include "GfcSchema/BuildinType.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/Model.h"
 
 TEST(TestWriteTextImp, CWriterTextUtils_writevalue_Integer)
 {
@@ -78,9 +78,9 @@ TEST(TestWriteTextImp, CWriterTextUtils_writevalue_String)
     }
     {
         std::stringstream ss;
-        gfc::engine::CStringValue oValue(L"中文");
+        gfc::engine::CStringValue oValue(L"涓枃");
         gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
-        EXPECT_STREQ(UnicodeToUtf8(L"'中文'").c_str(), ss.str().c_str());
+        EXPECT_STREQ(UnicodeToUtf8(L"'涓枃'").c_str(), ss.str().c_str());
     }
     {
         std::stringstream ss;
@@ -108,9 +108,9 @@ TEST(TestWriteTextImp, CWriterTextUtils_writevalue_String)
     }
     {
         std::stringstream ss;
-        gfc::engine::CStringValue oValue(L"中文='abc'\n\r英文=\\");
+        gfc::engine::CStringValue oValue(L"涓枃='abc'\n\r鑻辨枃=\\");
         gfc::engine::CWriterTextUtils::writeValue(ss, &oType, &oValue);
-        EXPECT_STREQ(UnicodeToUtf8(L"'中文=\\'abc\\'\\n\\r英文=\\\\'").c_str(), ss.str().c_str());
+        EXPECT_STREQ(UnicodeToUtf8(L"'涓枃=\\'abc\\'\\n\\r鑻辨枃=\\\\'").c_str(), ss.str().c_str());
     }
 }
 
@@ -362,16 +362,16 @@ TEST(TestWriteTextImp, CWriter_addIgnoreDuplicates)
     gfc::schema::CModel oModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
     auto pStr = std::shared_ptr<gfc::engine::CEntity>(gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String"));
-    pStr->setAsString(L"Value", L"中国");
+    pStr->setAsString(L"Value", L"涓浗");
     auto nRef = oWriter.writeEntity(pStr.get());
     auto pStr2 = std::shared_ptr<gfc::engine::CEntity>(gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String"));
-    pStr2->setAsString(L"Value", L"中国");
+    pStr2->setAsString(L"Value", L"涓浗");
     auto nRef2 = oWriter.writeEntity(pStr2.get());
     auto pStr3 = std::shared_ptr<gfc::engine::CEntity>(gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String"));
-    pStr3->setAsString(L"Value", L"中国1");
+    pStr3->setAsString(L"Value", L"涓浗1");
     auto nRef3 = oWriter.writeEntity(pStr3.get());
     auto pLabel = std::shared_ptr<gfc::engine::CEntity>(gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Label"));
-    pLabel->setAsString(L"Value", L"中国");
+    pLabel->setAsString(L"Value", L"涓浗");
     auto nRef4 = oWriter.writeEntity(pLabel.get());
     EXPECT_EQ(nRef, nRef2);
     EXPECT_NE(nRef, nRef3);

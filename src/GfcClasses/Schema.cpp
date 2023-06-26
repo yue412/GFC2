@@ -1,6 +1,6 @@
 #include "Schema.h"
 #include <assert.h>
-#include "GfcSchema\Model.h"
+#include "GfcSchema/Model.h"
 
 gfc::schema::CTypeObject* findSchema(const std::wstring& sName)
 {

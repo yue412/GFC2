@@ -1,8 +1,8 @@
 #ifndef GFCSHAPEFROM2_H
 #define GFCSHAPEFROM2_H
 
-#include "GfcEngine\SysMarco.h"
-#include "GfcEngine\Entity.h"
+#include "GfcEngine/SysMarco.h"
+#include "GfcEngine/Entity.h"
 #include <memory>
 
 namespace gfc {
@@ -28,7 +28,7 @@ public:
     GfcShapeFrom2();
     virtual ~GfcShapeFrom2();
     gfc::engine::EntityPtr transform(gfc::engine::EntityPtr pSrcShape);
-    // Êä³ö
+    // è¾“å‡º
     void setOwner(GfcFrom2* pOwner) { m_pOwner = pOwner; }
     GfcFrom2* owner() { return m_pOwner; }
 protected:

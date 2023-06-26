@@ -1,9 +1,10 @@
-#include "GfcEngine\AttributeCompatibility.h"
-#include "GfcSchema\EntityAttribute.h"
-#include "GfcSchema\TypeObject.h"
-#include "GfcSchema\EnumType.h"
-#include "GfcSchema\EntityClass.h"
+#include "GfcEngine/AttributeCompatibility.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/TypeObject.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcSchema/EntityClass.h"
 #include "ConverterImp.h"
+#include <algorithm>
 
 GFCENGINE_NAMESPACE_BEGIN
 
@@ -56,7 +57,7 @@ void CAttributeCompatibility::init(gfc::schema::CAttribute * pFrom, gfc::schema:
         m_sName = pFrom->getName();
         if (pTo)
         {
-            // ´æÔÚ
+            // å­˜åœ¨
             auto pFromBaseType = pFrom->getType()->getBaseType();
             auto pToBaseType = pTo->getType()->getBaseType();
             auto oCompatibility = getTypeCompatibility(pFromBaseType, pToBaseType);
@@ -68,14 +69,14 @@ void CAttributeCompatibility::init(gfc::schema::CAttribute * pFrom, gfc::schema:
         }
         else
         {
-            // ¶ªÆú¼´¿É
+            // ä¸¢å¼ƒå³å¯
             m_bIsCompatible = true;
         }
     }
     else
     {
         m_sName = pTo->getName();
-        // ²»´æÔÚ£¬ÅĞ¶ÏÊÇ·ñ¿ÉÑ¡»òÎªÊı×éÀàĞÍ
+        // ä¸å­˜åœ¨ï¼Œåˆ¤æ–­æ˜¯å¦å¯é€‰æˆ–ä¸ºæ•°ç»„ç±»å‹
         m_bIsCompatible = pTo->getOptionalFlag() || pTo->getRepeatFlag();
     }
 }
@@ -85,14 +86,14 @@ TypeCompatibility CAttributeCompatibility::enumCompatibility(gfc::schema::CTypeO
     TypeCompatibility oResult;
     if (pFrom->getName() != pTo->getName() || !isEnumCompatibility((gfc::schema::CEnumType*)pFrom, (gfc::schema::CEnumType*)pTo))
     {
-        //ĞèÒª±È½ÏÒ»ÏÂÃ¶¾ÙÖµÊÇ·ñÏàÍ¬
+        //éœ€è¦æ¯”è¾ƒä¸€ä¸‹æšä¸¾å€¼æ˜¯å¦ç›¸åŒ
         oResult.isCompatibility = false;
         oResult.converter = new CEnumConverter;
     }
     else 
     {
         oResult.isCompatibility = true;
-        // Ã¶¾ÙË³Ğò¶¼ÊÇÒ»ÖÂµÄ
+        // æšä¸¾é¡ºåºéƒ½æ˜¯ä¸€è‡´çš„
         if (isEnumSame((gfc::schema::CEnumType*)pFrom, (gfc::schema::CEnumType*)pTo))
             oResult.converter = new CIntToEnumConverter;
         else

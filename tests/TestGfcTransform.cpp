@@ -1,14 +1,16 @@
-#include "gtest\gtest.h"
-#include "GfcEngine\Writer.h"
-#include "GfcEngine\Reader.h"
-#include "GfcEngine\Document.h"
-#include "GfcEngine\GfcEngineUtils.h"
-//#include "Classes\Gfc2EdgeData.h"
+#ifdef GFCUTILS
+
+#include "gtest/gtest.h"
+#include "GfcEngine/Writer.h"
+#include "GfcEngine/Reader.h"
+#include "GfcEngine/Document.h"
+#include "GfcEngine/GfcEngineUtils.h"
+//#include "Classes/Gfc2EdgeData.h"
 #include "Common.h"
 #include "GfcSchema/Model.h"
-#include "GfcUtils\GfcTransform.h"
-#include "GfcUtils\GfcTo2.h"
-#include "GfcEngine\Container.h"
+#include "GfcUtils/GfcTransform.h"
+#include "GfcUtils/GfcTo2.h"
+#include "GfcEngine/Container.h"
 #include "MockWriter.h"
 
 class GfcTransform30to20_Test : public GfcTo2
@@ -37,13 +39,14 @@ TEST(TestGFCTransform, doTransformEntity_id)
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oSrcModel);
     auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Project");
     pSrcEntity->setAsString(L"ID", L"12");
-    //pSrcEntity->setAsString(L"Name", L"中国");
+    //pSrcEntity->setAsString(L"Name", L"涓浗");
 
     gfc::schema::CModel oDestModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC2X0.exp"), &oDestModel);
     oTransform.setSchema(&oSrcModel, &oDestModel);
     pSrcEntity->setRef(2);
-    auto pDestEntity = oTransform.transformEntity(gfc::engine::EntityPtr(pSrcEntity));
+    auto p = GfcTransform::SrcEntityPtr(pSrcEntity);
+    auto pDestEntity = oTransform.transformEntity(p);
     EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
 //    delete pSrcEntity;
 }
@@ -54,11 +57,11 @@ TEST(TestGFCTransform, doTransformEntity_string)
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oSrcModel);
     gfc::engine::CDocument Doc(&oSrcModel);
     //auto pIdentity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Label");
-    //pIdentity->setAsString(L"Value", L"中国");
+    //pIdentity->setAsString(L"Value", L"涓浗");
     //Doc.add(23, pIdentity);
     auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Project");
     pSrcEntity->setAsString(L"ID", L"12");
-    pSrcEntity->setAsString(L"Name", L"中国");
+    pSrcEntity->setAsString(L"Name", L"涓浗");
     pSrcEntity->setRef(3);
     Doc.add(pSrcEntity);
 
@@ -70,7 +73,8 @@ TEST(TestGFCTransform, doTransformEntity_string)
     oWriter.open(L"test", L"mock");
     oTransform.setWriter(&oWriter);
     //auto result = oTransform.transform();
-    auto pDestEntity = oTransform.transformEntity(Doc.getEntity(3));
+    auto  p = Doc.getEntity(3);
+    auto pDestEntity = oTransform.transformEntity(p);
     EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
     EXPECT_EQ(1, pDestEntity->asEntityRef(L"Name"));
 }
@@ -82,7 +86,7 @@ TEST(TestGFCTransform, doTransformEntity_entityref)
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oSrcModel);
     gfc::engine::CDocument Doc(&oSrcModel);
     //auto pIdentity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Label");
-    //pIdentity->setAsString(L"Value", L"中国");
+    //pIdentity->setAsString(L"Value", L"涓浗");
     //Doc.add(23, pIdentity);
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Coordinates3d");
@@ -105,7 +109,8 @@ TEST(TestGFCTransform, doTransformEntity_entityref)
     oWriter.open(L"test", L"mock");
     oTransform.setWriter(&oWriter);
     //auto result = oTransform.transform();
-    auto pDestEntity = oTransform.transformEntity(Doc.getEntity(5));
+    auto p = Doc.getEntity(5);
+    auto pDestEntity = oTransform.transformEntity(p);
     //EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
     EXPECT_EQ(1, pDestEntity->asEntityRef(L"LocalCoordinate"));
 }
@@ -116,11 +121,11 @@ TEST(TestGFCTransform, doTransformProject)
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oSrcModel);
     gfc::engine::CDocument Doc(&oSrcModel);
     //auto pIdentity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Label");
-    //pIdentity->setAsString(L"Value", L"中国");
+    //pIdentity->setAsString(L"Value", L"涓浗");
     //Doc.add(23, pIdentity);
     auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Project");
     pSrcEntity->setAsString(L"ID", L"12");
-    pSrcEntity->setAsString(L"Name", L"中国");
+    pSrcEntity->setAsString(L"Name", L"涓浗");
     pSrcEntity->setRef(3);
     Doc.add(pSrcEntity);
 
@@ -132,7 +137,8 @@ TEST(TestGFCTransform, doTransformProject)
     oWriter.open(L"test", L"mock");
     oTransform.setWriter(&oWriter);
     //auto result = oTransform.transform();
-    auto pDestEntity = oTransform.transformEntity(Doc.getEntity(3));
+    auto p = Doc.getEntity(3);
+    auto pDestEntity = oTransform.transformEntity(p);
     EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
     EXPECT_EQ(1, pDestEntity->asEntityRef(L"Name"));
     EXPECT_EQ(true, pDestEntity->isNull(L"OwnerID"));
@@ -161,11 +167,11 @@ TEST(TestGFCTransform, doTransformBuilding)
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oSrcModel);
     gfc::engine::CDocument Doc(&oSrcModel);
     //auto pIdentity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Label");
-    //pIdentity->setAsString(L"Value", L"中国");
+    //pIdentity->setAsString(L"Value", L"涓浗");
     //Doc.add(23, pIdentity);
     auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Building");
     pSrcEntity->setAsString(L"ID", L"12");
-    pSrcEntity->setAsString(L"Name", L"中国");
+    pSrcEntity->setAsString(L"Name", L"涓浗");
     pSrcEntity->setRef(3);
     Doc.add(pSrcEntity);
 
@@ -177,7 +183,8 @@ TEST(TestGFCTransform, doTransformBuilding)
     oWriter.open(L"test", L"mock");
     oTransform.setWriter(&oWriter);
     //auto result = oTransform.transform();
-    auto pDestEntity = oTransform.transformEntity(Doc.getEntity(3));
+    auto p = Doc.getEntity(3);
+    auto pDestEntity = oTransform.transformEntity(p);
     EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
     EXPECT_EQ(1, pDestEntity->asEntityRef(L"Name"));
     EXPECT_EQ(true, pDestEntity->isNull(L"OwnerID"));
@@ -189,11 +196,11 @@ TEST(TestGFCTransform, doTransformFloor)
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oSrcModel);
     gfc::engine::CDocument Doc(&oSrcModel);
     //auto pIdentity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Label");
-    //pIdentity->setAsString(L"Value", L"中国");
+    //pIdentity->setAsString(L"Value", L"涓浗");
     //Doc.add(23, pIdentity);
     auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Floor");
     pSrcEntity->setAsString(L"ID", L"12");
-    pSrcEntity->setAsString(L"Name", L"中国");
+    pSrcEntity->setAsString(L"Name", L"涓浗");
     pSrcEntity->setAsDouble(L"Height", 3.0);
     pSrcEntity->setAsDouble(L"StructuralElevation", 11.5);
     pSrcEntity->setAsInteger(L"StdFloorCount", 1);
@@ -209,7 +216,8 @@ TEST(TestGFCTransform, doTransformFloor)
     oWriter.open(L"test", L"mock");
     oTransform.setWriter(&oWriter);
     //auto result = oTransform.transform();
-    auto pDestEntity = oTransform.transformEntity(Doc.getEntity(3));
+    auto p = Doc.getEntity(3);
+    auto pDestEntity = oTransform.transformEntity(p);
     EXPECT_EQ(12, pDestEntity->asInteger(L"ID"));
     EXPECT_EQ(1, pDestEntity->asEntityRef(L"Name"));
     EXPECT_EQ(true, pDestEntity->isNull(L"OwnerID"));
@@ -227,24 +235,24 @@ TEST(TestGFCTransform, doTransformFloor)
 
 TEST(TestGFCTransform, transformBuilding)
 {
-    // 测试Building-Project关系
+    // 娴嬭瘯Building-Project鍏崇郴
     gfc::schema::CModel oSrcModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oSrcModel);
     gfc::engine::CDocument Doc(&oSrcModel);
     //auto pIdentity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Label");
-    //pIdentity->setAsString(L"Value", L"中国");
+    //pIdentity->setAsString(L"Value", L"涓浗");
     //Doc.add(23, pIdentity);
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Building");
         pSrcEntity->setAsString(L"ID", L"12");
-        //pSrcEntity->setAsString(L"Name", L"中国");
+        //pSrcEntity->setAsString(L"Name", L"涓浗");
         pSrcEntity->setRef(3);
         Doc.add(pSrcEntity);
     }
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Building");
         pSrcEntity->setAsString(L"ID", L"34");
-        //pSrcEntity->setAsString(L"Name", L"中国");
+        //pSrcEntity->setAsString(L"Name", L"涓浗");
         pSrcEntity->setRef(45);
         Doc.add(pSrcEntity);
     }
@@ -269,31 +277,31 @@ TEST(TestGFCTransform, transformBuilding)
 
 TEST(TestGFCTransform, transformFloor)
 {
-    //测试building Floor 关系
+    //娴嬭瘯building Floor 鍏崇郴
     gfc::schema::CModel oSrcModel;
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oSrcModel);
     gfc::engine::CDocument Doc(&oSrcModel);
     //auto pIdentity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Label");
-    //pIdentity->setAsString(L"Value", L"中国");
+    //pIdentity->setAsString(L"Value", L"涓浗");
     //Doc.add(23, pIdentity);
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Building");
         pSrcEntity->setAsString(L"ID", L"12");
-        //pSrcEntity->setAsString(L"Name", L"中国");
+        //pSrcEntity->setAsString(L"Name", L"涓浗");
         pSrcEntity->setRef(10);
         Doc.add(pSrcEntity);
     }
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Building");
         pSrcEntity->setAsString(L"ID", L"34");
-        //pSrcEntity->setAsString(L"Name", L"中国");
+        //pSrcEntity->setAsString(L"Name", L"涓浗");
         pSrcEntity->setRef(11);
         Doc.add(pSrcEntity);
     }
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Floor");
         pSrcEntity->setAsString(L"ID", L"101");
-        //pSrcEntity->setAsString(L"Name", L"中国");
+        //pSrcEntity->setAsString(L"Name", L"涓浗");
         pSrcEntity->setAsDouble(L"Height", 3.0);
         pSrcEntity->setAsDouble(L"StructuralElevation", 11.5);
         pSrcEntity->setAsInteger(L"StdFloorCount", 1);
@@ -304,7 +312,7 @@ TEST(TestGFCTransform, transformFloor)
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Floor");
         pSrcEntity->setAsString(L"ID", L"102");
-        //pSrcEntity->setAsString(L"Name", L"中国");
+        //pSrcEntity->setAsString(L"Name", L"涓浗");
         pSrcEntity->setAsDouble(L"Height", 3.0);
         pSrcEntity->setAsDouble(L"StructuralElevation", 11.5);
         pSrcEntity->setAsInteger(L"StdFloorCount", 1);
@@ -315,7 +323,7 @@ TEST(TestGFCTransform, transformFloor)
     {
         auto pSrcEntity = gfc::engine::CEngineUtils::createEntity(&oSrcModel, L"Gfc2Floor");
         pSrcEntity->setAsString(L"ID", L"103");
-        //pSrcEntity->setAsString(L"Name", L"中国");
+        //pSrcEntity->setAsString(L"Name", L"涓浗");
         pSrcEntity->setAsDouble(L"Height", 3.0);
         pSrcEntity->setAsDouble(L"StructuralElevation", 11.5);
         pSrcEntity->setAsInteger(L"StdFloorCount", 1);
@@ -366,3 +374,4 @@ TEST(TestGFCTransform, transformFloor)
         EXPECT_EQ(3, oVector[0]);
     }
 }
+#endif // 0

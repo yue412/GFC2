@@ -173,8 +173,8 @@ ggp::CPreimageCurve2d* GfcGeometryImporter::importPreimageCurve2d(gfc::engine::C
         if (pSurface && pCurve)
         {
             pResult = new ggp::CPreimageCurve2d(ggp::CSurfacePtr(pSurface), ggp::CCurve3dPtr(pCurve), pSrc->asDouble(L"Tolerance"));
-			//²»ĞèÒªÉèÖÃRange£¬¹¹Ôìº¯Êı»áÉèÖÃRange£¬¶øÇÒÈç¹û×ßÏÂÃæµÄ·´Ïò·½·¨£¬»á°ÑRange·´Ïò£¬½â¾öJLBIM-88
-			//Í¬Ê±½â¾öBIMGFC-701¡¢BIMGFC-1343¡¢BIMGFC-1501µÄÒìĞÎÌå¶ªÊ§ÎÊÌâ dongc-b	2018.1.29
+			//ä¸éœ€è¦è®¾ç½®Rangeï¼Œæ„é€ å‡½æ•°ä¼šè®¾ç½®Rangeï¼Œè€Œä¸”å¦‚æœèµ°ä¸‹é¢çš„åå‘æ–¹æ³•ï¼Œä¼šæŠŠRangeåå‘ï¼Œè§£å†³JLBIM-88
+			//åŒæ—¶è§£å†³BIMGFC-701ã€BIMGFC-1343ã€BIMGFC-1501çš„å¼‚å½¢ä½“ä¸¢å¤±é—®é¢˜ dongc-b	2018.1.29
 			//pResult->SetRange(importIntervald(pSrc->asEntity(L"Range").get()));
 			if (pSrc->asBoolean(L"Reversed") ^ pResult->Reversed())
 			{
@@ -790,20 +790,20 @@ ggp::CPolygon* GfcGeometryImporter::importPolygon(gfc::engine::CEntity* pSrc )
         pResult = new ggp::CPolygon;
         innerImportPolygon(pSrc, pResult);
 
-		//Èô¶à±ßĞÎ·Ç·¨£¬Ôò³¢ÊÔĞŞ¸´
+		//è‹¥å¤šè¾¹å½¢éæ³•ï¼Œåˆ™å°è¯•ä¿®å¤
 		if (!pResult->IsValid())
 		{
-			//ÓÉÓÚ¶à¸ö»·Ê±£¬ÎŞ·¨±ã½İ»ñÈ¡»·ÊÇÍâ»·»¹ÊÇÄÚ»·£¬Ò²¾ÍÎŞ·¨ÅĞ¶ÏÆäÕıÈ·µÄ·½Ïò£¬¹ÊÖ»´¦ÀíÖ»ÓĞÒ»¸ö»·µÄÇé¿ö
+			//ç”±äºå¤šä¸ªç¯æ—¶ï¼Œæ— æ³•ä¾¿æ·è·å–ç¯æ˜¯å¤–ç¯è¿˜æ˜¯å†…ç¯ï¼Œä¹Ÿå°±æ— æ³•åˆ¤æ–­å…¶æ­£ç¡®çš„æ–¹å‘ï¼Œæ•…åªå¤„ç†åªæœ‰ä¸€ä¸ªç¯çš„æƒ…å†µ
 			if (pResult->LoopCount() == 1)
 			{
-				//»·µÄ·½Ïò´íÎó£¬Ôò·´Ïò
+				//ç¯çš„æ–¹å‘é”™è¯¯ï¼Œåˆ™åå‘
 				if (pResult->GetLoop(0)->ClockSign() != ggp::csAnticlockwise)
 				{
 					pResult->Reverse();
 				}
 			}
 			
-			//»·Ó¦±ÕºÏ
+			//ç¯åº”é—­åˆ
 			bool isClosed = true;
 			for (int i = 0; i < pResult->LoopCount(); ++i)
 			{
@@ -815,7 +815,7 @@ ggp::CPolygon* GfcGeometryImporter::importPolygon(gfc::engine::CEntity* pSrc )
 			}
 			if (!isClosed)
 			{
-				//ÒòÊµ¼ÊÈİ²î´óÓÚÊ¹ÓÃÈİ²îµ¼ÖÂ»·±»ÅĞ¶ÏÎª²»±ÕºÏ£¬ÔòĞŞ¸´¶à±ßĞÎ£¬¼õĞ¡Êµ¼ÊÈİ²î
+				//å› å®é™…å®¹å·®å¤§äºä½¿ç”¨å®¹å·®å¯¼è‡´ç¯è¢«åˆ¤æ–­ä¸ºä¸é—­åˆï¼Œåˆ™ä¿®å¤å¤šè¾¹å½¢ï¼Œå‡å°å®é™…å®¹å·®
 				pResult->CalLoopDistEpsilon();
 				double dDistEps = pResult->DistEpsilon();
 				if (ggp::IsGreaterThan(dDistEps, ggp::g_DistEpsilon, ggp::g_DoubleResolution))
@@ -971,7 +971,7 @@ ggp::CPolyhedralEdge* GfcGeometryImporter::importPolyhedralEdge(gfc::engine::CEn
         ggp::CPolyhedralVertex* pStart = pLoop->Face()->Body()->GetVertex(pSrc->asInteger(L"StartVertexIndex"));
         ggp::CPolyhedralVertex* pEnd = pLoop->Face()->Body()->GetVertex(pSrc->asInteger(L"EndVertexIndex"));
         pResult = new ggp::CPolyhedralEdge(pStart, pEnd);
-        //pResult->SetLoop(pLoop);//by ligy-a 2016.06.30 ÖØ¸´½«±ß¼ÓÈëµ½»·£¬ÓÃÔÚimportPolyhedralLoop()ÖĞÓÃCPolyhedralLoop->AddEdge()Ìí¼ÓÒ»´Î¾ÍĞĞ
+        //pResult->SetLoop(pLoop);//by ligy-a 2016.06.30 é‡å¤å°†è¾¹åŠ å…¥åˆ°ç¯ï¼Œç”¨åœ¨importPolyhedralLoop()ä¸­ç”¨CPolyhedralLoop->AddEdge()æ·»åŠ ä¸€æ¬¡å°±è¡Œ
     }
     return pResult;
 }

@@ -2,7 +2,7 @@
 #define ATTRIBUTECOMPATIBILITY_H
 
 #include <string>
-#include "GfcEngine\GfcEngine.h"
+#include "GfcEngine/GfcEngine.h"
 
 namespace gfc {
     namespace schema {

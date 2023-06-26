@@ -6,7 +6,7 @@
 #include <utility>
 #include <string>
 #include <stdint.h>
-#include "GfcEngine\Object.h"
+#include "GfcEngine/Object.h"
 
 #pragma warning(disable : 4251)
 
@@ -28,8 +28,8 @@ GFCENGINE_NAMESPACE_BEGIN
             unMode = mode;
         }
 
-        Type unObjType;   //×¢²á¼üÖµ
-        int64_t unMode;   //¶ÔÓ¦µÄÀ©Õ¹Êı¾İ
+        Type unObjType;   //æ³¨å†Œé”®å€¼
+        int64_t unMode;   //å¯¹åº”çš„æ‰©å±•æ•°æ®
     };
 
     template<typename Type> 
@@ -85,9 +85,9 @@ GFCENGINE_NAMESPACE_BEGIN
             return m_pCreateFunPtr;
         }
     private:
-        CREATETHIS m_pCreateFunPtr;   //º¯ÊıÖ¸Õë
-        CRegItem<Type> regItem;       //×¢²áÊäÈëÊı¾İ
-        void* m_pUserData;            //ÓÃ»§Êı¾İ
+        CREATETHIS m_pCreateFunPtr;   //å‡½æ•°æŒ‡é’ˆ
+        CRegItem<Type> regItem;       //æ³¨å†Œè¾“å…¥æ•°æ®
+        void* m_pUserData;            //ç”¨æˆ·æ•°æ®
     };
 
 
@@ -98,7 +98,7 @@ GFCENGINE_NAMESPACE_BEGIN
         CObjectFactory(unsigned int type)
         {
             m_type = type;
-            //È·±£ÄÚ²¿Ã»ÓĞÈÎºÎÒÅÁô×¢²áÏî
+            //ç¡®ä¿å†…éƒ¨æ²¡æœ‰ä»»ä½•é—ç•™æ³¨å†Œé¡¹
             m_regHelperMap.clear();
         }
 
@@ -135,13 +135,13 @@ GFCENGINE_NAMESPACE_BEGIN
 
         bool RegisterCreateHelper(const Type& unObjType,const CRegObjInfo<Type>& regInfo) 
         {
-            //ÊäÈë²ÎÊıÅĞ¶Ï£¬±ÜÃâ¼ÓÈë¿ÕÖ¸Õë
+            //è¾“å…¥å‚æ•°åˆ¤æ–­ï¼Œé¿å…åŠ å…¥ç©ºæŒ‡é’ˆ
             if(regInfo.GetFunPtr() == NULL)
             {
                 return false;
             }
 
-            //½øĞĞ×¢²á,Èç¹ûÒÑ¾­´æÔÚ£¬Ôò¸²¸ÇÒÔÇ°µÄ×¢²áĞÅÏ¢£¬½øĞĞ¸²¸Ç
+            //è¿›è¡Œæ³¨å†Œ,å¦‚æœå·²ç»å­˜åœ¨ï¼Œåˆ™è¦†ç›–ä»¥å‰çš„æ³¨å†Œä¿¡æ¯ï¼Œè¿›è¡Œè¦†ç›–
             typename std::map<Type,CRegObjInfo<Type>* >::const_iterator iterator = m_regHelperMap.find(unObjType);
             if(iterator != m_regHelperMap.end())
             {
@@ -201,7 +201,7 @@ GFCENGINE_NAMESPACE_BEGIN
                 }
             }
 
-            //Çå¿ÕËùÓĞ×¢²áÏî
+            //æ¸…ç©ºæ‰€æœ‰æ³¨å†Œé¡¹
             m_regHelperMap.clear();
         }
 
@@ -216,8 +216,8 @@ GFCENGINE_NAMESPACE_BEGIN
         }
 
     private:
-        std::map<Type,CRegObjInfo<Type>*> m_regHelperMap;  //×ÓÀà×¢²áĞÅÏ¢±í
-        unsigned int m_type;                               //Àà³§µÄÀàĞÍ
+        std::map<Type,CRegObjInfo<Type>*> m_regHelperMap;  //å­ç±»æ³¨å†Œä¿¡æ¯è¡¨
+        unsigned int m_type;                               //ç±»å‚çš„ç±»å‹
 
     };
 

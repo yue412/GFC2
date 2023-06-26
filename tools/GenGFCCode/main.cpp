@@ -1,13 +1,17 @@
 #include "getopt.h"
 #include <iostream>
+#if (defined _WIN32 || defined _WIN64)
 #include <windows.h>
+#endif
 #include "umltranslator.h"
 #include "common.h"
+#include <stdarg.h>
 
 void parseTranslateInfo(int argc, char *argv[], CTranslateInfo& oInfo);
 
 int main(int argc, char *argv[])
 {
+    std::locale::global(std::locale("zh_CN.UTF-8"));
     CTranslateInfo oInfo;
     parseTranslateInfo(argc, argv, oInfo);
     CUMLTranslator().done(oInfo);
@@ -16,6 +20,8 @@ int main(int argc, char *argv[])
 
 std::wstring charToWString(char* str)
 {
+    return ACPToUnicode(str);
+    /*
     int size = MultiByteToWideChar(CP_ACP, 0, str, -1, NULL, 0);
     wchar_t* ch = new wchar_t[size + 1];
     if (MultiByteToWideChar(CP_ACP, 0, str, -1, ch, size))
@@ -28,6 +34,7 @@ std::wstring charToWString(char* str)
     {
         return L"";
     }
+    */
 }
 
 void parseTranslateInfo(int argc, char *argv[], CTranslateInfo& oInfo)

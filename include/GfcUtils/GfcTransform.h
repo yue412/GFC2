@@ -3,8 +3,8 @@
 
 #include <string>
 #include <map>
-#include "GfcEngine\GfcEngine.h"
-#include "GfcEngine\Entity.h"
+#include "GfcEngine/GfcEngine.h"
+#include "GfcEngine/Entity.h"
 
 namespace gfc {
     namespace engine {
@@ -44,9 +44,9 @@ public:
     typedef std::shared_ptr<gfc::engine::CEntity> DestEntityPtr;
 public:
     gfc::engine::IContainer* container() { return m_pContainer; }
-    // ÉèÖÃ×ª»»Ä¿±êµÄSchema
+    // è®¾ç½®è½¬æ¢ç›®æ ‡çš„Schema
     virtual void setSchema(gfc::schema::CModel* pSrcModel, gfc::schema::CModel* pDestModel);
-    // Êä³ö
+    // è¾“å‡º
     void setWriter(gfc::engine::CWriter* pWriter);
     gfc::engine::CWriter* writer() { return m_pWriter; }
     bool transform();
@@ -56,26 +56,26 @@ public:
     gfc::engine::CEntityUpgrader* upgrader() { return m_pEntityUpgrader; }
     gfc::engine::EntityRef write(gfc::engine::EntityRef nSrcRef, DestEntityPtr& pDestEntity);
 protected:
-    // Í¬Ãû³Æ²ÅÄÜ×ª»»
-    DestEntityPtr transformEntity(SrcEntityPtr& pSrcEntity);
+    // åŒåç§°æ‰èƒ½è½¬æ¢
+    virtual DestEntityPtr transformEntity(SrcEntityPtr& pSrcEntity);
     gfc::engine::CClassCompatibility* m_pObjectCompatibility;
     virtual GfcRelDefinesByTypeSchema getSrcRelDefinesByTypeSchema() = 0;
     virtual GfcRelDefinesByTypeSchema getDestRelDefinesByTypeSchema() = 0;
     virtual bool isElement(SrcEntityPtr& pSrcEntity) = 0;
     virtual bool isElementType(SrcEntityPtr& pSrcEntity) = 0;
     virtual void linkElementShape(DestEntityPtr& pElement, DestEntityPtr& pShape) = 0;
-    // ×ª»»µ¥¸öÊµÌå
+    // è½¬æ¢å•ä¸ªå®ä½“
     virtual DestEntityPtr doTransformShape(SrcEntityPtr& pSrcEntity) = 0;
     virtual DestEntityPtr doTransformElement(SrcEntityPtr& pSrcEntity) = 0;
     virtual DestEntityPtr doTransformElementType(SrcEntityPtr& pSrcEntity) = 0;
 protected:
-    // ´¦ÀíÊôĞÔ¼¯
+    // å¤„ç†å±æ€§é›†
     virtual void transformProjectPropertySet(SrcEntityPtr& pSrcEntity, DestEntityPtr& pDestEntity);
     virtual void transformBuildingPropertySet(SrcEntityPtr& pSrcEntity, DestEntityPtr& pDestEntity);
     virtual void transformFloorPropertySet(SrcEntityPtr& pSrcEntity, DestEntityPtr& pDestEntity);
     void getPropertySetList(gfc::engine::EntityRef nRef, std::vector<SrcEntityPtr>& oList);
     void writeRelDefinesByProperties(gfc::engine::EntityRef nRelatingPropertySet, gfc::engine::EntityRef nRelatedObject);
-    // ×ª»»Á÷³ÌºÍÊµÌå¼ä¹ØÏµ
+    // è½¬æ¢æµç¨‹å’Œå®ä½“é—´å…³ç³»
     gfc::engine::EntityRef transformProject();
     GfcEntityRefMap transformBuilding(gfc::engine::EntityRef nProjectRef);
     GfcEntityRefMap transformFloor(const GfcEntityRefMap& oBuildingRefMap);

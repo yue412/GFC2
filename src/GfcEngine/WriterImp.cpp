@@ -1,5 +1,5 @@
 #include "WriterImp.h"
-#include "GfcEngine\Document.h"
+#include "GfcEngine/Document.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 
@@ -54,7 +54,7 @@ void CWriterImp::addIgnoreDuplicates(const std::wstring & sEntityName)
     m_oIgnoreDuplicatesEntitySet.insert(sEntityName);
 }
 
-void CWriterImp::setCodePage(UINT nCodePage)
+void CWriterImp::setCodePage(unsigned int nCodePage)
 {
     m_nCodePage = nCodePage;
 }

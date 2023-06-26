@@ -3,9 +3,11 @@
 
 #include <string>
 #include <memory>
+#if (defined _WIN32 || defined _WIN64)
 #include <Windows.h>
-#include "GfcEngine\Entity.h"
-#include "GfcEngine\Document.h"
+#endif
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/Document.h"
 
 namespace gfc {
     namespace schema {
@@ -20,9 +22,9 @@ class CWriterImp;
 class GFCENGINE_API CWriter
 {
 public:
-    // Ò»°ãÇé¿öÏÂ£¬CodePage²»ÓÃÉèÖÃ¡£Ö»ÓĞÉú³ÉÀÏ°æ±¾GFCÊ±ÓĞÓÃ
-    // Éú³ÉÀÏ°æ±¾Ê±£¬Îª¼æÈİÒÔÇ°´úÂë£¬ĞèÒª½«bUppercaseÉèÎªfalse
-    CWriter(gfc::schema::CModel* pSchema, const std::wstring& sProductCode = L"", UINT nCodePage = CP_UTF8, bool bUppercase = true, const std::wstring& sStandardVersion = L"");
+    // ä¸€èˆ¬æƒ…å†µä¸‹ï¼ŒCodePageä¸ç”¨è®¾ç½®ã€‚åªæœ‰ç”Ÿæˆè€ç‰ˆæœ¬GFCæ—¶æœ‰ç”¨
+    // ç”Ÿæˆè€ç‰ˆæœ¬æ—¶ï¼Œä¸ºå…¼å®¹ä»¥å‰ä»£ç ï¼Œéœ€è¦å°†bUppercaseè®¾ä¸ºfalse
+    CWriter(gfc::schema::CModel* pSchema, const std::wstring& sProductCode = L"", unsigned int nCodePage = CP_UTF8, bool bUppercase = true, const std::wstring& sStandardVersion = L"");
     virtual ~CWriter(void);
     virtual bool open(const std::wstring& sFileName, const std::wstring& sFormatType);
     virtual void close();
@@ -32,10 +34,10 @@ public:
     void addIgnoreDuplicates(const std::wstring& sEntityName);
 private:
     CWriterImp* m_pImp;
-    std::wstring m_sVersion; // Schema°æ±¾
-    std::wstring m_sStandardVersion; //±ê×¼°æ±¾
+    std::wstring m_sVersion; // Schemaç‰ˆæœ¬
+    std::wstring m_sStandardVersion; //æ ‡å‡†ç‰ˆæœ¬
     std::wstring m_sProductCode;
-    UINT m_nCodePage;
+    unsigned int m_nCodePage;
     bool m_bUppercase;
 };
 

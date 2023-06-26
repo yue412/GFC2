@@ -2,7 +2,7 @@
 #define ENUMTYPE_H
 
 #include <vector>
-#include "GfcSchema\TypeObject.h"
+#include "GfcSchema/TypeObject.h"
 
 GFC_NAMESPACE_BEGIN
 
@@ -13,7 +13,7 @@ public:
     CEnumType(const std::wstring& sName);
     virtual CTypeObjectEnum getType() const {return TOE_ENUM;}
     virtual CDataTypeEnum getDataType() const { return EDT_ENUM; }
-    // ö��ֵ
+    // 枚举值
     std::wstring& getEnum(int nIndex);
     std::wstring& getEnumDocument(int nIndex);
     int getEnumCount(){return (int)m_oEnumList.size();}

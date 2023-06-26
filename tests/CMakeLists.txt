@@ -1,11 +1,11 @@
 ﻿cmake_minimum_required(VERSION 2.8)
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/../lib)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/../lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/../lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/../lib)
+if(UNIX)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
+else()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/../bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/../bin)
+endif()
 #set(CMAKE_DEBUG_POSTFIX d)
 
 project(UnitTest)
@@ -60,18 +60,20 @@ FILE(GLOB HEAD_FILES "./*.h"
 	) 
 
 add_compile_definitions(TIXML_USE_STL _CRT_SECURE_NO_WARNINGS UNICODE)
-
+if(UNIX)
+add_compile_options(-std=c++11 -fPIC -g)
+endif()
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/source-charset:utf-8>")
 #创建工程文件
 add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEAD_FILES})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
 
 target_link_libraries(${PROJECT_NAME} debug gtestd optimized gtest)
-target_link_libraries(${PROJECT_NAME} debug GfcEngined optimized GfcEngine)
-target_link_libraries(${PROJECT_NAME} debug GfcClasses3d optimized GfcClasses3)
-target_link_libraries(${PROJECT_NAME} debug GfcSchemad optimized GfcSchema)
-target_link_libraries(${PROJECT_NAME} debug GfcCommond optimized GfcCommon)
-target_link_libraries(${PROJECT_NAME} debug tinyxmld optimized tinyxml)
+if(UNIX)
+target_link_libraries(${PROJECT_NAME} debug pthreadd optimized pthread)
+target_link_libraries(${PROJECT_NAME} debug uuidd optimized uuid)
+else()
 target_link_libraries(${PROJECT_NAME} debug GfcUtilsd optimized GfcUtils)
 target_link_libraries(${PROJECT_NAME} debug GeometryD optimized Geometry)
 target_link_libraries(${PROJECT_NAME} debug Commond optimized Common)
@@ -79,5 +81,11 @@ target_link_libraries(${PROJECT_NAME} debug GMathd optimized GMath)
 target_link_libraries(${PROJECT_NAME} debug AlgHealingd optimized AlgHealing)
 target_link_libraries(${PROJECT_NAME} debug TopologyD optimized Topology)
 target_link_libraries(${PROJECT_NAME} debug CGBaseD optimized CGBase)
+endif()
+target_link_libraries(${PROJECT_NAME} debug GfcEngined optimized GfcEngine)
+target_link_libraries(${PROJECT_NAME} debug GfcClasses3d optimized GfcClasses3)
+target_link_libraries(${PROJECT_NAME} debug GfcSchemad optimized GfcSchema)
+target_link_libraries(${PROJECT_NAME} debug GfcCommond optimized GfcCommon)
+target_link_libraries(${PROJECT_NAME} debug tinyxmld optimized tinyxml)
 
 

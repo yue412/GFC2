@@ -3,11 +3,13 @@
 
 #include <string>
 #include <set>
+#if (defined _WIN32 || defined _WIN64)
 #include <Windows.h>
-#include "GfcEngine\Entity.h"
-#include "GfcEngine\GfcEngine.h"
-#include "GfcEngine\Object.h"
-#include "GfcEngine\SysMarco.h"
+#endif
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/GfcEngine.h"
+#include "GfcEngine/Object.h"
+#include "GfcEngine/SysMarco.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 
@@ -24,13 +26,13 @@ public:
     void writeDoc(CDocument* pDoc);
 public:
     void addIgnoreDuplicates(const std::wstring& sEntityName);
-    void setCodePage(UINT nCodePage);
+    void setCodePage(unsigned int nCodePage);
     void setUppercase(bool bUppercase);
 protected:
     virtual void doWriteEntity(EntityRef nId, CEntity* pEntity) = 0;
     EntityRef innerWriteEntity(CEntity* pEntity);
     EntityRef m_nCount;
-    UINT m_nCodePage;
+    unsigned int m_nCodePage;
     bool m_bUppercase;
 private:
     bool inIgnoreDuplicatesEntitySet(const std::wstring& sEntityName);

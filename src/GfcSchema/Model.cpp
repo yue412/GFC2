@@ -1,6 +1,7 @@
-#include "GfcSchema\Model.h"
-#include "GfcSchema\BuildinType.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/BuildinType.h"
 #include "Common.h"
+#include <assert.h>
 
 GFC_NAMESPACE_BEGIN
 
@@ -19,13 +20,13 @@ CModel::~CModel()
 
 CTypeObject *CModel::getTypeObject(int nIndex)
 {
-    _ASSERT(nIndex >= 0 && nIndex < (int)m_oTypeObjectList.size());
+    assert(nIndex >= 0 && nIndex < (int)m_oTypeObjectList.size());
     return m_oTypeObjectList[nIndex];
 }
 
 void CModel::addTypeObject(CTypeObject *pTypeObject)
 {
-    _ASSERT(pTypeObject);
+    assert(pTypeObject);
     m_oTypeObjectList.push_back(pTypeObject);
     m_oTypeIndex.insert(std::make_pair(UpperString(pTypeObject->getName()), pTypeObject));
 }

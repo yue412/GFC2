@@ -517,7 +517,7 @@ int _getopt_long_only_r_a (int argc, char *const *argv, const char *options, con
 //	Unicode Structures and Functions
 // 
 //
-
+#ifdef _UNICODE
 static struct _getopt_data_w
 {
 	int optind;
@@ -971,3 +971,4 @@ int _getopt_long_only_r_w (int argc, wchar_t *const *argv, const wchar_t *option
 {
 	return _getopt_internal_r_w (argc, argv, options, long_options, opt_index, 1, d, 0);
 }
+#endif

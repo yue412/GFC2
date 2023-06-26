@@ -7,6 +7,7 @@
 #include "GfcSchema/EnumType.h"
 #include "GfcSchema/Model.h"
 #include "GfcSchema/EntityAttribute.h"
+#include <assert.h>
 
 CExpressWriter::CExpressWriter(CModel *pModel): m_pModel(pModel)
 {
@@ -14,25 +15,26 @@ CExpressWriter::CExpressWriter(CModel *pModel): m_pModel(pModel)
 
 void CExpressWriter::write(const std::wstring &sFileName, const std::wstring &sSchemaName)
 {
-    _ASSERT(m_pModel);
+    assert(m_pModel);
     if (sFileName.empty())
     {
-        _ASSERT(false);
+        assert(false);
         return;
     }
 
     std::wfstream oFile;
-    oFile.open(sFileName, std::ios::out);
+    // todo
+    oFile.open(UnicodeToACP(sFileName), std::ios::out);
     if (!oFile.good())
     {
-        std::wcout << "Œƒº˛¥Úø™ ß∞‹!" << std::endl;
+        std::wcout << "Êñá‰ª∂ÊâìÂºÄÂ§±Ë¥•!" << std::endl;
         return;
     }
 
     oFile << L"SCHEMA " << sSchemaName << L";\n\n";
 
     int nCount = m_pModel->getTypeObjectCount();
-    // ≈≈–Ú
+    // ÊéíÂ∫è
     std::vector<CTypeObject*> oTempList;
     m_pModel->getTypeObjectList(oTempList);
     std::sort(oTempList.begin(), oTempList.end(), lessTypeObject);
@@ -70,7 +72,7 @@ void CExpressWriter::write(const std::wstring &sFileName, const std::wstring &sS
 
 void CExpressWriter::writeTypedef(CTypeDef *pTypeDef, std::wfstream& out)
 {
-    out << FormatWstring(L"TYPE %s = %s;\n", 
+    out << FormatWstring(L"TYPE %ls = %ls;\n", 
         pTypeDef->getName().c_str(),
         pTypeDef->getRefType()->getName().c_str()
     );
@@ -104,7 +106,7 @@ void CExpressWriter::writeClass(CClass *pClass, std::wfstream& out)
     }
     if (pClass->getParent())
     {
-        out << FormatWstring(L"\n SUBTYPE OF (%s)", 
+        out << FormatWstring(L"\n SUBTYPE OF (%ls)", 
             pClass->getParent()->getName().c_str()
         );
     }
@@ -116,8 +118,8 @@ void CExpressWriter::writeClass(CClass *pClass, std::wfstream& out)
         //
         CAttribute* pAttribute = pClass->getAttribute(i);
         std::wstring sPrefix = pAttribute->getOptionalFlag() ? L" OPTIONAL ": L" ";
-        //std::wstring sType = pAttribute->getRepeatFlag() ? L"LIST [0:?] OF %s": L"%s";
-        out << FormatWstring(L"\t%s :%s%s;\n",
+        //std::wstring sType = pAttribute->getRepeatFlag() ? L"LIST [0:?] OF %ls": L"%ls";
+        out << FormatWstring(L"\t%ls :%ls%ls;\n",
             pAttribute->getName().c_str(),
             sPrefix.c_str(),
             pAttribute->getTypeName().c_str()
@@ -132,7 +134,7 @@ void CExpressWriter::writeClass(CClass *pClass, std::wfstream& out)
 
 void CExpressWriter::writeEnum(CEnumType *pEnumType, std::wfstream& out)
 {
-    out << FormatWstring(L"TYPE %s = ENUMERATION OF\n", 
+    out << FormatWstring(L"TYPE %ls = ENUMERATION OF\n", 
         pEnumType->getName().c_str()
     );
     out << L"\t(";

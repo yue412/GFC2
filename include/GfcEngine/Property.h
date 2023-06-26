@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include "GfcEngine\GfcEngine.h"
+#include "GfcEngine/GfcEngine.h"
 
 namespace gfc {
     namespace schema {

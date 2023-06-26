@@ -9,7 +9,7 @@ GFCENGINE_NAMESPACE_BEGIN
 
 class CPropValue;
 
-// 内部实现，不对外公开
+// 鍐呴儴瀹炵幇锛屼笉瀵瑰鍏紑
 class CWriterTextImp: public CWriterImp
 {
     GFCENGINE_DEC_OBJECT(CWriterTextImp, CWriterImp)
@@ -25,13 +25,13 @@ private:
     std::string toString(const std::wstring& str);
     std::fstream* m_pTextStream;
 };
-// 便于测试
+// 渚夸簬娴嬭瘯
 class CWriterTextUtils
 {
 public:
-    static void writeEntity(std::iostream& out, CEntity* pEntity, EntityRef nRef, UINT nCodePage = CP_UTF8, bool bUppercase = true);
-    static void writeValue(std::iostream& out, gfc::schema::CTypeObject * pType, CPropValue* pValue, UINT nCodePage = CP_UTF8);
-    static void writeProperty(std::iostream& out, CProperty* pProp, UINT nCodePage = CP_UTF8);
+    static void writeEntity(std::iostream& out, CEntity* pEntity, EntityRef nRef, unsigned int nCodePage = CP_UTF8, bool bUppercase = true);
+    static void writeValue(std::iostream& out, gfc::schema::CTypeObject * pType, CPropValue* pValue, unsigned int nCodePage = CP_UTF8);
+    static void writeProperty(std::iostream& out, CProperty* pProp, unsigned int nCodePage = CP_UTF8);
 };
 
 GFCENGINE_NAMESPACE_END

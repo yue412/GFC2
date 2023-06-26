@@ -4,9 +4,9 @@
 #include <map>
 #include <vector>
 #include <memory>
-#include "GfcEngine\GfcEngine.h"
-#include "GfcEngine\Entity.h"
-#include "GfcUtils\GfcTransform.h"
+#include "GfcEngine/GfcEngine.h"
+#include "GfcEngine/Entity.h"
+#include "GfcUtils/GfcTransform.h"
 
 class GfcFrom2: public GfcTransform
 {
@@ -14,10 +14,10 @@ public:
     GfcFrom2(gfc::engine::IContainer* pContainer);
 public:
     std::wstring transformString(gfc::engine::EntityRef nStringRef);
-    // 设置转换目标的Schema
+    // 璁剧疆杞崲鐩爣鐨凷chema
     virtual void setSchema(gfc::schema::CModel* pSrcModel, gfc::schema::CModel* pDestModel);
 protected:
-    // 处理属性集
+    // 澶勭悊灞炴�ч泦
     virtual void transformProjectPropertySet(SrcEntityPtr& pSrcEntity, DestEntityPtr& pDestEntity);
     virtual void transformFloorPropertySet(SrcEntityPtr& pSrcEntity, DestEntityPtr& pDestEntity);
     virtual bool isElement(SrcEntityPtr& pEntity);
@@ -25,14 +25,14 @@ protected:
     virtual GfcRelDefinesByTypeSchema getSrcRelDefinesByTypeSchema();
     virtual GfcRelDefinesByTypeSchema getDestRelDefinesByTypeSchema();
     virtual void linkElementShape(DestEntityPtr& pElement, DestEntityPtr& pShape);
-    // 转换单个实体
+    // 杞崲鍗曚釜瀹炰綋
     virtual DestEntityPtr doTransformShape(SrcEntityPtr& pSrcEntity);
     virtual DestEntityPtr doTransformElement(SrcEntityPtr& pSrcEntity);
     virtual DestEntityPtr doTransformElementType(SrcEntityPtr& pSrcEntity);
 protected: // for test
     DestEntityPtr entityAttributeToPropertySet(SrcEntityPtr pSrcEntity);
     DestEntityPtr entityAttributeToPropertySet(SrcEntityPtr pSrcEntity, const std::vector<std::wstring>& sAttributeNames);
-    // 对象属性转为Property对象
+    // 瀵硅薄灞炴�ц浆涓篜roperty瀵硅薄
     DestEntityPtr attributeToProperty(gfc::engine::CProperty* pSrc);
     gfc::engine::EntityRef entityToObject(SrcEntityPtr pSrc);
 private:

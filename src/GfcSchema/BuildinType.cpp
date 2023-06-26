@@ -1,4 +1,4 @@
-#include "GfcSchema\BuildinType.h"
+#include "GfcSchema/BuildinType.h"
 
 GFC_NAMESPACE_BEGIN
 

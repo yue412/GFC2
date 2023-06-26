@@ -1,20 +1,23 @@
-#include "gtest\gtest.h"
-#include "GfcEngine\Writer.h"
-#include "GfcEngine\Reader.h"
-#include "GfcEngine\Document.h"
-#include "GfcEngine\GfcEngineUtils.h"
-//#include "Classes\Gfc2EdgeData.h"
+#ifdef GFCUTILS
+
+
+#include "gtest/gtest.h"
+#include "GfcEngine/Writer.h"
+#include "GfcEngine/Reader.h"
+#include "GfcEngine/Document.h"
+#include "GfcEngine/GfcEngineUtils.h"
+//#include "Classes/Gfc2EdgeData.h"
 #include "Common.h"
-#include "GfcSchema\Model.h"
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EntityAttribute.h"
-#include "GfcSchema\BuildinType.h"
-#include "GfcSchema\EnumType.h"
-#include "GfcSchema\TypeDefine.h"
-#include "GfcUtils\GfcTransform.h"
-#include "GfcUtils\GfcFrom2.h"
-#include "GfcEngine\Container.h"
-#include "GfcEngine\PropValue.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/BuildinType.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcSchema/TypeDefine.h"
+#include "GfcUtils/GfcTransform.h"
+#include "GfcUtils/GfcFrom2.h"
+#include "GfcEngine/Container.h"
+#include "GfcEngine/PropValue.h"
 #include "MockWriter.h"
 #include <string>
 
@@ -52,7 +55,7 @@ public:
     std::map<EntityRef, std::vector<EntityRef>>& getRelAggregates() { return m_oRelAggregates; }
 };
 
-// ¶ÔÏóÊôÐÔ×ªÎªProperty¶ÔÏó
+// å¯¹è±¡å±žæ€§è½¬ä¸ºPropertyå¯¹è±¡
 TEST(TestGFCFrom2, attributeToProperty_int)
 {
     GfcFrom2_Test oTransform;
@@ -60,7 +63,7 @@ TEST(TestGFCFrom2, attributeToProperty_int)
     CEngineUtils::loadSchema(getFullPath(L"GFC2X0.exp"), &oSrcModel);
     EntityPtr pSrcEntity = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2Project"));
     pSrcEntity->setAsInteger(L"ID", 2021521);
-    //pSrcEntity->setAsString(L"Name", L"ÖÐ¹ú");
+    //pSrcEntity->setAsString(L"Name", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -80,7 +83,7 @@ TEST(TestGFCFrom2, attributeToProperty_bool)
     CEngineUtils::loadSchema(getFullPath(L"GFC2X0.exp"), &oSrcModel);
     EntityPtr pSrcEntity = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2Floor"));
     pSrcEntity->setAsBoolean(L"FirstFloorFlag", true);
-    //pSrcEntity->setAsString(L"Name", L"ÖÐ¹ú");
+    //pSrcEntity->setAsString(L"Name", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -100,7 +103,7 @@ TEST(TestGFCFrom2, attributeToProperty_double)
     CEngineUtils::loadSchema(getFullPath(L"GFC2X0.exp"), &oSrcModel);
     EntityPtr pSrcEntity = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2Floor"));
     pSrcEntity->setAsDouble(L"Height", 21.3);
-    //pSrcEntity->setAsString(L"Name", L"ÖÐ¹ú");
+    //pSrcEntity->setAsString(L"Name", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -120,7 +123,7 @@ TEST(TestGFCFrom2, attributeToProperty_string)
     CEngineUtils::loadSchema(getFullPath(L"GFC2X0.exp"), &oSrcModel);
     EntityPtr pSrcEntity = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2String"));
     pSrcEntity->setAsString(L"Value", L"Hehe");
-    //pSrcEntity->setAsString(L"Name", L"ÖÐ¹ú");
+    //pSrcEntity->setAsString(L"Name", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -140,7 +143,7 @@ TEST(TestGFCFrom2, attributeToProperty_enum)
     CEngineUtils::loadSchema(getFullPath(L"GFC2X0.exp"), &oSrcModel);
     EntityPtr pSrcEntity = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2Project"));
     pSrcEntity->setAsInteger(L"StructureType", 2021521);
-    //pSrcEntity->setAsString(L"Name", L"ÖÐ¹ú");
+    //pSrcEntity->setAsString(L"Name", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -163,7 +166,7 @@ TEST(TestGFCFrom2, attributeToProperty_ref_string)
     auto nRef = oSrcDoc.add(pSrcString);
     EntityPtr pSrcEntity = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2Project"));
     pSrcEntity->setAsEntityRef(L"Name", nRef);
-    //pSrcEntity->setAsString(L"Name", L"ÖÐ¹ú");
+    //pSrcEntity->setAsString(L"Name", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -208,7 +211,7 @@ TEST(TestGFCFrom2, attributeToProperty_ref_object_1)
     auto nRef = oSrcDoc.add(pSrcPropertySet);
     EntityPtr pSrcEntity = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2Floor"));
     pSrcEntity->setAsEntityRef(L"EntAseismicGrade", nRef);
-    //pSrcEntity->setAsString(L"Name", L"ÖÐ¹ú");
+    //pSrcEntity->setAsString(L"Name", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -254,7 +257,7 @@ TEST(TestGFCFrom2, attributeToProperty_ref_object_2)
     auto nRef = oSrcDoc.add(pSrcPropertySet);
     EntityPtr pSrcEntity = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2RelDefinesByElement"));
     pSrcEntity->setAsEntityRef(L"RelatingElement", nRef);
-    //pSrcEntity->setAsString(L"Name", L"ÖÐ¹ú");
+    //pSrcEntity->setAsString(L"Name", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -272,7 +275,7 @@ TEST(TestGFCFrom2, attributeToProperty_ref_object_2)
     //    delete pSrcEntity;
 }
 
-// ¶ÔÏóÊôÐÔ×ªÎªProperty¶ÔÏó
+// å¯¹è±¡å±žæ€§è½¬ä¸ºPropertyå¯¹è±¡
 TEST(TestGFCFrom2, attributeToProperty_int_array)
 {
     GfcFrom2_Test oTransform;
@@ -292,7 +295,7 @@ TEST(TestGFCFrom2, attributeToProperty_int_array)
     pSrcEntity->addInteger(L"field1", 12);
     pSrcEntity->addInteger(L"field1", 14);
     pSrcEntity->addInteger(L"field1", 21);
-    //pSrcEntity->setAsString(L"Name", L"ÖÐ¹ú");
+    //pSrcEntity->setAsString(L"Name", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -330,7 +333,7 @@ TEST(TestGFCFrom2, attributeToProperty_bool_array)
     pSrcEntity->addBoolean(L"field1", false);
     pSrcEntity->addBoolean(L"field1", false);
     pSrcEntity->addBoolean(L"field1", true);
-    //pSrcEntity->setAsString(L"Name", L"ÖÐ¹ú");
+    //pSrcEntity->setAsString(L"Name", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -368,7 +371,7 @@ TEST(TestGFCFrom2, attributeToProperty_double_array)
     pSrcEntity->addDouble(L"field1", 12.3);
     pSrcEntity->addDouble(L"field1", 324);
     pSrcEntity->addDouble(L"field1", 2324.678);
-    //pSrcEntity->setAsString(L"Name", L"ÖÐ¹ú");
+    //pSrcEntity->setAsString(L"Name", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -403,9 +406,9 @@ TEST(TestGFCFrom2, attributeToProperty_string_array)
     }
     EntityPtr pSrcEntity = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2Test"));
     pSrcEntity->addString(L"field1", L"abc");
-    pSrcEntity->addString(L"field1", L"ºìÁì½í");
+    pSrcEntity->addString(L"field1", L"çº¢é¢†å·¾");
     pSrcEntity->addString(L"field1", L"hehe");
-    pSrcEntity->addString(L"field1", L"ÖÐ¹ú");
+    pSrcEntity->addString(L"field1", L"ä¸­å›½");
 
     gfc::schema::CModel oDestModel;
     CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oDestModel);
@@ -417,9 +420,9 @@ TEST(TestGFCFrom2, attributeToProperty_string_array)
     EXPECT_NE(nullptr, pValues);
     EXPECT_EQ(4, pValues->getCount());
     EXPECT_STREQ(L"abc", pValues->getItems(0)->asString().c_str());
-    EXPECT_STREQ(L"ºìÁì½í", pValues->getItems(1)->asString().c_str());
+    EXPECT_STREQ(L"çº¢é¢†å·¾", pValues->getItems(1)->asString().c_str());
     EXPECT_STREQ(L"hehe", pValues->getItems(2)->asString().c_str());
-    EXPECT_STREQ(L"ÖÐ¹ú", pValues->getItems(3)->asString().c_str());
+    EXPECT_STREQ(L"ä¸­å›½", pValues->getItems(3)->asString().c_str());
     EXPECT_STREQ(L"field1", pDestEntity->asString(L"Name").c_str());
     //    delete pSrcEntity;
 }
@@ -503,7 +506,7 @@ TEST(TestGFCFrom2, attributeToProperty_ref_string_array)
     }
     {
         EntityPtr pSrcLabel1 = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2Label"));
-        pSrcLabel1->setAsString(L"Value", L"ºìÁì½í");
+        pSrcLabel1->setAsString(L"Value", L"çº¢é¢†å·¾");
         pSrcEntity->addEntityRef(L"field1", oSrcDoc.add(pSrcLabel1));
     }
     {
@@ -513,7 +516,7 @@ TEST(TestGFCFrom2, attributeToProperty_ref_string_array)
     }
     {
         EntityPtr pSrcLabel1 = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2Label"));
-        pSrcLabel1->setAsString(L"Value", L"ÖÐ¹ú");
+        pSrcLabel1->setAsString(L"Value", L"ä¸­å›½");
         pSrcEntity->addEntityRef(L"field1", oSrcDoc.add(pSrcLabel1));
     }
 
@@ -529,9 +532,9 @@ TEST(TestGFCFrom2, attributeToProperty_ref_string_array)
     EXPECT_NE(nullptr, pValues);
     EXPECT_EQ(4, pValues->getCount());
     EXPECT_STREQ(L"abc", pValues->getItems(0)->asString().c_str());
-    EXPECT_STREQ(L"ºìÁì½í", pValues->getItems(1)->asString().c_str());
+    EXPECT_STREQ(L"çº¢é¢†å·¾", pValues->getItems(1)->asString().c_str());
     EXPECT_STREQ(L"hehe", pValues->getItems(2)->asString().c_str());
-    EXPECT_STREQ(L"ÖÐ¹ú", pValues->getItems(3)->asString().c_str());
+    EXPECT_STREQ(L"ä¸­å›½", pValues->getItems(3)->asString().c_str());
     EXPECT_STREQ(L"field1", pDestEntity->asString(L"Name").c_str());
     //    delete pSrcEntity;
 }
@@ -551,11 +554,11 @@ public:
         {
         case 0: EXPECT_STREQ(L"abc", pEntity->asString(L"Name").c_str());
             break;
-        case 1: EXPECT_STREQ(L"ºìÁì½í", pEntity->asString(L"Name").c_str());
+        case 1: EXPECT_STREQ(L"çº¢é¢†å·¾", pEntity->asString(L"Name").c_str());
             break;
         case 2: EXPECT_STREQ(L"hehe", pEntity->asString(L"Name").c_str());
             break;
-        case 3: EXPECT_STREQ(L"ÖÐ¹ú", pEntity->asString(L"Name").c_str());
+        case 3: EXPECT_STREQ(L"ä¸­å›½", pEntity->asString(L"Name").c_str());
             break;
         default:
             assert(false);
@@ -598,7 +601,7 @@ TEST(TestGFCFrom2, attributeToProperty_ref_obj_array_1)
     }
     {
         EntityPtr pSrcObject1 = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2PropertySet"));
-        pSrcObject1->setAsString(L"Name", L"ºìÁì½í");
+        pSrcObject1->setAsString(L"Name", L"çº¢é¢†å·¾");
         pSrcEntity->addEntityRef(L"field1", oSrcDoc.add(pSrcObject1));
     }
     {
@@ -608,7 +611,7 @@ TEST(TestGFCFrom2, attributeToProperty_ref_obj_array_1)
     }
     {
         EntityPtr pSrcObject1 = EntityPtr(CEngineUtils::createEntity(&oSrcModel, L"Gfc2PropertySet"));
-        pSrcObject1->setAsString(L"Name", L"ÖÐ¹ú");
+        pSrcObject1->setAsString(L"Name", L"ä¸­å›½");
         pSrcEntity->addEntityRef(L"field1", oSrcDoc.add(pSrcObject1));
     }
 
@@ -626,9 +629,9 @@ TEST(TestGFCFrom2, attributeToProperty_ref_obj_array_1)
     EXPECT_NE(nullptr, pValues);
     EXPECT_EQ(4, pValues->getCount());
     //EXPECT_STREQ(L"abc", pValues->getItems(0)->asString().c_str());
-    //EXPECT_STREQ(L"ºìÁì½í", pValues->getItems(1)->asString().c_str());
+    //EXPECT_STREQ(L"çº¢é¢†å·¾", pValues->getItems(1)->asString().c_str());
     //EXPECT_STREQ(L"hehe", pValues->getItems(2)->asString().c_str());
-    //EXPECT_STREQ(L"ÖÐ¹ú", pValues->getItems(3)->asString().c_str());
+    //EXPECT_STREQ(L"ä¸­å›½", pValues->getItems(3)->asString().c_str());
     EXPECT_STREQ(L"field1", pDestEntity->asString(L"Name").c_str());
     //    delete pSrcEntity;
 }
@@ -698,9 +701,9 @@ TEST(TestGFCFrom2, attributeToProperty_ref_obj_array_2)
     EXPECT_NE(nullptr, pValues);
     EXPECT_EQ(4, pValues->getCount());
     //EXPECT_STREQ(L"abc", pValues->getItems(0)->asString().c_str());
-    //EXPECT_STREQ(L"ºìÁì½í", pValues->getItems(1)->asString().c_str());
+    //EXPECT_STREQ(L"çº¢é¢†å·¾", pValues->getItems(1)->asString().c_str());
     //EXPECT_STREQ(L"hehe", pValues->getItems(2)->asString().c_str());
-    //EXPECT_STREQ(L"ÖÐ¹ú", pValues->getItems(3)->asString().c_str());
+    //EXPECT_STREQ(L"ä¸­å›½", pValues->getItems(3)->asString().c_str());
     EXPECT_STREQ(L"field1", pDestEntity->asString(L"Name").c_str());
     //    delete pSrcEntity;
 }
@@ -878,7 +881,7 @@ TEST(TestGFCFrom2, transformBuilding)
     oTransform.setWriter(&oWriter);
     oTransform.setSchema(&oSrcModel, &oDestModel);
     auto oMap = oTransform.transformBuilding(1);
-    EXPECT_EQ(1, oMap[2]); // Ã»ÓÐµ¼Èëproject
+    EXPECT_EQ(1, oMap[2]); // æ²¡æœ‰å¯¼å…¥project
     EXPECT_EQ(2, oMap[3]);
 }
 
@@ -943,7 +946,8 @@ TEST(TestGFCFrom2, transformFloor)
     oMap[2] = 102;
     oMap[3] = 103;
     auto oMap1 = oTransform.transformFloor(oMap);
-    EXPECT_EQ(1, oMap1[4]); // Ã»ÓÐµ¼Èëproject
+    EXPECT_EQ(1, oMap1[4]); // æ²¡æœ‰å¯¼å…¥project
     EXPECT_EQ(2, oMap1[5]);
     EXPECT_EQ(3, oMap1[7]);
 }
+#endif // GFCUTILS

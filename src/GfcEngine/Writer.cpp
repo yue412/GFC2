@@ -2,11 +2,11 @@
 //#include "WriterBinaryImp.h"
 //#include "WriterTextImp.h"
 #include "WriterImp.h"
-#include "GfcSchema\Model.h"
+#include "GfcSchema/Model.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 
-CWriter::CWriter(gfc::schema::CModel* pSchema, const std::wstring& sProductCode, UINT nCodePage, bool bUppercase, const std::wstring& sStandardVersion): m_pImp(NULL), m_sProductCode(sProductCode), m_nCodePage(nCodePage), m_bUppercase(bUppercase), m_sStandardVersion(sStandardVersion)
+CWriter::CWriter(gfc::schema::CModel* pSchema, const std::wstring& sProductCode, unsigned int nCodePage, bool bUppercase, const std::wstring& sStandardVersion): m_pImp(NULL), m_sProductCode(sProductCode), m_nCodePage(nCodePage), m_bUppercase(bUppercase), m_sStandardVersion(sStandardVersion)
 {
     if (pSchema)
         m_sVersion = pSchema->version();

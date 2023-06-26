@@ -9,10 +9,11 @@
 #include <mutex>
 #include <functional>
 #include <assert.h>
-#include "GfcEngine\GfcEngine.h"
-#include "GfcEngine\MutexGuard.h"
-#include "GfcEngine\Iterator.h"
-#include "GfcSchema\Model.h"
+#include "GfcEngine/GfcEngine.h"
+#include "GfcEngine/MutexGuard.h"
+#include "GfcEngine/Iterator.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/EntityClass.h"
 
 namespace gfc {
     namespace schema {
@@ -24,6 +25,9 @@ namespace gfc {
 GFCENGINE_NAMESPACE_BEGIN
 
 typedef std::vector<std::vector<EntityRef>*> EntityRefListlist;
+
+template<class T>
+class CListIterator;
 
 template<class T>
 class CContainerImp
@@ -156,13 +160,13 @@ public:
                 pCollectEntitiesFunc(pSchema, oList);
             }
         }
-        return std::shared_ptr<CIterator<T>>(new CListIterator<T>(this, oList));
+        return std::shared_ptr<CIterator<T> >(new CListIterator<T>(this, oList));
     }
     std::shared_ptr<CIterator<T>> iterator()
     {
         MutexGuard guard(m_mutex);
         EntityRefListlist oList;
-        for each (auto oPair in m_oEntityTypeMap)
+        for (auto oPair : m_oEntityTypeMap)
         {
             oList.push_back(oPair.second);
         }

@@ -1,8 +1,8 @@
 #ifndef MOCKWRITER_H
 #define MOCKWRITER_H
 
-#include "GfcEngine\Writer.h"
-#include "GfcEngine\SysMarco.h"
+#include "GfcEngine/Writer.h"
+#include "GfcEngine/SysMarco.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 

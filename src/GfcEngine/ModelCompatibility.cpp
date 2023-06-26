@@ -1,7 +1,7 @@
-#include "GfcEngine\ModelCompatibility.h"
-#include "GfcEngine\ClassCompatibility.h"
-#include "GfcSchema\Model.h"
-#include "GfcSchema\EntityClass.h"
+#include "GfcEngine/ModelCompatibility.h"
+#include "GfcEngine/ClassCompatibility.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/EntityClass.h"
 #include <assert.h>
 
 GFCENGINE_NAMESPACE_BEGIN
@@ -18,7 +18,7 @@ CModelCompatibility::~CModelCompatibility(void)
 
 void CModelCompatibility::init(gfc::schema::CModel * pFrom, gfc::schema::CModel * pTo)
 {
-    // ÅĞ¶ÏÁ½¸öÄ£ĞÍµÄ¼æÈİĞÔ
+    // åˆ¤æ–­ä¸¤ä¸ªæ¨¡å‹çš„å…¼å®¹æ€§
     assert(pFrom); assert(pTo);
     for (int i = 0; i < pFrom->getTypeObjectCount(); i++)
     {
@@ -29,11 +29,11 @@ void CModelCompatibility::init(gfc::schema::CModel * pFrom, gfc::schema::CModel 
             auto pToType = pTo->findTypeObject(pFromBaseType->getName());
             if (pToType && pToType->getBaseType()->getType() == gfc::schema::TOE_CLASS)
             {
-                // ±ØĞëÊÇÍ¬ÃûµÄÀà
+                // å¿…é¡»æ˜¯åŒåçš„ç±»
                 auto pCompatibility = new CClassCompatibility;
                 pCompatibility->init(pFromType, pToType);
                 add(pCompatibility);
-            }// ÆäËû¸÷ÖÖÇéĞÎ£¬¶¼ÊÓÎªÎ´ÕÒµ½Æ¥ÅäµÄÀà£¬¿ÉÒÔ¼æÈİ£¨È¡¾öÓë±ğµÄÀàÊÇ·ñÓĞÒıÓÃ£©
+            }// å…¶ä»–å„ç§æƒ…å½¢ï¼Œéƒ½è§†ä¸ºæœªæ‰¾åˆ°åŒ¹é…çš„ç±»ï¼Œå¯ä»¥å…¼å®¹ï¼ˆå–å†³ä¸åˆ«çš„ç±»æ˜¯å¦æœ‰å¼•ç”¨ï¼‰
         }
     }
 }
@@ -62,7 +62,7 @@ void CModelCompatibility::add(CClassCompatibility * pObject)
 
 void CModelCompatibility::clear()
 {
-    for each (auto pClass in m_oClassList)
+    for (auto pClass : m_oClassList)
     {
         delete pClass;
     }

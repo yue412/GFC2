@@ -9,9 +9,9 @@ struct CTranslateInfo
     std::wstring sUMLFile;
     std::wstring sHeadPath;
     std::wstring sHeadRelativePath;
-    std::wstring sCPPPath;  // GFCÀà´æ·ÅÂ·¾¶
-    //std::wstring sTextPath; // ÎÄ±¾ĞòÁĞ»¯´úÂë´æ·ÅÂ·¾¶
-    //std::wstring sBinPath;  // ¶ş½øÖÆĞòÁĞ»¯´úÂë´æ·ÅÂ·¾¶
+    std::wstring sCPPPath;  // GFCç±»å­˜æ”¾è·¯å¾„
+    //std::wstring sTextPath; // æ–‡æœ¬åºåˆ—åŒ–ä»£ç å­˜æ”¾è·¯å¾„
+    //std::wstring sBinPath;  // äºŒè¿›åˆ¶åºåˆ—åŒ–ä»£ç å­˜æ”¾è·¯å¾„
     std::wstring sNETPath;
     std::wstring sExpressFile;
     std::wstring sHtmlPath;

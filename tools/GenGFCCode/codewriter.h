@@ -37,7 +37,7 @@ class CCodeWriter
 public:
     CCodeWriter(CModel* pModel);
     ~CCodeWriter();
-	// 扩展接口，只生成指定的gfc文件,xuxp,2017-6-19
+	// 鎵╁睍鎺ュ彛锛屽彧鐢熸垚鎸囧畾鐨刧fc鏂囦欢,xuxp,2017-6-19
     void write(const std::wstring& sPathName, const std::wstring& sRelativePath, const std::wstring &sCPPPath, /*const std::wstring &sTextPath, const std::wstring &sBinPath, */
         const std::wstring& sNETPath);
 //signals:

@@ -1,13 +1,13 @@
-#include "GfcEngine\Reader.h"
+#include "GfcEngine/Reader.h"
 #include "ContainerImp.h"
 #include "ReaderFileMapImp.h"
 #include "FileMap.h"
 #include "Common.h"
-#include "GfcSchema\TypeObject.h"
-#include "GfcSchema\EntityClass.h"
-#include "GfcEngine\GfcEngineUtils.h"
-#include "GfcEngine\Document.h"
-#include "GfcEngine\EntityUpgrader.h"
+#include "GfcSchema/TypeObject.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcEngine/GfcEngineUtils.h"
+#include "GfcEngine/Document.h"
+#include "GfcEngine/EntityUpgrader.h"
 #include <algorithm>
 #include <assert.h>
 
@@ -65,8 +65,8 @@ void CReaderFileMapImp::read(CDocument * pDoc)
 {
     if (m_pFileMap == nullptr)
     {
-        // 添加log日志
-        log(L"文件未打开");
+        // 娣诲姞log鏃ュ織
+        log(L"鏂囦欢鏈墦寮�");
         return;
     }
     m_pFileMap->setPos(0);
@@ -114,7 +114,7 @@ EntityPtr CReaderFileMapImp::getEntity(EntityRef nId)
                 auto pOldEntity = pEntity;
                 pEntity = m_pUpgrader->update(pEntity);
                 delete pOldEntity;
-                if (pEntity == nullptr) // 可能无法升级
+                if (pEntity == nullptr) // 鍙兘鏃犳硶鍗囩骇
                     return nullptr;
             }
             pEntity->setContainer(this);

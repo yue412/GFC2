@@ -3,9 +3,9 @@
 
 #include <string>
 #include <map>
-#include "GfcEngine\GfcEngine.h"
-#include "GfcEngine\Entity.h"
-#include "GfcUtils\GfcTransform.h"
+#include "GfcEngine/GfcEngine.h"
+#include "GfcEngine/Entity.h"
+#include "GfcUtils/GfcTransform.h"
 
 class GfcElementTransformer;
 class GfcShapeTransformer;
@@ -15,16 +15,16 @@ class GfcTo2: public GfcTransform
 public:
     GfcTo2(gfc::engine::IContainer* pContainer);
 public:
-    // 设置转换目标的Schema
+    // 璁剧疆杞崲鐩爣鐨凷chema
     virtual void setSchema(gfc::schema::CModel* pSrcModel, gfc::schema::CModel* pDestModel);
 public:
     gfc::engine::EntityRef transformString(const std::wstring& sValue);
 protected:
-    // 转换单个实体
+    // 杞崲鍗曚釜瀹炰綋
     virtual DestEntityPtr doTransformShape(SrcEntityPtr& pSrcEntity);
     virtual DestEntityPtr doTransformElement(SrcEntityPtr& pSrcEntity);
     virtual DestEntityPtr doTransformElementType(SrcEntityPtr& pSrcEntity);
-    // 处理属性集
+    // 澶勭悊灞炴�ч泦
     virtual void transformProjectPropertySet(SrcEntityPtr& pSrcEntity, DestEntityPtr& pDestEntity);
     virtual void transformBuildingPropertySet(SrcEntityPtr& pSrcEntity, DestEntityPtr& pDestEntity);
     virtual void transformFloorPropertySet(SrcEntityPtr& pSrcEntity, DestEntityPtr& pDestEntity);

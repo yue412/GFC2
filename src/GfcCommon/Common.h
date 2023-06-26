@@ -3,7 +3,6 @@
 
 #include <string>
 #include <fstream>
-#include <Windows.h>
 
 std::wstring FormatWstring(const wchar_t *lpcwszFormat, ...);
 std::wstring FormatWstring(const std::wstring sFormat, ...);
@@ -14,8 +13,8 @@ std::string UnicodeToACP(const std::wstring & src);
 std::wstring ACPToUnicode(const std::string& src);
 std::string UnicodeToUtf8(const std::wstring& str);
 std::wstring Utf8ToUnicode(const std::string& str);
-std::string WStringToMBString(const std::wstring & str, UINT nCodePage);
-std::wstring MBStringToWString(const std::string& str, UINT nCodePage);
+std::string WStringToMBString(const std::wstring & str, unsigned int nCodePage);
+std::wstring MBStringToWString(const std::string& str, unsigned int nCodePage);
 
 std::wstring getExePath();
 bool isRelativePath(const std::wstring& sPath);

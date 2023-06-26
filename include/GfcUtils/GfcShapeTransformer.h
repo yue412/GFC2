@@ -1,8 +1,8 @@
 #ifndef GFCSHAPETRANSFORMER_H
 #define GFCSHAPETRANSFORMER_H
 
-#include "GfcEngine\SysMarco.h"
-#include "GfcEngine\Entity.h"
+#include "GfcEngine/SysMarco.h"
+#include "GfcEngine/Entity.h"
 #include <memory>
 
 namespace gfc {

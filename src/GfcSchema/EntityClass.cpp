@@ -1,5 +1,5 @@
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EntityAttribute.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
 #include <algorithm>
 #include <assert.h>
 
@@ -24,7 +24,7 @@ CClass::~CClass()
 
 CClass *CClass::getChild(int nIndex)
 {
-    _ASSERT(nIndex >= 0 && nIndex < (int)m_oChildList.size());
+    assert(nIndex >= 0 && nIndex < (int)m_oChildList.size());
     return m_oChildList[nIndex];
 }
 

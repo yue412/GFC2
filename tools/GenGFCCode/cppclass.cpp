@@ -68,12 +68,12 @@ CppCode *CppClass::createDeclareCode(bool b4cli)
 {
     CppCode* pCode = new CGroupCode();
     if (m_sParentClass.empty())
-        pCode->addLine(FormatWstring(L"%sclass %s%s",
+        pCode->addLine(FormatWstring(L"%lsclass %ls%ls",
             b4cli ? L"public ref " : L"",
             m_sExportFlag.empty() ? L"" : (m_sExportFlag + L" ").c_str(),
             m_sName.c_str()));
     else
-        pCode->addLine(FormatWstring(L"%sclass %s%s: %s %s",
+        pCode->addLine(FormatWstring(L"%lsclass %ls%ls: %ls %ls",
             b4cli ? L"public ref " : L"",
             m_sExportFlag.empty() ? L"" : (m_sExportFlag + L" ").c_str(), 
             m_sName.c_str(),
@@ -94,7 +94,7 @@ CppCode *CppClass::createDeclareCode(bool b4cli)
             switch((*itr)->type())
             {
             case FT_CONSTRUCTOR:
-                pIndent->addLine(FormatWstring(L"%s(%s)%s",
+                pIndent->addLine(FormatWstring(L"%ls(%ls)%ls",
                     m_sName.c_str(),
                     (*itr)->getParamStr(true).c_str(),
                     (*itr)->isInline() ? (*itr)->getInitListCount() > 0 ? L":" : L"" : L";"
@@ -103,7 +103,7 @@ CppCode *CppClass::createDeclareCode(bool b4cli)
                     pIndent->add((*itr)->createInitListCode());
                 break;
             case FT_DESTRUCTOR:
-                pIndent->addLine(FormatWstring(L"~%s(%s)%s",
+                pIndent->addLine(FormatWstring(L"~%ls(%ls)%ls",
                     m_sName.c_str(),
                     (*itr)->getParamStr(true).c_str(),
                     (*itr)->isInline() ? L"" : L";"
@@ -116,7 +116,7 @@ CppCode *CppClass::createDeclareCode(bool b4cli)
                     sTemp = (*itr)->body()->code(0)->toString(0);
                     sTemp = L" {" + sTemp.substr(0, sTemp.length() - 1) + L"}";
                 }
-                pIndent->addLine(FormatWstring(L"%s%s %s(%s)%s%s",
+                pIndent->addLine(FormatWstring(L"%ls%ls %ls(%ls)%ls%ls",
                     (*itr)->isVirtual() ? L"virtual " : L"",
                     (*itr)->resultType().c_str(),
                     (*itr)->name().c_str(),
@@ -139,7 +139,7 @@ CppCode *CppClass::createDeclareCode(bool b4cli)
         }
         for(auto itr = m_oDataListArray[i].begin(); itr != m_oDataListArray[i].end(); ++itr)
         {
-            pIndent->addLine(FormatWstring(L"%s %s;",
+            pIndent->addLine(FormatWstring(L"%ls %ls;",
                 itr->first.c_str(),
                 itr->second.c_str()
             ));
@@ -160,7 +160,7 @@ CppCode *CppClass::createImpCode()
             switch((*itr)->type())
             {
             case FT_CONSTRUCTOR:
-                pCode->addLine(FormatWstring(L"%s::%s(%s)%s",
+                pCode->addLine(FormatWstring(L"%ls::%ls(%ls)%ls",
                     m_sName.c_str(),
                     m_sName.c_str(),
                     (*itr)->getParamStr(false).c_str(),
@@ -170,14 +170,14 @@ CppCode *CppClass::createImpCode()
                     pCode->add((*itr)->createInitListCode());
                 break;
             case FT_DESTRUCTOR:
-                pCode->addLine(FormatWstring(L"~%s::%s(%s)",
+                pCode->addLine(FormatWstring(L"~%ls::%ls(%ls)",
                     m_sName.c_str(),
                     m_sName.c_str(),
                     (*itr)->getParamStr(false).c_str()
                 ));
                 break;
             default:
-                pCode->addLine(FormatWstring(L"%s %s::%s(%s)%s",
+                pCode->addLine(FormatWstring(L"%ls %ls::%ls(%ls)%ls",
                     (*itr)->resultType().c_str(),
                     m_sName.c_str(),
                     (*itr)->name().c_str(),
@@ -283,7 +283,7 @@ CppCode *CFunction::body()
 
 void CFunction::addInitListItem(const std::wstring &sName, const std::wstring &sDefault)
 {
-    m_oInitList.push_back(FormatWstring(L"%s(%s)",
+    m_oInitList.push_back(FormatWstring(L"%ls(%ls)",
         sName.c_str(),
         sDefault.c_str()
     ));
@@ -324,7 +324,7 @@ std::wstring CFunction::getInitListStr()
     std::wstring sResult;
     for(auto itr = m_oInitList.begin(); itr != m_oInitList.end(); ++itr)
     {
-        sResult += FormatWstring(L"%s, ", (*itr).c_str());
+        sResult += FormatWstring(L"%ls, ", (*itr).c_str());
     }
     if(!sResult.empty())
         sResult = sResult.substr(0, sResult.length() - 2);
@@ -337,13 +337,13 @@ std::wstring CFunction::getParamStr(bool bHasDefault)
     for(auto itr = m_oParams.begin(); itr != m_oParams.end(); ++itr)
     {
         if (bHasDefault && (*itr)->hasDefaultValue())
-            sResult += FormatWstring(L"%s %s = %s, ",
+            sResult += FormatWstring(L"%ls %ls = %ls, ",
                 (*itr)->resultType().c_str(),
                 (*itr)->name().c_str(),
                 (*itr)->defaultValue().c_str()
             );
         else
-            sResult += FormatWstring(L"%s %s, ",
+            sResult += FormatWstring(L"%ls %ls, ",
                 (*itr)->resultType().c_str(),
                 (*itr)->name().c_str()
             );

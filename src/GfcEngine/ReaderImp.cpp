@@ -1,13 +1,13 @@
-#include "GfcEngine\Reader.h"
+#include "GfcEngine/Reader.h"
 #include "ContainerImp.h"
 #include "ReaderImp.h"
 #include "FileMap.h"
 #include "Common.h"
-#include "GfcSchema\TypeObject.h"
-#include "GfcSchema\EntityClass.h"
-#include "GfcEngine\GfcEngineUtils.h"
-#include "GfcEngine\Document.h"
-#include "GfcEngine\EntityUpgrader.h"
+#include "GfcSchema/TypeObject.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcEngine/GfcEngineUtils.h"
+#include "GfcEngine/Document.h"
+#include "GfcEngine/EntityUpgrader.h"
 #include <algorithm>
 
 GFCENGINE_NAMESPACE_BEGIN
@@ -31,7 +31,7 @@ void CReaderImp::initUpgrader()
         auto sFileVer = readFileVersion();
         if (sFileVer != m_pModel->version())
         {
-            // 版本不同，需要升级或降级
+            // 鐗堟湰涓嶅悓锛岄渶瑕佸崌绾ф垨闄嶇骇
             if (!openFileModel(sFileVer))
                 return;
             m_pUpgrader = new CEntityUpgrader;
@@ -65,7 +65,7 @@ EntityIteratorPtr CReaderImp::getIterator()
 
 bool CReaderImp::openFileModel(const std::wstring & sFileVer)
 {
-    auto sFileName = getFullPath(m_sSchemaPath + L"\\" + sFileVer + L".exp");
+    auto sFileName = getFullPath(m_sSchemaPath + L"/" + sFileVer + L".exp");
     if (!fileExists(sFileName))
         return false;
     m_pFileModel = new gfc::schema::CModel();

@@ -2,7 +2,7 @@
 #define CLASSCOMPATIBILITY_H
 
 #include <vector>
-#include "GfcEngine\GfcEngine.h"
+#include "GfcEngine/GfcEngine.h"
 #include <string>
 
 namespace gfc {

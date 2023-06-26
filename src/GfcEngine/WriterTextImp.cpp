@@ -1,33 +1,48 @@
 #include "WriterTextImp.h"
+#if (defined _WIN32 || defined _WIN64)
 #include <Windows.h>
+#include <io.h>
+#else
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <pwd.h>
+#endif
 #include <sstream>
 #include <time.h>
-#include <io.h>
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EntityAttribute.h"
-#include "GfcSchema\EnumType.h"
-#include "GfcEngine\PropValue.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcEngine/PropValue.h"
 #include "Common.h"
 #include <iomanip>
 #include <algorithm>
 
 std::string getUserName()
 {
-     DWORD size=0;
-     std::string sName;
-     GetUserName(NULL,&size);
-    wchar_t *name=new wchar_t[size];
-    if(GetUserName(name,&size))
+#if (defined _WIN32 || defined _WIN64)
+    unsigned long size = 0;
+    std::string sName;
+    GetUserName(NULL, &size);
+    wchar_t *name = new wchar_t[size];
+    if (GetUserName(name, &size))
     {
-		DWORD dwNum = WideCharToMultiByte(CP_OEMCP,NULL,name,-1,NULL,0,NULL,false);
-		char *psText;
-		psText = new char[dwNum];
-		WideCharToMultiByte (CP_OEMCP,NULL,name,-1,psText,dwNum,NULL,FALSE);
-		sName = psText;
-		delete []psText;
+        unsigned long dwNum = WideCharToMultiByte(CP_OEMCP, NULL, name, -1, NULL, 0, NULL, false);
+        char *psText;
+        psText = new char[dwNum];
+        WideCharToMultiByte(CP_OEMCP, NULL, name, -1, psText, dwNum, NULL, FALSE);
+        sName = psText;
+        delete[]psText;
     }
-    delete [] name;
+    delete[] name;
     return sName;
+#else
+    uid_t userid;
+    struct passwd* pwd;
+    userid = getuid();
+    pwd = getpwuid(userid);
+    return pwd->pw_name;
+#endif
 }
 
 GFCENGINE_NAMESPACE_BEGIN
@@ -48,13 +63,13 @@ CWriterTextImp::~CWriterTextImp(void)
 bool CWriterTextImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion, const std::wstring& sStandardVersion)
 {
     std::string sFile = UnicodeToACP(sFileName);
-	if (-1 != _access(sFile.c_str(), 0))
+	if (-1 != access(sFile.c_str(), 0))
 	{
-		//É¾³ýÎÄ¼þ
+		//åˆ é™¤æ–‡ä»¶
 		remove(sFile.c_str());
 	}
 
-    m_pTextStream = new std::fstream(sFileName,std::ios::out | std::ios::app);
+    m_pTextStream = new std::fstream(sFile,std::ios::out | std::ios::app);
     writeHead(sFileName, sProductCode, sVersion, sStandardVersion);
     *m_pTextStream << "DATA;" << std::endl;
     return true;
@@ -103,7 +118,7 @@ std::string CWriterTextImp::toString(const std::wstring & str)
     return WStringToMBString(str, m_nCodePage);
 }
 
-void CWriterTextUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef nRef, UINT nCodePage, bool bUppercase)
+void CWriterTextUtils::writeEntity(std::iostream & out, CEntity * pEntity, EntityRef nRef, unsigned int nCodePage, bool bUppercase)
 {
     auto sEntityName = bUppercase ? UpperString(pEntity->entityName()) : pEntity->entityName();
     std::string sName = WStringToMBString(sEntityName, nCodePage);
@@ -121,7 +136,7 @@ void CWriterTextUtils::writeEntity(std::iostream & out, CEntity * pEntity, Entit
     out << ");";
 }
 
-void CWriterTextUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject * pType, CPropValue * pValue, UINT nCodePage)
+void CWriterTextUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject * pType, CPropValue * pValue, unsigned int nCodePage)
 {
     auto nType = pType->getDataType();
     switch (nType)
@@ -160,7 +175,7 @@ void CWriterTextUtils::writeValue(std::iostream & out, gfc::schema::CTypeObject 
     }
 }
 
-void CWriterTextUtils::writeProperty(std::iostream & out, CProperty * pProp, UINT nCodePage)
+void CWriterTextUtils::writeProperty(std::iostream & out, CProperty * pProp, unsigned int nCodePage)
 {
     auto pSchema = pProp->schema();
     auto pType = pSchema->getType();

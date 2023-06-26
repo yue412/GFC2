@@ -1,8 +1,8 @@
-#include "gtest\gtest.h"
-#include "GfcEngine\Entity.h"
-#include "GfcEngine\EngineException.h"
-#include "GfcEngine\PropValue.h"
-#include "GfcEngine\Document.h"
+#include "gtest/gtest.h"
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/EngineException.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcEngine/Document.h"
 #include "Common.h"
 #include "GfcSchema/Model.h"
 #include "GfcSchema/EntityClass.h"
@@ -43,13 +43,13 @@ TEST(TestEntity, Entity_create)
     gfc::engine::CEntity oEntity;
     oEntity.setSchema(&oClass);
 
-    oEntity.setAsString(L"name", L"ÖĞ»ªÈËÃñ¹²ºÍ¹ú");
+    oEntity.setAsString(L"name", L"ä¸­åäººæ°‘å…±å’Œå›½");
     oEntity.setAsInteger(L"height", 235456);
     oEntity.setAsDouble(L"area", 12.0);
     //oEntity.asBooleanList("list").push_back(true);
     EXPECT_NEAR(12.0, oEntity.asDouble(L"area"), 1e-7);
     EXPECT_EQ(235456, oEntity.asInteger(L"height"));
-    EXPECT_STREQ(L"ÖĞ»ªÈËÃñ¹²ºÍ¹ú", oEntity.asString(L"name").c_str());
+    EXPECT_STREQ(L"ä¸­åäººæ°‘å…±å’Œå›½", oEntity.asString(L"name").c_str());
     //EXPECT_EQ(true, oEntity.asBooleanList("list")[0]);
 }
 
@@ -89,13 +89,13 @@ TEST(TestEntity, Entity_create_typedef_class)
     gfc::engine::CEntity oEntity;
     oEntity.setSchema(&oTypeDef);
 
-    oEntity.setAsString(L"name", L"ÖĞ»ªÈËÃñ¹²ºÍ¹ú");
+    oEntity.setAsString(L"name", L"ä¸­åäººæ°‘å…±å’Œå›½");
     oEntity.setAsInteger(L"height", 235456);
     oEntity.setAsDouble(L"area", 12.0);
     //oEntity.asBooleanList("list").push_back(true);
     EXPECT_NEAR(12.0, oEntity.asDouble(L"area"), 1e-7);
     EXPECT_EQ(235456, oEntity.asInteger(L"height"));
-    EXPECT_STREQ(L"ÖĞ»ªÈËÃñ¹²ºÍ¹ú", oEntity.asString(L"name").c_str());
+    EXPECT_STREQ(L"ä¸­åäººæ°‘å…±å’Œå›½", oEntity.asString(L"name").c_str());
     //EXPECT_EQ(true, oEntity.asBooleanList("list")[0]);
 }
 
@@ -920,12 +920,12 @@ TEST(TestEntity, Entity_create_parent)
     oEntity.setSchema(&oClass2);
 
     EXPECT_EQ(4, oEntity.getPropCount());
-    oEntity.setAsString(L"name", L"ÖĞ»ªÈËÃñ¹²ºÍ¹ú");
+    oEntity.setAsString(L"name", L"ä¸­åäººæ°‘å…±å’Œå›½");
     oEntity.setAsInteger(L"height", 235456);
     oEntity.setAsDouble(L"area", 12.0);
     //oEntity.asBooleanList("list").push_back(true);
     EXPECT_NEAR(12.0, oEntity.asDouble(L"area"), 1e-7);
     EXPECT_EQ(235456, oEntity.asInteger(L"height"));
-    EXPECT_STREQ(L"ÖĞ»ªÈËÃñ¹²ºÍ¹ú", oEntity.asString(L"name").c_str());
+    EXPECT_STREQ(L"ä¸­åäººæ°‘å…±å’Œå›½", oEntity.asString(L"name").c_str());
     //EXPECT_EQ(true, oEntity.asBooleanList("list")[0]);
 }

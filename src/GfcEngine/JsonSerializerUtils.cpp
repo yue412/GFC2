@@ -1,32 +1,34 @@
-#include "GfcEngine\JsonSerializerUtils.h"
+#include "GfcEngine/JsonSerializerUtils.h"
 #include <fstream>
 #include <stack>
+#if (defined _WIN32 || defined _WIN64)
 #include <Windows.h>
+#include <io.h>
+#endif
 #include <sstream>
 #include <time.h>
-#include <io.h>
 #include <iomanip>
 #include <algorithm>
 #include "rapidjson/document.h"
-#include "GfcSchema\Model.h"
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EntityAttribute.h"
-#include "GfcSchema\EnumType.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/EnumType.h"
 #include "Common.h"
-#include "GfcEngine\Entity.h"
-#include "GfcEngine\PropValue.h"
-#include "GfcEngine\Document.h"
-#include "GfcEngine\GfcEngineUtils.h"
-#include "GfcEngine\Container.h"
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcEngine/Document.h"
+#include "GfcEngine/GfcEngineUtils.h"
+#include "GfcEngine/Container.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 
 class CWriterJsonUtils
 {
 public:
-    static void writeValueToObject(JsonWrapper& rootJson, const CEntity* pEntity, CProperty * pProp, UINT nCodePage = CP_UTF8);
-    static void writeValueToArray(JsonWrapper& rootJson, const CEntity* pEntity, gfc::schema::CTypeObject * pType, CPropValue* pValue, UINT nCodePage = CP_UTF8);
-    static void writeProperty(JsonWrapper& rootJson, const CEntity* pEntity, CProperty* pProp, UINT nCodePage = CP_UTF8);
+    static void writeValueToObject(JsonWrapper& rootJson, const CEntity* pEntity, CProperty * pProp, unsigned int nCodePage = CP_UTF8);
+    static void writeValueToArray(JsonWrapper& rootJson, const CEntity* pEntity, gfc::schema::CTypeObject * pType, CPropValue* pValue, unsigned int nCodePage = CP_UTF8);
+    static void writeProperty(JsonWrapper& rootJson, const CEntity* pEntity, CProperty* pProp, unsigned int nCodePage = CP_UTF8);
 };
 
 
@@ -39,7 +41,7 @@ public:
 };
 
 
-void CJsonSerializerUtils::writeEntity(JsonWrapper& rootJson, const CEntity * pEntity, UINT nCodePage)
+void CJsonSerializerUtils::writeEntity(JsonWrapper& rootJson, const CEntity * pEntity, unsigned int nCodePage)
 {
     std::string sName = WStringToMBString(pEntity->entityName(), nCodePage);
 
@@ -54,7 +56,7 @@ void CJsonSerializerUtils::writeEntity(JsonWrapper& rootJson, const CEntity * pE
     }
 }
 
-void CWriterJsonUtils::writeValueToObject(JsonWrapper& rootJson, const CEntity* pEntity, CProperty * pProp, UINT nCodePage)
+void CWriterJsonUtils::writeValueToObject(JsonWrapper& rootJson, const CEntity* pEntity, CProperty * pProp, unsigned int nCodePage)
 {
     auto pSchema = pProp->schema();
     auto pType = pSchema->getType();
@@ -108,7 +110,7 @@ void CWriterJsonUtils::writeValueToObject(JsonWrapper& rootJson, const CEntity* 
     }
 }
 
-void CWriterJsonUtils::writeValueToArray(JsonWrapper& rootJson, const CEntity* pEntity, gfc::schema::CTypeObject * pType, CPropValue * pValue, UINT nCodePage)
+void CWriterJsonUtils::writeValueToArray(JsonWrapper& rootJson, const CEntity* pEntity, gfc::schema::CTypeObject * pType, CPropValue * pValue, unsigned int nCodePage)
 {
     auto nType = pType->getDataType();
     switch (nType)
@@ -157,7 +159,7 @@ void CWriterJsonUtils::writeValueToArray(JsonWrapper& rootJson, const CEntity* p
     }
 }
 
-void CWriterJsonUtils::writeProperty(JsonWrapper& rootJson, const CEntity* pEntity, CProperty * pProp, UINT nCodePage)
+void CWriterJsonUtils::writeProperty(JsonWrapper& rootJson, const CEntity* pEntity, CProperty * pProp, unsigned int nCodePage)
 {
     auto pSchema = pProp->schema();
     auto pType = pSchema->getType();

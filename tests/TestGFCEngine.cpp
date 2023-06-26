@@ -1,14 +1,16 @@
-#include "gtest\gtest.h"
-#include "GfcEngine\Writer.h"
-#include "GfcEngine\Reader.h"
-#include "GfcEngine\Document.h"
-#include "GfcEngine\GfcEngineUtils.h"
-//#include "Classes\Gfc2EdgeData.h"
+#include "gtest/gtest.h"
+#include "GfcEngine/Writer.h"
+#include "GfcEngine/Reader.h"
+#include "GfcEngine/Document.h"
+#include "GfcEngine/GfcEngineUtils.h"
+//#include "Classes/Gfc2EdgeData.h"
 #include "Common.h"
 #include "GfcSchema/Model.h"
-#include "GMath\GCoordinates3.h"
-#include "GfcUtils\GfcGeometryExporter.h"
-#include "GfcUtils\GfcGeometryImporter.h"
+#if (defined _WIN32 || defined _WIN64)
+#include "GMath/GCoordinates3.h"
+#include "GfcUtils/GfcGeometryExporter.h"
+#include "GfcUtils/GfcGeometryImporter.h"
+#endif
 
 TEST(TestGFCEngine, WriteEmptyFile)
 {
@@ -327,25 +329,25 @@ TEST(TestGFCEngine, WriteRefFile)
     gfc::engine::EntityRef /*nRef1,*/ nRef2, /*nRef3, */nRef4;
     //{
     //    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String");
-    //    pEntity->setAsString(L"Value", L"ÖĞ¹ú");
+    //    pEntity->setAsString(L"Value", L"ä¸­å›½");
     //    nRef1 = writer.writeEntity(pEntity);
     //    EXPECT_EQ(true, result);
     //}
     {
         auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2ElementShape");
-        pEntity->setAsString(L"Identifier", L"ÖĞ¹ú");
+        pEntity->setAsString(L"Identifier", L"ä¸­å›½");
         nRef2 = writer.writeEntity(pEntity);
         EXPECT_EQ(true, result);
     }
     //{
     //    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2String");
-    //    pEntity->setAsString(L"Value", L"ÈËÃñ");
+    //    pEntity->setAsString(L"Value", L"äººæ°‘");
     //    nRef3 = writer.writeEntity(pEntity);
     //    EXPECT_EQ(true, result);
     //}
     {
         auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2ElementShape");
-        pEntity->setAsString(L"Identifier", L"ÈËÃñ");
+        pEntity->setAsString(L"Identifier", L"äººæ°‘");
         nRef4 = writer.writeEntity(pEntity);
         EXPECT_EQ(true, result);
     }
@@ -382,13 +384,13 @@ TEST(TestGFCEngine, Read_getRef)
                 auto pShape1 = pElement->getEntity(L"Shapes", 0);
                 EXPECT_EQ(true, pShape1 != nullptr);
                 EXPECT_EQ(true, pShape1->isNull(L"Shape"));
-                EXPECT_STREQ(L"ÖĞ¹ú", pShape1->asString(L"Identifier").c_str());
+                EXPECT_STREQ(L"ä¸­å›½", pShape1->asString(L"Identifier").c_str());
             }
             {
                 auto pShape1 = pElement->getEntity(L"Shapes", 1);
                 EXPECT_EQ(true, pShape1 != nullptr);
                 EXPECT_EQ(true, pShape1->isNull(L"Shape"));
-                EXPECT_STREQ(L"ÈËÃñ", pShape1->asString(L"Identifier").c_str());
+                EXPECT_STREQ(L"äººæ°‘", pShape1->asString(L"Identifier").c_str());
             }
 
             itr->next();
@@ -397,7 +399,7 @@ TEST(TestGFCEngine, Read_getRef)
         reader.close();
     }
 }
-
+#if (defined _WIN32 || defined _WIN64)
 TEST(TestGFCEngine, WriteColumnDemoFile)
 {
     gfc::schema::CModel oModel;
@@ -510,7 +512,7 @@ TEST(TestGFCEngine, WriteColumnDemoFile)
     std::vector<gfc::engine::EntityRef> oPropRefList;
     {
         auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2StringProperty");
-        pEntity->setAsString(L"Name", L"Ãû³Æ");
+        pEntity->setAsString(L"Name", L"åç§°");
         pEntity->setAsString(L"Code", L"Description");
         pEntity->setAsString(L"Val", L"KZ-1");
         oPropRefList.push_back(writer.writeEntity(pEntity));
@@ -518,9 +520,9 @@ TEST(TestGFCEngine, WriteColumnDemoFile)
     }
     {
         auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2StringProperty");
-        pEntity->setAsString(L"Name", L"Àà±ğ");
+        pEntity->setAsString(L"Name", L"ç±»åˆ«");
         pEntity->setAsString(L"Code", L"Type");
-        pEntity->setAsString(L"Val", L"¿ò¼ÜÖù");
+        pEntity->setAsString(L"Val", L"æ¡†æ¶æŸ±");
         oPropRefList.push_back(writer.writeEntity(pEntity));
         EXPECT_EQ(true, result);
     }
@@ -655,7 +657,7 @@ TEST(TestGFCEngine2, WriteColumnDemoFile)
     std::vector<gfc::engine::EntityRef> oPropRefList;
     {
         auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2StringProperty");
-        pEntity->setAsString(L"Name", L"Ãû³Æ");
+        pEntity->setAsString(L"Name", L"åç§°");
         pEntity->setAsString(L"Code", L"Description");
         pEntity->setAsString(L"Val", L"KZ-1");
         oPropRefList.push_back(writer.writeEntity(pEntity));
@@ -663,9 +665,9 @@ TEST(TestGFCEngine2, WriteColumnDemoFile)
     }
     {
         auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2StringProperty");
-        pEntity->setAsString(L"Name", L"Àà±ğ");
+        pEntity->setAsString(L"Name", L"ç±»åˆ«");
         pEntity->setAsString(L"Code", L"Type");
-        pEntity->setAsString(L"Val", L"¿ò¼ÜÖù");
+        pEntity->setAsString(L"Val", L"æ¡†æ¶æŸ±");
         oPropRefList.push_back(writer.writeEntity(pEntity));
         EXPECT_EQ(true, result);
     }
@@ -687,7 +689,7 @@ TEST(TestGFCEngine2, WriteColumnDemoFile)
         EXPECT_EQ(true, result);
     }
 }
-
+#endif
 //TEST(BinaryWriterTest, WriteEmptyFile)
 //{
 //    gfc::engine::CWriter writer;
@@ -904,7 +906,7 @@ TEST(TestGFCEngine, ReadFile1216)
     gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X1.exp"), &oModel);
     gfc::engine::CReader reader(&oModel);
     gfc::engine::CDocument document(&oModel);
-    auto result = reader.open(getFullPath(L"D:\\Files\\Õı¸ºÁãÒÔÉÏÏàÍ¬²¿·Ö1-·¢¼×·½.rvt.gfc"));
+    auto result = reader.open(getFullPath(L"D:\\Files\\æ­£è´Ÿé›¶ä»¥ä¸Šç›¸åŒéƒ¨åˆ†1-å‘ç”²æ–¹.rvt.gfc"));
     EXPECT_EQ(true, result);
     if (result)
     {

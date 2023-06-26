@@ -18,6 +18,10 @@ source_group(TREE ${PROJECT_SOURCE_DIR}/GfcEngine PREFIX "Source Files" FILES ${
 
 #编译选项
 add_compile_definitions(_CRT_SECURE_NO_WARNINGS GFCENGINE_EXPORTS UNICODE)
+if(UNIX)
+	add_compile_options(-std=c++11 -fPIC -g)
+endif()
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/source-charset:utf-8>")
 add_library(${PROJECT_NAME} SHARED ${SRC_FILES} ${HEAD_FILES})
 
 target_link_libraries(${PROJECT_NAME} debug GfcSchemad optimized GfcSchema)

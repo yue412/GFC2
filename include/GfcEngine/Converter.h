@@ -1,7 +1,7 @@
 #ifndef CONVERTER_H
 #define CONVERTER_H
 
-#include "GfcEngine\GfcEngine.h"
+#include "GfcEngine/GfcEngine.h"
 #include <string>
 //#include "AttributeValue.h"
 
@@ -16,7 +16,7 @@ GFCENGINE_NAMESPACE_BEGIN
 
 class CPropValue;
 class CEntity;
-// ÔðÈÎÁ´
+// è´£ä»»é“¾
 class GFCENGINE_API CConverter
 {
 public:

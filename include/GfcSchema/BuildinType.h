@@ -1,7 +1,7 @@
 #ifndef BUILDINTYPE_H
 #define BUILDINTYPE_H
 
-#include "GfcSchema\TypeObject.h"
+#include "GfcSchema/TypeObject.h"
 
 GFC_NAMESPACE_BEGIN
 

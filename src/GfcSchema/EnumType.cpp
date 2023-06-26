@@ -1,5 +1,6 @@
-#include "GfcSchema\EnumType.h"
+#include "GfcSchema/EnumType.h"
 #include <algorithm>
+#include <assert.h>
 
 GFC_NAMESPACE_BEGIN
 
@@ -14,7 +15,7 @@ CEnumType::CEnumType(const std::wstring &sName): CTypeObject(sName)
 
 std::wstring &CEnumType::getEnum(int nIndex)
 {
-    _ASSERT(nIndex >= 0 && nIndex < (int)m_oEnumList.size());
+    assert(nIndex >= 0 && nIndex < (int)m_oEnumList.size());
     return m_oEnumList[nIndex];
 }
 

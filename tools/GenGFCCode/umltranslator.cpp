@@ -5,7 +5,9 @@
 #include "codewriter.h"
 #include "expresswriter.h"
 #include <iostream>
+#if (defined _WIN32 || defined _WIN64)
 #include <windows.h>
+#endif
 #include "common.h"
 #include "DocumentWriter.h"
 
@@ -20,7 +22,7 @@ CUMLTranslator::~CUMLTranslator()
 
 void CUMLTranslator::done(CTranslateInfo & oInfo)
 {
-    std::wstring sCoreUML = getExePath() + L"\\GFC2Core.uml";
+    std::wstring sCoreUML = getExePath() + L"/GFC2Core.uml";
     CModel oModel;
     loadModelData(&oModel, oInfo.sUMLFile.empty() ? sCoreUML : oInfo.sUMLFile);
     /*
@@ -55,7 +57,7 @@ void CUMLTranslator::done(CTranslateInfo & oInfo)
             oInfo.sNETPath);
     }
 //    delete pRefModel;
-    std::wcout << L"Éú³ÉÍê³É£¡" << std::endl;
+    std::wcout << L"ç”Ÿæˆå®Œæˆï¼" << std::endl;
 }
 
 void CUMLTranslator::loadModelData(CModel * pModel, const std::wstring & sFileName)

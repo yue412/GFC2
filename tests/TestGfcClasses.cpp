@@ -1,19 +1,19 @@
-#include "gtest\gtest.h"
-#include "GfcEngine\Entity.h"
-#include "GfcEngine\EngineException.h"
-#include "GfcEngine\PropValue.h"
-#include "GfcEngine\Document.h"
+#include "gtest/gtest.h"
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/EngineException.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcEngine/Document.h"
 #include "Common.h"
 #include "GfcSchema/Model.h"
 #include "GfcSchema/EntityClass.h"
 #include "GfcSchema/EntityAttribute.h"
 #include "GfcSchema/BuildinType.h"
 #include "GfcSchema/TypeDefine.h"
-#include "GfcClasses\x3\GfcVector2d.h"
-#include "GfcClasses\x3\GfcFloor.h"
-#include "GfcClasses\x3\GfcElement.h"
-#include "GfcClasses\x3\GfcSphereShape.h"
-#include "GfcEngine\GfcEngineUtils.h"
+#include "GfcClasses/x3/GfcVector2d.h"
+#include "GfcClasses/x3/GfcFloor.h"
+#include "GfcClasses/x3/GfcElement.h"
+#include "GfcClasses/x3/GfcSphereShape.h"
+#include "GfcEngine/GfcEngineUtils.h"
 
 using namespace gfc::classes::x3;
 
@@ -48,8 +48,8 @@ TEST(TestGfcClasses, Floor_create)
 TEST(TestGfcClasses, Floor_set_get)
 {
     GfcFloor obj;
-    obj.setID(L"ÖÐ»ªÈËÃñ¹²ºÍ¹ú");
-    EXPECT_STREQ(L"ÖÐ»ªÈËÃñ¹²ºÍ¹ú", obj.getID().c_str());
+    obj.setID(L"ä¸­åŽäººæ°‘å…±å’Œå›½");
+    EXPECT_STREQ(L"ä¸­åŽäººæ°‘å…±å’Œå›½", obj.getID().c_str());
     obj.setStdFloorCount(12);
     EXPECT_EQ(12, obj.getStdFloorCount());
 }
@@ -68,10 +68,10 @@ TEST(TestGfcClasses, Element_add)
     EXPECT_EQ(1000, obj.getShapes(0));
 }
 
-#include "GfcClasses\x3\GfcElementShape.h"
-#include "GfcClasses\x3\Reader.h"
-#include "GfcClasses\x3\Writer.h"
-#include "GfcClasses\x3\GfcSimpleLoop.h"
+#include "GfcClasses/x3/GfcElementShape.h"
+#include "GfcClasses/x3/Reader.h"
+#include "GfcClasses/x3/Writer.h"
+#include "GfcClasses/x3/GfcSimpleLoop.h"
 
 TEST(TestGfcClasses, write_document)
 {
@@ -111,14 +111,14 @@ TEST(TestGfcClasses, read_document)
 }
 
 /*
-#include "GfcClasses\x3\Gfc2ArbitrarySection.h"
-#include "GfcUtils\GfcGeometryImporter.h"
+#include "GfcClasses/x3/Gfc2ArbitrarySection.h"
+#include "GfcUtils/GfcGeometryImporter.h"
 #include "GfcGeometryImporterOld.h"
 
 TEST(TestGfcClasses, ReadFile_1)
 {
     GfcReader oReader;
-    oReader.open(getFullPath(L"±ßÔµÌî³ä-°µÖù.rvt.gfc"));
+    oReader.open(getFullPath(L"è¾¹ç¼˜å¡«å……-æš—æŸ±.rvt.gfc"));
     auto itr = oReader.getEntities(L"Gfc2ArbitrarySection");
     itr->first();
     EXPECT_EQ(false, itr->isDone());

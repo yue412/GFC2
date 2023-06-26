@@ -7,7 +7,7 @@
 #include <set>
 #include "GfcEngine/Entity.h"
 #include "GfcEngine/GfcEngine.h"
-#include "GfcEngine\Container.h"
+#include "GfcEngine/Container.h"
 #include <functional>
 
 namespace gfc {
@@ -25,15 +25,6 @@ typedef std::function<bool (CDocument*, /*EntityRef,*/ CEntity*)> needAddEntityF
 typedef std::function<void (CDocument*)> afterReadDocFunc;
 
 template<class T> class CContainerImp;
-
-struct __declspec(dllexport) std::_Container_base12;
-template class __declspec(dllexport) std::function<void(gfc::engine::CDocument *)>;
-template class __declspec(dllexport) std::function<bool(gfc::engine::CDocument *, EntityRef, gfc::engine::CEntity *)>;
-template class __declspec(dllexport) std::_Tree_val<std::_Tree_simple_types<std::wstring>>;
-template class __declspec(dllexport) std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::wstring, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::wstring>>, true>;
-template class __declspec(dllexport) std::_Compressed_pair<std::less<std::wstring>, std::_Compressed_pair<std::_Wrap_alloc<std::allocator<std::_Tree_node<std::wstring, void *>>>, std::_Tree_val<std::_Tree_simple_types<std::wstring>>, true>, true>;
-template class __declspec(dllexport) std::set<std::wstring, std::less<std::wstring>, std::allocator<std::wstring>>;
-
 
 class GFCENGINE_API CDocument: public IContainer
 {

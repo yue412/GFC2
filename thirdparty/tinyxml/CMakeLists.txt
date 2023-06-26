@@ -1,6 +1,9 @@
 ﻿cmake_minimum_required(VERSION 2.8)
 project(tinyxml)
 
+if(UNIX)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../../lib)
+else()
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/../../lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/../../lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/../../lib)
@@ -8,6 +11,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/../../lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/../../bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_SOURCE_DIR}/../../bin)
 set(CMAKE_DEBUG_POSTFIX d)
+endif()
 
 #查找当前文件夹中的所有源代码文件，也可以通过Set命令将所有文件设置为一个变量
 FILE(GLOB SRC_FILES "./*.cpp") 
@@ -16,6 +20,8 @@ FILE(GLOB HEAD_FILES "./*.h")
 
 #编译选项
 add_compile_definitions("TIXML_USE_STL")
-
+if(UNIX)
+add_compile_options(-std=c++11 -fPIC)
+endif()
 #生成静态库
 add_library(${PROJECT_NAME} STATIC ${SRC_FILES} ${HEAD_FILES})

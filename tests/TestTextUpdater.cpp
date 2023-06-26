@@ -1,11 +1,11 @@
-#include "gtest\gtest.h"
-#include "GfcEngine\EntityUpgrader.h"
+#include "gtest/gtest.h"
+#include "GfcEngine/EntityUpgrader.h"
 #include "GfcSchema/EntityClass.h"
 #include "GfcSchema/EntityAttribute.h"
 #include "GfcSchema/BuildinType.h"
-#include "GfcEngine\ClassCompatibility.h"
+#include "GfcEngine/ClassCompatibility.h"
 #include "GfcEngine/PropValue.h"
-#include "GfcEngine\Entity.h"
+#include "GfcEngine/Entity.h"
 
 TEST(TestUpdater, transform_same)
 {

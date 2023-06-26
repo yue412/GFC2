@@ -1,7 +1,7 @@
-#include "GfcEngine\Converter.h"
-#include "GfcSchema\EnumType.h"
-#include "GfcEngine\PropValue.h"
-#include "GfcEngine\Property.h"
+#include "GfcEngine/Converter.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcEngine/Property.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 
@@ -12,7 +12,7 @@ CConverter::~CConverter()
 
 void CConverter::transform(CPropValue* pFrom, CPropValue* pTo)
 {
-    // 为空不用转换
+    // 涓虹┖涓嶇敤杞崲
     if (pFrom->isNull())
         return;
     if (m_pNext)

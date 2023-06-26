@@ -50,7 +50,8 @@ void CppBaseFile::saveTo(const std::wstring &sPath)
     if (!bSame)
     {
         std::wfstream oFile;
-        oFile.open(sPath + L"\\" + fileName(), std::ios::out);
+        auto sFileName = UnicodeToACP(sPath + L"/" + fileName());
+        oFile.open(sFileName, std::ios::out);
         if (oFile.good())
         {
             oFile << sNew;
@@ -73,11 +74,11 @@ void CppBaseFile::addInclude(const std::wstring &sIncludeFile, bool bSystem)
         body()->addLine(L"");
     }
     if(bSystem)
-        m_pIncludeGroup->addLine(FormatWstring(L"#include <%s>", 
+        m_pIncludeGroup->addLine(FormatWstring(L"#include <%ls>", 
             sIncludeFile.c_str()
         ));
     else
-        m_pIncludeGroup->addLine(FormatWstring(L"#include \"%s\"",
+        m_pIncludeGroup->addLine(FormatWstring(L"#include \"%ls\"",
             sIncludeFile.c_str()
         ));
 }
@@ -85,10 +86,10 @@ void CppBaseFile::addInclude(const std::wstring &sIncludeFile, bool bSystem)
 
 CppHeadFile::CppHeadFile(const std::wstring& sFileNameOnly): CppBaseFile(sFileNameOnly)
 {
-    m_pBody->addLine(FormatWstring(L"#ifndef %s_H", 
+    m_pBody->addLine(FormatWstring(L"#ifndef %ls_H", 
         UpperString(sFileNameOnly).c_str()
     ));
-    m_pBody->addLine(FormatWstring(L"#define %s_H", 
+    m_pBody->addLine(FormatWstring(L"#define %ls_H", 
         UpperString(sFileNameOnly).c_str()
     ));
     m_pBody->addLine(L"");
@@ -111,7 +112,7 @@ CppFile::CppFile(const std::wstring &sFileNameOnly, CppHeadFile *pHeadFile, bool
     {
         if (bHasPreCompleHead)
             m_pBody->addLine(L"#include \"StdAfx.h\"");
-        m_pBody->addLine(FormatWstring(L"#include \"%s\"",
+        m_pBody->addLine(FormatWstring(L"#include \"%ls\"",
             pHeadFile->fileName().c_str()
         ));
     }
@@ -123,7 +124,7 @@ CppFile::CppFile(const std::wstring &sFileNameOnly, const std::wstring& sHeadRel
     setFileExt(L"cpp");
     if (bHasPreCompleHead)
         m_pBody->addLine(L"#include \"StdAfx.h\"");
-    m_pBody->addLine(FormatWstring(L"#include \"%s.h\"", 
+    m_pBody->addLine(FormatWstring(L"#include \"%ls.h\"", 
         (sHeadRelativePath + sFileNameOnly).c_str()
     ));
 }

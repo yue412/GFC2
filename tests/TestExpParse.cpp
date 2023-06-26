@@ -1,4 +1,4 @@
-#include "gtest\gtest.h"
+#include "gtest/gtest.h"
 #include "Parser.h"
 #include "GfcSchema/BuildinType.h"
 #include "GfcSchema/TypeDefine.h"

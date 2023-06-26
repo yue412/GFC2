@@ -101,7 +101,7 @@ void Parser::TypedefOrEnum() {
 			IdentList(oEnumList);
 			gfc::schema::CEnumType* pEnumType = new gfc::schema::CEnumType(sTypeName);
 			m_pModel->addTypeObject(pEnumType); 
-			for each (auto sEnum in oEnumList)
+			for  (auto sEnum : oEnumList)
 			{
 			   pEnumType->addEnum(sEnum, L"");
 			}
@@ -163,7 +163,7 @@ void Parser::SuperType(gfc::schema::CClass* pClass) {
 		Expect(10 /* "(" */);
 		CStringList oChildList; 
 		IdentList(oChildList);
-		for each (auto sName in oChildList)
+		for (auto sName : oChildList)
 		{
 		   auto pChild = getClass(sName);
 		   pClass->addChild(pChild);

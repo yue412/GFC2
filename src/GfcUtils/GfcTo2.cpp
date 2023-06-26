@@ -27,7 +27,7 @@ public:
     }
 };
 
-// GFC3.0Ö±½ÓÊ¹ÓÃ×Ö·û´®£¬GFC2.0ÊÇ×Ö·û´®µÄÒýÓÃ
+// GFC3.0ç›´æŽ¥ä½¿ç”¨å­—ç¬¦ä¸²ï¼ŒGFC2.0æ˜¯å­—ç¬¦ä¸²çš„å¼•ç”¨
 class CStringConverter32 : public gfc::engine::CConverter
 {
 public:
@@ -73,7 +73,7 @@ GfcTo2::DestEntityPtr GfcTo2::doTransformShape(SrcEntityPtr & pSrcEntity)
     auto pShapesValue = pSrcEntity->valueByName(L"Shapes");
     if (pShapesValue->isNull())
         return nullptr;
-    // È¡µÚÒ»¸ö
+    // å–ç¬¬ä¸€ä¸ª
     auto pElementShape = pSrcEntity->getEntity(pShapesValue, 0);
     if (nullptr == pElementShape)
         return nullptr;

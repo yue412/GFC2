@@ -2,16 +2,20 @@
 #define EXPENGINEEXCEPTION_H
 
 #include <exception>
-#include "GfcEngine\GfcEngine.h"
+#include "GfcEngine/GfcEngine.h"
 
 GFCENGINE_NAMESPACE_BEGIN
+
+#if (defined _WIN32 || defined _WIN64)
+#define _GLIBCXX_USE_NOEXCEPT
+#endif
 
 class EMissMatchProperty : public std::exception
 {
 public:
     EMissMatchProperty() {}
 public:
-    virtual char const* what() const { return "Miss Match Property exception"; }  //»ñÈ¡¾ßÌåµÄ´íÎóĞÅÏ¢
+    virtual char const* what() const _GLIBCXX_USE_NOEXCEPT { return "Miss Match Property exception"; }  //è·å–å…·ä½“çš„é”™è¯¯ä¿¡æ¯
 };
 
 class ETypeMatchError : public std::exception
@@ -19,7 +23,7 @@ class ETypeMatchError : public std::exception
 public:
     ETypeMatchError() {}
 public:
-    virtual char const* what() const { return "Type match error"; }  //»ñÈ¡¾ßÌåµÄ´íÎóĞÅÏ¢
+    virtual char const* what() const _GLIBCXX_USE_NOEXCEPT { return "Type match error"; }  //è·å–å…·ä½“çš„é”™è¯¯ä¿¡æ¯
 };
 
 GFCENGINE_NAMESPACE_END

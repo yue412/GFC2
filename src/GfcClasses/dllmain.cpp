@@ -1,9 +1,12 @@
-#include <Windows.h>
-#include "GfcSchema\Model.h"
-#include "GfcEngine\GfcEngineUtils.h"
-#include "resource.h"
+#include "GfcSchema/Model.h"
+#include "GfcEngine/GfcEngineUtils.h"
 
 gfc::schema::CModel* g_pModel = nullptr;
+
+#if (defined _WIN32 || defined _WIN64)
+
+#include "resource.h"
+#include <Windows.h>
 
 BOOL WINAPI DllMain(
     _In_ HINSTANCE hinstDLL,
@@ -18,7 +21,7 @@ BOOL WINAPI DllMain(
         {
             if (g_pModel == nullptr)
             {
-                // º”‘ÿ◊ ‘¥
+                // Âä†ËΩΩËµÑÊ∫ê
                 HINSTANCE hInst = hinstDLL;
                 HRSRC hRsrc = FindResource(hInst, MAKEINTRESOURCE(IDR_EXP1), L"EXP");
                 if (!hRsrc)
@@ -30,7 +33,7 @@ BOOL WINAPI DllMain(
                 memcpy(pByte, pBuffer, dwSize);
                 GlobalUnlock(hGlobal);
                 g_pModel = new gfc::schema::CModel;
-                // Ω‚Œˆ
+                // Ëß£Êûê
                 gfc::engine::CEngineUtils::loadSchema((char*)pByte, dwSize, g_pModel);
             }
         }
@@ -42,3 +45,32 @@ BOOL WINAPI DllMain(
     }
     return TRUE;
 }
+
+#else
+
+void __attribute__((constructor)) gfc_classes_load(void);
+void __attribute__((destructor)) gfc_classes_unload(void);
+
+// Called when the library is loaded and before dlopen() returns
+void gfc_classes_load(void)
+{
+    if (g_pModel == nullptr)
+    {
+        extern char _binary_GFC_exp_start[];
+        extern char _binary_GFC_exp_end[];
+        int64_t len = _binary_GFC_exp_end - _binary_GFC_exp_start;
+        // Âä†ËΩΩËµÑÊ∫ê
+        g_pModel = new gfc::schema::CModel;
+        // Ëß£Êûê
+        gfc::engine::CEngineUtils::loadSchema((char*)_binary_GFC_exp_start, len, g_pModel);
+    }
+}
+
+// Called when the library is unloaded and before dlclose()
+// returns
+void gfc_classes_unload(void)
+{
+    delete g_pModel;
+    g_pModel = nullptr;
+}
+#endif

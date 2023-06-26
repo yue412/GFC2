@@ -1,14 +1,19 @@
 #include "WriterJsonImp.h"
+#if (defined _WIN32 || defined _WIN64)
 #include <Windows.h>
+#include <io.h>
+#else
+#include <stdio.h>
+#include <unistd.h>
+#endif
 #include <sstream>
 #include <time.h>
-#include <io.h>
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EntityAttribute.h"
-#include "GfcSchema\EnumType.h"
-#include "GfcEngine\PropValue.h"
-#include "GfcEngine\JsonSerializerUtils.h"
-#include "GfcEngine\Container.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcEngine/JsonSerializerUtils.h"
+#include "GfcEngine/Container.h"
 #include "Common.h"
 #include <iomanip>
 #include <algorithm>
@@ -33,11 +38,11 @@ CWriterJsonImp::~CWriterJsonImp(void)
 bool CWriterJsonImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion, const std::wstring& sStandardVersion)
 {
     std::string sFile = UnicodeToACP(sFileName);
-	if (-1 != _access(sFile.c_str(), 0))
+	if (-1 != access(sFile.c_str(), 0))
 	{
 		remove(sFile.c_str());
 	}
-    m_pJsonStream = new std::fstream(sFileName,std::ios::out | std::ios::app);
+    m_pJsonStream = new std::fstream(sFile,std::ios::out | std::ios::app);
 
     m_pDocument = new rapidjson::Document();
     m_pRootDocument = new JsonWrapper(m_pDocument);

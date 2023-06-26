@@ -1,6 +1,6 @@
-#include "GfcClasses\x3\Writer.h"
+#include "GfcClasses/x3/Writer.h"
 #include "Schema.h"
-#include "GfcSchema\Model.h"
+#include "GfcSchema/Model.h"
 
 GFCCLASSES_NAMESPACE_BEGIN
 

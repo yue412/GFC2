@@ -1,5 +1,5 @@
-#include "GfcEngine\PropValue.h"
-#include "GfcEngine\EngineException.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcEngine/EngineException.h"
 #include "Common.h"
 #include <sstream>
 #include <iomanip>
@@ -104,7 +104,7 @@ void CCompositePropValue::setItems(int nIndex, CPropValue* pValue)
 
 void CCompositePropValue::clear()
 {
-    for each (auto pValue in m_oList)
+    for (auto pValue : m_oList)
     {
         delete pValue;
     }
@@ -114,7 +114,7 @@ void CCompositePropValue::clear()
 CPropValue * CCompositePropValue::clone() const
 {
     CCompositePropValue* pCompositeValue = new CCompositePropValue();
-    for each (auto pValue in m_oList)
+    for (auto pValue : m_oList)
     {
         pCompositeValue->add(pValue->clone());
     }

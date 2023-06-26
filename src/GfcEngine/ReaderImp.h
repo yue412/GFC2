@@ -3,8 +3,8 @@
 
 #include <string>
 #include <vector>
-#include "GfcEngine\Reader.h"
-#include "GfcEngine\SysMarco.h"
+#include "GfcEngine/Reader.h"
+#include "GfcEngine/SysMarco.h"
 
 namespace gfc {
     namespace schema {
@@ -34,10 +34,10 @@ public:
     virtual void read(CDocument* pDoc) = 0;
     std::vector<std::wstring>& errors() { return m_oErrors; }
 
-    virtual bool preRead(const std::wstring& sFileName) = 0; // ÅĞ¶ÏÊÇ·ñÊÇ¿ÉÒÔ¶ÁµÄ¸ñÊ½
+    virtual bool preRead(const std::wstring& sFileName) = 0; // åˆ¤æ–­æ˜¯å¦æ˜¯å¯ä»¥è¯»çš„æ ¼å¼
     virtual std::wstring readFileVersion() = 0;
     virtual std::wstring readStandardVersion() = 0;
-    // ¼Ì³Ğ IContainer½Ó¿Ú
+    // ç»§æ‰¿ IContaineræ¥å£
     virtual EntityPtr getEntity(EntityRef nId);
     virtual EntityIteratorPtr getEntities(const std::wstring& sType, bool bIncludeSubType = false);
     virtual EntityIteratorPtr getIterator();

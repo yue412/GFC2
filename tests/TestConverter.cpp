@@ -1,9 +1,9 @@
-#include "gtest\gtest.h"
-#include "GfcEngine\Converter.h"
+#include "gtest/gtest.h"
+#include "GfcEngine/Converter.h"
 #include "ConverterImp.h"
 #include "GfcSchema/EnumType.h"
-#include "GfcEngine\PropValue.h"
-#include "GfcSchema\BuildinType.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcSchema/BuildinType.h"
 
 using namespace gfc::schema;
 using namespace gfc::engine;
@@ -351,9 +351,9 @@ TEST(TestConverter, StringConverter)
     CStringValue oTo;
     oConverter.transform(&oFrom, &oTo);
     EXPECT_EQ(true, oTo.isNull());
-    oFrom.setAsString(L"中国");
+    oFrom.setAsString(L"涓浗");
     oConverter.transform(&oFrom, &oTo);
-    EXPECT_EQ(true, L"中国" == oTo.asString());
+    EXPECT_EQ(true, L"涓浗" == oTo.asString());
     EXPECT_EQ(false, oTo.isNull());
 }
 

@@ -1,9 +1,11 @@
 #ifndef FILEMAP_H
 #define FILEMAP_H
 
+#if (defined _WIN32 || defined _WIN64)
 #include <Windows.h>
+#endif
 #include <string>
-#include "GfcEngine\GfcEngine.h"
+#include "GfcEngine/GfcEngine.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 
@@ -13,23 +15,25 @@ public:
     CFileMap(const std::wstring& sFileName);
     ~CFileMap();
     bool init();
-    __int64 size() { return m_dwFileSize; }
-    PBYTE ptr() { return m_pbFile; }
-    std::string getLine(__int64 nStart, __int64* pEnd);
-    __int64 getLineEnd(__int64 nStart);
-    __int64 getLineCount();
+    int64_t size() { return m_dwFileSize; }
+    char* ptr() { return m_pbFile; }
+    std::string getLine(int64_t nStart, int64_t* pEnd);
+    int64_t getLineEnd(int64_t nStart);
+    int64_t getLineCount();
 
-    __int64 pos() { return m_nPos; }
-    void setPos(__int64 nPos);
+    int64_t pos() { return m_nPos; }
+    void setPos(int64_t nPos);
     std::string getLine();
     bool eof();
 private:
+#if (defined _WIN32 || defined _WIN64)
     HANDLE m_hFile;
     HANDLE m_hFileMapping;
-    PBYTE m_pbFile;
+#endif
+    char* m_pbFile;
     std::wstring m_sFileName;
-    __int64 m_dwFileSize; // 文件可能超过4G
-    __int64 m_nPos;
+    int64_t m_dwFileSize; // 鏂囦欢鍙兘瓒呰繃4G
+    int64_t m_nPos;
 };
 
 GFCENGINE_NAMESPACE_END

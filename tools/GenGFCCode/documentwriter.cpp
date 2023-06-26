@@ -1,4 +1,4 @@
-﻿#include "DocumentWriter.h"
+#include "DocumentWriter.h"
 #include <vector>
 #include "GfcSchema/TypeObject.h"
 #include "GfcSchema/Model.h"
@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <iostream>
 #include "common.h"
+#include <assert.h>
 
 CDocumentWriter::CDocumentWriter(CModel * pModel) : m_pModel(pModel)
 {
@@ -20,10 +21,10 @@ CDocumentWriter::~CDocumentWriter()
 
 void CDocumentWriter::write(const std::wstring & sPath)
 {
-    _ASSERT(m_pModel);
+    assert(m_pModel);
     if (sPath.empty())
     {
-        _ASSERT(false);
+        assert(false);
         return;
     }
 
@@ -41,7 +42,9 @@ void CDocumentWriter::write(const std::wstring & sPath)
             continue;
         // create file
         std::fstream oFile;
-        oFile.open(sPath + L"\\" + pTypeObject->getName() + L".html", std::ios::out);
+        // todo
+        auto sFileName = UnicodeToACP(sPath + L"/" + pTypeObject->getName() + L".html");
+        oFile.open(sFileName, std::ios::out);
         if (!oFile.good())
         {
             std::wcout << L"文件打开失败!" << L"\n";
@@ -79,7 +82,9 @@ void CDocumentWriter::write(const std::wstring & sPath)
     }
     // write json data
     std::fstream oFile;
-    oFile.open(sPath + L"\\class_data.js", std::ios::out);
+    // todo
+    auto sFileName = UnicodeToACP(sPath + L"/class_data.js");
+    oFile.open(sFileName, std::ios::out);
     if (!oFile.good())
     {
         std::wcout << L"文件打开失败!" << L"\n";
@@ -201,7 +206,7 @@ void CDocumentWriter::writeTail(std::fstream & out)
 
 void CDocumentWriter::writeData(const std::vector<std::wstring>& oList, std::fstream & out)
 {
-    for each (auto s in oList)
+    for (auto s : oList)
     {
         out << L"\"" << s << L"\",";
     }

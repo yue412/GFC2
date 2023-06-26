@@ -14,20 +14,20 @@ CUMLReader::CUMLReader(CModel *pModel): m_pModel(pModel)
 
 void CUMLReader::load(const std::wstring &sFileName)
 {
-    _ASSERT(m_pModel);
+    assert(m_pModel);
     if (sFileName.empty())
     {
-        _ASSERT(false);
+        assert(false);
         return;
     }
 
     //QFile oFile(QString::fromStdWString(sFileName));
     //if (!oFile.open(QFile::ReadOnly | QFile::Text))
     //{
-    //    std::wcout << L"Œƒº˛¥Úø™ ß∞‹!" << std::endl;
+    //    std::wcout << L"Êñá‰ª∂ÊâìÂºÄÂ§±Ë¥•!" << std::endl;
     //    return;
     //}
-    // ‘§¥¶¿Ì
+    // È¢ÑÂ§ÑÁêÜ
     initial();
     TiXmlDocument oDoc;
     if (oDoc.LoadFile(UnicodeToACP(sFileName)))
@@ -41,7 +41,7 @@ void CUMLReader::load(const std::wstring &sFileName)
             }
             pElement = pElement->NextSiblingElement();
         }
-        // ∫Û¥¶¿Ì
+        // ÂêéÂ§ÑÁêÜ
     }
     finalize();
 }
@@ -68,21 +68,21 @@ void CUMLReader::finalize()
         else
         {
             std::wcout << L"Attribute: " << itr->first->getName() << L" miss type: " << sName <<std::endl;
-            _ASSERT(pTypeObject);
+            assert(pTypeObject);
         }
     }
 
     for(CTypeDefList::iterator itr = m_oTypedefList.begin(); itr != m_oTypedefList.end(); ++itr)
     {
         CTypeObject* pTypeObject = m_pModel->findTypeObject(itr->second);
-        _ASSERT(pTypeObject);
+        assert(pTypeObject);
         itr->first->SetRefType(pTypeObject);
     }
 
     for (CGeneralizationList::iterator itr = m_oGeneralizationList.begin();
          itr != m_oGeneralizationList.end(); ++itr)
     {
-        // ÃÌº”∏∏◊”πÿœµ
+        // Ê∑ªÂä†Áà∂Â≠êÂÖ≥Á≥ª
         CTypeObject* pChild = findTypeObjectByGUID(itr->first);
         CTypeObject* pParent = findTypeObjectByGUID(itr->second);
         if (pChild && pParent && pChild->getType() == TOE_CLASS && pParent->getType() == TOE_CLASS)
@@ -96,12 +96,12 @@ void CUMLReader::finalize()
             }
             else
             {
-                _ASSERT(false);
+                assert(false);
             }
         }
         else
         {
-            _ASSERT(false);
+            assert(false);
         }
     }
 
@@ -124,10 +124,10 @@ void CUMLReader::finalize()
 			std::wcout << L"Owner: " << itr->OwnerTypeName 
 				<< L" Attribute: " << itr->FieldName 
 				<< L" type: " << itr->TypeName;
-            _ASSERT(false);
+            assert(false);
         }
     }
-    // ƒ¨»œÃÌº”Gfc2Rootª˘¿‡
+    // ÈªòËÆ§Ê∑ªÂä†Gfc2RootÂü∫Á±ª
     auto pRootClass = dynamic_cast<gfc::schema::CClass*>(m_pModel->findTypeObject(L"GfcRoot"));
     if (pRootClass)
     {
@@ -231,7 +231,7 @@ void CUMLReader::loadClass(TiXmlElement * pClass)
                             }
                             else
                             {
-                                // —”∫Ûπÿ¡™
+                                // Âª∂ÂêéÂÖ≥ËÅî
                                 m_oTypedefList.push_back(std::make_pair(pTypeDef, sTypeName));
                             }
                         }
@@ -295,7 +295,7 @@ CTypeObject * CUMLReader::createClass(TiXmlElement * pClass)
                     }
                     else
                     {
-                        _ASSERT(false);
+                        assert(false);
                     }
                 }
             }
@@ -411,7 +411,7 @@ bool CUMLReader::initAssociation(CAssociationEnd &oEnd1, CAssociationEnd &oEnd2,
     }
 	if (oEnd2.TypeName == L"")
 	{
-		_ASSERT(false);
+		assert(false);
 	}
     oAssociation.OwnerTypeName = oEnd2.TypeName;
     oAssociation.FieldName = oEnd1.Name;
@@ -574,7 +574,7 @@ CAttribute *CUMLReader::createAttribute(const std::wstring &sAttributeName, cons
     }
     else
     {
-        // —”≥Ÿ¥¶¿Ì
+        // Âª∂ËøüÂ§ÑÁêÜ
         m_oAttributeList.push_back(std::make_pair(pAttribute, sAttributeType));
     }
     return pAttribute;

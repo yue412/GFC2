@@ -46,12 +46,12 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
 {
     int nClassId = 2; // 1 for EntitySchema, 0 for stream eof
 
-	// ¹Ì¶¨classId,Èç¹û´æÔÚIdµÄ»°,ÄÇÃ´Ê¹ÓÃÒÑÓĞµÄ£¬Èç¹ûÃ»ÓĞ£¬Ôò¸ù¾İĞòÁĞ´´½¨ĞÂµÄId
+	// å›ºå®šclassId,å¦‚æœå­˜åœ¨Idçš„è¯,é‚£ä¹ˆä½¿ç”¨å·²æœ‰çš„ï¼Œå¦‚æœæ²¡æœ‰ï¼Œåˆ™æ ¹æ®åºåˆ—åˆ›å»ºæ–°çš„Id
 	//std::map<std::wstring,int> oClassIdMap;
 
 	int nMaxClassId = 1;
-	// ¸ù¾İiniÎÄ¼şÀ´È·¶¨ClassµÄID
-    std::vector<std::pair<std::wstring, int>> strList;
+	// æ ¹æ®iniæ–‡ä»¶æ¥ç¡®å®šClassçš„ID
+    std::vector<std::pair<std::wstring, int> > strList;
     std::wfstream oFile;
     oFile.open("classID.ini", std::ios::in);
     if (oFile.good())
@@ -92,7 +92,7 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
         CClass* pTypeObj = dynamic_cast<CClass*>(oObjectList[i]);
         if (pTypeObj)
         {
-			// Ã»ÓĞÕÒµ½£¬ËùÒÔÕâÀïµÄIDÊÇĞÂ½¨µÄ£¬xuxp,2017-6-28
+			// æ²¡æœ‰æ‰¾åˆ°ï¼Œæ‰€ä»¥è¿™é‡Œçš„IDæ˜¯æ–°å»ºçš„ï¼Œxuxp,2017-6-28
             auto itr = std::find_if(strList.begin(), strList.end(), 
                 [pTypeObj](std::pair<std::wstring, int>& oItem) {return pTypeObj->getName() == oItem.first; });
 			if (itr != strList.end())
@@ -152,20 +152,20 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
         }
     }
 
-	// Í³Ò»Ğ´³ö,xuxp,2017-7-05
+	// ç»Ÿä¸€å†™å‡º,xuxp,2017-7-05
 	//CppHeadFile oTypeConstsFile(L"TypeConsts");
 	//for ( int m = 0;m < (int)strList.size();m++)
 	//{
 	//	std::wstring sName = strList.at(m).first;
 	//	int curId = strList.at(m).second;
-	//	oTypeConstsFile.body()->addLine(FormatWstring(L"#define %s_ID %d", 
+	//	oTypeConstsFile.body()->addLine(FormatWstring(L"#define %ls_ID %d", 
  //           UpperString(sName).c_str(),
  //           curId
  //       ));
 	//}
 	//for (auto oIter = oClassIdMap.begin();oIter != oClassIdMap.end();oIter++)
 	//{
-	//	oTypeConstsFile.body()->addLine(FormatWstring(L"#define %s_ID %d", 
+	//	oTypeConstsFile.body()->addLine(FormatWstring(L"#define %ls_ID %d", 
  //           UpperString(oIter->first), 
  //           oIter->second
  //       ));
@@ -180,7 +180,7 @@ void CCodeWriter::writeClassFile(std::vector<CTypeObject *> &oObjectList)
     updateProgressBar();
 
 	
-	// ±£´æIDÎªÅäÖÃÎÄ¼ş£¬xuxp,2017-6-28
+	// ä¿å­˜IDä¸ºé…ç½®æ–‡ä»¶ï¼Œxuxp,2017-6-28
     //oFile.open("classID.ini", std::ios::out);
     //if (oFile.good())
     //{
@@ -286,14 +286,14 @@ void CCodeWriter::writeClassImpFile(CClass* pTypeObject, CppClass *pClass, CppCl
     oFile.body()->addLine(L"GFCCLASSES_NAMESPACE_BEGIN");
     oFile.body()->addLine(L"");
 
-    oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%s,L\"%s\",0)", 
+    oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%ls,L\"%ls\",0)", 
         pClass->name().c_str(),
         UpperString(pClass->name()).c_str()
     ));
     oFile.body()->addLine(L"");
     if(pFieldCacheClass)
     {
-        oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%sFieldCacheInitializer,\"%s\",0)", 
+        oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%lsFieldCacheInitializer,\"%ls\",0)", 
             pClass->name().c_str(),
             pClass->name().c_str()
         ));
@@ -423,13 +423,13 @@ void CCodeWriter::writeBinarySerializerClassFile(CClass *pTypeObject, CppClass *
     //    oFile.addInclude(L"FieldCache.h", false);
     //    oFile.addInclude(pTypeObject->getName() + L".h", false);
 
-    //    oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%s,\"%sB\",0)",
+    //    oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%ls,\"%lsB\",0)",
     //        pClass->name().c_str(),
     //        pTypeObject->getName().c_str()
     //    ));
     //    if (pFieldCacheClass)
     //    {
-    //        oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%s,\"%s\",0)",
+    //        oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%ls,\"%ls\",0)",
     //            pFieldCacheClass->name().c_str(),
     //            pTypeObject->getName().c_str()
     //        ));
@@ -462,7 +462,7 @@ void CCodeWriter::writeTextSerializerClassFile(CClass *pTypeObject, CppClass *pC
     //    //oFile.addInclude(L"FieldCache.h", false);
     //    oFile.addInclude(pTypeObject->getName() + L".h", false);
 
-    //    oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%s,\"%sT\",0)", 
+    //    oFile.body()->addLine(FormatWstring(L"GFCENGINE_IMP_OBJECT(%ls,\"%lsT\",0)", 
     //        pClass->name().c_str(),
     //        pTypeObject->getName().c_str()
     //    ));
@@ -498,7 +498,7 @@ void CCodeWriter::write(const std::wstring& sPathName, const std::wstring& sRela
     //               + m_bOutputHead ? getClassCount() * 1 + 3 : 0
     //               + m_bOutputNet ? getClassCount() * 2 + 1 : 0
     //                                 );
-    // ÅÅĞò
+    // æ’åº
     std::vector<CTypeObject*> oTempList;
     m_pModel->getTypeObjectList(oTempList);
     std::sort(oTempList.begin(), oTempList.end(), less_TypeObject);
@@ -556,7 +556,7 @@ void CCodeWriter::writeFieldCacheHeadFile()
    //         int nAttribCount = pClass->getAttributeCount();
    //         for (int j = 0; j < nAttribCount; ++j)
    //         {
-   //             std::wstring sField = FormatWstring(L"_%s_%s",
+   //             std::wstring sField = FormatWstring(L"_%ls_%ls",
    //                 pClass->getName().c_str(),
    //                 pClass->getAttribute(j)->getName().c_str()
    //             );
@@ -622,7 +622,7 @@ void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
                 CTypeObject* pType = pTypeObject->getRefType();
                 if (pType && pType->getType() == TOE_CLASS && oTypeDefIncludes.find(pType->getName()) == oTypeDefIncludes.end())
                 {
-                    oTypeDefHeadFile.addInclude(m_sRelativePath + FormatWstring(L"%s.h",
+                    oTypeDefHeadFile.addInclude(m_sRelativePath + FormatWstring(L"%ls.h",
                         pType->getName().c_str()
                     ));
                     oTypeDefIncludes.insert(pType->getName());
@@ -654,7 +654,7 @@ void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
 
                 if (pEnumFuncGroup == NULL)
                     pEnumFuncGroup = CppCode::createGroup(oTypeDefHeadFile.body());
-                pEnumFuncGroup->addLine(FormatWstring(L"inline std::string %sToString(%s nValue)",
+                pEnumFuncGroup->addLine(FormatWstring(L"inline std::string %lsToString(%ls nValue)",
                     pTypeObject->getName().c_str(),
                     pTypeObject->getName().c_str()
                 ));
@@ -664,12 +664,12 @@ void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
                     ->add(pTemp);
                 for (int i = 0; i < nCount; ++i)
                 {
-                    pTemp->addLine(FormatWstring(L"case %s::%s:",
+                    pTemp->addLine(FormatWstring(L"case %ls::%ls:",
                         pTypeObject->getName().c_str(),
                         pTypeObject->getEnum(i).c_str()
                     ));
                     pTemp->add((new CIndent)
-                        ->addLine(FormatWstring(L"return \".%s.\";",
+                        ->addLine(FormatWstring(L"return \".%ls.\";",
                             pTypeObject->getEnum(i).c_str()
                         ))
                         ->addLine(L"break;"));
@@ -679,19 +679,19 @@ void CCodeWriter::writeTypedefFile(std::vector<CTypeObject *> &oObjectList)
                     ->addLine(L"assert(false);")
                     ->addLine(L"return \"\";"));
                 pEnumFuncGroup->addLine(L"");
-                pEnumFuncGroup->addLine(FormatWstring(L"inline bool StringTo%s(const std::string& sValue, %s& nType)",
+                pEnumFuncGroup->addLine(FormatWstring(L"inline bool StringTo%ls(const std::string& sValue, %ls& nType)",
                     pTypeObject->getName().c_str(),
                     pTypeObject->getName().c_str()
                 ));
                 CppCode* pBlock2 = CppCode::createBlock(pEnumFuncGroup);
                 for (int i = 0; i < nCount; ++i)
                 {
-                    pBlock2->addLine(FormatWstring(L"if(sValue.compare(\".%s.\") == 0)",
+                    pBlock2->addLine(FormatWstring(L"if(sValue.compare(\".%ls.\") == 0)",
                         pTypeObject->getEnum(i).c_str()
                     ));
                     pBlock2->add((new CBlock(false))
                         ->add((new CIndent())
-                            ->addLine(FormatWstring(L"nType = %s::%s;",
+                            ->addLine(FormatWstring(L"nType = %ls::%ls;",
                                 pTypeObject->getName().c_str(),
                                 pTypeObject->getEnum(i).c_str()
                             ))
@@ -721,7 +721,7 @@ void CCodeWriter::writeTypeObject(CppHeadFile & oTypeDefHeadFile, CTypeObject * 
     }
 
     std::wstring sRefTypeName = getTypeCode(pTypeObject->getRefType());
-    oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef %s %s;",
+    oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef %ls %ls;",
         sRefTypeName.c_str(),
         pTypeObject->getName().c_str()
     ));
@@ -733,13 +733,13 @@ void CCodeWriter::writeCliTypedef(CTypeDef * pTypeDef, CppHeadFile & oTypeDefHea
 {
     CTypeObject* pType = pTypeDef->getRefType();
     if (oTypeDefIncludes.find(pTypeDef->getName()) != oTypeDefIncludes.end())
-        return; // ÒÑ¾­Ğ´¹ıÁË
+        return; // å·²ç»å†™è¿‡äº†
     CTypeDef* pRefTypeDef = dynamic_cast<CTypeDef*>(pType);
     if (pRefTypeDef)
         writeCliTypedef(pRefTypeDef, oTypeDefHeadFile, oTypeDefIncludes);
     if (pType && pType->getType() == TOE_CLASS && oTypeDefIncludes.find(L"N" + pType->getName()) == oTypeDefIncludes.end())
     {
-        oTypeDefHeadFile.addInclude(FormatWstring(L"N%s.h",
+        oTypeDefHeadFile.addInclude(FormatWstring(L"N%ls.h",
             pType->getName().c_str()
         ));
         oTypeDefIncludes.insert(L"N" + pType->getName());
@@ -747,12 +747,12 @@ void CCodeWriter::writeCliTypedef(CTypeDef * pTypeDef, CppHeadFile & oTypeDefHea
     oTypeDefIncludes.insert(pTypeDef->getName());
     std::wstring sRefTypeName = getTypeCode(pTypeDef->getRefType(), true);
     if (pType && pType->getType() == TOE_CLASS)
-        oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef N%s N%s;",
+        oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef N%ls N%ls;",
             sRefTypeName.c_str(),
             pTypeDef->getName().c_str()
         ));
     else
-        oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef %s N%s;",
+        oTypeDefHeadFile.body()->addLine(FormatWstring(L"typedef %ls N%ls;",
             sRefTypeName.c_str(),
             pTypeDef->getName().c_str()
         ));
@@ -820,7 +820,7 @@ CppClass* CCodeWriter::createFactoryClass(CClass *pTypeObject)
     std::wstring sName = pTypeObject->getName();
     CppClass* pClass = new CppClass(sName + L"Factory", AT_PUBLIC, L"gfc::engine::CEntityFactory");
     CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"gfc::engine::CEntity*", L"create", false, true);
-    pFunc->body()->addLine(FormatWstring(L"return new %s();", 
+    pFunc->body()->addLine(FormatWstring(L"return new %ls();", 
         sName.c_str()
     ));
     return pClass;
@@ -832,7 +832,7 @@ void CCodeWriter::addConstructor(CClass *pTypeObject, CppClass* pClass)
         CFunction* pFunc = pClass->addConstructor(AT_PUBLIC);
         pFunc->body()->addLine(L"setSchema(findSchema(L\"" + pClass->name() + L"\"));");
         if (pTypeObject->getParent())
-            pFunc->addInitListItem(FormatWstring(L"%s(false)",
+            pFunc->addInitListItem(FormatWstring(L"%ls(false)",
                 getParentClassCode(pTypeObject).c_str()
             ));
     }
@@ -840,7 +840,7 @@ void CCodeWriter::addConstructor(CClass *pTypeObject, CppClass* pClass)
         CFunction* pFunc = pClass->addConstructor(AT_PUBLIC);
         pFunc->addParam(L"bool", L"bSetSchema");
         if (pTypeObject->getParent())
-            pFunc->addInitListItem(FormatWstring(L"%s(bSetSchema)",
+            pFunc->addInitListItem(FormatWstring(L"%ls(bSetSchema)",
                 getParentClassCode(pTypeObject).c_str()
             ));
         pFunc->body()->addLine(L"if (bSetSchema)");
@@ -856,7 +856,7 @@ void CCodeWriter::addConstructor(CClass *pTypeObject, CppClass* pClass)
     //    std::wstring sDefault = getTypeDefaultValue(nType, pAttribute->getType()->getName(), true/*pAttribute->getRefFlag()*/);
     //    if (!pAttribute->getRepeatFlag() && nType != EBT_STRING)
     //    {
-    //        pFunc->body()->addLine(FormatWstring(L"m_%s%s = %s;",
+    //        pFunc->body()->addLine(FormatWstring(L"m_%ls%ls = %ls;",
     //            sPrefix.c_str(),
     //            pAttribute->getName().c_str(),
     //            sDefault.c_str()
@@ -872,7 +872,7 @@ void CCodeWriter::addConstructor(CClass *pTypeObject, CppClass* pClass)
 void CCodeWriter::addCliConstructor1(CClass *pTypeObject, CppClass *pClass)
 {
     CFunction* pFunc = pClass->addConstructor(AT_PUBLIC);
-    pFunc->body()->addLine(FormatWstring(L"m_pEntity = new %s;", 
+    pFunc->body()->addLine(FormatWstring(L"m_pEntity = new %ls;", 
         pTypeObject->getName().c_str()
     ));
     pFunc->body()->addLine(L"m_bOwner = true;");
@@ -883,7 +883,7 @@ void CCodeWriter::addCliConstructor2(CClass *pTypeObject, CppClass *pClass)
     CFunction* pFunc = pClass->addConstructor(AT_PUBLIC);
     //pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
     pFunc->addParam(L"bool", L"bNoCreate");
-    pFunc->addInitListItem(FormatWstring(L"%s(bNoCreate)", 
+    pFunc->addInitListItem(FormatWstring(L"%ls(bNoCreate)", 
         getParentClassCode(pTypeObject, true).c_str()
     ));
 }
@@ -893,11 +893,11 @@ void CCodeWriter::addByteSizeFunc(CClass *pTypeObject, CppClass* pClass)
     int nCount = pTypeObject->getAttributeCount();
     CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"int", L"byteSize", true);
     pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
-    pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
+    pFunc->body()->addLine(FormatWstring(L"%ls* pEnt = (%ls*)pEntity;", 
         pTypeObject->getName().c_str(),
         pTypeObject->getName().c_str()
     ));
-    pFunc->body()->addLine(FormatWstring(L"int total_size = %s::byteSize(pEnt);", 
+    pFunc->body()->addLine(FormatWstring(L"int total_size = %ls::byteSize(pEnt);", 
         (getParentClassCode(pTypeObject) + L"BinarySerializer").c_str()
     ));
     pFunc->body()->addLine(L"");
@@ -910,30 +910,30 @@ void CCodeWriter::addByteSizeFunc(CClass *pTypeObject, CppClass* pClass)
         if (pAttribute->getRepeatFlag())
         {
             //*****
-            pFunc->body()->addLine(FormatWstring(L"if (pEnt->get%sCount() > 0)", 
+            pFunc->body()->addLine(FormatWstring(L"if (pEnt->get%lsCount() > 0)", 
                 pAttribute->getName().c_str()
             ));
             pFunc->body()->add((new CIndent)
-                               ->addLine(FormatWstring(L"total_size += %d + ::google::protobuf::internal::WireFormatLite::Int32Size(pEnt->get%sCount());", 
+                               ->addLine(FormatWstring(L"total_size += %d + ::google::protobuf::internal::WireFormatLite::Int32Size(pEnt->get%lsCount());", 
                                    nTagSize,
                                    pAttribute->getName().c_str()                                   
                                )));
             //*****
-            pFunc->body()->addLine(FormatWstring(L"for (int i = 0; i < pEnt->get%sCount(); i++)", 
+            pFunc->body()->addLine(FormatWstring(L"for (int i = 0; i < pEnt->get%lsCount(); i++)", 
                 pAttribute->getName().c_str()
             ));
             CppCode::createBlock(pFunc->body())
-                    ->addLine(FormatWstring(L"total_size += %s;", 
+                    ->addLine(FormatWstring(L"total_size += %ls;", 
                         sSizeCode.c_str()
                     ));
         }
         else
         {
-            pFunc->body()->addLine(FormatWstring(L"if (pEnt->has%s())", 
+            pFunc->body()->addLine(FormatWstring(L"if (pEnt->has%ls())", 
                 pAttribute->getName().c_str()
             ));
             CppCode::createBlock(pFunc->body())
-                    ->addLine(FormatWstring(L"total_size += %d + %s;", 
+                    ->addLine(FormatWstring(L"total_size += %d + %ls;", 
                         nTagSize, 
                         sSizeCode.c_str()
                     ));
@@ -964,7 +964,7 @@ void CCodeWriter::addIsInitializedFunc(CClass *pTypeObject, CppClass* pClass)
 void CCodeWriter::addEntityNameFunc(CClass *pTypeObject, CppClass *pClass)
 {
     CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"std::string", L"entityName", true, true);
-    pFunc->body()->addLine(FormatWstring(L"return \"%s\";", 
+    pFunc->body()->addLine(FormatWstring(L"return \"%ls\";", 
         pTypeObject->getName().c_str()
     ));
 }
@@ -974,11 +974,11 @@ void CCodeWriter::addSerializeWithCachedSizesFunc(CClass *pTypeObject, CppClass*
     CFunction* pFunc = pClass->addFunc(AT_PROTECTED, L"void", L"serializeWithCachedSizes", true, true);
     pFunc->addParam(L"google::protobuf::io::CodedOutputStream*", L"output");
     pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
-    pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
+    pFunc->body()->addLine(FormatWstring(L"%ls* pEnt = (%ls*)pEntity;", 
         pTypeObject->getName().c_str(),
         pTypeObject->getName().c_str()
     ));
-    pFunc->body()->addLine(FormatWstring(L"%s::serializeWithCachedSizes(output, pEnt);", 
+    pFunc->body()->addLine(FormatWstring(L"%ls::serializeWithCachedSizes(output, pEnt);", 
         (getParentClassCode(pTypeObject) + L"BinarySerializer").c_str()
     ));
     pFunc->body()->addLine(L"");
@@ -992,18 +992,18 @@ void CCodeWriter::addSerializeWithCachedSizesFunc(CClass *pTypeObject, CppClass*
         if (pAttribute->getRepeatFlag())
         {
             std::wstring sCode = getTypeWriteCodeNoTag(nType, pAttribute->getRepeatFlag(), true/*pAttribute->getRefFlag()*/);
-            pFunc->body()->addLine(FormatWstring(L"if (pEnt->get%sCount() > 0)", 
+            pFunc->body()->addLine(FormatWstring(L"if (pEnt->get%lsCount() > 0)", 
                 pAttribute->getName().c_str()
             ));
             CppCode::createBlock(pFunc->body())
-                    ->addLine(FormatWstring(L"::google::protobuf::internal::WireFormatLite::WriteTag(%d, %s, output);", 
+                    ->addLine(FormatWstring(L"::google::protobuf::internal::WireFormatLite::WriteTag(%d, %ls, output);", 
                         nId, 
                         L"google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED"
                     ))
-                    ->addLine(FormatWstring(L"::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(pEnt->get%sCount(), output);",
+                    ->addLine(FormatWstring(L"::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(pEnt->get%lsCount(), output);",
                         pAttribute->getName().c_str()
                     ))
-                    ->addLine(FormatWstring(L"for (int i = 0; i < pEnt->get%sCount(); i++)", 
+                    ->addLine(FormatWstring(L"for (int i = 0; i < pEnt->get%lsCount(); i++)", 
                         pAttribute->getName().c_str()
                     ))
                     ->add((new CBlock(false))->add((new CIndent())
@@ -1014,7 +1014,7 @@ void CCodeWriter::addSerializeWithCachedSizesFunc(CClass *pTypeObject, CppClass*
         else
         {
             std::wstring sCode = getTypeWriteCode(nType, pAttribute->getRepeatFlag(), true/*pAttribute->getRefFlag()*/);
-            pFunc->body()->addLine(FormatWstring(L"if (pEnt->has%s())", 
+            pFunc->body()->addLine(FormatWstring(L"if (pEnt->has%ls())", 
                 pAttribute->getName().c_str()
             ));
             CppCode::createBlock(pFunc->body())->addLine(FormatWstring(sCode.c_str(), 
@@ -1032,12 +1032,12 @@ void CCodeWriter::addSerializeWithCachedSizesToArrayFunc(CClass *pTypeObject, Cp
     pFunc->addParam(L"google::protobuf::uint8*", L"target");
     pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
 
-    pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
+    pFunc->body()->addLine(FormatWstring(L"%ls* pEnt = (%ls*)pEntity;", 
         pTypeObject->getName().c_str(),
         pTypeObject->getName().c_str()
     ));
 
-    pFunc->body()->addLine(FormatWstring(L"target = %s::serializeWithCachedSizesToArray(target, pEnt);", 
+    pFunc->body()->addLine(FormatWstring(L"target = %ls::serializeWithCachedSizesToArray(target, pEnt);", 
         (getParentClassCode(pTypeObject) + L"BinarySerializer").c_str()
     ));
     pFunc->body()->addLine(L"");
@@ -1051,17 +1051,17 @@ void CCodeWriter::addSerializeWithCachedSizesToArrayFunc(CClass *pTypeObject, Cp
         if (pAttribute->getRepeatFlag())
         {
             std::wstring sCode = getTypeWriteToArrayCodeNoTag(nType, pAttribute->getRepeatFlag(), true/*pAttribute->getRefFlag()*/);
-            pFunc->body()->addLine(FormatWstring(L"if (pEnt->get%sCount() > 0)", 
+            pFunc->body()->addLine(FormatWstring(L"if (pEnt->get%lsCount() > 0)", 
                 pAttribute->getName().c_str()
             ));
-            CppCode::createBlock(pFunc->body())->addLine(FormatWstring(L"target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(%d, %s, target);",
+            CppCode::createBlock(pFunc->body())->addLine(FormatWstring(L"target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(%d, %ls, target);",
                 nId, 
                 L"google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED"
             ))
-                    ->addLine(FormatWstring(L"target = ::google::protobuf::internal::WireFormatLite::WriteInt32NoTagToArray(pEnt->get%sCount(), target);",
+                    ->addLine(FormatWstring(L"target = ::google::protobuf::internal::WireFormatLite::WriteInt32NoTagToArray(pEnt->get%lsCount(), target);",
                         pAttribute->getName().c_str()
                     ))
-                    ->addLine(FormatWstring(L"for (int i = 0; i < pEnt->get%sCount(); i++)", 
+                    ->addLine(FormatWstring(L"for (int i = 0; i < pEnt->get%lsCount(); i++)", 
                         pAttribute->getName().c_str()
                     ))
                     ->add((new CBlock(false))->add((new CIndent())
@@ -1072,7 +1072,7 @@ void CCodeWriter::addSerializeWithCachedSizesToArrayFunc(CClass *pTypeObject, Cp
         else
         {
             std::wstring sCode = getTypeWriteToArrayCode(nType, pAttribute->getRepeatFlag(), true/*pAttribute->getRefFlag()*/);
-            pFunc->body()->addLine(FormatWstring(L"if (pEnt->has%s())", 
+            pFunc->body()->addLine(FormatWstring(L"if (pEnt->has%ls())", 
                 pAttribute->getName().c_str()
             ));
             CppCode::createBlock(pFunc->body())->addLine(FormatWstring((L"target = " + sCode).c_str(),
@@ -1093,12 +1093,12 @@ void CCodeWriter::addParseField1(CClass *pTypeObject, CppClass* pClass)
     pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
 
     pFunc->body()->addLine(L"#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure", true);
-    pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
+    pFunc->body()->addLine(FormatWstring(L"%ls* pEnt = (%ls*)pEntity;", 
         pTypeObject->getName().c_str(),
         pTypeObject->getName().c_str()
     ));
 
-    pFunc->body()->addLine(FormatWstring(L"gfc::engine::EnParseFieldState nState = %s::parseField(input, nFieldNum, pEnt);", 
+    pFunc->body()->addLine(FormatWstring(L"gfc::engine::EnParseFieldState nState = %ls::parseField(input, nFieldNum, pEnt);", 
         (getParentClassCode(pTypeObject) + L"BinarySerializer").c_str()
     ));
     pFunc->body()->addLine(L"if (nState != gfc::engine::PFS_IGNORE)");
@@ -1113,7 +1113,7 @@ void CCodeWriter::addParseField1(CClass *pTypeObject, CppClass* pClass)
         CAttribute* pAttrib = pTypeObject->getAttribute(i);
         EnBaseType nType = getBaseType(pAttrib->getType());
         std::wstring sCode = getTypeReadCode(nType, true/*pAttrib->getRefFlag()*/);
-        pFunc->body()->addLine(FormatWstring(L"if (nFieldNum == _FieldCache->_%s_%s)", 
+        pFunc->body()->addLine(FormatWstring(L"if (nFieldNum == _FieldCache->_%ls_%ls)", 
             sName.c_str(),
             pAttrib->getName().c_str()
         ));
@@ -1128,14 +1128,14 @@ void CCodeWriter::addParseField1(CClass *pTypeObject, CppClass* pClass)
             if (nType == EBT_STRING)
                 pBlock2->addLine(L"std::string value;");
             else
-                pBlock2->addLine(FormatWstring(L"%s value;", 
+                pBlock2->addLine(FormatWstring(L"%ls value;", 
                     getStoreTypeCode(pAttrib->getType(), true/*pAttrib->getRefFlag()*/).c_str()
                 ));
             pBlock2->addLine(FormatWstring((L"DO_((" + sCode + L"));").c_str(), L"value"));
 //             if (nType == EBT_STRING)
 //                 pBlock2->addLine(QString("pEnt->add%1(value);").arg(pAttrib->getName()));
 //             else
-            pBlock2->addLine(FormatWstring(L"pEnt->add%s(value);", 
+            pBlock2->addLine(FormatWstring(L"pEnt->add%ls(value);", 
                 pAttrib->getName().c_str()
             ));
             pBlock->addLine(L"goto success;");
@@ -1147,20 +1147,20 @@ void CCodeWriter::addParseField1(CClass *pTypeObject, CppClass* pClass)
                 pBlock->addLine(L"std::string value;");
                 pBlock->addLine(FormatWstring((L"DO_((" + sCode + L"));").c_str(),
                     L"value"));
-                pBlock->addLine(FormatWstring(L"pEnt->set%s(value);", 
+                pBlock->addLine(FormatWstring(L"pEnt->set%ls(value);", 
                     pAttrib->getName().c_str()
                 ));
             }
             else
             {
-                pBlock->addLine(FormatWstring(L"%s value;", 
+                pBlock->addLine(FormatWstring(L"%ls value;", 
                     getStoreTypeCode(pAttrib->getType(), true).c_str()
                 ));
                 pBlock->addLine(FormatWstring((L"DO_((" + sCode + L"));").c_str(), 
                     L"value"
                 ));
                            //.arg(/*pAttrib->getRefFlag() ? */getClassFieldCode(pAttrib)/* : "mutable_" + pAttrib->getName() + "()"*/));
-                pBlock->addLine(FormatWstring(L"pEnt->set%s(value);", 
+                pBlock->addLine(FormatWstring(L"pEnt->set%ls(value);", 
                     pAttrib->getName().c_str()
                 ));
             }
@@ -1181,16 +1181,16 @@ void CCodeWriter::addSerializeFunc(CClass *pTypeObject, CppClass* pClass)
     CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"std::string", L"serialize", true, true);
     pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
 
-    pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;", 
+    pFunc->body()->addLine(FormatWstring(L"%ls* pEnt = (%ls*)pEntity;", 
         pTypeObject->getName().c_str(),
         pTypeObject->getName().c_str()
     ));
-    pFunc->body()->addLine(FormatWstring(L"std::string sResult = %s::serialize(pEnt);", 
+    pFunc->body()->addLine(FormatWstring(L"std::string sResult = %ls::serialize(pEnt);", 
         (getParentClassCode(pTypeObject) + L"TextSerializer").c_str()
     ));
     pFunc->body()->addLine(L"");
 
-	// ¶¨ÒåÁ÷»¯µÄ×Ö·û´®
+	// å®šä¹‰æµåŒ–çš„å­—ç¬¦ä¸²
 	pFunc->body()->addLine(L"std::stringstream stream;");
 	pFunc->body()->addLine(L"stream.precision(numeric_limits<double>::digits10);");
 
@@ -1208,7 +1208,7 @@ void CCodeWriter::addSerializeFunc(CClass *pTypeObject, CppClass* pClass)
 
             CppCode::createBlock(pFunc->body())
 					->addLine(L"stream<<\",(\";")
-					->addLine(FormatWstring(L"for (int i = 0; i < pEnt->get%sCount(); i++)",
+					->addLine(FormatWstring(L"for (int i = 0; i < pEnt->get%lsCount(); i++)",
                         pAttribute->getName().c_str()
                     ))
 					->add((new CBlock(false))
@@ -1220,7 +1220,7 @@ void CCodeWriter::addSerializeFunc(CClass *pTypeObject, CppClass* pClass)
         }
         else
         {
-            pFunc->body()->addLine(FormatWstring(L"if (pEnt->has%s())", 
+            pFunc->body()->addLine(FormatWstring(L"if (pEnt->has%ls())", 
                 pAttribute->getName().c_str()
             ));
 			CppCode::createIndent(pFunc->body())->addLine(getTypeWriteTextCode(nType, pAttribute->getName(), sBaseType, false) + L";");
@@ -1244,11 +1244,11 @@ void CCodeWriter::addParseField2(CClass *pTypeObject, CppClass* pClass)
     pFunc->addParam(L"gfc::engine::CEntity*", L"pEntity");
 
     pFunc->body()->addLine(L"#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure", true);
-    pFunc->body()->addLine(FormatWstring(L"%s* pEnt = (%s*)pEntity;",
+    pFunc->body()->addLine(FormatWstring(L"%ls* pEnt = (%ls*)pEntity;",
         pTypeObject->getName().c_str(),
         pTypeObject->getName().c_str()
     ));
-    pFunc->body()->addLine(FormatWstring(L"gfc::engine::EnParseFieldState nState = %s::parseField(input, nFieldNum, pEnt);", 
+    pFunc->body()->addLine(FormatWstring(L"gfc::engine::EnParseFieldState nState = %ls::parseField(input, nFieldNum, pEnt);", 
         (getParentClassCode(pTypeObject) + L"TextSerializer").c_str()
     ));
     pFunc->body()->addLine(L"if (nState != gfc::engine::PFS_IGNORE)");
@@ -1274,23 +1274,23 @@ void CCodeWriter::addParseField2(CClass *pTypeObject, CppClass* pClass)
         CppCode* pBlock2 = CppCode::createBlock(pIndent);
         if (pAttrib->getRepeatFlag())
         {
-            pBlock2->addLine(FormatWstring(L"%s value;", 
+            pBlock2->addLine(FormatWstring(L"%ls value;", 
                 getStoreTypeCode(pAttrib->getType(), true).c_str()
             ));
             pBlock2->addLine(FormatWstring(L"DO_((" + sCode + L"));", L"value"));
-            pBlock2->addLine(FormatWstring(L"pEnt->add%s(value);", 
+            pBlock2->addLine(FormatWstring(L"pEnt->add%ls(value);", 
                 pAttrib->getName().c_str()
             ));
         }
         else
         {
-            pBlock2->addLine(FormatWstring(L"%s value;", 
+            pBlock2->addLine(FormatWstring(L"%ls value;", 
                 getStoreTypeCode(pAttrib->getType(), true).c_str()
             ));
             pBlock2->addLine(FormatWstring(L"DO_((" + sCode + L"));", 
                 L"value"/*getClassFieldCode(pAttrib)*/
             ));
-            pBlock2->addLine(FormatWstring(L"pEnt->set%s(value);", 
+            pBlock2->addLine(FormatWstring(L"pEnt->set%ls(value);", 
                 pAttrib->getName().c_str()
             ));
         }
@@ -1324,10 +1324,10 @@ void CCodeWriter::addCreateSchemaFunc(CClass *pTypeObject, CppClass* pClass, int
     pFunc->body()->addLine(L"    return pSchema;");
     pFunc->body()->addLine(L"");
     pFunc->body()->addLine(L"gfc::engine::EntitySchema* pSchema = new gfc::engine::EntitySchema();");
-    pFunc->body()->addLine(FormatWstring(L"pSchema->setParent(%s::createSchema());", 
+    pFunc->body()->addLine(FormatWstring(L"pSchema->setParent(%ls::createSchema());", 
         getParentClassCode(pTypeObject).c_str()
     ));
-    pFunc->body()->addLine(FormatWstring(L"pSchema->setName(\"%s\");", 
+    pFunc->body()->addLine(FormatWstring(L"pSchema->setName(\"%ls\");", 
         sName.c_str()
     ));
     pFunc->body()->addLine(FormatWstring(L"pSchema->setId(%d);", 
@@ -1343,7 +1343,7 @@ void CCodeWriter::addCreateSchemaFunc(CClass *pTypeObject, CppClass* pClass, int
     {
         //
         CAttribute* pAttrib = pTypeObject->getAttribute(i);
-        pFunc->body()->addLine(FormatWstring(L"pSchema->addAttribNames(\"%s\");", 
+        pFunc->body()->addLine(FormatWstring(L"pSchema->addAttribNames(\"%ls\");", 
             pAttrib->getName().c_str()
         ));
         pFunc->body()->addLine(FormatWstring(L"pSchema->addAttribIds(%d);", 
@@ -1359,7 +1359,7 @@ CppClass *CCodeWriter::createCppClass(CClass *pTypeObject, int nTypeId)
     std::wstring sName = pTypeObject->getName();
     CppClass* pClass = new CppClass(sName, AT_PUBLIC, getParentClassCode(pTypeObject));
     pClass->setExportFlag(L"GFCCLASSES_API");
-    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%s, gfc::engine::CEntity)", 
+    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%ls, gfc::engine::CEntity)", 
         sName.c_str()
     ));
 //    CFunction* pFunc = NULL;
@@ -1453,7 +1453,7 @@ CppClass* CCodeWriter::createFieldCacheClass(CClass* pTypeObject)
     std::wstring sName = pTypeObject->getName();
     CppClass* pClass = new CppClass(sName + L"FieldCacheInitializer", AT_PUBLIC, L"gfc::engine::FieldCacheInitializer");
     //pClass->setExportFlag(L"GFCCLASSES_API");
-    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%sFieldCacheInitializer,gfc::engine::FieldCacheInitializer)", 
+    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%lsFieldCacheInitializer,gfc::engine::FieldCacheInitializer)", 
         sName.c_str()
     ));
     CFunction* pFunc = pClass->addFunc(AT_PUBLIC, L"void", L"init", false, true);
@@ -1463,7 +1463,7 @@ CppClass* CCodeWriter::createFieldCacheClass(CClass* pTypeObject)
     {
         //
         CAttribute* pAttribute = pTypeObject->getAttribute(i);
-        pFunc->body()->addLine(FormatWstring(L"_FieldCache->_%s_%s = getFieldId(oFieldIdMap, \"%s::%s\");", 
+        pFunc->body()->addLine(FormatWstring(L"_FieldCache->_%ls_%ls = getFieldId(oFieldIdMap, \"%ls::%ls\");", 
             sName.c_str(), 
             pAttribute->getName().c_str(),
             sName.c_str(),
@@ -1477,7 +1477,7 @@ CppClass *CCodeWriter::createTextSerializerClass(CClass *pTypeObject)
 {
     std::wstring sName = pTypeObject->getName() + L"TextSerializer";
     CppClass* pClass = new CppClass(sName, AT_PUBLIC, getParentClassCode(pTypeObject) + L"TextSerializer");
-    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%s,gfc::engine::EntitySerializer)", sName.c_str()));
+    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%ls,gfc::engine::EntitySerializer)", sName.c_str()));
 
     int nCount = pTypeObject->getAttributeCount();
     if (nCount > 0)
@@ -1493,7 +1493,7 @@ CppClass *CCodeWriter::createBinarySerializerClass(CClass *pTypeObject)
 {
     std::wstring sName = pTypeObject->getName() + L"BinarySerializer";
     CppClass* pClass = new CppClass(sName, AT_PUBLIC, getParentClassCode(pTypeObject) + L"BinarySerializer");
-    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%s,gfc::engine::EntitySerializer)", sName.c_str()));
+    pClass->setMarcoCode(FormatWstring(L"GFCENGINE_DEC_OBJECT(%ls,gfc::engine::EntitySerializer)", sName.c_str()));
 
     int nCount = pTypeObject->getAttributeCount();
     if (nCount > 0)
@@ -1651,7 +1651,7 @@ std::wstring CCodeWriter::getTypeDefaultValue(EnBaseType nType, const std::wstri
         sResult = L"";
         break;
     case EBT_ENUM:
-        sResult = FormatWstring(L"(%s)0", sTypeName.c_str());
+        sResult = FormatWstring(L"(%ls)0", sTypeName.c_str());
         break;
     case EBT_INT:
         sResult = L"0";
@@ -1686,7 +1686,7 @@ int CCodeWriter::getMaxAttributeCount(CClass *pTypeObject)
     int nMax = 0;
     for (int i = 0; i < nCount; ++i)
     {
-        nMax = max(nMax, getMaxAttributeCount(pTypeObject->getChild(i)));
+        nMax = std::max(nMax, getMaxAttributeCount(pTypeObject->getChild(i)));
     }
     return nMax + pTypeObject->getAttributeCount();
 }
@@ -1700,7 +1700,7 @@ void CCodeWriter::initRepeatAttributeCode(CClass* pTypeObject, int nAttributeInd
     std::wstring sPrefix = getBaseTypePrefix(nType, true/*pAttribute->getRefFlag()*/);
     CFunction* pFunc = NULL;
     //
-    pFunc = pClass->addFunc(AT_PUBLIC, L"int", FormatWstring(L"get%sCount", sAttributeName.c_str()));
+    pFunc = pClass->addFunc(AT_PUBLIC, L"int", FormatWstring(L"get%lsCount", sAttributeName.c_str()));
     pFunc->setIsConst(true);
     pFunc->setIsInline(false);
     pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
@@ -1715,10 +1715,10 @@ void CCodeWriter::initRepeatAttributeCode(CClass* pTypeObject, int nAttributeInd
 
     pFunc = pClass->addFunc(AT_PUBLIC, L"void", L"add" + sAttributeName);
     pFunc->setIsInline(false);
-    pFunc->addParam(FormatWstring(L"const %s&", sTypeName.c_str()), sPrefix + L"Value");
+    pFunc->addParam(FormatWstring(L"const %ls&", sTypeName.c_str()), sPrefix + L"Value");
     pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
     pFunc->body()->addLine(L"assert(pProp);");
-    pFunc->body()->addLine(FormatWstring(L"pProp->value()->add(new gfc::engine::C%sValue(%sValue));", 
+    pFunc->body()->addLine(FormatWstring(L"pProp->value()->add(new gfc::engine::C%lsValue(%lsValue));", 
         getDataTypeName(pAttribute->getType()).c_str(),
         sPrefix.c_str()));
 
@@ -1731,17 +1731,17 @@ void CCodeWriter::initRepeatAttributeCode(CClass* pTypeObject, int nAttributeInd
     pFunc->body()->addLine(L"auto pValue = pProp->value()->getItems(nIndex);");
     pFunc->body()->addLine(L"assert(pValue);");
     if (nType == EBT_ENUM)
-        pFunc->body()->addLine(FormatWstring(L"return (%s)pValue->as%s();",
+        pFunc->body()->addLine(FormatWstring(L"return (%ls)pValue->as%ls();",
             sTypeName.c_str(),
             getDataTypeName(pAttribute->getType()).c_str()));
     else
-        pFunc->body()->addLine(FormatWstring(L"return pValue->as%s();",
+        pFunc->body()->addLine(FormatWstring(L"return pValue->as%ls();",
             getDataTypeName(pAttribute->getType()).c_str()));
 
     if (nType == EBT_ENTITY)
     {
         std::wstring sType = pAttribute->getType()->getName();
-        pFunc = pClass->addFunc(AT_PUBLIC, L"std::shared_ptr<" + sType + L">", FormatWstring(L"get%sPtr", sAttributeName.c_str()));
+        pFunc = pClass->addFunc(AT_PUBLIC, L"std::shared_ptr<" + sType + L">", FormatWstring(L"get%lsPtr", sAttributeName.c_str()));
         pFunc->setIsConst(false);
         pFunc->setIsInline(false);
         pFunc->addParam(L"int", L"nIndex");
@@ -1749,9 +1749,9 @@ void CCodeWriter::initRepeatAttributeCode(CClass* pTypeObject, int nAttributeInd
         pFunc->body()->addLine(L"assert(pProp);");
         pFunc->body()->addLine(L"auto pValue = pProp->value()->getItems(nIndex);");
         pFunc->body()->addLine(L"assert(pValue);");
-        pFunc->body()->addLine(FormatWstring(L"return std::dynamic_pointer_cast<%s>(getContainer()->getEntity(pValue->asEntityRef()));", sType.c_str()));
+        pFunc->body()->addLine(FormatWstring(L"return std::dynamic_pointer_cast<%ls>(getContainer()->getEntity(pValue->asEntityRef()));", sType.c_str()));
     }
-    //pClass->addData(AT_PRIVATE, FormatWstring(L"std::vector<%s>", sTypeName.c_str()), L"m_o" + sAttributeName);
+    //pClass->addData(AT_PRIVATE, FormatWstring(L"std::vector<%ls>", sTypeName.c_str()), L"m_o" + sAttributeName);
 }
 
 void CCodeWriter::initCliRepeatAttributeCode(CClass* pTypeObject, CAttribute *pAttribute, CppClass *pClass)
@@ -1762,17 +1762,17 @@ void CCodeWriter::initCliRepeatAttributeCode(CClass* pTypeObject, CAttribute *pA
     std::wstring sPrefix = getBaseTypePrefix(nType, true/*pAttribute->getRefFlag()*/);
     CFunction* pFunc = NULL;
     //
-    pFunc = pClass->addFunc(AT_PUBLIC, L"int", FormatWstring(L"get%sCount", sAttributeName.c_str()));
+    pFunc = pClass->addFunc(AT_PUBLIC, L"int", FormatWstring(L"get%lsCount", sAttributeName.c_str()));
     //pFunc->setIsConst(true);
     //pFunc->setIsInline(true);
-    pFunc->body()->addLine(FormatWstring(L"return ((%s*)m_pEntity)->%s();",
+    pFunc->body()->addLine(FormatWstring(L"return ((%ls*)m_pEntity)->%ls();",
         pTypeObject->getName().c_str(), 
         pFunc->name().c_str()
     ));
 
     pFunc = pClass->addFunc(AT_PUBLIC, L"void", L"clear"+ sAttributeName);
     //pFunc->setIsInline(true);
-    pFunc->body()->addLine(FormatWstring(L"((%s*)m_pEntity)->%s();",
+    pFunc->body()->addLine(FormatWstring(L"((%ls*)m_pEntity)->%ls();",
         pTypeObject->getName().c_str(),
         pFunc->name().c_str()
     ));
@@ -1781,20 +1781,20 @@ void CCodeWriter::initCliRepeatAttributeCode(CClass* pTypeObject, CAttribute *pA
     //pFunc->setIsInline(true);
     pFunc->addParam(sTypeName, sPrefix + L"Value");
     if(nType == EBT_STRING)
-        pFunc->body()->addLine(FormatWstring(L"((%s*)m_pEntity)->%s(marshal_as<std::wstring>(%s));", 
+        pFunc->body()->addLine(FormatWstring(L"((%ls*)m_pEntity)->%ls(marshal_as<std::wstring>(%ls));", 
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str(),
             pFunc->params(0)->name().c_str()
         ));
     else if (nType == EBT_ENUM)
-        pFunc->body()->addLine(FormatWstring(L"((%s*)m_pEntity)->%s((%s)%s);", 
+        pFunc->body()->addLine(FormatWstring(L"((%ls*)m_pEntity)->%ls((%ls)%ls);", 
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str(), 
             pAttribute->getType()->getName().c_str(), 
             pFunc->params(0)->name().c_str()
         ));
     else
-        pFunc->body()->addLine(FormatWstring(L"((%s*)m_pEntity)->%s(%s);", 
+        pFunc->body()->addLine(FormatWstring(L"((%ls*)m_pEntity)->%ls(%ls);", 
             pTypeObject->getName().c_str(),
             pFunc->name().c_str(),
             pFunc->params(0)->name().c_str()
@@ -1805,20 +1805,20 @@ void CCodeWriter::initCliRepeatAttributeCode(CClass* pTypeObject, CAttribute *pA
     //pFunc->setIsInline(true);
     pFunc->addParam(L"int", L"nIndex");
     if(nType == EBT_STRING)
-        pFunc->body()->addLine(FormatWstring(L"return marshal_as<String^>(((%s*)m_pEntity)->%s(%s));",
+        pFunc->body()->addLine(FormatWstring(L"return marshal_as<String^>(((%ls*)m_pEntity)->%ls(%ls));",
             pTypeObject->getName().c_str(),
             pFunc->name().c_str(), 
             pFunc->params(0)->name().c_str()
         ));
     else if(nType == EBT_ENUM)
-        pFunc->body()->addLine(FormatWstring(L"return (%s)((%s*)m_pEntity)->%s(%s);", 
+        pFunc->body()->addLine(FormatWstring(L"return (%ls)((%ls*)m_pEntity)->%ls(%ls);", 
             sTypeName.c_str(), 
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str(),
             pFunc->params(0)->name().c_str()
         ));
     else
-        pFunc->body()->addLine(FormatWstring(L"return ((%s*)m_pEntity)->%s(%s);",
+        pFunc->body()->addLine(FormatWstring(L"return ((%ls*)m_pEntity)->%ls(%ls);",
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str(), 
             pFunc->params(0)->name().c_str()
@@ -1827,11 +1827,11 @@ void CCodeWriter::initCliRepeatAttributeCode(CClass* pTypeObject, CAttribute *pA
     if (nType == EBT_ENTITY)
     {
         std::wstring sType = pAttribute->getType()->getName();
-        pFunc = pClass->addFunc(AT_PUBLIC, L"N" + sType + L"^", FormatWstring(L"get%sPtr", sAttributeName.c_str()));
+        pFunc = pClass->addFunc(AT_PUBLIC, L"N" + sType + L"^", FormatWstring(L"get%lsPtr", sAttributeName.c_str()));
         //pFunc->setIsConst(true);
         //pFunc->setIsInline(true);
         pFunc->addParam(L"int", L"nIndex");
-        pFunc->body()->addLine(FormatWstring(L"return gcnew %s(((%s*)m_pEntity)->%s(%s), false);",
+        pFunc->body()->addLine(FormatWstring(L"return gcnew %ls(((%ls*)m_pEntity)->%ls(%ls), false);",
             (L"N" + sType).c_str(),
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str(),
@@ -1859,9 +1859,9 @@ void CCodeWriter::initAttributeCode(CClass *pTypeObject, int nAttributeIndex, Cp
     pFunc->addParam(L"const " + sTypeName + L"&", sPrefix + L"Value");
     pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
     pFunc->body()->addLine(L"assert(pProp);");
-    pFunc->body()->addLine(FormatWstring(L"pProp->value()->setAs%s(%sValue);", getDataTypeName(pAttribute->getType()).c_str(), sPrefix.c_str()));
-    //    pFunc->body()->addLine(FormatWstring(L"m_%s%s = %sValue;", sPrefix.c_str(), sAttributeName.c_str(), sPrefix.c_str()));
-//    pFunc->body()->addLine(FormatWstring(L"setHas%s();", sAttributeName.c_str()));
+    pFunc->body()->addLine(FormatWstring(L"pProp->value()->setAs%ls(%lsValue);", getDataTypeName(pAttribute->getType()).c_str(), sPrefix.c_str()));
+    //    pFunc->body()->addLine(FormatWstring(L"m_%ls%ls = %lsValue;", sPrefix.c_str(), sAttributeName.c_str(), sPrefix.c_str()));
+//    pFunc->body()->addLine(FormatWstring(L"setHas%ls();", sAttributeName.c_str()));
     //
     pFunc = pClass->addFunc(AT_PUBLIC, sTypeName, L"get" + sAttributeName);
     pFunc->setIsConst(true);
@@ -1869,9 +1869,9 @@ void CCodeWriter::initAttributeCode(CClass *pTypeObject, int nAttributeIndex, Cp
     pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
     pFunc->body()->addLine(L"assert(pProp);");
     if (nType == EBT_ENUM)
-        pFunc->body()->addLine(FormatWstring(L"return (%s)pProp->value()->as%s();", sTypeName.c_str(), getDataTypeName(pAttribute->getType()).c_str()));
+        pFunc->body()->addLine(FormatWstring(L"return (%ls)pProp->value()->as%ls();", sTypeName.c_str(), getDataTypeName(pAttribute->getType()).c_str()));
     else
-        pFunc->body()->addLine(FormatWstring(L"return pProp->value()->as%s();", getDataTypeName(pAttribute->getType()).c_str()));
+        pFunc->body()->addLine(FormatWstring(L"return pProp->value()->as%ls();", getDataTypeName(pAttribute->getType()).c_str()));
 
     //
     pFunc = pClass->addFunc(AT_PUBLIC, L"bool", L"has" + sAttributeName);
@@ -1881,7 +1881,7 @@ void CCodeWriter::initAttributeCode(CClass *pTypeObject, int nAttributeIndex, Cp
     pFunc->body()->addLine(L"assert(pProp);");
     pFunc->body()->addLine(L"return !pProp->value()->isNull();");
 
-    //pClass->addData(AT_PRIVATE, sTypeName, FormatWstring(L"m_%s%s", sPrefix.c_str(), sAttributeName.c_str()));
+    //pClass->addData(AT_PRIVATE, sTypeName, FormatWstring(L"m_%ls%ls", sPrefix.c_str(), sAttributeName.c_str()));
 
     if (nType == EBT_ENTITY)
     {
@@ -1891,7 +1891,7 @@ void CCodeWriter::initAttributeCode(CClass *pTypeObject, int nAttributeIndex, Cp
         pFunc->setIsInline(false);
         pFunc->body()->addLine(FormatWstring(L"auto pProp = this->getProps(%d);", nIndex));
         pFunc->body()->addLine(L"assert(pProp);");
-        pFunc->body()->addLine(FormatWstring(L"return std::dynamic_pointer_cast<%s>(getContainer()->getEntity(pProp->value()->asEntityRef()));", sType.c_str()));
+        pFunc->body()->addLine(FormatWstring(L"return std::dynamic_pointer_cast<%ls>(getContainer()->getEntity(pProp->value()->asEntityRef()));", sType.c_str()));
     }
 }
 
@@ -1912,20 +1912,20 @@ void CCodeWriter::initCliAttributeCode(CClass *pTypeObject, int nAttributeIndex,
     //pFunc->setIsInline(true);
     pFunc->addParam(/*"const " + */sTypeName/* + "&"*/, sPrefix + L"Value");
     if (nType == EBT_STRING)
-        pFunc->body()->addLine(FormatWstring(L"((%s*)m_pEntity)->%s(marshal_as<std::wstring>(%s));",
+        pFunc->body()->addLine(FormatWstring(L"((%ls*)m_pEntity)->%ls(marshal_as<std::wstring>(%ls));",
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str(), 
             pFunc->params(0)->name().c_str()
         ));
     else if (nType == EBT_ENUM)
-        pFunc->body()->addLine(FormatWstring(L"((%s*)m_pEntity)->%s((%s)%s);", 
+        pFunc->body()->addLine(FormatWstring(L"((%ls*)m_pEntity)->%ls((%ls)%ls);", 
             pTypeObject->getName().c_str(),
             pFunc->name().c_str(), 
             pAttribute->getType()->getName().c_str(), 
             pFunc->params(0)->name().c_str()
         ));
     else
-        pFunc->body()->addLine(FormatWstring(L"((%s*)m_pEntity)->%s(%s);", 
+        pFunc->body()->addLine(FormatWstring(L"((%ls*)m_pEntity)->%ls(%ls);", 
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str(), 
             pFunc->params(0)->name().c_str()
@@ -1935,18 +1935,18 @@ void CCodeWriter::initCliAttributeCode(CClass *pTypeObject, int nAttributeIndex,
     //pFunc->setIsConst(true);
     //pFunc->setIsInline(true);
     if (nType == EBT_STRING)
-        pFunc->body()->addLine(FormatWstring(L"return marshal_as<String^>(((%s*)m_pEntity)->%s());",
+        pFunc->body()->addLine(FormatWstring(L"return marshal_as<String^>(((%ls*)m_pEntity)->%ls());",
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str()
         ));
     else if (nType == EBT_ENUM)
-        pFunc->body()->addLine(FormatWstring(L"return (%s)((%s*)m_pEntity)->%s();",
+        pFunc->body()->addLine(FormatWstring(L"return (%ls)((%ls*)m_pEntity)->%ls();",
             sTypeName.c_str(), 
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str()
         ));
     else
-        pFunc->body()->addLine(FormatWstring(L"return ((%s*)m_pEntity)->%s();", 
+        pFunc->body()->addLine(FormatWstring(L"return ((%ls*)m_pEntity)->%ls();", 
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str()
         ));
@@ -1954,7 +1954,7 @@ void CCodeWriter::initCliAttributeCode(CClass *pTypeObject, int nAttributeIndex,
     pFunc = pClass->addFunc(AT_PUBLIC, L"bool", L"has" + sAttributeName);
     //pFunc->setIsConst(true);
     //pFunc->setIsInline(true);
-    pFunc->body()->addLine(FormatWstring(L"return ((%s*)m_pEntity)->%s();", 
+    pFunc->body()->addLine(FormatWstring(L"return ((%ls*)m_pEntity)->%ls();", 
         pTypeObject->getName().c_str(), 
         pFunc->name().c_str()
     ));
@@ -1972,7 +1972,7 @@ void CCodeWriter::initCliAttributeCode(CClass *pTypeObject, int nAttributeIndex,
         pFunc = pClass->addFunc(AT_PUBLIC, L"N" + sType + L"^", L"get" + sAttributeName + L"Ptr");
         //pFunc->setIsConst(true);
         //pFunc->setIsInline(true);
-        pFunc->body()->addLine(FormatWstring(L"return gcnew %s(((%s*)m_pEntity)->%s(), false);", 
+        pFunc->body()->addLine(FormatWstring(L"return gcnew %ls(((%ls*)m_pEntity)->%ls(), false);", 
             (L"N" + sType).c_str(), 
             pTypeObject->getName().c_str(), 
             pFunc->name().c_str()
@@ -1989,7 +1989,7 @@ std::wstring CCodeWriter::getClassFieldCode(CAttribute *pAttrib)
         EnBaseType nType = getBaseType(pAttrib->getType());
         std::wstring sAttributeName = pAttrib->getName();
         std::wstring sPrefix = getBaseTypePrefix(nType, true/*pAttrib->getRefFlag()*/);
-        sResult = FormatWstring(L"m_%s%s", sPrefix.c_str(), sAttributeName.c_str());
+        sResult = FormatWstring(L"m_%ls%ls", sPrefix.c_str(), sAttributeName.c_str());
     }
     return sResult;
 }
@@ -2011,13 +2011,13 @@ std::wstring CCodeWriter::getSizeCode(CAttribute *pAttribute)
 //            break;
 //        }
     case EBT_INT:
-        sResult = FormatWstring(L"::google::protobuf::internal::WireFormatLite::Int32Size(pEnt->get%s(%s))", sAttributeName.c_str(), sIndex.c_str());
+        sResult = FormatWstring(L"::google::protobuf::internal::WireFormatLite::Int32Size(pEnt->get%ls(%ls))", sAttributeName.c_str(), sIndex.c_str());
         break;
     case EBT_STRING:
-        sResult = FormatWstring(L"::google::protobuf::internal::WireFormatLite::StringSize(pEnt->get%s(%s))", sAttributeName.c_str(), sIndex.c_str());
+        sResult = FormatWstring(L"::google::protobuf::internal::WireFormatLite::StringSize(pEnt->get%ls(%ls))", sAttributeName.c_str(), sIndex.c_str());
         break;
     case EBT_ENUM:
-        sResult = FormatWstring(L"::google::protobuf::internal::WireFormatLite::Int32Size((int)pEnt->get%s(%s))", sAttributeName.c_str(), sIndex.c_str());;
+        sResult = FormatWstring(L"::google::protobuf::internal::WireFormatLite::Int32Size((int)pEnt->get%ls(%ls))", sAttributeName.c_str(), sIndex.c_str());;
         break;
     case EBT_DOUBLE:
         sResult = L"8";
@@ -2041,27 +2041,27 @@ std::wstring CCodeWriter::getTypeWriteCode(EnBaseType nType, bool bIsRepeat, boo
     case EBT_ENTITY:
         if (!bIsRef)
         {
-            sResult = L"WriteEntityMaybeToArray(%d, pEnt->get%s(";
+            sResult = L"WriteEntityMaybeToArray(%d, pEnt->get%ls(";
             break;
         }
     case EBT_INT:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32(%d, pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32(%d, pEnt->get%ls(";
         break;
     case EBT_STRING:
         if (!bIsRepeat)
-            sResult = L"::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(%d, pEnt->get%s(";
+            sResult = L"::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(%d, pEnt->get%ls(";
         else
-            sResult = L"::google::protobuf::internal::WireFormatLite::WriteString(%d, pEnt->get%s(";
+            sResult = L"::google::protobuf::internal::WireFormatLite::WriteString(%d, pEnt->get%ls(";
 		sEnd = L"), output);";
         break;
     case EBT_ENUM:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32(%d, (int)pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32(%d, (int)pEnt->get%ls(";
         break;
     case EBT_DOUBLE:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteDouble(%d, pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteDouble(%d, pEnt->get%ls(";
         break;
     case EBT_BOOL:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteBool(%d, pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteBool(%d, pEnt->get%ls(";
         break;
     default:
         assert(false);
@@ -2078,24 +2078,24 @@ std::wstring CCodeWriter::getTypeWriteCodeNoTag(EnBaseType nType, bool bIsRepeat
     case EBT_ENTITY:
         if (!bIsRef)
         {
-            sResult = L"WriteEntityMaybeToArrayNoTag(pEnt->get%s(";
+            sResult = L"WriteEntityMaybeToArrayNoTag(pEnt->get%ls(";
             break;
         }
     case EBT_INT:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(pEnt->get%ls(";
         break;
     case EBT_STRING:
-        sResult = L"WriteStringNoTag(pEnt->get%s(";
+        sResult = L"WriteStringNoTag(pEnt->get%ls(";
         sEnd = L"), output);";
         break;
     case EBT_ENUM:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32NoTag((int)pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32NoTag((int)pEnt->get%ls(";
         break;
     case EBT_DOUBLE:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteDoubleNoTag(pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteDoubleNoTag(pEnt->get%ls(";
         break;
     case EBT_BOOL:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteBoolNoTag(pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteBoolNoTag(pEnt->get%ls(";
         break;
     default:
         assert(false);
@@ -2110,24 +2110,24 @@ std::wstring CCodeWriter::getTypeWriteTextCode(EnBaseType nType, const std::wstr
     std::wstring sEnd = L"(" + sIndex + L")";
     switch (nType) {
     case EBT_ENTITY:
- 		sResult = L"stream<<\",#\"<<" + FormatWstring(L"pEnt->get%s", sAttributeName.c_str());
+ 		sResult = L"stream<<\",#\"<<" + FormatWstring(L"pEnt->get%ls", sAttributeName.c_str());
         break;
     case EBT_INT:
-		sResult = L"stream<<\",\"<<" + FormatWstring(L"pEnt->get%s", sAttributeName.c_str());
+		sResult = L"stream<<\",\"<<" + FormatWstring(L"pEnt->get%ls", sAttributeName.c_str());
         break;
     case EBT_DOUBLE:
-		sResult = L"stream<<\",\"<<" + FormatWstring(L"pEnt->get%s", sAttributeName.c_str());
+		sResult = L"stream<<\",\"<<" + FormatWstring(L"pEnt->get%ls", sAttributeName.c_str());
         break;
     case EBT_STRING:
-		sResult = L"stream<<\",'\"<<" + FormatWstring(L"pEnt->get%s", sAttributeName.c_str()) +sEnd + L"<<\"'\"";
+		sResult = L"stream<<\",'\"<<" + FormatWstring(L"pEnt->get%ls", sAttributeName.c_str()) +sEnd + L"<<\"'\"";
 		sEnd = L"";
         break;
     case EBT_ENUM:
-		sResult = L"stream<<\",\"<<" + FormatWstring(L"%s", sAttributeType.c_str()) + L"ToString(pEnt->get" + sAttributeName;
+		sResult = L"stream<<\",\"<<" + FormatWstring(L"%ls", sAttributeType.c_str()) + L"ToString(pEnt->get" + sAttributeName;
         sEnd = L"(" + sIndex + L"))";
         break;
     case EBT_BOOL:
-        sResult = L"stream<<" + FormatWstring(L"(pEnt->get%s%s ? \",.T.\" : \",.F.\")", sAttributeName.c_str(), (L"(" + sIndex + L")").c_str());
+        sResult = L"stream<<" + FormatWstring(L"(pEnt->get%ls%ls ? \",.T.\" : \",.F.\")", sAttributeName.c_str(), (L"(" + sIndex + L")").c_str());
         sEnd = L"";
         break;
     default:
@@ -2170,13 +2170,13 @@ std::wstring CCodeWriter::getTagTypeCode(EnBaseType nType, bool bIsRef)
 std::wstring CCodeWriter::getTypeReadCode(EnBaseType nType, bool bIsRef)
 {
     std::wstring sResult = L"";
-    std::wstring sEnd = L"(input, &%s)";
+    std::wstring sEnd = L"(input, &%ls)";
     switch (nType) {
     case EBT_ENTITY:
         if (!bIsRef)
         {
             sResult = L"ReadEntityNoVirtual";
-            sEnd = L"(input, %s)";
+            sEnd = L"(input, %ls)";
             break;
         }
     case EBT_INT:
@@ -2187,7 +2187,7 @@ std::wstring CCodeWriter::getTypeReadCode(EnBaseType nType, bool bIsRef)
         break;
     case EBT_ENUM:
         sResult = L"google::protobuf::internal::WireFormatLite::ReadPrimitive<google::protobuf::int32, google::protobuf::internal::WireFormatLite::TYPE_INT32>";
-        sEnd = L"(input, (google::protobuf::int32*)&%s)";
+        sEnd = L"(input, (google::protobuf::int32*)&%ls)";
         break;
     case EBT_DOUBLE:
         sResult = L"google::protobuf::internal::WireFormatLite::ReadPrimitive<double, google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>";
@@ -2204,7 +2204,7 @@ std::wstring CCodeWriter::getTypeReadCode(EnBaseType nType, bool bIsRef)
 std::wstring CCodeWriter::getTypeTextReadCode(EnBaseType nType, const std::wstring &sAttributeType)
 {
     std::wstring sResult = L"";
-    std::wstring sEnd = L"(input, %s)";
+    std::wstring sEnd = L"(input, %ls)";
     switch (nType) {
     case EBT_ENTITY:
         sResult = L"readEntityField";
@@ -2239,24 +2239,24 @@ std::wstring CCodeWriter::getTypeWriteToArrayCode(EnBaseType nType, bool bIsRepe
     case EBT_ENTITY:
         if (!bIsRef)
         {
-            sResult = L"WriteEntityNoVirtualToArray(%d, pEnt->get%s(";
+            sResult = L"WriteEntityNoVirtualToArray(%d, pEnt->get%ls(";
             break;
         }
     case EBT_INT:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(%d, pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(%d, pEnt->get%ls(";
         break;
     case EBT_STRING:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteStringToArray(%d, pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteStringToArray(%d, pEnt->get%ls(";
         sEnd = L"), target);";
         break;
     case EBT_ENUM:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(%d, (int)pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(%d, (int)pEnt->get%ls(";
         break;
     case EBT_DOUBLE:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(%d, pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(%d, pEnt->get%ls(";
         break;
     case EBT_BOOL:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteBoolToArray(%d, pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteBoolToArray(%d, pEnt->get%ls(";
         break;
     default:
         assert(false);
@@ -2273,24 +2273,24 @@ std::wstring CCodeWriter::getTypeWriteToArrayCodeNoTag(EnBaseType nType, bool bI
     case EBT_ENTITY:
         if (!bIsRef)
         {
-            sResult = L"WriteEntityNoVirtualNoTagToArray(pEnt->get%s(";
+            sResult = L"WriteEntityNoVirtualNoTagToArray(pEnt->get%ls(";
             break;
         }
     case EBT_INT:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32NoTagToArray(pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32NoTagToArray(pEnt->get%ls(";
         break;
     case EBT_STRING:
-        sResult = L"::google::protobuf::io::CodedOutputStream::WriteStringWithSizeToArray(pEnt->get%s(";
+        sResult = L"::google::protobuf::io::CodedOutputStream::WriteStringWithSizeToArray(pEnt->get%ls(";
         sEnd = L"), target);";
         break;
     case EBT_ENUM:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32NoTagToArray((int)pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteInt32NoTagToArray((int)pEnt->get%ls(";
         break;
     case EBT_DOUBLE:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteDoubleNoTagToArray(pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteDoubleNoTagToArray(pEnt->get%ls(";
         break;
     case EBT_BOOL:
-        sResult = L"::google::protobuf::internal::WireFormatLite::WriteBoolNoTagToArray(pEnt->get%s(";
+        sResult = L"::google::protobuf::internal::WireFormatLite::WriteBoolNoTagToArray(pEnt->get%ls(";
         break;
     default:
         assert(false);

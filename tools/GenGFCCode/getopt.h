@@ -101,6 +101,7 @@ _BEGIN_EXTERN_C
 	extern _GETOPT_API int getopt_long_only_a(int argc, char *const *argv, const char *options, const struct option_a *long_options, int *opt_index) _GETOPT_THROW;
 
 	// Unicode
+#ifdef _UNICODE
 	struct option_w
 	{
 		const wchar_t* name;
@@ -112,6 +113,7 @@ _BEGIN_EXTERN_C
 	extern _GETOPT_API int getopt_w(int argc, wchar_t *const *argv, const wchar_t *optstring) _GETOPT_THROW;
 	extern _GETOPT_API int getopt_long_w(int argc, wchar_t *const *argv, const wchar_t *options, const struct option_w *long_options, int *opt_index) _GETOPT_THROW;
 	extern _GETOPT_API int getopt_long_only_w(int argc, wchar_t *const *argv, const wchar_t *options, const struct option_w *long_options, int *opt_index) _GETOPT_THROW;	
+#endif
 	
 _END_EXTERN_C
 

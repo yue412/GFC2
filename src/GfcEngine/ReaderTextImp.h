@@ -3,7 +3,7 @@
 
 #include <map>
 #include "ReaderFileMapImp.h"
-#include "GfcEngine\GfcEngine.h"
+#include "GfcEngine/GfcEngine.h"
 
 namespace gfc {
     namespace schema {
@@ -24,15 +24,15 @@ public:
     CReaderTextImp();
     virtual ~CReaderTextImp(void);
 
-    virtual bool preRead(const std::wstring& sFileName); // ÅĞ¶ÏÊÇ·ñÊÇ¿ÉÒÔ¶ÁµÄ¸ñÊ½
+    virtual bool preRead(const std::wstring& sFileName); // åˆ¤æ–­æ˜¯å¦æ˜¯å¯ä»¥è¯»çš„æ ¼å¼
     virtual std::wstring readFileVersion();
     virtual std::wstring readStandardVersion();
 protected:
-    virtual bool getIndex(EntityInfo& oInfo);//Ë³Ğò¶ÁÈ¡index
-    virtual CEntity* createEntity(__int64 nPos);
+    virtual bool getIndex(EntityInfo& oInfo);//é¡ºåºè¯»å–index
+    virtual CEntity* createEntity(int64_t nPos);
 };
 
-// ±ãÓÚ²âÊÔ
+// ä¾¿äºæµ‹è¯•
 class CReaderTextUtils
 {
 public:

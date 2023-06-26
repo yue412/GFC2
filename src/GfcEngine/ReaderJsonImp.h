@@ -3,8 +3,8 @@
 
 #include <map>
 #include "ReaderImp.h"
-#include "GfcEngine\GfcEngine.h"
-#include "GfcEngine\JsonWrapper.h"
+#include "GfcEngine/GfcEngine.h"
+#include "GfcEngine/JsonWrapper.h"
 
 namespace gfc {
     namespace schema {

@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include "ReaderImp.h"
-#include "GfcEngine\Container.h"
+#include "GfcEngine/Container.h"
 
 namespace gfc {
     namespace schema {
@@ -32,13 +32,13 @@ public:
     virtual void close();
     virtual void read(CDocument* pDoc);
 
-    // ºÃ≥– IContainerΩ”ø⁄
+    // ÁªßÊâø IContainerÊé•Âè£
     virtual EntityPtr getEntity(EntityRef nId);
     virtual EntityIteratorPtr getEntities(const std::wstring& sType, bool bIncludeSubType = false);
     virtual EntityIteratorPtr getIterator();
 protected:
-    virtual bool getIndex(EntityInfo& oInfo) = 0;//À≥–Ú∂¡»°index
-    virtual CEntity* createEntity(__int64 nPos) = 0;
+    virtual bool getIndex(EntityInfo& oInfo) = 0;//È°∫Â∫èËØªÂèñindex
+    virtual CEntity* createEntity(int64_t nPos) = 0;
 
     CFileMap* m_pFileMap;
 private:
@@ -50,10 +50,10 @@ private:
 
 struct EntityInfo
 {
-    EntityInfo(EntityRef nId, __int64 nPos, gfc::schema::CTypeObject* pType) : id(nId), pos(nPos), type(pType) {}
+    EntityInfo(EntityRef nId, int64_t nPos, gfc::schema::CTypeObject* pType) : id(nId), pos(nPos), type(pType) {}
     EntityInfo(): id(-1), pos(0), type(nullptr) {}
     EntityRef id;
-    __int64 pos;
+    int64_t pos;
     gfc::schema::CTypeObject* type;
     gfc::schema::CClass* getClass() const;
     EntityInfo* get() const;

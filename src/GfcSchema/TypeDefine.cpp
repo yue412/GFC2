@@ -1,4 +1,4 @@
-#include "GfcSchema\TypeDefine.h"
+#include "GfcSchema/TypeDefine.h"
 
 GFC_NAMESPACE_BEGIN
 

@@ -1,7 +1,7 @@
 #include <assert.h>
-#include "GfcEngine\GfcEngineUtils.h"
-#include "GfcEngine\Entity.h"
-#include "GfcSchema\Model.h"
+#include "GfcEngine/GfcEngineUtils.h"
+#include "GfcEngine/Entity.h"
+#include "GfcSchema/Model.h"
 #include "Common.h"
 #include "Parser.h"
 #include "Scanner.h"
@@ -12,7 +12,9 @@ bool CEngineUtils::loadSchema(const std::wstring & sFileName, gfc::schema::CMode
 {
     if (!fileExists(sFileName))
         return false;
-    std::ifstream in(sFileName, std::ios::in);
+    //std::ifstream in(sFileName, std::ios_base::in);
+    auto sFile = UnicodeToUtf8(sFileName);
+    std::ifstream in(sFile, std::ios_base::in);
     if (in)
     {
         // get length of file:

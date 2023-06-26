@@ -13,7 +13,7 @@
 #include "Common.h"
 #include "GfcUtils\GfcShapeFrom2.h"
 
-// GFC2.0ÊÇ×Ö·û´®µÄÒýÓÃ ×ªÎª GFC3.0Ö±½ÓÊ¹ÓÃ×Ö·û´®
+// GFC2.0æ˜¯å­—ç¬¦ä¸²çš„å¼•ç”¨ è½¬ä¸º GFC3.0ç›´æŽ¥ä½¿ç”¨å­—ç¬¦ä¸²
 class CStringConverter : public gfc::engine::CConverter
 {
 public:
@@ -38,7 +38,7 @@ GfcFrom2::GfcFrom2(gfc::engine::IContainer * pContainer): GfcTransform(pContaine
 
 void GfcFrom2::transformProjectPropertySet(SrcEntityPtr & pSrcEntity, DestEntityPtr & pDestEntity)
 {
-    // Gfc2ÀïÃæµÄÊôÐÔ¼¯£¬±ê×¼²»ÈÏÊ¶£¬Ö±½Ó×ªµ½3
+    // Gfc2é‡Œé¢çš„å±žæ€§é›†ï¼Œæ ‡å‡†ä¸è®¤è¯†ï¼Œç›´æŽ¥è½¬åˆ°3
     //for each (auto oPropertySet in oPropertySetList)
     //{
     //    auto oNewPropertySet = transformEntity(oPropertySet);
@@ -213,7 +213,7 @@ GfcFrom2::DestEntityPtr GfcFrom2::attributeToProperty(gfc::engine::CProperty * p
             }
             else
             {
-                // ×ª¶ÔÏó
+                // è½¬å¯¹è±¡
                 pProperty = createEntity(L"Gfc2EntityListProperty");
                 auto pValues = pProperty->valueByName(L"Values");
                 for (int i = 0; i < pList->getCount(); i++)
@@ -222,11 +222,11 @@ GfcFrom2::DestEntityPtr GfcFrom2::attributeToProperty(gfc::engine::CProperty * p
                     auto pRefEntity = container()->getEntity(nRef);
                     auto pNewEntity = this->transformEntity(pRefEntity);
                     gfc::engine::EntityRef nNewRef = -1;
-                    if (pNewEntity) // Í¬ÀàÐÍ¶ÔÏó
+                    if (pNewEntity) // åŒç±»åž‹å¯¹è±¡
                     {
                         nNewRef = write(pRefEntity->ref(), pNewEntity);
                     }
-                    else // Ã»ÓÐÍ¬ÀàÐÍ¶ÔÏó£¬×ª³ÉObject
+                    else // æ²¡æœ‰åŒç±»åž‹å¯¹è±¡ï¼Œè½¬æˆObject
                     {
                         nNewRef = entityToObject(pRefEntity);
                     }
@@ -257,14 +257,14 @@ GfcFrom2::DestEntityPtr GfcFrom2::attributeToProperty(gfc::engine::CProperty * p
                 }
                 else
                 {
-                    // ×ª¶ÔÏó
+                    // è½¬å¯¹è±¡
                     auto pNewEntity = this->transformEntity(pRefEntity);
                     gfc::engine::EntityRef nNewRef = -1;
-                    if (pNewEntity) // Í¬ÀàÐÍ¶ÔÏó
+                    if (pNewEntity) // åŒç±»åž‹å¯¹è±¡
                     {
                         nNewRef = write(pRefEntity->ref(), pNewEntity);
                     }
-                    else // Ã»ÓÐÍ¬ÀàÐÍ¶ÔÏó£¬×ª³ÉObject
+                    else // æ²¡æœ‰åŒç±»åž‹å¯¹è±¡ï¼Œè½¬æˆObject
                     {
                         nNewRef = entityToObject(pRefEntity);
                     }
@@ -290,7 +290,7 @@ gfc::engine::EntityRef GfcFrom2::entityToObject(SrcEntityPtr pSrc)
     pNewObject->setAsString(L"Name", pSrc->getSchema()->getName());
     auto sGuid = generateGuid();
     pNewObject->setAsString(L"ID", sGuid);
-    auto nNewObjectRef = writer()->writeEntity(pNewObject.get()); //²»ÓÃÁíÒ»¸öwrite·½·¨£¬²»¼ÇÂ¼ºÍÔ­Ê¼refµÄ¹ØÏµ£¬Ïàµ±ÓÚÃ¿´Î¶¼ÐÂ½¨Ò»¸ö£¬±ÜÃâÓïÒåÉÏ´íÎó
+    auto nNewObjectRef = writer()->writeEntity(pNewObject.get()); //ä¸ç”¨å¦ä¸€ä¸ªwriteæ–¹æ³•ï¼Œä¸è®°å½•å’ŒåŽŸå§‹refçš„å…³ç³»ï¼Œç›¸å½“äºŽæ¯æ¬¡éƒ½æ–°å»ºä¸€ä¸ªï¼Œé¿å…è¯­ä¹‰ä¸Šé”™è¯¯
     // propertyset
     auto pNewPropertySet = createEntity(L"Gfc2PropertySet");
     auto pValue = pNewPropertySet->valueByName(L"HasProperties");
@@ -306,7 +306,7 @@ gfc::engine::EntityRef GfcFrom2::entityToObject(SrcEntityPtr pSrc)
             pValue->add(new gfc::engine::CEntityRefValue(nRef));
         }
     }
-    if (pValue->getCount() == 0) // Ã»ÓÐÊôÐÔ
+    if (pValue->getCount() == 0) // æ²¡æœ‰å±žæ€§
         return nNewObjectRef;
     auto nNewPropertySetRef = writer()->writeEntity(pNewPropertySet.get());
     // rel

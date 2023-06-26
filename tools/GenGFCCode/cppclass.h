@@ -41,7 +41,7 @@ public:
     void setExportFlag(const std::wstring& sExportFlag);
 private:
     std::vector<CFunction*> m_oFuncListArray[3];
-    std::vector<std::pair<std::wstring, std::wstring>> m_oDataListArray[3];
+    std::vector<std::pair<std::wstring, std::wstring> > m_oDataListArray[3];
     std::wstring m_sName;
     std::wstring m_sParentClass;
     std::wstring m_sMarcoCode;

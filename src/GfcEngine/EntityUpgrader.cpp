@@ -1,18 +1,16 @@
-#include "GfcEngine\EntityUpgrader.h"
-#include <Windows.h>
+#include "GfcEngine/EntityUpgrader.h"
 #include <assert.h>
-//#include "glodon\objectbuf\Entity.h"
 #include "Scanner.h"
 #include "Parser.h"
 #include <algorithm>
 #include "Common.h"
-#include "GfcEngine\ModelCompatibility.h"
-#include "GfcEngine\ClassCompatibility.h"
-#include "GfcEngine\AttributeCompatibility.h"
-#include "GfcEngine\Converter.h"
+#include "GfcEngine/ModelCompatibility.h"
+#include "GfcEngine/ClassCompatibility.h"
+#include "GfcEngine/AttributeCompatibility.h"
+#include "GfcEngine/Converter.h"
 #include "GfcSchema/BuildinType.h"
-#include "GfcEngine\Entity.h"
-#include "GfcEngine\GfcEngineUtils.h"
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/GfcEngineUtils.h"
 
 GFCENGINE_NAMESPACE_BEGIN
 

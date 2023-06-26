@@ -1,15 +1,15 @@
 #include "ReaderJsonImp.h"
 #include "FileMap.h"
-#include "GfcSchema\Model.h"
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EntityAttribute.h"
-#include "GfcSchema\EnumType.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/EnumType.h"
 #include "Common.h"
-#include "GfcEngine\Entity.h"
-#include "GfcEngine\PropValue.h"
-#include "GfcEngine\Document.h"
-#include "GfcEngine\GfcEngineUtils.h"
-#include "GfcEngine\JsonSerializerUtils.h"
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcEngine/Document.h"
+#include "GfcEngine/GfcEngineUtils.h"
+#include "GfcEngine/JsonSerializerUtils.h"
 #include <fstream>
 #include <stack>
 #include <algorithm>
@@ -38,7 +38,9 @@ CReaderJsonImp::~CReaderJsonImp(void)
 bool CReaderJsonImp::preRead(const std::wstring& sFileName)
 {
     char sHead[2];
-    std::fstream in(sFileName, std::ios::in | std::ios::binary);
+    //std::fstream in(sFileName, std::ios::in | std::ios::binary);
+    auto sFile = UnicodeToUtf8(sFileName);
+    std::fstream in(sFile, std::ios::in | std::ios::binary);
     in.get(sHead, 2);
     sHead[1] = 0;
     in.close();
@@ -64,7 +66,9 @@ JsonWrapper* CReaderJsonImp::getRootDocument(){
 bool CReaderJsonImp::initRootDocument(const std::wstring& sFileName){
     assert(!m_pRootDocument);
 	
-	std::ifstream in(sFileName);
+	//std::ifstream in(sFileName);
+    auto sFile = UnicodeToUtf8(sFileName);
+    std::ifstream in(sFile);
 	std::istreambuf_iterator<char> beg(in), end;
 	std::string content(beg, end);
 

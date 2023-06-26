@@ -1,17 +1,18 @@
 #include "ReaderTextImp.h"
 #include "FileMap.h"
-#include "GfcSchema\Model.h"
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EntityAttribute.h"
-#include "GfcSchema\EnumType.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/EnumType.h"
 #include "Common.h"
-#include "GfcEngine\Entity.h"
-#include "GfcEngine\PropValue.h"
-#include "GfcEngine\Document.h"
-#include "GfcEngine\GfcEngineUtils.h"
+#include "GfcEngine/Entity.h"
+#include "GfcEngine/PropValue.h"
+#include "GfcEngine/Document.h"
+#include "GfcEngine/GfcEngineUtils.h"
 #include <fstream>
 #include <stack>
 #include <algorithm>
+#include <string.h>
 
 GFCENGINE_NAMESPACE_BEGIN
 
@@ -29,7 +30,9 @@ CReaderTextImp::~CReaderTextImp(void)
 bool CReaderTextImp::preRead(const std::wstring& sFileName)
 {
     char sHead[8];
-    std::fstream in(sFileName, std::ios::in | std::ios::binary);
+    //std::fstream in(sFileName, std::ios::in | std::ios::binary);
+    auto sFile = UnicodeToUtf8(sFileName);
+    std::fstream in(sFile, std::ios::in | std::ios::binary);
     in.get(sHead, 8);
     sHead[7] = 0;
     in.close();
@@ -47,14 +50,22 @@ std::wstring CReaderTextImp::readFileVersion()
             auto sLine = m_pFileMap->getLine();
 
             auto schema = sLine.substr(0, 11);
+#if (defined _WIN32 || defined _WIN64)
             if (_stricmp(schema.c_str(), "FILE_SCHEMA") == 0)
+#else
+            if(strcasecmp(schema.c_str(), "FILE_SCHEMA") == 0)
+#endif
             {
                 int nStartPos = (int)sLine.find_first_of('\'');
                 int nLastPos = (int)sLine.find_last_of('\'');
                 sResult = sLine.substr(nStartPos + 1, nLastPos - nStartPos - 1);
                 break;
             }
+#if (defined _WIN32 || defined _WIN64)
             else if (_stricmp(sLine.c_str(), "ENDSEC;") == 0)
+#else
+            else if (strcasecmp(sLine.c_str(), "ENDSEC;") == 0)
+#endif
             {
                 break;
             }
@@ -75,14 +86,22 @@ std::wstring CReaderTextImp::readStandardVersion()
             auto sLine = m_pFileMap->getLine();
 
             auto schema = sLine.substr(0, 16);
+#if (defined _WIN32 || defined _WIN64)
             if (_stricmp(schema.c_str(), "FILE_DESCRIPTION") == 0)
+#else
+            if (strcasecmp(schema.c_str(), "FILE_DESCRIPTION") == 0)
+#endif
             {
                 int nStartPos = (int)sLine.find_first_of('\'');
                 int nLastPos = (int)sLine.find_first_of('\'', nStartPos + 1);
                 sResult = sLine.substr(nStartPos + 1, nLastPos - nStartPos - 1);
                 break;
             }
+#if (defined _WIN32 || defined _WIN64)
             else if (_stricmp(sLine.c_str(), "ENDSEC;") == 0)
+#else
+            else if (strcasecmp(sLine.c_str(), "ENDSEC;") == 0)
+#endif
             {
                 break;
             }
@@ -151,7 +170,7 @@ std::wstring CReaderTextImp::readStandardVersion()
 //    {
 //		string line;
 //		getline(in,line);
-//		// ∫ˆ¬‘¥Û–°–¥Ω¯––±»Ωœ
+//		// ÂøΩÁï•Â§ßÂ∞èÂÜôËøõË°åÊØîËæÉ
 //		if (_stricmp(line.c_str(),sWord.c_str()))
 //		{
 //			return true;
@@ -179,7 +198,7 @@ bool CReaderTextImp::getIndex(EntityInfo & oInfo)
     return false;
 }
 
-CEntity * CReaderTextImp::createEntity(__int64 nPos)
+CEntity * CReaderTextImp::createEntity(int64_t nPos)
 {
     CEntity* pEntity = nullptr;
     if (m_pFileMap)
@@ -199,7 +218,7 @@ CEntity * CReaderTextImp::createEntity(__int64 nPos)
                 {
                     delete pEntity;
                     pEntity = nullptr;
-                    // ÃÌº”log»’÷æ
+                    // Ê∑ªÂä†logÊó•Âøó
                     log(Utf8ToUnicode(sLine) + L" {" + sError + L"}");
                 }
                 pEntity->setRef(nId);
@@ -263,7 +282,7 @@ bool CReaderTextUtils::parse(const std::string& input, CEntity* pEntity, std::ws
     }
     if (!bResult)
     {
-        const std::string descript = "◊÷∂ŒΩ‚Œˆ ß∞‹!";
+        const std::string descript = "Â≠óÊÆµËß£ÊûêÂ§±Ë¥•!";
         error = Utf8ToUnicode("\"" + sValue + "\"" + descript);
     }
     return bResult;
@@ -318,7 +337,7 @@ bool CReaderTextUtils::getNextValue(const std::string& input, int nStartPos, std
         const char& sChar = input[nIndex];
         if (bInStr)
         {
-            // ¥¶¿Ì◊™“Â
+            // Â§ÑÁêÜËΩ¨‰πâ
             if ('\\' == sChar)
             {
                 ++nIndex;
@@ -355,7 +374,7 @@ bool CReaderTextUtils::getNextValue(const std::string& input, int nStartPos, std
 
 bool CReaderTextUtils::parseLine(const std::string & sLine, EntityRef& nId, std::string& sName, std::string& sContent)
 {
-    if (sLine.size() < 7) // #0=X(); ÷¡…Ÿ∆ﬂ∏ˆ◊÷∑˚
+    if (sLine.size() < 7) // #0=X(); Ëá≥Â∞ë‰∏É‰∏™Â≠óÁ¨¶
     {
         return false;
     }

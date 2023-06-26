@@ -3,42 +3,60 @@
 #include <algorithm>
 #include <clocale>
 #include <vector>
-#include <Windows.h>
 #include <fstream>
 #include <ctype.h>
-#include <objbase.h>
+#include <string.h>
+#include <stdarg.h>
+#include <wchar.h>
+#if (defined _WIN32 || defined _WIN64)
+	#include <Windows.h>
+    #include <objbase.h>
+#else
+    #include <uuid/uuid.h>
+    #include <unistd.h>
+    #include <wchar.h>
 
-std::wstring _FormatWstring(const wchar_t * lpcwszFormat, va_list _list)
-{
-    size_t nLength = _vscwprintf(lpcwszFormat, _list) + 1; //»ñÈ¡¸ñÊ½»¯×Ö·û´®³¤¶È
-    wchar_t* pszStr = new wchar_t[nLength];
-    memset(pszStr, L'\0', nLength);
-    _vsnwprintf_s(pszStr, nLength, nLength, lpcwszFormat, _list);
-    std::wstring strResult(pszStr);
-    delete[]pszStr;
-    return strResult;
-}
+    #define CP_ACP                    0
+    #define CP_UTF8                   65001       // UTF-8 translation
+    #define MAX_PATH          260
+#endif
 
 std::wstring FormatWstring(const wchar_t * lpcwszFormat, ...)
 {
     std::wstring strResult;
     if (NULL != lpcwszFormat)
     {
-        va_list marker = NULL;
-        va_start(marker, lpcwszFormat); //³õÊ¼»¯±äÁ¿²ÎÊı
-        strResult = _FormatWstring(lpcwszFormat, marker);
-        va_end(marker); //ÖØÖÃ±äÁ¿²ÎÊı
+        va_list marker;
+        //è·å–æ ¼å¼åŒ–å­—ç¬¦ä¸²é•¿åº¦
+        va_start(marker, lpcwszFormat); //åˆå§‹åŒ–å˜é‡å‚æ•°
+        size_t nLength = vwprintf(lpcwszFormat, marker) + 1; 
+        va_end(marker); //é‡ç½®å˜é‡å‚æ•°
+        // æ ¼å¼åŒ–å­—ç¬¦ä¸²
+        va_start(marker, lpcwszFormat); //åˆå§‹åŒ–å˜é‡å‚æ•°
+        wchar_t* pszStr = new wchar_t[nLength];
+        vswprintf(pszStr, nLength, lpcwszFormat, marker);
+        strResult = pszStr;
+        delete[]pszStr;
+        va_end(marker); //é‡ç½®å˜é‡å‚æ•°
     }
     return strResult;
 }
 
+
 std::wstring FormatWstring(const std::wstring sFormat, ...)
 {
     va_list _va_list;
-    va_start(_va_list, sFormat);      /* ³õÊ¼»¯±ä³¤²ÎÊıÁĞ±í */
-    std::wstring sResult = _FormatWstring(sFormat.c_str(), _va_list);    /* ´«µİ±ä³¤²ÎÊı */
-    va_end(_va_list);         /* ½áÊøÊ¹ÓÃ±ä³¤²ÎÊıÁĞ±í */
-    return sResult;
+    va_start(_va_list, sFormat);      /* åˆå§‹åŒ–å˜é•¿å‚æ•°åˆ—è¡¨ */
+    size_t nLength = vwprintf(sFormat.c_str(), _va_list) + 1;
+    va_end(_va_list); //é‡ç½®å˜é‡å‚æ•°
+
+    va_start(_va_list, sFormat); //åˆå§‹åŒ–å˜é‡å‚æ•°
+    wchar_t* pszStr = new wchar_t[nLength];
+    vswprintf(pszStr, nLength, sFormat.c_str(), _va_list);
+    std::wstring strResult = pszStr;
+    delete[]pszStr;
+    va_end(_va_list);         /* ç»“æŸä½¿ç”¨å˜é•¿å‚æ•°åˆ—è¡¨ */
+    return strResult;
 }
 
 std::wstring UpperString(const std::wstring & sStr)
@@ -55,13 +73,13 @@ std::wstring LowerString(const std::wstring & sStr)
     return sTmp;
 }
 
-// °ÑÒ»¸öwstring×ª»¯Îªstring
+// æŠŠä¸€ä¸ªwstringè½¬åŒ–ä¸ºstring
 std::string UnicodeToACP(const std::wstring & str)
 {
     return WStringToMBString(str, CP_ACP);
 }
 
-// °ÑÒ»¸östring×ª»¯Îªwstring
+// æŠŠä¸€ä¸ªstringè½¬åŒ–ä¸ºwstring
 std::wstring ACPToUnicode(const std::string& str)
 {
     return MBStringToWString(str, CP_ACP);
@@ -69,11 +87,23 @@ std::wstring ACPToUnicode(const std::string& str)
 
 std::wstring getExePath()
 {
-    char exeFullPath[MAX_PATH]; // MAX_PATHÔÚWINDEF.hÖĞ¶¨ÒåÁË£¬µÈÓÚ260
+    char exeFullPath[MAX_PATH]; // MAX_PATHåœ¨WINDEF.hä¸­å®šä¹‰äº†ï¼Œç­‰äº260
     memset(exeFullPath, 0, MAX_PATH);
-
+#if (defined _WIN32 || defined _WIN64)
     GetModuleFileNameA(NULL, exeFullPath, MAX_PATH);
     char *p = /*wcsrchr*/strrchr(exeFullPath, '\\');
+#else
+    //è·å–å½“å‰ç¨‹åºç»å¯¹è·¯å¾„
+    int cnt = readlink("/proc/self/exe", exeFullPath, MAX_PATH);
+    
+    if (cnt < 0 || cnt >= MAX_PATH)
+    {
+        printf("***Error***\n");
+        exit(-1);
+    }
+    char *p = /*wcsrchr*/strrchr(exeFullPath, '/');
+#endif
+
     *p = 0x00;
     return  ACPToUnicode(exeFullPath);
 }
@@ -87,7 +117,7 @@ std::wstring getFullPath(const std::wstring & sPath)
 {
     if (isRelativePath(sPath))
     {
-        return getExePath() + L"\\" + sPath;
+        return getExePath() + L"/" + sPath;
     }
     else
     {
@@ -126,47 +156,55 @@ std::fstream & operator<<(std::fstream & out, const wchar_t * s)
     return out;
 }
 
-std::string WStringToMBString(const std::wstring & str, UINT nCodePage)
+std::string WStringToMBString(const std::wstring & str, unsigned int nCodePage)
 {
-    // unicode to UTF8
-    //Ô¤×ª»»£¬µÃµ½ËùĞè¿Õ¼äµÄ´óĞ¡£¬Õâ´ÎÓÃµÄº¯ÊıºÍÉÏÃæÃû×ÖÏà·´
-    int u8Len = ::WideCharToMultiByte(nCodePage, NULL, str.c_str(), wcslen(str.c_str()), NULL, 0, NULL, NULL);
-    //Í¬ÉÏ£¬·ÖÅä¿Õ¼äÒª¸ø'\0'Áô¸ö¿Õ¼ä
-    //UTF8ËäÈ»ÊÇUnicodeµÄÑ¹ËõĞÎÊ½£¬µ«Ò²ÊÇ¶à×Ö½Ú×Ö·û´®£¬ËùÒÔ¿ÉÒÔÒÔcharµÄĞÎÊ½±£´æ
+    char* locale;
+    if(nCodePage == CP_UTF8)
+        locale = setlocale(LC_ALL, "zh_CN.utf8");
+    else
+        locale = setlocale(LC_ALL, NULL);
+    int u8Len = wcstombs(NULL, str.c_str(), 0);
     char* szU8 = new char[u8Len + 1];
-    //×ª»»
-    //unicode°æ¶ÔÓ¦µÄstrlenÊÇwcslen
-    ::WideCharToMultiByte(nCodePage, NULL, str.c_str(), wcslen(str.c_str()), szU8, u8Len, NULL, NULL);
-    //×îºó¼ÓÉÏ'\0'
+    wcstombs(szU8, str.c_str(), u8Len);
     szU8[u8Len] = '\0';
     std::string sResult = szU8;
     delete[] szU8;
+    setlocale(LC_ALL, locale);
     return sResult;
 }
 
-std::wstring MBStringToWString(const std::string & str, UINT nCodePage)
+std::wstring MBStringToWString(const std::string & str, unsigned int nCodePage)
 {
-    //Ascii to Unicode
-    //Ô¤×ª»»£¬µÃµ½ËùĞè¿Õ¼äµÄ´óĞ¡
-    int wcsLen = ::MultiByteToWideChar(nCodePage, NULL, str.c_str(), strlen(str.c_str()), NULL, 0);
-    //·ÖÅä¿Õ¼äÒª¸ø'\0'Áô¸ö¿Õ¼ä£¬MultiByteToWideChar²»»á¸ø'\0'¿Õ¼ä
+    char* locale;
+    if(nCodePage == CP_UTF8)
+        locale = setlocale(LC_ALL, "zh_CN.utf8");
+    else
+        locale = setlocale(LC_ALL, NULL);
+    int wcsLen = mbstowcs(NULL, str.c_str(), 0);    
+    //åˆ†é…ç©ºé—´è¦ç»™'\0'ç•™ä¸ªç©ºé—´ï¼ŒMultiByteToWideCharä¸ä¼šç»™'\0'ç©ºé—´
     wchar_t* wszString = new wchar_t[wcsLen + 1];
-    //×ª»»
-    ::MultiByteToWideChar(nCodePage, NULL, str.c_str(), strlen(str.c_str()), wszString, wcsLen);
-    //×îºó¼ÓÉÏ'\0'
+    //è½¬æ¢
+    mbstowcs(wszString, str.c_str(), wcsLen);
+    //æœ€ååŠ ä¸Š'\0'
     wszString[wcsLen] = '\0';
     std::wstring sResult = wszString;
     delete[] wszString;
+    setlocale(LC_ALL, locale);
     return sResult;
 }
 
 bool fileExists(const std::wstring & sFile)
 {
+#if (defined _WIN32 || defined _WIN64)
     std::wfstream _file;
-    _file.open(sFile, std::ios::in);
+    _file.open(sFile.c_str(), std::ios::in);
     bool bResult = !_file.fail();
     _file.close();
     return bResult;
+#else
+    int ret = access(WStringToMBString(sFile, CP_UTF8).c_str(), F_OK);
+    return ret == 0;
+#endif
 }
 
 void ltrim(std::string &s) {
@@ -243,6 +281,7 @@ std::wstring transString(const std::wstring & sStr)
 
 std::wstring generateGuid()
 {
+#if (defined _WIN32 || defined _WIN64)
     GUID guid;
     CoCreateGuid(&guid);
     const int nLen = 64;
@@ -256,5 +295,11 @@ std::wstring generateGuid()
         guid.Data4[5], guid.Data4[6],
         guid.Data4[7]);
     return std::wstring(cBuffer);
+#else
+    uuid_t uuid;
+    uuid_generate(uuid);
+    char s[37];
+    uuid_unparse(uuid, s);
+    return Utf8ToUnicode(s);
+#endif
 }
-

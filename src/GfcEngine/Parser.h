@@ -4,12 +4,12 @@
 #define COCO_PARSER_H__
 
 #include <string>
-#include "GfcSchema\Model.h"
-#include "GfcSchema\TypeDefine.h"
-#include "GfcSchema\EnumType.h"
-#include "GfcSchema\EntityClass.h"
-#include "GfcSchema\EntityAttribute.h"
-#include "GfcSchema\UndefineType.h"
+#include "GfcSchema/Model.h"
+#include "GfcSchema/TypeDefine.h"
+#include "GfcSchema/EnumType.h"
+#include "GfcSchema/EntityClass.h"
+#include "GfcSchema/EntityAttribute.h"
+#include "GfcSchema/UndefineType.h"
 
 
 #include "Scanner.h"
@@ -64,7 +64,7 @@ std::wstring m_sName;
 void throwException(const std::wstring& sMsg)
 {
     errors->Error(t->line, t->col, sMsg.c_str());
-    throw std::exception(coco_string_create_char(sMsg.c_str()));
+    throw std::runtime_error(coco_string_create_char(sMsg.c_str()));
 }
 
 void canNotFindEntity(const std::wstring& sName)
