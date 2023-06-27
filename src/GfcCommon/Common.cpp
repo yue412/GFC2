@@ -162,7 +162,7 @@ std::string WStringToMBString(const std::wstring & str, unsigned int nCodePage)
     if(nCodePage == CP_UTF8)
         locale = setlocale(LC_ALL, "zh_CN.utf8");
     else
-        locale = setlocale(LC_ALL, NULL);
+        locale = setlocale(LC_ALL, "");
     int u8Len = wcstombs(NULL, str.c_str(), 0);
     char* szU8 = new char[u8Len + 1];
     wcstombs(szU8, str.c_str(), u8Len);
@@ -179,7 +179,7 @@ std::wstring MBStringToWString(const std::string & str, unsigned int nCodePage)
     if(nCodePage == CP_UTF8)
         locale = setlocale(LC_ALL, "zh_CN.utf8");
     else
-        locale = setlocale(LC_ALL, NULL);
+        locale = setlocale(LC_ALL, "");
     int wcsLen = mbstowcs(NULL, str.c_str(), 0);    
     //分配空间要给'\0'留个空间，MultiByteToWideChar不会给'\0'空间
     wchar_t* wszString = new wchar_t[wcsLen + 1];
