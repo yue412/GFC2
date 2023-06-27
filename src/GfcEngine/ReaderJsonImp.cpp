@@ -38,9 +38,12 @@ CReaderJsonImp::~CReaderJsonImp(void)
 bool CReaderJsonImp::preRead(const std::wstring& sFileName)
 {
     char sHead[2];
-    //std::fstream in(sFileName, std::ios::in | std::ios::binary);
+#if (defined _WIN32 || defined _WIN64)
+    std::fstream in(sFileName, std::ios::in | std::ios::binary);
+#else
     auto sFile = UnicodeToUtf8(sFileName);
     std::fstream in(sFile, std::ios::in | std::ios::binary);
+#endif
     in.get(sHead, 2);
     sHead[1] = 0;
     in.close();

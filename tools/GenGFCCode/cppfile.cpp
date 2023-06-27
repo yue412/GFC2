@@ -50,7 +50,12 @@ void CppBaseFile::saveTo(const std::wstring &sPath)
     if (!bSame)
     {
         std::wfstream oFile;
-        auto sFileName = UnicodeToACP(sPath + L"/" + fileName());
+        auto sFile = sPath + L"/" + fileName();
+#if (defined _WIN32 || defined _WIN64)
+        auto sFileName = sFile;
+#else
+        auto sFileName = UnicodeToUtf8(sFile);
+#endif
         oFile.open(sFileName, std::ios::out);
         if (oFile.good())
         {

@@ -37,12 +37,21 @@ CWriterJsonImp::~CWriterJsonImp(void)
 
 bool CWriterJsonImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion, const std::wstring& sStandardVersion)
 {
-    std::string sFile = UnicodeToACP(sFileName);
+#if (defined _WIN32 || defined _WIN64)
+    if (-1 != _waccess(sFileName.c_str(), 0))
+    {
+        _wremove(sFileName.c_str());
+    }
+    m_pJsonStream = new std::fstream(sFileName, std::ios::out | std::ios::app);
+#else
+    std::string sFile = UnicodeToUtf8(sFileName);
+    
 	if (-1 != access(sFile.c_str(), 0))
 	{
 		remove(sFile.c_str());
 	}
     m_pJsonStream = new std::fstream(sFile,std::ios::out | std::ios::app);
+#endif
 
     m_pDocument = new rapidjson::Document();
     m_pRootDocument = new JsonWrapper(m_pDocument);

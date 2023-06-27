@@ -23,8 +23,12 @@ void CExpressWriter::write(const std::wstring &sFileName, const std::wstring &sS
     }
 
     std::wfstream oFile;
-    // todo
-    oFile.open(UnicodeToACP(sFileName), std::ios::out);
+#if (defined _WIN32 || defined _WIN64)
+    auto sFile = sFileName;
+#else
+    auto sFile = UnicodeToUtf8(sFileName);
+#endif
+    oFile.open(sFile, std::ios::out);
     if (!oFile.good())
     {
         std::wcout << "文件打开失败!" << std::endl;

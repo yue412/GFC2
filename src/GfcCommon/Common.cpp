@@ -196,15 +196,11 @@ std::wstring MBStringToWString(const std::string & str, unsigned int nCodePage)
 bool fileExists(const std::wstring & sFile)
 {
 #if (defined _WIN32 || defined _WIN64)
-    std::wfstream _file;
-    _file.open(sFile.c_str(), std::ios::in);
-    bool bResult = !_file.fail();
-    _file.close();
-    return bResult;
+    int ret = _waccess(sFile.c_str(), 0);
 #else
     int ret = access(WStringToMBString(sFile, CP_UTF8).c_str(), F_OK);
-    return ret == 0;
 #endif
+    return ret == 0;
 }
 
 void ltrim(std::string &s) {

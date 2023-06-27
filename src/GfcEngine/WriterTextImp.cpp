@@ -62,14 +62,21 @@ CWriterTextImp::~CWriterTextImp(void)
 
 bool CWriterTextImp::open( const std::wstring& sFileName, const std::wstring& sProductCode, const std::wstring& sVersion, const std::wstring& sStandardVersion)
 {
-    std::string sFile = UnicodeToACP(sFileName);
-	if (-1 != access(sFile.c_str(), 0))
-	{
-		//删除文件
-		remove(sFile.c_str());
-	}
-
-    m_pTextStream = new std::fstream(sFile,std::ios::out | std::ios::app);
+#if (defined _WIN32 || defined _WIN64)
+    if (-1 != _waccess(sFileName.c_str(), 0))
+    {
+        _wremove(sFileName.c_str());
+    }
+    m_pTextStream = new std::fstream(sFileName, std::ios::out | std::ios::app);
+#else
+    std::string sFile = UnicodeToUtf8(sFileName);
+    if (-1 != access(sFile.c_str(), 0))
+    {
+        //删除文件
+        remove(sFile.c_str());
+    }
+    m_pTextStream = new std::fstream(sFile, std::ios::out | std::ios::app);
+#endif
     writeHead(sFileName, sProductCode, sVersion, sStandardVersion);
     *m_pTextStream << "DATA;" << std::endl;
     return true;

@@ -42,8 +42,12 @@ void CDocumentWriter::write(const std::wstring & sPath)
             continue;
         // create file
         std::fstream oFile;
-        // todo
-        auto sFileName = UnicodeToACP(sPath + L"/" + pTypeObject->getName() + L".html");
+        auto sFile = sPath + L"/" + pTypeObject->getName() + L".html";
+#if (defined _WIN32 || defined _WIN64)
+        auto sFileName = sFile;
+#else
+        auto sFileName = UnicodeToUtf8(sFile);
+#endif
         oFile.open(sFileName, std::ios::out);
         if (!oFile.good())
         {
@@ -82,8 +86,12 @@ void CDocumentWriter::write(const std::wstring & sPath)
     }
     // write json data
     std::fstream oFile;
-    // todo
-    auto sFileName = UnicodeToACP(sPath + L"/class_data.js");
+    auto sFile = sPath + L"/class_data.js";
+#if (defined _WIN32 || defined _WIN64)
+    auto sFileName = sFile;
+#else
+    auto sFileName = UnicodeToUtf8(sFile);
+#endif
     oFile.open(sFileName, std::ios::out);
     if (!oFile.good())
     {
