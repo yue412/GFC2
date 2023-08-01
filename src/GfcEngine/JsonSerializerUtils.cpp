@@ -192,8 +192,14 @@ std::shared_ptr<CEntity> CJsonSerializerUtils::parseEntity(gfc::schema::CModel* 
        return false;
     }
 
-    std::shared_ptr<CEntity>pEntity(!pModel ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(UpperString(Utf8ToUnicode(entityName))))
-                : CEngineUtils::createEntity(pModel, Utf8ToUnicode(entityName)));
+    std::wstring wEntityName = Utf8ToUnicode(entityName);
+    if (!pModel)
+    {
+        wEntityName = transformCompatibleName(wEntityName);
+    }
+
+    std::shared_ptr<CEntity>pEntity(!pModel ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(UpperString(wEntityName)))
+                : CEngineUtils::createEntity(pModel, wEntityName));
 
     assert(pEntity);
     if(!pEntity) {

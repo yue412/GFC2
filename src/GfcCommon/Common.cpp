@@ -258,3 +258,14 @@ std::wstring generateGuid()
     return std::wstring(cBuffer);
 }
 
+std::wstring transformCompatibleName(const std::wstring & sEntityName)
+{
+    auto sName = sEntityName;
+    auto sPrefix = sName.substr(0, 4);
+    std::transform(sPrefix.begin(), sPrefix.end(), sPrefix.begin(), toupper);
+    if (sPrefix.compare(L"GFC2") == 0)
+        return sName.erase(3, 1);
+    else
+        return sName;
+}
+

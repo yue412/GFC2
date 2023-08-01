@@ -43,5 +43,7 @@ std::wstring transString(const std::wstring& sStr);
 
 std::wstring generateGuid();
 
+std::wstring transformCompatibleName(const std::wstring& sEntityName);
+
 #endif // !GFC_COMMON_H
 
