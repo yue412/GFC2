@@ -1,12 +1,12 @@
-#include "GfcUtils\GfcShapeFrom2.h"
-#include "GfcUtils\GfcFrom2.h"
-#include "GfcEngine\EntityUpgrader.h"
-#include "GfcEngine\ModelCompatibility.h"
-#include "GfcEngine\ClassCompatibility.h"
-#include "GfcEngine\Writer.h"
-#include "GfcUtils\GfcGeometryImporter.h"
-#include "GfcUtils\GfcGeometryExporter.h"
-#include "GMath\GMathDef.h"
+#include "GfcUtils/GfcShapeFrom2.h"
+#include "GfcUtils/GfcFrom2.h"
+#include "GfcEngine/EntityUpgrader.h"
+#include "GfcEngine/ModelCompatibility.h"
+#include "GfcEngine/ClassCompatibility.h"
+#include "GfcEngine/Writer.h"
+#include "GfcUtils/GfcGeometryImporter.h"
+#include "GfcUtils/GfcGeometryExporter.h"
+#include "GMath/GMathDef.h"
 
 ggp::CPolygon * TransPolygon(ggp::CPolygon * pPolygon, const ggp::CVector2d & rBaseInsertPt, const ggp::CVector2d & rInsertPt, double dAngle, bool bMirror)
 {
