@@ -1,5 +1,5 @@
-#include "GfcUtils\GfcElementTransformer.h"
-#include "GfcUtils\GfcShapeTransformer.h"
+#include "GfcUtils/GfcElementTransformer.h"
+#include "GfcUtils/GfcShapeTransformer.h"
 
 GFCENGINE_IMP_FACTORY(GfcElementTransformer, 0)
 

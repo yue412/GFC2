@@ -1,8 +1,8 @@
-#include "GfcUtils\GfcShapeTransformer.h"
-#include "GfcUtils\GfcTransform.h"
-#include "GfcEngine\EntityUpgrader.h"
-#include "GfcEngine\ModelCompatibility.h"
-#include "GfcEngine\PropValue.h"
+#include "GfcUtils/GfcShapeTransformer.h"
+#include "GfcUtils/GfcTransform.h"
+#include "GfcEngine/EntityUpgrader.h"
+#include "GfcEngine/ModelCompatibility.h"
+#include "GfcEngine/PropValue.h"
 
 GFCENGINE_IMP_FACTORY(GfcShapeTransformer, 0)
 
