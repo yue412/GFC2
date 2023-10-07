@@ -970,10 +970,11 @@ TEST(TestGFCEngine, ReadStandardVersion2)
 }
 
 
-TEST(TestDocument, linux_bug)
+TEST(TestGFCEngine, linux_bug)
 {
+    // 升级老工程
     gfc::schema::CModel oModel;
-    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X2.exp"), &oModel);
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X3.exp"), &oModel);
     gfc::engine::CReader reader(&oModel);
     auto result = reader.open(getFullPath(L"P0P1-origin.gfc"));
     EXPECT_EQ(true, result);
