@@ -13,7 +13,7 @@
 
 
 #include "Scanner.h"
-
+#include <stdexcept>
 
 
 class Errors {
