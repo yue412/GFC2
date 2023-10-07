@@ -6,11 +6,11 @@
 //#include "Classes/Gfc2EdgeData.h"
 #include "Common.h"
 #include "GfcSchema/Model.h"
-#if (defined _WIN32 || defined _WIN64)
+//#if (defined _WIN32 || defined _WIN64)
 #include "GMath/GCoordinates3.h"
 #include "GfcUtils/GfcGeometryExporter.h"
 #include "GfcUtils/GfcGeometryImporter.h"
-#endif
+//#endif
 
 TEST(TestGFCEngine, WriteEmptyFile)
 {
@@ -967,4 +967,29 @@ TEST(TestGFCEngine, ReadStandardVersion2)
     EXPECT_EQ(true, result);
     auto sv = reader.readStandardVersion();
     EXPECT_EQ(true, sv == L"GFC3X0");
+}
+
+
+TEST(TestDocument, linux_bug)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X2.exp"), &oModel);
+    gfc::engine::CReader reader(&oModel);
+    auto result = reader.open(getFullPath(L"P0P1-origin.gfc"));
+    EXPECT_EQ(true, result);
+    gfc::engine::CDocument oDoc(&oModel);
+    reader.read(&oDoc);
+    auto itr = oDoc.getEntities(L"GfcBrepBody");
+    itr->first();
+    int nCount = 0;
+    while (!itr->isDone())
+    {
+        ++nCount;
+        auto pEntity = itr->current();
+        auto pBody = GfcGeometryImporter::importBrepBody(pEntity.get());
+        EXPECT_EQ(true, pBody != nullptr);
+        pBody->Free();
+        itr->next();
+    }
+    EXPECT_EQ(161, nCount);
 }

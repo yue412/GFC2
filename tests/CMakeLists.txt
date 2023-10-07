@@ -30,11 +30,20 @@ include_directories(
 	${PROJECT_SOURCE_DIR}/../thirdparty/tinyxml
 	$ENV{GGPDIR}/include
 	)
+if(UNIX)
+link_directories(
+	${CMAKE_SOURCE_DIR}/../lib
+	${CMAKE_SOURCE_DIR}/../thirdparty/googletest/cmake/lib
+	$ENV{GGPDIR}/Lib
+	$ENV{GGPDIR}/Externals/Thirparty/boost/lib
+	)
+else()
 link_directories(
 	${CMAKE_SOURCE_DIR}/../lib
 	${CMAKE_SOURCE_DIR}/../thirdparty/googletest/cmake/lib/$<CONFIG>
 	$ENV{GGPDIR}/Lib/${PROJECT_PLATFORM}/$<CONFIG>
 	)
+endif()
 
 FILE(GLOB SRC_FILES "./*.c*" 
 	"../src/GfcEngine/ConverterImp.cpp" 
@@ -59,7 +68,7 @@ FILE(GLOB HEAD_FILES "./*.h"
 	"../src/GfcEngine/FileMap.h"
 	) 
 
-add_compile_definitions(TIXML_USE_STL _CRT_SECURE_NO_WARNINGS UNICODE)
+add_compile_definitions(_CRT_SECURE_NO_WARNINGS UNICODE)
 if(UNIX)
 add_compile_options(-std=c++11 -fPIC -g)
 endif()
@@ -70,10 +79,7 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} ${HEAD_FILES})
 set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX d)
 
 target_link_libraries(${PROJECT_NAME} debug gtestd optimized gtest)
-if(UNIX)
-target_link_libraries(${PROJECT_NAME} debug pthreadd optimized pthread)
-target_link_libraries(${PROJECT_NAME} debug uuidd optimized uuid)
-else()
+
 target_link_libraries(${PROJECT_NAME} debug GfcUtilsd optimized GfcUtils)
 target_link_libraries(${PROJECT_NAME} debug GeometryD optimized Geometry)
 target_link_libraries(${PROJECT_NAME} debug Commond optimized Common)
@@ -81,11 +87,13 @@ target_link_libraries(${PROJECT_NAME} debug GMathd optimized GMath)
 target_link_libraries(${PROJECT_NAME} debug AlgHealingd optimized AlgHealing)
 target_link_libraries(${PROJECT_NAME} debug TopologyD optimized Topology)
 target_link_libraries(${PROJECT_NAME} debug CGBaseD optimized CGBase)
-endif()
 target_link_libraries(${PROJECT_NAME} debug GfcEngined optimized GfcEngine)
 target_link_libraries(${PROJECT_NAME} debug GfcClasses3d optimized GfcClasses3)
 target_link_libraries(${PROJECT_NAME} debug GfcSchemad optimized GfcSchema)
 target_link_libraries(${PROJECT_NAME} debug GfcCommond optimized GfcCommon)
 target_link_libraries(${PROJECT_NAME} debug tinyxmld optimized tinyxml)
 
-
+if(UNIX)
+target_link_libraries(${PROJECT_NAME} debug pthreadd optimized pthread)
+target_link_libraries(${PROJECT_NAME} debug uuidd optimized uuid)
+endif()

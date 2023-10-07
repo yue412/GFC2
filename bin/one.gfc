@@ -1,6 +1,6 @@
 HEADER;
 FILE_DESCRIPTION(('GFC3X0'),'65001');
-FILE_NAME('D:\GFC2\bin\one.gfc','2020-08-25 10:13:10',('yuel'),('Glodon'),'objectbuf','gfc2_unit_test','');
+FILE_NAME('/mnt/f/share/gfc/bin/one.gfc','2023-09-28 17:49:03',('yuel'),('Glodon'),'objectbuf','gfc2_unit_test','');
 FILE_SCHEMA(('GFC3X0'));
 ENDSEC;
 DATA;

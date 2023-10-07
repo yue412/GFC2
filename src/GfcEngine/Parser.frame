@@ -38,6 +38,7 @@ Parser.h Specification
 -->headerdef
 
 #include "Scanner.h"
+#include <stdexcept>
 
 -->namespace_open
 

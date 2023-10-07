@@ -191,7 +191,7 @@ std::shared_ptr<CEntity> CJsonSerializerUtils::parseEntity(gfc::schema::CModel* 
     std::string entityName;
     if(!rootJson.Get("$$typeName", entityName)){
        assert(false);
-       return false;
+       return nullptr;
     }
 
     std::shared_ptr<CEntity>pEntity(!pModel ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(UpperString(Utf8ToUnicode(entityName))))
@@ -199,7 +199,7 @@ std::shared_ptr<CEntity> CJsonSerializerUtils::parseEntity(gfc::schema::CModel* 
 
     assert(pEntity);
     if(!pEntity) {
-        return false;
+        return nullptr;
     }
     pDoc->add(pEntity);
     
