@@ -30,6 +30,7 @@ public:
     virtual bool open(const std::wstring& sFileName);
     virtual std::wstring readFileVersion();
     virtual std::wstring readStandardVersion();
+    virtual std::wstring readProductCode();
     virtual void read(CDocument* pDoc);
 
 private:
