@@ -993,3 +993,28 @@ TEST(TestDocument, linux_bug)
     }
     EXPECT_EQ(161, nCount);
 }
+
+TEST(TestGFCEngine, update_GTJ_3x1)
+{
+    // 升级老工程
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X3.exp"), &oModel);
+    gfc::engine::CReader reader(&oModel);
+    auto result = reader.open(getFullPath(L"拱形.GTJ.gfc3"));
+    EXPECT_EQ(true, result);
+    gfc::engine::CDocument oDoc(&oModel);
+    reader.read(&oDoc);
+    auto itr = oDoc.getEntities(L"GfcBrepBody");
+    itr->first();
+    int nCount = 0;
+    while (!itr->isDone())
+    {
+        ++nCount;
+        auto pEntity = itr->current();
+        auto pBody = GfcGeometryImporter::importBrepBody(pEntity.get());
+        EXPECT_EQ(true, pBody != nullptr);
+        pBody->Free();
+        itr->next();
+    }
+    EXPECT_EQ(5, nCount);
+}

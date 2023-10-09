@@ -37,6 +37,7 @@ public:
     virtual bool preRead(const std::wstring& sFileName) = 0; // 判断是否是可以读的格式
     virtual std::wstring readFileVersion() = 0;
     virtual std::wstring readStandardVersion() = 0;
+    virtual std::wstring readProductCode() = 0;
     // 继承 IContainer接口
     virtual EntityPtr getEntity(EntityRef nId);
     virtual EntityIteratorPtr getEntities(const std::wstring& sType, bool bIncludeSubType = false);
