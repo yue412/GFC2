@@ -65,7 +65,18 @@ EntityIteratorPtr CReaderImp::getIterator()
 
 bool CReaderImp::openFileModel(const std::wstring & sFileVer)
 {
-    auto sFileName = getFullPath(m_sSchemaPath + L"/" + sFileVer + L".exp");
+    auto sFileVerName = UpperString(sFileVer);
+    // 处理GFC3X1算量和设计不一致的情况
+    if (sFileVerName == L"GFC3X1")
+    {
+        auto sProductCode = UpperString(readProductCode());
+        if (sProductCode == L"GTJ" || sProductCode == L"GQI" || sProductCode == L"GMP")
+        {
+            sFileVerName = L"GFC3X1_GMP";
+        }
+    }
+    //
+    auto sFileName = getFullPath(m_sSchemaPath + L"/" + sFileVerName + L".exp");
     if (!fileExists(sFileName))
         return false;
     m_pFileModel = new gfc::schema::CModel();

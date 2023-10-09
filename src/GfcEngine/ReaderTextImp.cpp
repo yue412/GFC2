@@ -114,6 +114,42 @@ std::wstring CReaderTextImp::readStandardVersion()
     return Utf8ToUnicode(sResult);
 }
 
+std::wstring CReaderTextImp::readProductCode()
+{
+    std::string sResult;
+    if (m_pFileMap)
+    {
+        m_pFileMap->setPos(0);
+        while (!m_pFileMap->eof())
+        {
+            auto sLine = m_pFileMap->getLine();
+
+            auto schema = sLine.substr(0, 9);
+#if (defined _WIN32 || defined _WIN64)
+            if (_stricmp(schema.c_str(), "FILE_NAME") == 0)
+#else
+            if (strcasecmp(schema.c_str(), "FILE_NAME") == 0)
+#endif
+            {
+                int nLastPos = (int)sLine.find_last_of(',');
+                int nStartPos = (int)sLine.find_last_of(',', nLastPos - 1);
+                sResult = sLine.substr(nStartPos + 1 + 1, nLastPos - nStartPos - 1 - 2); // 刨除两个引号
+                break;
+            }
+#if (defined _WIN32 || defined _WIN64)
+            else if (_stricmp(sLine.c_str(), "ENDSEC;") == 0)
+#else
+            else if (strcasecmp(sLine.c_str(), "ENDSEC;") == 0)
+#endif
+            {
+                break;
+            }
+        }
+    }
+    //std::replace(sResult.begin(), sResult.end(), L'.', L'X');
+    return Utf8ToUnicode(sResult);
+}
+
 //string ReaderTextImp::getFileSchema( fstream& in )
 //{
 //    string sResult;

@@ -108,6 +108,11 @@ std::wstring CReaderJsonImp::readStandardVersion()
     return L"";
 }
 
+std::wstring CReaderJsonImp::readProductCode()
+{
+    return L"";
+}
+
 void CReaderJsonImp::read(CDocument* pDoc){
     assert(pDoc);
     JsonWrapper* pRootDocument = getRootDocument();
