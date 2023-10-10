@@ -249,8 +249,9 @@ CEntity * CReaderTextImp::createEntity(int64_t nPos)
         EntityRef nId;
         if (CReaderTextUtils::parseLine(sLine, nId, sName, sContent))
         {
-            pEntity = m_bUseStaticClass ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(UpperString(ACPToUnicode(sName))))
-                : CEngineUtils::createEntity(schema(), Utf8ToUnicode(sName));
+            pEntity = needUpdate() ? CEngineUtils::createEntity(m_pFileModel, Utf8ToUnicode(sName)) :
+                (m_bUseStaticClass ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(UpperString(ACPToUnicode(sName))))
+                : CEngineUtils::createEntity(m_pModel, Utf8ToUnicode(sName)));
             if (pEntity)
             {
                 if (!CReaderTextUtils::parse(sContent, pEntity, sError))
