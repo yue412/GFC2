@@ -79,7 +79,7 @@ void CReaderFileMapImp::read(CDocument * pDoc)
             if (needUpdate())
             {
                 CEntity* pOldEntity = pEntity;
-                pEntity = m_pUpgrader->update(pEntity);
+                pEntity = m_pUpgrader->update(pEntity, m_bUseStaticClass);
                 delete pOldEntity;
             }
             if (pEntity)
@@ -112,7 +112,7 @@ EntityPtr CReaderFileMapImp::getEntity(EntityRef nId)
             if (needUpdate()) 
             {
                 auto pOldEntity = pEntity;
-                pEntity = m_pUpgrader->update(pEntity);
+                pEntity = m_pUpgrader->update(pEntity, m_bUseStaticClass);
                 delete pOldEntity;
                 if (pEntity == nullptr) // 可能无法升级
                     return nullptr;

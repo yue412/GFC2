@@ -127,3 +127,29 @@ TEST(TestGfcClasses, ReadFile_1)
     EXPECT_EQ(true, pPoly != nullptr);
 }
 */
+
+#include "GfcClasses\x3\Document.h"
+#include "GfcUtils/GfcGeometryImporter.h"
+
+TEST(TestGfcClasses, update)
+{
+    // 升级老工程
+    CReader reader; // 最新的，目前是3x3
+    auto result = reader.open(getFullPath(L"P0P1-origin.gfc")); // 3x2
+    EXPECT_EQ(true, result);
+    CDocument oDoc;
+    reader.read(&oDoc);
+    auto itr = oDoc.getEntities(L"GfcBrepBody");
+    itr->first();
+    int nCount = 0;
+    while (!itr->isDone())
+    {
+        ++nCount;
+        auto pEntity = itr->current();
+        auto pBody = GfcGeometryImporter::importBrepBody(pEntity.get());
+        EXPECT_EQ(true, pBody != nullptr);
+        pBody->Free();
+        itr->next();
+    }
+    EXPECT_EQ(161, nCount);
+}

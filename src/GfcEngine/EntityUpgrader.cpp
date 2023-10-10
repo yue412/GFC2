@@ -31,7 +31,7 @@ void CEntityUpgrader::init(gfc::schema::CModel* pDest, gfc::schema::CModel* pSrc
     }
 }
 
-CEntity* CEntityUpgrader::update(CEntity* pEntity)
+CEntity* CEntityUpgrader::update(CEntity* pEntity, bool bUseStaticClass)
 {
     auto pClassCompatibility = m_pModelCompatibility->find(pEntity->entityName());
     if (pClassCompatibility == nullptr)
@@ -40,7 +40,9 @@ CEntity* CEntityUpgrader::update(CEntity* pEntity)
         if (pClassCompatibility == nullptr)
             return nullptr;
     }
-    auto pNewEntity = CEngineUtils::createEntity(m_pDestModel, pEntity->entityName());
+    
+    auto pNewEntity = bUseStaticClass ? dynamic_cast<CEntity*>(CEntity::GetFactory()->Create(UpperString(pEntity->entityName()))):
+        CEngineUtils::createEntity(m_pDestModel, pEntity->entityName());
     if (pNewEntity)
         transform(pClassCompatibility, pEntity, pNewEntity);
     return pNewEntity;
