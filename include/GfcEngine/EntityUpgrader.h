@@ -24,7 +24,7 @@ public:
     CEntityUpgrader() : m_pModelCompatibility(nullptr) {}
     ~CEntityUpgrader();
     void init(gfc::schema::CModel* pDest, gfc::schema::CModel* pSrc);
-    CEntity* update(CEntity* pEntity);
+    CEntity* update(CEntity* pEntity, bool bUseStaticClass = false);
     //void transform(CEntity* pSrcEntity, CEntity* pDestEntity, const std::vector<std::wstring>& oAttribtueNameList);
     // for test
     void transform(CClassCompatibility* pClassCompatibility, CEntity* pSrcEntity, CEntity* pDestEntity, const std::vector<std::wstring>& oAttribtueNameList);
