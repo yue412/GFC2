@@ -71,6 +71,22 @@ bool CDocument::threadsafe() const{
 void CDocument::threadsafe(bool b){
     m_pContainer->threadsafe(b);
 }
+
+void CDocument::remove(const std::vector<EntityRef>& entities)
+{
+    m_pContainer->remove(entities);
+}
+
+EntityRef CDocument::getMaxRef()
+{
+    return m_pContainer->getMaxRef();
+}
+
+void CDocument::setMaxRef(EntityRef maxRefId)
+{
+    m_pContainer->setMaxRef(maxRefId);
+}
+
 /*
 void Document::linkSchemaByParent()
 {

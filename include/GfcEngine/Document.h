@@ -52,6 +52,10 @@ public:
     bool threadsafe() const;
     void threadsafe(bool b);
 
+    void remove(const std::vector<EntityRef>& entities);
+    EntityRef getMaxRef();
+    void setMaxRef(EntityRef maxRefId);
+
     //void linkSchemaByParent();
     //bool schemaFilter(gfc::schema::CClass* pSchema, const std::string& nFilterType, bool bIncludeSubType);
     void setNeedAddEntityFunc(needAddEntityFunc pFunc){m_pNeedAddEntityFunc = pFunc;}

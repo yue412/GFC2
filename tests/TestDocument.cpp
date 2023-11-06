@@ -136,6 +136,52 @@ TEST(TestDocument, Document_getIterator)
     EXPECT_EQ(true, itr->isDone());
 }
 
+TEST(TestDocument, Document_remove)
+{
+    gfc::schema::CModel oModel;
+    gfc::engine::CEngineUtils::loadSchema(getFullPath(L"GFC3X0.exp"), &oModel);
+    gfc::engine::CDocument oDoc(&oModel);
+    auto pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2ElementShape");
+    pEntity->setAsString(L"Identifier", L"hehe");
+    pEntity->setRef(20);
+    oDoc.add(pEntity);
+    pEntity = gfc::engine::CEngineUtils::createEntity(&oModel, L"Gfc2Arc2d");
+    pEntity->setRef(30);
+    oDoc.add(pEntity);
+    {
+        auto p = oDoc.getEntity(20);
+        EXPECT_EQ(true, p != nullptr);
+        auto itr = oDoc.getEntities(L"Gfc2ElementShape");
+        itr->first();
+        EXPECT_EQ(false, itr->isDone());
+    }
+    {
+        auto p = oDoc.getEntity(30);
+        EXPECT_EQ(true, p != nullptr);
+        auto itr = oDoc.getEntities(L"Gfc2Arc2d");
+        itr->first();
+        EXPECT_EQ(false, itr->isDone());
+    }
+    std::vector<gfc::engine::EntityRef> oList;
+    oList.push_back(30);
+    oList.push_back(20);
+    oDoc.remove(oList);
+    {
+        auto p = oDoc.getEntity(20);
+        EXPECT_EQ(true, p == nullptr);
+        auto itr = oDoc.getEntities(L"Gfc2ElementShape");
+        itr->first();
+        EXPECT_EQ(true, itr->isDone());
+    }
+    {
+        auto p = oDoc.getEntity(30);
+        EXPECT_EQ(true, p == nullptr);
+        auto itr = oDoc.getEntities(L"Gfc2Arc2d");
+        itr->first();
+        EXPECT_EQ(true, itr->isDone());
+    }
+}
+
 /*
 TEST(TestDocument, Document_ref)
 {

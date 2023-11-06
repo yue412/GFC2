@@ -158,6 +158,29 @@ public:
         }
         return std::shared_ptr<CIterator<T>>(new CListIterator<T>(this, oList));
     }
+
+    void remove(const std::vector<EntityRef>& entities)
+    {
+        MutexGuard guard(m_mutex);
+        for each (auto refId in entities)
+        {
+            m_oEntities[refId] = nullptr;
+            for each (auto pair in m_oEntityTypeMap)
+            {
+                if (remove(pair.second, refId))
+                    break;
+            }
+        }
+    }
+
+    EntityRef getMaxRef() { return m_nMaxRefId; }
+
+    void setMaxRef(EntityRef maxRefId)
+    {
+        MutexGuard guard(m_mutex);
+        m_nMaxRefId = maxRefId;
+    }
+
     std::shared_ptr<CIterator<T>> iterator()
     {
         MutexGuard guard(m_mutex);
@@ -173,6 +196,16 @@ private:
 	EntityRef generateRefId() {
 		return m_nMaxRefId = m_nMaxRefId + 1;
 	}
+    bool remove(std::vector<EntityRef>* pRefList, EntityRef nRefId)
+    {
+        for (auto itr = pRefList->begin(); itr != pRefList->end(); ++itr)
+            if (*itr == nRefId)
+            {
+                pRefList->erase(itr);
+                return true;
+            }
+        return false;
+    }
 private:
     std::vector<T> m_oEntities;
     std::map<std::wstring, std::vector<EntityRef>*> m_oEntityTypeMap;
